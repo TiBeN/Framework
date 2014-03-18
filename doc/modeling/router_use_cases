@@ -1,0 +1,18 @@
+# Uses cases / specs à gérer par le router
+###########################
+
+-> Traiter la requete client et envoyer la réponse
+
+-> suivre une route
+-> convertir une httpRequest en route
+-> Fabriquer une ressource uri depuis un nom de route et des paramètres
+-> Rediriger vers une autre route (external forward) 
+-> Aiguiller vers une autre route (internal forward, transparent pour le client)
+-> Executer de la logique applicative à chaque appel
+
+ 
+# Uses cases des responses
+-> envoyer une réponse (de vue) 
+-> setter le type de contenu de réponse
+-> envoyer une redirection temporaire et définitive (vu avec le case "rediriger une route")
+-> envoyer un fichier 
