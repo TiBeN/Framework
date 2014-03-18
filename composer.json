@@ -1,0 +1,20 @@
+{
+    "name": "tiben/framework",
+    "description": "A PHP MVC Framework designed to build small to mid-size websites/webapplications"
+    "keywords": ["php", "framework", "mvc", "website", "webapp"],
+    "authors": [
+        {
+            "name": "Benjamin Legendre",
+            "email": "legendre.benjamin@gmail.com"
+        }
+    ],
+    "license": "Apache-2.0",
+    "require": {
+        "php": ">= 5.3"       
+    },
+    "autoload" : {
+        "psr-4": {
+            "TiBeN\\" : "src/"   
+        }
+    }
+}
