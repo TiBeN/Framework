@@ -1,0 +1,11 @@
+# Uses cases / specs à gérer par les renderer
+###########################
+
+-> generer du contenu texte formaté à partir de variables
+-> Possibilité d'utiliser des templates pour générer le contenu 
+-> définir des variables globales au niveau application, disponibles au sein de tout template
+-> définir un repertoire de base de stockage des templates. 
+
+
+
+
