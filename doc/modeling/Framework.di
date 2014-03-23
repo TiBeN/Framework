@@ -99,12 +99,6 @@
     <windows>
       <children xsi:type="di:TabFolder">
         <children>
-          <emfPageIdentifier href="Framework.notation#_Ch5iQCLnEeOU6MgQ9M9Alg"/>
-        </children>
-        <children>
-          <emfPageIdentifier href="Framework.notation#_G_sOUB4oEeOwhK47NxXINQ"/>
-        </children>
-        <children>
           <emfPageIdentifier href="Framework.notation#_Oyo3oJkdEeKNe-pGKaimUg"/>
         </children>
       </children>
