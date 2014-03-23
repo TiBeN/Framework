@@ -1,0 +1,89 @@
+
+Sun Mar 23 17:18:54 CET 2014
+================================================================================
+Start of user code TypeConverter.testsetParameters
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+Start of user code Converter.testconvertAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+Start of user code TypeConverter.testgetTypeAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+Start of user code Converter.testconvert
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+Start of user code TypeConverter.testgetDataSourceType
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+Start of user code Converter.testreverseAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+Start of user code TypeConverter.testgetType
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+Start of user code Converter.testreverse
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+Start of user code TypeConverter.testsetParametersAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+
+Sun Mar 23 17:49:04 CET 2014
+================================================================================
+Start of user code TypeConverter.testreverseAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+Start of user code TypeConverter.testsetParameters
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+Start of user code TypeConverter.testgetTypeAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+Start of user code Converter.testconvert
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+Start of user code TypeConverter.testgetDataSourceType
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+Start of user code IntegerConverterTest.methods
+	// Place additional tests methods here.  
+	// End of user code
+Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+Start of user code TypeConverter.testconvertAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+Start of user code Converter.testreverse
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+Start of user code TypeConverter.testgetType
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+Start of user code TypeConverter.testsetParametersAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code

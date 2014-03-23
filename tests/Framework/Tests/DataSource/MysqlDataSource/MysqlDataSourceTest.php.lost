@@ -1,0 +1,105 @@
+
+Sun Mar 23 17:18:52 CET 2014
+================================================================================
+Start of user code DataSource.testgetAttributeMappingConfigurationClassName
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+Start of user code DataSource.testgetAttributeMappingConfigurationClassNameAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+Start of user code DataSource.testgetEntityMappingConfigurationClassName
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+Start of user code DataSource.testreadAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+Start of user code DataSource.testupdate
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+Start of user code DataSource.testdelete
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+Start of user code DataSource.testread
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+Start of user code DataSource.testgetEntityMappingConfigurationClassNameAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+Start of user code DataSource.testcreate
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+Start of user code DataSource.testdeleteAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+Start of user code DataSource.testcreateAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+Start of user code DataSource.testupdateAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+
+Sun Mar 23 17:49:03 CET 2014
+================================================================================
+Start of user code MysqlDataSourceTest.methods
+	// Place additional tests methods here.  
+	// End of user code
+Start of user code DataSource.testgetAttributeMappingConfigurationClassName
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+Start of user code DataSource.testgetAttributeMappingConfigurationClassNameAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+Start of user code DataSource.testgetEntityMappingConfigurationClassName
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+Start of user code DataSource.testreadAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+Start of user code DataSource.testupdate
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+Start of user code DataSource.testgetEntityMappingConfigurationClassNameAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+Start of user code DataSource.testdelete
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+Start of user code DataSource.testread
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+Start of user code DataSource.testcreate
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+Start of user code DataSource.testdeleteAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+Start of user code DataSource.testcreateAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+Start of user code DataSource.testupdateAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code

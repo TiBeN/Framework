@@ -1,6 +1,6 @@
 {
     "name": "tiben/framework",
-    "description": "A PHP MVC Framework designed to build small to mid-size websites/webapplications"
+    "description": "A PHP MVC Framework designed to build small to mid-size websites/webapplications",
     "keywords": ["php", "framework", "mvc", "website", "webapp"],
     "authors": [
         {

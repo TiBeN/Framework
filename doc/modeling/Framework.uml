@@ -962,7 +962,7 @@ and getting hypotetical error data</body>
     <message xmi:type="uml:Message" xmi:id="_JidBoEn8EeOhBJpxbXcYWQ" name="9:setEntityMapping(entityMapping)" receiveEvent="_Jie20En8EeOhBJpxbXcYWQ" sendEvent="_JiePwEn8EeOhBJpxbXcYWQ"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_O_EVwK_1EeKKIrvUT1DyFQ" name="Router">
-    <packagedElement xmi:type="uml:Class" xmi:id="_UYK8wJkdEeKNe-pGKaimUg" name="HttpRequest">
+    <packagedElement xmi:type="uml:Class" xmi:id="_UYK8wJkdEeKNe-pGKaimUg" clientDependency="_kNi7ILK-EeOvW8-QuQhpcA" name="HttpRequest">
       <ownedComment xmi:type="uml:Comment" xmi:id="_b17VgK8bEeK4D8ZgVhb42Q">
         <body>Represent an HttpRequest.
 HttpRequest can be instantiated with client request message 
@@ -1350,6 +1350,7 @@ then return parsed variables if match.</body>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_44XT8KTpEeKPmbE2lP8SmA" name="create" client="_clZ4QKRzEeKL77OWyGfbwg" supplier="_c9kFQJkdEeKNe-pGKaimUg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_n6dFQKfyEeKLRPn3lZyAPQ" name="generateUri" client="_ZiJHQJkdEeKNe-pGKaimUg" supplier="_futXMJkdEeKNe-pGKaimUg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_0biKwKfzEeKLRPn3lZyAPQ" name="create Redirect response type" client="_ZiJHQJkdEeKNe-pGKaimUg" supplier="_c9kFQJkdEeKNe-pGKaimUg"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_kNi7ILK-EeOvW8-QuQhpcA" name="hold get and post variables into" client="_UYK8wJkdEeKNe-pGKaimUg" supplier="_ti84wLoPEeKycOj42mlSMA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_oIPh0LIzEeKwOoQ65WtEfA" name="Controller">
     <packagedElement xmi:type="uml:Class" xmi:id="_clZ4QKRzEeKL77OWyGfbwg" clientDependency="_44XT8KTpEeKPmbE2lP8SmA" name="Controller"/>
