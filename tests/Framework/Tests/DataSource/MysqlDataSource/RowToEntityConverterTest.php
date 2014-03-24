@@ -10,7 +10,10 @@ use TiBeN\Framework\DataSource\MysqlDataSource\RowToEntityConverter;
 
 /**
  * Test cases for class RowToEntityConverter
- *
+ * 
+ * Start of user code RowToEntityConverterTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class RowToEntityConverterTest extends \PHPUnit_Framework_TestCase

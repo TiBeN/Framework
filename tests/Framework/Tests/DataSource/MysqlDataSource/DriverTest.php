@@ -10,7 +10,10 @@ use TiBeN\Framework\DataSource\MysqlDataSource\Driver;
 
 /**
  * Test cases for class Driver
- *
+ * 
+ * Start of user code DriverTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class DriverTest extends \PHPUnit_Framework_TestCase
@@ -34,22 +37,6 @@ class DriverTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method executeStatement from class Driver
-     *
-     * Start of user code DriverTest.testexecuteStatementAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testExecuteStatement()
-    {
-        // Start of user code DriverTest.testexecuteStatement
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method disconnect from class Driver
      *
      * Start of user code DriverTest.testdisconnectAnnotations 
@@ -59,6 +46,22 @@ class DriverTest extends \PHPUnit_Framework_TestCase
     public function testDisconnect()
     {
         // Start of user code DriverTest.testdisconnect
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method executeStatement from class Driver
+     *
+     * Start of user code DriverTest.testexecuteStatementAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testExecuteStatement()
+    {
+        // Start of user code DriverTest.testexecuteStatement
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

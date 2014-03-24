@@ -10,7 +10,10 @@ use TiBeN\Framework\DataSource\DataSourcesRegistry;
 
 /**
  * Test cases for class DataSourcesRegistry
- *
+ * 
+ * Start of user code DataSourcesRegistryTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class DataSourcesRegistryTest extends \PHPUnit_Framework_TestCase
@@ -30,6 +33,22 @@ class DataSourcesRegistryTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code DataSourcesRegistryTest.tearDown
 		// Place additional tearDown code here.  
+		// End of user code
+    }
+    
+    /**
+     * Test static method clearDataSource from class DataSourcesRegistry
+     *
+     * Start of user code DataSourcesRegistryTest.testclearDataSourceAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testClearDataSource()
+    {
+        // Start of user code DataSourcesRegistryTest.testclearDataSource
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
 		// End of user code
     }
     
@@ -75,22 +94,6 @@ class DataSourcesRegistryTest extends \PHPUnit_Framework_TestCase
     public function testRegisterDataSource()
     {
         // Start of user code DataSourcesRegistryTest.testregisterDataSource
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test static method clearDataSource from class DataSourcesRegistry
-     *
-     * Start of user code DataSourcesRegistryTest.testclearDataSourceAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testClearDataSource()
-    {
-        // Start of user code DataSourcesRegistryTest.testclearDataSource
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

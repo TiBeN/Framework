@@ -10,7 +10,10 @@ use TiBeN\Framework\DataSource\MysqlDataSource\MysqlAttributeConfiguration;
 
 /**
  * Test cases for class MysqlAttributeConfiguration
- *
+ * 
+ * Start of user code MysqlAttributeConfigurationTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class MysqlAttributeConfigurationTest extends \PHPUnit_Framework_TestCase

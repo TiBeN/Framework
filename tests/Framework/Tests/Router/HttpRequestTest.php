@@ -11,7 +11,10 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 
 /**
  * Test cases for class HttpRequest
- *
+ * 
+ * Start of user code HttpRequestTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class HttpRequestTest extends \PHPUnit_Framework_TestCase

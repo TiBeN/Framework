@@ -10,7 +10,10 @@ use TiBeN\Framework\Entity\LimitCriteria;
 
 /**
  * Test cases for class LimitCriteria
- *
+ * 
+ * Start of user code LimitCriteriaTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class LimitCriteriaTest extends \PHPUnit_Framework_TestCase

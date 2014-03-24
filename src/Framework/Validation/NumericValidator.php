@@ -26,6 +26,16 @@ class NumericValidator implements Validator
     // Validator Realization
 
     /**
+     * @param ValidationRule $validationRule
+     */
+    public function setValidationRule(ValidationRule $validationRule)
+    {
+        // Start of user code Validator.setValidationRule
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
      * @return ValidationResult $result
      */
     public function validate()
@@ -35,16 +45,6 @@ class NumericValidator implements Validator
         // End of user code
     
         return $result;
-    }
-
-    /**
-     * @param ValidationRule $validationRule
-     */
-    public function setValidationRule(ValidationRule $validationRule)
-    {
-        // Start of user code Validator.setValidationRule
-        // TODO should be implemented.
-        // End of user code
     }
 
     // Start of user code NumericValidator.implementationSpecificMethods

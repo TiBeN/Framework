@@ -10,7 +10,10 @@ use TiBeN\Framework\Router\RouteUriManager;
 
 /**
  * Test cases for class RouteUriManager
- *
+ * 
+ * Start of user code RouteUriManagerTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class RouteUriManagerTest extends \PHPUnit_Framework_TestCase

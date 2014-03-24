@@ -10,7 +10,10 @@ use TiBeN\Framework\Datatype\GenericCollection;
 
 /**
  * Test cases for class GenericCollection
- *
+ * 
+ * Start of user code GenericCollectionTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class GenericCollectionTest extends \PHPUnit_Framework_TestCase
@@ -50,14 +53,29 @@ class GenericCollectionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test method rewind from interface Collection
-     * Start of user code Collection.testrewindAnnotations 
+     * Test method key from interface Collection
+     * Start of user code Collection.testkeyAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testRewind()
+    public function testKey()
     {
-        // Start of user code Iterator.testrewind
+        // Start of user code Iterator.testkey
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method setAsReadOnly from interface Collection
+     * Start of user code Collection.testsetAsReadOnlyAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testSetAsReadOnly()
+    {
+        // Start of user code Collection.testsetAsReadOnly
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );
@@ -80,14 +98,29 @@ class GenericCollectionTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method isEmpty from interface Collection
-     * Start of user code Collection.testisEmptyAnnotations 
+     * Test method count from interface Collection
+     * Start of user code Collection.testcountAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testIsEmpty()
+    public function testCount()
     {
-        // Start of user code Collection.testisEmpty
+        // Start of user code Countable.testcount
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method set from interface Collection
+     * Start of user code Collection.testsetAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testSet()
+    {
+        // Start of user code Collection.testset
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );
@@ -110,14 +143,89 @@ class GenericCollectionTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method count from interface Collection
-     * Start of user code Collection.testcountAnnotations 
+     * Test method rewind from interface Collection
+     * Start of user code Collection.testrewindAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testCount()
+    public function testRewind()
     {
-        // Start of user code Countable.testcount
+        // Start of user code Iterator.testrewind
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method remove from interface Collection
+     * Start of user code Collection.testremoveAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testRemove()
+    {
+        // Start of user code Collection.testremove
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method clear from interface Collection
+     * Start of user code Collection.testclearAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testClear()
+    {
+        // Start of user code Collection.testclear
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method isReadOnly from interface Collection
+     * Start of user code Collection.testisReadOnlyAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testIsReadOnly()
+    {
+        // Start of user code Collection.testisReadOnly
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method next from interface Collection
+     * Start of user code Collection.testnextAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testNext()
+    {
+        // Start of user code Iterator.testnext
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method isEmpty from interface Collection
+     * Start of user code Collection.testisEmptyAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testIsEmpty()
+    {
+        // Start of user code Collection.testisEmpty
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );
@@ -155,96 +263,6 @@ class GenericCollectionTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method key from interface Collection
-     * Start of user code Collection.testkeyAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testKey()
-    {
-        // Start of user code Iterator.testkey
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
-     * Test method next from interface Collection
-     * Start of user code Collection.testnextAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testNext()
-    {
-        // Start of user code Iterator.testnext
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
-     * Test method setAsReadOnly from interface Collection
-     * Start of user code Collection.testsetAsReadOnlyAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testSetAsReadOnly()
-    {
-        // Start of user code Collection.testsetAsReadOnly
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
-     * Test method remove from interface Collection
-     * Start of user code Collection.testremoveAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testRemove()
-    {
-        // Start of user code Collection.testremove
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
-     * Test method isReadOnly from interface Collection
-     * Start of user code Collection.testisReadOnlyAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testIsReadOnly()
-    {
-        // Start of user code Collection.testisReadOnly
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
-     * Test method set from interface Collection
-     * Start of user code Collection.testsetAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testSet()
-    {
-        // Start of user code Collection.testset
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
      * Test method get from interface Collection
      * Start of user code Collection.testgetAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -253,21 +271,6 @@ class GenericCollectionTest extends \PHPUnit_Framework_TestCase
     public function testGet()
     {
         // Start of user code Collection.testget
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
-     * Test method clear from interface Collection
-     * Start of user code Collection.testclearAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testClear()
-    {
-        // Start of user code Collection.testclear
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );

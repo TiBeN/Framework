@@ -2,6 +2,8 @@
 
 namespace TiBeN\Framework\Router;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
+
 /**
  * Represent an HttpResponse. 
  * Factory Method createRedirectResponse can be used to instantiate a redirect response. 
@@ -14,7 +16,7 @@ class HttpResponse
     /**
      * @var string
      */
-    public $message;
+    public $statusCode = '200';
 
     /**
      * @var string
@@ -24,7 +26,7 @@ class HttpResponse
     /**
      * @var string
      */
-    public $statusCode = '200';
+    public $message;
 
     /**
      * @var AssociativeArray
@@ -46,21 +48,21 @@ class HttpResponse
     /**
      * @return string
      */
-    public function getMessage()
+    public function getStatusCode()
     {
-        // Start of user code Getter HttpResponse.getMessage
+        // Start of user code Getter HttpResponse.getStatusCode
         // End of user code
-        return $this->message;
+        return $this->statusCode;
     }
 
     /**
-     * @param string $message
+     * @param string $statusCode
      */
-    public function setMessage($message)
+    public function setStatusCode($statusCode)
     {
-        // Start of user code Setter HttpResponse.setMessage
+        // Start of user code Setter HttpResponse.setStatusCode
         // End of user code
-        $this->message = $message;
+        $this->statusCode = $statusCode;
     }
 
     /**
@@ -86,21 +88,21 @@ class HttpResponse
     /**
      * @return string
      */
-    public function getStatusCode()
+    public function getMessage()
     {
-        // Start of user code Getter HttpResponse.getStatusCode
+        // Start of user code Getter HttpResponse.getMessage
         // End of user code
-        return $this->statusCode;
+        return $this->message;
     }
 
     /**
-     * @param string $statusCode
+     * @param string $message
      */
-    public function setStatusCode($statusCode)
+    public function setMessage($message)
     {
-        // Start of user code Setter HttpResponse.setStatusCode
+        // Start of user code Setter HttpResponse.setMessage
         // End of user code
-        $this->statusCode = $statusCode;
+        $this->message = $message;
     }
 
     /**
@@ -124,21 +126,32 @@ class HttpResponse
     }
 
     /**
-     * Create an HttpResponse configured to send content of type contentType as file named fileName 
-     * Typically open a download box using common browsers. 
-     *
-     * @param string $fileName
-     * @param string $contentType
-     * @param string $content
-     * @return HttpResponse $httpResponse
+     * Send the http response message to the client
      */
-    public static function createDownloadFileResponse($fileName, $contentType, $content)
+    public function sendToClient()
     {
-        // Start of user code HttpResponse.createDownloadFileResponse
-        // TODO should be implemented.
+        // Start of user code HttpResponse.sendToClient
+        
+        // Set http response status code
+		header('HTTP/1.1 ' . $this->statusCode .' ');
+		
+		// Set http content-type
+		header('Content-type: ' . $this->contentType);
+		
+		// Set custom headers
+		if(isset($this->headers)) {
+			foreach($this->headers->toNativeArray() as $key => $value) {
+				header(sprintf('%s: %s', ucfirst($key), $value));
+			}
+		}		
+		
+		// Send content
+		if(isset($this->message)) {
+			echo $this->message;
+		}
+		
+		return;
         // End of user code
-    
-        return $httpResponse;
     }
 
     /**
@@ -151,20 +164,45 @@ class HttpResponse
     public static function createRedirectResponse($uri, $permanent)
     {
         // Start of user code HttpResponse.createRedirectResponse
-        // TODO should be implemented.
+        $httpResponse = new self();			
+		$httpResponse->setStatusCode($permanent ? '301' : '302');
+		$httpResponse->setHeaders(
+            AssociativeArray::createFromNativeArray('string', array('location' => $uri))
+        );
         // End of user code
     
         return $httpResponse;
     }
 
     /**
-     * Send the http response message to the client
+     * Create an HttpResponse configured to send content of type contentType as file named fileName 
+     * Typically open a download box using common browsers. 
+     *
+     * @param string $fileName
+     * @param string $contentType
+     * @param string $content
+     * @return HttpResponse $httpResponse
      */
-    public function sendToClient()
+    public static function createDownloadFileResponse($fileName, $contentType, $content)
     {
-        // Start of user code HttpResponse.sendToClient
-        // TODO should be implemented.
+        // Start of user code HttpResponse.createDownloadFileResponse
+        $httpResponse = new self();
+        $httpResponse->setContentType($contentType);
+        $httpResponse->setHeaders(
+			AssociativeArray::createFromNativeArray(
+			    'string', 
+				array(
+                    'content-Disposition' => sprintf(
+                        'attachment; filename="%s"', 
+                        $fileName
+                    )
+                )
+			)
+		);
+		$httpResponse->setMessage($content);
         // End of user code
+    
+        return $httpResponse;
     }
 
     // Start of user code HttpResponse.implementationSpecificMethods

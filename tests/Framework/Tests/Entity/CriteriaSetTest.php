@@ -10,7 +10,10 @@ use TiBeN\Framework\Entity\CriteriaSet;
 
 /**
  * Test cases for class CriteriaSet
- *
+ * 
+ * Start of user code CriteriaSetTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class CriteriaSetTest extends \PHPUnit_Framework_TestCase
@@ -34,31 +37,15 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createOr from class CriteriaSet
+     * Test method add from class CriteriaSet
      *
-     * Start of user code CriteriaSetTest.testcreateOrAnnotations 
+     * Start of user code CriteriaSetTest.testaddAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testCreateOr()
+    public function testAdd()
     {
-        // Start of user code CriteriaSetTest.testcreateOr
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test static method createAnd from class CriteriaSet
-     *
-     * Start of user code CriteriaSetTest.testcreateAndAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateAnd()
-    {
-        // Start of user code CriteriaSetTest.testcreateAnd
+        // Start of user code CriteriaSetTest.testadd
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );
@@ -82,6 +69,38 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test method setLimit from class CriteriaSet
+     *
+     * Start of user code CriteriaSetTest.testsetLimitAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testSetLimit()
+    {
+        // Start of user code CriteriaSetTest.testsetLimit
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method createAnd from class CriteriaSet
+     *
+     * Start of user code CriteriaSetTest.testcreateAndAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateAnd()
+    {
+        // Start of user code CriteriaSetTest.testcreateAnd
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
      * Test method addSubSet from class CriteriaSet
      *
      * Start of user code CriteriaSetTest.testaddSubSetAnnotations 
@@ -98,31 +117,15 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method add from class CriteriaSet
+     * Test static method createOr from class CriteriaSet
      *
-     * Start of user code CriteriaSetTest.testaddAnnotations 
+     * Start of user code CriteriaSetTest.testcreateOrAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testAdd()
+    public function testCreateOr()
     {
-        // Start of user code CriteriaSetTest.testadd
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test method setLimit from class CriteriaSet
-     *
-     * Start of user code CriteriaSetTest.testsetLimitAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testSetLimit()
-    {
-        // Start of user code CriteriaSetTest.testsetLimit
+        // Start of user code CriteriaSetTest.testcreateOr
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

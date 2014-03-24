@@ -35,6 +35,16 @@ class EntityRepository
     }
 
     /**
+     * @param Entity $entity
+     */
+    public function delete(Entity $entity)
+    {
+        // Start of user code EntityRepository.delete
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
      * @param CriteriaSet $criteriaSet
      * @return EntityCollection $entities
      */
@@ -45,16 +55,6 @@ class EntityRepository
         // End of user code
     
         return $entities;
-    }
-
-    /**
-     * @param Entity $entity
-     */
-    public function delete(Entity $entity)
-    {
-        // Start of user code EntityRepository.delete
-        // TODO should be implemented.
-        // End of user code
     }
 
     // Start of user code EntityRepository.implementationSpecificMethods

@@ -90,25 +90,17 @@ class DateTimeConverter implements TypeConverter
     // TypeConverter Realization
 
     /**
-     * @return string $dataSourceType
+     * @param T $itemToConvert
+     * @return U $convertedItem
      */
-    public function getDataSourceType()
+    public function convert($itemToConvert)
     {
-        // Start of user code TypeConverter.getDataSourceType
+        $this->typeHint($this->TType, $itemToConvert);
+        // Start of user code Converter.convert
         // TODO should be implemented.
         // End of user code
     
-        return $dataSourceType;
-    }
-
-    /**
-     * @param AssociativeArray $parameters
-     */
-    public function setParameters(AssociativeArray $parameters)
-    {
-        // Start of user code TypeConverter.setParameters
-        // TODO should be implemented.
-        // End of user code
+        return $convertedItem;
     }
 
     /**
@@ -124,17 +116,15 @@ class DateTimeConverter implements TypeConverter
     }
 
     /**
-     * @param T $itemToConvert
-     * @return U $convertedItem
+     * @return string $dataSourceType
      */
-    public function convert($itemToConvert)
+    public function getDataSourceType()
     {
-        $this->typeHint($this->TType, $itemToConvert);
-        // Start of user code Converter.convert
+        // Start of user code TypeConverter.getDataSourceType
         // TODO should be implemented.
         // End of user code
     
-        return $convertedItem;
+        return $dataSourceType;
     }
 
     /**
@@ -149,6 +139,16 @@ class DateTimeConverter implements TypeConverter
         // End of user code
     
         return $reversedItem;
+    }
+
+    /**
+     * @param AssociativeArray $parameters
+     */
+    public function setParameters(AssociativeArray $parameters)
+    {
+        // Start of user code TypeConverter.setParameters
+        // TODO should be implemented.
+        // End of user code
     }
 
     // Start of user code DateTimeConverter.implementationSpecificMethods

@@ -49,6 +49,16 @@ class DataSourcesRegistry
 
     /**
      * @param string $dataSourceName
+     */
+    public static function clearDataSource($dataSourceName)
+    {
+        // Start of user code DataSourcesRegistry.clearDataSource
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * @param string $dataSourceName
      * @return DataSource $dataSource
      */
     public static function getDataSource($dataSourceName)
@@ -79,16 +89,6 @@ class DataSourcesRegistry
     public static function registerDataSource(DataSource $dataSource)
     {
         // Start of user code DataSourcesRegistry.registerDataSource
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
-     * @param string $dataSourceName
-     */
-    public static function clearDataSource($dataSourceName)
-    {
-        // Start of user code DataSourcesRegistry.clearDataSource
         // TODO should be implemented.
         // End of user code
     }

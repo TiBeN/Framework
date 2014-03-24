@@ -10,7 +10,10 @@ use TiBeN\Framework\Router\Router;
 
 /**
  * Test cases for class Router
- *
+ * 
+ * Start of user code RouterTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class RouterTest extends \PHPUnit_Framework_TestCase
@@ -34,54 +37,6 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method handleCurrentHttpRequest from class Router
-     *
-     * Start of user code RouterTest.testhandleCurrentHttpRequestAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testHandleCurrentHttpRequest()
-    {
-        // Start of user code RouterTest.testhandleCurrentHttpRequest
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test static method redirectToRoute from class Router
-     *
-     * Start of user code RouterTest.testredirectToRouteAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testRedirectToRoute()
-    {
-        // Start of user code RouterTest.testredirectToRoute
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test static method addRouteRule from class Router
-     *
-     * Start of user code RouterTest.testaddRouteRuleAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testAddRouteRule()
-    {
-        // Start of user code RouterTest.testaddRouteRule
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method getRouteRuleByName from class Router
      *
      * Start of user code RouterTest.testgetRouteRuleByNameAnnotations 
@@ -91,6 +46,22 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     public function testGetRouteRuleByName()
     {
         // Start of user code RouterTest.testgetRouteRuleByName
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method generateUri from class Router
+     *
+     * Start of user code RouterTest.testgenerateUriAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGenerateUri()
+    {
+        // Start of user code RouterTest.testgenerateUri
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );
@@ -114,6 +85,54 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method handleCurrentHttpRequest from class Router
+     *
+     * Start of user code RouterTest.testhandleCurrentHttpRequestAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testHandleCurrentHttpRequest()
+    {
+        // Start of user code RouterTest.testhandleCurrentHttpRequest
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method addRouteRule from class Router
+     *
+     * Start of user code RouterTest.testaddRouteRuleAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testAddRouteRule()
+    {
+        // Start of user code RouterTest.testaddRouteRule
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method redirectToRoute from class Router
+     *
+     * Start of user code RouterTest.testredirectToRouteAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testRedirectToRoute()
+    {
+        // Start of user code RouterTest.testredirectToRoute
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
      * Test static method forwardToRoute from class Router
      *
      * Start of user code RouterTest.testforwardToRouteAnnotations 
@@ -123,22 +142,6 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     public function testForwardToRoute()
     {
         // Start of user code RouterTest.testforwardToRoute
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test static method generateUri from class Router
-     *
-     * Start of user code RouterTest.testgenerateUriAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGenerateUri()
-    {
-        // Start of user code RouterTest.testgenerateUri
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

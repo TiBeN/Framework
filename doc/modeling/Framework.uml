@@ -1221,7 +1221,7 @@ to match an URI with a ressource.</body>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_kwABYEclEeO-MsP0k5YFJw" name="routeRule" type="_a3DEsJkdEeKNe-pGKaimUg" direction="return"/>
       </ownedOperation>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_c9kFQJkdEeKNe-pGKaimUg" name="HttpResponse">
+    <packagedElement xmi:type="uml:Class" xmi:id="_c9kFQJkdEeKNe-pGKaimUg" clientDependency="_LQ6GsLMnEeOA2MOCYMM3hQ" name="HttpResponse">
       <ownedComment xmi:type="uml:Comment" xmi:id="_1f1AgK8eEeK4D8ZgVhb42Q">
         <body>Represent an HttpResponse. 
 Factory Method createRedirectResponse can be used to instantiate a redirect response. </body>
@@ -1351,6 +1351,7 @@ then return parsed variables if match.</body>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_n6dFQKfyEeKLRPn3lZyAPQ" name="generateUri" client="_ZiJHQJkdEeKNe-pGKaimUg" supplier="_futXMJkdEeKNe-pGKaimUg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_0biKwKfzEeKLRPn3lZyAPQ" name="create Redirect response type" client="_ZiJHQJkdEeKNe-pGKaimUg" supplier="_c9kFQJkdEeKNe-pGKaimUg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_kNi7ILK-EeOvW8-QuQhpcA" name="hold get and post variables into" client="_UYK8wJkdEeKNe-pGKaimUg" supplier="_ti84wLoPEeKycOj42mlSMA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_LQ6GsLMnEeOA2MOCYMM3hQ" name="hold headers into" client="_c9kFQJkdEeKNe-pGKaimUg" supplier="_ti84wLoPEeKycOj42mlSMA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_oIPh0LIzEeKwOoQ65WtEfA" name="Controller">
     <packagedElement xmi:type="uml:Class" xmi:id="_clZ4QKRzEeKL77OWyGfbwg" clientDependency="_44XT8KTpEeKPmbE2lP8SmA" name="Controller"/>
