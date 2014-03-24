@@ -10,7 +10,10 @@ use TiBeN\Framework\DataSource\MysqlDataSource\ValuesStatement;
 
 /**
  * Test cases for class ValuesStatement
- *
+ * 
+ * Start of user code ValuesStatementTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class ValuesStatementTest extends \PHPUnit_Framework_TestCase

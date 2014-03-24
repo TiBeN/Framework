@@ -10,7 +10,10 @@ use TiBeN\Framework\DataSource\MysqlDataSource\MysqlEntityConfiguration;
 
 /**
  * Test cases for class MysqlEntityConfiguration
- *
+ * 
+ * Start of user code MysqlEntityConfigurationTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class MysqlEntityConfigurationTest extends \PHPUnit_Framework_TestCase

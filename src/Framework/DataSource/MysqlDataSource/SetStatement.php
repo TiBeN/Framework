@@ -72,6 +72,18 @@ class SetStatement extends AssociativeArray
     }
 
     /**
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code SetStatement.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $string;
+    }
+
+    /**
      * @param EntityMapping $entityMapping
      * @param Entity $entity
      * @return SetStatement $setStatement
@@ -83,18 +95,6 @@ class SetStatement extends AssociativeArray
         // End of user code
     
         return $setStatement;
-    }
-
-    /**
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code SetStatement.toString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $string;
     }
     // Start of user code SetStatement.surchargedMethods
     // Surcharge Methods here

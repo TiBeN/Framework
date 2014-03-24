@@ -17,14 +17,14 @@ class UpdateStatement implements Statement
     public $setStatement;
 
     /**
-     * @var WhereConditions
-     */
-    public $whereDefinition;
-
-    /**
      * @var string
      */
     public $tableName;
+
+    /**
+     * @var WhereConditions
+     */
+    public $whereDefinition;
 
     public function __construct()
     {
@@ -59,26 +59,6 @@ class UpdateStatement implements Statement
     }
 
     /**
-     * @return WhereConditions
-     */
-    public function getWhereDefinition()
-    {
-        // Start of user code Getter UpdateStatement.getWhereDefinition
-        // End of user code
-        return $this->whereDefinition;
-    }
-
-    /**
-     * @param WhereConditions $whereDefinition
-     */
-    public function setWhereDefinition(WhereConditions $whereDefinition)
-    {
-        // Start of user code Setter UpdateStatement.setWhereDefinition
-        // End of user code
-        $this->whereDefinition = $whereDefinition;
-    }
-
-    /**
      * @return string
      */
     public function getTableName()
@@ -98,19 +78,27 @@ class UpdateStatement implements Statement
         $this->tableName = $tableName;
     }
 
-    // Statement Realization
+    /**
+     * @return WhereConditions
+     */
+    public function getWhereDefinition()
+    {
+        // Start of user code Getter UpdateStatement.getWhereDefinition
+        // End of user code
+        return $this->whereDefinition;
+    }
 
     /**
-     * @return AssociativeArray $statementParameters
+     * @param WhereConditions $whereDefinition
      */
-    public function getStatementParameters()
+    public function setWhereDefinition(WhereConditions $whereDefinition)
     {
-        // Start of user code Statement.getStatementParameters
-        // TODO should be implemented.
+        // Start of user code Setter UpdateStatement.setWhereDefinition
         // End of user code
-    
-        return $statementParameters;
+        $this->whereDefinition = $whereDefinition;
     }
+
+    // Statement Realization
 
     /**
      * Tell wether the statement is ready or not to be executed
@@ -138,6 +126,18 @@ class UpdateStatement implements Statement
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+        // TODO should be implemented.
+        // End of user code
+    
+        return $statementParameters;
     }
 
     // Start of user code UpdateStatement.implementationSpecificMethods

@@ -10,7 +10,10 @@ use TiBeN\Framework\Entity\EntityValidator;
 
 /**
  * Test cases for class EntityValidator
- *
+ * 
+ * Start of user code EntityValidatorTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class EntityValidatorTest extends \PHPUnit_Framework_TestCase

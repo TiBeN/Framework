@@ -10,7 +10,10 @@ use TiBeN\Framework\DataSource\MysqlDataSource\Expr;
 
 /**
  * Test cases for class Expr
- *
+ * 
+ * Start of user code ExprTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class ExprTest extends \PHPUnit_Framework_TestCase
@@ -50,22 +53,6 @@ class ExprTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method toString from class Expr
-     *
-     * Start of user code ExprTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code ExprTest.testtoString
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method concat from class Expr
      *
      * Start of user code ExprTest.testconcatAnnotations 
@@ -75,6 +62,22 @@ class ExprTest extends \PHPUnit_Framework_TestCase
     public function testConcat()
     {
         // Start of user code ExprTest.testconcat
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method toString from class Expr
+     *
+     * Start of user code ExprTest.testtoStringAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code ExprTest.testtoString
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

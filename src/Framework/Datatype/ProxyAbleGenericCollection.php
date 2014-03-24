@@ -18,11 +18,6 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
     protected $TType;
 
     /**
-     * @var Collection
-     */
-    protected $collection;
-
-    /**
      * @var Converter
      */
     protected $converter;
@@ -31,6 +26,11 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
      * @var bool
      */
     private $actAsAProxy;
+
+    /**
+     * @var Collection
+     */
+    protected $collection;
 
     // Start of user code ProxyAbleGenericCollection.surchargedConstructorsDestructors
     // Surcharge Constructors and Destructors here
@@ -76,26 +76,6 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
     }
 
     /**
-     * @return Collection
-     */
-    protected function getCollection()
-    {
-        // Start of user code Getter ProxyAbleGenericCollection.getCollection
-        // End of user code
-        return $this->collection;
-    }
-
-    /**
-     * @param Collection $collection
-     */
-    protected function setCollection(Collection $collection)
-    {
-        // Start of user code Setter ProxyAbleGenericCollection.setCollection
-        // End of user code
-        $this->collection = $collection;
-    }
-
-    /**
      * @return Converter
      */
     protected function getConverter()
@@ -133,6 +113,26 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
         // Start of user code Setter ProxyAbleGenericCollection.setActAsAProxy
         // End of user code
         $this->actAsAProxy = $actAsAProxy;
+    }
+
+    /**
+     * @return Collection
+     */
+    protected function getCollection()
+    {
+        // Start of user code Getter ProxyAbleGenericCollection.getCollection
+        // End of user code
+        return $this->collection;
+    }
+
+    /**
+     * @param Collection $collection
+     */
+    protected function setCollection(Collection $collection)
+    {
+        // Start of user code Setter ProxyAbleGenericCollection.setCollection
+        // End of user code
+        $this->collection = $collection;
     }
 
     // ProxyCollection Realization

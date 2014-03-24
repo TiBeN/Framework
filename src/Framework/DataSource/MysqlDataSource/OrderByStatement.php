@@ -19,12 +19,12 @@ class OrderByStatement extends AssociativeArray
     /**
      * @var string
      */
-    const DIRECTION_ASC = 'ASC';
+    const DIRECTION_DESC = 'DESC';
 
     /**
      * @var string
      */
-    const DIRECTION_DESC = 'DESC';
+    const DIRECTION_ASC = 'ASC';
 
     // Start of user code OrderByStatement.surchargedConstructorsDestructors
     // Surcharge Constructors and Destructors here

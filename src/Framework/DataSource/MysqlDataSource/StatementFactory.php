@@ -26,6 +26,20 @@ class StatementFactory
     /**
      * @param EntityMapping $entityMapping
      * @param Entity $entity
+     * @return UpdateStatement $updateStatement
+     */
+    public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code StatementFactory.createUpdateStatementFromEntity
+        // TODO should be implemented.
+        // End of user code
+    
+        return $updateStatement;
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
      * @return InsertStatement $insertStatement
      */
     public static function createInsertStatement(EntityMapping $entityMapping, Entity $entity)
@@ -54,15 +68,15 @@ class StatementFactory
     /**
      * @param EntityMapping $entityMapping
      * @param Entity $entity
-     * @return UpdateStatement $updateStatement
+     * @return DeleteStatement $deleteStatement
      */
-    public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
+    public static function createDeleteStatement(EntityMapping $entityMapping, Entity $entity)
     {
-        // Start of user code StatementFactory.createUpdateStatementFromEntity
+        // Start of user code StatementFactory.createDeleteStatement
         // TODO should be implemented.
         // End of user code
     
-        return $updateStatement;
+        return $deleteStatement;
     }
 
     /**
@@ -77,20 +91,6 @@ class StatementFactory
         // End of user code
     
         return $selectStatement;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     * @return DeleteStatement $deleteStatement
-     */
-    public static function createDeleteStatement(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code StatementFactory.createDeleteStatement
-        // TODO should be implemented.
-        // End of user code
-    
-        return $deleteStatement;
     }
 
     // Start of user code StatementFactory.implementationSpecificMethods

@@ -10,7 +10,10 @@ use TiBeN\Framework\Entity\AttributeMapping;
 
 /**
  * Test cases for class AttributeMapping
- *
+ * 
+ * Start of user code AttributeMappingTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class AttributeMappingTest extends \PHPUnit_Framework_TestCase

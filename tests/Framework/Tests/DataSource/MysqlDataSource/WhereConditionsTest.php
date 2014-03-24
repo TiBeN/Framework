@@ -10,7 +10,10 @@ use TiBeN\Framework\DataSource\MysqlDataSource\WhereConditions;
 
 /**
  * Test cases for class WhereConditions
- *
+ * 
+ * Start of user code WhereConditionsTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class WhereConditionsTest extends \PHPUnit_Framework_TestCase
@@ -50,22 +53,6 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createFromExpr from class WhereConditions
-     *
-     * Start of user code WhereConditionsTest.testcreateFromExprAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateFromExpr()
-    {
-        // Start of user code WhereConditionsTest.testcreateFromExpr
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method createEntityTargetFromEntity from class WhereConditions
      *
      * Start of user code WhereConditionsTest.testcreateEntityTargetFromEntityAnnotations 
@@ -75,6 +62,22 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
     public function testCreateEntityTargetFromEntity()
     {
         // Start of user code WhereConditionsTest.testcreateEntityTargetFromEntity
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method createFromExpr from class WhereConditions
+     *
+     * Start of user code WhereConditionsTest.testcreateFromExprAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateFromExpr()
+    {
+        // Start of user code WhereConditionsTest.testcreateFromExpr
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

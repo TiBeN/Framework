@@ -10,7 +10,10 @@ use TiBeN\Framework\Entity\EntityRepository;
 
 /**
  * Test cases for class EntityRepository
- *
+ * 
+ * Start of user code EntityRepositoryTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
@@ -50,22 +53,6 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method find from class EntityRepository
-     *
-     * Start of user code EntityRepositoryTest.testfindAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testFind()
-    {
-        // Start of user code EntityRepositoryTest.testfind
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test method delete from class EntityRepository
      *
      * Start of user code EntityRepositoryTest.testdeleteAnnotations 
@@ -75,6 +62,22 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
     public function testDelete()
     {
         // Start of user code EntityRepositoryTest.testdelete
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method find from class EntityRepository
+     *
+     * Start of user code EntityRepositoryTest.testfindAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testFind()
+    {
+        // Start of user code EntityRepositoryTest.testfind
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

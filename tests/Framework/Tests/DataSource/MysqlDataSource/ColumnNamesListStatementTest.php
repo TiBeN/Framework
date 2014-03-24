@@ -10,7 +10,10 @@ use TiBeN\Framework\DataSource\MysqlDataSource\ColumnNamesListStatement;
 
 /**
  * Test cases for class ColumnNamesListStatement
- *
+ * 
+ * Start of user code ColumnNamesListStatementTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class ColumnNamesListStatementTest extends \PHPUnit_Framework_TestCase

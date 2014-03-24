@@ -10,7 +10,10 @@ use TiBeN\Framework\Entity\EntityMapping;
 
 /**
  * Test cases for class EntityMapping
- *
+ * 
+ * Start of user code EntityMappingTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class EntityMappingTest extends \PHPUnit_Framework_TestCase

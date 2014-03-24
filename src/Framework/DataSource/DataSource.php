@@ -23,7 +23,7 @@ interface DataSource
 	 * @param EntityMapping $entityMapping
 	 * @param Entity $entity
 	 */
-	public function delete(EntityMapping $entityMapping, Entity $entity);
+	public function create(EntityMapping $entityMapping, Entity $entity);
 
 	/**
 	 * @param EntityMapping $entityMapping
@@ -32,9 +32,20 @@ interface DataSource
 	public function update(EntityMapping $entityMapping, Entity $entity);
 
 	/**
+	 * @param EntityMapping $entityMapping
+	 * @param Entity $entity
+	 */
+	public function delete(EntityMapping $entityMapping, Entity $entity);
+
+	/**
 	 * @return string $className
 	 */
 	public static function getAttributeMappingConfigurationClassName();
+
+	/**
+	 * @return string $className
+	 */
+	public static function getEntityMappingConfigurationClassName();
 
 	/**
 	 * @param EntityMapping $entityMapping
@@ -42,16 +53,5 @@ interface DataSource
 	 * @return EntityCollection $entityCollection
 	 */
 	public function read(EntityMapping $entityMapping, CriteriaSet $criteriaSet);
-
-	/**
-	 * @param EntityMapping $entityMapping
-	 * @param Entity $entity
-	 */
-	public function create(EntityMapping $entityMapping, Entity $entity);
-
-	/**
-	 * @return string $className
-	 */
-	public static function getEntityMappingConfigurationClassName();
 
 }

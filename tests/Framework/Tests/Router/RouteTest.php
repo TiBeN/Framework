@@ -10,7 +10,10 @@ use TiBeN\Framework\Router\Route;
 
 /**
  * Test cases for class Route
- *
+ * 
+ * Start of user code RouteTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class RouteTest extends \PHPUnit_Framework_TestCase

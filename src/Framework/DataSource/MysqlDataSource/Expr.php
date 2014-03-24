@@ -23,42 +23,7 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
-
-    /**
-     * @var string
-     */
     public $exprString;
-
-    /**
-     * @var string
-     */
-    const OPERATOR_NOT_EQUALS = '!=';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LESS_THAN = '<';
-
-    /**
-     * @var AssociativeArray
-     */
-    public $exprParameters;
-
-    /**
-     * @var bool
-     */
-    public $isResultOfConcatenation = false;
-
-    /**
-     * @var string
-     */
-    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LIKE = 'LIKE';
 
     /**
      * @var string
@@ -68,12 +33,47 @@ class Expr
     /**
      * @var string
      */
+    const OPERATOR_NOT_EQUALS = '!=';
+
+    /**
+     * @var string
+     */
     const LOGICAL_SEPARATOR_AND = 'AND';
 
     /**
      * @var string
      */
+    const OPERATOR_LIKE = 'LIKE';
+
+    /**
+     * @var AssociativeArray
+     */
+    public $exprParameters;
+
+    /**
+     * @var string
+     */
+    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
+
+    /**
+     * @var bool
+     */
+    public $isResultOfConcatenation = false;
+
+    /**
+     * @var string
+     */
     const OPERATOR_NOT_LIKE = 'NOT LIKE';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LESS_THAN = '<';
 
     public function __construct()
     {
@@ -162,18 +162,6 @@ class Expr
     }
 
     /**
-     * @return string $exprString
-     */
-    public function toString()
-    {
-        // Start of user code Expr.toString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $exprString;
-    }
-
-    /**
      * @param GenericCollection $exprCollection
      * @param string $logicalSeparator
      * @return Expr $expr
@@ -185,6 +173,18 @@ class Expr
         // End of user code
     
         return $expr;
+    }
+
+    /**
+     * @return string $exprString
+     */
+    public function toString()
+    {
+        // Start of user code Expr.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $exprString;
     }
 
     // Start of user code Expr.implementationSpecificMethods

@@ -11,9 +11,14 @@ namespace TiBeN\Framework\Entity;
 class AttributeMapping
 {
     /**
-     * @var bool
+     * @var DataSourceAttributeMappingConfiguration
      */
-    public $isIdentifier;
+    public $dataSourceAttributeMappingConfiguration;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var array
@@ -21,19 +26,14 @@ class AttributeMapping
     public $validationRules;
 
     /**
-     * @var DataSourceAttributeMappingConfiguration
-     */
-    public $dataSourceAttributeMappingConfiguration;
-
-    /**
      * @var AssociativeArray
      */
     public $type;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $name;
+    public $isIdentifier;
 
     public function __construct()
     {
@@ -45,46 +45,6 @@ class AttributeMapping
     {
         // Start of user code AttributeMapping.destructor
         // End of user code
-    }
-
-    /**
-     * @return bool
-     */
-    public function getIsIdentifier()
-    {
-        // Start of user code Getter AttributeMapping.getIsIdentifier
-        // End of user code
-        return $this->isIdentifier;
-    }
-
-    /**
-     * @param bool $isIdentifier
-     */
-    public function setIsIdentifier($isIdentifier)
-    {
-        // Start of user code Setter AttributeMapping.setIsIdentifier
-        // End of user code
-        $this->isIdentifier = $isIdentifier;
-    }
-
-    /**
-     * @return array
-     */
-    public function getValidationRules()
-    {
-        // Start of user code Getter AttributeMapping.getValidationRules
-        // End of user code
-        return $this->validationRules;
-    }
-
-    /**
-     * @param array $validationRules
-     */
-    public function setValidationRules(array $validationRules)
-    {
-        // Start of user code Setter AttributeMapping.setValidationRules
-        // End of user code
-        $this->validationRules = $validationRules;
     }
 
     /**
@@ -108,6 +68,46 @@ class AttributeMapping
     }
 
     /**
+     * @return string
+     */
+    public function getName()
+    {
+        // Start of user code Getter AttributeMapping.getName
+        // End of user code
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        // Start of user code Setter AttributeMapping.setName
+        // End of user code
+        $this->name = $name;
+    }
+
+    /**
+     * @return array
+     */
+    public function getValidationRules()
+    {
+        // Start of user code Getter AttributeMapping.getValidationRules
+        // End of user code
+        return $this->validationRules;
+    }
+
+    /**
+     * @param array $validationRules
+     */
+    public function setValidationRules(array $validationRules)
+    {
+        // Start of user code Setter AttributeMapping.setValidationRules
+        // End of user code
+        $this->validationRules = $validationRules;
+    }
+
+    /**
      * @return AssociativeArray
      */
     public function getType()
@@ -128,23 +128,23 @@ class AttributeMapping
     }
 
     /**
-     * @return string
+     * @return bool
      */
-    public function getName()
+    public function getIsIdentifier()
     {
-        // Start of user code Getter AttributeMapping.getName
+        // Start of user code Getter AttributeMapping.getIsIdentifier
         // End of user code
-        return $this->name;
+        return $this->isIdentifier;
     }
 
     /**
-     * @param string $name
+     * @param bool $isIdentifier
      */
-    public function setName($name)
+    public function setIsIdentifier($isIdentifier)
     {
-        // Start of user code Setter AttributeMapping.setName
+        // Start of user code Setter AttributeMapping.setIsIdentifier
         // End of user code
-        $this->name = $name;
+        $this->isIdentifier = $isIdentifier;
     }
 
     /**

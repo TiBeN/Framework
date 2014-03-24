@@ -10,7 +10,10 @@ use TiBeN\Framework\Router\RouteRule;
 
 /**
  * Test cases for class RouteRule
- *
+ * 
+ * Start of user code RouteRuleTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class RouteRuleTest extends \PHPUnit_Framework_TestCase
@@ -34,22 +37,6 @@ class RouteRuleTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method getRoute from class RouteRule
-     *
-     * Start of user code RouteRuleTest.testgetRouteAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetRoute()
-    {
-        // Start of user code RouteRuleTest.testgetRoute
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test method matchHttpRequest from class RouteRule
      *
      * Start of user code RouteRuleTest.testmatchHttpRequestAnnotations 
@@ -59,6 +46,22 @@ class RouteRuleTest extends \PHPUnit_Framework_TestCase
     public function testMatchHttpRequest()
     {
         // Start of user code RouteRuleTest.testmatchHttpRequest
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method getRoute from class RouteRule
+     *
+     * Start of user code RouteRuleTest.testgetRouteAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetRoute()
+    {
+        // Start of user code RouteRuleTest.testgetRoute
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

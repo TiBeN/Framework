@@ -10,7 +10,10 @@ use TiBeN\Framework\Datatype\ProxyAbleGenericCollection;
 
 /**
  * Test cases for class ProxyAbleGenericCollection
- *
+ * 
+ * Start of user code ProxyAbleGenericCollectionTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class ProxyAbleGenericCollectionTest extends \PHPUnit_Framework_TestCase

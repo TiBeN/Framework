@@ -12,6 +12,21 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 class SelectStatement implements Statement
 {
     /**
+     * @var OrderByStatement
+     */
+    public $orderByStatement;
+
+    /**
+     * @var LimitStatement
+     */
+    public $limitStatement;
+
+    /**
+     * @var WhereConditions
+     */
+    public $whereConditions;
+
+    /**
      * @var SelectExpr
      */
     public $selectExpr;
@@ -20,21 +35,6 @@ class SelectStatement implements Statement
      * @var string
      */
     public $tableReferences;
-
-    /**
-     * @var WhereConditions
-     */
-    public $whereConditions;
-
-    /**
-     * @var LimitStatement
-     */
-    public $limitStatement;
-
-    /**
-     * @var OrderByStatement
-     */
-    public $orderByStatement;
 
     public function __construct()
     {
@@ -46,6 +46,66 @@ class SelectStatement implements Statement
     {
         // Start of user code SelectStatement.destructor
         // End of user code
+    }
+
+    /**
+     * @return OrderByStatement
+     */
+    public function getOrderByStatement()
+    {
+        // Start of user code Getter SelectStatement.getOrderByStatement
+        // End of user code
+        return $this->orderByStatement;
+    }
+
+    /**
+     * @param OrderByStatement $orderByStatement
+     */
+    public function setOrderByStatement(OrderByStatement $orderByStatement)
+    {
+        // Start of user code Setter SelectStatement.setOrderByStatement
+        // End of user code
+        $this->orderByStatement = $orderByStatement;
+    }
+
+    /**
+     * @return LimitStatement
+     */
+    public function getLimitStatement()
+    {
+        // Start of user code Getter SelectStatement.getLimitStatement
+        // End of user code
+        return $this->limitStatement;
+    }
+
+    /**
+     * @param LimitStatement $limitStatement
+     */
+    public function setLimitStatement(LimitStatement $limitStatement)
+    {
+        // Start of user code Setter SelectStatement.setLimitStatement
+        // End of user code
+        $this->limitStatement = $limitStatement;
+    }
+
+    /**
+     * @return WhereConditions
+     */
+    public function getWhereConditions()
+    {
+        // Start of user code Getter SelectStatement.getWhereConditions
+        // End of user code
+        return $this->whereConditions;
+    }
+
+    /**
+     * @param WhereConditions $whereConditions
+     */
+    public function setWhereConditions(WhereConditions $whereConditions)
+    {
+        // Start of user code Setter SelectStatement.setWhereConditions
+        // End of user code
+        $this->whereConditions = $whereConditions;
     }
 
     /**
@@ -88,79 +148,7 @@ class SelectStatement implements Statement
         $this->tableReferences = $tableReferences;
     }
 
-    /**
-     * @return WhereConditions
-     */
-    public function getWhereConditions()
-    {
-        // Start of user code Getter SelectStatement.getWhereConditions
-        // End of user code
-        return $this->whereConditions;
-    }
-
-    /**
-     * @param WhereConditions $whereConditions
-     */
-    public function setWhereConditions(WhereConditions $whereConditions)
-    {
-        // Start of user code Setter SelectStatement.setWhereConditions
-        // End of user code
-        $this->whereConditions = $whereConditions;
-    }
-
-    /**
-     * @return LimitStatement
-     */
-    public function getLimitStatement()
-    {
-        // Start of user code Getter SelectStatement.getLimitStatement
-        // End of user code
-        return $this->limitStatement;
-    }
-
-    /**
-     * @param LimitStatement $limitStatement
-     */
-    public function setLimitStatement(LimitStatement $limitStatement)
-    {
-        // Start of user code Setter SelectStatement.setLimitStatement
-        // End of user code
-        $this->limitStatement = $limitStatement;
-    }
-
-    /**
-     * @return OrderByStatement
-     */
-    public function getOrderByStatement()
-    {
-        // Start of user code Getter SelectStatement.getOrderByStatement
-        // End of user code
-        return $this->orderByStatement;
-    }
-
-    /**
-     * @param OrderByStatement $orderByStatement
-     */
-    public function setOrderByStatement(OrderByStatement $orderByStatement)
-    {
-        // Start of user code Setter SelectStatement.setOrderByStatement
-        // End of user code
-        $this->orderByStatement = $orderByStatement;
-    }
-
     // Statement Realization
-
-    /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-        // TODO should be implemented.
-        // End of user code
-    
-        return $statementParameters;
-    }
 
     /**
      * Tell wether the statement is ready or not to be executed
@@ -188,6 +176,18 @@ class SelectStatement implements Statement
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+        // TODO should be implemented.
+        // End of user code
+    
+        return $statementParameters;
     }
 
     // Start of user code SelectStatement.implementationSpecificMethods

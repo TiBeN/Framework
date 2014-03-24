@@ -12,24 +12,9 @@ namespace TiBeN\Framework\Renderer;
 class TemplateRenderer
 {
     /**
-     * @var AssociativeArray
-     */
-    public $variables;
-
-    /**
      * @var string
      */
     public $templateName;
-
-    /**
-     * @var string
-     */
-    public $templatePath;
-
-    /**
-     * @var string
-     */
-    public static $templatesBasePath;
 
     /**
      * @var TemplateEngine
@@ -39,7 +24,22 @@ class TemplateRenderer
     /**
      * @var AssociativeArray
      */
+    public $variables;
+
+    /**
+     * @var AssociativeArray
+     */
     public static $globals;
+
+    /**
+     * @var string
+     */
+    public static $templatesBasePath;
+
+    /**
+     * @var string
+     */
+    public $templatePath;
 
     public function __construct()
     {
@@ -51,26 +51,6 @@ class TemplateRenderer
     {
         // Start of user code TemplateRenderer.destructor
         // End of user code
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getVariables()
-    {
-        // Start of user code Getter TemplateRenderer.getVariables
-        // End of user code
-        return $this->variables;
-    }
-
-    /**
-     * @param AssociativeArray $variables
-     */
-    public function setVariables(AssociativeArray $variables)
-    {
-        // Start of user code Setter TemplateRenderer.setVariables
-        // End of user code
-        $this->variables = $variables;
     }
 
     /**
@@ -91,46 +71,6 @@ class TemplateRenderer
         // Start of user code Setter TemplateRenderer.setTemplateName
         // End of user code
         $this->templateName = $templateName;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTemplatePath()
-    {
-        // Start of user code Getter TemplateRenderer.getTemplatePath
-        // End of user code
-        return $this->templatePath;
-    }
-
-    /**
-     * @param string $templatePath
-     */
-    public function setTemplatePath($templatePath)
-    {
-        // Start of user code Setter TemplateRenderer.setTemplatePath
-        // End of user code
-        $this->templatePath = $templatePath;
-    }
-
-    /**
-     * @return string
-     */
-    public static function getTemplatesBasePath()
-    {
-        // Start of user code Static getter TemplateRenderer.getTemplatesBasePath
-        // End of user code
-        return self::$templatesBasePath;
-    }
-
-    /**
-     * @param string $templatesBasePath
-     */
-    public static function setTemplatesBasePath($templatesBasePath)
-    {
-        // Start of user code Static setter TemplateRenderer.setTemplatesBasePath
-        // End of user code
-        self::$templatesBasePath = $templatesBasePath;
     }
 
     /**
@@ -156,6 +96,26 @@ class TemplateRenderer
     /**
      * @return AssociativeArray
      */
+    public function getVariables()
+    {
+        // Start of user code Getter TemplateRenderer.getVariables
+        // End of user code
+        return $this->variables;
+    }
+
+    /**
+     * @param AssociativeArray $variables
+     */
+    public function setVariables(AssociativeArray $variables)
+    {
+        // Start of user code Setter TemplateRenderer.setVariables
+        // End of user code
+        $this->variables = $variables;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
     public static function getGlobals()
     {
         // Start of user code Static getter TemplateRenderer.getGlobals
@@ -171,6 +131,46 @@ class TemplateRenderer
         // Start of user code Static setter TemplateRenderer.setGlobals
         // End of user code
         self::$globals = $globals;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getTemplatesBasePath()
+    {
+        // Start of user code Static getter TemplateRenderer.getTemplatesBasePath
+        // End of user code
+        return self::$templatesBasePath;
+    }
+
+    /**
+     * @param string $templatesBasePath
+     */
+    public static function setTemplatesBasePath($templatesBasePath)
+    {
+        // Start of user code Static setter TemplateRenderer.setTemplatesBasePath
+        // End of user code
+        self::$templatesBasePath = $templatesBasePath;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTemplatePath()
+    {
+        // Start of user code Getter TemplateRenderer.getTemplatePath
+        // End of user code
+        return $this->templatePath;
+    }
+
+    /**
+     * @param string $templatePath
+     */
+    public function setTemplatePath($templatePath)
+    {
+        // Start of user code Setter TemplateRenderer.setTemplatePath
+        // End of user code
+        $this->templatePath = $templatePath;
     }
 
     /**

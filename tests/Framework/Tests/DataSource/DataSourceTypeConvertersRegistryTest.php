@@ -10,7 +10,10 @@ use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
 
 /**
  * Test cases for class DataSourceTypeConvertersRegistry
- *
+ * 
+ * Start of user code DataSourceTypeConvertersRegistryTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
@@ -34,15 +37,15 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method hasTypeConverter from class DataSourceTypeConvertersRegistry
+     * Test static method registerTypeConverter from class DataSourceTypeConvertersRegistry
      *
-     * Start of user code DataSourceTypeConvertersRegistryTest.testhasTypeConverterAnnotations 
+     * Start of user code DataSourceTypeConvertersRegistryTest.testregisterTypeConverterAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testHasTypeConverter()
+    public function testRegisterTypeConverter()
     {
-        // Start of user code DataSourceTypeConvertersRegistryTest.testhasTypeConverter
+        // Start of user code DataSourceTypeConvertersRegistryTest.testregisterTypeConverter
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );
@@ -82,15 +85,15 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method registerTypeConverter from class DataSourceTypeConvertersRegistry
+     * Test static method hasTypeConverter from class DataSourceTypeConvertersRegistry
      *
-     * Start of user code DataSourceTypeConvertersRegistryTest.testregisterTypeConverterAnnotations 
+     * Start of user code DataSourceTypeConvertersRegistryTest.testhasTypeConverterAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testRegisterTypeConverter()
+    public function testHasTypeConverter()
     {
-        // Start of user code DataSourceTypeConvertersRegistryTest.testregisterTypeConverter
+        // Start of user code DataSourceTypeConvertersRegistryTest.testhasTypeConverter
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

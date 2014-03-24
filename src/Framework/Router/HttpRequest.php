@@ -23,12 +23,22 @@ class HttpRequest
     /**
      * @var AssociativeArray
      */
-    public $headers;
+    public $postVars;
 
     /**
      * @var string
      */
     public $host;
+
+    /**
+     * @var string
+     */
+    public $method;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $headers;
 
     /**
      * @var string
@@ -39,16 +49,6 @@ class HttpRequest
      * @var AssociativeArray
      */
     public $getVars;
-
-    /**
-     * @var AssociativeArray
-     */
-    public $postVars;
-
-    /**
-     * @var string
-     */
-    public $method;
 
     public function __construct()
     {
@@ -85,21 +85,21 @@ class HttpRequest
     /**
      * @return AssociativeArray
      */
-    public function getHeaders()
+    public function getPostVars()
     {
-        // Start of user code Getter HttpRequest.getHeaders
+        // Start of user code Getter HttpRequest.getPostVars
         // End of user code
-        return $this->headers;
+        return $this->postVars;
     }
 
     /**
-     * @param AssociativeArray $headers
+     * @param AssociativeArray $postVars
      */
-    public function setHeaders(AssociativeArray $headers)
+    public function setPostVars(AssociativeArray $postVars)
     {
-        // Start of user code Setter HttpRequest.setHeaders
+        // Start of user code Setter HttpRequest.setPostVars
         // End of user code
-        $this->headers = $headers;
+        $this->postVars = $postVars;
     }
 
     /**
@@ -120,6 +120,46 @@ class HttpRequest
         // Start of user code Setter HttpRequest.setHost
         // End of user code
         $this->host = $host;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMethod()
+    {
+        // Start of user code Getter HttpRequest.getMethod
+        // End of user code
+        return $this->method;
+    }
+
+    /**
+     * @param string $method
+     */
+    public function setMethod($method)
+    {
+        // Start of user code Setter HttpRequest.setMethod
+        // End of user code
+        $this->method = $method;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getHeaders()
+    {
+        // Start of user code Getter HttpRequest.getHeaders
+        // End of user code
+        return $this->headers;
+    }
+
+    /**
+     * @param AssociativeArray $headers
+     */
+    public function setHeaders(AssociativeArray $headers)
+    {
+        // Start of user code Setter HttpRequest.setHeaders
+        // End of user code
+        $this->headers = $headers;
     }
 
     /**
@@ -160,46 +200,6 @@ class HttpRequest
         // Start of user code Setter HttpRequest.setGetVars
         // End of user code
         $this->getVars = $getVars;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getPostVars()
-    {
-        // Start of user code Getter HttpRequest.getPostVars
-        // End of user code
-        return $this->postVars;
-    }
-
-    /**
-     * @param AssociativeArray $postVars
-     */
-    public function setPostVars(AssociativeArray $postVars)
-    {
-        // Start of user code Setter HttpRequest.setPostVars
-        // End of user code
-        $this->postVars = $postVars;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMethod()
-    {
-        // Start of user code Getter HttpRequest.getMethod
-        // End of user code
-        return $this->method;
-    }
-
-    /**
-     * @param string $method
-     */
-    public function setMethod($method)
-    {
-        // Start of user code Setter HttpRequest.setMethod
-        // End of user code
-        $this->method = $method;
     }
 
     /**

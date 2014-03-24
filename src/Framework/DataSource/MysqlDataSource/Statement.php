@@ -11,11 +11,6 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 interface Statement
 {
 	/**
-	 * @return AssociativeArray $statementParameters
-	 */
-	public function getStatementParameters();
-
-	/**
 	 * Tell wether the statement is ready or not to be executed
 	 *
 	 * @return bool $status
@@ -28,5 +23,10 @@ interface Statement
 	 * @return string $statement
 	 */
 	public function toString();
+
+	/**
+	 * @return AssociativeArray $statementParameters
+	 */
+	public function getStatementParameters();
 
 }

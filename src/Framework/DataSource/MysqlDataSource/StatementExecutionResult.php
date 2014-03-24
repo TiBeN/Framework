@@ -11,14 +11,9 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 class StatementExecutionResult
 {
     /**
-     * @var int
+     * @var RowCollection
      */
-    public $errorCode;
-
-    /**
-     * @var int
-     */
-    public $numberOfAffectedRows;
+    public $rowCollection;
 
     /**
      * @var int
@@ -26,19 +21,24 @@ class StatementExecutionResult
     public $lastInsertId;
 
     /**
+     * @var int
+     */
+    public $numberOfAffectedRows;
+
+    /**
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @var int
+     */
+    public $errorCode;
+
+    /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var RowCollection
-     */
-    public $rowCollection;
 
     public function __construct()
     {
@@ -53,43 +53,23 @@ class StatementExecutionResult
     }
 
     /**
-     * @return int
+     * @return RowCollection
      */
-    public function getErrorCode()
+    public function getRowCollection()
     {
-        // Start of user code Getter StatementExecutionResult.getErrorCode
+        // Start of user code Getter StatementExecutionResult.getRowCollection
         // End of user code
-        return $this->errorCode;
+        return $this->rowCollection;
     }
 
     /**
-     * @param int $errorCode
+     * @param RowCollection $rowCollection
      */
-    public function setErrorCode($errorCode)
+    public function setRowCollection(RowCollection $rowCollection)
     {
-        // Start of user code Setter StatementExecutionResult.setErrorCode
+        // Start of user code Setter StatementExecutionResult.setRowCollection
         // End of user code
-        $this->errorCode = $errorCode;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNumberOfAffectedRows()
-    {
-        // Start of user code Getter StatementExecutionResult.getNumberOfAffectedRows
-        // End of user code
-        return $this->numberOfAffectedRows;
-    }
-
-    /**
-     * @param int $numberOfAffectedRows
-     */
-    public function setNumberOfAffectedRows($numberOfAffectedRows)
-    {
-        // Start of user code Setter StatementExecutionResult.setNumberOfAffectedRows
-        // End of user code
-        $this->numberOfAffectedRows = $numberOfAffectedRows;
+        $this->rowCollection = $rowCollection;
     }
 
     /**
@@ -113,6 +93,26 @@ class StatementExecutionResult
     }
 
     /**
+     * @return int
+     */
+    public function getNumberOfAffectedRows()
+    {
+        // Start of user code Getter StatementExecutionResult.getNumberOfAffectedRows
+        // End of user code
+        return $this->numberOfAffectedRows;
+    }
+
+    /**
+     * @param int $numberOfAffectedRows
+     */
+    public function setNumberOfAffectedRows($numberOfAffectedRows)
+    {
+        // Start of user code Setter StatementExecutionResult.setNumberOfAffectedRows
+        // End of user code
+        $this->numberOfAffectedRows = $numberOfAffectedRows;
+    }
+
+    /**
      * @return string
      */
     public function getErrorMessage()
@@ -133,6 +133,26 @@ class StatementExecutionResult
     }
 
     /**
+     * @return int
+     */
+    public function getErrorCode()
+    {
+        // Start of user code Getter StatementExecutionResult.getErrorCode
+        // End of user code
+        return $this->errorCode;
+    }
+
+    /**
+     * @param int $errorCode
+     */
+    public function setErrorCode($errorCode)
+    {
+        // Start of user code Setter StatementExecutionResult.setErrorCode
+        // End of user code
+        $this->errorCode = $errorCode;
+    }
+
+    /**
      * @return bool
      */
     public function getSuccess()
@@ -150,26 +170,6 @@ class StatementExecutionResult
         // Start of user code Setter StatementExecutionResult.setSuccess
         // End of user code
         $this->success = $success;
-    }
-
-    /**
-     * @return RowCollection
-     */
-    public function getRowCollection()
-    {
-        // Start of user code Getter StatementExecutionResult.getRowCollection
-        // End of user code
-        return $this->rowCollection;
-    }
-
-    /**
-     * @param RowCollection $rowCollection
-     */
-    public function setRowCollection(RowCollection $rowCollection)
-    {
-        // Start of user code Setter StatementExecutionResult.setRowCollection
-        // End of user code
-        $this->rowCollection = $rowCollection;
     }
 
     // Start of user code StatementExecutionResult.implementationSpecificMethods

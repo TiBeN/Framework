@@ -10,7 +10,10 @@ use TiBeN\Framework\DataSource\MysqlDataSource\LimitStatement;
 
 /**
  * Test cases for class LimitStatement
- *
+ * 
+ * Start of user code LimitStatementTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class LimitStatementTest extends \PHPUnit_Framework_TestCase
@@ -34,22 +37,6 @@ class LimitStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createFromLimitCriteria from class LimitStatement
-     *
-     * Start of user code LimitStatementTest.testcreateFromLimitCriteriaAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateFromLimitCriteria()
-    {
-        // Start of user code LimitStatementTest.testcreateFromLimitCriteria
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test method toString from class LimitStatement
      *
      * Start of user code LimitStatementTest.testtoStringAnnotations 
@@ -59,6 +46,22 @@ class LimitStatementTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code LimitStatementTest.testtoString
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method createFromLimitCriteria from class LimitStatement
+     *
+     * Start of user code LimitStatementTest.testcreateFromLimitCriteriaAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateFromLimitCriteria()
+    {
+        // Start of user code LimitStatementTest.testcreateFromLimitCriteria
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

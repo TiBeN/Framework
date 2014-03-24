@@ -10,7 +10,10 @@ use TiBeN\Framework\DataSource\MysqlDataSource\MysqlEntityAttributeMapper;
 
 /**
  * Test cases for class MysqlEntityAttributeMapper
- *
+ * 
+ * Start of user code MysqlEntityAttributeMapperTest.testAnnotations
+ * PHPUnit user annotations can be placed here
+ * End of user code
  * @author TiBeN
  */
 class MysqlEntityAttributeMapperTest extends \PHPUnit_Framework_TestCase
@@ -34,22 +37,6 @@ class MysqlEntityAttributeMapperTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method getIdentifierValue from class MysqlEntityAttributeMapper
-     *
-     * Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierValueAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetIdentifierValue()
-    {
-        // Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierValue
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test method getColumnValue from class MysqlEntityAttributeMapper
      *
      * Start of user code MysqlEntityAttributeMapperTest.testgetColumnValueAnnotations 
@@ -59,6 +46,22 @@ class MysqlEntityAttributeMapperTest extends \PHPUnit_Framework_TestCase
     public function testGetColumnValue()
     {
         // Start of user code MysqlEntityAttributeMapperTest.testgetColumnValue
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method getColumnName from class MysqlEntityAttributeMapper
+     *
+     * Start of user code MysqlEntityAttributeMapperTest.testgetColumnNameAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetColumnName()
+    {
+        // Start of user code MysqlEntityAttributeMapperTest.testgetColumnName
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );
@@ -82,22 +85,6 @@ class MysqlEntityAttributeMapperTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method setAttributeValue from class MysqlEntityAttributeMapper
-     *
-     * Start of user code MysqlEntityAttributeMapperTest.testsetAttributeValueAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testSetAttributeValue()
-    {
-        // Start of user code MysqlEntityAttributeMapperTest.testsetAttributeValue
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test method getIdentifierAttributeName from class MysqlEntityAttributeMapper
      *
      * Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierAttributeNameAnnotations 
@@ -114,15 +101,31 @@ class MysqlEntityAttributeMapperTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method getColumnName from class MysqlEntityAttributeMapper
+     * Test method getIdentifierValue from class MysqlEntityAttributeMapper
      *
-     * Start of user code MysqlEntityAttributeMapperTest.testgetColumnNameAnnotations 
+     * Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierValueAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testGetColumnName()
+    public function testGetIdentifierValue()
     {
-        // Start of user code MysqlEntityAttributeMapperTest.testgetColumnName
+        // Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierValue
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method setAttributeValue from class MysqlEntityAttributeMapper
+     *
+     * Start of user code MysqlEntityAttributeMapperTest.testsetAttributeValueAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testSetAttributeValue()
+    {
+        // Start of user code MysqlEntityAttributeMapperTest.testsetAttributeValue
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );
