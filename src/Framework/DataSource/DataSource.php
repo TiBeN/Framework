@@ -21,21 +21,10 @@ interface DataSource
 
 	/**
 	 * @param EntityMapping $entityMapping
-	 * @param Entity $entity
+	 * @param CriteriaSet $criteriaSet
+	 * @return EntityCollection $entityCollection
 	 */
-	public function create(EntityMapping $entityMapping, Entity $entity);
-
-	/**
-	 * @param EntityMapping $entityMapping
-	 * @param Entity $entity
-	 */
-	public function update(EntityMapping $entityMapping, Entity $entity);
-
-	/**
-	 * @param EntityMapping $entityMapping
-	 * @param Entity $entity
-	 */
-	public function delete(EntityMapping $entityMapping, Entity $entity);
+	public function read(EntityMapping $entityMapping, CriteriaSet $criteriaSet);
 
 	/**
 	 * @return string $className
@@ -49,9 +38,20 @@ interface DataSource
 
 	/**
 	 * @param EntityMapping $entityMapping
-	 * @param CriteriaSet $criteriaSet
-	 * @return EntityCollection $entityCollection
+	 * @param Entity $entity
 	 */
-	public function read(EntityMapping $entityMapping, CriteriaSet $criteriaSet);
+	public function create(EntityMapping $entityMapping, Entity $entity);
+
+	/**
+	 * @param EntityMapping $entityMapping
+	 * @param Entity $entity
+	 */
+	public function delete(EntityMapping $entityMapping, Entity $entity);
+
+	/**
+	 * @param EntityMapping $entityMapping
+	 * @param Entity $entity
+	 */
+	public function update(EntityMapping $entityMapping, Entity $entity);
 
 }

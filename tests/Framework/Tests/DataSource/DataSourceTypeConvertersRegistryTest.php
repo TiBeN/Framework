@@ -53,22 +53,6 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method clearTypeConverter from class DataSourceTypeConvertersRegistry
-     *
-     * Start of user code DataSourceTypeConvertersRegistryTest.testclearTypeConverterAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testClearTypeConverter()
-    {
-        // Start of user code DataSourceTypeConvertersRegistryTest.testclearTypeConverter
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method getTypeConverter from class DataSourceTypeConvertersRegistry
      *
      * Start of user code DataSourceTypeConvertersRegistryTest.testgetTypeConverterAnnotations 
@@ -78,6 +62,22 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
     public function testGetTypeConverter()
     {
         // Start of user code DataSourceTypeConvertersRegistryTest.testgetTypeConverter
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method clearTypeConverter from class DataSourceTypeConvertersRegistry
+     *
+     * Start of user code DataSourceTypeConvertersRegistryTest.testclearTypeConverterAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testClearTypeConverter()
+    {
+        // Start of user code DataSourceTypeConvertersRegistryTest.testclearTypeConverter
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

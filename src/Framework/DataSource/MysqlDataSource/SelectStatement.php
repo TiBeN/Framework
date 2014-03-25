@@ -12,14 +12,9 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 class SelectStatement implements Statement
 {
     /**
-     * @var OrderByStatement
+     * @var SelectExpr
      */
-    public $orderByStatement;
-
-    /**
-     * @var LimitStatement
-     */
-    public $limitStatement;
+    public $selectExpr;
 
     /**
      * @var WhereConditions
@@ -27,9 +22,14 @@ class SelectStatement implements Statement
     public $whereConditions;
 
     /**
-     * @var SelectExpr
+     * @var LimitStatement
      */
-    public $selectExpr;
+    public $limitStatement;
+
+    /**
+     * @var OrderByStatement
+     */
+    public $orderByStatement;
 
     /**
      * @var string
@@ -49,43 +49,23 @@ class SelectStatement implements Statement
     }
 
     /**
-     * @return OrderByStatement
+     * @return SelectExpr
      */
-    public function getOrderByStatement()
+    public function getSelectExpr()
     {
-        // Start of user code Getter SelectStatement.getOrderByStatement
+        // Start of user code Getter SelectStatement.getSelectExpr
         // End of user code
-        return $this->orderByStatement;
+        return $this->selectExpr;
     }
 
     /**
-     * @param OrderByStatement $orderByStatement
+     * @param SelectExpr $selectExpr
      */
-    public function setOrderByStatement(OrderByStatement $orderByStatement)
+    public function setSelectExpr(SelectExpr $selectExpr)
     {
-        // Start of user code Setter SelectStatement.setOrderByStatement
+        // Start of user code Setter SelectStatement.setSelectExpr
         // End of user code
-        $this->orderByStatement = $orderByStatement;
-    }
-
-    /**
-     * @return LimitStatement
-     */
-    public function getLimitStatement()
-    {
-        // Start of user code Getter SelectStatement.getLimitStatement
-        // End of user code
-        return $this->limitStatement;
-    }
-
-    /**
-     * @param LimitStatement $limitStatement
-     */
-    public function setLimitStatement(LimitStatement $limitStatement)
-    {
-        // Start of user code Setter SelectStatement.setLimitStatement
-        // End of user code
-        $this->limitStatement = $limitStatement;
+        $this->selectExpr = $selectExpr;
     }
 
     /**
@@ -109,23 +89,43 @@ class SelectStatement implements Statement
     }
 
     /**
-     * @return SelectExpr
+     * @return LimitStatement
      */
-    public function getSelectExpr()
+    public function getLimitStatement()
     {
-        // Start of user code Getter SelectStatement.getSelectExpr
+        // Start of user code Getter SelectStatement.getLimitStatement
         // End of user code
-        return $this->selectExpr;
+        return $this->limitStatement;
     }
 
     /**
-     * @param SelectExpr $selectExpr
+     * @param LimitStatement $limitStatement
      */
-    public function setSelectExpr(SelectExpr $selectExpr)
+    public function setLimitStatement(LimitStatement $limitStatement)
     {
-        // Start of user code Setter SelectStatement.setSelectExpr
+        // Start of user code Setter SelectStatement.setLimitStatement
         // End of user code
-        $this->selectExpr = $selectExpr;
+        $this->limitStatement = $limitStatement;
+    }
+
+    /**
+     * @return OrderByStatement
+     */
+    public function getOrderByStatement()
+    {
+        // Start of user code Getter SelectStatement.getOrderByStatement
+        // End of user code
+        return $this->orderByStatement;
+    }
+
+    /**
+     * @param OrderByStatement $orderByStatement
+     */
+    public function setOrderByStatement(OrderByStatement $orderByStatement)
+    {
+        // Start of user code Setter SelectStatement.setOrderByStatement
+        // End of user code
+        $this->orderByStatement = $orderByStatement;
     }
 
     /**
@@ -151,20 +151,6 @@ class SelectStatement implements Statement
     // Statement Realization
 
     /**
-     * Tell wether the statement is ready or not to be executed
-     *
-     * @return bool $status
-     */
-    public function isReadyToBeExecuted()
-    {
-        // Start of user code Statement.isReadyToBeExecuted
-        // TODO should be implemented.
-        // End of user code
-    
-        return $status;
-    }
-
-    /**
      * Return the statement in String format
      *
      * @return string $statement
@@ -176,6 +162,20 @@ class SelectStatement implements Statement
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * Tell wether the statement is ready or not to be executed
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+        // TODO should be implemented.
+        // End of user code
+    
+        return $status;
     }
 
     /**

@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\DataSource\DataSource;
 use TiBeN\Framework\Entity\EntityCollection;
+use TiBeN\Framework\DataSource\DataSource;
 
 /**
  * 
@@ -13,11 +13,6 @@ use TiBeN\Framework\Entity\EntityCollection;
  */
 class MysqlDataSource implements DataSource
 {
-    /**
-     * @var string
-     */
-    public $userName;
-
     /**
      * @var string
      */
@@ -31,12 +26,17 @@ class MysqlDataSource implements DataSource
     /**
      * @var string
      */
-    public $databaseName;
+    public $userName;
 
     /**
      * @var Connection
      */
     private $connection;
+
+    /**
+     * @var string
+     */
+    public $databaseName;
 
     /**
      * @var int
@@ -58,26 +58,6 @@ class MysqlDataSource implements DataSource
     {
         // Start of user code MysqlDataSource.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getUserName()
-    {
-        // Start of user code Getter MysqlDataSource.getUserName
-        // End of user code
-        return $this->userName;
-    }
-
-    /**
-     * @param string $userName
-     */
-    public function setUserName($userName)
-    {
-        // Start of user code Setter MysqlDataSource.setUserName
-        // End of user code
-        $this->userName = $userName;
     }
 
     /**
@@ -123,21 +103,21 @@ class MysqlDataSource implements DataSource
     /**
      * @return string
      */
-    public function getDatabaseName()
+    public function getUserName()
     {
-        // Start of user code Getter MysqlDataSource.getDatabaseName
+        // Start of user code Getter MysqlDataSource.getUserName
         // End of user code
-        return $this->databaseName;
+        return $this->userName;
     }
 
     /**
-     * @param string $databaseName
+     * @param string $userName
      */
-    public function setDatabaseName($databaseName)
+    public function setUserName($userName)
     {
-        // Start of user code Setter MysqlDataSource.setDatabaseName
+        // Start of user code Setter MysqlDataSource.setUserName
         // End of user code
-        $this->databaseName = $databaseName;
+        $this->userName = $userName;
     }
 
     /**
@@ -158,6 +138,26 @@ class MysqlDataSource implements DataSource
         // Start of user code Setter MysqlDataSource.setConnection
         // End of user code
         $this->connection = $connection;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDatabaseName()
+    {
+        // Start of user code Getter MysqlDataSource.getDatabaseName
+        // End of user code
+        return $this->databaseName;
+    }
+
+    /**
+     * @param string $databaseName
+     */
+    public function setDatabaseName($databaseName)
+    {
+        // Start of user code Setter MysqlDataSource.setDatabaseName
+        // End of user code
+        $this->databaseName = $databaseName;
     }
 
     /**
@@ -203,35 +203,16 @@ class MysqlDataSource implements DataSource
     }
     /**
      * @param EntityMapping $entityMapping
-     * @param Entity $entity
+     * @param CriteriaSet $criteriaSet
+     * @return EntityCollection $entityCollection
      */
-    public function create(EntityMapping $entityMapping, Entity $entity)
+    public function read(EntityMapping $entityMapping, CriteriaSet $criteriaSet)
     {
-        // Start of user code DataSource.create
+        // Start of user code DataSource.read
         // TODO should be implemented.
         // End of user code
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     */
-    public function update(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code DataSource.update
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     */
-    public function delete(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code DataSource.delete
-        // TODO should be implemented.
-        // End of user code
+    
+        return $entityCollection;
     }
 
     /**
@@ -260,16 +241,35 @@ class MysqlDataSource implements DataSource
 
     /**
      * @param EntityMapping $entityMapping
-     * @param CriteriaSet $criteriaSet
-     * @return EntityCollection $entityCollection
+     * @param Entity $entity
      */
-    public function read(EntityMapping $entityMapping, CriteriaSet $criteriaSet)
+    public function create(EntityMapping $entityMapping, Entity $entity)
     {
-        // Start of user code DataSource.read
+        // Start of user code DataSource.create
         // TODO should be implemented.
         // End of user code
-    
-        return $entityCollection;
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     */
+    public function delete(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code DataSource.delete
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     */
+    public function update(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code DataSource.update
+        // TODO should be implemented.
+        // End of user code
     }
 
     // Start of user code MysqlDataSource.implementationSpecificMethods

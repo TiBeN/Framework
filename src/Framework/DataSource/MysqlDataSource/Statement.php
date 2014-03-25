@@ -11,18 +11,18 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 interface Statement
 {
 	/**
-	 * Tell wether the statement is ready or not to be executed
-	 *
-	 * @return bool $status
-	 */
-	public function isReadyToBeExecuted();
-
-	/**
 	 * Return the statement in String format
 	 *
 	 * @return string $statement
 	 */
 	public function toString();
+
+	/**
+	 * Tell wether the statement is ready or not to be executed
+	 *
+	 * @return bool $status
+	 */
+	public function isReadyToBeExecuted();
 
 	/**
 	 * @return AssociativeArray $statementParameters

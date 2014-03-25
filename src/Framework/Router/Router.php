@@ -52,37 +52,6 @@ class Router
     }
 
     /**
-     * Return a route rule from her name
-     *
-     * @param string $routeName
-     * @return RouteRule $routeRule
-     */
-    public static function getRouteRuleByName($routeName)
-    {
-        // Start of user code Router.getRouteRuleByName
-        // TODO should be implemented.
-        // End of user code
-    
-        return $routeRule;
-    }
-
-    /**
-     * Generate a ressource URI from it's routerule name and optional variables.
-     *
-     * @param string $routeName
-     * @param AssociativeArray $variables
-     * @return string $uri
-     */
-    public static function generateUri($routeName, AssociativeArray $variables)
-    {
-        // Start of user code Router.generateUri
-        // TODO should be implemented.
-        // End of user code
-    
-        return $uri;
-    }
-
-    /**
      * Execute the action of the controller specified by the route then send the generated Http response to client  
      *
      * @param Route $route
@@ -90,16 +59,6 @@ class Router
     public static function followRoute(Route $route)
     {
         // Start of user code Router.followRoute
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
-     * Search route as requested by client Http request then follow it.
-     */
-    public static function handleCurrentHttpRequest()
-    {
-        // Start of user code Router.handleCurrentHttpRequest
         // TODO should be implemented.
         // End of user code
     }
@@ -125,6 +84,47 @@ class Router
     public static function redirectToRoute($routeName, AssociativeArray $variables)
     {
         // Start of user code Router.redirectToRoute
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * Generate a ressource URI from it's routerule name and optional variables.
+     *
+     * @param string $routeName
+     * @param AssociativeArray $variables
+     * @return string $uri
+     */
+    public static function generateUri($routeName, AssociativeArray $variables)
+    {
+        // Start of user code Router.generateUri
+        // TODO should be implemented.
+        // End of user code
+    
+        return $uri;
+    }
+
+    /**
+     * Return a route rule from her name
+     *
+     * @param string $routeName
+     * @return RouteRule $routeRule
+     */
+    public static function getRouteRuleByName($routeName)
+    {
+        // Start of user code Router.getRouteRuleByName
+        // TODO should be implemented.
+        // End of user code
+    
+        return $routeRule;
+    }
+
+    /**
+     * Search route as requested by client Http request then follow it.
+     */
+    public static function handleCurrentHttpRequest()
+    {
+        // Start of user code Router.handleCurrentHttpRequest
         // TODO should be implemented.
         // End of user code
     }

@@ -31,14 +31,14 @@ class StatementExecutionResult
     public $errorMessage;
 
     /**
-     * @var int
-     */
-    public $errorCode;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var int
+     */
+    public $errorCode;
 
     public function __construct()
     {
@@ -133,26 +133,6 @@ class StatementExecutionResult
     }
 
     /**
-     * @return int
-     */
-    public function getErrorCode()
-    {
-        // Start of user code Getter StatementExecutionResult.getErrorCode
-        // End of user code
-        return $this->errorCode;
-    }
-
-    /**
-     * @param int $errorCode
-     */
-    public function setErrorCode($errorCode)
-    {
-        // Start of user code Setter StatementExecutionResult.setErrorCode
-        // End of user code
-        $this->errorCode = $errorCode;
-    }
-
-    /**
      * @return bool
      */
     public function getSuccess()
@@ -170,6 +150,26 @@ class StatementExecutionResult
         // Start of user code Setter StatementExecutionResult.setSuccess
         // End of user code
         $this->success = $success;
+    }
+
+    /**
+     * @return int
+     */
+    public function getErrorCode()
+    {
+        // Start of user code Getter StatementExecutionResult.getErrorCode
+        // End of user code
+        return $this->errorCode;
+    }
+
+    /**
+     * @param int $errorCode
+     */
+    public function setErrorCode($errorCode)
+    {
+        // Start of user code Setter StatementExecutionResult.setErrorCode
+        // End of user code
+        $this->errorCode = $errorCode;
     }
 
     // Start of user code StatementExecutionResult.implementationSpecificMethods

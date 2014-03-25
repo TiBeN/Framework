@@ -11,6 +11,11 @@ namespace TiBeN\Framework\Entity;
 class EntityMapping
 {
     /**
+     * @var string
+     */
+    public $dataSourceName;
+
+    /**
      * @var AssociativeArray
      */
     public $attributeMappings;
@@ -19,11 +24,6 @@ class EntityMapping
      * @var string
      */
     public $entityName;
-
-    /**
-     * @var string
-     */
-    public $dataSourceName;
 
     /**
      * @var DataSourceEntityMappingConfiguration
@@ -40,6 +40,26 @@ class EntityMapping
     {
         // Start of user code EntityMapping.destructor
         // End of user code
+    }
+
+    /**
+     * @return string
+     */
+    public function getDataSourceName()
+    {
+        // Start of user code Getter EntityMapping.getDataSourceName
+        // End of user code
+        return $this->dataSourceName;
+    }
+
+    /**
+     * @param string $dataSourceName
+     */
+    public function setDataSourceName($dataSourceName)
+    {
+        // Start of user code Setter EntityMapping.setDataSourceName
+        // End of user code
+        $this->dataSourceName = $dataSourceName;
     }
 
     /**
@@ -80,26 +100,6 @@ class EntityMapping
         // Start of user code Setter EntityMapping.setEntityName
         // End of user code
         $this->entityName = $entityName;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDataSourceName()
-    {
-        // Start of user code Getter EntityMapping.getDataSourceName
-        // End of user code
-        return $this->dataSourceName;
-    }
-
-    /**
-     * @param string $dataSourceName
-     */
-    public function setDataSourceName($dataSourceName)
-    {
-        // Start of user code Setter EntityMapping.setDataSourceName
-        // End of user code
-        $this->dataSourceName = $dataSourceName;
     }
 
     /**

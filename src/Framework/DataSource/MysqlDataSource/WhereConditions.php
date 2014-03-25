@@ -73,20 +73,6 @@ class WhereConditions
     }
 
     /**
-     * @param CriteriaSet $criteriaSet
-     * @param EntityMapping $entityMapping
-     * @return WhereConditions $whereCondition
-     */
-    public static function createFromCriteriaSet(CriteriaSet $criteriaSet, EntityMapping $entityMapping)
-    {
-        // Start of user code WhereConditions.createFromCriteriaSet
-        // TODO should be implemented.
-        // End of user code
-    
-        return $whereCondition;
-    }
-
-    /**
      * @param EntityMapping $entityMapping
      * @param Entity $entity
      * @return WhereConditions $whereConditions
@@ -111,6 +97,20 @@ class WhereConditions
         // End of user code
     
         return $whereConditions;
+    }
+
+    /**
+     * @param CriteriaSet $criteriaSet
+     * @param EntityMapping $entityMapping
+     * @return WhereConditions $whereCondition
+     */
+    public static function createFromCriteriaSet(CriteriaSet $criteriaSet, EntityMapping $entityMapping)
+    {
+        // Start of user code WhereConditions.createFromCriteriaSet
+        // TODO should be implemented.
+        // End of user code
+    
+        return $whereCondition;
     }
 
     /**

@@ -39,21 +39,6 @@ class IntegerConverterTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method convert from interface TypeConverter
-     * Start of user code TypeConverter.testconvertAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testConvert()
-    {
-        // Start of user code Converter.testconvert
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
      * Test method getType from interface TypeConverter
      * Start of user code TypeConverter.testgetTypeAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -69,14 +54,29 @@ class IntegerConverterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method getDataSourceType from interface TypeConverter
-     * Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
+     * Test method setParameters from interface TypeConverter
+     * Start of user code TypeConverter.testsetParametersAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testGetDataSourceType()
+    public function testSetParameters()
     {
-        // Start of user code TypeConverter.testgetDataSourceType
+        // Start of user code TypeConverter.testsetParameters
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method convert from interface TypeConverter
+     * Start of user code TypeConverter.testconvertAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testConvert()
+    {
+        // Start of user code Converter.testconvert
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );
@@ -99,14 +99,14 @@ class IntegerConverterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method setParameters from interface TypeConverter
-     * Start of user code TypeConverter.testsetParametersAnnotations 
+     * Test method getDataSourceType from interface TypeConverter
+     * Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testSetParameters()
+    public function testGetDataSourceType()
     {
-        // Start of user code TypeConverter.testsetParameters
+        // Start of user code TypeConverter.testgetDataSourceType
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );

@@ -1033,7 +1033,7 @@ HttpRequest can be also manualy constructed for simulation purposes.</body>
         </ownedParameter>
       </ownedOperation>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_YbLfMJkdEeKNe-pGKaimUg" name="Route">
+    <packagedElement xmi:type="uml:Class" xmi:id="_YbLfMJkdEeKNe-pGKaimUg" clientDependency="_d--A4LPuEeODP91Q1lJgIw" name="Route">
       <ownedComment xmi:type="uml:Comment" xmi:id="_PhvDMK8fEeK4D8ZgVhb42Q">
         <body>Represent a route to launch a ressource.
 Contain controller + action name to execute and 
@@ -1135,7 +1135,7 @@ control the action flow (follows, redirections) using RouteRules Définitions.  
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_jXFyUKfzEeKLRPn3lZyAPQ" name="variables" type="_ti84wLoPEeKycOj42mlSMA" effect="read"/>
       </ownedOperation>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_a3DEsJkdEeKNe-pGKaimUg" clientDependency="_U3BpEKM7EeKLKe0oeBmLTg _g3TkEKM7EeKLKe0oeBmLTg" name="RouteRule">
+    <packagedElement xmi:type="uml:Class" xmi:id="_a3DEsJkdEeKNe-pGKaimUg" clientDependency="_U3BpEKM7EeKLKe0oeBmLTg _g3TkEKM7EeKLKe0oeBmLTg _llTgILPuEeODP91Q1lJgIw" name="RouteRule">
       <ownedComment xmi:type="uml:Comment" xmi:id="_HOnWcK8fEeK4D8ZgVhb42Q">
         <body>Holds rules and conditions 
 to match an URI with a ressource.</body>
@@ -1352,6 +1352,8 @@ then return parsed variables if match.</body>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_0biKwKfzEeKLRPn3lZyAPQ" name="create Redirect response type" client="_ZiJHQJkdEeKNe-pGKaimUg" supplier="_c9kFQJkdEeKNe-pGKaimUg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_kNi7ILK-EeOvW8-QuQhpcA" name="hold get and post variables into" client="_UYK8wJkdEeKNe-pGKaimUg" supplier="_ti84wLoPEeKycOj42mlSMA"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_LQ6GsLMnEeOA2MOCYMM3hQ" name="hold headers into" client="_c9kFQJkdEeKNe-pGKaimUg" supplier="_ti84wLoPEeKycOj42mlSMA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_d--A4LPuEeODP91Q1lJgIw" name="hold variables into" client="_YbLfMJkdEeKNe-pGKaimUg" supplier="_ti84wLoPEeKycOj42mlSMA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_llTgILPuEeODP91Q1lJgIw" name="hold requirments into" client="_a3DEsJkdEeKNe-pGKaimUg" supplier="_ti84wLoPEeKycOj42mlSMA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_oIPh0LIzEeKwOoQ65WtEfA" name="Controller">
     <packagedElement xmi:type="uml:Class" xmi:id="_clZ4QKRzEeKL77OWyGfbwg" clientDependency="_44XT8KTpEeKPmbE2lP8SmA" name="Controller"/>

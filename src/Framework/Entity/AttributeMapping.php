@@ -11,6 +11,11 @@ namespace TiBeN\Framework\Entity;
 class AttributeMapping
 {
     /**
+     * @var bool
+     */
+    public $isIdentifier;
+
+    /**
      * @var DataSourceAttributeMappingConfiguration
      */
     public $dataSourceAttributeMappingConfiguration;
@@ -30,11 +35,6 @@ class AttributeMapping
      */
     public $type;
 
-    /**
-     * @var bool
-     */
-    public $isIdentifier;
-
     public function __construct()
     {
         // Start of user code AttributeMapping.constructor
@@ -45,6 +45,26 @@ class AttributeMapping
     {
         // Start of user code AttributeMapping.destructor
         // End of user code
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsIdentifier()
+    {
+        // Start of user code Getter AttributeMapping.getIsIdentifier
+        // End of user code
+        return $this->isIdentifier;
+    }
+
+    /**
+     * @param bool $isIdentifier
+     */
+    public function setIsIdentifier($isIdentifier)
+    {
+        // Start of user code Setter AttributeMapping.setIsIdentifier
+        // End of user code
+        $this->isIdentifier = $isIdentifier;
     }
 
     /**
@@ -125,26 +145,6 @@ class AttributeMapping
         // Start of user code Setter AttributeMapping.setType
         // End of user code
         $this->type = $type;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getIsIdentifier()
-    {
-        // Start of user code Getter AttributeMapping.getIsIdentifier
-        // End of user code
-        return $this->isIdentifier;
-    }
-
-    /**
-     * @param bool $isIdentifier
-     */
-    public function setIsIdentifier($isIdentifier)
-    {
-        // Start of user code Setter AttributeMapping.setIsIdentifier
-        // End of user code
-        $this->isIdentifier = $isIdentifier;
     }
 
     /**

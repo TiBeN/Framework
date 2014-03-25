@@ -10,20 +10,20 @@ namespace TiBeN\Framework\DataSource;
 interface TypeConverter extends Converter
 {
 	/**
-	 * @param T $itemToConvert
-	 * @return U $convertedItem
-	 */
-	public function convert($itemToConvert);
-
-	/**
 	 * @return string $type
 	 */
 	public function getType();
 
 	/**
-	 * @return string $dataSourceType
+	 * @param AssociativeArray $parameters
 	 */
-	public function getDataSourceType();
+	public function setParameters(AssociativeArray $parameters);
+
+	/**
+	 * @param T $itemToConvert
+	 * @return U $convertedItem
+	 */
+	public function convert($itemToConvert);
 
 	/**
 	 * @param U $itemToReverse
@@ -32,8 +32,8 @@ interface TypeConverter extends Converter
 	public function reverse($itemToReverse);
 
 	/**
-	 * @param AssociativeArray $parameters
+	 * @return string $dataSourceType
 	 */
-	public function setParameters(AssociativeArray $parameters);
+	public function getDataSourceType();
 
 }

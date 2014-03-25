@@ -24,6 +24,22 @@ class RouteUriManager
     }
 
     /**
+     * Generate an uri from an uri pattern and optional variables.
+     *
+     * @param string $uriPattern
+     * @param AssociativeArray $variables
+     * @return string $uri
+     */
+    public static function generateUri($uriPattern, AssociativeArray $variables)
+    {
+        // Start of user code RouteUriManager.generateUri
+        // TODO should be implemented.
+        // End of user code
+    
+        return $uri;
+    }
+
+    /**
      * Test an uri against an uri pattern and optionnal variables requirments 
      * then return parsed variables if match.
      *
@@ -39,22 +55,6 @@ class RouteUriManager
         // End of user code
     
         return $matchResult;
-    }
-
-    /**
-     * Generate an uri from an uri pattern and optional variables.
-     *
-     * @param string $uriPattern
-     * @param AssociativeArray $variables
-     * @return string $uri
-     */
-    public static function generateUri($uriPattern, AssociativeArray $variables)
-    {
-        // Start of user code RouteUriManager.generateUri
-        // TODO should be implemented.
-        // End of user code
-    
-        return $uri;
     }
 
     // Start of user code RouteUriManager.implementationSpecificMethods

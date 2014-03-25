@@ -37,22 +37,6 @@ class ValuesStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method toString from class ValuesStatement
-     *
-     * Start of user code ValuesStatementTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code ValuesStatementTest.testtoString
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method createFromEntity from class ValuesStatement
      *
      * Start of user code ValuesStatementTest.testcreateFromEntityAnnotations 
@@ -62,6 +46,22 @@ class ValuesStatementTest extends \PHPUnit_Framework_TestCase
     public function testCreateFromEntity()
     {
         // Start of user code ValuesStatementTest.testcreateFromEntity
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method toString from class ValuesStatement
+     *
+     * Start of user code ValuesStatementTest.testtoStringAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code ValuesStatementTest.testtoString
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

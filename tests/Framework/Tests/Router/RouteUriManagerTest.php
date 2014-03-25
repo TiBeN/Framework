@@ -37,22 +37,6 @@ class RouteUriManagerTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method matchAndParseUri from class RouteUriManager
-     *
-     * Start of user code RouteUriManagerTest.testmatchAndParseUriAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testMatchAndParseUri()
-    {
-        // Start of user code RouteUriManagerTest.testmatchAndParseUri
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method generateUri from class RouteUriManager
      *
      * Start of user code RouteUriManagerTest.testgenerateUriAnnotations 
@@ -62,6 +46,22 @@ class RouteUriManagerTest extends \PHPUnit_Framework_TestCase
     public function testGenerateUri()
     {
         // Start of user code RouteUriManagerTest.testgenerateUri
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method matchAndParseUri from class RouteUriManager
+     *
+     * Start of user code RouteUriManagerTest.testmatchAndParseUriAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testMatchAndParseUri()
+    {
+        // Start of user code RouteUriManagerTest.testmatchAndParseUri
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );
