@@ -19,14 +19,14 @@ class SmartyEngine implements TemplateEngine
     public $tmpPath;
 
     /**
-     * @var AssociativeArray
-     */
-    public $variables;
-
-    /**
      * @var string
      */
     public $templateFileName;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $variables;
 
     public function __construct()
     {
@@ -63,26 +63,6 @@ class SmartyEngine implements TemplateEngine
     // TemplateEngine Realization
 
     /**
-     * @return AssociativeArray
-     */
-    public function getVariables()
-    {
-        // Start of user code Getter TemplateEngine.getVariables
-        // End of user code
-        return $this->variables;
-    }
-
-    /**
-     * @param AssociativeArray $variables
-     */
-    public function setVariables(AssociativeArray $variables)
-    {
-        // Start of user code Setter TemplateEngine.setVariables
-        // End of user code
-        $this->variables = $variables;
-    }
-
-    /**
      * @return string
      */
     public function getTemplateFileName()
@@ -100,6 +80,26 @@ class SmartyEngine implements TemplateEngine
         // Start of user code Setter TemplateEngine.setTemplateFileName
         // End of user code
         $this->templateFileName = $templateFileName;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getVariables()
+    {
+        // Start of user code Getter TemplateEngine.getVariables
+        // End of user code
+        return $this->variables;
+    }
+
+    /**
+     * @param AssociativeArray $variables
+     */
+    public function setVariables(AssociativeArray $variables)
+    {
+        // Start of user code Setter TemplateEngine.setVariables
+        // End of user code
+        $this->variables = $variables;
     }
     /**
      * Render the template using variables and globals set and return the generated content

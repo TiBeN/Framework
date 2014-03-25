@@ -11,14 +11,14 @@ namespace TiBeN\Framework\Validation;
 class ValidationRule
 {
     /**
-     * @var AssociativeArray
-     */
-    public $configuration;
-
-    /**
      * @var string
      */
     public $validatorName;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $configuration;
 
     public function __construct()
     {
@@ -30,26 +30,6 @@ class ValidationRule
     {
         // Start of user code ValidationRule.destructor
         // End of user code
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getConfiguration()
-    {
-        // Start of user code Getter ValidationRule.getConfiguration
-        // End of user code
-        return $this->configuration;
-    }
-
-    /**
-     * @param AssociativeArray $configuration
-     */
-    public function setConfiguration(AssociativeArray $configuration)
-    {
-        // Start of user code Setter ValidationRule.setConfiguration
-        // End of user code
-        $this->configuration = $configuration;
     }
 
     /**
@@ -70,6 +50,26 @@ class ValidationRule
         // Start of user code Setter ValidationRule.setValidatorName
         // End of user code
         $this->validatorName = $validatorName;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getConfiguration()
+    {
+        // Start of user code Getter ValidationRule.getConfiguration
+        // End of user code
+        return $this->configuration;
+    }
+
+    /**
+     * @param AssociativeArray $configuration
+     */
+    public function setConfiguration(AssociativeArray $configuration)
+    {
+        // Start of user code Setter ValidationRule.setConfiguration
+        // End of user code
+        $this->configuration = $configuration;
     }
 
     // Start of user code ValidationRule.implementationSpecificMethods

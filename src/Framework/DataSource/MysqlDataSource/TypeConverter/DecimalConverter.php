@@ -13,21 +13,21 @@ use TiBeN\Framework\DataSource\TypeConverter;
 class DecimalConverter implements TypeConverter
 {
     /**
-     * Type of the element T
-     * @var String
-     */
-    protected $TType;
-
-    /**
      * Type of the element U
      * @var String
      */
     protected $UType;
 
-    public function __construct($TType = null, $UType = null)
+    /**
+     * Type of the element T
+     * @var String
+     */
+    protected $TType;
+
+    public function __construct($UType = null, $TType = null)
     {
-        $this->TType = $TType;
         $this->UType = $UType;
+        $this->TType = $TType;
 
         // Start of user code DecimalConverter.constructor
         // End of user code
@@ -40,21 +40,21 @@ class DecimalConverter implements TypeConverter
     }
     
     /**
-     * T type getter
-     * @var String
-     */
-    public function getTType()
-    {
-        return $this->TType;
-    }
-
-    /**
      * U type getter
      * @var String
      */
     public function getUType()
     {
         return $this->UType;
+    }
+
+    /**
+     * T type getter
+     * @var String
+     */
+    public function getTType()
+    {
+        return $this->TType;
     }
 
     /**
@@ -90,20 +90,6 @@ class DecimalConverter implements TypeConverter
     // TypeConverter Realization
 
     /**
-     * @param T $itemToConvert
-     * @return U $convertedItem
-     */
-    public function convert($itemToConvert)
-    {
-        $this->typeHint($this->TType, $itemToConvert);
-        // Start of user code Converter.convert
-        // TODO should be implemented.
-        // End of user code
-    
-        return $convertedItem;
-    }
-
-    /**
      * @return string $type
      */
     public function getType()
@@ -116,15 +102,27 @@ class DecimalConverter implements TypeConverter
     }
 
     /**
-     * @return string $dataSourceType
+     * @param AssociativeArray $parameters
      */
-    public function getDataSourceType()
+    public function setParameters(AssociativeArray $parameters)
     {
-        // Start of user code TypeConverter.getDataSourceType
+        // Start of user code TypeConverter.setParameters
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * @param T $itemToConvert
+     * @return U $convertedItem
+     */
+    public function convert($itemToConvert)
+    {
+        $this->typeHint($this->TType, $itemToConvert);
+        // Start of user code Converter.convert
         // TODO should be implemented.
         // End of user code
     
-        return $dataSourceType;
+        return $convertedItem;
     }
 
     /**
@@ -142,13 +140,15 @@ class DecimalConverter implements TypeConverter
     }
 
     /**
-     * @param AssociativeArray $parameters
+     * @return string $dataSourceType
      */
-    public function setParameters(AssociativeArray $parameters)
+    public function getDataSourceType()
     {
-        // Start of user code TypeConverter.setParameters
+        // Start of user code TypeConverter.getDataSourceType
         // TODO should be implemented.
         // End of user code
+    
+        return $dataSourceType;
     }
 
     // Start of user code DecimalConverter.implementationSpecificMethods

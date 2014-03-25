@@ -37,54 +37,6 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method add from class CriteriaSet
-     *
-     * Start of user code CriteriaSetTest.testaddAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testAdd()
-    {
-        // Start of user code CriteriaSetTest.testadd
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test method addOrder from class CriteriaSet
-     *
-     * Start of user code CriteriaSetTest.testaddOrderAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testAddOrder()
-    {
-        // Start of user code CriteriaSetTest.testaddOrder
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test method setLimit from class CriteriaSet
-     *
-     * Start of user code CriteriaSetTest.testsetLimitAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testSetLimit()
-    {
-        // Start of user code CriteriaSetTest.testsetLimit
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method createAnd from class CriteriaSet
      *
      * Start of user code CriteriaSetTest.testcreateAndAnnotations 
@@ -126,6 +78,54 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     public function testCreateOr()
     {
         // Start of user code CriteriaSetTest.testcreateOr
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method setLimit from class CriteriaSet
+     *
+     * Start of user code CriteriaSetTest.testsetLimitAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testSetLimit()
+    {
+        // Start of user code CriteriaSetTest.testsetLimit
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method addOrder from class CriteriaSet
+     *
+     * Start of user code CriteriaSetTest.testaddOrderAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testAddOrder()
+    {
+        // Start of user code CriteriaSetTest.testaddOrder
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method add from class CriteriaSet
+     *
+     * Start of user code CriteriaSetTest.testaddAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testAdd()
+    {
+        // Start of user code CriteriaSetTest.testadd
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

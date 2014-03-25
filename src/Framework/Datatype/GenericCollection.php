@@ -18,6 +18,11 @@ class GenericCollection implements Collection
     protected $TType;
 
     /**
+     * @var bool
+     */
+    protected $isReadOnly;
+
+    /**
      * @var array
      */
     protected $items;
@@ -26,11 +31,6 @@ class GenericCollection implements Collection
      * @var int
      */
     protected $iteratorPosition;
-
-    /**
-     * @var bool
-     */
-    protected $isReadOnly;
 
     public function __construct($TType = null)
     {
@@ -86,6 +86,26 @@ class GenericCollection implements Collection
     }
 
     /**
+     * @return bool
+     */
+    protected function getIsReadOnly()
+    {
+        // Start of user code Getter GenericCollection.getIsReadOnly
+        // End of user code
+        return $this->isReadOnly;
+    }
+
+    /**
+     * @param bool $isReadOnly
+     */
+    protected function setIsReadOnly($isReadOnly)
+    {
+        // Start of user code Setter GenericCollection.setIsReadOnly
+        // End of user code
+        $this->isReadOnly = $isReadOnly;
+    }
+
+    /**
      * @return array
      */
     protected function getItems()
@@ -126,26 +146,6 @@ class GenericCollection implements Collection
     }
 
     /**
-     * @return bool
-     */
-    protected function getIsReadOnly()
-    {
-        // Start of user code Getter GenericCollection.getIsReadOnly
-        // End of user code
-        return $this->isReadOnly;
-    }
-
-    /**
-     * @param bool $isReadOnly
-     */
-    protected function setIsReadOnly($isReadOnly)
-    {
-        // Start of user code Setter GenericCollection.setIsReadOnly
-        // End of user code
-        $this->isReadOnly = $isReadOnly;
-    }
-
-    /**
      * @param string $type
      * @param array $nativeArray
      * @return GenericCollection $genericCollection
@@ -162,17 +162,17 @@ class GenericCollection implements Collection
     // Collection Realization
 
     /**
-     * Returns the key of the current element. 
+     * Count elements of an object
      *
-     * @return int $key
+     * @return int $numberOfItems
      */
-    public function key()
+    public function count()
     {
-        // Start of user code Iterator.key
+        // Start of user code Countable.count
         // TODO should be implemented.
         // End of user code
     
-        return $key;
+        return $numberOfItems;
     }
 
     /**
@@ -188,32 +188,27 @@ class GenericCollection implements Collection
     }
 
     /**
-     * Tell wheter an item is stored in the provided key slot.
+     * Reset the collection by deleting all item it contain.
+     */
+    public function clear()
+    {
+        // Start of user code Collection.clear
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * Tell whether the collection is empty or not.
      *
-     * @param int $key
      * @return bool $boolean
      */
-    public function hasKey($key)
+    public function isEmpty()
     {
-        // Start of user code Collection.hasKey
+        // Start of user code Collection.isEmpty
         // TODO should be implemented.
         // End of user code
     
         return $boolean;
-    }
-
-    /**
-     * Count elements of an object
-     *
-     * @return int $numberOfItems
-     */
-    public function count()
-    {
-        // Start of user code Countable.count
-        // TODO should be implemented.
-        // End of user code
-    
-        return $numberOfItems;
     }
 
     /**
@@ -226,29 +221,6 @@ class GenericCollection implements Collection
     {
         $this->typeHint($this->TType, $itemToSet);
         // Start of user code Collection.set
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
-     * Adding a new item to the end of the collection.
-     *
-     * @param T $itemToAdd
-     */
-    public function add($itemToAdd)
-    {
-        $this->typeHint($this->TType, $itemToAdd);
-        // Start of user code Collection.add
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
-     * Rewinds back to the first element of the Iterator. 
-     */
-    public function rewind()
-    {
-        // Start of user code Iterator.rewind
         // TODO should be implemented.
         // End of user code
     }
@@ -270,11 +242,63 @@ class GenericCollection implements Collection
     }
 
     /**
-     * Reset the collection by deleting all item it contain.
+     * Check if the current position is valid. 
+     *
+     * @return T $currentItem
      */
-    public function clear()
+    public function current()
     {
-        // Start of user code Collection.clear
+        // Start of user code Iterator.current
+        // TODO should be implemented.
+        // End of user code
+    
+        return $currentItem;
+    }
+
+    /**
+     * Rewinds back to the first element of the Iterator. 
+     */
+    public function rewind()
+    {
+        // Start of user code Iterator.rewind
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * Return the object stored in the provided key slot.
+     *
+     * @param int $key
+     * @return T $item
+     */
+    public function get($key)
+    {
+        // Start of user code Collection.get
+        // TODO should be implemented.
+        // End of user code
+    
+        return $item;
+    }
+
+    /**
+     * Adding a new item to the end of the collection.
+     *
+     * @param T $itemToAdd
+     */
+    public function add($itemToAdd)
+    {
+        $this->typeHint($this->TType, $itemToAdd);
+        // Start of user code Collection.add
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * Moves the current position to the next element. 
+     */
+    public function next()
+    {
+        // Start of user code Iterator.next
         // TODO should be implemented.
         // End of user code
     }
@@ -294,23 +318,28 @@ class GenericCollection implements Collection
     }
 
     /**
-     * Moves the current position to the next element. 
+     * Returns the key of the current element. 
+     *
+     * @return int $key
      */
-    public function next()
+    public function key()
     {
-        // Start of user code Iterator.next
+        // Start of user code Iterator.key
         // TODO should be implemented.
         // End of user code
+    
+        return $key;
     }
 
     /**
-     * Tell whether the collection is empty or not.
+     * Tell wheter an item is stored in the provided key slot.
      *
+     * @param int $key
      * @return bool $boolean
      */
-    public function isEmpty()
+    public function hasKey($key)
     {
-        // Start of user code Collection.isEmpty
+        // Start of user code Collection.hasKey
         // TODO should be implemented.
         // End of user code
     
@@ -327,35 +356,6 @@ class GenericCollection implements Collection
         // End of user code
     
         return $boolean;
-    }
-
-    /**
-     * Check if the current position is valid. 
-     *
-     * @return T $currentItem
-     */
-    public function current()
-    {
-        // Start of user code Iterator.current
-        // TODO should be implemented.
-        // End of user code
-    
-        return $currentItem;
-    }
-
-    /**
-     * Return the object stored in the provided key slot.
-     *
-     * @param int $key
-     * @return T $item
-     */
-    public function get($key)
-    {
-        // Start of user code Collection.get
-        // TODO should be implemented.
-        // End of user code
-    
-        return $item;
     }
 
     // Start of user code GenericCollection.implementationSpecificMethods

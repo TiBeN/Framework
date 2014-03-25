@@ -24,6 +24,25 @@ class Driver
     }
 
     /**
+     * Create a new connection to a Mysql database
+     *
+     * @param string $host
+     * @param string $userName
+     * @param string $password
+     * @param string $databaseName
+     * @param int $port
+     * @return Connection $connection
+     */
+    public static function connect($host, $userName, $password, $databaseName, $port)
+    {
+        // Start of user code Driver.connect
+        // TODO should be implemented.
+        // End of user code
+    
+        return $connection;
+    }
+
+    /**
      * Close the connexion to a Mysql database
      *
      * @param Connection $connection
@@ -49,25 +68,6 @@ class Driver
         // End of user code
     
         return $statementResult;
-    }
-
-    /**
-     * Create a new connection to a Mysql database
-     *
-     * @param string $host
-     * @param string $userName
-     * @param string $password
-     * @param string $databaseName
-     * @param int $port
-     * @return Connection $connection
-     */
-    public static function connect($host, $userName, $password, $databaseName, $port)
-    {
-        // Start of user code Driver.connect
-        // TODO should be implemented.
-        // End of user code
-    
-        return $connection;
     }
 
     // Start of user code Driver.implementationSpecificMethods

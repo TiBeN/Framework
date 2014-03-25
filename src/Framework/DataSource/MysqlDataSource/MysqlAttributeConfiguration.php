@@ -13,14 +13,14 @@ use TiBeN\Framework\Entity\DataSourceAttributeMappingConfiguration;
 class MysqlAttributeConfiguration implements DataSourceAttributeMappingConfiguration
 {
     /**
-     * @var string
-     */
-    public $columnName;
-
-    /**
      * @var bool
      */
     public $isAutoIncrement = false;
+
+    /**
+     * @var string
+     */
+    public $columnName;
 
     public function __construct()
     {
@@ -32,26 +32,6 @@ class MysqlAttributeConfiguration implements DataSourceAttributeMappingConfigura
     {
         // Start of user code MysqlAttributeConfiguration.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getColumnName()
-    {
-        // Start of user code Getter MysqlAttributeConfiguration.getColumnName
-        // End of user code
-        return $this->columnName;
-    }
-
-    /**
-     * @param string $columnName
-     */
-    public function setColumnName($columnName)
-    {
-        // Start of user code Setter MysqlAttributeConfiguration.setColumnName
-        // End of user code
-        $this->columnName = $columnName;
     }
 
     /**
@@ -72,6 +52,26 @@ class MysqlAttributeConfiguration implements DataSourceAttributeMappingConfigura
         // Start of user code Setter MysqlAttributeConfiguration.setIsAutoIncrement
         // End of user code
         $this->isAutoIncrement = $isAutoIncrement;
+    }
+
+    /**
+     * @return string
+     */
+    public function getColumnName()
+    {
+        // Start of user code Getter MysqlAttributeConfiguration.getColumnName
+        // End of user code
+        return $this->columnName;
+    }
+
+    /**
+     * @param string $columnName
+     */
+    public function setColumnName($columnName)
+    {
+        // Start of user code Setter MysqlAttributeConfiguration.setColumnName
+        // End of user code
+        $this->columnName = $columnName;
     }
 
     // DataSourceAttributeMappingConfiguration Realization

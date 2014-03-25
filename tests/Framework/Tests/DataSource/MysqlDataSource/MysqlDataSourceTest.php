@@ -39,44 +39,14 @@ class MysqlDataSourceTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method create from interface DataSource
-     * Start of user code DataSource.testcreateAnnotations 
+     * Test method read from interface DataSource
+     * Start of user code DataSource.testreadAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testCreate()
+    public function testRead()
     {
-        // Start of user code DataSource.testcreate
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
-     * Test method update from interface DataSource
-     * Start of user code DataSource.testupdateAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testUpdate()
-    {
-        // Start of user code DataSource.testupdate
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
-     * Test method delete from interface DataSource
-     * Start of user code DataSource.testdeleteAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testDelete()
-    {
-        // Start of user code DataSource.testdelete
+        // Start of user code DataSource.testread
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );
@@ -114,14 +84,44 @@ class MysqlDataSourceTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method read from interface DataSource
-     * Start of user code DataSource.testreadAnnotations 
+     * Test method create from interface DataSource
+     * Start of user code DataSource.testcreateAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testRead()
+    public function testCreate()
     {
-        // Start of user code DataSource.testread
+        // Start of user code DataSource.testcreate
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method delete from interface DataSource
+     * Start of user code DataSource.testdeleteAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testDelete()
+    {
+        // Start of user code DataSource.testdelete
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method update from interface DataSource
+     * Start of user code DataSource.testupdateAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testUpdate()
+    {
+        // Start of user code DataSource.testupdate
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );

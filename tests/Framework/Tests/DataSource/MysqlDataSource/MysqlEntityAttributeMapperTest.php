@@ -37,6 +37,38 @@ class MysqlEntityAttributeMapperTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test method getIdentifierValue from class MysqlEntityAttributeMapper
+     *
+     * Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierValueAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetIdentifierValue()
+    {
+        // Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierValue
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method setAttributeValue from class MysqlEntityAttributeMapper
+     *
+     * Start of user code MysqlEntityAttributeMapperTest.testsetAttributeValueAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testSetAttributeValue()
+    {
+        // Start of user code MysqlEntityAttributeMapperTest.testsetAttributeValue
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
      * Test method getColumnValue from class MysqlEntityAttributeMapper
      *
      * Start of user code MysqlEntityAttributeMapperTest.testgetColumnValueAnnotations 
@@ -46,6 +78,22 @@ class MysqlEntityAttributeMapperTest extends \PHPUnit_Framework_TestCase
     public function testGetColumnValue()
     {
         // Start of user code MysqlEntityAttributeMapperTest.testgetColumnValue
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method getIdentifierAttributeName from class MysqlEntityAttributeMapper
+     *
+     * Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierAttributeNameAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetIdentifierAttributeName()
+    {
+        // Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierAttributeName
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );
@@ -78,54 +126,6 @@ class MysqlEntityAttributeMapperTest extends \PHPUnit_Framework_TestCase
     public function testSetIdentifier()
     {
         // Start of user code MysqlEntityAttributeMapperTest.testsetIdentifier
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test method getIdentifierAttributeName from class MysqlEntityAttributeMapper
-     *
-     * Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierAttributeNameAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetIdentifierAttributeName()
-    {
-        // Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierAttributeName
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test method getIdentifierValue from class MysqlEntityAttributeMapper
-     *
-     * Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierValueAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetIdentifierValue()
-    {
-        // Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierValue
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test method setAttributeValue from class MysqlEntityAttributeMapper
-     *
-     * Start of user code MysqlEntityAttributeMapperTest.testsetAttributeValueAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testSetAttributeValue()
-    {
-        // Start of user code MysqlEntityAttributeMapperTest.testsetAttributeValue
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

@@ -13,12 +13,12 @@ class Expr
     /**
      * @var string
      */
-    const LOGICAL_SEPARATOR_OR = 'OR';
+    const OPERATOR_NOT_LIKE = 'NOT LIKE';
 
     /**
      * @var string
      */
-    const OPERATOR_GREATER_THAN = '>';
+    const OPERATOR_LESS_THAN = '<';
 
     /**
      * @var string
@@ -26,24 +26,9 @@ class Expr
     public $exprString;
 
     /**
-     * @var string
+     * @var bool
      */
-    const OPERATOR_EQUALS = '=';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_NOT_EQUALS = '!=';
-
-    /**
-     * @var string
-     */
-    const LOGICAL_SEPARATOR_AND = 'AND';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LIKE = 'LIKE';
+    public $isResultOfConcatenation = false;
 
     /**
      * @var AssociativeArray
@@ -53,17 +38,27 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
-
-    /**
-     * @var bool
-     */
-    public $isResultOfConcatenation = false;
+    const OPERATOR_NOT_EQUALS = '!=';
 
     /**
      * @var string
      */
-    const OPERATOR_NOT_LIKE = 'NOT LIKE';
+    const OPERATOR_LIKE = 'LIKE';
+
+    /**
+     * @var string
+     */
+    const LOGICAL_SEPARATOR_OR = 'OR';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
+
+    /**
+     * @var string
+     */
+    const LOGICAL_SEPARATOR_AND = 'AND';
 
     /**
      * @var string
@@ -73,7 +68,12 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_LESS_THAN = '<';
+    const OPERATOR_GREATER_THAN = '>';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_EQUALS = '=';
 
     public function __construct()
     {
@@ -108,26 +108,6 @@ class Expr
     }
 
     /**
-     * @return AssociativeArray
-     */
-    public function getExprParameters()
-    {
-        // Start of user code Getter Expr.getExprParameters
-        // End of user code
-        return $this->exprParameters;
-    }
-
-    /**
-     * @param AssociativeArray $exprParameters
-     */
-    public function setExprParameters(AssociativeArray $exprParameters)
-    {
-        // Start of user code Setter Expr.setExprParameters
-        // End of user code
-        $this->exprParameters = $exprParameters;
-    }
-
-    /**
      * @return bool
      */
     public function getIsResultOfConcatenation()
@@ -148,6 +128,26 @@ class Expr
     }
 
     /**
+     * @return AssociativeArray
+     */
+    public function getExprParameters()
+    {
+        // Start of user code Getter Expr.getExprParameters
+        // End of user code
+        return $this->exprParameters;
+    }
+
+    /**
+     * @param AssociativeArray $exprParameters
+     */
+    public function setExprParameters(AssociativeArray $exprParameters)
+    {
+        // Start of user code Setter Expr.setExprParameters
+        // End of user code
+        $this->exprParameters = $exprParameters;
+    }
+
+    /**
      * @param string $exprString
      * @param AssociativeArray $exprParameters
      * @return Expr $expr
@@ -155,20 +155,6 @@ class Expr
     public static function fromString($exprString, AssociativeArray $exprParameters)
     {
         // Start of user code Expr.fromString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $expr;
-    }
-
-    /**
-     * @param GenericCollection $exprCollection
-     * @param string $logicalSeparator
-     * @return Expr $expr
-     */
-    public static function concat(GenericCollection $exprCollection, $logicalSeparator)
-    {
-        // Start of user code Expr.concat
         // TODO should be implemented.
         // End of user code
     
@@ -185,6 +171,20 @@ class Expr
         // End of user code
     
         return $exprString;
+    }
+
+    /**
+     * @param GenericCollection $exprCollection
+     * @param string $logicalSeparator
+     * @return Expr $expr
+     */
+    public static function concat(GenericCollection $exprCollection, $logicalSeparator)
+    {
+        // Start of user code Expr.concat
+        // TODO should be implemented.
+        // End of user code
+    
+        return $expr;
     }
 
     // Start of user code Expr.implementationSpecificMethods

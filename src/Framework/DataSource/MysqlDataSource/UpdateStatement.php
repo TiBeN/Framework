@@ -12,14 +12,14 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 class UpdateStatement implements Statement
 {
     /**
-     * @var SetStatement
-     */
-    public $setStatement;
-
-    /**
      * @var string
      */
     public $tableName;
+
+    /**
+     * @var SetStatement
+     */
+    public $setStatement;
 
     /**
      * @var WhereConditions
@@ -36,26 +36,6 @@ class UpdateStatement implements Statement
     {
         // Start of user code UpdateStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return SetStatement
-     */
-    public function getSetStatement()
-    {
-        // Start of user code Getter UpdateStatement.getSetStatement
-        // End of user code
-        return $this->setStatement;
-    }
-
-    /**
-     * @param SetStatement $setStatement
-     */
-    public function setSetStatement(SetStatement $setStatement)
-    {
-        // Start of user code Setter UpdateStatement.setSetStatement
-        // End of user code
-        $this->setStatement = $setStatement;
     }
 
     /**
@@ -76,6 +56,26 @@ class UpdateStatement implements Statement
         // Start of user code Setter UpdateStatement.setTableName
         // End of user code
         $this->tableName = $tableName;
+    }
+
+    /**
+     * @return SetStatement
+     */
+    public function getSetStatement()
+    {
+        // Start of user code Getter UpdateStatement.getSetStatement
+        // End of user code
+        return $this->setStatement;
+    }
+
+    /**
+     * @param SetStatement $setStatement
+     */
+    public function setSetStatement(SetStatement $setStatement)
+    {
+        // Start of user code Setter UpdateStatement.setSetStatement
+        // End of user code
+        $this->setStatement = $setStatement;
     }
 
     /**
@@ -101,20 +101,6 @@ class UpdateStatement implements Statement
     // Statement Realization
 
     /**
-     * Tell wether the statement is ready or not to be executed
-     *
-     * @return bool $status
-     */
-    public function isReadyToBeExecuted()
-    {
-        // Start of user code Statement.isReadyToBeExecuted
-        // TODO should be implemented.
-        // End of user code
-    
-        return $status;
-    }
-
-    /**
      * Return the statement in String format
      *
      * @return string $statement
@@ -126,6 +112,20 @@ class UpdateStatement implements Statement
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * Tell wether the statement is ready or not to be executed
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+        // TODO should be implemented.
+        // End of user code
+    
+        return $status;
     }
 
     /**

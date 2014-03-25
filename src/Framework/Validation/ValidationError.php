@@ -13,12 +13,12 @@ class ValidationError
     /**
      * @var string
      */
-    public $validatorName;
+    public $message;
 
     /**
      * @var string
      */
-    public $message;
+    public $validatorName;
 
     public function __construct()
     {
@@ -30,26 +30,6 @@ class ValidationError
     {
         // Start of user code ValidationError.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getValidatorName()
-    {
-        // Start of user code Getter ValidationError.getValidatorName
-        // End of user code
-        return $this->validatorName;
-    }
-
-    /**
-     * @param string $validatorName
-     */
-    public function setValidatorName($validatorName)
-    {
-        // Start of user code Setter ValidationError.setValidatorName
-        // End of user code
-        $this->validatorName = $validatorName;
     }
 
     /**
@@ -70,6 +50,26 @@ class ValidationError
         // Start of user code Setter ValidationError.setMessage
         // End of user code
         $this->message = $message;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValidatorName()
+    {
+        // Start of user code Getter ValidationError.getValidatorName
+        // End of user code
+        return $this->validatorName;
+    }
+
+    /**
+     * @param string $validatorName
+     */
+    public function setValidatorName($validatorName)
+    {
+        // Start of user code Setter ValidationError.setValidatorName
+        // End of user code
+        $this->validatorName = $validatorName;
     }
 
     // Start of user code ValidationError.implementationSpecificMethods

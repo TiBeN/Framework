@@ -12,11 +12,6 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 class InsertStatement implements Statement
 {
     /**
-     * @var ColumnNamesListStatement
-     */
-    public $columnNamesListStatement;
-
-    /**
      * @var string
      */
     public $tableName;
@@ -25,6 +20,11 @@ class InsertStatement implements Statement
      * @var ValuesStatement
      */
     public $valuesStatement;
+
+    /**
+     * @var ColumnNamesListStatement
+     */
+    public $columnNamesListStatement;
 
     public function __construct()
     {
@@ -36,26 +36,6 @@ class InsertStatement implements Statement
     {
         // Start of user code InsertStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return ColumnNamesListStatement
-     */
-    public function getColumnNamesListStatement()
-    {
-        // Start of user code Getter InsertStatement.getColumnNamesListStatement
-        // End of user code
-        return $this->columnNamesListStatement;
-    }
-
-    /**
-     * @param ColumnNamesListStatement $columnNamesListStatement
-     */
-    public function setColumnNamesListStatement(ColumnNamesListStatement $columnNamesListStatement)
-    {
-        // Start of user code Setter InsertStatement.setColumnNamesListStatement
-        // End of user code
-        $this->columnNamesListStatement = $columnNamesListStatement;
     }
 
     /**
@@ -98,21 +78,27 @@ class InsertStatement implements Statement
         $this->valuesStatement = $valuesStatement;
     }
 
-    // Statement Realization
+    /**
+     * @return ColumnNamesListStatement
+     */
+    public function getColumnNamesListStatement()
+    {
+        // Start of user code Getter InsertStatement.getColumnNamesListStatement
+        // End of user code
+        return $this->columnNamesListStatement;
+    }
 
     /**
-     * Tell wether the statement is ready or not to be executed
-     *
-     * @return bool $status
+     * @param ColumnNamesListStatement $columnNamesListStatement
      */
-    public function isReadyToBeExecuted()
+    public function setColumnNamesListStatement(ColumnNamesListStatement $columnNamesListStatement)
     {
-        // Start of user code Statement.isReadyToBeExecuted
-        // TODO should be implemented.
+        // Start of user code Setter InsertStatement.setColumnNamesListStatement
         // End of user code
-    
-        return $status;
+        $this->columnNamesListStatement = $columnNamesListStatement;
     }
+
+    // Statement Realization
 
     /**
      * Return the statement in String format
@@ -126,6 +112,20 @@ class InsertStatement implements Statement
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * Tell wether the statement is ready or not to be executed
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+        // TODO should be implemented.
+        // End of user code
+    
+        return $status;
     }
 
     /**

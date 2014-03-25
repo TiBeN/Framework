@@ -2,6 +2,8 @@
 
 namespace TiBeN\Framework\Router;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
+
 /**
  * Represent a route to launch a ressource.
  * Contain controller + action name to execute and 
@@ -18,14 +20,14 @@ class Route
     public $controller;
 
     /**
-     * @var AssociativeArray
-     */
-    public $variables;
-
-    /**
      * @var string
      */
     public $action;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $variables;
 
     public function __construct()
     {
@@ -60,26 +62,6 @@ class Route
     }
 
     /**
-     * @return AssociativeArray
-     */
-    public function getVariables()
-    {
-        // Start of user code Getter Route.getVariables
-        // End of user code
-        return $this->variables;
-    }
-
-    /**
-     * @param AssociativeArray $variables
-     */
-    public function setVariables(AssociativeArray $variables)
-    {
-        // Start of user code Setter Route.setVariables
-        // End of user code
-        $this->variables = $variables;
-    }
-
-    /**
      * @return string
      */
     public function getAction()
@@ -100,12 +82,35 @@ class Route
     }
 
     /**
+     * @return AssociativeArray
+     */
+    public function getVariables()
+    {
+        // Start of user code Getter Route.getVariables
+        // End of user code
+        return $this->variables;
+    }
+
+    /**
+     * @param AssociativeArray $variables
+     */
+    public function setVariables(AssociativeArray $variables)
+    {
+        // Start of user code Setter Route.setVariables
+        // End of user code
+        $this->variables = $variables;
+    }
+
+    /**
      * @return bool $bool
      */
     public function hasVariables()
     {
         // Start of user code Route.hasVariables
-        // TODO should be implemented.
+        $bool = (isset($this->variables) && !empty($this->variables))
+			? true
+			: false
+		;
         // End of user code
     
         return $bool;

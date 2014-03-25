@@ -13,26 +13,26 @@ use TiBeN\Framework\Datatype\Converter;
 class RowToEntityConverter implements Converter
 {
     /**
-     * Type of the element T
-     * @var String
-     */
-    protected $TType;
-
-    /**
      * Type of the element U
      * @var String
      */
     protected $UType;
 
     /**
+     * Type of the element T
+     * @var String
+     */
+    protected $TType;
+
+    /**
      * @var EntityMapping
      */
     public $entityMapping;
 
-    public function __construct($TType = null, $UType = null)
+    public function __construct($UType = null, $TType = null)
     {
-        $this->TType = $TType;
         $this->UType = $UType;
+        $this->TType = $TType;
 
         // Start of user code RowToEntityConverter.constructor
         // End of user code
@@ -45,21 +45,21 @@ class RowToEntityConverter implements Converter
     }
     
     /**
-     * T type getter
-     * @var String
-     */
-    public function getTType()
-    {
-        return $this->TType;
-    }
-
-    /**
      * U type getter
      * @var String
      */
     public function getUType()
     {
         return $this->UType;
+    }
+
+    /**
+     * T type getter
+     * @var String
+     */
+    public function getTType()
+    {
+        return $this->TType;
     }
 
     /**
