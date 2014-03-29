@@ -2,7 +2,6 @@
 
 namespace TiBeN\Framework\Renderer;
 
-
 /**
  * Specific template engine that use the Smarty template engine. 
  * This is used by default by the TemplateRenderer.

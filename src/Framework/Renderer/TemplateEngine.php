@@ -1,7 +1,9 @@
 <?php
 
 namespace TiBeN\Framework\Renderer;
- 
+
+use TiBeN\Framework\Datatype\AssociativeArray;
+
 /**
  * Responsible of rendering a template using variables. 
  * This Interface describes the engines classes used by the TemplateRenderer 

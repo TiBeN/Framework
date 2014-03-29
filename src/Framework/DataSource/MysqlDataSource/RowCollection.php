@@ -2,6 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Datatype\ProxyAbleGenericCollection;
+
 /**
  * 
  *

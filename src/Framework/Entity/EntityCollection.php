@@ -2,6 +2,8 @@
 
 namespace TiBeN\Framework\Entity;
 
+use TiBeN\Framework\Datatype\ProxyAbleGenericCollection;
+
 /**
  * 
  *

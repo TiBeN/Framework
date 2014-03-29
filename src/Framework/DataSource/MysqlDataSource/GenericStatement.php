@@ -2,6 +2,7 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 /**
  * Container for custom string queries. 
@@ -64,20 +65,6 @@ class GenericStatement implements Statement
     // Statement Realization
 
     /**
-     * Return the statement in String format
-     *
-     * @return string $statement
-     */
-    public function toString()
-    {
-        // Start of user code Statement.toString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $statement;
-    }
-
-    /**
      * Tell wether the statement is ready or not to be executed
      *
      * @return bool $status
@@ -89,6 +76,20 @@ class GenericStatement implements Statement
         // End of user code
     
         return $status;
+    }
+
+    /**
+     * Return the statement in String format
+     *
+     * @return string $statement
+     */
+    public function toString()
+    {
+        // Start of user code Statement.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $statement;
     }
 
     /**

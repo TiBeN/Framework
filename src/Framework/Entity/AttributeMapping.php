@@ -2,6 +2,9 @@
 
 namespace TiBeN\Framework\Entity;
 
+use TiBeN\Framework\Validation\ValidationRule;
+use TiBeN\Framework\Datatype\AssociativeArray;
+
 /**
  * 
  *
@@ -10,16 +13,6 @@ namespace TiBeN\Framework\Entity;
  */
 class AttributeMapping
 {
-    /**
-     * @var bool
-     */
-    public $isIdentifier;
-
-    /**
-     * @var DataSourceAttributeMappingConfiguration
-     */
-    public $dataSourceAttributeMappingConfiguration;
-
     /**
      * @var string
      */
@@ -35,6 +28,16 @@ class AttributeMapping
      */
     public $type;
 
+    /**
+     * @var DataSourceAttributeMappingConfiguration
+     */
+    public $dataSourceAttributeMappingConfiguration;
+
+    /**
+     * @var bool
+     */
+    public $isIdentifier;
+
     public function __construct()
     {
         // Start of user code AttributeMapping.constructor
@@ -45,46 +48,6 @@ class AttributeMapping
     {
         // Start of user code AttributeMapping.destructor
         // End of user code
-    }
-
-    /**
-     * @return bool
-     */
-    public function getIsIdentifier()
-    {
-        // Start of user code Getter AttributeMapping.getIsIdentifier
-        // End of user code
-        return $this->isIdentifier;
-    }
-
-    /**
-     * @param bool $isIdentifier
-     */
-    public function setIsIdentifier($isIdentifier)
-    {
-        // Start of user code Setter AttributeMapping.setIsIdentifier
-        // End of user code
-        $this->isIdentifier = $isIdentifier;
-    }
-
-    /**
-     * @return DataSourceAttributeMappingConfiguration
-     */
-    public function getDataSourceAttributeMappingConfiguration()
-    {
-        // Start of user code Getter AttributeMapping.getDataSourceAttributeMappingConfiguration
-        // End of user code
-        return $this->dataSourceAttributeMappingConfiguration;
-    }
-
-    /**
-     * @param DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration
-     */
-    public function setDataSourceAttributeMappingConfiguration(DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration)
-    {
-        // Start of user code Setter AttributeMapping.setDataSourceAttributeMappingConfiguration
-        // End of user code
-        $this->dataSourceAttributeMappingConfiguration = $dataSourceAttributeMappingConfiguration;
     }
 
     /**
@@ -145,6 +108,46 @@ class AttributeMapping
         // Start of user code Setter AttributeMapping.setType
         // End of user code
         $this->type = $type;
+    }
+
+    /**
+     * @return DataSourceAttributeMappingConfiguration
+     */
+    public function getDataSourceAttributeMappingConfiguration()
+    {
+        // Start of user code Getter AttributeMapping.getDataSourceAttributeMappingConfiguration
+        // End of user code
+        return $this->dataSourceAttributeMappingConfiguration;
+    }
+
+    /**
+     * @param DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration
+     */
+    public function setDataSourceAttributeMappingConfiguration(DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration)
+    {
+        // Start of user code Setter AttributeMapping.setDataSourceAttributeMappingConfiguration
+        // End of user code
+        $this->dataSourceAttributeMappingConfiguration = $dataSourceAttributeMappingConfiguration;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsIdentifier()
+    {
+        // Start of user code Getter AttributeMapping.getIsIdentifier
+        // End of user code
+        return $this->isIdentifier;
+    }
+
+    /**
+     * @param bool $isIdentifier
+     */
+    public function setIsIdentifier($isIdentifier)
+    {
+        // Start of user code Setter AttributeMapping.setIsIdentifier
+        // End of user code
+        $this->isIdentifier = $isIdentifier;
     }
 
     /**

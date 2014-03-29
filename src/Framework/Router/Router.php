@@ -3,6 +3,7 @@
 namespace TiBeN\Framework\Router;
 
 use TiBeN\Framework\Controller\Controller;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 /**
  * Service responsible of transforming HttpRequest to HttpResponses.
@@ -52,6 +53,34 @@ class Router
     }
 
     /**
+     * Return a route rule from her name
+     *
+     * @param string $routeName
+     * @return RouteRule $routeRule
+     */
+    public static function getRouteRuleByName($routeName)
+    {
+        // Start of user code Router.getRouteRuleByName
+        if (isset(self::$routeRules) && !empty(self::$routeRules)) {
+			foreach (self::$routeRules as $routeRuleCandidate) {
+				if ($routeName == $routeRuleCandidate->getName()) {
+					$routeRule = $routeRuleCandidate;
+					break;
+				}
+			}
+		}
+		
+		if (!isset($routeRule)) {
+			throw new \InvalidArgumentException(
+                sprintf('No RouteRule named "%s" exist', $routeName)
+            );
+		}
+        // End of user code
+    
+        return $routeRule;
+    }
+
+    /**
      * Execute the action of the controller specified by the route then send the generated Http response to client  
      *
      * @param Route $route
@@ -59,32 +88,53 @@ class Router
     public static function followRoute(Route $route)
     {
         // Start of user code Router.followRoute
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
-     * Add a route rule to the route rule collection
-     *
-     * @param RouteRule $routeRule
-     */
-    public static function addRouteRule(RouteRule $routeRule)
-    {
-        // Start of user code Router.addRouteRule
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
-     * Send a redirect 302 http response to the route specified by her name and optionnal variables
-     *
-     * @param string $routeName
-     * @param AssociativeArray $variables
-     */
-    public static function redirectToRoute($routeName, AssociativeArray $variables)
-    {
-        // Start of user code Router.redirectToRoute
-        // TODO should be implemented.
+        $controllerName = ucfirst($route->getController()) . 'Controller';
+		
+		if (!class_exists($controllerName)) {
+			throw new \InvalidArgumentException(
+                sprintf('No Controller named "%s" exist', $controllerName)
+            );
+		}
+		
+		$actionName = $route->getAction();
+		
+		if (!method_exists($controllerName, $actionName)) {
+			throw new \InvalidArgumentException(
+                sprintf(
+                    'No Action named "%s" exist in controller %s', 
+                    $actionName, 
+                    $controllerName
+                )
+            );
+		}
+		
+		$controller = new $controllerName;
+		
+		try {
+			$httpResponse = $controller->$actionName(
+                $route->hasVariables() 
+                    ? $route->getVariables() 
+                    : new AssociativeArray('string')
+            );
+			$httpResponse->sendToClient();
+		}
+		catch (Exception $e) {
+			$errorRoute = new Route();
+			$errorRoute->setController('error');
+			$errorRoute->setAction('executeActionException');
+			$errorRoute->setVariables(AssociativeArray::createFromNativeArray(
+			    'string',
+			    array(
+    				'type' => get_class($e),
+    				'code' => (string)$e->getCode(),
+    				'message' => $e->getMessage(),    				
+    				'file' => $e->getFile(),
+    				'controller' => $controllerName,
+    				'action' =>	$actionName					
+			    )
+			));
+			self::followRoute($errorRoute);
+		}
         // End of user code
     }
 
@@ -98,25 +148,27 @@ class Router
     public static function generateUri($routeName, AssociativeArray $variables)
     {
         // Start of user code Router.generateUri
-        // TODO should be implemented.
+        $routeRule = self::getRouteRuleByName($routeName);
+		$routeUriManager = new RouteUriManager();
+		$uri = $routeUriManager->generateUri($routeRule->getUriPattern(), $variables);
         // End of user code
     
         return $uri;
     }
 
     /**
-     * Return a route rule from her name
+     * Add a route rule to the route rule collection
      *
-     * @param string $routeName
-     * @return RouteRule $routeRule
+     * @param RouteRule $routeRule
      */
-    public static function getRouteRuleByName($routeName)
+    public static function addRouteRule(RouteRule $routeRule)
     {
-        // Start of user code Router.getRouteRuleByName
-        // TODO should be implemented.
+        // Start of user code Router.addRouteRule
+        if (!isset(self::$routeRules)) {
+			self::$routeRules = array();
+		}
+		array_push(self::$routeRules, $routeRule);
         // End of user code
-    
-        return $routeRule;
     }
 
     /**
@@ -125,7 +177,41 @@ class Router
     public static function handleCurrentHttpRequest()
     {
         // Start of user code Router.handleCurrentHttpRequest
-        // TODO should be implemented.
+        $httpRequest = HttpRequest::createFromClientRequest();
+		
+		if (isset(self::$routeRules)) {
+			foreach (self::$routeRules as $routeRule) {
+				$matchResult = $routeRule->matchHttpRequest($httpRequest);
+				if ($matchResult instanceof Route) {
+                    $route = $matchResult;							
+                    break;						
+				}
+			}
+		}
+		
+		if (!isset($route)) {
+			/* instanciate error controller route */
+			$route = new Route();
+			$route->setController('error');
+			$route->setAction('notFound');								
+		}
+		
+		self::followRoute($route);
+        // End of user code
+    }
+
+    /**
+     * Send a redirect 302 http response to the route specified by her name and optionnal variables
+     *
+     * @param string $routeName
+     * @param AssociativeArray $variables
+     */
+    public static function redirectToRoute($routeName, AssociativeArray $variables)
+    {
+        // Start of user code Router.redirectToRoute
+        $uri = self::generateUri($routeName, $variables);
+		$redirectResponse = HttpResponse::createRedirectResponse($uri, false);
+		$redirectResponse->sendToClient();			
         // End of user code
     }
 
@@ -138,7 +224,9 @@ class Router
     public static function forwardToRoute($routeName, AssociativeArray $variables)
     {
         // Start of user code Router.forwardToRoute
-        // TODO should be implemented.
+        $routeRule = self::getRouteRuleByName($routeName);
+		$route = $routeRule->getRoute($variables);
+		self::followRoute($route);
         // End of user code
     }
 

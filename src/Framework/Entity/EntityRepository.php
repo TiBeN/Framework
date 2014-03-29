@@ -25,16 +25,6 @@ class EntityRepository
     }
 
     /**
-     * @param Entity $entity
-     */
-    public function persist(Entity $entity)
-    {
-        // Start of user code EntityRepository.persist
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
      * @param CriteriaSet $criteriaSet
      * @return EntityCollection $entities
      */
@@ -53,6 +43,16 @@ class EntityRepository
     public function delete(Entity $entity)
     {
         // Start of user code EntityRepository.delete
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * @param Entity $entity
+     */
+    public function persist(Entity $entity)
+    {
+        // Start of user code EntityRepository.persist
         // TODO should be implemented.
         // End of user code
     }

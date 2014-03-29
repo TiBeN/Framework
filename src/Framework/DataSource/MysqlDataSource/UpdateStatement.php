@@ -2,6 +2,7 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 /**
  * 
@@ -17,14 +18,14 @@ class UpdateStatement implements Statement
     public $tableName;
 
     /**
-     * @var SetStatement
-     */
-    public $setStatement;
-
-    /**
      * @var WhereConditions
      */
     public $whereDefinition;
+
+    /**
+     * @var SetStatement
+     */
+    public $setStatement;
 
     public function __construct()
     {
@@ -59,26 +60,6 @@ class UpdateStatement implements Statement
     }
 
     /**
-     * @return SetStatement
-     */
-    public function getSetStatement()
-    {
-        // Start of user code Getter UpdateStatement.getSetStatement
-        // End of user code
-        return $this->setStatement;
-    }
-
-    /**
-     * @param SetStatement $setStatement
-     */
-    public function setSetStatement(SetStatement $setStatement)
-    {
-        // Start of user code Setter UpdateStatement.setSetStatement
-        // End of user code
-        $this->setStatement = $setStatement;
-    }
-
-    /**
      * @return WhereConditions
      */
     public function getWhereDefinition()
@@ -98,21 +79,27 @@ class UpdateStatement implements Statement
         $this->whereDefinition = $whereDefinition;
     }
 
-    // Statement Realization
+    /**
+     * @return SetStatement
+     */
+    public function getSetStatement()
+    {
+        // Start of user code Getter UpdateStatement.getSetStatement
+        // End of user code
+        return $this->setStatement;
+    }
 
     /**
-     * Return the statement in String format
-     *
-     * @return string $statement
+     * @param SetStatement $setStatement
      */
-    public function toString()
+    public function setSetStatement(SetStatement $setStatement)
     {
-        // Start of user code Statement.toString
-        // TODO should be implemented.
+        // Start of user code Setter UpdateStatement.setSetStatement
         // End of user code
-    
-        return $statement;
+        $this->setStatement = $setStatement;
     }
+
+    // Statement Realization
 
     /**
      * Tell wether the statement is ready or not to be executed
@@ -126,6 +113,20 @@ class UpdateStatement implements Statement
         // End of user code
     
         return $status;
+    }
+
+    /**
+     * Return the statement in String format
+     *
+     * @return string $statement
+     */
+    public function toString()
+    {
+        // Start of user code Statement.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $statement;
     }
 
     /**

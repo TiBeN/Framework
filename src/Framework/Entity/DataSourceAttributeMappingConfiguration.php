@@ -1,7 +1,9 @@
 <?php
 
 namespace TiBeN\Framework\Entity;
- 
+
+use TiBeN\Framework\Datatype\AssociativeArray;
+
 /**
  *  
  * @package Entity

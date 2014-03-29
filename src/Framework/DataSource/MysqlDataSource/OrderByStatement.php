@@ -2,6 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Datatype\GenericCollection;
+use TiBeN\Framework\Entity\EntityMapping;
+
 /**
  * 
  *
@@ -19,12 +23,12 @@ class OrderByStatement extends AssociativeArray
     /**
      * @var string
      */
-    const DIRECTION_ASC = 'ASC';
+    const DIRECTION_DESC = 'DESC';
 
     /**
      * @var string
      */
-    const DIRECTION_DESC = 'DESC';
+    const DIRECTION_ASC = 'ASC';
 
     // Start of user code OrderByStatement.surchargedConstructorsDestructors
     // Surcharge Constructors and Destructors here
@@ -71,18 +75,6 @@ class OrderByStatement extends AssociativeArray
 
 
     /**
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code OrderByStatement.toString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $string;
-    }
-
-    /**
      * @param EntityMapping $entityMapping
      * @param GenericCollection $orderCriterias
      * @return OrderByStatement $orderByStatement
@@ -94,6 +86,18 @@ class OrderByStatement extends AssociativeArray
         // End of user code
     
         return $orderByStatement;
+    }
+
+    /**
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code OrderByStatement.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $string;
     }
     // Start of user code OrderByStatement.surchargedMethods
     // Surcharge Methods here

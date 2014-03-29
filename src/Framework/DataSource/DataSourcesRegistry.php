@@ -2,6 +2,8 @@
 
 namespace TiBeN\Framework\DataSource;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
+
 /**
  * 
  *
@@ -49,10 +51,33 @@ class DataSourcesRegistry
 
     /**
      * @param string $dataSourceName
+     * @return bool $boolean
+     */
+    public static function hasDataSource($dataSourceName)
+    {
+        // Start of user code DataSourcesRegistry.hasDataSource
+        // TODO should be implemented.
+        // End of user code
+    
+        return $boolean;
+    }
+
+    /**
+     * @param string $dataSourceName
      */
     public static function clearDataSource($dataSourceName)
     {
         // Start of user code DataSourcesRegistry.clearDataSource
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * @param DataSource $dataSource
+     */
+    public static function registerDataSource(DataSource $dataSource)
+    {
+        // Start of user code DataSourcesRegistry.registerDataSource
         // TODO should be implemented.
         // End of user code
     }
@@ -68,29 +93,6 @@ class DataSourcesRegistry
         // End of user code
     
         return $dataSource;
-    }
-
-    /**
-     * @param string $dataSourceName
-     * @return bool $boolean
-     */
-    public static function hasDataSource($dataSourceName)
-    {
-        // Start of user code DataSourcesRegistry.hasDataSource
-        // TODO should be implemented.
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
-     * @param DataSource $dataSource
-     */
-    public static function registerDataSource(DataSource $dataSource)
-    {
-        // Start of user code DataSourcesRegistry.registerDataSource
-        // TODO should be implemented.
-        // End of user code
     }
 
     // Start of user code DataSourcesRegistry.implementationSpecificMethods

@@ -39,21 +39,6 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method getType from interface TypeConverter
-     * Start of user code TypeConverter.testgetTypeAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetType()
-    {
-        // Start of user code TypeConverter.testgetType
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
      * Test method setParameters from interface TypeConverter
      * Start of user code TypeConverter.testsetParametersAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -69,14 +54,14 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method convert from interface TypeConverter
-     * Start of user code TypeConverter.testconvertAnnotations 
+     * Test method getType from interface TypeConverter
+     * Start of user code TypeConverter.testgetTypeAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testConvert()
+    public function testGetType()
     {
-        // Start of user code Converter.testconvert
+        // Start of user code TypeConverter.testgetType
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );
@@ -92,6 +77,21 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     public function testReverse()
     {
         // Start of user code Converter.testreverse
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method convert from interface TypeConverter
+     * Start of user code TypeConverter.testconvertAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testConvert()
+    {
+        // Start of user code Converter.testconvert
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );

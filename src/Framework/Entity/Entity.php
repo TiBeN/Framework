@@ -1,7 +1,7 @@
 <?php
 
 namespace TiBeN\Framework\Entity;
- 
+
 /**
  *  
  * @package Entity

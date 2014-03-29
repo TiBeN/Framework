@@ -2,6 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Entity\CriteriaSet;
+use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Entity\EntityMapping;
 
 /**
  * 
@@ -26,15 +30,15 @@ class StatementFactory
     /**
      * @param EntityMapping $entityMapping
      * @param Entity $entity
-     * @return InsertStatement $insertStatement
+     * @return UpdateStatement $updateStatement
      */
-    public static function createInsertStatement(EntityMapping $entityMapping, Entity $entity)
+    public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
     {
-        // Start of user code StatementFactory.createInsertStatement
+        // Start of user code StatementFactory.createUpdateStatementFromEntity
         // TODO should be implemented.
         // End of user code
     
-        return $insertStatement;
+        return $updateStatement;
     }
 
     /**
@@ -54,29 +58,15 @@ class StatementFactory
     /**
      * @param EntityMapping $entityMapping
      * @param Entity $entity
-     * @return UpdateStatement $updateStatement
+     * @return InsertStatement $insertStatement
      */
-    public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
+    public static function createInsertStatement(EntityMapping $entityMapping, Entity $entity)
     {
-        // Start of user code StatementFactory.createUpdateStatementFromEntity
+        // Start of user code StatementFactory.createInsertStatement
         // TODO should be implemented.
         // End of user code
     
-        return $updateStatement;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     * @param CriteriaSet $criteriaSet
-     * @return SelectStatement $selectStatement
-     */
-    public static function createSelectStatementFromCriteriaSet(EntityMapping $entityMapping, CriteriaSet $criteriaSet)
-    {
-        // Start of user code StatementFactory.createSelectStatementFromCriteriaSet
-        // TODO should be implemented.
-        // End of user code
-    
-        return $selectStatement;
+        return $insertStatement;
     }
 
     /**
@@ -91,6 +81,20 @@ class StatementFactory
         // End of user code
     
         return $deleteStatement;
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param CriteriaSet $criteriaSet
+     * @return SelectStatement $selectStatement
+     */
+    public static function createSelectStatementFromCriteriaSet(EntityMapping $entityMapping, CriteriaSet $criteriaSet)
+    {
+        // Start of user code StatementFactory.createSelectStatementFromCriteriaSet
+        // TODO should be implemented.
+        // End of user code
+    
+        return $selectStatement;
     }
 
     // Start of user code StatementFactory.implementationSpecificMethods

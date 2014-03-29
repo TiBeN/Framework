@@ -37,22 +37,6 @@ class OrderByStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method toString from class OrderByStatement
-     *
-     * Start of user code OrderByStatementTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code OrderByStatementTest.testtoString
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method createFromOrderCriterias from class OrderByStatement
      *
      * Start of user code OrderByStatementTest.testcreateFromOrderCriteriasAnnotations 
@@ -62,6 +46,22 @@ class OrderByStatementTest extends \PHPUnit_Framework_TestCase
     public function testCreateFromOrderCriterias()
     {
         // Start of user code OrderByStatementTest.testcreateFromOrderCriterias
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method toString from class OrderByStatement
+     *
+     * Start of user code OrderByStatementTest.testtoStringAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code OrderByStatementTest.testtoString
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

@@ -2,6 +2,8 @@
 
 namespace TiBeN\Framework\DataSource;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
+
 /**
  * 
  *
@@ -48,16 +50,6 @@ class DataSourceTypeConvertersRegistry
     }
 
     /**
-     * @param TypeConverter $typeConverter
-     */
-    public static function registerTypeConverter(TypeConverter $typeConverter)
-    {
-        // Start of user code DataSourceTypeConvertersRegistry.registerTypeConverter
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
      * @param string $type
      * @param string $dataSourceType
      * @return TypeConverter $typeConverter
@@ -74,17 +66,6 @@ class DataSourceTypeConvertersRegistry
     /**
      * @param string $type
      * @param string $dataSourceType
-     */
-    public static function clearTypeConverter($type, $dataSourceType)
-    {
-        // Start of user code DataSourceTypeConvertersRegistry.clearTypeConverter
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
-     * @param string $type
-     * @param string $dataSourceType
      * @return bool $boolean
      */
     public static function hasTypeConverter($type, $dataSourceType)
@@ -94,6 +75,27 @@ class DataSourceTypeConvertersRegistry
         // End of user code
     
         return $boolean;
+    }
+
+    /**
+     * @param TypeConverter $typeConverter
+     */
+    public static function registerTypeConverter(TypeConverter $typeConverter)
+    {
+        // Start of user code DataSourceTypeConvertersRegistry.registerTypeConverter
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * @param string $type
+     * @param string $dataSourceType
+     */
+    public static function clearTypeConverter($type, $dataSourceType)
+    {
+        // Start of user code DataSourceTypeConvertersRegistry.clearTypeConverter
+        // TODO should be implemented.
+        // End of user code
     }
 
     // Start of user code DataSourceTypeConvertersRegistry.implementationSpecificMethods

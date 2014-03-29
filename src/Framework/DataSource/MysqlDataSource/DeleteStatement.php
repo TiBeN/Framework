@@ -2,6 +2,7 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 /**
  * 
@@ -12,14 +13,14 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 class DeleteStatement implements Statement
 {
     /**
-     * @var WhereConditions
-     */
-    public $whereConditions;
-
-    /**
      * @var string
      */
     public $tableName;
+
+    /**
+     * @var WhereConditions
+     */
+    public $whereConditions;
 
     public function __construct()
     {
@@ -31,26 +32,6 @@ class DeleteStatement implements Statement
     {
         // Start of user code DeleteStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return WhereConditions
-     */
-    public function getWhereConditions()
-    {
-        // Start of user code Getter DeleteStatement.getWhereConditions
-        // End of user code
-        return $this->whereConditions;
-    }
-
-    /**
-     * @param WhereConditions $whereConditions
-     */
-    public function setWhereConditions(WhereConditions $whereConditions)
-    {
-        // Start of user code Setter DeleteStatement.setWhereConditions
-        // End of user code
-        $this->whereConditions = $whereConditions;
     }
 
     /**
@@ -73,21 +54,27 @@ class DeleteStatement implements Statement
         $this->tableName = $tableName;
     }
 
-    // Statement Realization
+    /**
+     * @return WhereConditions
+     */
+    public function getWhereConditions()
+    {
+        // Start of user code Getter DeleteStatement.getWhereConditions
+        // End of user code
+        return $this->whereConditions;
+    }
 
     /**
-     * Return the statement in String format
-     *
-     * @return string $statement
+     * @param WhereConditions $whereConditions
      */
-    public function toString()
+    public function setWhereConditions(WhereConditions $whereConditions)
     {
-        // Start of user code Statement.toString
-        // TODO should be implemented.
+        // Start of user code Setter DeleteStatement.setWhereConditions
         // End of user code
-    
-        return $statement;
+        $this->whereConditions = $whereConditions;
     }
+
+    // Statement Realization
 
     /**
      * Tell wether the statement is ready or not to be executed
@@ -101,6 +88,20 @@ class DeleteStatement implements Statement
         // End of user code
     
         return $status;
+    }
+
+    /**
+     * Return the statement in String format
+     *
+     * @return string $statement
+     */
+    public function toString()
+    {
+        // Start of user code Statement.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $statement;
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\Entity\DataSourceEntityMappingConfiguration;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 /**
  * 

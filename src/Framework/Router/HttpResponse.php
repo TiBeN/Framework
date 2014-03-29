@@ -14,9 +14,9 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class HttpResponse
 {
     /**
-     * @var AssociativeArray
+     * @var string
      */
-    public $headers;
+    public $contentType = 'text/html';
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class HttpResponse
     public $message;
 
     /**
-     * @var string
+     * @var AssociativeArray
      */
-    public $statusCode = '200';
+    public $headers;
 
     /**
      * @var string
      */
-    public $contentType = 'text/html';
+    public $statusCode = '200';
 
     public function __construct()
     {
@@ -43,6 +43,46 @@ class HttpResponse
     {
         // Start of user code HttpResponse.destructor
         // End of user code
+    }
+
+    /**
+     * @return string
+     */
+    public function getContentType()
+    {
+        // Start of user code Getter HttpResponse.getContentType
+        // End of user code
+        return $this->contentType;
+    }
+
+    /**
+     * @param string $contentType
+     */
+    public function setContentType($contentType)
+    {
+        // Start of user code Setter HttpResponse.setContentType
+        // End of user code
+        $this->contentType = $contentType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMessage()
+    {
+        // Start of user code Getter HttpResponse.getMessage
+        // End of user code
+        return $this->message;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function setMessage($message)
+    {
+        // Start of user code Setter HttpResponse.setMessage
+        // End of user code
+        $this->message = $message;
     }
 
     /**
@@ -68,26 +108,6 @@ class HttpResponse
     /**
      * @return string
      */
-    public function getMessage()
-    {
-        // Start of user code Getter HttpResponse.getMessage
-        // End of user code
-        return $this->message;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function setMessage($message)
-    {
-        // Start of user code Setter HttpResponse.setMessage
-        // End of user code
-        $this->message = $message;
-    }
-
-    /**
-     * @return string
-     */
     public function getStatusCode()
     {
         // Start of user code Getter HttpResponse.getStatusCode
@@ -103,26 +123,6 @@ class HttpResponse
         // Start of user code Setter HttpResponse.setStatusCode
         // End of user code
         $this->statusCode = $statusCode;
-    }
-
-    /**
-     * @return string
-     */
-    public function getContentType()
-    {
-        // Start of user code Getter HttpResponse.getContentType
-        // End of user code
-        return $this->contentType;
-    }
-
-    /**
-     * @param string $contentType
-     */
-    public function setContentType($contentType)
-    {
-        // Start of user code Setter HttpResponse.setContentType
-        // End of user code
-        $this->contentType = $contentType;
     }
 
     /**

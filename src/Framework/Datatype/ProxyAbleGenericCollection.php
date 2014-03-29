@@ -2,7 +2,6 @@
 
 namespace TiBeN\Framework\Datatype;
 
-
 /**
  * Generic implementation of Collection interface.
  *
@@ -18,11 +17,6 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
     protected $TType;
 
     /**
-     * @var Converter
-     */
-    protected $converter;
-
-    /**
      * @var bool
      */
     private $actAsAProxy;
@@ -31,6 +25,11 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
      * @var Collection
      */
     protected $collection;
+
+    /**
+     * @var Converter
+     */
+    protected $converter;
 
     // Start of user code ProxyAbleGenericCollection.surchargedConstructorsDestructors
     // Surcharge Constructors and Destructors here
@@ -76,26 +75,6 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
     }
 
     /**
-     * @return Converter
-     */
-    protected function getConverter()
-    {
-        // Start of user code Getter ProxyAbleGenericCollection.getConverter
-        // End of user code
-        return $this->converter;
-    }
-
-    /**
-     * @param Converter $converter
-     */
-    protected function setConverter(Converter $converter)
-    {
-        // Start of user code Setter ProxyAbleGenericCollection.setConverter
-        // End of user code
-        $this->converter = $converter;
-    }
-
-    /**
      * @return bool
      */
     private function getActAsAProxy()
@@ -135,17 +114,42 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
         $this->collection = $collection;
     }
 
+    /**
+     * @return Converter
+     */
+    protected function getConverter()
+    {
+        // Start of user code Getter ProxyAbleGenericCollection.getConverter
+        // End of user code
+        return $this->converter;
+    }
+
+    /**
+     * @param Converter $converter
+     */
+    protected function setConverter(Converter $converter)
+    {
+        // Start of user code Setter ProxyAbleGenericCollection.setConverter
+        // End of user code
+        $this->converter = $converter;
+    }
+
     // ProxyCollection Realization
 
     /**
-     * Detach the proxy collection from the initial collection and dump all items contained in the initial collection.
-     * If the proxy collection is configured with a CollectionItemConverter, all items will converted during the dump.
-     * If the initial collection has a stream or lazy fetching behavior this operation can 
-     * issue some performance drawbacks because it browse all the collection during the dump.
+     * Define this collection to act as a proxy of another collection. 
+     * By specifying a CollectionItemConverter object, The stored objects 
+     * of the initial collection are converted in both direction when manipulated by the proxy collection. 
+     * This means that when an item is added to a proxy collection, the item will be converted 
+     * using the converter then stored in the initial collection. Using getters methods, the requested object is converted before returned.
+     * The collection that will act as proxy must be empty otherwise it will throw an exception. 
+     *
+     * @param Collection $collection
+     * @param Converter $converter
      */
-    public function defineAsSource()
+    public function defineAsProxyOf(Collection $collection, Converter $converter = NULL)
     {
-        // Start of user code ProxyCollection.defineAsSource
+        // Start of user code ProxyCollection.defineAsProxyOf
         // TODO should be implemented.
         // End of user code
     }
@@ -165,19 +169,14 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
     }
 
     /**
-     * Define this collection to act as a proxy of another collection. 
-     * By specifying a CollectionItemConverter object, The stored objects 
-     * of the initial collection are converted in both direction when manipulated by the proxy collection. 
-     * This means that when an item is added to a proxy collection, the item will be converted 
-     * using the converter then stored in the initial collection. Using getters methods, the requested object is converted before returned.
-     * The collection that will act as proxy must be empty otherwise it will throw an exception. 
-     *
-     * @param Collection $collection
-     * @param Converter $converter
+     * Detach the proxy collection from the initial collection and dump all items contained in the initial collection.
+     * If the proxy collection is configured with a CollectionItemConverter, all items will converted during the dump.
+     * If the initial collection has a stream or lazy fetching behavior this operation can 
+     * issue some performance drawbacks because it browse all the collection during the dump.
      */
-    public function defineAsProxyOf(Collection $collection, Converter $converter = NULL)
+    public function defineAsSource()
     {
-        // Start of user code ProxyCollection.defineAsProxyOf
+        // Start of user code ProxyCollection.defineAsSource
         // TODO should be implemented.
         // End of user code
     }
