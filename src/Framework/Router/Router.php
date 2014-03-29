@@ -62,19 +62,19 @@ class Router
     {
         // Start of user code Router.getRouteRuleByName
         if (isset(self::$routeRules) && !empty(self::$routeRules)) {
-			foreach (self::$routeRules as $routeRuleCandidate) {
-				if ($routeName == $routeRuleCandidate->getName()) {
-					$routeRule = $routeRuleCandidate;
-					break;
-				}
-			}
-		}
-		
-		if (!isset($routeRule)) {
-			throw new \InvalidArgumentException(
+            foreach (self::$routeRules as $routeRuleCandidate) {
+                if ($routeName == $routeRuleCandidate->getName()) {
+                    $routeRule = $routeRuleCandidate;
+                    break;
+                }
+            }
+        }
+        
+        if (!isset($routeRule)) {
+            throw new \InvalidArgumentException(
                 sprintf('No RouteRule named "%s" exist', $routeName)
             );
-		}
+        }
         // End of user code
     
         return $routeRule;
@@ -89,52 +89,52 @@ class Router
     {
         // Start of user code Router.followRoute
         $controllerName = ucfirst($route->getController()) . 'Controller';
-		
-		if (!class_exists($controllerName)) {
-			throw new \InvalidArgumentException(
+        
+        if (!class_exists($controllerName)) {
+            throw new \InvalidArgumentException(
                 sprintf('No Controller named "%s" exist', $controllerName)
             );
-		}
-		
-		$actionName = $route->getAction();
-		
-		if (!method_exists($controllerName, $actionName)) {
-			throw new \InvalidArgumentException(
+        }
+        
+        $actionName = $route->getAction();
+        
+        if (!method_exists($controllerName, $actionName)) {
+            throw new \InvalidArgumentException(
                 sprintf(
                     'No Action named "%s" exist in controller %s', 
                     $actionName, 
                     $controllerName
                 )
             );
-		}
-		
-		$controller = new $controllerName;
-		
-		try {
-			$httpResponse = $controller->$actionName(
+        }
+        
+        $controller = new $controllerName;
+        
+        try {
+            $httpResponse = $controller->$actionName(
                 $route->hasVariables() 
                     ? $route->getVariables() 
                     : new AssociativeArray('string')
             );
-			$httpResponse->sendToClient();
-		}
-		catch (Exception $e) {
-			$errorRoute = new Route();
-			$errorRoute->setController('error');
-			$errorRoute->setAction('executeActionException');
-			$errorRoute->setVariables(AssociativeArray::createFromNativeArray(
-			    'string',
-			    array(
-    				'type' => get_class($e),
-    				'code' => (string)$e->getCode(),
-    				'message' => $e->getMessage(),    				
-    				'file' => $e->getFile(),
-    				'controller' => $controllerName,
-    				'action' =>	$actionName					
-			    )
-			));
-			self::followRoute($errorRoute);
-		}
+            $httpResponse->sendToClient();
+        }
+        catch (Exception $e) {
+            $errorRoute = new Route();
+            $errorRoute->setController('error');
+            $errorRoute->setAction('executeActionException');
+            $errorRoute->setVariables(AssociativeArray::createFromNativeArray(
+                'string',
+                array(
+                    'type' => get_class($e),
+                    'code' => (string)$e->getCode(),
+                    'message' => $e->getMessage(),                  
+                    'file' => $e->getFile(),
+                    'controller' => $controllerName,
+                    'action' => $actionName                 
+                )
+            ));
+            self::followRoute($errorRoute);
+        }
         // End of user code
     }
 
@@ -149,8 +149,8 @@ class Router
     {
         // Start of user code Router.generateUri
         $routeRule = self::getRouteRuleByName($routeName);
-		$routeUriManager = new RouteUriManager();
-		$uri = $routeUriManager->generateUri($routeRule->getUriPattern(), $variables);
+        $routeUriManager = new RouteUriManager();
+        $uri = $routeUriManager->generateUri($routeRule->getUriPattern(), $variables);
         // End of user code
     
         return $uri;
@@ -165,9 +165,9 @@ class Router
     {
         // Start of user code Router.addRouteRule
         if (!isset(self::$routeRules)) {
-			self::$routeRules = array();
-		}
-		array_push(self::$routeRules, $routeRule);
+            self::$routeRules = array();
+        }
+        array_push(self::$routeRules, $routeRule);
         // End of user code
     }
 
@@ -178,25 +178,25 @@ class Router
     {
         // Start of user code Router.handleCurrentHttpRequest
         $httpRequest = HttpRequest::createFromClientRequest();
-		
-		if (isset(self::$routeRules)) {
-			foreach (self::$routeRules as $routeRule) {
-				$matchResult = $routeRule->matchHttpRequest($httpRequest);
-				if ($matchResult instanceof Route) {
-                    $route = $matchResult;							
-                    break;						
-				}
-			}
-		}
-		
-		if (!isset($route)) {
-			/* instanciate error controller route */
-			$route = new Route();
-			$route->setController('error');
-			$route->setAction('notFound');								
-		}
-		
-		self::followRoute($route);
+        
+        if (isset(self::$routeRules)) {
+            foreach (self::$routeRules as $routeRule) {
+                $matchResult = $routeRule->matchHttpRequest($httpRequest);
+                if ($matchResult instanceof Route) {
+                    $route = $matchResult;                          
+                    break;                      
+                }
+            }
+        }
+        
+        if (!isset($route)) {
+            /* instanciate error controller route */
+            $route = new Route();
+            $route->setController('error');
+            $route->setAction('notFound');                              
+        }
+        
+        self::followRoute($route);
         // End of user code
     }
 
@@ -210,8 +210,8 @@ class Router
     {
         // Start of user code Router.redirectToRoute
         $uri = self::generateUri($routeName, $variables);
-		$redirectResponse = HttpResponse::createRedirectResponse($uri, false);
-		$redirectResponse->sendToClient();			
+        $redirectResponse = HttpResponse::createRedirectResponse($uri, false);
+        $redirectResponse->sendToClient();          
         // End of user code
     }
 
@@ -225,8 +225,8 @@ class Router
     {
         // Start of user code Router.forwardToRoute
         $routeRule = self::getRouteRuleByName($routeName);
-		$route = $routeRule->getRoute($variables);
-		self::followRoute($route);
+        $route = $routeRule->getRoute($variables);
+        self::followRoute($route);
         // End of user code
     }
 
