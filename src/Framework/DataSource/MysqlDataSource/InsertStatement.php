@@ -2,6 +2,7 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 /**
  * 
@@ -17,14 +18,14 @@ class InsertStatement implements Statement
     public $tableName;
 
     /**
-     * @var ValuesStatement
-     */
-    public $valuesStatement;
-
-    /**
      * @var ColumnNamesListStatement
      */
     public $columnNamesListStatement;
+
+    /**
+     * @var ValuesStatement
+     */
+    public $valuesStatement;
 
     public function __construct()
     {
@@ -59,26 +60,6 @@ class InsertStatement implements Statement
     }
 
     /**
-     * @return ValuesStatement
-     */
-    public function getValuesStatement()
-    {
-        // Start of user code Getter InsertStatement.getValuesStatement
-        // End of user code
-        return $this->valuesStatement;
-    }
-
-    /**
-     * @param ValuesStatement $valuesStatement
-     */
-    public function setValuesStatement(ValuesStatement $valuesStatement)
-    {
-        // Start of user code Setter InsertStatement.setValuesStatement
-        // End of user code
-        $this->valuesStatement = $valuesStatement;
-    }
-
-    /**
      * @return ColumnNamesListStatement
      */
     public function getColumnNamesListStatement()
@@ -98,21 +79,27 @@ class InsertStatement implements Statement
         $this->columnNamesListStatement = $columnNamesListStatement;
     }
 
-    // Statement Realization
+    /**
+     * @return ValuesStatement
+     */
+    public function getValuesStatement()
+    {
+        // Start of user code Getter InsertStatement.getValuesStatement
+        // End of user code
+        return $this->valuesStatement;
+    }
 
     /**
-     * Return the statement in String format
-     *
-     * @return string $statement
+     * @param ValuesStatement $valuesStatement
      */
-    public function toString()
+    public function setValuesStatement(ValuesStatement $valuesStatement)
     {
-        // Start of user code Statement.toString
-        // TODO should be implemented.
+        // Start of user code Setter InsertStatement.setValuesStatement
         // End of user code
-    
-        return $statement;
+        $this->valuesStatement = $valuesStatement;
     }
+
+    // Statement Realization
 
     /**
      * Tell wether the statement is ready or not to be executed
@@ -126,6 +113,20 @@ class InsertStatement implements Statement
         // End of user code
     
         return $status;
+    }
+
+    /**
+     * Return the statement in String format
+     *
+     * @return string $statement
+     */
+    public function toString()
+    {
+        // Start of user code Statement.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $statement;
     }
 
     /**

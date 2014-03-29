@@ -2,6 +2,7 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 /**
  * 
@@ -11,6 +12,16 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
  */
 class SelectStatement implements Statement
 {
+    /**
+     * @var string
+     */
+    public $tableReferences;
+
+    /**
+     * @var OrderByStatement
+     */
+    public $orderByStatement;
+
     /**
      * @var SelectExpr
      */
@@ -26,16 +37,6 @@ class SelectStatement implements Statement
      */
     public $limitStatement;
 
-    /**
-     * @var OrderByStatement
-     */
-    public $orderByStatement;
-
-    /**
-     * @var string
-     */
-    public $tableReferences;
-
     public function __construct()
     {
         // Start of user code SelectStatement.constructor
@@ -46,6 +47,46 @@ class SelectStatement implements Statement
     {
         // Start of user code SelectStatement.destructor
         // End of user code
+    }
+
+    /**
+     * @return string
+     */
+    public function getTableReferences()
+    {
+        // Start of user code Getter SelectStatement.getTableReferences
+        // End of user code
+        return $this->tableReferences;
+    }
+
+    /**
+     * @param string $tableReferences
+     */
+    public function setTableReferences($tableReferences)
+    {
+        // Start of user code Setter SelectStatement.setTableReferences
+        // End of user code
+        $this->tableReferences = $tableReferences;
+    }
+
+    /**
+     * @return OrderByStatement
+     */
+    public function getOrderByStatement()
+    {
+        // Start of user code Getter SelectStatement.getOrderByStatement
+        // End of user code
+        return $this->orderByStatement;
+    }
+
+    /**
+     * @param OrderByStatement $orderByStatement
+     */
+    public function setOrderByStatement(OrderByStatement $orderByStatement)
+    {
+        // Start of user code Setter SelectStatement.setOrderByStatement
+        // End of user code
+        $this->orderByStatement = $orderByStatement;
     }
 
     /**
@@ -108,61 +149,7 @@ class SelectStatement implements Statement
         $this->limitStatement = $limitStatement;
     }
 
-    /**
-     * @return OrderByStatement
-     */
-    public function getOrderByStatement()
-    {
-        // Start of user code Getter SelectStatement.getOrderByStatement
-        // End of user code
-        return $this->orderByStatement;
-    }
-
-    /**
-     * @param OrderByStatement $orderByStatement
-     */
-    public function setOrderByStatement(OrderByStatement $orderByStatement)
-    {
-        // Start of user code Setter SelectStatement.setOrderByStatement
-        // End of user code
-        $this->orderByStatement = $orderByStatement;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTableReferences()
-    {
-        // Start of user code Getter SelectStatement.getTableReferences
-        // End of user code
-        return $this->tableReferences;
-    }
-
-    /**
-     * @param string $tableReferences
-     */
-    public function setTableReferences($tableReferences)
-    {
-        // Start of user code Setter SelectStatement.setTableReferences
-        // End of user code
-        $this->tableReferences = $tableReferences;
-    }
-
     // Statement Realization
-
-    /**
-     * Return the statement in String format
-     *
-     * @return string $statement
-     */
-    public function toString()
-    {
-        // Start of user code Statement.toString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $statement;
-    }
 
     /**
      * Tell wether the statement is ready or not to be executed
@@ -176,6 +163,20 @@ class SelectStatement implements Statement
         // End of user code
     
         return $status;
+    }
+
+    /**
+     * Return the statement in String format
+     *
+     * @return string $statement
+     */
+    public function toString()
+    {
+        // Start of user code Statement.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $statement;
     }
 
     /**

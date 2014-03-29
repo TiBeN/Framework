@@ -2,6 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Entity\EntityMapping;
+
 /**
  * 
  *
@@ -60,18 +64,6 @@ class SetStatement extends AssociativeArray
     }
 
     /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code SetStatement.getStatementParameters
-        // TODO should be implemented.
-        // End of user code
-    
-        return $statementParameters;
-    }
-
-    /**
      * @return string $string
      */
     public function toString()
@@ -81,6 +73,18 @@ class SetStatement extends AssociativeArray
         // End of user code
     
         return $string;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code SetStatement.getStatementParameters
+        // TODO should be implemented.
+        // End of user code
+    
+        return $statementParameters;
     }
 
     /**

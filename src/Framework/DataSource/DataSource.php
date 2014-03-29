@@ -1,7 +1,12 @@
 <?php
 
 namespace TiBeN\Framework\DataSource;
- 
+
+use TiBeN\Framework\Entity\CriteriaSet;
+use TiBeN\Framework\Entity\EntityCollection;
+use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Entity\EntityMapping;
+
 /**
  *  
  * @package DataSource
@@ -20,16 +25,15 @@ interface DataSource
 	public function setName($name);
 
 	/**
-	 * @param EntityMapping $entityMapping
-	 * @param CriteriaSet $criteriaSet
-	 * @return EntityCollection $entityCollection
-	 */
-	public function read(EntityMapping $entityMapping, CriteriaSet $criteriaSet);
-
-	/**
 	 * @return string $className
 	 */
 	public static function getAttributeMappingConfigurationClassName();
+
+	/**
+	 * @param EntityMapping $entityMapping
+	 * @param Entity $entity
+	 */
+	public function create(EntityMapping $entityMapping, Entity $entity);
 
 	/**
 	 * @return string $className
@@ -40,7 +44,7 @@ interface DataSource
 	 * @param EntityMapping $entityMapping
 	 * @param Entity $entity
 	 */
-	public function create(EntityMapping $entityMapping, Entity $entity);
+	public function update(EntityMapping $entityMapping, Entity $entity);
 
 	/**
 	 * @param EntityMapping $entityMapping
@@ -50,8 +54,9 @@ interface DataSource
 
 	/**
 	 * @param EntityMapping $entityMapping
-	 * @param Entity $entity
+	 * @param CriteriaSet $criteriaSet
+	 * @return EntityCollection $entityCollection
 	 */
-	public function update(EntityMapping $entityMapping, Entity $entity);
+	public function read(EntityMapping $entityMapping, CriteriaSet $criteriaSet);
 
 }

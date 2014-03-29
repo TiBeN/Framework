@@ -37,38 +37,6 @@ class DataSourcesRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method clearDataSource from class DataSourcesRegistry
-     *
-     * Start of user code DataSourcesRegistryTest.testclearDataSourceAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testClearDataSource()
-    {
-        // Start of user code DataSourcesRegistryTest.testclearDataSource
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test static method getDataSource from class DataSourcesRegistry
-     *
-     * Start of user code DataSourcesRegistryTest.testgetDataSourceAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetDataSource()
-    {
-        // Start of user code DataSourcesRegistryTest.testgetDataSource
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method hasDataSource from class DataSourcesRegistry
      *
      * Start of user code DataSourcesRegistryTest.testhasDataSourceAnnotations 
@@ -85,6 +53,22 @@ class DataSourcesRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method clearDataSource from class DataSourcesRegistry
+     *
+     * Start of user code DataSourcesRegistryTest.testclearDataSourceAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testClearDataSource()
+    {
+        // Start of user code DataSourcesRegistryTest.testclearDataSource
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
      * Test static method registerDataSource from class DataSourcesRegistry
      *
      * Start of user code DataSourcesRegistryTest.testregisterDataSourceAnnotations 
@@ -94,6 +78,22 @@ class DataSourcesRegistryTest extends \PHPUnit_Framework_TestCase
     public function testRegisterDataSource()
     {
         // Start of user code DataSourcesRegistryTest.testregisterDataSource
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method getDataSource from class DataSourcesRegistry
+     *
+     * Start of user code DataSourcesRegistryTest.testgetDataSourceAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetDataSource()
+    {
+        // Start of user code DataSourcesRegistryTest.testgetDataSource
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

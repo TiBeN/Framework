@@ -37,22 +37,6 @@ class SetStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method getStatementParameters from class SetStatement
-     *
-     * Start of user code SetStatementTest.testgetStatementParametersAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetStatementParameters()
-    {
-        // Start of user code SetStatementTest.testgetStatementParameters
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test method toString from class SetStatement
      *
      * Start of user code SetStatementTest.testtoStringAnnotations 
@@ -62,6 +46,22 @@ class SetStatementTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code SetStatementTest.testtoString
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method getStatementParameters from class SetStatement
+     *
+     * Start of user code SetStatementTest.testgetStatementParametersAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetStatementParameters()
+    {
+        // Start of user code SetStatementTest.testgetStatementParameters
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

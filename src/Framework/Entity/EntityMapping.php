@@ -2,6 +2,8 @@
 
 namespace TiBeN\Framework\Entity;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
+
 /**
  * 
  *
@@ -13,7 +15,7 @@ class EntityMapping
     /**
      * @var string
      */
-    public $dataSourceName;
+    public $entityName;
 
     /**
      * @var AssociativeArray
@@ -23,7 +25,7 @@ class EntityMapping
     /**
      * @var string
      */
-    public $entityName;
+    public $dataSourceName;
 
     /**
      * @var DataSourceEntityMappingConfiguration
@@ -45,21 +47,21 @@ class EntityMapping
     /**
      * @return string
      */
-    public function getDataSourceName()
+    public function getEntityName()
     {
-        // Start of user code Getter EntityMapping.getDataSourceName
+        // Start of user code Getter EntityMapping.getEntityName
         // End of user code
-        return $this->dataSourceName;
+        return $this->entityName;
     }
 
     /**
-     * @param string $dataSourceName
+     * @param string $entityName
      */
-    public function setDataSourceName($dataSourceName)
+    public function setEntityName($entityName)
     {
-        // Start of user code Setter EntityMapping.setDataSourceName
+        // Start of user code Setter EntityMapping.setEntityName
         // End of user code
-        $this->dataSourceName = $dataSourceName;
+        $this->entityName = $entityName;
     }
 
     /**
@@ -85,21 +87,21 @@ class EntityMapping
     /**
      * @return string
      */
-    public function getEntityName()
+    public function getDataSourceName()
     {
-        // Start of user code Getter EntityMapping.getEntityName
+        // Start of user code Getter EntityMapping.getDataSourceName
         // End of user code
-        return $this->entityName;
+        return $this->dataSourceName;
     }
 
     /**
-     * @param string $entityName
+     * @param string $dataSourceName
      */
-    public function setEntityName($entityName)
+    public function setDataSourceName($dataSourceName)
     {
-        // Start of user code Setter EntityMapping.setEntityName
+        // Start of user code Setter EntityMapping.setDataSourceName
         // End of user code
-        $this->entityName = $entityName;
+        $this->dataSourceName = $dataSourceName;
     }
 
     /**

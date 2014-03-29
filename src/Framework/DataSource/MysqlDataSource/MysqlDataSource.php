@@ -2,8 +2,11 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\EntityCollection;
+use TiBeN\Framework\Entity\CriteriaSet;
 use TiBeN\Framework\DataSource\DataSource;
+use TiBeN\Framework\Entity\EntityCollection;
+use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Entity\EntityMapping;
 
 /**
  * 
@@ -16,17 +19,22 @@ class MysqlDataSource implements DataSource
     /**
      * @var string
      */
+    public $userName;
+
+    /**
+     * @var string
+     */
+    public $databaseName;
+
+    /**
+     * @var string
+     */
     public $host;
 
     /**
-     * @var string
+     * @var int
      */
-    public $password;
-
-    /**
-     * @var string
-     */
-    public $userName;
+    public $port;
 
     /**
      * @var Connection
@@ -36,12 +44,7 @@ class MysqlDataSource implements DataSource
     /**
      * @var string
      */
-    public $databaseName;
-
-    /**
-     * @var int
-     */
-    public $port;
+    public $password;
 
     /**
      * @var string
@@ -58,6 +61,46 @@ class MysqlDataSource implements DataSource
     {
         // Start of user code MysqlDataSource.destructor
         // End of user code
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserName()
+    {
+        // Start of user code Getter MysqlDataSource.getUserName
+        // End of user code
+        return $this->userName;
+    }
+
+    /**
+     * @param string $userName
+     */
+    public function setUserName($userName)
+    {
+        // Start of user code Setter MysqlDataSource.setUserName
+        // End of user code
+        $this->userName = $userName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDatabaseName()
+    {
+        // Start of user code Getter MysqlDataSource.getDatabaseName
+        // End of user code
+        return $this->databaseName;
+    }
+
+    /**
+     * @param string $databaseName
+     */
+    public function setDatabaseName($databaseName)
+    {
+        // Start of user code Setter MysqlDataSource.setDatabaseName
+        // End of user code
+        $this->databaseName = $databaseName;
     }
 
     /**
@@ -81,43 +124,23 @@ class MysqlDataSource implements DataSource
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getPassword()
+    public function getPort()
     {
-        // Start of user code Getter MysqlDataSource.getPassword
+        // Start of user code Getter MysqlDataSource.getPort
         // End of user code
-        return $this->password;
+        return $this->port;
     }
 
     /**
-     * @param string $password
+     * @param int $port
      */
-    public function setPassword($password)
+    public function setPort($port)
     {
-        // Start of user code Setter MysqlDataSource.setPassword
+        // Start of user code Setter MysqlDataSource.setPort
         // End of user code
-        $this->password = $password;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUserName()
-    {
-        // Start of user code Getter MysqlDataSource.getUserName
-        // End of user code
-        return $this->userName;
-    }
-
-    /**
-     * @param string $userName
-     */
-    public function setUserName($userName)
-    {
-        // Start of user code Setter MysqlDataSource.setUserName
-        // End of user code
-        $this->userName = $userName;
+        $this->port = $port;
     }
 
     /**
@@ -143,41 +166,21 @@ class MysqlDataSource implements DataSource
     /**
      * @return string
      */
-    public function getDatabaseName()
+    public function getPassword()
     {
-        // Start of user code Getter MysqlDataSource.getDatabaseName
+        // Start of user code Getter MysqlDataSource.getPassword
         // End of user code
-        return $this->databaseName;
+        return $this->password;
     }
 
     /**
-     * @param string $databaseName
+     * @param string $password
      */
-    public function setDatabaseName($databaseName)
+    public function setPassword($password)
     {
-        // Start of user code Setter MysqlDataSource.setDatabaseName
+        // Start of user code Setter MysqlDataSource.setPassword
         // End of user code
-        $this->databaseName = $databaseName;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPort()
-    {
-        // Start of user code Getter MysqlDataSource.getPort
-        // End of user code
-        return $this->port;
-    }
-
-    /**
-     * @param int $port
-     */
-    public function setPort($port)
-    {
-        // Start of user code Setter MysqlDataSource.setPort
-        // End of user code
-        $this->port = $port;
+        $this->password = $password;
     }
 
     // DataSource Realization
@@ -202,37 +205,11 @@ class MysqlDataSource implements DataSource
         $this->name = $name;
     }
     /**
-     * @param EntityMapping $entityMapping
-     * @param CriteriaSet $criteriaSet
-     * @return EntityCollection $entityCollection
-     */
-    public function read(EntityMapping $entityMapping, CriteriaSet $criteriaSet)
-    {
-        // Start of user code DataSource.read
-        // TODO should be implemented.
-        // End of user code
-    
-        return $entityCollection;
-    }
-
-    /**
      * @return string $className
      */
     public static function getAttributeMappingConfigurationClassName()
     {
         // Start of user code DataSource.getAttributeMappingConfigurationClassName
-        // TODO should be implemented.
-        // End of user code
-    
-        return $className;
-    }
-
-    /**
-     * @return string $className
-     */
-    public static function getEntityMappingConfigurationClassName()
-    {
-        // Start of user code DataSource.getEntityMappingConfigurationClassName
         // TODO should be implemented.
         // End of user code
     
@@ -251,6 +228,29 @@ class MysqlDataSource implements DataSource
     }
 
     /**
+     * @return string $className
+     */
+    public static function getEntityMappingConfigurationClassName()
+    {
+        // Start of user code DataSource.getEntityMappingConfigurationClassName
+        // TODO should be implemented.
+        // End of user code
+    
+        return $className;
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     */
+    public function update(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code DataSource.update
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
      * @param EntityMapping $entityMapping
      * @param Entity $entity
      */
@@ -263,13 +263,16 @@ class MysqlDataSource implements DataSource
 
     /**
      * @param EntityMapping $entityMapping
-     * @param Entity $entity
+     * @param CriteriaSet $criteriaSet
+     * @return EntityCollection $entityCollection
      */
-    public function update(EntityMapping $entityMapping, Entity $entity)
+    public function read(EntityMapping $entityMapping, CriteriaSet $criteriaSet)
     {
-        // Start of user code DataSource.update
+        // Start of user code DataSource.read
         // TODO should be implemented.
         // End of user code
+    
+        return $entityCollection;
     }
 
     // Start of user code MysqlDataSource.implementationSpecificMethods

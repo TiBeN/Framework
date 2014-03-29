@@ -2,7 +2,6 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-
 /**
  * Handle communication with Mysql server
  *
@@ -21,6 +20,22 @@ class Driver
     {
         // Start of user code Driver.destructor
         // End of user code
+    }
+
+    /**
+     * Execute a statement to a Mysql database
+     *
+     * @param Statement $statement
+     * @param Connection $connection
+     * @return StatementExecutionResult $statementResult
+     */
+    public static function executeStatement(Statement $statement, Connection $connection)
+    {
+        // Start of user code Driver.executeStatement
+        // TODO should be implemented.
+        // End of user code
+    
+        return $statementResult;
     }
 
     /**
@@ -52,22 +67,6 @@ class Driver
         // Start of user code Driver.disconnect
         // TODO should be implemented.
         // End of user code
-    }
-
-    /**
-     * Execute a statement to a Mysql database
-     *
-     * @param Statement $statement
-     * @param Connection $connection
-     * @return StatementExecutionResult $statementResult
-     */
-    public static function executeStatement(Statement $statement, Connection $connection)
-    {
-        // Start of user code Driver.executeStatement
-        // TODO should be implemented.
-        // End of user code
-    
-        return $statementResult;
     }
 
     // Start of user code Driver.implementationSpecificMethods

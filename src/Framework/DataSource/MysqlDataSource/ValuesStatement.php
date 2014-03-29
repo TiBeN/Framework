@@ -2,6 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Entity\EntityMapping;
+
 /**
  * 
  *

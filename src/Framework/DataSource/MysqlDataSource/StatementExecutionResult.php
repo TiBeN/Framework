@@ -11,16 +11,6 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 class StatementExecutionResult
 {
     /**
-     * @var RowCollection
-     */
-    public $rowCollection;
-
-    /**
-     * @var int
-     */
-    public $lastInsertId;
-
-    /**
      * @var int
      */
     public $numberOfAffectedRows;
@@ -31,14 +21,24 @@ class StatementExecutionResult
     public $errorMessage;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $success;
+    public $lastInsertId;
 
     /**
      * @var int
      */
     public $errorCode;
+
+    /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var RowCollection
+     */
+    public $rowCollection;
 
     public function __construct()
     {
@@ -50,46 +50,6 @@ class StatementExecutionResult
     {
         // Start of user code StatementExecutionResult.destructor
         // End of user code
-    }
-
-    /**
-     * @return RowCollection
-     */
-    public function getRowCollection()
-    {
-        // Start of user code Getter StatementExecutionResult.getRowCollection
-        // End of user code
-        return $this->rowCollection;
-    }
-
-    /**
-     * @param RowCollection $rowCollection
-     */
-    public function setRowCollection(RowCollection $rowCollection)
-    {
-        // Start of user code Setter StatementExecutionResult.setRowCollection
-        // End of user code
-        $this->rowCollection = $rowCollection;
-    }
-
-    /**
-     * @return int
-     */
-    public function getLastInsertId()
-    {
-        // Start of user code Getter StatementExecutionResult.getLastInsertId
-        // End of user code
-        return $this->lastInsertId;
-    }
-
-    /**
-     * @param int $lastInsertId
-     */
-    public function setLastInsertId($lastInsertId)
-    {
-        // Start of user code Setter StatementExecutionResult.setLastInsertId
-        // End of user code
-        $this->lastInsertId = $lastInsertId;
     }
 
     /**
@@ -133,23 +93,23 @@ class StatementExecutionResult
     }
 
     /**
-     * @return bool
+     * @return int
      */
-    public function getSuccess()
+    public function getLastInsertId()
     {
-        // Start of user code Getter StatementExecutionResult.getSuccess
+        // Start of user code Getter StatementExecutionResult.getLastInsertId
         // End of user code
-        return $this->success;
+        return $this->lastInsertId;
     }
 
     /**
-     * @param bool $success
+     * @param int $lastInsertId
      */
-    public function setSuccess($success)
+    public function setLastInsertId($lastInsertId)
     {
-        // Start of user code Setter StatementExecutionResult.setSuccess
+        // Start of user code Setter StatementExecutionResult.setLastInsertId
         // End of user code
-        $this->success = $success;
+        $this->lastInsertId = $lastInsertId;
     }
 
     /**
@@ -170,6 +130,46 @@ class StatementExecutionResult
         // Start of user code Setter StatementExecutionResult.setErrorCode
         // End of user code
         $this->errorCode = $errorCode;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        // Start of user code Getter StatementExecutionResult.getSuccess
+        // End of user code
+        return $this->success;
+    }
+
+    /**
+     * @param bool $success
+     */
+    public function setSuccess($success)
+    {
+        // Start of user code Setter StatementExecutionResult.setSuccess
+        // End of user code
+        $this->success = $success;
+    }
+
+    /**
+     * @return RowCollection
+     */
+    public function getRowCollection()
+    {
+        // Start of user code Getter StatementExecutionResult.getRowCollection
+        // End of user code
+        return $this->rowCollection;
+    }
+
+    /**
+     * @param RowCollection $rowCollection
+     */
+    public function setRowCollection(RowCollection $rowCollection)
+    {
+        // Start of user code Setter StatementExecutionResult.setRowCollection
+        // End of user code
+        $this->rowCollection = $rowCollection;
     }
 
     // Start of user code StatementExecutionResult.implementationSpecificMethods

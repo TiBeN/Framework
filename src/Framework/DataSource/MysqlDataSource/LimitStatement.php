@@ -2,6 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Entity\LimitCriteria;
+
 /**
  * 
  *
@@ -13,12 +15,12 @@ class LimitStatement
     /**
      * @var int
      */
-    public $offset;
+    public $rowCount;
 
     /**
      * @var int
      */
-    public $rowCount;
+    public $offset;
 
     public function __construct()
     {
@@ -30,26 +32,6 @@ class LimitStatement
     {
         // Start of user code LimitStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return int
-     */
-    public function getOffset()
-    {
-        // Start of user code Getter LimitStatement.getOffset
-        // End of user code
-        return $this->offset;
-    }
-
-    /**
-     * @param int $offset
-     */
-    public function setOffset($offset)
-    {
-        // Start of user code Setter LimitStatement.setOffset
-        // End of user code
-        $this->offset = $offset;
     }
 
     /**
@@ -70,6 +52,26 @@ class LimitStatement
         // Start of user code Setter LimitStatement.setRowCount
         // End of user code
         $this->rowCount = $rowCount;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOffset()
+    {
+        // Start of user code Getter LimitStatement.getOffset
+        // End of user code
+        return $this->offset;
+    }
+
+    /**
+     * @param int $offset
+     */
+    public function setOffset($offset)
+    {
+        // Start of user code Setter LimitStatement.setOffset
+        // End of user code
+        $this->offset = $offset;
     }
 
     /**

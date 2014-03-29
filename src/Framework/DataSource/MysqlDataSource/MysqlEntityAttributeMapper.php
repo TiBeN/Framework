@@ -2,6 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Entity\EntityMapping;
+
 /**
  * 
  *
@@ -11,14 +14,14 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 class MysqlEntityAttributeMapper
 {
     /**
-     * @var EntityMapping
-     */
-    public $entityMapping;
-
-    /**
      * @var Entity
      */
     public $entity;
+
+    /**
+     * @var EntityMapping
+     */
+    public $entityMapping;
 
     public function __construct()
     {
@@ -30,26 +33,6 @@ class MysqlEntityAttributeMapper
     {
         // Start of user code MysqlEntityAttributeMapper.destructor
         // End of user code
-    }
-
-    /**
-     * @return EntityMapping
-     */
-    public function getEntityMapping()
-    {
-        // Start of user code Getter MysqlEntityAttributeMapper.getEntityMapping
-        // End of user code
-        return $this->entityMapping;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     */
-    public function setEntityMapping(EntityMapping $entityMapping)
-    {
-        // Start of user code Setter MysqlEntityAttributeMapper.setEntityMapping
-        // End of user code
-        $this->entityMapping = $entityMapping;
     }
 
     /**
@@ -73,6 +56,64 @@ class MysqlEntityAttributeMapper
     }
 
     /**
+     * @return EntityMapping
+     */
+    public function getEntityMapping()
+    {
+        // Start of user code Getter MysqlEntityAttributeMapper.getEntityMapping
+        // End of user code
+        return $this->entityMapping;
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     */
+    public function setEntityMapping(EntityMapping $entityMapping)
+    {
+        // Start of user code Setter MysqlEntityAttributeMapper.setEntityMapping
+        // End of user code
+        $this->entityMapping = $entityMapping;
+    }
+
+    /**
+     * @return string $attributeName
+     */
+    public function getIdentifierAttributeName()
+    {
+        // Start of user code MysqlEntityAttributeMapper.getIdentifierAttributeName
+        // TODO should be implemented.
+        // End of user code
+    
+        return $attributeName;
+    }
+
+    /**
+     * @param string $attributeName
+     * @return string $columnValue
+     */
+    public function getColumnValue($attributeName)
+    {
+        // Start of user code MysqlEntityAttributeMapper.getColumnValue
+        // TODO should be implemented.
+        // End of user code
+    
+        return $columnValue;
+    }
+
+    /**
+     * @param string $attributeName
+     * @return string $columnName
+     */
+    public function getColumnName($attributeName)
+    {
+        // Start of user code MysqlEntityAttributeMapper.getColumnName
+        // TODO should be implemented.
+        // End of user code
+    
+        return $columnName;
+    }
+
+    /**
      * @return int $identifier
      */
     public function getIdentifierValue()
@@ -93,44 +134,6 @@ class MysqlEntityAttributeMapper
         // Start of user code MysqlEntityAttributeMapper.setAttributeValue
         // TODO should be implemented.
         // End of user code
-    }
-
-    /**
-     * @param string $attributeName
-     * @return string $columnValue
-     */
-    public function getColumnValue($attributeName)
-    {
-        // Start of user code MysqlEntityAttributeMapper.getColumnValue
-        // TODO should be implemented.
-        // End of user code
-    
-        return $columnValue;
-    }
-
-    /**
-     * @return string $attributeName
-     */
-    public function getIdentifierAttributeName()
-    {
-        // Start of user code MysqlEntityAttributeMapper.getIdentifierAttributeName
-        // TODO should be implemented.
-        // End of user code
-    
-        return $attributeName;
-    }
-
-    /**
-     * @param string $attributeName
-     * @return string $columnName
-     */
-    public function getColumnName($attributeName)
-    {
-        // Start of user code MysqlEntityAttributeMapper.getColumnName
-        // TODO should be implemented.
-        // End of user code
-    
-        return $columnName;
     }
 
     /**
