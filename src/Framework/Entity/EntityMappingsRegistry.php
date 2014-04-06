@@ -50,16 +50,6 @@ class EntityMappingsRegistry
     }
 
     /**
-     * @param EntityMapping $entityMapping
-     */
-    public static function registerEntityMapping(EntityMapping $entityMapping)
-    {
-        // Start of user code EntityMappingsRegistry.registerEntityMapping
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
      * @param string $entityName
      * @return EntityMapping $entityMapping
      */
@@ -70,6 +60,16 @@ class EntityMappingsRegistry
         // End of user code
     
         return $entityMapping;
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     */
+    public static function registerEntityMapping(EntityMapping $entityMapping)
+    {
+        // Start of user code EntityMappingsRegistry.registerEntityMapping
+        // TODO should be implemented.
+        // End of user code
     }
 
     /**

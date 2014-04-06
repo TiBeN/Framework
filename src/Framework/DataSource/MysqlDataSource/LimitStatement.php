@@ -15,12 +15,12 @@ class LimitStatement
     /**
      * @var int
      */
-    public $rowCount;
+    public $offset;
 
     /**
      * @var int
      */
-    public $offset;
+    public $rowCount;
 
     public function __construct()
     {
@@ -32,26 +32,6 @@ class LimitStatement
     {
         // Start of user code LimitStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return int
-     */
-    public function getRowCount()
-    {
-        // Start of user code Getter LimitStatement.getRowCount
-        // End of user code
-        return $this->rowCount;
-    }
-
-    /**
-     * @param int $rowCount
-     */
-    public function setRowCount($rowCount)
-    {
-        // Start of user code Setter LimitStatement.setRowCount
-        // End of user code
-        $this->rowCount = $rowCount;
     }
 
     /**
@@ -75,16 +55,23 @@ class LimitStatement
     }
 
     /**
-     * @param LimitCriteria $limitCriteria
-     * @return LimitStatement $limitStatement
+     * @return int
      */
-    public static function createFromLimitCriteria(LimitCriteria $limitCriteria)
+    public function getRowCount()
     {
-        // Start of user code LimitStatement.createFromLimitCriteria
-        // TODO should be implemented.
+        // Start of user code Getter LimitStatement.getRowCount
         // End of user code
-    
-        return $limitStatement;
+        return $this->rowCount;
+    }
+
+    /**
+     * @param int $rowCount
+     */
+    public function setRowCount($rowCount)
+    {
+        // Start of user code Setter LimitStatement.setRowCount
+        // End of user code
+        $this->rowCount = $rowCount;
     }
 
     /**
@@ -97,6 +84,19 @@ class LimitStatement
         // End of user code
     
         return $string;
+    }
+
+    /**
+     * @param LimitCriteria $limitCriteria
+     * @return LimitStatement $limitStatement
+     */
+    public static function createFromLimitCriteria(LimitCriteria $limitCriteria)
+    {
+        // Start of user code LimitStatement.createFromLimitCriteria
+        // TODO should be implemented.
+        // End of user code
+    
+        return $limitStatement;
     }
 
     // Start of user code LimitStatement.implementationSpecificMethods

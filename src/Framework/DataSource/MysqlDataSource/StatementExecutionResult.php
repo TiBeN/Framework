@@ -13,12 +13,7 @@ class StatementExecutionResult
     /**
      * @var int
      */
-    public $numberOfAffectedRows;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
+    public $errorCode;
 
     /**
      * @var int
@@ -28,17 +23,22 @@ class StatementExecutionResult
     /**
      * @var int
      */
-    public $errorCode;
+    public $numberOfAffectedRows;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $errorMessage;
 
     /**
      * @var RowCollection
      */
     public $rowCollection;
+
+    /**
+     * @var bool
+     */
+    public $success;
 
     public function __construct()
     {
@@ -50,6 +50,46 @@ class StatementExecutionResult
     {
         // Start of user code StatementExecutionResult.destructor
         // End of user code
+    }
+
+    /**
+     * @return int
+     */
+    public function getErrorCode()
+    {
+        // Start of user code Getter StatementExecutionResult.getErrorCode
+        // End of user code
+        return $this->errorCode;
+    }
+
+    /**
+     * @param int $errorCode
+     */
+    public function setErrorCode($errorCode)
+    {
+        // Start of user code Setter StatementExecutionResult.setErrorCode
+        // End of user code
+        $this->errorCode = $errorCode;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLastInsertId()
+    {
+        // Start of user code Getter StatementExecutionResult.getLastInsertId
+        // End of user code
+        return $this->lastInsertId;
+    }
+
+    /**
+     * @param int $lastInsertId
+     */
+    public function setLastInsertId($lastInsertId)
+    {
+        // Start of user code Setter StatementExecutionResult.setLastInsertId
+        // End of user code
+        $this->lastInsertId = $lastInsertId;
     }
 
     /**
@@ -93,43 +133,23 @@ class StatementExecutionResult
     }
 
     /**
-     * @return int
+     * @return RowCollection
      */
-    public function getLastInsertId()
+    public function getRowCollection()
     {
-        // Start of user code Getter StatementExecutionResult.getLastInsertId
+        // Start of user code Getter StatementExecutionResult.getRowCollection
         // End of user code
-        return $this->lastInsertId;
+        return $this->rowCollection;
     }
 
     /**
-     * @param int $lastInsertId
+     * @param RowCollection $rowCollection
      */
-    public function setLastInsertId($lastInsertId)
+    public function setRowCollection(RowCollection $rowCollection)
     {
-        // Start of user code Setter StatementExecutionResult.setLastInsertId
+        // Start of user code Setter StatementExecutionResult.setRowCollection
         // End of user code
-        $this->lastInsertId = $lastInsertId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getErrorCode()
-    {
-        // Start of user code Getter StatementExecutionResult.getErrorCode
-        // End of user code
-        return $this->errorCode;
-    }
-
-    /**
-     * @param int $errorCode
-     */
-    public function setErrorCode($errorCode)
-    {
-        // Start of user code Setter StatementExecutionResult.setErrorCode
-        // End of user code
-        $this->errorCode = $errorCode;
+        $this->rowCollection = $rowCollection;
     }
 
     /**
@@ -150,26 +170,6 @@ class StatementExecutionResult
         // Start of user code Setter StatementExecutionResult.setSuccess
         // End of user code
         $this->success = $success;
-    }
-
-    /**
-     * @return RowCollection
-     */
-    public function getRowCollection()
-    {
-        // Start of user code Getter StatementExecutionResult.getRowCollection
-        // End of user code
-        return $this->rowCollection;
-    }
-
-    /**
-     * @param RowCollection $rowCollection
-     */
-    public function setRowCollection(RowCollection $rowCollection)
-    {
-        // Start of user code Setter StatementExecutionResult.setRowCollection
-        // End of user code
-        $this->rowCollection = $rowCollection;
     }
 
     // Start of user code StatementExecutionResult.implementationSpecificMethods

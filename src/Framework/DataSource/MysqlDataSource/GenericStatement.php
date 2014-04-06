@@ -65,17 +65,15 @@ class GenericStatement implements Statement
     // Statement Realization
 
     /**
-     * Tell wether the statement is ready or not to be executed
-     *
-     * @return bool $status
+     * @return AssociativeArray $statementParameters
      */
-    public function isReadyToBeExecuted()
+    public function getStatementParameters()
     {
-        // Start of user code Statement.isReadyToBeExecuted
+        // Start of user code Statement.getStatementParameters
         // TODO should be implemented.
         // End of user code
     
-        return $status;
+        return $statementParameters;
     }
 
     /**
@@ -93,15 +91,17 @@ class GenericStatement implements Statement
     }
 
     /**
-     * @return AssociativeArray $statementParameters
+     * Tell wether the statement is ready or not to be executed
+     *
+     * @return bool $status
      */
-    public function getStatementParameters()
+    public function isReadyToBeExecuted()
     {
-        // Start of user code Statement.getStatementParameters
+        // Start of user code Statement.isReadyToBeExecuted
         // TODO should be implemented.
         // End of user code
     
-        return $statementParameters;
+        return $status;
     }
 
     // Start of user code GenericStatement.implementationSpecificMethods

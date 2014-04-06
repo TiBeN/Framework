@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Entity\Entity;
 
 /**
  * 
@@ -76,31 +76,6 @@ class MysqlEntityAttributeMapper
     }
 
     /**
-     * @return string $attributeName
-     */
-    public function getIdentifierAttributeName()
-    {
-        // Start of user code MysqlEntityAttributeMapper.getIdentifierAttributeName
-        // TODO should be implemented.
-        // End of user code
-    
-        return $attributeName;
-    }
-
-    /**
-     * @param string $attributeName
-     * @return string $columnValue
-     */
-    public function getColumnValue($attributeName)
-    {
-        // Start of user code MysqlEntityAttributeMapper.getColumnValue
-        // TODO should be implemented.
-        // End of user code
-    
-        return $columnValue;
-    }
-
-    /**
      * @param string $attributeName
      * @return string $columnName
      */
@@ -111,6 +86,16 @@ class MysqlEntityAttributeMapper
         // End of user code
     
         return $columnName;
+    }
+
+    /**
+     * @param int $identifier
+     */
+    public function setIdentifier($identifier)
+    {
+        // Start of user code MysqlEntityAttributeMapper.setIdentifier
+        // TODO should be implemented.
+        // End of user code
     }
 
     /**
@@ -137,13 +122,28 @@ class MysqlEntityAttributeMapper
     }
 
     /**
-     * @param int $identifier
+     * @return string $attributeName
      */
-    public function setIdentifier($identifier)
+    public function getIdentifierAttributeName()
     {
-        // Start of user code MysqlEntityAttributeMapper.setIdentifier
+        // Start of user code MysqlEntityAttributeMapper.getIdentifierAttributeName
         // TODO should be implemented.
         // End of user code
+    
+        return $attributeName;
+    }
+
+    /**
+     * @param string $attributeName
+     * @return string $columnValue
+     */
+    public function getColumnValue($attributeName)
+    {
+        // Start of user code MysqlEntityAttributeMapper.getColumnValue
+        // TODO should be implemented.
+        // End of user code
+    
+        return $columnValue;
     }
 
     // Start of user code MysqlEntityAttributeMapper.implementationSpecificMethods

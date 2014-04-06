@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
-use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 /**
  * 
@@ -64,6 +64,18 @@ class ValuesStatement extends AssociativeArray
     }
 
     /**
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code ValuesStatement.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $string;
+    }
+
+    /**
      * @param EntityMapping $entityMapping
      * @param Entity $entity
      * @return ValuesStatement $valuesStatement
@@ -75,18 +87,6 @@ class ValuesStatement extends AssociativeArray
         // End of user code
     
         return $valuesStatement;
-    }
-
-    /**
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code ValuesStatement.toString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $string;
     }
     // Start of user code ValuesStatement.surchargedMethods
     // Surcharge Methods here

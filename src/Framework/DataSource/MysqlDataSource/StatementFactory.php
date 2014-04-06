@@ -2,10 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\CriteriaSet;
-use TiBeN\Framework\Datatype\AssociativeArray;
-use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Entity\CriteriaSet;
+use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 /**
  * 
@@ -25,6 +25,20 @@ class StatementFactory
     {
         // Start of user code StatementFactory.destructor
         // End of user code
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     * @return DeleteStatement $deleteStatement
+     */
+    public static function createDeleteStatement(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code StatementFactory.createDeleteStatement
+        // TODO should be implemented.
+        // End of user code
+    
+        return $deleteStatement;
     }
 
     /**
@@ -67,20 +81,6 @@ class StatementFactory
         // End of user code
     
         return $insertStatement;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     * @return DeleteStatement $deleteStatement
-     */
-    public static function createDeleteStatement(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code StatementFactory.createDeleteStatement
-        // TODO should be implemented.
-        // End of user code
-    
-        return $deleteStatement;
     }
 
     /**

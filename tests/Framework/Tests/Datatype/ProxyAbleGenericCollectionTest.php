@@ -39,21 +39,6 @@ class ProxyAbleGenericCollectionTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method defineAsProxyOf from interface ProxyCollection
-     * Start of user code ProxyCollection.testdefineAsProxyOfAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testDefineAsProxyOf()
-    {
-        // Start of user code ProxyCollection.testdefineAsProxyOf
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
      * Test method actAsAProxy from interface ProxyCollection
      * Start of user code ProxyCollection.testactAsAProxyAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -77,6 +62,21 @@ class ProxyAbleGenericCollectionTest extends \PHPUnit_Framework_TestCase
     public function testDefineAsSource()
     {
         // Start of user code ProxyCollection.testdefineAsSource
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method defineAsProxyOf from interface ProxyCollection
+     * Start of user code ProxyCollection.testdefineAsProxyOfAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testDefineAsProxyOf()
+    {
+        // Start of user code ProxyCollection.testdefineAsProxyOf
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );

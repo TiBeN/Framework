@@ -16,12 +16,7 @@ class HttpResponse
     /**
      * @var string
      */
-    public $contentType = 'text/html';
-
-    /**
-     * @var string
-     */
-    public $message;
+    public $statusCode = '200';
 
     /**
      * @var AssociativeArray
@@ -31,7 +26,12 @@ class HttpResponse
     /**
      * @var string
      */
-    public $statusCode = '200';
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $contentType = 'text/html';
 
     public function __construct()
     {
@@ -48,41 +48,21 @@ class HttpResponse
     /**
      * @return string
      */
-    public function getContentType()
+    public function getStatusCode()
     {
-        // Start of user code Getter HttpResponse.getContentType
+        // Start of user code Getter HttpResponse.getStatusCode
         // End of user code
-        return $this->contentType;
+        return $this->statusCode;
     }
 
     /**
-     * @param string $contentType
+     * @param string $statusCode
      */
-    public function setContentType($contentType)
+    public function setStatusCode($statusCode)
     {
-        // Start of user code Setter HttpResponse.setContentType
+        // Start of user code Setter HttpResponse.setStatusCode
         // End of user code
-        $this->contentType = $contentType;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMessage()
-    {
-        // Start of user code Getter HttpResponse.getMessage
-        // End of user code
-        return $this->message;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function setMessage($message)
-    {
-        // Start of user code Setter HttpResponse.setMessage
-        // End of user code
-        $this->message = $message;
+        $this->statusCode = $statusCode;
     }
 
     /**
@@ -108,50 +88,61 @@ class HttpResponse
     /**
      * @return string
      */
-    public function getStatusCode()
+    public function getMessage()
     {
-        // Start of user code Getter HttpResponse.getStatusCode
+        // Start of user code Getter HttpResponse.getMessage
         // End of user code
-        return $this->statusCode;
+        return $this->message;
     }
 
     /**
-     * @param string $statusCode
+     * @param string $message
      */
-    public function setStatusCode($statusCode)
+    public function setMessage($message)
     {
-        // Start of user code Setter HttpResponse.setStatusCode
+        // Start of user code Setter HttpResponse.setMessage
         // End of user code
-        $this->statusCode = $statusCode;
+        $this->message = $message;
     }
 
     /**
-     * Send the http response message to the client
+     * @return string
      */
-    public function sendToClient()
+    public function getContentType()
     {
-        // Start of user code HttpResponse.sendToClient
-        
-        // Set http response status code
-		header('HTTP/1.1 ' . $this->statusCode .' ');
-		
-		// Set http content-type
-		header('Content-type: ' . $this->contentType);
-		
-		// Set custom headers
-		if(isset($this->headers)) {
-			foreach($this->headers->toNativeArray() as $key => $value) {
-				header(sprintf('%s: %s', ucfirst($key), $value));
-			}
-		}		
-		
-		// Send content
-		if(isset($this->message)) {
-			echo $this->message;
-		}
-		
-		return;
+        // Start of user code Getter HttpResponse.getContentType
         // End of user code
+        return $this->contentType;
+    }
+
+    /**
+     * @param string $contentType
+     */
+    public function setContentType($contentType)
+    {
+        // Start of user code Setter HttpResponse.setContentType
+        // End of user code
+        $this->contentType = $contentType;
+    }
+
+    /**
+     * Create an HttpResponse object configured to send a type redirect 302 response  
+     *
+     * @param string $uri
+     * @param bool $permanent
+     * @return HttpResponse $httpResponse
+     */
+    public static function createRedirectResponse($uri, $permanent)
+    {
+        // Start of user code HttpResponse.createRedirectResponse
+        $httpResponse = new self();			
+		$httpResponse->setStatusCode($permanent ? '301' : '302');
+		$httpResponse->setHeaders(
+            AssociativeArray::createFromNativeArray('string', array('location' => $uri))
+        );
+        // End of user code
+    
+        return $httpResponse;
     }
 
     /**
@@ -186,23 +177,32 @@ class HttpResponse
     }
 
     /**
-     * Create an HttpResponse object configured to send a type redirect 302 response  
-     *
-     * @param string $uri
-     * @param bool $permanent
-     * @return HttpResponse $httpResponse
+     * Send the http response message to the client
      */
-    public static function createRedirectResponse($uri, $permanent)
+    public function sendToClient()
     {
-        // Start of user code HttpResponse.createRedirectResponse
-        $httpResponse = new self();			
-		$httpResponse->setStatusCode($permanent ? '301' : '302');
-		$httpResponse->setHeaders(
-            AssociativeArray::createFromNativeArray('string', array('location' => $uri))
-        );
+        // Start of user code HttpResponse.sendToClient
+        
+        // Set http response status code
+		header('HTTP/1.1 ' . $this->statusCode .' ');
+		
+		// Set http content-type
+		header('Content-type: ' . $this->contentType);
+		
+		// Set custom headers
+		if(isset($this->headers)) {
+			foreach($this->headers->toNativeArray() as $key => $value) {
+				header(sprintf('%s: %s', ucfirst($key), $value));
+			}
+		}		
+		
+		// Send content
+		if(isset($this->message)) {
+			echo $this->message;
+		}
+		
+		return;
         // End of user code
-    
-        return $httpResponse;
     }
 
     // Start of user code HttpResponse.implementationSpecificMethods

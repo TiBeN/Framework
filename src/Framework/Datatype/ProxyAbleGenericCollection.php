@@ -17,6 +17,11 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
     protected $TType;
 
     /**
+     * @var Converter
+     */
+    protected $converter;
+
+    /**
      * @var bool
      */
     private $actAsAProxy;
@@ -25,11 +30,6 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
      * @var Collection
      */
     protected $collection;
-
-    /**
-     * @var Converter
-     */
-    protected $converter;
 
     // Start of user code ProxyAbleGenericCollection.surchargedConstructorsDestructors
     // Surcharge Constructors and Destructors here
@@ -75,6 +75,26 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
     }
 
     /**
+     * @return Converter
+     */
+    protected function getConverter()
+    {
+        // Start of user code Getter ProxyAbleGenericCollection.getConverter
+        // End of user code
+        return $this->converter;
+    }
+
+    /**
+     * @param Converter $converter
+     */
+    protected function setConverter(Converter $converter)
+    {
+        // Start of user code Setter ProxyAbleGenericCollection.setConverter
+        // End of user code
+        $this->converter = $converter;
+    }
+
+    /**
      * @return bool
      */
     private function getActAsAProxy()
@@ -114,45 +134,7 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
         $this->collection = $collection;
     }
 
-    /**
-     * @return Converter
-     */
-    protected function getConverter()
-    {
-        // Start of user code Getter ProxyAbleGenericCollection.getConverter
-        // End of user code
-        return $this->converter;
-    }
-
-    /**
-     * @param Converter $converter
-     */
-    protected function setConverter(Converter $converter)
-    {
-        // Start of user code Setter ProxyAbleGenericCollection.setConverter
-        // End of user code
-        $this->converter = $converter;
-    }
-
     // ProxyCollection Realization
-
-    /**
-     * Define this collection to act as a proxy of another collection. 
-     * By specifying a CollectionItemConverter object, The stored objects 
-     * of the initial collection are converted in both direction when manipulated by the proxy collection. 
-     * This means that when an item is added to a proxy collection, the item will be converted 
-     * using the converter then stored in the initial collection. Using getters methods, the requested object is converted before returned.
-     * The collection that will act as proxy must be empty otherwise it will throw an exception. 
-     *
-     * @param Collection $collection
-     * @param Converter $converter
-     */
-    public function defineAsProxyOf(Collection $collection, Converter $converter = NULL)
-    {
-        // Start of user code ProxyCollection.defineAsProxyOf
-        // TODO should be implemented.
-        // End of user code
-    }
 
     /**
      * Determine whether the collection act as a proxy of another collection or not.
@@ -177,6 +159,24 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
     public function defineAsSource()
     {
         // Start of user code ProxyCollection.defineAsSource
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * Define this collection to act as a proxy of another collection. 
+     * By specifying a CollectionItemConverter object, The stored objects 
+     * of the initial collection are converted in both direction when manipulated by the proxy collection. 
+     * This means that when an item is added to a proxy collection, the item will be converted 
+     * using the converter then stored in the initial collection. Using getters methods, the requested object is converted before returned.
+     * The collection that will act as proxy must be empty otherwise it will throw an exception. 
+     *
+     * @param Collection $collection
+     * @param Converter $converter
+     */
+    public function defineAsProxyOf(Collection $collection, Converter $converter = NULL)
+    {
+        // Start of user code ProxyCollection.defineAsProxyOf
         // TODO should be implemented.
         // End of user code
     }

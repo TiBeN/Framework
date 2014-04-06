@@ -39,14 +39,29 @@ class MysqlDataSourceTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test static method getAttributeMappingConfigurationClassName from interface DataSource
-     * Start of user code DataSource.testgetAttributeMappingConfigurationClassNameAnnotations 
+     * Test method update from interface DataSource
+     * Start of user code DataSource.testupdateAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testGetAttributeMappingConfigurationClassName()
+    public function testUpdate()
     {
-        // Start of user code DataSource.testgetAttributeMappingConfigurationClassName
+        // Start of user code DataSource.testupdate
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method read from interface DataSource
+     * Start of user code DataSource.testreadAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testRead()
+    {
+        // Start of user code DataSource.testread
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );
@@ -84,14 +99,14 @@ class MysqlDataSourceTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method update from interface DataSource
-     * Start of user code DataSource.testupdateAnnotations 
+     * Test static method getAttributeMappingConfigurationClassName from interface DataSource
+     * Start of user code DataSource.testgetAttributeMappingConfigurationClassNameAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testUpdate()
+    public function testGetAttributeMappingConfigurationClassName()
     {
-        // Start of user code DataSource.testupdate
+        // Start of user code DataSource.testgetAttributeMappingConfigurationClassName
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );
@@ -107,21 +122,6 @@ class MysqlDataSourceTest extends \PHPUnit_Framework_TestCase
     public function testDelete()
     {
         // Start of user code DataSource.testdelete
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
-     * Test method read from interface DataSource
-     * Start of user code DataSource.testreadAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testRead()
-    {
-        // Start of user code DataSource.testread
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );

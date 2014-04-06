@@ -161,25 +161,53 @@ class GenericCollection implements Collection
     // Collection Realization
 
     /**
-     * Rewinds back to the first element of the Iterator. 
+     * Tell whether the collection is empty or not.
+     *
+     * @return bool $boolean
      */
-    public function rewind()
+    public function isEmpty()
     {
-        // Start of user code Iterator.rewind
+        // Start of user code Collection.isEmpty
+        // TODO should be implemented.
+        // End of user code
+    
+        return $boolean;
+    }
+
+    /**
+     * Return the object stored in the provided key slot.
+     *
+     * @param int $key
+     * @return T $item
+     */
+    public function get($key)
+    {
+        // Start of user code Collection.get
+        // TODO should be implemented.
+        // End of user code
+    
+        return $item;
+    }
+
+    /**
+     * Adding a new item to the end of the collection.
+     *
+     * @param T $itemToAdd
+     */
+    public function add($itemToAdd)
+    {
+        $this->typeHint($this->TType, $itemToAdd);
+        // Start of user code Collection.add
         // TODO should be implemented.
         // End of user code
     }
 
     /**
-     * Insert of replace an item at the provided key slot.
-     *
-     * @param int $key
-     * @param T $itemToSet
+     * Rewinds back to the first element of the Iterator. 
      */
-    public function set($key, $itemToSet)
+    public function rewind()
     {
-        $this->typeHint($this->TType, $itemToSet);
-        // Start of user code Collection.set
+        // Start of user code Iterator.rewind
         // TODO should be implemented.
         // End of user code
     }
@@ -199,39 +227,27 @@ class GenericCollection implements Collection
     }
 
     /**
-     * Tell whether the collection is empty or not.
+     * Insert of replace an item at the provided key slot.
      *
-     * @return bool $boolean
+     * @param int $key
+     * @param T $itemToSet
      */
-    public function isEmpty()
+    public function set($key, $itemToSet)
     {
-        // Start of user code Collection.isEmpty
-        // TODO should be implemented.
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
-     * Moves the current position to the next element. 
-     */
-    public function next()
-    {
-        // Start of user code Iterator.next
+        $this->typeHint($this->TType, $itemToSet);
+        // Start of user code Collection.set
         // TODO should be implemented.
         // End of user code
     }
 
     /**
-     * @return bool $boolean
+     * Reset the collection by deleting all item it contain.
      */
-    public function valid()
+    public function clear()
     {
-        // Start of user code Iterator.valid
+        // Start of user code Collection.clear
         // TODO should be implemented.
         // End of user code
-    
-        return $boolean;
     }
 
     /**
@@ -246,6 +262,22 @@ class GenericCollection implements Collection
         // End of user code
     
         return $currentItem;
+    }
+
+    /**
+     * Remove an item from the collection by providing its key. 
+     * The removed item is returned back.
+     *
+     * @param int $key
+     * @return T $removedItem
+     */
+    public function remove($key)
+    {
+        // Start of user code Collection.remove
+        // TODO should be implemented.
+        // End of user code
+    
+        return $removedItem;
     }
 
     /**
@@ -278,36 +310,11 @@ class GenericCollection implements Collection
     }
 
     /**
-     * Reset the collection by deleting all item it contain.
+     * Moves the current position to the next element. 
      */
-    public function clear()
+    public function next()
     {
-        // Start of user code Collection.clear
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
-     * Define the collection as read only. All writing method then throws exceptions. 
-     *
-     * @param bool $boolean
-     */
-    public function setAsReadOnly($boolean)
-    {
-        // Start of user code Collection.setAsReadOnly
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
-     * Adding a new item to the end of the collection.
-     *
-     * @param T $itemToAdd
-     */
-    public function add($itemToAdd)
-    {
-        $this->typeHint($this->TType, $itemToAdd);
-        // Start of user code Collection.add
+        // Start of user code Iterator.next
         // TODO should be implemented.
         // End of user code
     }
@@ -327,34 +334,27 @@ class GenericCollection implements Collection
     }
 
     /**
-     * Remove an item from the collection by providing its key. 
-     * The removed item is returned back.
-     *
-     * @param int $key
-     * @return T $removedItem
+     * @return bool $boolean
      */
-    public function remove($key)
+    public function valid()
     {
-        // Start of user code Collection.remove
+        // Start of user code Iterator.valid
         // TODO should be implemented.
         // End of user code
     
-        return $removedItem;
+        return $boolean;
     }
 
     /**
-     * Return the object stored in the provided key slot.
+     * Define the collection as read only. All writing method then throws exceptions. 
      *
-     * @param int $key
-     * @return T $item
+     * @param bool $boolean
      */
-    public function get($key)
+    public function setAsReadOnly($boolean)
     {
-        // Start of user code Collection.get
+        // Start of user code Collection.setAsReadOnly
         // TODO should be implemented.
         // End of user code
-    
-        return $item;
     }
 
     // Start of user code GenericCollection.implementationSpecificMethods

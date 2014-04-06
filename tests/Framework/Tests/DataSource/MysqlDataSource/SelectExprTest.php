@@ -37,22 +37,6 @@ class SelectExprTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createFromEntityAttributes from class SelectExpr
-     *
-     * Start of user code SelectExprTest.testcreateFromEntityAttributesAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateFromEntityAttributes()
-    {
-        // Start of user code SelectExprTest.testcreateFromEntityAttributes
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test method toString from class SelectExpr
      *
      * Start of user code SelectExprTest.testtoStringAnnotations 
@@ -62,6 +46,22 @@ class SelectExprTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code SelectExprTest.testtoString
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method createFromEntityAttributes from class SelectExpr
+     *
+     * Start of user code SelectExprTest.testcreateFromEntityAttributesAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateFromEntityAttributes()
+    {
+        // Start of user code SelectExprTest.testcreateFromEntityAttributes
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );
