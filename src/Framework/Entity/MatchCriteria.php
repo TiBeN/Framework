@@ -18,6 +18,21 @@ class MatchCriteria
     /**
      * @var string
      */
+    const OPERATOR_LESS_THAN = '<';
+
+    /**
+     * @var string
+     */
+    public $operator;
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LIKE = 'like';
+
+    /**
+     * @var string
+     */
     const OPERATOR_NOT_EQUALS = '!=';
 
     /**
@@ -28,17 +43,7 @@ class MatchCriteria
     /**
      * @var string
      */
-    public $operator;
-
-    /**
-     * @var string
-     */
-    public $value;
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LIKE = 'like';
+    const OPERATOR_EQUALS = '=';
 
     /**
      * @var string
@@ -48,22 +53,17 @@ class MatchCriteria
     /**
      * @var string
      */
-    const OPERATOR_EQUALS = '=';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_NOT_LIKE = '!like';
-
-    /**
-     * @var string
-     */
     public $attribute;
 
     /**
      * @var string
      */
-    const OPERATOR_LESS_THAN = '<';
+    public $value;
+
+    /**
+     * @var string
+     */
+    const OPERATOR_NOT_LIKE = '!like';
 
     public function __construct()
     {
@@ -100,26 +100,6 @@ class MatchCriteria
     /**
      * @return string
      */
-    public function getValue()
-    {
-        // Start of user code Getter MatchCriteria.getValue
-        // End of user code
-        return $this->value;
-    }
-
-    /**
-     * @param string $value
-     */
-    public function setValue($value)
-    {
-        // Start of user code Setter MatchCriteria.setValue
-        // End of user code
-        $this->value = $value;
-    }
-
-    /**
-     * @return string
-     */
     public function getAttribute()
     {
         // Start of user code Getter MatchCriteria.getAttribute
@@ -135,6 +115,26 @@ class MatchCriteria
         // Start of user code Setter MatchCriteria.setAttribute
         // End of user code
         $this->attribute = $attribute;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValue()
+    {
+        // Start of user code Getter MatchCriteria.getValue
+        // End of user code
+        return $this->value;
+    }
+
+    /**
+     * @param string $value
+     */
+    public function setValue($value)
+    {
+        // Start of user code Setter MatchCriteria.setValue
+        // End of user code
+        $this->value = $value;
     }
 
     /**
@@ -156,65 +156,9 @@ class MatchCriteria
      * @param string $value
      * @return MatchCriteria $matchCriteria
      */
-    public static function equals($attribute, $value)
-    {
-        // Start of user code MatchCriteria.equals
-        // TODO should be implemented.
-        // End of user code
-    
-        return $matchCriteria;
-    }
-
-    /**
-     * @param string $attribute
-     * @param string $value
-     * @return MatchCriteria $matchCriteria
-     */
-    public static function lessThanOrEquals($attribute, $value)
-    {
-        // Start of user code MatchCriteria.lessThanOrEquals
-        // TODO should be implemented.
-        // End of user code
-    
-        return $matchCriteria;
-    }
-
-    /**
-     * @param string $attribute
-     * @param string $value
-     * @return MatchCriteria $matchCriteria
-     */
-    public static function lessThan($attribute, $value)
-    {
-        // Start of user code MatchCriteria.lessThan
-        // TODO should be implemented.
-        // End of user code
-    
-        return $matchCriteria;
-    }
-
-    /**
-     * @param string $attribute
-     * @param string $value
-     * @return MatchCriteria $matchCriteria
-     */
     public static function notEquals($attribute, $value)
     {
         // Start of user code MatchCriteria.notEquals
-        // TODO should be implemented.
-        // End of user code
-    
-        return $matchCriteria;
-    }
-
-    /**
-     * @param string $attribute
-     * @param string $value
-     * @return MatchCriteria $matchCriteria
-     */
-    public static function greaterThan($attribute, $value)
-    {
-        // Start of user code MatchCriteria.greaterThan
         // TODO should be implemented.
         // End of user code
     
@@ -243,6 +187,62 @@ class MatchCriteria
     public static function notLike($attribute, $value)
     {
         // Start of user code MatchCriteria.notLike
+        // TODO should be implemented.
+        // End of user code
+    
+        return $matchCriteria;
+    }
+
+    /**
+     * @param string $attribute
+     * @param string $value
+     * @return MatchCriteria $matchCriteria
+     */
+    public static function equals($attribute, $value)
+    {
+        // Start of user code MatchCriteria.equals
+        // TODO should be implemented.
+        // End of user code
+    
+        return $matchCriteria;
+    }
+
+    /**
+     * @param string $attribute
+     * @param string $value
+     * @return MatchCriteria $matchCriteria
+     */
+    public static function lessThan($attribute, $value)
+    {
+        // Start of user code MatchCriteria.lessThan
+        // TODO should be implemented.
+        // End of user code
+    
+        return $matchCriteria;
+    }
+
+    /**
+     * @param string $attribute
+     * @param string $value
+     * @return MatchCriteria $matchCriteria
+     */
+    public static function greaterThan($attribute, $value)
+    {
+        // Start of user code MatchCriteria.greaterThan
+        // TODO should be implemented.
+        // End of user code
+    
+        return $matchCriteria;
+    }
+
+    /**
+     * @param string $attribute
+     * @param string $value
+     * @return MatchCriteria $matchCriteria
+     */
+    public static function lessThanOrEquals($attribute, $value)
+    {
+        // Start of user code MatchCriteria.lessThanOrEquals
         // TODO should be implemented.
         // End of user code
     

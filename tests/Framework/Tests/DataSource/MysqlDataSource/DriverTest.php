@@ -53,22 +53,6 @@ class DriverTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method connect from class Driver
-     *
-     * Start of user code DriverTest.testconnectAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testConnect()
-    {
-        // Start of user code DriverTest.testconnect
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method disconnect from class Driver
      *
      * Start of user code DriverTest.testdisconnectAnnotations 
@@ -78,6 +62,22 @@ class DriverTest extends \PHPUnit_Framework_TestCase
     public function testDisconnect()
     {
         // Start of user code DriverTest.testdisconnect
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method connect from class Driver
+     *
+     * Start of user code DriverTest.testconnectAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testConnect()
+    {
+        // Start of user code DriverTest.testconnect
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

@@ -13,11 +13,6 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class EntityMapping
 {
     /**
-     * @var string
-     */
-    public $entityName;
-
-    /**
      * @var AssociativeArray
      */
     public $attributeMappings;
@@ -32,6 +27,11 @@ class EntityMapping
      */
     public $dataSourceEntityConfiguration;
 
+    /**
+     * @var string
+     */
+    public $entityName;
+
     public function __construct()
     {
         // Start of user code EntityMapping.constructor
@@ -42,26 +42,6 @@ class EntityMapping
     {
         // Start of user code EntityMapping.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getEntityName()
-    {
-        // Start of user code Getter EntityMapping.getEntityName
-        // End of user code
-        return $this->entityName;
-    }
-
-    /**
-     * @param string $entityName
-     */
-    public function setEntityName($entityName)
-    {
-        // Start of user code Setter EntityMapping.setEntityName
-        // End of user code
-        $this->entityName = $entityName;
     }
 
     /**
@@ -122,6 +102,26 @@ class EntityMapping
         // Start of user code Setter EntityMapping.setDataSourceEntityConfiguration
         // End of user code
         $this->dataSourceEntityConfiguration = $dataSourceEntityConfiguration;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEntityName()
+    {
+        // Start of user code Getter EntityMapping.getEntityName
+        // End of user code
+        return $this->entityName;
+    }
+
+    /**
+     * @param string $entityName
+     */
+    public function setEntityName($entityName)
+    {
+        // Start of user code Setter EntityMapping.setEntityName
+        // End of user code
+        $this->entityName = $entityName;
     }
 
     /**

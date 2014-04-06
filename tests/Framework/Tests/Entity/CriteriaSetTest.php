@@ -37,6 +37,22 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test method addSubSet from class CriteriaSet
+     *
+     * Start of user code CriteriaSetTest.testaddSubSetAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testAddSubSet()
+    {
+        // Start of user code CriteriaSetTest.testaddSubSet
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
      * Test static method createAnd from class CriteriaSet
      *
      * Start of user code CriteriaSetTest.testcreateAndAnnotations 
@@ -46,22 +62,6 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     public function testCreateAnd()
     {
         // Start of user code CriteriaSetTest.testcreateAnd
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test method add from class CriteriaSet
-     *
-     * Start of user code CriteriaSetTest.testaddAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testAdd()
-    {
-        // Start of user code CriteriaSetTest.testadd
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );
@@ -85,6 +85,22 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test method add from class CriteriaSet
+     *
+     * Start of user code CriteriaSetTest.testaddAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testAdd()
+    {
+        // Start of user code CriteriaSetTest.testadd
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
      * Test method addOrder from class CriteriaSet
      *
      * Start of user code CriteriaSetTest.testaddOrderAnnotations 
@@ -94,22 +110,6 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     public function testAddOrder()
     {
         // Start of user code CriteriaSetTest.testaddOrder
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test method addSubSet from class CriteriaSet
-     *
-     * Start of user code CriteriaSetTest.testaddSubSetAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testAddSubSet()
-    {
-        // Start of user code CriteriaSetTest.testaddSubSet
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

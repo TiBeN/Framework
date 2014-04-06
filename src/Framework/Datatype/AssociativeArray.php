@@ -110,27 +110,52 @@ class AssociativeArray implements \Countable, \Iterator
     }
 
     /**
-     * Search for an item and return an AssociativeArrayFindResult
+     * Factory method to create an Associative from a language native array
      *
-     * @param string $item
-     * @return AssociativeArrayFindResult $result
+     * @param string $type
+     * @param array $nativeArray
+     * @return AssociativeArray $associativeArray
      */
-    public function find($item)
+    public static function createFromNativeArray($type, array $nativeArray)
     {
-        // Start of user code AssociativeArray.find
-        $result = new AssociativeArrayFindResult();
-        $result->setResult(false);
-        
-        if (isset($this->items)) {
-            $search = array_search($item, $this->items);
-            if ($search) {
-                $result->setResult(true);
-                $result->setKey($search);
-            }
+        // Start of user code AssociativeArray.createFromNativeArray
+        $className = get_called_class();
+        $associativeArray = new $className($type);
+        foreach ($nativeArray as $key => $value) {
+            self::typeHint($type, $value);
+            $associativeArray->set($key, $value);
         }
         // End of user code
     
+        return $associativeArray;
+    }
+
+    /**
+     * Determine if a value is stored
+     *
+     * @param string $key
+     * @return bool $result
+     */
+    public function has($key)
+    {
+        // Start of user code AssociativeArray.has
+        $result = (isset($this->items) && isset($this->items[$key]));
+        // End of user code
+    
         return $result;
+    }
+
+    /**
+     * Merge the AssociativeArray with another
+     *
+     * @param AssociativeArray $associativeArray
+     */
+    public function merge(AssociativeArray $associativeArray)
+    {
+        // Start of user code AssociativeArray.merge
+        !isset($this->items) && $this->items = array();
+        $this->items = array_merge($this->items, $associativeArray->toNativeArray());
+        // End of user code
     }
 
     /**
@@ -154,24 +179,20 @@ class AssociativeArray implements \Countable, \Iterator
     }
 
     /**
-     * Factory method to create an Associative from a language native array
+     * Remove a value
      *
-     * @param string $type
-     * @param array $nativeArray
-     * @return AssociativeArray $associativeArray
+     * @param string $key
      */
-    public static function createFromNativeArray($type, array $nativeArray)
+    public function remove($key)
     {
-        // Start of user code AssociativeArray.createFromNativeArray
-        $className = get_called_class();
-        $associativeArray = new $className($type);
-        foreach ($nativeArray as $key => $value) {
-            self::typeHint($type, $value);
-            $associativeArray->set($key, $value);
+        // Start of user code AssociativeArray.remove
+        if (!isset($this->items) || !isset($this->items[$key])) {
+            throw new InvalidArgumentException(
+                sprintf('Key "%s" not found in container', $key)
+            );
         }
+        unset($this->items[$key]);
         // End of user code
-    
-        return $associativeArray;
     }
 
     /**
@@ -209,48 +230,27 @@ class AssociativeArray implements \Countable, \Iterator
     }
 
     /**
-     * Merge the AssociativeArray with another
+     * Search for an item and return an AssociativeArrayFindResult
      *
-     * @param AssociativeArray $associativeArray
+     * @param string $item
+     * @return AssociativeArrayFindResult $result
      */
-    public function merge(AssociativeArray $associativeArray)
+    public function find($item)
     {
-        // Start of user code AssociativeArray.merge
-        !isset($this->items) && $this->items = array();
-        $this->items = array_merge($this->items, $associativeArray->toNativeArray());
-        // End of user code
-    }
-
-    /**
-     * Determine if a value is stored
-     *
-     * @param string $key
-     * @return bool $result
-     */
-    public function has($key)
-    {
-        // Start of user code AssociativeArray.has
-        $result = (isset($this->items) && isset($this->items[$key]));
+        // Start of user code AssociativeArray.find
+        $result = new AssociativeArrayFindResult();
+        $result->setResult(false);
+        
+        if (isset($this->items)) {
+            $search = array_search($item, $this->items);
+            if ($search) {
+                $result->setResult(true);
+                $result->setKey($search);
+            }
+        }
         // End of user code
     
         return $result;
-    }
-
-    /**
-     * Remove a value
-     *
-     * @param string $key
-     */
-    public function remove($key)
-    {
-        // Start of user code AssociativeArray.remove
-        if (!isset($this->items) || !isset($this->items[$key])) {
-            throw new InvalidArgumentException(
-                sprintf('Key "%s" not found in container', $key)
-            );
-        }
-        unset($this->items[$key]);
-        // End of user code
     }
 
     // Countable Realization
@@ -273,6 +273,20 @@ class AssociativeArray implements \Countable, \Iterator
     }
 
     // Iterator Realization
+
+    /**
+     * Check if the current position is valid. 
+     *
+     * @return T $currentItem
+     */
+    public function current()
+    {
+        // Start of user code Iterator.current
+        $currentItem = current($this->items);
+        // End of user code
+    
+        return $currentItem;
+    }
 
     /**
      * Rewinds back to the first element of the Iterator. 
@@ -318,20 +332,6 @@ class AssociativeArray implements \Countable, \Iterator
         // End of user code
     
         return $boolean;
-    }
-
-    /**
-     * Check if the current position is valid. 
-     *
-     * @return T $currentItem
-     */
-    public function current()
-    {
-        // Start of user code Iterator.current
-        $currentItem = current($this->items);
-        // End of user code
-    
-        return $currentItem;
     }
 
     // Start of user code AssociativeArray.implementationSpecificMethods

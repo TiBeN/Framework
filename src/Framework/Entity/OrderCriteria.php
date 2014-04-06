@@ -13,22 +13,22 @@ class OrderCriteria
     /**
      * @var string
      */
-    const DIRECTION_DESC = 'desc';
-
-    /**
-     * @var string
-     */
-    const DIRECTION_ASC = 'asc';
-
-    /**
-     * @var string
-     */
     public $attribute;
 
     /**
      * @var string
      */
+    const DIRECTION_DESC = 'desc';
+
+    /**
+     * @var string
+     */
     public $direction;
+
+    /**
+     * @var string
+     */
+    const DIRECTION_ASC = 'asc';
 
     public function __construct()
     {
@@ -86,9 +86,9 @@ class OrderCriteria
      * @param string $attribute
      * @return OrderCriteria $orderCriteria
      */
-    public static function desc($attribute)
+    public static function asc($attribute)
     {
-        // Start of user code OrderCriteria.desc
+        // Start of user code OrderCriteria.asc
         // TODO should be implemented.
         // End of user code
     
@@ -99,9 +99,9 @@ class OrderCriteria
      * @param string $attribute
      * @return OrderCriteria $orderCriteria
      */
-    public static function asc($attribute)
+    public static function desc($attribute)
     {
-        // Start of user code OrderCriteria.asc
+        // Start of user code OrderCriteria.desc
         // TODO should be implemented.
         // End of user code
     

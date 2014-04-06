@@ -37,6 +37,22 @@ class StatementFactoryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method createDeleteStatement from class StatementFactory
+     *
+     * Start of user code StatementFactoryTest.testcreateDeleteStatementAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateDeleteStatement()
+    {
+        // Start of user code StatementFactoryTest.testcreateDeleteStatement
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
      * Test static method createUpdateStatementFromEntity from class StatementFactory
      *
      * Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntityAnnotations 
@@ -78,22 +94,6 @@ class StatementFactoryTest extends \PHPUnit_Framework_TestCase
     public function testCreateInsertStatement()
     {
         // Start of user code StatementFactoryTest.testcreateInsertStatement
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test static method createDeleteStatement from class StatementFactory
-     *
-     * Start of user code StatementFactoryTest.testcreateDeleteStatementAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateDeleteStatement()
-    {
-        // Start of user code StatementFactoryTest.testcreateDeleteStatement
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

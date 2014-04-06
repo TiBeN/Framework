@@ -52,15 +52,12 @@ class DataSourceTypeConvertersRegistry
     /**
      * @param string $type
      * @param string $dataSourceType
-     * @return TypeConverter $typeConverter
      */
-    public static function getTypeConverter($type, $dataSourceType)
+    public static function clearTypeConverter($type, $dataSourceType)
     {
-        // Start of user code DataSourceTypeConvertersRegistry.getTypeConverter
+        // Start of user code DataSourceTypeConvertersRegistry.clearTypeConverter
         // TODO should be implemented.
         // End of user code
-    
-        return $typeConverter;
     }
 
     /**
@@ -78,22 +75,25 @@ class DataSourceTypeConvertersRegistry
     }
 
     /**
+     * @param string $type
+     * @param string $dataSourceType
+     * @return TypeConverter $typeConverter
+     */
+    public static function getTypeConverter($type, $dataSourceType)
+    {
+        // Start of user code DataSourceTypeConvertersRegistry.getTypeConverter
+        // TODO should be implemented.
+        // End of user code
+    
+        return $typeConverter;
+    }
+
+    /**
      * @param TypeConverter $typeConverter
      */
     public static function registerTypeConverter(TypeConverter $typeConverter)
     {
         // Start of user code DataSourceTypeConvertersRegistry.registerTypeConverter
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
-     * @param string $type
-     * @param string $dataSourceType
-     */
-    public static function clearTypeConverter($type, $dataSourceType)
-    {
-        // Start of user code DataSourceTypeConvertersRegistry.clearTypeConverter
         // TODO should be implemented.
         // End of user code
     }

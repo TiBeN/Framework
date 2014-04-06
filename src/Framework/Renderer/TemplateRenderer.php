@@ -13,14 +13,9 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class TemplateRenderer
 {
     /**
-     * @var string
+     * @var TemplateEngine
      */
-    public static $templatesBasePath;
-
-    /**
-     * @var string
-     */
-    public $templatePath;
+    public $templateEngine;
 
     /**
      * @var string
@@ -28,14 +23,19 @@ class TemplateRenderer
     public $templateName;
 
     /**
+     * @var string
+     */
+    public static $templatesBasePath;
+
+    /**
      * @var AssociativeArray
      */
     public $variables;
 
     /**
-     * @var TemplateEngine
+     * @var string
      */
-    public $templateEngine;
+    public $templatePath;
 
     /**
      * @var AssociativeArray
@@ -55,43 +55,23 @@ class TemplateRenderer
     }
 
     /**
-     * @return string
+     * @return TemplateEngine
      */
-    public static function getTemplatesBasePath()
+    public function getTemplateEngine()
     {
-        // Start of user code Static getter TemplateRenderer.getTemplatesBasePath
+        // Start of user code Getter TemplateRenderer.getTemplateEngine
         // End of user code
-        return self::$templatesBasePath;
+        return $this->templateEngine;
     }
 
     /**
-     * @param string $templatesBasePath
+     * @param TemplateEngine $templateEngine
      */
-    public static function setTemplatesBasePath($templatesBasePath)
+    public function setTemplateEngine(TemplateEngine $templateEngine)
     {
-        // Start of user code Static setter TemplateRenderer.setTemplatesBasePath
+        // Start of user code Setter TemplateRenderer.setTemplateEngine
         // End of user code
-        self::$templatesBasePath = $templatesBasePath;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTemplatePath()
-    {
-        // Start of user code Getter TemplateRenderer.getTemplatePath
-        // End of user code
-        return $this->templatePath;
-    }
-
-    /**
-     * @param string $templatePath
-     */
-    public function setTemplatePath($templatePath)
-    {
-        // Start of user code Setter TemplateRenderer.setTemplatePath
-        // End of user code
-        $this->templatePath = $templatePath;
+        $this->templateEngine = $templateEngine;
     }
 
     /**
@@ -115,6 +95,26 @@ class TemplateRenderer
     }
 
     /**
+     * @return string
+     */
+    public static function getTemplatesBasePath()
+    {
+        // Start of user code Static getter TemplateRenderer.getTemplatesBasePath
+        // End of user code
+        return self::$templatesBasePath;
+    }
+
+    /**
+     * @param string $templatesBasePath
+     */
+    public static function setTemplatesBasePath($templatesBasePath)
+    {
+        // Start of user code Static setter TemplateRenderer.setTemplatesBasePath
+        // End of user code
+        self::$templatesBasePath = $templatesBasePath;
+    }
+
+    /**
      * @return AssociativeArray
      */
     public function getVariables()
@@ -135,23 +135,23 @@ class TemplateRenderer
     }
 
     /**
-     * @return TemplateEngine
+     * @return string
      */
-    public function getTemplateEngine()
+    public function getTemplatePath()
     {
-        // Start of user code Getter TemplateRenderer.getTemplateEngine
+        // Start of user code Getter TemplateRenderer.getTemplatePath
         // End of user code
-        return $this->templateEngine;
+        return $this->templatePath;
     }
 
     /**
-     * @param TemplateEngine $templateEngine
+     * @param string $templatePath
      */
-    public function setTemplateEngine(TemplateEngine $templateEngine)
+    public function setTemplatePath($templatePath)
     {
-        // Start of user code Setter TemplateRenderer.setTemplateEngine
+        // Start of user code Setter TemplateRenderer.setTemplatePath
         // End of user code
-        $this->templateEngine = $templateEngine;
+        $this->templatePath = $templatePath;
     }
 
     /**

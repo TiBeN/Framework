@@ -37,22 +37,6 @@ class ColumnNamesListStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createFromEntityAttributes from class ColumnNamesListStatement
-     *
-     * Start of user code ColumnNamesListStatementTest.testcreateFromEntityAttributesAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateFromEntityAttributes()
-    {
-        // Start of user code ColumnNamesListStatementTest.testcreateFromEntityAttributes
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test method toString from class ColumnNamesListStatement
      *
      * Start of user code ColumnNamesListStatementTest.testtoStringAnnotations 
@@ -62,6 +46,22 @@ class ColumnNamesListStatementTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code ColumnNamesListStatementTest.testtoString
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method createFromEntityAttributes from class ColumnNamesListStatement
+     *
+     * Start of user code ColumnNamesListStatementTest.testcreateFromEntityAttributesAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateFromEntityAttributes()
+    {
+        // Start of user code ColumnNamesListStatementTest.testcreateFromEntityAttributes
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

@@ -13,7 +13,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 
 /**
  * Test cases for class Router
- *
+ * 
  * Start of user code RouterTest.testAnnotations
  * @runTestsInSeparateProcesses	 
  * End of user code
@@ -42,7 +42,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         $_POST = $this->originalPhpPostGlobal;
         // End of user code
     }
-
+    
     /**
      * Test static method getRouteRuleByName from class Router
      *
@@ -56,7 +56,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         // Test of this method is covered by testAddRouteRule */
         // End of user code
     }
-
+    
     /**
      * Test static method followRoute from class Router
      *
@@ -70,7 +70,9 @@ class RouterTest extends \PHPUnit_Framework_TestCase
 
         // Case : Route without variables
         $route = new Route();
-        $route->setController('test');
+        $route->setController(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
+        );
         $route->setAction('caseWithoutVar');
 
         ob_start();
@@ -82,7 +84,9 @@ class RouterTest extends \PHPUnit_Framework_TestCase
 
         // Case : Route with variables
         $route = new Route();
-        $route->setController('test');
+        $route->setController(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
+        );
         $route->setAction('caseWithVar');
         $route->setVariables(AssociativeArray::createFromNativeArray(
             'string',
@@ -100,7 +104,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         );
         // End of user code
     }
-
+    
     /**
      * Test static method generateUri from class Router
      *
@@ -146,7 +150,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         );
         // End of user code
     }
-
+    
     /**
      * Test static method addRouteRule from class Router
      *
@@ -173,7 +177,40 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         );
         // End of user code
     }
+    
+    /**
+     * Test static method forwardToRoute from class Router
+     *
+     * Start of user code RouterTest.testforwardToRouteAnnotations
+     * PHPUnit users annotations can be placed here
+     * End of user code
+     */
+    public function testForwardToRoute()
+    {
+        // Start of user code RouterTest.testforwardToRoute
+        $routeRule = new RouteRule();
+        $routeRule->setName('my-route-rule-without-vars-test');
+        $routeRule->setUriPattern('/access-to-my-test-uri.html');
+        $routeRule->setController(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
+        );
+        $routeRule->setAction('caseWithoutVar');
 
+        Router::addRouteRule($routeRule);
+
+        ob_start();
+        Router::forwardToRoute(
+            'my-route-rule-without-vars-test',
+            new AssociativeArray('string')
+        );
+
+        $this->assertEquals(
+            '<html>Hello From TestController And CaseWithoutVar Action!</html>',
+            ob_get_clean()
+        );
+        // End of user code
+    }
+    
     /**
      * Test static method handleCurrentHttpRequest from class Router
      *
@@ -188,7 +225,9 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         $routeRule = new RouteRule();
         $routeRule->setName('my-route-rule-without-vars-test');
         $routeRule->setUriPattern('/access-to-my-test-uri.html');
-        $routeRule->setController('test');
+        $routeRule->setController(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
+        );
         $routeRule->setAction('caseWithoutVar');
 
         Router::addRouteRule($routeRule);
@@ -217,7 +256,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         );
         // End of user code
     }
-
+    
     /**
      * Test static method redirectToRoute from class Router
      *
@@ -241,45 +280,48 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         // End of user code
     }
 
-    /**
-     * Test static method forwardToRoute from class Router
-     *
-     * Start of user code RouterTest.testforwardToRouteAnnotations
-     * PHPUnit users annotations can be placed here
-     * End of user code
-     */
-    public function testForwardToRoute()
-    {
-        // Start of user code RouterTest.testforwardToRoute
-        $routeRule = new RouteRule();
-        $routeRule->setName('my-route-rule-without-vars-test');
-        $routeRule->setUriPattern('/access-to-my-test-uri.html');
-        $routeRule->setController('test');
-        $routeRule->setAction('caseWithoutVar');
-
-        Router::addRouteRule($routeRule);
-
-        ob_start();
-        Router::forwardToRoute(
-            'my-route-rule-without-vars-test',
-            new AssociativeArray('string')
-        );
-
-        $this->assertEquals(
-            '<html>Hello From TestController And CaseWithoutVar Action!</html>',
-            ob_get_clean()
-        );
-        // End of user code
-    }
-
     // Start of user code RouterTest.methods
 
     /**
-     * Case : Not found error content in 404 response when request unknown request uri
+     * Case : Exception thrown when no route match a request 
+     *
+     * @expectedException RuntimeException
+     * @expectedExceptionMessage No route match current request
      * @runInSeparateProcess
      */
-    public function testNotFound404ResponseWhenRequestUnknownUri()
+    public function testNotFoundExceptionWhenNoRouteMatchCurrentRequest()
     {
+        // Simulate a request at the php globals level
+        $_SERVER['REQUEST_METHOD'] = 'get';
+        $_SERVER['REQUEST_URI'] = '/access-to-an-unknown-uri.html';
+        $_SERVER['SERVER_PROTOCOL'] = 'HTTP/1.1';
+        $_SERVER['HTTP_HOST'] = 'http://www.my-host.com';
+        $_SERVER['HTTP_USER_AGENT']
+            = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:20.0) Gecko/20100101 Firefox/20.0'
+        ;
+        $_SERVER['HTTP_ACCEPT']
+            = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+        ;
+        $_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'fr,fr-fr;q=0.8,en-us;q=0.5,en;q=0.3';
+        $_SERVER['HTTP_ACCEPT_ENCODING'] = 'gzip, deflate';
+        $_SERVER['HTTP_CONNECTION'] = 'keep-alive';
+
+        Router::handleCurrentHttpRequest();
+    }
+
+    /**
+     * Case : Execute special configured route when no route match a request
+     * @runInSeparateProcess
+     */
+    public function testExecuteSpecialConfiguredRouteWhenNoRouteMatchCurrentHttpRequest()
+    {
+        // Configure special route 
+        $route = new Route();
+        $route->setController(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
+        );
+        $route->setAction('onNotFound');
+        Router::setOnNotFoundRoute($route);
 
         // Simulate a request at the php globals level
         $_SERVER['REQUEST_METHOD'] = 'get';
@@ -296,42 +338,52 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         $_SERVER['HTTP_ACCEPT_ENCODING'] = 'gzip, deflate';
         $_SERVER['HTTP_CONNECTION'] = 'keep-alive';
 
-        ob_start();
+        ob_start(); 
         Router::handleCurrentHttpRequest();
-
-        // Note that prior to PHP 5.4 there is no way to retrieve the status code sent
-        if (function_exists('http_response_code')){
-            $this->assertEquals('404', http_response_code());
-        }
-
-        $this->assertEquals(
-            '<html><h1>Error 404</h1><p>No ressource available at "/access-to-an-unknown-uri.html"</p><p>TiBeN Framework</p></html>',
-            ob_get_clean()
-        );
+        $this->assertEquals('TestController::onNotFound executed!', ob_get_clean());
     }
 
     /**
-     * Case: Execute action exception content in 500
-     * response when an action throw an exception
+     * Case: Exception thrown when an exception occur when executing an action 
      *
+     * @expectedException RuntimeException
+     * @expectedExceptionMessage An exception has been thrown when executing TiBeN\Framework\Tests\Fixtures\Controller\TestController::throwException : "RuntimeException : This is the message of the exception
      * @runInSeparateProcess
-     * @preserveGlobalState disabled
      */
-    public function testExecuteActionException500ResponseWhenAnActionThrowAnException()
+    public function testExceptionThrownWhenAnExceptionOccurWhenExectingAnAction()
     {
         $route = new Route();
-        $route->setController('test');
+        $route->setController(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
+        );
+        $route->setAction('throwException');
+        Router::followRoute($route);
+    }
+
+    /**
+     * Case: Execute special configured route when an exception is thrown when executing an action
+     * @runInSeparateProcess
+     */
+    public function testExecuteSpecialConfiguredRouteWhenAnExceptionIsThrownWhenExecutingAnAction()
+    {
+        // Configure special route
+        $specialRoute = new Route();
+        $specialRoute->setController(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
+        );
+        $specialRoute->setAction('onExecutionActionException');
+        Router::setOnExecuteActionExceptionRoute($specialRoute);
+
+        $route = new Route();
+        $route->setController(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
+        );
         $route->setAction('throwException');
 
         ob_start();
         Router::followRoute($route);
-
-        // Note that prior to PHP 5.4 there is no way to retrieve the status code sent
-        if (function_exists('http_response_code')){
-            $this->assertEquals('500', http_response_code());
-        }
         $this->assertEquals(
-            '<html><h1>Error 500 : An exception has been thrown</h1><p>Controller : TestController - Action : throwException</p><p>RuntimeException : This is the message of the exception</p><p>TiBeN Framework</p></html>',
+            'TestController::onExecutionActionException executed! - RuntimeException : This is the message of the exception',
             ob_get_clean()
         );
     }
@@ -351,7 +403,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
      * Case : Exception when follow a route containing a controller that doesn't exist
      *
      * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage No Controller named "UnknownController" exist
+     * @expectedExceptionMessage No Controller named "Unknown" exist
      */
     public function testExceptionWhenFollowARouteWithControllerThatDoesntExist()
     {
@@ -365,15 +417,16 @@ class RouterTest extends \PHPUnit_Framework_TestCase
      * Case : Exception when follow a route containing an action that doesn't exist
      *
      * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage No Action named "unknown" exist in controller TestController
+     * @expectedExceptionMessage No Action named "unknown" exist in controller TiBeN\Framework\Tests\Fixtures\Controller\TestController
      */
     public function testExceptionWhenFollowARouteWithActionThatDoesntExist()
     {
         $route = new Route();
-        $route->setController('test');
+        $route->setController(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
+        );
         $route->setAction('unknown');
         Router::followRoute($route);
     }
-
     // End of user code
 }

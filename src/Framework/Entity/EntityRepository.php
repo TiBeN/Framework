@@ -25,16 +25,13 @@ class EntityRepository
     }
 
     /**
-     * @param CriteriaSet $criteriaSet
-     * @return EntityCollection $entities
+     * @param Entity $entity
      */
-    public function find(CriteriaSet $criteriaSet)
+    public function persist(Entity $entity)
     {
-        // Start of user code EntityRepository.find
+        // Start of user code EntityRepository.persist
         // TODO should be implemented.
         // End of user code
-    
-        return $entities;
     }
 
     /**
@@ -48,13 +45,16 @@ class EntityRepository
     }
 
     /**
-     * @param Entity $entity
+     * @param CriteriaSet $criteriaSet
+     * @return EntityCollection $entities
      */
-    public function persist(Entity $entity)
+    public function find(CriteriaSet $criteriaSet)
     {
-        // Start of user code EntityRepository.persist
+        // Start of user code EntityRepository.find
         // TODO should be implemented.
         // End of user code
+    
+        return $entities;
     }
 
     // Start of user code EntityRepository.implementationSpecificMethods

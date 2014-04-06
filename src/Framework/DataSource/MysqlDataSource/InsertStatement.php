@@ -13,9 +13,9 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class InsertStatement implements Statement
 {
     /**
-     * @var string
+     * @var ValuesStatement
      */
-    public $tableName;
+    public $valuesStatement;
 
     /**
      * @var ColumnNamesListStatement
@@ -23,9 +23,9 @@ class InsertStatement implements Statement
     public $columnNamesListStatement;
 
     /**
-     * @var ValuesStatement
+     * @var string
      */
-    public $valuesStatement;
+    public $tableName;
 
     public function __construct()
     {
@@ -40,23 +40,23 @@ class InsertStatement implements Statement
     }
 
     /**
-     * @return string
+     * @return ValuesStatement
      */
-    public function getTableName()
+    public function getValuesStatement()
     {
-        // Start of user code Getter InsertStatement.getTableName
+        // Start of user code Getter InsertStatement.getValuesStatement
         // End of user code
-        return $this->tableName;
+        return $this->valuesStatement;
     }
 
     /**
-     * @param string $tableName
+     * @param ValuesStatement $valuesStatement
      */
-    public function setTableName($tableName)
+    public function setValuesStatement(ValuesStatement $valuesStatement)
     {
-        // Start of user code Setter InsertStatement.setTableName
+        // Start of user code Setter InsertStatement.setValuesStatement
         // End of user code
-        $this->tableName = $tableName;
+        $this->valuesStatement = $valuesStatement;
     }
 
     /**
@@ -80,39 +80,37 @@ class InsertStatement implements Statement
     }
 
     /**
-     * @return ValuesStatement
+     * @return string
      */
-    public function getValuesStatement()
+    public function getTableName()
     {
-        // Start of user code Getter InsertStatement.getValuesStatement
+        // Start of user code Getter InsertStatement.getTableName
         // End of user code
-        return $this->valuesStatement;
+        return $this->tableName;
     }
 
     /**
-     * @param ValuesStatement $valuesStatement
+     * @param string $tableName
      */
-    public function setValuesStatement(ValuesStatement $valuesStatement)
+    public function setTableName($tableName)
     {
-        // Start of user code Setter InsertStatement.setValuesStatement
+        // Start of user code Setter InsertStatement.setTableName
         // End of user code
-        $this->valuesStatement = $valuesStatement;
+        $this->tableName = $tableName;
     }
 
     // Statement Realization
 
     /**
-     * Tell wether the statement is ready or not to be executed
-     *
-     * @return bool $status
+     * @return AssociativeArray $statementParameters
      */
-    public function isReadyToBeExecuted()
+    public function getStatementParameters()
     {
-        // Start of user code Statement.isReadyToBeExecuted
+        // Start of user code Statement.getStatementParameters
         // TODO should be implemented.
         // End of user code
     
-        return $status;
+        return $statementParameters;
     }
 
     /**
@@ -130,15 +128,17 @@ class InsertStatement implements Statement
     }
 
     /**
-     * @return AssociativeArray $statementParameters
+     * Tell wether the statement is ready or not to be executed
+     *
+     * @return bool $status
      */
-    public function getStatementParameters()
+    public function isReadyToBeExecuted()
     {
-        // Start of user code Statement.getStatementParameters
+        // Start of user code Statement.isReadyToBeExecuted
         // TODO should be implemented.
         // End of user code
     
-        return $statementParameters;
+        return $status;
     }
 
     // Start of user code InsertStatement.implementationSpecificMethods

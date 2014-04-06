@@ -13,9 +13,9 @@ use TiBeN\Framework\Datatype\GenericCollection;
 class CriteriaSet
 {
     /**
-     * @var string
+     * @var GenericCollection
      */
-    const LOGICAL_SEPARATOR_AND = 'and';
+    public $matchCriterias;
 
     /**
      * @var GenericCollection
@@ -30,22 +30,22 @@ class CriteriaSet
     /**
      * @var string
      */
+    public $logicalSeparator;
+
+    /**
+     * @var string
+     */
     const LOGICAL_SEPARATOR_OR = 'or';
+
+    /**
+     * @var string
+     */
+    const LOGICAL_SEPARATOR_AND = 'and';
 
     /**
      * @var GenericCollection
      */
     public $orderCriterias;
-
-    /**
-     * @var string
-     */
-    public $logicalSeparator;
-
-    /**
-     * @var GenericCollection
-     */
-    public $matchCriterias;
 
     public function __construct()
     {
@@ -57,6 +57,26 @@ class CriteriaSet
     {
         // Start of user code CriteriaSet.destructor
         // End of user code
+    }
+
+    /**
+     * @return GenericCollection
+     */
+    public function getMatchCriterias()
+    {
+        // Start of user code Getter CriteriaSet.getMatchCriterias
+        // End of user code
+        return $this->matchCriterias;
+    }
+
+    /**
+     * @param GenericCollection $matchCriterias
+     */
+    public function setMatchCriterias(GenericCollection $matchCriterias)
+    {
+        // Start of user code Setter CriteriaSet.setMatchCriterias
+        // End of user code
+        $this->matchCriterias = $matchCriterias;
     }
 
     /**
@@ -100,26 +120,6 @@ class CriteriaSet
     }
 
     /**
-     * @return GenericCollection
-     */
-    public function getOrderCriterias()
-    {
-        // Start of user code Getter CriteriaSet.getOrderCriterias
-        // End of user code
-        return $this->orderCriterias;
-    }
-
-    /**
-     * @param GenericCollection $orderCriterias
-     */
-    public function setOrderCriterias(GenericCollection $orderCriterias)
-    {
-        // Start of user code Setter CriteriaSet.setOrderCriterias
-        // End of user code
-        $this->orderCriterias = $orderCriterias;
-    }
-
-    /**
      * @return string
      */
     public function getLogicalSeparator()
@@ -142,21 +142,31 @@ class CriteriaSet
     /**
      * @return GenericCollection
      */
-    public function getMatchCriterias()
+    public function getOrderCriterias()
     {
-        // Start of user code Getter CriteriaSet.getMatchCriterias
+        // Start of user code Getter CriteriaSet.getOrderCriterias
         // End of user code
-        return $this->matchCriterias;
+        return $this->orderCriterias;
     }
 
     /**
-     * @param GenericCollection $matchCriterias
+     * @param GenericCollection $orderCriterias
      */
-    public function setMatchCriterias(GenericCollection $matchCriterias)
+    public function setOrderCriterias(GenericCollection $orderCriterias)
     {
-        // Start of user code Setter CriteriaSet.setMatchCriterias
+        // Start of user code Setter CriteriaSet.setOrderCriterias
         // End of user code
-        $this->matchCriterias = $matchCriterias;
+        $this->orderCriterias = $orderCriterias;
+    }
+
+    /**
+     * @param CriteriaSet $criteriaSet
+     */
+    public function addSubSet(CriteriaSet $criteriaSet)
+    {
+        // Start of user code CriteriaSet.addSubSet
+        // TODO should be implemented.
+        // End of user code
     }
 
     /**
@@ -172,16 +182,6 @@ class CriteriaSet
     }
 
     /**
-     * @param MatchCriteria $matchCriteria
-     */
-    public function add(MatchCriteria $matchCriteria)
-    {
-        // Start of user code CriteriaSet.add
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
      * @param LimitCriteria $limitCriteria
      */
     public function setLimit(LimitCriteria $limitCriteria)
@@ -192,21 +192,21 @@ class CriteriaSet
     }
 
     /**
-     * @param OrderCriteria $orderCriteria
+     * @param MatchCriteria $matchCriteria
      */
-    public function addOrder(OrderCriteria $orderCriteria)
+    public function add(MatchCriteria $matchCriteria)
     {
-        // Start of user code CriteriaSet.addOrder
+        // Start of user code CriteriaSet.add
         // TODO should be implemented.
         // End of user code
     }
 
     /**
-     * @param CriteriaSet $criteriaSet
+     * @param OrderCriteria $orderCriteria
      */
-    public function addSubSet(CriteriaSet $criteriaSet)
+    public function addOrder(OrderCriteria $orderCriteria)
     {
-        // Start of user code CriteriaSet.addSubSet
+        // Start of user code CriteriaSet.addOrder
         // TODO should be implemented.
         // End of user code
     }

@@ -19,5 +19,4 @@ Registry::setVar('app', 'url', 'http://localhost/tests/');
  * 1 => Only Warning and Errors are shown
  * 2 => All Error warning notices are shown
  */
- 
 Registry::setVar('app', 'debug', 2);

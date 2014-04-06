@@ -51,19 +51,6 @@ class DataSourcesRegistry
 
     /**
      * @param string $dataSourceName
-     * @return bool $boolean
-     */
-    public static function hasDataSource($dataSourceName)
-    {
-        // Start of user code DataSourcesRegistry.hasDataSource
-        // TODO should be implemented.
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
-     * @param string $dataSourceName
      */
     public static function clearDataSource($dataSourceName)
     {
@@ -93,6 +80,19 @@ class DataSourcesRegistry
         // End of user code
     
         return $dataSource;
+    }
+
+    /**
+     * @param string $dataSourceName
+     * @return bool $boolean
+     */
+    public static function hasDataSource($dataSourceName)
+    {
+        // Start of user code DataSourcesRegistry.hasDataSource
+        // TODO should be implemented.
+        // End of user code
+    
+        return $boolean;
     }
 
     // Start of user code DataSourcesRegistry.implementationSpecificMethods

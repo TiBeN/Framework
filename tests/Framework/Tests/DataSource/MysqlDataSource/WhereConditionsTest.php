@@ -37,38 +37,6 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method toString from class WhereConditions
-     *
-     * Start of user code WhereConditionsTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code WhereConditionsTest.testtoString
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test static method createFromCriteriaSet from class WhereConditions
-     *
-     * Start of user code WhereConditionsTest.testcreateFromCriteriaSetAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateFromCriteriaSet()
-    {
-        // Start of user code WhereConditionsTest.testcreateFromCriteriaSet
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method createEntityTargetFromEntity from class WhereConditions
      *
      * Start of user code WhereConditionsTest.testcreateEntityTargetFromEntityAnnotations 
@@ -94,6 +62,38 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
     public function testCreateFromExpr()
     {
         // Start of user code WhereConditionsTest.testcreateFromExpr
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method createFromCriteriaSet from class WhereConditions
+     *
+     * Start of user code WhereConditionsTest.testcreateFromCriteriaSetAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateFromCriteriaSet()
+    {
+        // Start of user code WhereConditionsTest.testcreateFromCriteriaSet
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method toString from class WhereConditions
+     *
+     * Start of user code WhereConditionsTest.testtoStringAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code WhereConditionsTest.testtoString
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

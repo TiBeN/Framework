@@ -39,6 +39,18 @@ class Driver
     }
 
     /**
+     * Close the connexion to a Mysql database
+     *
+     * @param Connection $connection
+     */
+    public static function disconnect(Connection $connection)
+    {
+        // Start of user code Driver.disconnect
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
      * Create a new connection to a Mysql database
      *
      * @param string $host
@@ -55,18 +67,6 @@ class Driver
         // End of user code
     
         return $connection;
-    }
-
-    /**
-     * Close the connexion to a Mysql database
-     *
-     * @param Connection $connection
-     */
-    public static function disconnect(Connection $connection)
-    {
-        // Start of user code Driver.disconnect
-        // TODO should be implemented.
-        // End of user code
     }
 
     // Start of user code Driver.implementationSpecificMethods

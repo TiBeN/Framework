@@ -39,14 +39,14 @@ class SelectStatementTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method isReadyToBeExecuted from interface Statement
-     * Start of user code Statement.testisReadyToBeExecutedAnnotations 
+     * Test method getStatementParameters from interface Statement
+     * Start of user code Statement.testgetStatementParametersAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testIsReadyToBeExecuted()
+    public function testGetStatementParameters()
     {
-        // Start of user code Statement.testisReadyToBeExecuted
+        // Start of user code Statement.testgetStatementParameters
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );
@@ -69,14 +69,14 @@ class SelectStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method getStatementParameters from interface Statement
-     * Start of user code Statement.testgetStatementParametersAnnotations 
+     * Test method isReadyToBeExecuted from interface Statement
+     * Start of user code Statement.testisReadyToBeExecutedAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testGetStatementParameters()
+    public function testIsReadyToBeExecuted()
     {
-        // Start of user code Statement.testgetStatementParameters
+        // Start of user code Statement.testisReadyToBeExecuted
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );

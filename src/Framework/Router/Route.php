@@ -15,9 +15,9 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class Route
 {
     /**
-     * @var string
+     * @var AssociativeArray
      */
-    public $controller;
+    public $variables;
 
     /**
      * @var string
@@ -25,9 +25,9 @@ class Route
     public $action;
 
     /**
-     * @var AssociativeArray
+     * @var string
      */
-    public $variables;
+    public $controller;
 
     public function __construct()
     {
@@ -42,23 +42,23 @@ class Route
     }
 
     /**
-     * @return string
+     * @return AssociativeArray
      */
-    public function getController()
+    public function getVariables()
     {
-        // Start of user code Getter Route.getController
+        // Start of user code Getter Route.getVariables
         // End of user code
-        return $this->controller;
+        return $this->variables;
     }
 
     /**
-     * @param string $controller
+     * @param AssociativeArray $variables
      */
-    public function setController($controller)
+    public function setVariables(AssociativeArray $variables)
     {
-        // Start of user code Setter Route.setController
+        // Start of user code Setter Route.setVariables
         // End of user code
-        $this->controller = $controller;
+        $this->variables = $variables;
     }
 
     /**
@@ -82,23 +82,23 @@ class Route
     }
 
     /**
-     * @return AssociativeArray
+     * @return string
      */
-    public function getVariables()
+    public function getController()
     {
-        // Start of user code Getter Route.getVariables
+        // Start of user code Getter Route.getController
         // End of user code
-        return $this->variables;
+        return $this->controller;
     }
 
     /**
-     * @param AssociativeArray $variables
+     * @param string $controller
      */
-    public function setVariables(AssociativeArray $variables)
+    public function setController($controller)
     {
-        // Start of user code Setter Route.setVariables
+        // Start of user code Setter Route.setController
         // End of user code
-        $this->variables = $variables;
+        $this->controller = $controller;
     }
 
     /**

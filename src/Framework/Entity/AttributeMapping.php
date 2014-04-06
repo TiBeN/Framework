@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\Entity;
 
-use TiBeN\Framework\Validation\ValidationRule;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Validation\ValidationRule;
 
 /**
  * 
@@ -13,6 +13,11 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  */
 class AttributeMapping
 {
+    /**
+     * @var bool
+     */
+    public $isIdentifier;
+
     /**
      * @var string
      */
@@ -24,19 +29,14 @@ class AttributeMapping
     public $validationRules;
 
     /**
-     * @var AssociativeArray
-     */
-    public $type;
-
-    /**
      * @var DataSourceAttributeMappingConfiguration
      */
     public $dataSourceAttributeMappingConfiguration;
 
     /**
-     * @var bool
+     * @var AssociativeArray
      */
-    public $isIdentifier;
+    public $type;
 
     public function __construct()
     {
@@ -48,6 +48,26 @@ class AttributeMapping
     {
         // Start of user code AttributeMapping.destructor
         // End of user code
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsIdentifier()
+    {
+        // Start of user code Getter AttributeMapping.getIsIdentifier
+        // End of user code
+        return $this->isIdentifier;
+    }
+
+    /**
+     * @param bool $isIdentifier
+     */
+    public function setIsIdentifier($isIdentifier)
+    {
+        // Start of user code Setter AttributeMapping.setIsIdentifier
+        // End of user code
+        $this->isIdentifier = $isIdentifier;
     }
 
     /**
@@ -91,26 +111,6 @@ class AttributeMapping
     }
 
     /**
-     * @return AssociativeArray
-     */
-    public function getType()
-    {
-        // Start of user code Getter AttributeMapping.getType
-        // End of user code
-        return $this->type;
-    }
-
-    /**
-     * @param AssociativeArray $type
-     */
-    public function setType(AssociativeArray $type)
-    {
-        // Start of user code Setter AttributeMapping.setType
-        // End of user code
-        $this->type = $type;
-    }
-
-    /**
      * @return DataSourceAttributeMappingConfiguration
      */
     public function getDataSourceAttributeMappingConfiguration()
@@ -131,23 +131,23 @@ class AttributeMapping
     }
 
     /**
-     * @return bool
+     * @return AssociativeArray
      */
-    public function getIsIdentifier()
+    public function getType()
     {
-        // Start of user code Getter AttributeMapping.getIsIdentifier
+        // Start of user code Getter AttributeMapping.getType
         // End of user code
-        return $this->isIdentifier;
+        return $this->type;
     }
 
     /**
-     * @param bool $isIdentifier
+     * @param AssociativeArray $type
      */
-    public function setIsIdentifier($isIdentifier)
+    public function setType(AssociativeArray $type)
     {
-        // Start of user code Setter AttributeMapping.setIsIdentifier
+        // Start of user code Setter AttributeMapping.setType
         // End of user code
-        $this->isIdentifier = $isIdentifier;
+        $this->type = $type;
     }
 
     /**

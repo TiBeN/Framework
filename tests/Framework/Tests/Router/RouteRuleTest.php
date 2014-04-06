@@ -39,46 +39,6 @@ class RouteRuleTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method getRoute from class RouteRule
-     *
-     * Start of user code RouteRuleTest.testgetRouteAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetRoute()
-    {
-        // Start of user code RouteRuleTest.testgetRoute
-	    $routeRule = new RouteRule();
-		$routeRule->setName('my-route-rule-with-variables-test');
-		$routeRule->setUriPattern('/test/{foo}/{bar}.html');
-		$routeRule->setController('myController');
-		$routeRule->setAction('myAction');
-						
-		$expectedRoute = new Route();
-		$expectedRoute->setController('myController');
-		$expectedRoute->setAction('myAction');
-		$expectedRoute->setVariables(AssociativeArray::createFromNativeArray(
-		    'string',
-		    array(
-    			'foo' => 'foo-content',
-    			'bar' => 'bar-content'
-    		)
-		));
-		
-		$this->assertEquals(
-            $expectedRoute, 
-            $routeRule->getRoute(AssociativeArray::createFromNativeArray(
-                'string',
-                array(
-                    'foo' => 'foo-content',
-                    'bar' => 'bar-content'					
-                )
-            ))
-        );
-		// End of user code
-    }
-    
-    /**
      * Test static method create from class RouteRule
      *
      * Start of user code RouteRuleTest.testcreateAnnotations 
@@ -126,6 +86,46 @@ class RouteRuleTest extends \PHPUnit_Framework_TestCase
                     'default-bar' => 'defaultBarContent'					
                 )
             )))
+        );
+		// End of user code
+    }
+    
+    /**
+     * Test method getRoute from class RouteRule
+     *
+     * Start of user code RouteRuleTest.testgetRouteAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetRoute()
+    {
+        // Start of user code RouteRuleTest.testgetRoute
+	    $routeRule = new RouteRule();
+		$routeRule->setName('my-route-rule-with-variables-test');
+		$routeRule->setUriPattern('/test/{foo}/{bar}.html');
+		$routeRule->setController('myController');
+		$routeRule->setAction('myAction');
+						
+		$expectedRoute = new Route();
+		$expectedRoute->setController('myController');
+		$expectedRoute->setAction('myAction');
+		$expectedRoute->setVariables(AssociativeArray::createFromNativeArray(
+		    'string',
+		    array(
+    			'foo' => 'foo-content',
+    			'bar' => 'bar-content'
+    		)
+		));
+		
+		$this->assertEquals(
+            $expectedRoute, 
+            $routeRule->getRoute(AssociativeArray::createFromNativeArray(
+                'string',
+                array(
+                    'foo' => 'foo-content',
+                    'bar' => 'bar-content'					
+                )
+            ))
         );
 		// End of user code
     }

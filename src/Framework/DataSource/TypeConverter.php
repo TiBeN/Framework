@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Datatype\Converter;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 /**
  *  
@@ -13,20 +13,9 @@ use TiBeN\Framework\Datatype\Converter;
 interface TypeConverter extends Converter
 {
 	/**
-	 * @param AssociativeArray $parameters
+	 * @return string $dataSourceType
 	 */
-	public function setParameters(AssociativeArray $parameters);
-
-	/**
-	 * @return string $type
-	 */
-	public function getType();
-
-	/**
-	 * @param U $itemToReverse
-	 * @return T $reversedItem
-	 */
-	public function reverse($itemToReverse);
+	public function getDataSourceType();
 
 	/**
 	 * @param T $itemToConvert
@@ -35,8 +24,19 @@ interface TypeConverter extends Converter
 	public function convert($itemToConvert);
 
 	/**
-	 * @return string $dataSourceType
+	 * @param U $itemToReverse
+	 * @return T $reversedItem
 	 */
-	public function getDataSourceType();
+	public function reverse($itemToReverse);
+
+	/**
+	 * @param AssociativeArray $parameters
+	 */
+	public function setParameters(AssociativeArray $parameters);
+
+	/**
+	 * @return string $type
+	 */
+	public function getType();
 
 }

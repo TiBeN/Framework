@@ -1078,6 +1078,27 @@ control the action flow (follows, redirections) using RouteRules Définitions.  
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tzv3QaM5EeKLKe0oeBmLTg"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tzv3QqM5EeKLKe0oeBmLTg" value="*"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bpf0kL28EeO-aaY3kqFukA" name="onNotFoundRoute" visibility="public" isStatic="true" type="_YbLfMJkdEeKNe-pGKaimUg">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_UDqCwL28EeO-aaY3kqFukA" annotatedElement="_Bpf0kL28EeO-aaY3kqFukA">
+          <body>Route who is followed when the initial Route is not found </body>
+        </ownedComment>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F3_1UL28EeO-aaY3kqFukA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F4AcYL28EeO-aaY3kqFukA" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_F4BDcL28EeO-aaY3kqFukA">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_HSrDkL28EeO-aaY3kqFukA" name="onExecuteActionExceptionRoute" visibility="public" isStatic="true" type="_YbLfMJkdEeKNe-pGKaimUg">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_bQ1bIL28EeO-aaY3kqFukA" annotatedElement="_HSrDkL28EeO-aaY3kqFukA">
+          <body>Route who is followed when an exception is thrown during
+the execution of an action.</body>
+        </ownedComment>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L1JJML28EeO-aaY3kqFukA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L1JwQL28EeO-aaY3kqFukA" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_L1KXUL28EeO-aaY3kqFukA">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_MKyuMKM6EeKLKe0oeBmLTg" name="handleCurrentHttpRequest" isStatic="true">
         <ownedComment xmi:type="uml:Comment" xmi:id="_3tRQMK9lEeKPQ6Ac0Cqdkw">
           <body>Search route as requested by client Http request then follow it.</body>
@@ -1354,6 +1375,28 @@ then return parsed variables if match.</body>
   <packagedElement xmi:type="uml:Package" xmi:id="_oIPh0LIzEeKwOoQ65WtEfA" name="Controller">
     <packagedElement xmi:type="uml:Class" xmi:id="_clZ4QKRzEeKL77OWyGfbwg" clientDependency="_44XT8KTpEeKPmbE2lP8SmA _wF3KsLXkEeO5teBENtCUQw" name="Controller"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_wF3KsLXkEeO5teBENtCUQw" name="Dependency1" client="_clZ4QKRzEeKL77OWyGfbwg" supplier="_cE0M4LreEeK-eqy0US4WHg"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_WvFcUL2-EeO-aaY3kqFukA" name="RouterSpecialEventsController">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_yvUz8L2-EeO-aaY3kqFukA" annotatedElement="_WvFcUL2-EeO-aaY3kqFukA">
+        <body>This bundled controller hold default actions of 
+special router events (route not found  etc..).</body>
+      </ownedComment>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_dwzyoL2-EeO-aaY3kqFukA" name="onExecuteActionException">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_9neCML2-EeO-aaY3kqFukA" annotatedElement="_dwzyoL2-EeO-aaY3kqFukA">
+          <body>Executed by the router when an exception is thrown
+during the execution of an action.</body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_EL0DgL3AEeO-aaY3kqFukA" name="variables" type="_ti84wLoPEeKycOj42mlSMA"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_IgY3EL3AEeO-aaY3kqFukA" name="httpResponse" type="_c9kFQJkdEeKNe-pGKaimUg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_HtOxQL2_EeO-aaY3kqFukA" name="onNotFound">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Nz0VAL2_EeO-aaY3kqFukA" annotatedElement="_HtOxQL2_EeO-aaY3kqFukA">
+          <body>Executed when no routes has been found during
+request handling</body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Lk8NML3AEeO-aaY3kqFukA" name="variables" type="_ti84wLoPEeKycOj42mlSMA"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_NDfO0L3AEeO-aaY3kqFukA" name="httpResponse" type="_c9kFQJkdEeKNe-pGKaimUg" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_DmJ9wLmuEeKTfcMhryTlcQ" name="Renderer">
     <packagedElement xmi:type="uml:Class" xmi:id="_4LpgsLpaEeKbZ-V7fHb95Q" clientDependency="_ewOJwLsLEeKCROSkrBdglA" name="TemplateRenderer">
@@ -3251,6 +3294,25 @@ Handle data validation stuff. Theses ares used by the entity validator to valida
     <packagedElement xmi:type="uml:Class" xmi:id="_zi85UBsoEeOmN-2QJZ-Okg" clientDependency="_1o2O0BsoEeOmN-2QJZ-Okg" name="NumericValidator">
       <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_1o2O0BsoEeOmN-2QJZ-Okg" name="InterfaceRealization1" client="_zi85UBsoEeOmN-2QJZ-Okg" supplier="_H-JvABslEeOmN-2QJZ-Okg" contract="_H-JvABslEeOmN-2QJZ-Okg"/>
     </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_VXkwcL22EeO-aaY3kqFukA" name="Bootstrap">
+    <packagedElement xmi:type="uml:Class" xmi:id="_ZJXnEL22EeO-aaY3kqFukA" clientDependency="_etAj4L24EeO-aaY3kqFukA _8ncXUL24EeO-aaY3kqFukA" name="Bootstrap">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_fdcNML22EeO-aaY3kqFukA" annotatedElement="_ZJXnEL22EeO-aaY3kqFukA">
+        <body>Load application configuration and perform
+needed booting tasks</body>
+      </ownedComment>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_xSm38L22EeO-aaY3kqFukA" name="init" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_R5tF8L23EeO-aaY3kqFukA" annotatedElement="_xSm38L22EeO-aaY3kqFukA">
+          <body>Init The booting process of the Framework.
+Allways call this before use any component.</body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_70VxUL22EeO-aaY3kqFukA" name="configFolder">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_etAj4L24EeO-aaY3kqFukA" name="load routes into" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_ZiJHQJkdEeKNe-pGKaimUg"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_8ncXUL24EeO-aaY3kqFukA" name="configure specials route in the router using" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_YbLfMJkdEeKNe-pGKaimUg"/>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_uRefYJoVEeKjqrzFgzAFxw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uRnCQJoVEeKjqrzFgzAFxw" source="http://www.eclipse.org/uml2/2.0.0/UML">

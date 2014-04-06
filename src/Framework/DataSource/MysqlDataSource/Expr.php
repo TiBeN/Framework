@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Datatype\GenericCollection;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 /**
  * 
@@ -14,6 +14,21 @@ use TiBeN\Framework\Datatype\GenericCollection;
 class Expr
 {
     /**
+     * @var string
+     */
+    const OPERATOR_LESS_THAN = '<';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_NOT_EQUALS = '!=';
+
+    /**
+     * @var AssociativeArray
+     */
+    public $exprParameters;
+
+    /**
      * @var bool
      */
     public $isResultOfConcatenation = false;
@@ -21,12 +36,12 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_EQUALS = '=';
+    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
 
     /**
      * @var string
      */
-    const OPERATOR_LIKE = 'LIKE';
+    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
 
     /**
      * @var string
@@ -41,27 +56,12 @@ class Expr
     /**
      * @var string
      */
-    const LOGICAL_SEPARATOR_AND = 'AND';
+    public $exprString;
 
     /**
      * @var string
      */
-    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
-
-    /**
-     * @var AssociativeArray
-     */
-    public $exprParameters;
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LESS_THAN = '<';
+    const OPERATOR_EQUALS = '=';
 
     /**
      * @var string
@@ -71,12 +71,12 @@ class Expr
     /**
      * @var string
      */
-    public $exprString;
+    const OPERATOR_LIKE = 'LIKE';
 
     /**
      * @var string
      */
-    const OPERATOR_NOT_EQUALS = '!=';
+    const LOGICAL_SEPARATOR_AND = 'AND';
 
     public function __construct()
     {
@@ -88,26 +88,6 @@ class Expr
     {
         // Start of user code Expr.destructor
         // End of user code
-    }
-
-    /**
-     * @return bool
-     */
-    public function getIsResultOfConcatenation()
-    {
-        // Start of user code Getter Expr.getIsResultOfConcatenation
-        // End of user code
-        return $this->isResultOfConcatenation;
-    }
-
-    /**
-     * @param bool $isResultOfConcatenation
-     */
-    public function setIsResultOfConcatenation($isResultOfConcatenation)
-    {
-        // Start of user code Setter Expr.setIsResultOfConcatenation
-        // End of user code
-        $this->isResultOfConcatenation = $isResultOfConcatenation;
     }
 
     /**
@@ -131,6 +111,26 @@ class Expr
     }
 
     /**
+     * @return bool
+     */
+    public function getIsResultOfConcatenation()
+    {
+        // Start of user code Getter Expr.getIsResultOfConcatenation
+        // End of user code
+        return $this->isResultOfConcatenation;
+    }
+
+    /**
+     * @param bool $isResultOfConcatenation
+     */
+    public function setIsResultOfConcatenation($isResultOfConcatenation)
+    {
+        // Start of user code Setter Expr.setIsResultOfConcatenation
+        // End of user code
+        $this->isResultOfConcatenation = $isResultOfConcatenation;
+    }
+
+    /**
      * @return string
      */
     public function getExprString()
@@ -148,18 +148,6 @@ class Expr
         // Start of user code Setter Expr.setExprString
         // End of user code
         $this->exprString = $exprString;
-    }
-
-    /**
-     * @return string $exprString
-     */
-    public function toString()
-    {
-        // Start of user code Expr.toString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $exprString;
     }
 
     /**
@@ -188,6 +176,18 @@ class Expr
         // End of user code
     
         return $expr;
+    }
+
+    /**
+     * @return string $exprString
+     */
+    public function toString()
+    {
+        // Start of user code Expr.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $exprString;
     }
 
     // Start of user code Expr.implementationSpecificMethods

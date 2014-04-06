@@ -13,14 +13,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class SelectStatement implements Statement
 {
     /**
-     * @var string
-     */
-    public $tableReferences;
-
-    /**
      * @var OrderByStatement
      */
     public $orderByStatement;
+
+    /**
+     * @var WhereConditions
+     */
+    public $whereConditions;
 
     /**
      * @var SelectExpr
@@ -28,9 +28,9 @@ class SelectStatement implements Statement
     public $selectExpr;
 
     /**
-     * @var WhereConditions
+     * @var string
      */
-    public $whereConditions;
+    public $tableReferences;
 
     /**
      * @var LimitStatement
@@ -47,26 +47,6 @@ class SelectStatement implements Statement
     {
         // Start of user code SelectStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getTableReferences()
-    {
-        // Start of user code Getter SelectStatement.getTableReferences
-        // End of user code
-        return $this->tableReferences;
-    }
-
-    /**
-     * @param string $tableReferences
-     */
-    public function setTableReferences($tableReferences)
-    {
-        // Start of user code Setter SelectStatement.setTableReferences
-        // End of user code
-        $this->tableReferences = $tableReferences;
     }
 
     /**
@@ -90,6 +70,26 @@ class SelectStatement implements Statement
     }
 
     /**
+     * @return WhereConditions
+     */
+    public function getWhereConditions()
+    {
+        // Start of user code Getter SelectStatement.getWhereConditions
+        // End of user code
+        return $this->whereConditions;
+    }
+
+    /**
+     * @param WhereConditions $whereConditions
+     */
+    public function setWhereConditions(WhereConditions $whereConditions)
+    {
+        // Start of user code Setter SelectStatement.setWhereConditions
+        // End of user code
+        $this->whereConditions = $whereConditions;
+    }
+
+    /**
      * @return SelectExpr
      */
     public function getSelectExpr()
@@ -110,23 +110,23 @@ class SelectStatement implements Statement
     }
 
     /**
-     * @return WhereConditions
+     * @return string
      */
-    public function getWhereConditions()
+    public function getTableReferences()
     {
-        // Start of user code Getter SelectStatement.getWhereConditions
+        // Start of user code Getter SelectStatement.getTableReferences
         // End of user code
-        return $this->whereConditions;
+        return $this->tableReferences;
     }
 
     /**
-     * @param WhereConditions $whereConditions
+     * @param string $tableReferences
      */
-    public function setWhereConditions(WhereConditions $whereConditions)
+    public function setTableReferences($tableReferences)
     {
-        // Start of user code Setter SelectStatement.setWhereConditions
+        // Start of user code Setter SelectStatement.setTableReferences
         // End of user code
-        $this->whereConditions = $whereConditions;
+        $this->tableReferences = $tableReferences;
     }
 
     /**
@@ -152,17 +152,15 @@ class SelectStatement implements Statement
     // Statement Realization
 
     /**
-     * Tell wether the statement is ready or not to be executed
-     *
-     * @return bool $status
+     * @return AssociativeArray $statementParameters
      */
-    public function isReadyToBeExecuted()
+    public function getStatementParameters()
     {
-        // Start of user code Statement.isReadyToBeExecuted
+        // Start of user code Statement.getStatementParameters
         // TODO should be implemented.
         // End of user code
     
-        return $status;
+        return $statementParameters;
     }
 
     /**
@@ -180,15 +178,17 @@ class SelectStatement implements Statement
     }
 
     /**
-     * @return AssociativeArray $statementParameters
+     * Tell wether the statement is ready or not to be executed
+     *
+     * @return bool $status
      */
-    public function getStatementParameters()
+    public function isReadyToBeExecuted()
     {
-        // Start of user code Statement.getStatementParameters
+        // Start of user code Statement.isReadyToBeExecuted
         // TODO should be implemented.
         // End of user code
     
-        return $statementParameters;
+        return $status;
     }
 
     // Start of user code SelectStatement.implementationSpecificMethods
