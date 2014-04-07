@@ -5,7 +5,8 @@ namespace TiBeN\Framework\Tests\Router;
 use TiBeN\Framework\Router\Route;
 
 // Start of user code RouteTest.useStatements
-// Place your use statements here.  
+use TiBeN\Framework\Datatype\AssociativeArray;
+
 // End of user code
 
 /**
@@ -46,9 +47,15 @@ class RouteTest extends \PHPUnit_Framework_TestCase
     public function testHasVariables()
     {
         // Start of user code RouteTest.testhasVariables
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+        $route = new Route();
+        $this->assertFalse($route->hasVariables());
+        $route->setVariables(
+            AssociativeArray::createFromNativeArray(
+                'string',
+                array('foo' => 'bar')
+            )
+        );
+        $this->assertTrue($route->hasVariables());
 		// End of user code
     }
 
