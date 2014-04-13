@@ -22,7 +22,7 @@ use TiBeN\Framework\Renderer\TemplateRenderer;
 class BootstrapTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code BootstrapTest.attributes
-    private $frameworkTempDirectory = '/tmp/tiben_framework';
+    private $frameworkTempDirectory = '/tmp/tiben_framework_test';
     // End of user code
 
     public function setUp()
@@ -53,6 +53,7 @@ class BootstrapTest extends \PHPUnit_Framework_TestCase
                 unlink($filename);
             }
         }
+        rmdir($this->frameworkTempDirectory);
         // End of user code
     }
     

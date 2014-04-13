@@ -292,7 +292,7 @@
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_Xkc28bpYEeKbZ-V7fHb95Q" name="BehaviorExecSpec2Finish" covered="_-_bJULpUEeKCG86i4yJFKg" execution="_Xkc28LpYEeKbZ-V7fHb95Q"/>
     <lifeline xmi:type="uml:Lifeline" xmi:id="_4JOGgLpUEeKCG86i4yJFKg" name="Actor" coveredBy="_gSmaMLpVEeKCG86i4yJFKg _xfJlwLpVEeKCG86i4yJFKg _xfLa8LpVEeKCG86i4yJFKg _xfKz4LpVEeKCG86i4yJFKg _KFGAwLpWEeKCG86i4yJFKg _fhssQLpWEeKCG86i4yJFKg _VZq24LpXEeKCG86i4yJFKg _fl4MMLpXEeKCG86i4yJFKg _a7z0ULpYEeKbZ-V7fHb95Q _-Xpa0LpYEeKbZ-V7fHb95Q _aXig0LrgEeK-eqy0US4WHg _4AeC0LsHEeKCROSkrBdglA _66wCoLsHEeKCROSkrBdglA _Wa494LsIEeKCROSkrBdglA _POB-EMVaEeKiT59N_1wCNA _0wRQYMVaEeKiT59N_1wCNA"/>
     <lifeline xmi:type="uml:Lifeline" xmi:id="_-_bJULpUEeKCG86i4yJFKg" name="instance : TemplateRenderer" coveredBy="_gSnBQLpVEeKCG86i4yJFKg _zYDoILpVEeKCG86i4yJFKg _zYEPMbpVEeKCG86i4yJFKg _zYEPMLpVEeKCG86i4yJFKg _53r-ALpVEeKCG86i4yJFKg _KFGn0LpWEeKCG86i4yJFKg _VZq24bpXEeKCG86i4yJFKg _XkaasLpYEeKbZ-V7fHb95Q _Xkc28bpYEeKbZ-V7fHb95Q _Xkc28LpYEeKbZ-V7fHb95Q _a70bYLpYEeKbZ-V7fHb95Q _oOl5ALpYEeKbZ-V7fHb95Q _znS2obpYEeKbZ-V7fHb95Q _-XozwLpYEeKbZ-V7fHb95Q _aXjH4LrgEeK-eqy0US4WHg _ei5G8LrgEeK-eqy0US4WHg _x1KpELsFEeKCROSkrBdglA _JPT_ULsGEeKCROSkrBdglA _WckDwLsGEeKCROSkrBdglA _ijk44LsGEeKCROSkrBdglA _XM1NoLsHEeKCROSkrBdglA _lheX8LsHEeKCROSkrBdglA _oBuHILsHEeKCROSkrBdglA _slDvcbsHEeKCROSkrBdglA _2WChULsHEeKCROSkrBdglA _2WDIYbsHEeKCROSkrBdglA _2WDIYLsHEeKCROSkrBdglA _4AeC0bsHEeKCROSkrBdglA _66wCobsHEeKCROSkrBdglA"/>
-    <lifeline xmi:type="uml:Lifeline" xmi:id="_LOl04LpVEeKCG86i4yJFKg" name="variables : DataContainer" coveredBy="_53slELpVEeKCG86i4yJFKg _dR83MLpWEeKCG86i4yJFKg _dR9eQbpWEeKCG86i4yJFKg _dR9eQLpWEeKCG86i4yJFKg _fhtTULpWEeKCG86i4yJFKg _fl4MMbpXEeKCG86i4yJFKg _Wa5k8LsIEeKCROSkrBdglA"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_LOl04LpVEeKCG86i4yJFKg" name="variables : AssociativeArray" coveredBy="_53slELpVEeKCG86i4yJFKg _dR83MLpWEeKCG86i4yJFKg _dR9eQbpWEeKCG86i4yJFKg _dR9eQLpWEeKCG86i4yJFKg _fhtTULpWEeKCG86i4yJFKg _fl4MMbpXEeKCG86i4yJFKg _Wa5k8LsIEeKCROSkrBdglA"/>
     <lifeline xmi:type="uml:Lifeline" xmi:id="_kC6PYLrfEeK-eqy0US4WHg" name="templateEngine : TemplateEngine" coveredBy="_ei5G8brgEeK-eqy0US4WHg _t7XF8LsFEeKCROSkrBdglA _t7aJQbsFEeKCROSkrBdglA _t7aJQLsFEeKCROSkrBdglA _x1LQILsFEeKCROSkrBdglA _JPUmYLsGEeKCROSkrBdglA _WckDwbsGEeKCROSkrBdglA _ijk44bsGEeKCROSkrBdglA _XM1NobsHEeKCROSkrBdglA _eCLU0LsHEeKCROSkrBdglA _eCL74bsHEeKCROSkrBdglA _eCL74LsHEeKCROSkrBdglA _eyn6ULsHEeKCROSkrBdglA _eyohYLsHEeKCROSkrBdglA _eyn6UbsHEeKCROSkrBdglA _lhe_ALsHEeKCROSkrBdglA _oBuHIbsHEeKCROSkrBdglA _slDvcLsHEeKCROSkrBdglA _POClIMVaEeKiT59N_1wCNA _0wR3cMVaEeKiT59N_1wCNA"/>
     <message xmi:type="uml:Message" xmi:id="_gSjW4LpVEeKCG86i4yJFKg" name="Create instance" messageSort="createMessage" receiveEvent="_gSnBQLpVEeKCG86i4yJFKg" sendEvent="_gSmaMLpVEeKCG86i4yJFKg"/>
     <message xmi:type="uml:Message" xmi:id="_53qv4LpVEeKCG86i4yJFKg" name="Create variables container" messageSort="createMessage" receiveEvent="_53slELpVEeKCG86i4yJFKg" sendEvent="_53r-ALpVEeKCG86i4yJFKg"/>
@@ -1399,25 +1399,10 @@ request handling</body>
     </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_DmJ9wLmuEeKTfcMhryTlcQ" name="Renderer">
-    <packagedElement xmi:type="uml:Class" xmi:id="_4LpgsLpaEeKbZ-V7fHb95Q" clientDependency="_ewOJwLsLEeKCROSkrBdglA" name="TemplateRenderer">
+    <packagedElement xmi:type="uml:Class" xmi:id="_4LpgsLpaEeKbZ-V7fHb95Q" clientDependency="_ewOJwLsLEeKCROSkrBdglA _MKJ6AMMZEeOvvu_8YqlPnw" name="TemplateRenderer">
       <ownedComment xmi:type="uml:Comment" xmi:id="_FrCAoBDDEeODbtCcScBryQ">
         <body>Service that help in generating views using templates.</body>
       </ownedComment>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_GVwO8LpbEeKbZ-V7fHb95Q" name="templateName" visibility="public">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KvzYYLpbEeKbZ-V7fHb95Q" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Kv1NkLpbEeKbZ-V7fHb95Q" value="1"/>
-        <defaultValue xmi:type="uml:LiteralString" xmi:id="_Kv7UMLpbEeKbZ-V7fHb95Q">
-          <value xsi:nil="true"/>
-        </defaultValue>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_PtvSALpbEeKbZ-V7fHb95Q" name="variables" visibility="public" type="_ti84wLoPEeKycOj42mlSMA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XszaULpbEeKbZ-V7fHb95Q" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Xs1PgLpbEeKbZ-V7fHb95Q" value="1"/>
-        <defaultValue xmi:type="uml:LiteralString" xmi:id="_Xs4S0LpbEeKbZ-V7fHb95Q">
-          <value xsi:nil="true"/>
-        </defaultValue>
-      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Kh_JYLpcEeKbZ-V7fHb95Q" name="globals" visibility="public" isStatic="true" type="_ti84wLoPEeKycOj42mlSMA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NtPkcLpcEeKbZ-V7fHb95Q" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NtRZoLpcEeKbZ-V7fHb95Q" value="1"/>
@@ -1425,7 +1410,7 @@ request handling</body>
           <value xsi:nil="true"/>
         </defaultValue>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_Zm8WULpcEeKbZ-V7fHb95Q" name="templatePath" visibility="public">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Zm8WULpcEeKbZ-V7fHb95Q" name="defaultTemplatesDirectory" visibility="public" isStatic="true">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xkWKoLpcEeKbZ-V7fHb95Q" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xkXYwLpcEeKbZ-V7fHb95Q" value="1"/>
@@ -1433,24 +1418,44 @@ request handling</body>
           <value xsi:nil="true"/>
         </defaultValue>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_cMprsLsJEeKCROSkrBdglA" name="templatesBasePath" visibility="public" isStatic="true">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fuCu0LsJEeKCROSkrBdglA" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fuEkALsJEeKCROSkrBdglA" value="1"/>
-        <defaultValue xmi:type="uml:LiteralString" xmi:id="_fuJcgLsJEeKCROSkrBdglA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Ju70AMAUEeOEO9zbAQ_4zw" name="defaultTemplateEngine" visibility="public" isStatic="true" type="_Br8mQLrfEeK-eqy0US4WHg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SUdfYMAUEeOEO9zbAQ_4zw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SUfUkMAUEeOEO9zbAQ_4zw" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_SUjmAMAUEeOEO9zbAQ_4zw">
           <value xsi:nil="true"/>
         </defaultValue>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_nZ7r8MVbEeKiT59N_1wCNA" name="templateEngine" type="_Br8mQLrfEeK-eqy0US4WHg" association="_nZ8TAMVbEeKiT59N_1wCNA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nZ7r8cVbEeKiT59N_1wCNA" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nZ7r8sVbEeKiT59N_1wCNA" value="1"/>
-      </ownedAttribute>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_j9lPcLpbEeKbZ-V7fHb95Q" name="render">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j9lPcLpbEeKbZ-V7fHb95Q" name="render" isStatic="true">
         <ownedComment xmi:type="uml:Comment" xmi:id="_Hyi3oLsMEeKCROSkrBdglA">
           <body>Render the template using variables and globals set and return the generated content</body>
         </ownedComment>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_wKPZkLpbEeKbZ-V7fHb95Q" name="generatedContent" direction="return">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_wKPZkLpbEeKbZ-V7fHb95Q" name="renderedContent" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_xm4F4MB2EeOL-Il1aYHEHA" name="templateName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_NIr7oMMVEeOvvu_8YqlPnw" name="variables" type="_ti84wLoPEeKycOj42mlSMA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zki9kMMVEeOvvu_8YqlPnw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zkjkoMMVEeOvvu_8YqlPnw" value="1"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_HgUeYMB3EeOL-Il1aYHEHA" name="renderUsing" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_IHOQEMMZEeOvvu_8YqlPnw" annotatedElement="_HgUeYMB3EeOL-Il1aYHEHA">
+          <body>Render the template using the specified template engine</body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_THsxMMB3EeOL-Il1aYHEHA" name="templateEngine" type="_Br8mQLrfEeK-eqy0US4WHg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_V9GRAMB3EeOL-Il1aYHEHA" name="templateName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_nsV58MB3EeOL-Il1aYHEHA" name="renderedContent" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qZbyUMB3EeOL-Il1aYHEHA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qZdAcMB3EeOL-Il1aYHEHA" value="1"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_RV0DYMMVEeOvvu_8YqlPnw" name="variables" type="_ti84wLoPEeKycOj42mlSMA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xMYzYMMVEeOvvu_8YqlPnw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xMaBgMMVEeOvvu_8YqlPnw" value="1"/>
         </ownedParameter>
       </ownedOperation>
     </packagedElement>
@@ -1460,7 +1465,7 @@ request handling</body>
 This is used by default by the TemplateRenderer.
 more infos about Smarty : </body>
       </ownedComment>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_CwCqwMYHEeKh9KbwWr7VBg" name="tmpPath" visibility="public">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_CwCqwMYHEeKh9KbwWr7VBg" name="tempDirectory" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hiwy4MYHEeKh9KbwWr7VBg" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hi580MYHEeKh9KbwWr7VBg" value="1"/>
@@ -1502,13 +1507,7 @@ a specific template engine with the TemplateRenderer</body>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_ewOJwLsLEeKCROSkrBdglA" name="render" client="_4LpgsLpaEeKbZ-V7fHb95Q" supplier="_Br8mQLrfEeK-eqy0US4WHg"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_nZ8TAMVbEeKiT59N_1wCNA" name="templateRenderer_templateEngineInterface_1" memberEnd="_nZ8TAcVbEeKiT59N_1wCNA _nZ7r8MVbEeKiT59N_1wCNA">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_nZ8TAcVbEeKiT59N_1wCNA" name="templateRenderer" type="_4LpgsLpaEeKbZ-V7fHb95Q" association="_nZ8TAMVbEeKiT59N_1wCNA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nZ8TAsVbEeKiT59N_1wCNA" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nZ8TA8VbEeKiT59N_1wCNA" value="1"/>
-      </ownedEnd>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_TqGnABAoEeODbtCcScBryQ" name="SmartyUriHandler">
+    <packagedElement xmi:type="uml:Class" xmi:id="_TqGnABAoEeODbtCcScBryQ" clientDependency="_Gr3BMMJcEeOuiZn54s7kBA _kS2UMMJcEeOuiZn54s7kBA" name="SmartyUriHandler">
       <ownedComment xmi:type="uml:Comment" xmi:id="_V2BaEBAqEeODbtCcScBryQ">
         <body>Bridge between Smarty and the uri generation that offer the Router. 
 Allow generating uris inside templates.</body>
@@ -1525,6 +1524,9 @@ Allow generating uris inside templates.</body>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_7gcp8BAoEeODbtCcScBryQ" name="register for use in templates" client="_cE0M4LreEeK-eqy0US4WHg" supplier="_TqGnABAoEeODbtCcScBryQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_Gr3BMMJcEeOuiZn54s7kBA" name="use for generating uris" client="_TqGnABAoEeODbtCcScBryQ" supplier="_ZiJHQJkdEeKNe-pGKaimUg"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_kS2UMMJcEeOuiZn54s7kBA" name="Dependency1" client="_TqGnABAoEeODbtCcScBryQ" supplier="_ti84wLoPEeKycOj42mlSMA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_MKJ6AMMZEeOvvu_8YqlPnw" name="render templates using" client="_4LpgsLpaEeKbZ-V7fHb95Q" supplier="_Br8mQLrfEeK-eqy0US4WHg"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_IJiAsLoOEeKycOj42mlSMA" name="Datatype">
     <packagedElement xmi:type="uml:Class" xmi:id="_ti84wLoPEeKycOj42mlSMA" clientDependency="_SwgeELocEeK9Q_4hHGDnNA _WxyuEFnREeO_MoikqrwZnQ _apA3QFnREeO_MoikqrwZnQ" name="AssociativeArray">
@@ -3296,7 +3298,7 @@ Handle data validation stuff. Theses ares used by the entity validator to valida
     </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_VXkwcL22EeO-aaY3kqFukA" name="Bootstrap">
-    <packagedElement xmi:type="uml:Class" xmi:id="_ZJXnEL22EeO-aaY3kqFukA" clientDependency="_etAj4L24EeO-aaY3kqFukA _8ncXUL24EeO-aaY3kqFukA" name="Bootstrap">
+    <packagedElement xmi:type="uml:Class" xmi:id="_ZJXnEL22EeO-aaY3kqFukA" clientDependency="_etAj4L24EeO-aaY3kqFukA _8ncXUL24EeO-aaY3kqFukA _VwcrkMMpEeOvvu_8YqlPnw _Ylm60MMpEeOvvu_8YqlPnw" name="Bootstrap">
       <ownedComment xmi:type="uml:Comment" xmi:id="_fdcNML22EeO-aaY3kqFukA" annotatedElement="_ZJXnEL22EeO-aaY3kqFukA">
         <body>Load application configuration and perform
 needed booting tasks</body>
@@ -3313,6 +3315,8 @@ Allways call this before use any component.</body>
     </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_etAj4L24EeO-aaY3kqFukA" name="load routes into" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_ZiJHQJkdEeKNe-pGKaimUg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_8ncXUL24EeO-aaY3kqFukA" name="configure specials route in the router using" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_YbLfMJkdEeKNe-pGKaimUg"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_VwcrkMMpEeOvvu_8YqlPnw" name="set default template engine into" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_4LpgsLpaEeKbZ-V7fHb95Q"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_Ylm60MMpEeOvvu_8YqlPnw" name="instanciate as default template engine" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_cE0M4LreEeK-eqy0US4WHg"/>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_uRefYJoVEeKjqrzFgzAFxw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uRnCQJoVEeKjqrzFgzAFxw" source="http://www.eclipse.org/uml2/2.0.0/UML">
