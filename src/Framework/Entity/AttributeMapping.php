@@ -2,8 +2,12 @@
 
 namespace TiBeN\Framework\Entity;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Validation\ValidationRule;
+use TiBeN\Framework\Datatype\AssociativeArray;
+
+// Start of user code AttributeMapping.useStatements
+// Place your use statements here.
+// End of user code
 
 /**
  * 
@@ -14,19 +18,14 @@ use TiBeN\Framework\Validation\ValidationRule;
 class AttributeMapping
 {
     /**
-     * @var bool
+     * @var array
      */
-    public $isIdentifier;
+    public $validationRules;
 
     /**
      * @var string
      */
     public $name;
-
-    /**
-     * @var array
-     */
-    public $validationRules;
 
     /**
      * @var DataSourceAttributeMappingConfiguration
@@ -38,6 +37,11 @@ class AttributeMapping
      */
     public $type;
 
+    /**
+     * @var bool
+     */
+    public $isIdentifier;
+
     public function __construct()
     {
         // Start of user code AttributeMapping.constructor
@@ -48,46 +52,6 @@ class AttributeMapping
     {
         // Start of user code AttributeMapping.destructor
         // End of user code
-    }
-
-    /**
-     * @return bool
-     */
-    public function getIsIdentifier()
-    {
-        // Start of user code Getter AttributeMapping.getIsIdentifier
-        // End of user code
-        return $this->isIdentifier;
-    }
-
-    /**
-     * @param bool $isIdentifier
-     */
-    public function setIsIdentifier($isIdentifier)
-    {
-        // Start of user code Setter AttributeMapping.setIsIdentifier
-        // End of user code
-        $this->isIdentifier = $isIdentifier;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        // Start of user code Getter AttributeMapping.getName
-        // End of user code
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        // Start of user code Setter AttributeMapping.setName
-        // End of user code
-        $this->name = $name;
     }
 
     /**
@@ -108,6 +72,26 @@ class AttributeMapping
         // Start of user code Setter AttributeMapping.setValidationRules
         // End of user code
         $this->validationRules = $validationRules;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        // Start of user code Getter AttributeMapping.getName
+        // End of user code
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        // Start of user code Setter AttributeMapping.setName
+        // End of user code
+        $this->name = $name;
     }
 
     /**
@@ -148,6 +132,26 @@ class AttributeMapping
         // Start of user code Setter AttributeMapping.setType
         // End of user code
         $this->type = $type;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsIdentifier()
+    {
+        // Start of user code Getter AttributeMapping.getIsIdentifier
+        // End of user code
+        return $this->isIdentifier;
+    }
+
+    /**
+     * @param bool $isIdentifier
+     */
+    public function setIsIdentifier($isIdentifier)
+    {
+        // Start of user code Setter AttributeMapping.setIsIdentifier
+        // End of user code
+        $this->isIdentifier = $isIdentifier;
     }
 
     /**

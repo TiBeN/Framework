@@ -4,6 +4,10 @@ namespace TiBeN\Framework\Router;
 
 use TiBeN\Framework\Datatype\AssociativeArray;
 
+// Start of user code RouteRule.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * Holds rules and conditions 
  * to match an URI with a ressource.
@@ -24,6 +28,11 @@ class RouteRule
     public $method;
 
     /**
+     * @var string
+     */
+    public $host;
+
+    /**
      * @var AssociativeArray
      */
     public $defaultVariables;
@@ -34,9 +43,9 @@ class RouteRule
     public $uriPattern;
 
     /**
-     * @var string
+     * @var AssociativeArray
      */
-    public $host;
+    public $requirments;
 
     /**
      * @var string
@@ -47,11 +56,6 @@ class RouteRule
      * @var string
      */
     public $name;
-
-    /**
-     * @var AssociativeArray
-     */
-    public $requirments;
 
     public function __construct()
     {
@@ -106,6 +110,26 @@ class RouteRule
     }
 
     /**
+     * @return string
+     */
+    public function getHost()
+    {
+        // Start of user code Getter RouteRule.getHost
+        // End of user code
+        return $this->host;
+    }
+
+    /**
+     * @param string $host
+     */
+    public function setHost($host)
+    {
+        // Start of user code Setter RouteRule.setHost
+        // End of user code
+        $this->host = $host;
+    }
+
+    /**
      * @return AssociativeArray
      */
     public function getDefaultVariables()
@@ -146,23 +170,23 @@ class RouteRule
     }
 
     /**
-     * @return string
+     * @return AssociativeArray
      */
-    public function getHost()
+    public function getRequirments()
     {
-        // Start of user code Getter RouteRule.getHost
+        // Start of user code Getter RouteRule.getRequirments
         // End of user code
-        return $this->host;
+        return $this->requirments;
     }
 
     /**
-     * @param string $host
+     * @param AssociativeArray $requirments
      */
-    public function setHost($host)
+    public function setRequirments(AssociativeArray $requirments)
     {
-        // Start of user code Setter RouteRule.setHost
+        // Start of user code Setter RouteRule.setRequirments
         // End of user code
-        $this->host = $host;
+        $this->requirments = $requirments;
     }
 
     /**
@@ -203,95 +227,6 @@ class RouteRule
         // Start of user code Setter RouteRule.setName
         // End of user code
         $this->name = $name;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getRequirments()
-    {
-        // Start of user code Getter RouteRule.getRequirments
-        // End of user code
-        return $this->requirments;
-    }
-
-    /**
-     * @param AssociativeArray $requirments
-     */
-    public function setRequirments(AssociativeArray $requirments)
-    {
-        // Start of user code Setter RouteRule.setRequirments
-        // End of user code
-        $this->requirments = $requirments;
-    }
-
-    /**
-     * @param AssociativeArray $config
-     * @return RouteRule $routeRule
-     */
-    public static function create(AssociativeArray $config)
-    {
-        // Start of user code RouteRule.create
-        $routeRule = new self();
-			
-		if ($config->has('name')) {
-			$routeRule->setName($config->get('name'));
-		}
-		
-		if ($config->has('uri-pattern')) {
-			$routeRule->setUriPattern($config->get('uri-pattern'));
-		}			
-		
-		if ($config->has('controller')) {
-			$routeRule->setController($config->get('controller'));
-		}
-		
-		if ($config->has('action')) {
-			$routeRule->setAction($config->get('action'));
-		}			
-		
-		if ($config->has('method')) {
-			$routeRule->setMethod($config->get('method'));
-		}			
-		
-		if ($config->has('host')) {
-			$routeRule->setHost($config->get('host'));
-		}			
-		
-		if ($config->has('requirments')) {
-			$routeRule->setRequirments(AssociativeArray::createFromNativeArray(
-                null, 
-                $config->get('requirments'))
-            );
-		}			
-		
-		if ($config->has('default-variables')) {
-			$routeRule->setDefaultVariables(AssociativeArray::createFromNativeArray(
-                null, 
-			    $config->get('default-variables'))
-            );
-		}
-        // End of user code
-    
-        return $routeRule;
-    }
-
-    /**
-     * Generate the Route from the RouteRule and optional variables
-     *
-     * @param AssociativeArray $variables
-     * @return Route $route
-     */
-    public function getRoute(AssociativeArray $variables)
-    {
-        // Start of user code RouteRule.getRoute
-        $route = new Route();
-		$route->setController($this->controller);
-		$route->setAction($this->action);
-		$route->setVariables($variables); 
-        // End of user code
-    
-        return $route;
     }
 
     /**
@@ -360,6 +295,75 @@ class RouteRule
 		if (!$variables->isEmpty()) {
 			$route->setVariables($variables);
 		}
+        // End of user code
+    
+        return $route;
+    }
+
+    /**
+     * @param AssociativeArray $config
+     * @return RouteRule $routeRule
+     */
+    public static function create(AssociativeArray $config)
+    {
+        // Start of user code RouteRule.create
+        $routeRule = new self();
+			
+		if ($config->has('name')) {
+			$routeRule->setName($config->get('name'));
+		}
+		
+		if ($config->has('uri-pattern')) {
+			$routeRule->setUriPattern($config->get('uri-pattern'));
+		}			
+		
+		if ($config->has('controller')) {
+			$routeRule->setController($config->get('controller'));
+		}
+		
+		if ($config->has('action')) {
+			$routeRule->setAction($config->get('action'));
+		}			
+		
+		if ($config->has('method')) {
+			$routeRule->setMethod($config->get('method'));
+		}			
+		
+		if ($config->has('host')) {
+			$routeRule->setHost($config->get('host'));
+		}			
+		
+		if ($config->has('requirments')) {
+			$routeRule->setRequirments(AssociativeArray::createFromNativeArray(
+                null, 
+                $config->get('requirments'))
+            );
+		}			
+		
+		if ($config->has('default-variables')) {
+			$routeRule->setDefaultVariables(AssociativeArray::createFromNativeArray(
+                null, 
+			    $config->get('default-variables'))
+            );
+		}
+        // End of user code
+    
+        return $routeRule;
+    }
+
+    /**
+     * Generate the Route from the RouteRule and optional variables
+     *
+     * @param AssociativeArray $variables
+     * @return Route $route
+     */
+    public function getRoute(AssociativeArray $variables)
+    {
+        // Start of user code RouteRule.getRoute
+        $route = new Route();
+		$route->setController($this->controller);
+		$route->setAction($this->action);
+		$route->setVariables($variables); 
         // End of user code
     
         return $route;

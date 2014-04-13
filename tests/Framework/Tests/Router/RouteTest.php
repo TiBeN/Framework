@@ -4,7 +4,7 @@ namespace TiBeN\Framework\Tests\Router;
 
 use TiBeN\Framework\Router\Route;
 
-// Start of user code RouteTest.useStatements
+// Start of user code Route.useStatements
 use TiBeN\Framework\Datatype\AssociativeArray;
 
 // End of user code

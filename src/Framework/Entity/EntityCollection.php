@@ -4,6 +4,10 @@ namespace TiBeN\Framework\Entity;
 
 use TiBeN\Framework\Datatype\ProxyAbleGenericCollection;
 
+// Start of user code EntityCollection.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *

@@ -7,6 +7,10 @@ use TiBeN\Framework\Datatype\U;
 use TiBeN\Framework\Datatype\Converter;
 use TiBeN\Framework\Datatype\T;
 
+// Start of user code RowToEntityConverter.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *
@@ -118,20 +122,6 @@ class RowToEntityConverter implements Converter
     // Converter Realization
 
     /**
-     * @param T $itemToConvert
-     * @return U $convertedItem
-     */
-    public function convert($itemToConvert)
-    {
-        $this->typeHint($this->TType, $itemToConvert);
-        // Start of user code Converter.convert
-        // TODO should be implemented.
-        // End of user code
-    
-        return $convertedItem;
-    }
-
-    /**
      * @param U $itemToReverse
      * @return T $reversedItem
      */
@@ -143,6 +133,20 @@ class RowToEntityConverter implements Converter
         // End of user code
     
         return $reversedItem;
+    }
+
+    /**
+     * @param T $itemToConvert
+     * @return U $convertedItem
+     */
+    public function convert($itemToConvert)
+    {
+        $this->typeHint($this->TType, $itemToConvert);
+        // Start of user code Converter.convert
+        // TODO should be implemented.
+        // End of user code
+    
+        return $convertedItem;
     }
 
     // Start of user code RowToEntityConverter.implementationSpecificMethods

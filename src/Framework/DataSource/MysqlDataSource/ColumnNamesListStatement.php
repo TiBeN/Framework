@@ -5,6 +5,10 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 use TiBeN\Framework\Datatype\GenericCollection;
 use TiBeN\Framework\Datatype\AssociativeArray;
 
+// Start of user code ColumnNamesListStatement.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *
@@ -63,18 +67,6 @@ class ColumnNamesListStatement extends GenericCollection
     }
 
     /**
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code ColumnNamesListStatement.toString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $string;
-    }
-
-    /**
      * @param AssociativeArray $attributeMappings
      * @return ColumnNamesListStatement $columnNamesListStatement
      */
@@ -85,6 +77,18 @@ class ColumnNamesListStatement extends GenericCollection
         // End of user code
     
         return $columnNamesListStatement;
+    }
+
+    /**
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code ColumnNamesListStatement.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $string;
     }
     // Start of user code ColumnNamesListStatement.surchargedMethods
     // Surcharge Methods here

@@ -2,6 +2,10 @@
 
 namespace TiBeN\Framework\Validation;
 
+// Start of user code ValidatorFactory.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *

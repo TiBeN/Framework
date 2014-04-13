@@ -2,6 +2,10 @@
 
 namespace TiBeN\Framework\Entity;
 
+// Start of user code EntityValidator.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *

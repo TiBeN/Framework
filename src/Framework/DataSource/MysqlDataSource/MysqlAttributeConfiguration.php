@@ -2,8 +2,12 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\DataSourceAttributeMappingConfiguration;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\DataSourceAttributeMappingConfiguration;
+
+// Start of user code MysqlAttributeConfiguration.useStatements
+// Place your use statements here.
+// End of user code
 
 /**
  * 
@@ -14,14 +18,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class MysqlAttributeConfiguration implements DataSourceAttributeMappingConfiguration
 {
     /**
-     * @var bool
-     */
-    public $isAutoIncrement = false;
-
-    /**
      * @var string
      */
     public $columnName;
+
+    /**
+     * @var bool
+     */
+    public $isAutoIncrement = false;
 
     public function __construct()
     {
@@ -33,26 +37,6 @@ class MysqlAttributeConfiguration implements DataSourceAttributeMappingConfigura
     {
         // Start of user code MysqlAttributeConfiguration.destructor
         // End of user code
-    }
-
-    /**
-     * @return bool
-     */
-    public function getIsAutoIncrement()
-    {
-        // Start of user code Getter MysqlAttributeConfiguration.getIsAutoIncrement
-        // End of user code
-        return $this->isAutoIncrement;
-    }
-
-    /**
-     * @param bool $isAutoIncrement
-     */
-    public function setIsAutoIncrement($isAutoIncrement)
-    {
-        // Start of user code Setter MysqlAttributeConfiguration.setIsAutoIncrement
-        // End of user code
-        $this->isAutoIncrement = $isAutoIncrement;
     }
 
     /**
@@ -73,6 +57,26 @@ class MysqlAttributeConfiguration implements DataSourceAttributeMappingConfigura
         // Start of user code Setter MysqlAttributeConfiguration.setColumnName
         // End of user code
         $this->columnName = $columnName;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsAutoIncrement()
+    {
+        // Start of user code Getter MysqlAttributeConfiguration.getIsAutoIncrement
+        // End of user code
+        return $this->isAutoIncrement;
+    }
+
+    /**
+     * @param bool $isAutoIncrement
+     */
+    public function setIsAutoIncrement($isAutoIncrement)
+    {
+        // Start of user code Setter MysqlAttributeConfiguration.setIsAutoIncrement
+        // End of user code
+        $this->isAutoIncrement = $isAutoIncrement;
     }
 
     // DataSourceAttributeMappingConfiguration Realization

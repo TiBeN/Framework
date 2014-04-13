@@ -2,6 +2,10 @@
 
 namespace TiBeN\Framework\Entity;
 
+// Start of user code MatchCriteria.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *
@@ -13,17 +17,7 @@ class MatchCriteria
     /**
      * @var string
      */
-    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
-
-    /**
-     * @var string
-     */
     const OPERATOR_LESS_THAN = '<';
-
-    /**
-     * @var string
-     */
-    public $operator;
 
     /**
      * @var string
@@ -33,17 +27,17 @@ class MatchCriteria
     /**
      * @var string
      */
-    const OPERATOR_NOT_EQUALS = '!=';
+    public $operator;
 
     /**
      * @var string
      */
-    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
+    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
 
     /**
      * @var string
      */
-    const OPERATOR_EQUALS = '=';
+    const OPERATOR_NOT_LIKE = '!like';
 
     /**
      * @var string
@@ -58,12 +52,22 @@ class MatchCriteria
     /**
      * @var string
      */
-    public $value;
+    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
 
     /**
      * @var string
      */
-    const OPERATOR_NOT_LIKE = '!like';
+    const OPERATOR_EQUALS = '=';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_NOT_EQUALS = '!=';
+
+    /**
+     * @var string
+     */
+    public $value;
 
     public function __construct()
     {
@@ -156,37 +160,37 @@ class MatchCriteria
      * @param string $value
      * @return MatchCriteria $matchCriteria
      */
-    public static function notEquals($attribute, $value)
-    {
-        // Start of user code MatchCriteria.notEquals
-        // TODO should be implemented.
-        // End of user code
-    
-        return $matchCriteria;
-    }
-
-    /**
-     * @param string $attribute
-     * @param string $value
-     * @return MatchCriteria $matchCriteria
-     */
-    public static function greaterThanOrEquals($attribute, $value)
-    {
-        // Start of user code MatchCriteria.greaterThanOrEquals
-        // TODO should be implemented.
-        // End of user code
-    
-        return $matchCriteria;
-    }
-
-    /**
-     * @param string $attribute
-     * @param string $value
-     * @return MatchCriteria $matchCriteria
-     */
     public static function notLike($attribute, $value)
     {
         // Start of user code MatchCriteria.notLike
+        // TODO should be implemented.
+        // End of user code
+    
+        return $matchCriteria;
+    }
+
+    /**
+     * @param string $attribute
+     * @param string $value
+     * @return MatchCriteria $matchCriteria
+     */
+    public static function greaterThan($attribute, $value)
+    {
+        // Start of user code MatchCriteria.greaterThan
+        // TODO should be implemented.
+        // End of user code
+    
+        return $matchCriteria;
+    }
+
+    /**
+     * @param string $attribute
+     * @param string $value
+     * @return MatchCriteria $matchCriteria
+     */
+    public static function lessThanOrEquals($attribute, $value)
+    {
+        // Start of user code MatchCriteria.lessThanOrEquals
         // TODO should be implemented.
         // End of user code
     
@@ -226,9 +230,9 @@ class MatchCriteria
      * @param string $value
      * @return MatchCriteria $matchCriteria
      */
-    public static function greaterThan($attribute, $value)
+    public static function greaterThanOrEquals($attribute, $value)
     {
-        // Start of user code MatchCriteria.greaterThan
+        // Start of user code MatchCriteria.greaterThanOrEquals
         // TODO should be implemented.
         // End of user code
     
@@ -240,9 +244,9 @@ class MatchCriteria
      * @param string $value
      * @return MatchCriteria $matchCriteria
      */
-    public static function lessThanOrEquals($attribute, $value)
+    public static function notEquals($attribute, $value)
     {
-        // Start of user code MatchCriteria.lessThanOrEquals
+        // Start of user code MatchCriteria.notEquals
         // TODO should be implemented.
         // End of user code
     

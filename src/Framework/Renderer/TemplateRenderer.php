@@ -4,6 +4,10 @@ namespace TiBeN\Framework\Renderer;
 
 use TiBeN\Framework\Datatype\AssociativeArray;
 
+// Start of user code TemplateRenderer.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * Service that help in generating views using templates.
  *
@@ -15,32 +19,17 @@ class TemplateRenderer
     /**
      * @var TemplateEngine
      */
-    public $templateEngine;
-
-    /**
-     * @var string
-     */
-    public $templateName;
-
-    /**
-     * @var string
-     */
-    public static $templatesBasePath;
-
-    /**
-     * @var AssociativeArray
-     */
-    public $variables;
-
-    /**
-     * @var string
-     */
-    public $templatePath;
+    public static $defaultTemplateEngine;
 
     /**
      * @var AssociativeArray
      */
     public static $globals;
+
+    /**
+     * @var string
+     */
+    public static $defaultTemplatesDirectory;
 
     public function __construct()
     {
@@ -57,101 +46,21 @@ class TemplateRenderer
     /**
      * @return TemplateEngine
      */
-    public function getTemplateEngine()
+    public static function getDefaultTemplateEngine()
     {
-        // Start of user code Getter TemplateRenderer.getTemplateEngine
+        // Start of user code Static getter TemplateRenderer.getDefaultTemplateEngine
         // End of user code
-        return $this->templateEngine;
+        return self::$defaultTemplateEngine;
     }
 
     /**
-     * @param TemplateEngine $templateEngine
+     * @param TemplateEngine $defaultTemplateEngine
      */
-    public function setTemplateEngine(TemplateEngine $templateEngine)
+    public static function setDefaultTemplateEngine(TemplateEngine $defaultTemplateEngine)
     {
-        // Start of user code Setter TemplateRenderer.setTemplateEngine
+        // Start of user code Static setter TemplateRenderer.setDefaultTemplateEngine
         // End of user code
-        $this->templateEngine = $templateEngine;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTemplateName()
-    {
-        // Start of user code Getter TemplateRenderer.getTemplateName
-        // End of user code
-        return $this->templateName;
-    }
-
-    /**
-     * @param string $templateName
-     */
-    public function setTemplateName($templateName)
-    {
-        // Start of user code Setter TemplateRenderer.setTemplateName
-        // End of user code
-        $this->templateName = $templateName;
-    }
-
-    /**
-     * @return string
-     */
-    public static function getTemplatesBasePath()
-    {
-        // Start of user code Static getter TemplateRenderer.getTemplatesBasePath
-        // End of user code
-        return self::$templatesBasePath;
-    }
-
-    /**
-     * @param string $templatesBasePath
-     */
-    public static function setTemplatesBasePath($templatesBasePath)
-    {
-        // Start of user code Static setter TemplateRenderer.setTemplatesBasePath
-        // End of user code
-        self::$templatesBasePath = $templatesBasePath;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getVariables()
-    {
-        // Start of user code Getter TemplateRenderer.getVariables
-        // End of user code
-        return $this->variables;
-    }
-
-    /**
-     * @param AssociativeArray $variables
-     */
-    public function setVariables(AssociativeArray $variables)
-    {
-        // Start of user code Setter TemplateRenderer.setVariables
-        // End of user code
-        $this->variables = $variables;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTemplatePath()
-    {
-        // Start of user code Getter TemplateRenderer.getTemplatePath
-        // End of user code
-        return $this->templatePath;
-    }
-
-    /**
-     * @param string $templatePath
-     */
-    public function setTemplatePath($templatePath)
-    {
-        // Start of user code Setter TemplateRenderer.setTemplatePath
-        // End of user code
-        $this->templatePath = $templatePath;
+        self::$defaultTemplateEngine = $defaultTemplateEngine;
     }
 
     /**
@@ -160,6 +69,9 @@ class TemplateRenderer
     public static function getGlobals()
     {
         // Start of user code Static getter TemplateRenderer.getGlobals
+        if (!self::$globals instanceof AssociativeArray) {
+            self::$globals = new AssociativeArray();
+        }
         // End of user code
         return self::$globals;
     }
@@ -175,17 +87,79 @@ class TemplateRenderer
     }
 
     /**
-     * Render the template using variables and globals set and return the generated content
-     *
-     * @return string $generatedContent
+     * @return string
      */
-    public function render()
+    public static function getDefaultTemplatesDirectory()
     {
-        // Start of user code TemplateRenderer.render
-        // TODO should be implemented.
+        // Start of user code Static getter TemplateRenderer.getDefaultTemplatesDirectory
+        // End of user code
+        return self::$defaultTemplatesDirectory;
+    }
+
+    /**
+     * @param string $defaultTemplatesDirectory
+     */
+    public static function setDefaultTemplatesDirectory($defaultTemplatesDirectory)
+    {
+        // Start of user code Static setter TemplateRenderer.setDefaultTemplatesDirectory
+        // End of user code
+        self::$defaultTemplatesDirectory = $defaultTemplatesDirectory;
+    }
+
+    /**
+     * Render the template using the specified template engine
+     *
+     * @param TemplateEngine $templateEngine
+     * @param string $templateName
+     * @param AssociativeArray $variables
+     * @return string $renderedContent
+     */
+    public static function renderUsing(TemplateEngine $templateEngine, $templateName, AssociativeArray $variables = NULL)
+    {
+        // Start of user code TemplateRenderer.renderUsing
+            
+        // Merge variables and globals
+        if(is_null($variables)) {
+            $variables = new AssociativeArray();
+        }
+        $variables->merge(self::getGlobals());
+
+        $templateFileName = self::getDefaultTemplatesDirectory() 
+            . DIRECTORY_SEPARATOR 
+            . $templateName
+        ;
+                    
+        // Assign rendering parameters to template engine
+        $templateEngine->setTemplateFileName($templateFileName);
+        $templateEngine->setVariables($variables);
+        
+        $renderedContent = $templateEngine->render();
         // End of user code
     
-        return $generatedContent;
+        return $renderedContent;
+    }
+
+    /**
+     * Render the template using variables and globals set and return the generated content
+     *
+     * @param string $templateName
+     * @param AssociativeArray $variables
+     * @return string $renderedContent
+     */
+    public static function render($templateName, AssociativeArray $variables = NULL)
+    {
+        // Start of user code TemplateRenderer.render
+        if (!self::$defaultTemplateEngine instanceof TemplateEngine) {
+            throw new \RuntimeException('TemplateRenderer has no default TemplateEngine set');
+        }
+        return self::renderUsing(
+            self::$defaultTemplateEngine,
+            $templateName,
+            $variables
+        );
+        // End of user code
+    
+        return $renderedContent;
     }
 
     // Start of user code TemplateRenderer.implementationSpecificMethods

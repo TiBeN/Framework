@@ -4,9 +4,8 @@ namespace TiBeN\Framework\Tests\Controller;
 
 use TiBeN\Framework\Controller\RouterSpecialEventsController;
 
-// Start of user code RouterSpecialEventsControllerTest.useStatements
+// Start of user code RouterSpecialEventsController.useStatements
 use TiBeN\Framework\Datatype\AssociativeArray;
-
 // End of user code
 
 /**

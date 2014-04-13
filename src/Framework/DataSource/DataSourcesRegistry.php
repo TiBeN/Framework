@@ -4,6 +4,10 @@ namespace TiBeN\Framework\DataSource;
 
 use TiBeN\Framework\Datatype\AssociativeArray;
 
+// Start of user code DataSourcesRegistry.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *
@@ -51,6 +55,19 @@ class DataSourcesRegistry
 
     /**
      * @param string $dataSourceName
+     * @return DataSource $dataSource
+     */
+    public static function getDataSource($dataSourceName)
+    {
+        // Start of user code DataSourcesRegistry.getDataSource
+        // TODO should be implemented.
+        // End of user code
+    
+        return $dataSource;
+    }
+
+    /**
+     * @param string $dataSourceName
      */
     public static function clearDataSource($dataSourceName)
     {
@@ -67,19 +84,6 @@ class DataSourcesRegistry
         // Start of user code DataSourcesRegistry.registerDataSource
         // TODO should be implemented.
         // End of user code
-    }
-
-    /**
-     * @param string $dataSourceName
-     * @return DataSource $dataSource
-     */
-    public static function getDataSource($dataSourceName)
-    {
-        // Start of user code DataSourcesRegistry.getDataSource
-        // TODO should be implemented.
-        // End of user code
-    
-        return $dataSource;
     }
 
     /**

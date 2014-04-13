@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\Validation;
 
 use TiBeN\Framework\Validation\NumericValidator;
 
-// Start of user code NumericValidatorTest.useStatements
-// Place your use statements here.  
+// Start of user code NumericValidator.useStatements
+// Place your use statements here.
 // End of user code
 
 /**

@@ -4,6 +4,10 @@ namespace TiBeN\Framework\Entity;
 
 use TiBeN\Framework\Datatype\GenericCollection;
 
+// Start of user code CriteriaSet.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *
@@ -13,16 +17,6 @@ use TiBeN\Framework\Datatype\GenericCollection;
 class CriteriaSet
 {
     /**
-     * @var GenericCollection
-     */
-    public $matchCriterias;
-
-    /**
-     * @var GenericCollection
-     */
-    public $criteriaSets;
-
-    /**
      * @var LimitCriteria
      */
     public $limitCriteria;
@@ -30,12 +24,17 @@ class CriteriaSet
     /**
      * @var string
      */
-    public $logicalSeparator;
+    const LOGICAL_SEPARATOR_OR = 'or';
 
     /**
      * @var string
      */
-    const LOGICAL_SEPARATOR_OR = 'or';
+    public $logicalSeparator;
+
+    /**
+     * @var GenericCollection
+     */
+    public $matchCriterias;
 
     /**
      * @var string
@@ -47,6 +46,11 @@ class CriteriaSet
      */
     public $orderCriterias;
 
+    /**
+     * @var GenericCollection
+     */
+    public $criteriaSets;
+
     public function __construct()
     {
         // Start of user code CriteriaSet.constructor
@@ -57,46 +61,6 @@ class CriteriaSet
     {
         // Start of user code CriteriaSet.destructor
         // End of user code
-    }
-
-    /**
-     * @return GenericCollection
-     */
-    public function getMatchCriterias()
-    {
-        // Start of user code Getter CriteriaSet.getMatchCriterias
-        // End of user code
-        return $this->matchCriterias;
-    }
-
-    /**
-     * @param GenericCollection $matchCriterias
-     */
-    public function setMatchCriterias(GenericCollection $matchCriterias)
-    {
-        // Start of user code Setter CriteriaSet.setMatchCriterias
-        // End of user code
-        $this->matchCriterias = $matchCriterias;
-    }
-
-    /**
-     * @return GenericCollection
-     */
-    public function getCriteriaSets()
-    {
-        // Start of user code Getter CriteriaSet.getCriteriaSets
-        // End of user code
-        return $this->criteriaSets;
-    }
-
-    /**
-     * @param GenericCollection $criteriaSets
-     */
-    public function setCriteriaSets(GenericCollection $criteriaSets)
-    {
-        // Start of user code Setter CriteriaSet.setCriteriaSets
-        // End of user code
-        $this->criteriaSets = $criteriaSets;
     }
 
     /**
@@ -142,6 +106,26 @@ class CriteriaSet
     /**
      * @return GenericCollection
      */
+    public function getMatchCriterias()
+    {
+        // Start of user code Getter CriteriaSet.getMatchCriterias
+        // End of user code
+        return $this->matchCriterias;
+    }
+
+    /**
+     * @param GenericCollection $matchCriterias
+     */
+    public function setMatchCriterias(GenericCollection $matchCriterias)
+    {
+        // Start of user code Setter CriteriaSet.setMatchCriterias
+        // End of user code
+        $this->matchCriterias = $matchCriterias;
+    }
+
+    /**
+     * @return GenericCollection
+     */
     public function getOrderCriterias()
     {
         // Start of user code Getter CriteriaSet.getOrderCriterias
@@ -160,45 +144,23 @@ class CriteriaSet
     }
 
     /**
-     * @param CriteriaSet $criteriaSet
+     * @return GenericCollection
      */
-    public function addSubSet(CriteriaSet $criteriaSet)
+    public function getCriteriaSets()
     {
-        // Start of user code CriteriaSet.addSubSet
-        // TODO should be implemented.
+        // Start of user code Getter CriteriaSet.getCriteriaSets
         // End of user code
+        return $this->criteriaSets;
     }
 
     /**
-     * @return CriteriaSet $criteriaSet
+     * @param GenericCollection $criteriaSets
      */
-    public static function createAnd()
+    public function setCriteriaSets(GenericCollection $criteriaSets)
     {
-        // Start of user code CriteriaSet.createAnd
-        // TODO should be implemented.
+        // Start of user code Setter CriteriaSet.setCriteriaSets
         // End of user code
-    
-        return $criteriaSet;
-    }
-
-    /**
-     * @param LimitCriteria $limitCriteria
-     */
-    public function setLimit(LimitCriteria $limitCriteria)
-    {
-        // Start of user code CriteriaSet.setLimit
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
-     * @param MatchCriteria $matchCriteria
-     */
-    public function add(MatchCriteria $matchCriteria)
-    {
-        // Start of user code CriteriaSet.add
-        // TODO should be implemented.
-        // End of user code
+        $this->criteriaSets = $criteriaSets;
     }
 
     /**
@@ -212,11 +174,53 @@ class CriteriaSet
     }
 
     /**
+     * @param CriteriaSet $criteriaSet
+     */
+    public function addSubSet(CriteriaSet $criteriaSet)
+    {
+        // Start of user code CriteriaSet.addSubSet
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
      * @return CriteriaSet $criteriaSet
      */
     public static function createOr()
     {
         // Start of user code CriteriaSet.createOr
+        // TODO should be implemented.
+        // End of user code
+    
+        return $criteriaSet;
+    }
+
+    /**
+     * @param MatchCriteria $matchCriteria
+     */
+    public function add(MatchCriteria $matchCriteria)
+    {
+        // Start of user code CriteriaSet.add
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * @param LimitCriteria $limitCriteria
+     */
+    public function setLimit(LimitCriteria $limitCriteria)
+    {
+        // Start of user code CriteriaSet.setLimit
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * @return CriteriaSet $criteriaSet
+     */
+    public static function createAnd()
+    {
+        // Start of user code CriteriaSet.createAnd
         // TODO should be implemented.
         // End of user code
     

@@ -4,6 +4,10 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\Entity\LimitCriteria;
 
+// Start of user code LimitStatement.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *
@@ -15,12 +19,12 @@ class LimitStatement
     /**
      * @var int
      */
-    public $offset;
+    public $rowCount;
 
     /**
      * @var int
      */
-    public $rowCount;
+    public $offset;
 
     public function __construct()
     {
@@ -32,26 +36,6 @@ class LimitStatement
     {
         // Start of user code LimitStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return int
-     */
-    public function getOffset()
-    {
-        // Start of user code Getter LimitStatement.getOffset
-        // End of user code
-        return $this->offset;
-    }
-
-    /**
-     * @param int $offset
-     */
-    public function setOffset($offset)
-    {
-        // Start of user code Setter LimitStatement.setOffset
-        // End of user code
-        $this->offset = $offset;
     }
 
     /**
@@ -75,15 +59,23 @@ class LimitStatement
     }
 
     /**
-     * @return string $string
+     * @return int
      */
-    public function toString()
+    public function getOffset()
     {
-        // Start of user code LimitStatement.toString
-        // TODO should be implemented.
+        // Start of user code Getter LimitStatement.getOffset
         // End of user code
-    
-        return $string;
+        return $this->offset;
+    }
+
+    /**
+     * @param int $offset
+     */
+    public function setOffset($offset)
+    {
+        // Start of user code Setter LimitStatement.setOffset
+        // End of user code
+        $this->offset = $offset;
     }
 
     /**
@@ -97,6 +89,18 @@ class LimitStatement
         // End of user code
     
         return $limitStatement;
+    }
+
+    /**
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code LimitStatement.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $string;
     }
 
     // Start of user code LimitStatement.implementationSpecificMethods

@@ -2,13 +2,17 @@
 
 namespace TiBeN\Framework\Datatype;
 
+// Start of user code AssociativeArray.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * Implementation of data container with methods to access data 
  *
  * @package Datatype
  * @author TiBeN
  */
-class AssociativeArray implements \Countable, \Iterator
+class AssociativeArray implements \Iterator, \Countable
 {
     /**
      * Type of the element T
@@ -96,17 +100,20 @@ class AssociativeArray implements \Countable, \Iterator
     }
 
     /**
-     * Determine if the DataContainer is empty or not
+     * Associate a value to a key and store it 
      *
-     * @return string $boolean
+     * @param string $key
+     * @param T $value
      */
-    public function isEmpty()
+    public function set($key, $value)
     {
-        // Start of user code AssociativeArray.isEmpty
-        $boolean = (!isset($this->items) || empty($this->items));
+        $this->typeHint($this->TType, $value);
+        // Start of user code AssociativeArray.set
+        if (!isset($this->items)) {
+            $this->items = array();
+        }
+        $this->items[$key] = $value;
         // End of user code
-    
-        return $boolean;
     }
 
     /**
@@ -146,19 +153,6 @@ class AssociativeArray implements \Countable, \Iterator
     }
 
     /**
-     * Merge the AssociativeArray with another
-     *
-     * @param AssociativeArray $associativeArray
-     */
-    public function merge(AssociativeArray $associativeArray)
-    {
-        // Start of user code AssociativeArray.merge
-        !isset($this->items) && $this->items = array();
-        $this->items = array_merge($this->items, $associativeArray->toNativeArray());
-        // End of user code
-    }
-
-    /**
      * Access to a value
      *
      * @param string $key
@@ -176,57 +170,6 @@ class AssociativeArray implements \Countable, \Iterator
         // End of user code
     
         return $value;
-    }
-
-    /**
-     * Remove a value
-     *
-     * @param string $key
-     */
-    public function remove($key)
-    {
-        // Start of user code AssociativeArray.remove
-        if (!isset($this->items) || !isset($this->items[$key])) {
-            throw new InvalidArgumentException(
-                sprintf('Key "%s" not found in container', $key)
-            );
-        }
-        unset($this->items[$key]);
-        // End of user code
-    }
-
-    /**
-     * Associate a value to a key and store it 
-     *
-     * @param string $key
-     * @param T $value
-     */
-    public function set($key, $value)
-    {
-        $this->typeHint($this->TType, $value);
-        // Start of user code AssociativeArray.set
-        if (!isset($this->items)) {
-            $this->items = array();
-        }
-        $this->items[$key] = $value;
-        // End of user code
-    }
-
-    /**
-     * Convert to a language native array
-     *
-     * @return array $nativeArray
-     */
-    public function toNativeArray()
-    {
-        // Start of user code AssociativeArray.toNativeArray
-        $nativeArray = isset($this->items)
-            ? $this->items
-            : array()
-        ;
-        // End of user code
-    
-        return $nativeArray;
     }
 
     /**
@@ -253,40 +196,68 @@ class AssociativeArray implements \Countable, \Iterator
         return $result;
     }
 
-    // Countable Realization
+    /**
+     * Determine if the DataContainer is empty or not
+     *
+     * @return string $boolean
+     */
+    public function isEmpty()
+    {
+        // Start of user code AssociativeArray.isEmpty
+        $boolean = (!isset($this->items) || empty($this->items));
+        // End of user code
+    
+        return $boolean;
+    }
 
     /**
-     * Count elements of an object
+     * Convert to a language native array
      *
-     * @return int $numberOfItems
+     * @return array $nativeArray
      */
-    public function count()
+    public function toNativeArray()
     {
-        // Start of user code Countable.count
-        $numberOfItems = (isset($this->items) && !empty($this->items))
-            ? count($this->items)
-            : 0
+        // Start of user code AssociativeArray.toNativeArray
+        $nativeArray = isset($this->items)
+            ? $this->items
+            : array()
         ;
         // End of user code
     
-        return $numberOfItems;
+        return $nativeArray;
+    }
+
+    /**
+     * Merge the AssociativeArray with another
+     *
+     * @param AssociativeArray $associativeArray
+     */
+    public function merge(AssociativeArray $associativeArray)
+    {
+        // Start of user code AssociativeArray.merge
+        !isset($this->items) && $this->items = array();
+        $this->items = array_merge($this->items, $associativeArray->toNativeArray());
+        // End of user code
+    }
+
+    /**
+     * Remove a value
+     *
+     * @param string $key
+     */
+    public function remove($key)
+    {
+        // Start of user code AssociativeArray.remove
+        if (!isset($this->items) || !isset($this->items[$key])) {
+            throw new InvalidArgumentException(
+                sprintf('Key "%s" not found in container', $key)
+            );
+        }
+        unset($this->items[$key]);
+        // End of user code
     }
 
     // Iterator Realization
-
-    /**
-     * Check if the current position is valid. 
-     *
-     * @return T $currentItem
-     */
-    public function current()
-    {
-        // Start of user code Iterator.current
-        $currentItem = current($this->items);
-        // End of user code
-    
-        return $currentItem;
-    }
 
     /**
      * Rewinds back to the first element of the Iterator. 
@@ -309,6 +280,18 @@ class AssociativeArray implements \Countable, \Iterator
     }
 
     /**
+     * @return bool $boolean
+     */
+    public function valid()
+    {
+        // Start of user code Iterator.valid
+        $boolean = current($this->items) !== false;
+        // End of user code
+    
+        return $boolean;
+    }
+
+    /**
      * Returns the key of the current element. 
      *
      * @return int $key
@@ -323,15 +306,36 @@ class AssociativeArray implements \Countable, \Iterator
     }
 
     /**
-     * @return bool $boolean
+     * Check if the current position is valid. 
+     *
+     * @return T $currentItem
      */
-    public function valid()
+    public function current()
     {
-        // Start of user code Iterator.valid
-        $boolean = current($this->items) !== false;
+        // Start of user code Iterator.current
+        $currentItem = current($this->items);
         // End of user code
     
-        return $boolean;
+        return $currentItem;
+    }
+
+    // Countable Realization
+
+    /**
+     * Count elements of an object
+     *
+     * @return int $numberOfItems
+     */
+    public function count()
+    {
+        // Start of user code Countable.count
+        $numberOfItems = (isset($this->items) && !empty($this->items))
+            ? count($this->items)
+            : 0
+        ;
+        // End of user code
+    
+        return $numberOfItems;
     }
 
     // Start of user code AssociativeArray.implementationSpecificMethods

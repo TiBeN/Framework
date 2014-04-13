@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\Entity;
 
 use TiBeN\Framework\Entity\AttributeMapping;
 
-// Start of user code AttributeMappingTest.useStatements
-// Place your use statements here.  
+// Start of user code AttributeMapping.useStatements
+// Place your use statements here.
 // End of user code
 
 /**

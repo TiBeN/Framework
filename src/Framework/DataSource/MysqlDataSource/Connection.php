@@ -2,6 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+// Start of user code Connection.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * Hold connexion with Mysql server
  *

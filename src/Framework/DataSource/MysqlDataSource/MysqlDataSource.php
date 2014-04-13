@@ -2,11 +2,15 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\CriteriaSet;
-use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\DataSource\DataSource;
+use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\EntityCollection;
+use TiBeN\Framework\Entity\Entity;
+
+// Start of user code MysqlDataSource.useStatements
+// Place your use statements here.
+// End of user code
 
 /**
  * 
@@ -17,14 +21,9 @@ use TiBeN\Framework\Entity\EntityCollection;
 class MysqlDataSource implements DataSource
 {
     /**
-     * @var int
-     */
-    public $port;
-
-    /**
      * @var string
      */
-    public $host;
+    public $userName;
 
     /**
      * @var string
@@ -37,14 +36,19 @@ class MysqlDataSource implements DataSource
     public $databaseName;
 
     /**
+     * @var string
+     */
+    public $host;
+
+    /**
      * @var Connection
      */
     private $connection;
 
     /**
-     * @var string
+     * @var int
      */
-    public $userName;
+    public $port;
 
     /**
      * @var string
@@ -64,43 +68,23 @@ class MysqlDataSource implements DataSource
     }
 
     /**
-     * @return int
-     */
-    public function getPort()
-    {
-        // Start of user code Getter MysqlDataSource.getPort
-        // End of user code
-        return $this->port;
-    }
-
-    /**
-     * @param int $port
-     */
-    public function setPort($port)
-    {
-        // Start of user code Setter MysqlDataSource.setPort
-        // End of user code
-        $this->port = $port;
-    }
-
-    /**
      * @return string
      */
-    public function getHost()
+    public function getUserName()
     {
-        // Start of user code Getter MysqlDataSource.getHost
+        // Start of user code Getter MysqlDataSource.getUserName
         // End of user code
-        return $this->host;
+        return $this->userName;
     }
 
     /**
-     * @param string $host
+     * @param string $userName
      */
-    public function setHost($host)
+    public function setUserName($userName)
     {
-        // Start of user code Setter MysqlDataSource.setHost
+        // Start of user code Setter MysqlDataSource.setUserName
         // End of user code
-        $this->host = $host;
+        $this->userName = $userName;
     }
 
     /**
@@ -144,6 +128,26 @@ class MysqlDataSource implements DataSource
     }
 
     /**
+     * @return string
+     */
+    public function getHost()
+    {
+        // Start of user code Getter MysqlDataSource.getHost
+        // End of user code
+        return $this->host;
+    }
+
+    /**
+     * @param string $host
+     */
+    public function setHost($host)
+    {
+        // Start of user code Setter MysqlDataSource.setHost
+        // End of user code
+        $this->host = $host;
+    }
+
+    /**
      * @return Connection
      */
     private function getConnection()
@@ -164,23 +168,23 @@ class MysqlDataSource implements DataSource
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getUserName()
+    public function getPort()
     {
-        // Start of user code Getter MysqlDataSource.getUserName
+        // Start of user code Getter MysqlDataSource.getPort
         // End of user code
-        return $this->userName;
+        return $this->port;
     }
 
     /**
-     * @param string $userName
+     * @param int $port
      */
-    public function setUserName($userName)
+    public function setPort($port)
     {
-        // Start of user code Setter MysqlDataSource.setUserName
+        // Start of user code Setter MysqlDataSource.setPort
         // End of user code
-        $this->userName = $userName;
+        $this->port = $port;
     }
 
     // DataSource Realization
@@ -206,17 +210,6 @@ class MysqlDataSource implements DataSource
     }
     /**
      * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     */
-    public function update(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code DataSource.update
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
      * @param CriteriaSet $criteriaSet
      * @return EntityCollection $entityCollection
      */
@@ -227,29 +220,6 @@ class MysqlDataSource implements DataSource
         // End of user code
     
         return $entityCollection;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     */
-    public function create(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code DataSource.create
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
-     * @return string $className
-     */
-    public static function getEntityMappingConfigurationClassName()
-    {
-        // Start of user code DataSource.getEntityMappingConfigurationClassName
-        // TODO should be implemented.
-        // End of user code
-    
-        return $className;
     }
 
     /**
@@ -271,6 +241,40 @@ class MysqlDataSource implements DataSource
     public function delete(EntityMapping $entityMapping, Entity $entity)
     {
         // Start of user code DataSource.delete
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * @return string $className
+     */
+    public static function getEntityMappingConfigurationClassName()
+    {
+        // Start of user code DataSource.getEntityMappingConfigurationClassName
+        // TODO should be implemented.
+        // End of user code
+    
+        return $className;
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     */
+    public function create(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code DataSource.create
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     */
+    public function update(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code DataSource.update
         // TODO should be implemented.
         // End of user code
     }

@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\Validation;
 
 use TiBeN\Framework\Validation\ValidatorFactory;
 
-// Start of user code ValidatorFactoryTest.useStatements
-// Place your use statements here.  
+// Start of user code ValidatorFactory.useStatements
+// Place your use statements here.
 // End of user code
 
 /**

@@ -4,6 +4,10 @@ namespace TiBeN\Framework\Router;
 
 use TiBeN\Framework\Datatype\AssociativeArray;
 
+// Start of user code RouteUriMatchAndParseResult.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * Object/value that hold a route URI match and parse result operation
  *

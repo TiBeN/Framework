@@ -4,10 +4,11 @@ namespace TiBeN\Framework\Tests\Router;
 
 use TiBeN\Framework\Router\RouteRule;
 
-// Start of user code RouteRuleTest.useStatements
+// Start of user code RouteRule.useStatements
 use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Router\Route;
 use TiBeN\Framework\Router\HttpRequest;
+
 // End of user code
 
 /**
@@ -35,6 +36,21 @@ class RouteRuleTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code RouteRuleTest.tearDown
 		// Place additional tearDown code here.  
+		// End of user code
+    }
+    
+    /**
+     * Test method matchHttpRequest from class RouteRule
+     *
+     * Start of user code RouteRuleTest.testmatchHttpRequestAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testMatchHttpRequest()
+    {
+        // Start of user code RouteRuleTest.testmatchHttpRequest
+	    // No tests here because this method is covered by 
+        // custom tests cases that follow 
 		// End of user code
     }
     
@@ -127,21 +143,6 @@ class RouteRuleTest extends \PHPUnit_Framework_TestCase
                 )
             ))
         );
-		// End of user code
-    }
-    
-    /**
-     * Test method matchHttpRequest from class RouteRule
-     *
-     * Start of user code RouteRuleTest.testmatchHttpRequestAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testMatchHttpRequest()
-    {
-        // Start of user code RouteRuleTest.testmatchHttpRequest
-	    // No tests here because this method is covered by 
-        // custom tests cases that follow 
 		// End of user code
     }
 

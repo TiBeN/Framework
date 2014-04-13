@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\DataSource\MysqlDataSource\SelectStatement;
 
-// Start of user code SelectStatementTest.useStatements
-// Place your use statements here.  
+// Start of user code SelectStatement.useStatements
+// Place your use statements here.
 // End of user code
 
 /**
@@ -54,21 +54,6 @@ class SelectStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method toString from interface Statement
-     * Start of user code Statement.testtoStringAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code Statement.testtoString
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
      * Test method isReadyToBeExecuted from interface Statement
      * Start of user code Statement.testisReadyToBeExecutedAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -77,6 +62,21 @@ class SelectStatementTest extends \PHPUnit_Framework_TestCase
     public function testIsReadyToBeExecuted()
     {
         // Start of user code Statement.testisReadyToBeExecuted
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method toString from interface Statement
+     * Start of user code Statement.testtoStringAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code Statement.testtoString
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );

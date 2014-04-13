@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource\TypeConverter;
 
 use TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\StringConverter;
 
-// Start of user code StringConverterTest.useStatements
-// Place your use statements here.  
+// Start of user code StringConverter.useStatements
+// Place your use statements here.
 // End of user code
 
 /**
@@ -39,36 +39,6 @@ class StringConverterTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method getDataSourceType from interface TypeConverter
-     * Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetDataSourceType()
-    {
-        // Start of user code TypeConverter.testgetDataSourceType
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
-     * Test method convert from interface TypeConverter
-     * Start of user code TypeConverter.testconvertAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testConvert()
-    {
-        // Start of user code Converter.testconvert
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
      * Test method reverse from interface TypeConverter
      * Start of user code TypeConverter.testreverseAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -99,6 +69,21 @@ class StringConverterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test method getDataSourceType from interface TypeConverter
+     * Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetDataSourceType()
+    {
+        // Start of user code TypeConverter.testgetDataSourceType
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
      * Test method getType from interface TypeConverter
      * Start of user code TypeConverter.testgetTypeAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -107,6 +92,21 @@ class StringConverterTest extends \PHPUnit_Framework_TestCase
     public function testGetType()
     {
         // Start of user code TypeConverter.testgetType
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method convert from interface TypeConverter
+     * Start of user code TypeConverter.testconvertAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testConvert()
+    {
+        // Start of user code Converter.testconvert
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );

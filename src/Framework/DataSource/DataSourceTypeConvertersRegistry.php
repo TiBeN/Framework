@@ -4,6 +4,10 @@ namespace TiBeN\Framework\DataSource;
 
 use TiBeN\Framework\Datatype\AssociativeArray;
 
+// Start of user code DataSourceTypeConvertersRegistry.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *
@@ -61,6 +65,16 @@ class DataSourceTypeConvertersRegistry
     }
 
     /**
+     * @param TypeConverter $typeConverter
+     */
+    public static function registerTypeConverter(TypeConverter $typeConverter)
+    {
+        // Start of user code DataSourceTypeConvertersRegistry.registerTypeConverter
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
      * @param string $type
      * @param string $dataSourceType
      * @return bool $boolean
@@ -86,16 +100,6 @@ class DataSourceTypeConvertersRegistry
         // End of user code
     
         return $typeConverter;
-    }
-
-    /**
-     * @param TypeConverter $typeConverter
-     */
-    public static function registerTypeConverter(TypeConverter $typeConverter)
-    {
-        // Start of user code DataSourceTypeConvertersRegistry.registerTypeConverter
-        // TODO should be implemented.
-        // End of user code
     }
 
     // Start of user code DataSourceTypeConvertersRegistry.implementationSpecificMethods

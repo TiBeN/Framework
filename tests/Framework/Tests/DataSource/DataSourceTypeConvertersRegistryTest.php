@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\DataSource;
 
 use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
 
-// Start of user code DataSourceTypeConvertersRegistryTest.useStatements
-// Place your use statements here.  
+// Start of user code DataSourceTypeConvertersRegistry.useStatements
+// Place your use statements here.
 // End of user code
 
 /**
@@ -53,6 +53,22 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method registerTypeConverter from class DataSourceTypeConvertersRegistry
+     *
+     * Start of user code DataSourceTypeConvertersRegistryTest.testregisterTypeConverterAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testRegisterTypeConverter()
+    {
+        // Start of user code DataSourceTypeConvertersRegistryTest.testregisterTypeConverter
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
      * Test static method hasTypeConverter from class DataSourceTypeConvertersRegistry
      *
      * Start of user code DataSourceTypeConvertersRegistryTest.testhasTypeConverterAnnotations 
@@ -78,22 +94,6 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
     public function testGetTypeConverter()
     {
         // Start of user code DataSourceTypeConvertersRegistryTest.testgetTypeConverter
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test static method registerTypeConverter from class DataSourceTypeConvertersRegistry
-     *
-     * Start of user code DataSourceTypeConvertersRegistryTest.testregisterTypeConverterAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testRegisterTypeConverter()
-    {
-        // Start of user code DataSourceTypeConvertersRegistryTest.testregisterTypeConverter
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

@@ -2,6 +2,14 @@
 
 namespace TiBeN\Framework\Renderer;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Router\Router;
+
+// Start of user code SmartyUriHandler.useStatements
+use \Smarty_Internal_Template as Smarty_Internal_Template;
+
+// End of user code
+
 /**
  * Bridge between Smarty and the uri generation that offer the Router. 
  * Allow generating uris inside templates.
@@ -33,7 +41,17 @@ class SmartyUriHandler
     public function getUri(array $parameters, Smarty_Internal_Template $smarty)
     {
         // Start of user code SmartyUriHandler.getUri
-        // TODO should be implemented.
+        if (!isset($parameters['name'])) {
+			throw new \InvalidArgumentException('No route rule name set');
+		}
+		
+		$routeName = $parameters['name'];
+		unset($parameters['name']);
+					
+		$uri = Router::generateUri(
+            $routeName, 
+            AssociativeArray::createFromNativeArray('string',  $parameters)
+        );
         // End of user code
     
         return $uri;

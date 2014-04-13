@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\DataSource\MysqlDataSource\SetStatement;
 
-// Start of user code SetStatementTest.useStatements
-// Place your use statements here.  
+// Start of user code SetStatement.useStatements
+// Place your use statements here.
 // End of user code
 
 /**

@@ -4,6 +4,10 @@ namespace TiBeN\Framework\Router;
 
 use TiBeN\Framework\Datatype\AssociativeArray;
 
+// Start of user code HttpResponse.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * Represent an HttpResponse. 
  * Factory Method createRedirectResponse can be used to instantiate a redirect response. 
@@ -19,11 +23,6 @@ class HttpResponse
     public $statusCode = '200';
 
     /**
-     * @var AssociativeArray
-     */
-    public $headers;
-
-    /**
      * @var string
      */
     public $message;
@@ -32,6 +31,11 @@ class HttpResponse
      * @var string
      */
     public $contentType = 'text/html';
+
+    /**
+     * @var AssociativeArray
+     */
+    public $headers;
 
     public function __construct()
     {
@@ -63,26 +67,6 @@ class HttpResponse
         // Start of user code Setter HttpResponse.setStatusCode
         // End of user code
         $this->statusCode = $statusCode;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getHeaders()
-    {
-        // Start of user code Getter HttpResponse.getHeaders
-        // End of user code
-        return $this->headers;
-    }
-
-    /**
-     * @param AssociativeArray $headers
-     */
-    public function setHeaders(AssociativeArray $headers)
-    {
-        // Start of user code Setter HttpResponse.setHeaders
-        // End of user code
-        $this->headers = $headers;
     }
 
     /**
@@ -123,6 +107,26 @@ class HttpResponse
         // Start of user code Setter HttpResponse.setContentType
         // End of user code
         $this->contentType = $contentType;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getHeaders()
+    {
+        // Start of user code Getter HttpResponse.getHeaders
+        // End of user code
+        return $this->headers;
+    }
+
+    /**
+     * @param AssociativeArray $headers
+     */
+    public function setHeaders(AssociativeArray $headers)
+    {
+        // Start of user code Setter HttpResponse.setHeaders
+        // End of user code
+        $this->headers = $headers;
     }
 
     /**

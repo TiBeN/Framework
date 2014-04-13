@@ -2,10 +2,14 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\CriteriaSet;
-use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\Entity;
+
+// Start of user code WhereConditions.useStatements
+// Place your use statements here.
+// End of user code
 
 /**
  * 
@@ -16,14 +20,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class WhereConditions
 {
     /**
-     * @var Expr
-     */
-    public $expr;
-
-    /**
      * @var AssociativeArray
      */
     public $statementParameters;
+
+    /**
+     * @var Expr
+     */
+    public $expr;
 
     public function __construct()
     {
@@ -35,26 +39,6 @@ class WhereConditions
     {
         // Start of user code WhereConditions.destructor
         // End of user code
-    }
-
-    /**
-     * @return Expr
-     */
-    public function getExpr()
-    {
-        // Start of user code Getter WhereConditions.getExpr
-        // End of user code
-        return $this->expr;
-    }
-
-    /**
-     * @param Expr $expr
-     */
-    public function setExpr(Expr $expr)
-    {
-        // Start of user code Setter WhereConditions.setExpr
-        // End of user code
-        $this->expr = $expr;
     }
 
     /**
@@ -78,17 +62,23 @@ class WhereConditions
     }
 
     /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     * @return WhereConditions $whereConditions
+     * @return Expr
      */
-    public static function createEntityTargetFromEntity(EntityMapping $entityMapping, Entity $entity)
+    public function getExpr()
     {
-        // Start of user code WhereConditions.createEntityTargetFromEntity
-        // TODO should be implemented.
+        // Start of user code Getter WhereConditions.getExpr
         // End of user code
-    
-        return $whereConditions;
+        return $this->expr;
+    }
+
+    /**
+     * @param Expr $expr
+     */
+    public function setExpr(Expr $expr)
+    {
+        // Start of user code Setter WhereConditions.setExpr
+        // End of user code
+        $this->expr = $expr;
     }
 
     /**
@@ -128,6 +118,20 @@ class WhereConditions
         // End of user code
     
         return $string;
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     * @return WhereConditions $whereConditions
+     */
+    public static function createEntityTargetFromEntity(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code WhereConditions.createEntityTargetFromEntity
+        // TODO should be implemented.
+        // End of user code
+    
+        return $whereConditions;
     }
 
     // Start of user code WhereConditions.implementationSpecificMethods

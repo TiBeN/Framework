@@ -2,6 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+// Start of user code StatementExecutionResult.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *
@@ -11,9 +15,19 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 class StatementExecutionResult
 {
     /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var bool
+     */
+    public $success;
+
+    /**
      * @var int
      */
-    public $errorCode;
+    public $numberOfAffectedRows;
 
     /**
      * @var int
@@ -23,22 +37,12 @@ class StatementExecutionResult
     /**
      * @var int
      */
-    public $numberOfAffectedRows;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
+    public $errorCode;
 
     /**
      * @var RowCollection
      */
     public $rowCollection;
-
-    /**
-     * @var bool
-     */
-    public $success;
 
     public function __construct()
     {
@@ -53,23 +57,63 @@ class StatementExecutionResult
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getErrorCode()
+    public function getErrorMessage()
     {
-        // Start of user code Getter StatementExecutionResult.getErrorCode
+        // Start of user code Getter StatementExecutionResult.getErrorMessage
         // End of user code
-        return $this->errorCode;
+        return $this->errorMessage;
     }
 
     /**
-     * @param int $errorCode
+     * @param string $errorMessage
      */
-    public function setErrorCode($errorCode)
+    public function setErrorMessage($errorMessage)
     {
-        // Start of user code Setter StatementExecutionResult.setErrorCode
+        // Start of user code Setter StatementExecutionResult.setErrorMessage
         // End of user code
-        $this->errorCode = $errorCode;
+        $this->errorMessage = $errorMessage;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        // Start of user code Getter StatementExecutionResult.getSuccess
+        // End of user code
+        return $this->success;
+    }
+
+    /**
+     * @param bool $success
+     */
+    public function setSuccess($success)
+    {
+        // Start of user code Setter StatementExecutionResult.setSuccess
+        // End of user code
+        $this->success = $success;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumberOfAffectedRows()
+    {
+        // Start of user code Getter StatementExecutionResult.getNumberOfAffectedRows
+        // End of user code
+        return $this->numberOfAffectedRows;
+    }
+
+    /**
+     * @param int $numberOfAffectedRows
+     */
+    public function setNumberOfAffectedRows($numberOfAffectedRows)
+    {
+        // Start of user code Setter StatementExecutionResult.setNumberOfAffectedRows
+        // End of user code
+        $this->numberOfAffectedRows = $numberOfAffectedRows;
     }
 
     /**
@@ -95,41 +139,21 @@ class StatementExecutionResult
     /**
      * @return int
      */
-    public function getNumberOfAffectedRows()
+    public function getErrorCode()
     {
-        // Start of user code Getter StatementExecutionResult.getNumberOfAffectedRows
+        // Start of user code Getter StatementExecutionResult.getErrorCode
         // End of user code
-        return $this->numberOfAffectedRows;
+        return $this->errorCode;
     }
 
     /**
-     * @param int $numberOfAffectedRows
+     * @param int $errorCode
      */
-    public function setNumberOfAffectedRows($numberOfAffectedRows)
+    public function setErrorCode($errorCode)
     {
-        // Start of user code Setter StatementExecutionResult.setNumberOfAffectedRows
+        // Start of user code Setter StatementExecutionResult.setErrorCode
         // End of user code
-        $this->numberOfAffectedRows = $numberOfAffectedRows;
-    }
-
-    /**
-     * @return string
-     */
-    public function getErrorMessage()
-    {
-        // Start of user code Getter StatementExecutionResult.getErrorMessage
-        // End of user code
-        return $this->errorMessage;
-    }
-
-    /**
-     * @param string $errorMessage
-     */
-    public function setErrorMessage($errorMessage)
-    {
-        // Start of user code Setter StatementExecutionResult.setErrorMessage
-        // End of user code
-        $this->errorMessage = $errorMessage;
+        $this->errorCode = $errorCode;
     }
 
     /**
@@ -150,26 +174,6 @@ class StatementExecutionResult
         // Start of user code Setter StatementExecutionResult.setRowCollection
         // End of user code
         $this->rowCollection = $rowCollection;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getSuccess()
-    {
-        // Start of user code Getter StatementExecutionResult.getSuccess
-        // End of user code
-        return $this->success;
-    }
-
-    /**
-     * @param bool $success
-     */
-    public function setSuccess($success)
-    {
-        // Start of user code Setter StatementExecutionResult.setSuccess
-        // End of user code
-        $this->success = $success;
     }
 
     // Start of user code StatementExecutionResult.implementationSpecificMethods

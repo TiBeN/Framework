@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\Validation;
 
 use TiBeN\Framework\Validation\StringValidator;
 
-// Start of user code StringValidatorTest.useStatements
-// Place your use statements here.  
+// Start of user code StringValidator.useStatements
+// Place your use statements here.
 // End of user code
 
 /**

@@ -2,10 +2,14 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\CriteriaSet;
-use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\Entity;
+
+// Start of user code StatementFactory.useStatements
+// Place your use statements here.
+// End of user code
 
 /**
  * 
@@ -30,29 +34,15 @@ class StatementFactory
     /**
      * @param EntityMapping $entityMapping
      * @param Entity $entity
-     * @return DeleteStatement $deleteStatement
+     * @return InsertStatement $insertStatement
      */
-    public static function createDeleteStatement(EntityMapping $entityMapping, Entity $entity)
+    public static function createInsertStatement(EntityMapping $entityMapping, Entity $entity)
     {
-        // Start of user code StatementFactory.createDeleteStatement
+        // Start of user code StatementFactory.createInsertStatement
         // TODO should be implemented.
         // End of user code
     
-        return $deleteStatement;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     * @return UpdateStatement $updateStatement
-     */
-    public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code StatementFactory.createUpdateStatementFromEntity
-        // TODO should be implemented.
-        // End of user code
-    
-        return $updateStatement;
+        return $insertStatement;
     }
 
     /**
@@ -72,15 +62,15 @@ class StatementFactory
     /**
      * @param EntityMapping $entityMapping
      * @param Entity $entity
-     * @return InsertStatement $insertStatement
+     * @return DeleteStatement $deleteStatement
      */
-    public static function createInsertStatement(EntityMapping $entityMapping, Entity $entity)
+    public static function createDeleteStatement(EntityMapping $entityMapping, Entity $entity)
     {
-        // Start of user code StatementFactory.createInsertStatement
+        // Start of user code StatementFactory.createDeleteStatement
         // TODO should be implemented.
         // End of user code
     
-        return $insertStatement;
+        return $deleteStatement;
     }
 
     /**
@@ -95,6 +85,20 @@ class StatementFactory
         // End of user code
     
         return $selectStatement;
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     * @return UpdateStatement $updateStatement
+     */
+    public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code StatementFactory.createUpdateStatementFromEntity
+        // TODO should be implemented.
+        // End of user code
+    
+        return $updateStatement;
     }
 
     // Start of user code StatementFactory.implementationSpecificMethods

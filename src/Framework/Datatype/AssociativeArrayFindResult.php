@@ -2,6 +2,10 @@
 
 namespace TiBeN\Framework\Datatype;
 
+// Start of user code AssociativeArrayFindResult.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * Object/value that hold a DataContainer find result operation
  *
@@ -11,14 +15,14 @@ namespace TiBeN\Framework\Datatype;
 class AssociativeArrayFindResult
 {
     /**
-     * @var string
-     */
-    public $key;
-
-    /**
      * @var bool
      */
     public $result;
+
+    /**
+     * @var string
+     */
+    public $key;
 
     public function __construct()
     {
@@ -30,26 +34,6 @@ class AssociativeArrayFindResult
     {
         // Start of user code AssociativeArrayFindResult.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getKey()
-    {
-        // Start of user code Getter AssociativeArrayFindResult.getKey
-        // End of user code
-        return $this->key;
-    }
-
-    /**
-     * @param string $key
-     */
-    public function setKey($key)
-    {
-        // Start of user code Setter AssociativeArrayFindResult.setKey
-        // End of user code
-        $this->key = $key;
     }
 
     /**
@@ -70,6 +54,26 @@ class AssociativeArrayFindResult
         // Start of user code Setter AssociativeArrayFindResult.setResult
         // End of user code
         $this->result = $result;
+    }
+
+    /**
+     * @return string
+     */
+    public function getKey()
+    {
+        // Start of user code Getter AssociativeArrayFindResult.getKey
+        // End of user code
+        return $this->key;
+    }
+
+    /**
+     * @param string $key
+     */
+    public function setKey($key)
+    {
+        // Start of user code Setter AssociativeArrayFindResult.setKey
+        // End of user code
+        $this->key = $key;
     }
 
     // Start of user code AssociativeArrayFindResult.implementationSpecificMethods

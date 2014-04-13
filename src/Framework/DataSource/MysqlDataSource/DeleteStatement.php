@@ -4,6 +4,10 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\Datatype\AssociativeArray;
 
+// Start of user code DeleteStatement.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *
@@ -89,20 +93,6 @@ class DeleteStatement implements Statement
     }
 
     /**
-     * Return the statement in String format
-     *
-     * @return string $statement
-     */
-    public function toString()
-    {
-        // Start of user code Statement.toString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $statement;
-    }
-
-    /**
      * Tell wether the statement is ready or not to be executed
      *
      * @return bool $status
@@ -114,6 +104,20 @@ class DeleteStatement implements Statement
         // End of user code
     
         return $status;
+    }
+
+    /**
+     * Return the statement in String format
+     *
+     * @return string $statement
+     */
+    public function toString()
+    {
+        // Start of user code Statement.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $statement;
     }
 
     // Start of user code DeleteStatement.implementationSpecificMethods

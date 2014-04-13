@@ -2,10 +2,14 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter;
 
-use TiBeN\Framework\Datatype\U;
 use TiBeN\Framework\DataSource\TypeConverter;
-use TiBeN\Framework\Datatype\T;
+use TiBeN\Framework\Datatype\U;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Datatype\T;
+
+// Start of user code IntegerConverter.useStatements
+// Place your use statements here.
+// End of user code
 
 /**
  * 
@@ -93,32 +97,6 @@ class IntegerConverter implements TypeConverter
     // TypeConverter Realization
 
     /**
-     * @return string $dataSourceType
-     */
-    public function getDataSourceType()
-    {
-        // Start of user code TypeConverter.getDataSourceType
-        // TODO should be implemented.
-        // End of user code
-    
-        return $dataSourceType;
-    }
-
-    /**
-     * @param T $itemToConvert
-     * @return U $convertedItem
-     */
-    public function convert($itemToConvert)
-    {
-        $this->typeHint($this->TType, $itemToConvert);
-        // Start of user code Converter.convert
-        // TODO should be implemented.
-        // End of user code
-    
-        return $convertedItem;
-    }
-
-    /**
      * @param U $itemToReverse
      * @return T $reversedItem
      */
@@ -143,6 +121,18 @@ class IntegerConverter implements TypeConverter
     }
 
     /**
+     * @return string $dataSourceType
+     */
+    public function getDataSourceType()
+    {
+        // Start of user code TypeConverter.getDataSourceType
+        // TODO should be implemented.
+        // End of user code
+    
+        return $dataSourceType;
+    }
+
+    /**
      * @return string $type
      */
     public function getType()
@@ -152,6 +142,20 @@ class IntegerConverter implements TypeConverter
         // End of user code
     
         return $type;
+    }
+
+    /**
+     * @param T $itemToConvert
+     * @return U $convertedItem
+     */
+    public function convert($itemToConvert)
+    {
+        $this->typeHint($this->TType, $itemToConvert);
+        // Start of user code Converter.convert
+        // TODO should be implemented.
+        // End of user code
+    
+        return $convertedItem;
     }
 
     // Start of user code IntegerConverter.implementationSpecificMethods

@@ -2,6 +2,10 @@
 
 namespace TiBeN\Framework\Datatype;
 
+// Start of user code ProxyAbleGenericCollection.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * Generic implementation of Collection interface.
  *
@@ -137,20 +141,6 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
     // ProxyCollection Realization
 
     /**
-     * Determine whether the collection act as a proxy of another collection or not.
-     *
-     * @return bool $boolean
-     */
-    public function actAsAProxy()
-    {
-        // Start of user code ProxyCollection.actAsAProxy
-        // TODO should be implemented.
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
      * Detach the proxy collection from the initial collection and dump all items contained in the initial collection.
      * If the proxy collection is configured with a CollectionItemConverter, all items will converted during the dump.
      * If the initial collection has a stream or lazy fetching behavior this operation can 
@@ -179,6 +169,20 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
         // Start of user code ProxyCollection.defineAsProxyOf
         // TODO should be implemented.
         // End of user code
+    }
+
+    /**
+     * Determine whether the collection act as a proxy of another collection or not.
+     *
+     * @return bool $boolean
+     */
+    public function actAsAProxy()
+    {
+        // Start of user code ProxyCollection.actAsAProxy
+        // TODO should be implemented.
+        // End of user code
+    
+        return $boolean;
     }
     // Start of user code ProxyAbleGenericCollection.surchargedMethods
     // Surcharge Methods here

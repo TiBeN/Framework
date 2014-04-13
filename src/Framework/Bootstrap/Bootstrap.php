@@ -2,8 +2,14 @@
 
 namespace TiBeN\Framework\Bootstrap;
 
-use TiBeN\Framework\Router\Route;
+use TiBeN\Framework\Renderer\SmartyEngine;
 use TiBeN\Framework\Router\Router;
+use TiBeN\Framework\Renderer\TemplateRenderer;
+use TiBeN\Framework\Router\Route;
+
+// Start of user code Bootstrap.useStatements
+// Place your use statements here.
+// End of user code
 
 /**
  * Load application configuration and perform
@@ -32,10 +38,26 @@ class Bootstrap
      *
      * @param string $configFolder
      */
-    public static function init($configFolder)
+    public static function init($configDirectory, $tempDirectory)
     {
         // Start of user code Bootstrap.init
-        
+
+        // Instanciate and set default template engine
+        $templateTempDirectory = $tempDirectory
+            . DIRECTORY_SEPARATOR
+            . 'smarty_templates'
+        ;    
+        if (!file_exists($templateTempDirectory)) {
+            if (!@mkdir($templateTempDirectory, 0777, true)) {
+                throw new \RuntimeException($tempDirectory . ' is not writable');
+            }
+        }
+
+        $smartyEngine = new SmartyEngine();
+        $smartyEngine->setTempDirectory($templateTempDirectory);
+       
+        TemplateRenderer::setDefaultTemplateEngine($smartyEngine);
+
         // Configure specials Router routes with default
         // controller bundled with the framework. Theses can
         // be customized using the routeRules config file
@@ -54,7 +76,7 @@ class Bootstrap
         Router::setOnExecuteActionExceptionRoute($onExecuteActionExceptionRoute);
 
         // Load application route rules config file
-        $appRouteRulesConfigFile = $configFolder 
+        $appRouteRulesConfigFile = $configDirectory 
             . DIRECTORY_SEPARATOR 
             . 'routeRules.php'
         ;

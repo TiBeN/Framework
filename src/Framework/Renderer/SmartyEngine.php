@@ -2,6 +2,12 @@
 
 namespace TiBeN\Framework\Renderer;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
+
+// Start of user code SmartyEngine.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * Specific template engine that use the Smarty template engine. 
  * This is used by default by the TemplateRenderer.
@@ -15,21 +21,22 @@ class SmartyEngine implements TemplateEngine
     /**
      * @var string
      */
-    public $tmpPath;
-
-    /**
-     * @var AssociativeArray
-     */
-    public $variables;
+    public $tempDirectory;
 
     /**
      * @var string
      */
     public $templateFileName;
 
+    /**
+     * @var AssociativeArray
+     */
+    public $variables;
+
     public function __construct()
     {
         // Start of user code SmartyEngine.constructor
+        $this->variables = new AssociativeArray('string');
         // End of user code
     }
 
@@ -42,44 +49,24 @@ class SmartyEngine implements TemplateEngine
     /**
      * @return string
      */
-    public function getTmpPath()
+    public function getTempDirectory()
     {
-        // Start of user code Getter SmartyEngine.getTmpPath
+        // Start of user code Getter SmartyEngine.getTempDirectory
         // End of user code
-        return $this->tmpPath;
+        return $this->tempDirectory;
     }
 
     /**
-     * @param string $tmpPath
+     * @param string $tempDirectory
      */
-    public function setTmpPath($tmpPath)
+    public function setTempDirectory($tempDirectory)
     {
-        // Start of user code Setter SmartyEngine.setTmpPath
+        // Start of user code Setter SmartyEngine.setTempDirectory
         // End of user code
-        $this->tmpPath = $tmpPath;
+        $this->tempDirectory = $tempDirectory;
     }
 
     // TemplateEngine Realization
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getVariables()
-    {
-        // Start of user code Getter TemplateEngine.getVariables
-        // End of user code
-        return $this->variables;
-    }
-
-    /**
-     * @param AssociativeArray $variables
-     */
-    public function setVariables(AssociativeArray $variables)
-    {
-        // Start of user code Setter TemplateEngine.setVariables
-        // End of user code
-        $this->variables = $variables;
-    }
 
     /**
      * @return string
@@ -100,6 +87,26 @@ class SmartyEngine implements TemplateEngine
         // End of user code
         $this->templateFileName = $templateFileName;
     }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getVariables()
+    {
+        // Start of user code Getter TemplateEngine.getVariables
+        // End of user code
+        return $this->variables;
+    }
+
+    /**
+     * @param AssociativeArray $variables
+     */
+    public function setVariables(AssociativeArray $variables)
+    {
+        // Start of user code Setter TemplateEngine.setVariables
+        // End of user code
+        $this->variables = $variables;
+    }
     /**
      * Render the template using variables and globals set and return the generated content
      *
@@ -108,7 +115,65 @@ class SmartyEngine implements TemplateEngine
     public function render()
     {
         // Start of user code TemplateEngine.render
-        // TODO should be implemented.
+        if (!isset($this->templateFileName)) {
+			throw new \InvalidArgumentException('No template file name has been set');
+		}
+		
+		if (!file_exists($this->templateFileName)) {
+			throw new \InvalidArgumentException(
+                sprintf(
+                    'Template file name "%s" doesn\'t exist', 
+                    $this->templateFileName
+                )
+            );
+		}
+		
+		// Init temporary dir
+        if (!file_exists($this->tempDirectory)) {
+            throw new \InvalidArgumentException(
+                sprintf('Tmp path "%s" doesn\'t exist', $this->tempDirectory)
+           );
+        }
+		if (!is_writable($this->tempDirectory)) {
+			throw new \RuntimeException(
+                sprintf('Tmp path "%s" is not writable', $this->tempDirectory)
+            );
+		}
+        $smartyCacheDirectory = $this->tempDirectory 
+            . DIRECTORY_SEPARATOR 
+            . 'smarty' 
+            . DIRECTORY_SEPARATOR 
+            . 'cache'
+        ;
+        if (!file_exists($smartyCacheDirectory)) {
+            mkdir($smartyCacheDirectory, 0777, true); 
+        }
+        $smartyCompilDirectory = $this->tempDirectory 
+            . DIRECTORY_SEPARATOR 
+            . 'smarty' 
+            . DIRECTORY_SEPARATOR 
+            . 'compile'
+        ;
+        if (!file_exists($smartyCompilDirectory)) {
+            mkdir($smartyCompilDirectory, 0777, true);
+        }
+		
+		$smarty = new \Smarty();
+		$smarty->setCacheDir($smartyCacheDirectory);
+		$smarty->setCompileDir($smartyCompilDirectory);
+		$smarty->registerClass('Uri', 'TiBeN\\Framework\\Renderer\\SmartyUriHandler');
+		$smarty->registerPlugin("function","uri", array(new SmartyUriHandler(), 'getUri'));
+			
+		// Assign variables
+		if (!$this->variables->isEmpty()) {
+			foreach($this->variables->toNativeArray() as $key => $value) {
+				$smarty->assign($key, $value);
+			}
+		}
+			
+		// Render the template
+		$generatedContent = $smarty->fetch($this->templateFileName);			
+        
         // End of user code
     
         return $generatedContent;

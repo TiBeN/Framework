@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\DataSource\MysqlDataSource\StatementFactory;
 
-// Start of user code StatementFactoryTest.useStatements
-// Place your use statements here.  
+// Start of user code StatementFactory.useStatements
+// Place your use statements here.
 // End of user code
 
 /**
@@ -37,31 +37,15 @@ class StatementFactoryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createDeleteStatement from class StatementFactory
+     * Test static method createInsertStatement from class StatementFactory
      *
-     * Start of user code StatementFactoryTest.testcreateDeleteStatementAnnotations 
+     * Start of user code StatementFactoryTest.testcreateInsertStatementAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testCreateDeleteStatement()
+    public function testCreateInsertStatement()
     {
-        // Start of user code StatementFactoryTest.testcreateDeleteStatement
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test static method createUpdateStatementFromEntity from class StatementFactory
-     *
-     * Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntityAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateUpdateStatementFromEntity()
-    {
-        // Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntity
+        // Start of user code StatementFactoryTest.testcreateInsertStatement
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );
@@ -85,15 +69,15 @@ class StatementFactoryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createInsertStatement from class StatementFactory
+     * Test static method createDeleteStatement from class StatementFactory
      *
-     * Start of user code StatementFactoryTest.testcreateInsertStatementAnnotations 
+     * Start of user code StatementFactoryTest.testcreateDeleteStatementAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testCreateInsertStatement()
+    public function testCreateDeleteStatement()
     {
-        // Start of user code StatementFactoryTest.testcreateInsertStatement
+        // Start of user code StatementFactoryTest.testcreateDeleteStatement
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );
@@ -110,6 +94,22 @@ class StatementFactoryTest extends \PHPUnit_Framework_TestCase
     public function testCreateSelectStatementFromCriteriaSet()
     {
         // Start of user code StatementFactoryTest.testcreateSelectStatementFromCriteriaSet
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method createUpdateStatementFromEntity from class StatementFactory
+     *
+     * Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntityAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateUpdateStatementFromEntity()
+    {
+        // Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntity
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

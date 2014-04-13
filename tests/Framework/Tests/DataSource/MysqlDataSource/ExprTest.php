@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\DataSource\MysqlDataSource\Expr;
 
-// Start of user code ExprTest.useStatements
-// Place your use statements here.  
+// Start of user code Expr.useStatements
+// Place your use statements here.
 // End of user code
 
 /**

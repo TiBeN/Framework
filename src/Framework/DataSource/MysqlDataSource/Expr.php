@@ -5,6 +5,10 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 use TiBeN\Framework\Datatype\GenericCollection;
 use TiBeN\Framework\Datatype\AssociativeArray;
 
+// Start of user code Expr.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *
@@ -14,34 +18,9 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class Expr
 {
     /**
-     * @var string
-     */
-    const OPERATOR_LESS_THAN = '<';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_NOT_EQUALS = '!=';
-
-    /**
      * @var AssociativeArray
      */
     public $exprParameters;
-
-    /**
-     * @var bool
-     */
-    public $isResultOfConcatenation = false;
-
-    /**
-     * @var string
-     */
-    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
 
     /**
      * @var string
@@ -56,17 +35,22 @@ class Expr
     /**
      * @var string
      */
-    public $exprString;
-
-    /**
-     * @var string
-     */
     const OPERATOR_EQUALS = '=';
 
     /**
      * @var string
      */
-    const LOGICAL_SEPARATOR_OR = 'OR';
+    const LOGICAL_SEPARATOR_AND = 'AND';
+
+    /**
+     * @var string
+     */
+    public $exprString;
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
 
     /**
      * @var string
@@ -76,7 +60,27 @@ class Expr
     /**
      * @var string
      */
-    const LOGICAL_SEPARATOR_AND = 'AND';
+    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
+
+    /**
+     * @var string
+     */
+    const LOGICAL_SEPARATOR_OR = 'OR';
+
+    /**
+     * @var bool
+     */
+    public $isResultOfConcatenation = false;
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LESS_THAN = '<';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_NOT_EQUALS = '!=';
 
     public function __construct()
     {
@@ -111,26 +115,6 @@ class Expr
     }
 
     /**
-     * @return bool
-     */
-    public function getIsResultOfConcatenation()
-    {
-        // Start of user code Getter Expr.getIsResultOfConcatenation
-        // End of user code
-        return $this->isResultOfConcatenation;
-    }
-
-    /**
-     * @param bool $isResultOfConcatenation
-     */
-    public function setIsResultOfConcatenation($isResultOfConcatenation)
-    {
-        // Start of user code Setter Expr.setIsResultOfConcatenation
-        // End of user code
-        $this->isResultOfConcatenation = $isResultOfConcatenation;
-    }
-
-    /**
      * @return string
      */
     public function getExprString()
@@ -148,6 +132,26 @@ class Expr
         // Start of user code Setter Expr.setExprString
         // End of user code
         $this->exprString = $exprString;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsResultOfConcatenation()
+    {
+        // Start of user code Getter Expr.getIsResultOfConcatenation
+        // End of user code
+        return $this->isResultOfConcatenation;
+    }
+
+    /**
+     * @param bool $isResultOfConcatenation
+     */
+    public function setIsResultOfConcatenation($isResultOfConcatenation)
+    {
+        // Start of user code Setter Expr.setIsResultOfConcatenation
+        // End of user code
+        $this->isResultOfConcatenation = $isResultOfConcatenation;
     }
 
     /**

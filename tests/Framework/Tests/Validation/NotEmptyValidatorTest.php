@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\Validation;
 
 use TiBeN\Framework\Validation\NotEmptyValidator;
 
-// Start of user code NotEmptyValidatorTest.useStatements
-// Place your use statements here.  
+// Start of user code NotEmptyValidator.useStatements
+// Place your use statements here.
 // End of user code
 
 /**

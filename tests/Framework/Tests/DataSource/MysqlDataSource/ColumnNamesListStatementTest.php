@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\DataSource\MysqlDataSource\ColumnNamesListStatement;
 
-// Start of user code ColumnNamesListStatementTest.useStatements
-// Place your use statements here.  
+// Start of user code ColumnNamesListStatement.useStatements
+// Place your use statements here.
 // End of user code
 
 /**
@@ -37,22 +37,6 @@ class ColumnNamesListStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method toString from class ColumnNamesListStatement
-     *
-     * Start of user code ColumnNamesListStatementTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code ColumnNamesListStatementTest.testtoString
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method createFromEntityAttributes from class ColumnNamesListStatement
      *
      * Start of user code ColumnNamesListStatementTest.testcreateFromEntityAttributesAnnotations 
@@ -62,6 +46,22 @@ class ColumnNamesListStatementTest extends \PHPUnit_Framework_TestCase
     public function testCreateFromEntityAttributes()
     {
         // Start of user code ColumnNamesListStatementTest.testcreateFromEntityAttributes
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method toString from class ColumnNamesListStatement
+     *
+     * Start of user code ColumnNamesListStatementTest.testtoStringAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code ColumnNamesListStatementTest.testtoString
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

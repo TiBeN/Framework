@@ -4,6 +4,10 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\Datatype\AssociativeArray;
 
+// Start of user code Row.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *

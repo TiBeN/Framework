@@ -2,6 +2,10 @@
 
 namespace TiBeN\Framework\Validation;
 
+// Start of user code NumericValidator.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *

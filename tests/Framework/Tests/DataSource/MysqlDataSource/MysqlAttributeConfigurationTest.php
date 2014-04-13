@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\DataSource\MysqlDataSource\MysqlAttributeConfiguration;
 
-// Start of user code MysqlAttributeConfigurationTest.useStatements
-// Place your use statements here.  
+// Start of user code MysqlAttributeConfiguration.useStatements
+// Place your use statements here.
 // End of user code
 
 /**

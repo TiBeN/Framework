@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\Entity;
 
 use TiBeN\Framework\Entity\LimitCriteria;
 
-// Start of user code LimitCriteriaTest.useStatements
-// Place your use statements here.  
+// Start of user code LimitCriteria.useStatements
+// Place your use statements here.
 // End of user code
 
 /**

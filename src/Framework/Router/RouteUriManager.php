@@ -4,6 +4,10 @@ namespace TiBeN\Framework\Router;
 
 use TiBeN\Framework\Datatype\AssociativeArray;
 
+// Start of user code RouteUriManager.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * Contain methods to manipulate ressources URIs
  *

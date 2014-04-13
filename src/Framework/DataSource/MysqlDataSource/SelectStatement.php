@@ -4,6 +4,10 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\Datatype\AssociativeArray;
 
+// Start of user code SelectStatement.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *
@@ -28,14 +32,14 @@ class SelectStatement implements Statement
     public $selectExpr;
 
     /**
-     * @var string
-     */
-    public $tableReferences;
-
-    /**
      * @var LimitStatement
      */
     public $limitStatement;
+
+    /**
+     * @var string
+     */
+    public $tableReferences;
 
     public function __construct()
     {
@@ -110,26 +114,6 @@ class SelectStatement implements Statement
     }
 
     /**
-     * @return string
-     */
-    public function getTableReferences()
-    {
-        // Start of user code Getter SelectStatement.getTableReferences
-        // End of user code
-        return $this->tableReferences;
-    }
-
-    /**
-     * @param string $tableReferences
-     */
-    public function setTableReferences($tableReferences)
-    {
-        // Start of user code Setter SelectStatement.setTableReferences
-        // End of user code
-        $this->tableReferences = $tableReferences;
-    }
-
-    /**
      * @return LimitStatement
      */
     public function getLimitStatement()
@@ -149,6 +133,26 @@ class SelectStatement implements Statement
         $this->limitStatement = $limitStatement;
     }
 
+    /**
+     * @return string
+     */
+    public function getTableReferences()
+    {
+        // Start of user code Getter SelectStatement.getTableReferences
+        // End of user code
+        return $this->tableReferences;
+    }
+
+    /**
+     * @param string $tableReferences
+     */
+    public function setTableReferences($tableReferences)
+    {
+        // Start of user code Setter SelectStatement.setTableReferences
+        // End of user code
+        $this->tableReferences = $tableReferences;
+    }
+
     // Statement Realization
 
     /**
@@ -164,20 +168,6 @@ class SelectStatement implements Statement
     }
 
     /**
-     * Return the statement in String format
-     *
-     * @return string $statement
-     */
-    public function toString()
-    {
-        // Start of user code Statement.toString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $statement;
-    }
-
-    /**
      * Tell wether the statement is ready or not to be executed
      *
      * @return bool $status
@@ -189,6 +179,20 @@ class SelectStatement implements Statement
         // End of user code
     
         return $status;
+    }
+
+    /**
+     * Return the statement in String format
+     *
+     * @return string $statement
+     */
+    public function toString()
+    {
+        // Start of user code Statement.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $statement;
     }
 
     // Start of user code SelectStatement.implementationSpecificMethods

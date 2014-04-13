@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\DataSource;
 
 use TiBeN\Framework\DataSource\DataSourcesRegistry;
 
-// Start of user code DataSourcesRegistryTest.useStatements
-// Place your use statements here.  
+// Start of user code DataSourcesRegistry.useStatements
+// Place your use statements here.
 // End of user code
 
 /**
@@ -37,6 +37,22 @@ class DataSourcesRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method getDataSource from class DataSourcesRegistry
+     *
+     * Start of user code DataSourcesRegistryTest.testgetDataSourceAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetDataSource()
+    {
+        // Start of user code DataSourcesRegistryTest.testgetDataSource
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
      * Test static method clearDataSource from class DataSourcesRegistry
      *
      * Start of user code DataSourcesRegistryTest.testclearDataSourceAnnotations 
@@ -62,22 +78,6 @@ class DataSourcesRegistryTest extends \PHPUnit_Framework_TestCase
     public function testRegisterDataSource()
     {
         // Start of user code DataSourcesRegistryTest.testregisterDataSource
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test static method getDataSource from class DataSourcesRegistry
-     *
-     * Start of user code DataSourcesRegistryTest.testgetDataSourceAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetDataSource()
-    {
-        // Start of user code DataSourcesRegistryTest.testgetDataSource
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

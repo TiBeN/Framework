@@ -4,7 +4,7 @@ namespace TiBeN\Framework\Tests\Router;
 
 use TiBeN\Framework\Router\HttpRequest;
 
-// Start of user code HttpRequestTest.useStatements
+// Start of user code HttpRequest.useStatements
 use TiBeN\Framework\Datatype\AssociativeArray;
 
 // End of user code

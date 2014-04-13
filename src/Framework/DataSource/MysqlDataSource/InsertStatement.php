@@ -4,6 +4,10 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\Datatype\AssociativeArray;
 
+// Start of user code InsertStatement.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *
@@ -13,9 +17,9 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class InsertStatement implements Statement
 {
     /**
-     * @var ValuesStatement
+     * @var string
      */
-    public $valuesStatement;
+    public $tableName;
 
     /**
      * @var ColumnNamesListStatement
@@ -23,9 +27,9 @@ class InsertStatement implements Statement
     public $columnNamesListStatement;
 
     /**
-     * @var string
+     * @var ValuesStatement
      */
-    public $tableName;
+    public $valuesStatement;
 
     public function __construct()
     {
@@ -40,23 +44,23 @@ class InsertStatement implements Statement
     }
 
     /**
-     * @return ValuesStatement
+     * @return string
      */
-    public function getValuesStatement()
+    public function getTableName()
     {
-        // Start of user code Getter InsertStatement.getValuesStatement
+        // Start of user code Getter InsertStatement.getTableName
         // End of user code
-        return $this->valuesStatement;
+        return $this->tableName;
     }
 
     /**
-     * @param ValuesStatement $valuesStatement
+     * @param string $tableName
      */
-    public function setValuesStatement(ValuesStatement $valuesStatement)
+    public function setTableName($tableName)
     {
-        // Start of user code Setter InsertStatement.setValuesStatement
+        // Start of user code Setter InsertStatement.setTableName
         // End of user code
-        $this->valuesStatement = $valuesStatement;
+        $this->tableName = $tableName;
     }
 
     /**
@@ -80,23 +84,23 @@ class InsertStatement implements Statement
     }
 
     /**
-     * @return string
+     * @return ValuesStatement
      */
-    public function getTableName()
+    public function getValuesStatement()
     {
-        // Start of user code Getter InsertStatement.getTableName
+        // Start of user code Getter InsertStatement.getValuesStatement
         // End of user code
-        return $this->tableName;
+        return $this->valuesStatement;
     }
 
     /**
-     * @param string $tableName
+     * @param ValuesStatement $valuesStatement
      */
-    public function setTableName($tableName)
+    public function setValuesStatement(ValuesStatement $valuesStatement)
     {
-        // Start of user code Setter InsertStatement.setTableName
+        // Start of user code Setter InsertStatement.setValuesStatement
         // End of user code
-        $this->tableName = $tableName;
+        $this->valuesStatement = $valuesStatement;
     }
 
     // Statement Realization
@@ -114,20 +118,6 @@ class InsertStatement implements Statement
     }
 
     /**
-     * Return the statement in String format
-     *
-     * @return string $statement
-     */
-    public function toString()
-    {
-        // Start of user code Statement.toString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $statement;
-    }
-
-    /**
      * Tell wether the statement is ready or not to be executed
      *
      * @return bool $status
@@ -139,6 +129,20 @@ class InsertStatement implements Statement
         // End of user code
     
         return $status;
+    }
+
+    /**
+     * Return the statement in String format
+     *
+     * @return string $statement
+     */
+    public function toString()
+    {
+        // Start of user code Statement.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $statement;
     }
 
     // Start of user code InsertStatement.implementationSpecificMethods

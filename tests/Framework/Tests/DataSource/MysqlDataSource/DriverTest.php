@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\DataSource\MysqlDataSource\Driver;
 
-// Start of user code DriverTest.useStatements
-// Place your use statements here.  
+// Start of user code Driver.useStatements
+// Place your use statements here.
 // End of user code
 
 /**
@@ -37,15 +37,15 @@ class DriverTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method executeStatement from class Driver
+     * Test static method connect from class Driver
      *
-     * Start of user code DriverTest.testexecuteStatementAnnotations 
+     * Start of user code DriverTest.testconnectAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testExecuteStatement()
+    public function testConnect()
     {
-        // Start of user code DriverTest.testexecuteStatement
+        // Start of user code DriverTest.testconnect
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );
@@ -69,15 +69,15 @@ class DriverTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method connect from class Driver
+     * Test static method executeStatement from class Driver
      *
-     * Start of user code DriverTest.testconnectAnnotations 
+     * Start of user code DriverTest.testexecuteStatementAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testConnect()
+    public function testExecuteStatement()
     {
-        // Start of user code DriverTest.testconnect
+        // Start of user code DriverTest.testexecuteStatement
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

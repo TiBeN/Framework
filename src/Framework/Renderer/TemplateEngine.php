@@ -15,16 +15,6 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 interface TemplateEngine
 {
 	/**
-	 * @return AssociativeArray
-	 */
-	public function getVariables();
-
-	/**
-	 * @param AssociativeArray $variables
-	 */
-	public function setVariables(AssociativeArray $variables);
-
-	/**
 	 * @return string
 	 */
 	public function getTemplateFileName();
@@ -33,6 +23,16 @@ interface TemplateEngine
 	 * @param string $templateFileName
 	 */
 	public function setTemplateFileName($templateFileName);
+
+	/**
+	 * @return AssociativeArray
+	 */
+	public function getVariables();
+
+	/**
+	 * @param AssociativeArray $variables
+	 */
+	public function setVariables(AssociativeArray $variables);
 
 	/**
 	 * Render the template using variables and globals set and return the generated content

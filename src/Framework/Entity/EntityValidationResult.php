@@ -4,6 +4,10 @@ namespace TiBeN\Framework\Entity;
 
 use TiBeN\Framework\Validation\ValidationResult;
 
+// Start of user code EntityValidationResult.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *
@@ -13,14 +17,14 @@ use TiBeN\Framework\Validation\ValidationResult;
 class EntityValidationResult
 {
     /**
-     * @var array
-     */
-    public $validationResults;
-
-    /**
      * @var bool
      */
     public $result;
+
+    /**
+     * @var array
+     */
+    public $validationResults;
 
     public function __construct()
     {
@@ -32,26 +36,6 @@ class EntityValidationResult
     {
         // Start of user code EntityValidationResult.destructor
         // End of user code
-    }
-
-    /**
-     * @return array
-     */
-    public function getValidationResults()
-    {
-        // Start of user code Getter EntityValidationResult.getValidationResults
-        // End of user code
-        return $this->validationResults;
-    }
-
-    /**
-     * @param array $validationResults
-     */
-    public function setValidationResults(array $validationResults)
-    {
-        // Start of user code Setter EntityValidationResult.setValidationResults
-        // End of user code
-        $this->validationResults = $validationResults;
     }
 
     /**
@@ -72,6 +56,26 @@ class EntityValidationResult
         // Start of user code Setter EntityValidationResult.setResult
         // End of user code
         $this->result = $result;
+    }
+
+    /**
+     * @return array
+     */
+    public function getValidationResults()
+    {
+        // Start of user code Getter EntityValidationResult.getValidationResults
+        // End of user code
+        return $this->validationResults;
+    }
+
+    /**
+     * @param array $validationResults
+     */
+    public function setValidationResults(array $validationResults)
+    {
+        // Start of user code Setter EntityValidationResult.setValidationResults
+        // End of user code
+        $this->validationResults = $validationResults;
     }
 
     // Start of user code EntityValidationResult.implementationSpecificMethods

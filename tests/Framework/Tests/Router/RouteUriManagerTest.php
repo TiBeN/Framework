@@ -4,7 +4,7 @@ namespace TiBeN\Framework\Tests\Router;
 
 use TiBeN\Framework\Router\RouteUriManager;
 
-// Start of user code RouteUriManagerTest.useStatements
+// Start of user code RouteUriManager.useStatements
 use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Router\RouteUriMatchAndParseResult;
 

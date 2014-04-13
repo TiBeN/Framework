@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\Entity;
 
 use TiBeN\Framework\Entity\EntityValidator;
 
-// Start of user code EntityValidatorTest.useStatements
-// Place your use statements here.  
+// Start of user code EntityValidator.useStatements
+// Place your use statements here.
 // End of user code
 
 /**

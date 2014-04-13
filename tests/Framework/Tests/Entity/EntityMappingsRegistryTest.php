@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\Entity;
 
 use TiBeN\Framework\Entity\EntityMappingsRegistry;
 
-// Start of user code EntityMappingsRegistryTest.useStatements
-// Place your use statements here.  
+// Start of user code EntityMappingsRegistry.useStatements
+// Place your use statements here.
 // End of user code
 
 /**
@@ -37,22 +37,6 @@ class EntityMappingsRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method getEntityMapping from class EntityMappingsRegistry
-     *
-     * Start of user code EntityMappingsRegistryTest.testgetEntityMappingAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetEntityMapping()
-    {
-        // Start of user code EntityMappingsRegistryTest.testgetEntityMapping
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method registerEntityMapping from class EntityMappingsRegistry
      *
      * Start of user code EntityMappingsRegistryTest.testregisterEntityMappingAnnotations 
@@ -62,6 +46,22 @@ class EntityMappingsRegistryTest extends \PHPUnit_Framework_TestCase
     public function testRegisterEntityMapping()
     {
         // Start of user code EntityMappingsRegistryTest.testregisterEntityMapping
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method getEntityMapping from class EntityMappingsRegistry
+     *
+     * Start of user code EntityMappingsRegistryTest.testgetEntityMappingAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetEntityMapping()
+    {
+        // Start of user code EntityMappingsRegistryTest.testgetEntityMapping
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

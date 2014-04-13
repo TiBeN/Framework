@@ -3,8 +3,12 @@
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\Entity\EntityMapping;
-use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\Entity;
+
+// Start of user code SetStatement.useStatements
+// Place your use statements here.
+// End of user code
 
 /**
  * 

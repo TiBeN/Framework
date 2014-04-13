@@ -4,8 +4,10 @@ namespace TiBeN\Framework\Tests\Renderer;
 
 use TiBeN\Framework\Renderer\SmartyUriHandler;
 
-// Start of user code SmartyUriHandlerTest.useStatements
-// Place your use statements here.  
+// Start of user code SmartyUriHandler.useStatements
+use TiBeN\Framework\Router\RouteRule;
+use TiBeN\Framework\Router\Router;
+
 // End of user code
 
 /**
@@ -46,13 +48,49 @@ class SmartyUriHandlerTest extends \PHPUnit_Framework_TestCase
     public function testGetUri()
     {
         // Start of user code SmartyUriHandlerTest.testgetUri
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+	    $routeRule = new RouteRule();
+		$routeRule->setName('my-route-rule-with-variables-test');
+		$routeRule->setUriPattern('/test/{foo}/{bar}.html');
+		$routeRule->setController('MyProject\\Controller\\MyController');
+		$routeRule->setAction('myAction');
+		
+		Router::addRouteRule($routeRule);
+		
+		$smartyUriHandler = new SmartyUriHandler();
+		
+		$smartyInternalTemplateMock = $this->getMock('Smarty_Internal_Template');
+		
+		$this->assertEquals(
+			'/test/foo-content/bar-content.html',
+			$smartyUriHandler->getUri(
+				array(
+					'name' => 'my-route-rule-with-variables-test',
+					'foo' => 'foo-content',
+					'bar' => 'bar-content'	
+				), 
+				$smartyInternalTemplateMock
+			)
+		);
 		// End of user code
     }
 
     // Start of user code SmartyUriHandlerTest.methods
-	// Place additional tests methods here.  
+
+	/**
+	 * Case : Exception when no route rule name are set
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionMessage No route rule name set
+	 */
+	public function testExceptionWhenNoRouteRuleByNameAreSet() {
+			
+		$smartyUriHandler = new SmartyUriHandler();				
+		$smartyInternalTemplateMock = $this->getMock('Smarty_Internal_Template');
+		$smartyUriHandler->getUri(
+			array('foo' => 'foo-content'),
+			$smartyInternalTemplateMock
+		);						
+			
+	}
 	// End of user code
 }

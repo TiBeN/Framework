@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\Entity;
 
 use TiBeN\Framework\Entity\EntityRepository;
 
-// Start of user code EntityRepositoryTest.useStatements
-// Place your use statements here.  
+// Start of user code EntityRepository.useStatements
+// Place your use statements here.
 // End of user code
 
 /**
@@ -37,22 +37,6 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method persist from class EntityRepository
-     *
-     * Start of user code EntityRepositoryTest.testpersistAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testPersist()
-    {
-        // Start of user code EntityRepositoryTest.testpersist
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test method delete from class EntityRepository
      *
      * Start of user code EntityRepositoryTest.testdeleteAnnotations 
@@ -78,6 +62,22 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
     public function testFind()
     {
         // Start of user code EntityRepositoryTest.testfind
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method persist from class EntityRepository
+     *
+     * Start of user code EntityRepositoryTest.testpersistAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testPersist()
+    {
+        // Start of user code EntityRepositoryTest.testpersist
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

@@ -4,6 +4,10 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\Datatype\ProxyAbleGenericCollection;
 
+// Start of user code RowCollection.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * 
  *

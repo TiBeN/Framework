@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\Entity;
 
 use TiBeN\Framework\Entity\MatchCriteria;
 
-// Start of user code MatchCriteriaTest.useStatements
-// Place your use statements here.  
+// Start of user code MatchCriteria.useStatements
+// Place your use statements here.
 // End of user code
 
 /**
@@ -53,38 +53,6 @@ class MatchCriteriaTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method notEquals from class MatchCriteria
-     *
-     * Start of user code MatchCriteriaTest.testnotEqualsAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testNotEquals()
-    {
-        // Start of user code MatchCriteriaTest.testnotEquals
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test static method greaterThanOrEquals from class MatchCriteria
-     *
-     * Start of user code MatchCriteriaTest.testgreaterThanOrEqualsAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGreaterThanOrEquals()
-    {
-        // Start of user code MatchCriteriaTest.testgreaterThanOrEquals
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method notLike from class MatchCriteria
      *
      * Start of user code MatchCriteriaTest.testnotLikeAnnotations 
@@ -94,6 +62,38 @@ class MatchCriteriaTest extends \PHPUnit_Framework_TestCase
     public function testNotLike()
     {
         // Start of user code MatchCriteriaTest.testnotLike
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method greaterThan from class MatchCriteria
+     *
+     * Start of user code MatchCriteriaTest.testgreaterThanAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGreaterThan()
+    {
+        // Start of user code MatchCriteriaTest.testgreaterThan
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method lessThanOrEquals from class MatchCriteria
+     *
+     * Start of user code MatchCriteriaTest.testlessThanOrEqualsAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testLessThanOrEquals()
+    {
+        // Start of user code MatchCriteriaTest.testlessThanOrEquals
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );
@@ -133,15 +133,15 @@ class MatchCriteriaTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method greaterThan from class MatchCriteria
+     * Test static method greaterThanOrEquals from class MatchCriteria
      *
-     * Start of user code MatchCriteriaTest.testgreaterThanAnnotations 
+     * Start of user code MatchCriteriaTest.testgreaterThanOrEqualsAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testGreaterThan()
+    public function testGreaterThanOrEquals()
     {
-        // Start of user code MatchCriteriaTest.testgreaterThan
+        // Start of user code MatchCriteriaTest.testgreaterThanOrEquals
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );
@@ -149,15 +149,15 @@ class MatchCriteriaTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method lessThanOrEquals from class MatchCriteria
+     * Test static method notEquals from class MatchCriteria
      *
-     * Start of user code MatchCriteriaTest.testlessThanOrEqualsAnnotations 
+     * Start of user code MatchCriteriaTest.testnotEqualsAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testLessThanOrEquals()
+    public function testNotEquals()
     {
-        // Start of user code MatchCriteriaTest.testlessThanOrEquals
+        // Start of user code MatchCriteriaTest.testnotEquals
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

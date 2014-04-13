@@ -4,8 +4,8 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\DataSource\MysqlDataSource\WhereConditions;
 
-// Start of user code WhereConditionsTest.useStatements
-// Place your use statements here.  
+// Start of user code WhereConditions.useStatements
+// Place your use statements here.
 // End of user code
 
 /**
@@ -33,22 +33,6 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code WhereConditionsTest.tearDown
 		// Place additional tearDown code here.  
-		// End of user code
-    }
-    
-    /**
-     * Test static method createEntityTargetFromEntity from class WhereConditions
-     *
-     * Start of user code WhereConditionsTest.testcreateEntityTargetFromEntityAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateEntityTargetFromEntity()
-    {
-        // Start of user code WhereConditionsTest.testcreateEntityTargetFromEntity
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
 		// End of user code
     }
     
@@ -94,6 +78,22 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code WhereConditionsTest.testtoString
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test static method createEntityTargetFromEntity from class WhereConditions
+     *
+     * Start of user code WhereConditionsTest.testcreateEntityTargetFromEntityAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateEntityTargetFromEntity()
+    {
+        // Start of user code WhereConditionsTest.testcreateEntityTargetFromEntity
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

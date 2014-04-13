@@ -4,9 +4,10 @@ namespace TiBeN\Framework\Tests\Bootstrap;
 
 use TiBeN\Framework\Bootstrap\Bootstrap;
 
-// Start of user code BootstrapTest.useStatements
+// Start of user code Bootstrap.useStatements
 use TiBeN\Framework\Router\RouteRule;
 use TiBeN\Framework\Router\Router;
+use TiBeN\Framework\Renderer\TemplateRenderer;
 
 // End of user code
 
@@ -21,7 +22,7 @@ use TiBeN\Framework\Router\Router;
 class BootstrapTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code BootstrapTest.attributes
-    // Place additional tests attributes here.
+    private $frameworkTempDirectory = '/tmp/tiben_framework';
     // End of user code
 
     public function setUp()
@@ -34,7 +35,24 @@ class BootstrapTest extends \PHPUnit_Framework_TestCase
     public function tearDown()
     {
         // Start of user code BootstrapTest.tearDown
-        // Place additional tearDown code here.
+        if (!file_exists($this->frameworkTempDirectory)) {
+            return;
+        }
+
+        $iterator = new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator(
+                $this->frameworkTempDirectory, 
+                \FilesystemIterator::SKIP_DOTS
+            ), 
+            \RecursiveIteratorIterator::CHILD_FIRST
+        );
+        foreach ($iterator as $filename => $fileInfo) {
+            if ($fileInfo->isDir()) {
+                rmdir($filename);
+            } else {
+                unlink($filename);
+            }
+        }
         // End of user code
     }
     
@@ -52,8 +70,11 @@ class BootstrapTest extends \PHPUnit_Framework_TestCase
         // Bootstrap should set special routes of the router 
         // (onNotFound etc..) with default controller/actions 
         // included with the framework.
-        Bootstrap::init(dirname(__FILE__) . '/../Fixtures/config');
-        
+        Bootstrap::init(
+            dirname(__FILE__) . '/../Fixtures/config',
+            $this->frameworkTempDirectory
+        );
+
         // Bootstrap should load the routeRules config file
         $expectedRouteRule = new RouteRule();
         $expectedRouteRule->setName('some-route-for-testing-bootstrap');
@@ -73,6 +94,14 @@ class BootstrapTest extends \PHPUnit_Framework_TestCase
             'TiBeN\\Framework\\Router\\Route', 
             Router::getOnExecuteActionExceptionRoute()
         );
+
+        // Bootstrap should instanciate and set SmartyEngine 
+        // as default template engine.
+        $this->assertInstanceOf(
+            'TiBeN\\Framework\\Renderer\\SmartyEngine', 
+            TemplateRenderer::getDefaultTemplateEngine()
+        );
+
         // End of user code
     }
 

@@ -2,6 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+// Start of user code Driver.useStatements
+// Place your use statements here.
+// End of user code
+
 /**
  * Handle communication with Mysql server
  *
@@ -23,34 +27,6 @@ class Driver
     }
 
     /**
-     * Execute a statement to a Mysql database
-     *
-     * @param Statement $statement
-     * @param Connection $connection
-     * @return StatementExecutionResult $statementResult
-     */
-    public static function executeStatement(Statement $statement, Connection $connection)
-    {
-        // Start of user code Driver.executeStatement
-        // TODO should be implemented.
-        // End of user code
-    
-        return $statementResult;
-    }
-
-    /**
-     * Close the connexion to a Mysql database
-     *
-     * @param Connection $connection
-     */
-    public static function disconnect(Connection $connection)
-    {
-        // Start of user code Driver.disconnect
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
      * Create a new connection to a Mysql database
      *
      * @param string $host
@@ -67,6 +43,34 @@ class Driver
         // End of user code
     
         return $connection;
+    }
+
+    /**
+     * Close the connexion to a Mysql database
+     *
+     * @param Connection $connection
+     */
+    public static function disconnect(Connection $connection)
+    {
+        // Start of user code Driver.disconnect
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * Execute a statement to a Mysql database
+     *
+     * @param Statement $statement
+     * @param Connection $connection
+     * @return StatementExecutionResult $statementResult
+     */
+    public static function executeStatement(Statement $statement, Connection $connection)
+    {
+        // Start of user code Driver.executeStatement
+        // TODO should be implemented.
+        // End of user code
+    
+        return $statementResult;
     }
 
     // Start of user code Driver.implementationSpecificMethods
