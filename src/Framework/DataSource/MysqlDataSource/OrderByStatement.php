@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Datatype\GenericCollection;
 use TiBeN\Framework\Entity\EntityMapping;
-use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code OrderByStatement.useStatements
 // Place your use statements here.
@@ -27,12 +27,12 @@ class OrderByStatement extends AssociativeArray
     /**
      * @var string
      */
-    const DIRECTION_DESC = 'DESC';
+    const DIRECTION_ASC = 'ASC';
 
     /**
      * @var string
      */
-    const DIRECTION_ASC = 'ASC';
+    const DIRECTION_DESC = 'DESC';
 
     // Start of user code OrderByStatement.surchargedConstructorsDestructors
     // Surcharge Constructors and Destructors here
@@ -103,6 +103,7 @@ class OrderByStatement extends AssociativeArray
     
         return $string;
     }
+
     // Start of user code OrderByStatement.surchargedMethods
     // Surcharge Methods here
     // End of user code

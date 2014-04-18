@@ -77,20 +77,6 @@ class DataSourceTypeConvertersRegistry
     /**
      * @param string $type
      * @param string $dataSourceType
-     * @return bool $boolean
-     */
-    public static function hasTypeConverter($type, $dataSourceType)
-    {
-        // Start of user code DataSourceTypeConvertersRegistry.hasTypeConverter
-        // TODO should be implemented.
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
-     * @param string $type
-     * @param string $dataSourceType
      * @return TypeConverter $typeConverter
      */
     public static function getTypeConverter($type, $dataSourceType)
@@ -100,6 +86,20 @@ class DataSourceTypeConvertersRegistry
         // End of user code
     
         return $typeConverter;
+    }
+
+    /**
+     * @param string $type
+     * @param string $dataSourceType
+     * @return bool $boolean
+     */
+    public static function hasTypeConverter($type, $dataSourceType)
+    {
+        // Start of user code DataSourceTypeConvertersRegistry.hasTypeConverter
+        // TODO should be implemented.
+        // End of user code
+    
+        return $boolean;
     }
 
     // Start of user code DataSourceTypeConvertersRegistry.implementationSpecificMethods

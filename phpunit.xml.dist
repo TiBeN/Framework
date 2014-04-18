@@ -13,8 +13,17 @@
     bootstrap                   = "tests/bootstrap.php" >
 
     <testsuites>
-        <testsuite name="TiBeN CrontabManager Test Suite">
+        <testsuite name="TiBeN Framework Tests Suite">
             <directory>./tests</directory>
         </testsuite>
     </testsuites>
+    
+    <php>
+        <!-- Define here your database connexion -->
+        <var name="db_host" value="localhost" />
+        <var name="db_username" value="root" />
+        <var name="db_password" value="mollmoll" />
+        <var name="db_name" value="tiben_framework_tests" />
+        <var name="db_port" value="3306"/>   
+    </php>
 </phpunit>

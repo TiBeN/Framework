@@ -17,6 +17,7 @@ use TiBeN\Framework\Renderer\TemplateRenderer;
  * Start of user code BootstrapTest.testAnnotations
  * PHPUnit user annotations can be placed here
  * End of user code
+ *
  * @author TiBeN
  */
 class BootstrapTest extends \PHPUnit_Framework_TestCase

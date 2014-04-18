@@ -20,7 +20,7 @@ class HttpResponse
     /**
      * @var string
      */
-    public $statusCode = '200';
+    public $contentType = 'text/html';
 
     /**
      * @var string
@@ -28,14 +28,14 @@ class HttpResponse
     public $message;
 
     /**
-     * @var string
-     */
-    public $contentType = 'text/html';
-
-    /**
      * @var AssociativeArray
      */
     public $headers;
+
+    /**
+     * @var string
+     */
+    public $statusCode = '200';
 
     public function __construct()
     {
@@ -47,46 +47,6 @@ class HttpResponse
     {
         // Start of user code HttpResponse.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getStatusCode()
-    {
-        // Start of user code Getter HttpResponse.getStatusCode
-        // End of user code
-        return $this->statusCode;
-    }
-
-    /**
-     * @param string $statusCode
-     */
-    public function setStatusCode($statusCode)
-    {
-        // Start of user code Setter HttpResponse.setStatusCode
-        // End of user code
-        $this->statusCode = $statusCode;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMessage()
-    {
-        // Start of user code Getter HttpResponse.getMessage
-        // End of user code
-        return $this->message;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function setMessage($message)
-    {
-        // Start of user code Setter HttpResponse.setMessage
-        // End of user code
-        $this->message = $message;
     }
 
     /**
@@ -110,6 +70,26 @@ class HttpResponse
     }
 
     /**
+     * @return string
+     */
+    public function getMessage()
+    {
+        // Start of user code Getter HttpResponse.getMessage
+        // End of user code
+        return $this->message;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function setMessage($message)
+    {
+        // Start of user code Setter HttpResponse.setMessage
+        // End of user code
+        $this->message = $message;
+    }
+
+    /**
      * @return AssociativeArray
      */
     public function getHeaders()
@@ -130,6 +110,26 @@ class HttpResponse
     }
 
     /**
+     * @return string
+     */
+    public function getStatusCode()
+    {
+        // Start of user code Getter HttpResponse.getStatusCode
+        // End of user code
+        return $this->statusCode;
+    }
+
+    /**
+     * @param string $statusCode
+     */
+    public function setStatusCode($statusCode)
+    {
+        // Start of user code Setter HttpResponse.setStatusCode
+        // End of user code
+        $this->statusCode = $statusCode;
+    }
+
+    /**
      * Create an HttpResponse object configured to send a type redirect 302 response  
      *
      * @param string $uri
@@ -144,37 +144,6 @@ class HttpResponse
 		$httpResponse->setHeaders(
             AssociativeArray::createFromNativeArray('string', array('location' => $uri))
         );
-        // End of user code
-    
-        return $httpResponse;
-    }
-
-    /**
-     * Create an HttpResponse configured to send content of type contentType as file named fileName 
-     * Typically open a download box using common browsers. 
-     *
-     * @param string $fileName
-     * @param string $contentType
-     * @param string $content
-     * @return HttpResponse $httpResponse
-     */
-    public static function createDownloadFileResponse($fileName, $contentType, $content)
-    {
-        // Start of user code HttpResponse.createDownloadFileResponse
-        $httpResponse = new self();
-        $httpResponse->setContentType($contentType);
-        $httpResponse->setHeaders(
-			AssociativeArray::createFromNativeArray(
-			    'string', 
-				array(
-                    'content-Disposition' => sprintf(
-                        'attachment; filename="%s"', 
-                        $fileName
-                    )
-                )
-			)
-		);
-		$httpResponse->setMessage($content);
         // End of user code
     
         return $httpResponse;
@@ -207,6 +176,37 @@ class HttpResponse
 		
 		return;
         // End of user code
+    }
+
+    /**
+     * Create an HttpResponse configured to send content of type contentType as file named fileName 
+     * Typically open a download box using common browsers. 
+     *
+     * @param string $fileName
+     * @param string $contentType
+     * @param string $content
+     * @return HttpResponse $httpResponse
+     */
+    public static function createDownloadFileResponse($fileName, $contentType, $content)
+    {
+        // Start of user code HttpResponse.createDownloadFileResponse
+        $httpResponse = new self();
+        $httpResponse->setContentType($contentType);
+        $httpResponse->setHeaders(
+			AssociativeArray::createFromNativeArray(
+			    'string', 
+				array(
+                    'content-Disposition' => sprintf(
+                        'attachment; filename="%s"', 
+                        $fileName
+                    )
+                )
+			)
+		);
+		$httpResponse->setMessage($content);
+        // End of user code
+    
+        return $httpResponse;
     }
 
     // Start of user code HttpResponse.implementationSpecificMethods

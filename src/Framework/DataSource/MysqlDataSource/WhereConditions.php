@@ -3,8 +3,8 @@
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\Entity\CriteriaSet;
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\Entity;
 
 // Start of user code WhereConditions.useStatements
@@ -82,6 +82,18 @@ class WhereConditions
     }
 
     /**
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code WhereConditions.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $string;
+    }
+
+    /**
      * @param Expr $expr
      * @return WhereConditions $whereConditions
      */
@@ -106,18 +118,6 @@ class WhereConditions
         // End of user code
     
         return $whereCondition;
-    }
-
-    /**
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code WhereConditions.toString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $string;
     }
 
     /**

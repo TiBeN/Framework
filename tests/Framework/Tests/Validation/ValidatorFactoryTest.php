@@ -14,6 +14,7 @@ use TiBeN\Framework\Validation\ValidatorFactory;
  * Start of user code ValidatorFactoryTest.testAnnotations
  * PHPUnit user annotations can be placed here
  * End of user code
+ *
  * @author TiBeN
  */
 class ValidatorFactoryTest extends \PHPUnit_Framework_TestCase

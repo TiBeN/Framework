@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\GenericCollection;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Datatype\GenericCollection;
 
 // Start of user code SelectExpr.useStatements
 // Place your use statements here.
@@ -67,18 +67,6 @@ class SelectExpr extends GenericCollection
     }
 
     /**
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code SelectExpr.toString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $string;
-    }
-
-    /**
      * @param AssociativeArray $attributeMappings
      * @return SelectExpr $selectExpr
      */
@@ -90,6 +78,19 @@ class SelectExpr extends GenericCollection
     
         return $selectExpr;
     }
+
+    /**
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code SelectExpr.toString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $string;
+    }
+
     // Start of user code SelectExpr.surchargedMethods
     // Surcharge Methods here
     // End of user code

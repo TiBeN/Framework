@@ -3,8 +3,8 @@
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\Entity\CriteriaSet;
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\Entity;
 
 // Start of user code StatementFactory.useStatements
@@ -46,20 +46,6 @@ class StatementFactory
     }
 
     /**
-     * @param string $statementString
-     * @param AssociativeArray $parameters
-     * @return GenericStatement $genericStatement
-     */
-    public static function createFromString($statementString, AssociativeArray $parameters)
-    {
-        // Start of user code StatementFactory.createFromString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $genericStatement;
-    }
-
-    /**
      * @param EntityMapping $entityMapping
      * @param Entity $entity
      * @return DeleteStatement $deleteStatement
@@ -75,20 +61,6 @@ class StatementFactory
 
     /**
      * @param EntityMapping $entityMapping
-     * @param CriteriaSet $criteriaSet
-     * @return SelectStatement $selectStatement
-     */
-    public static function createSelectStatementFromCriteriaSet(EntityMapping $entityMapping, CriteriaSet $criteriaSet)
-    {
-        // Start of user code StatementFactory.createSelectStatementFromCriteriaSet
-        // TODO should be implemented.
-        // End of user code
-    
-        return $selectStatement;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
      * @param Entity $entity
      * @return UpdateStatement $updateStatement
      */
@@ -99,6 +71,34 @@ class StatementFactory
         // End of user code
     
         return $updateStatement;
+    }
+
+    /**
+     * @param string $statementString
+     * @param AssociativeArray $parameters
+     * @return GenericStatement $genericStatement
+     */
+    public static function createFromString($statementString, AssociativeArray $parameters)
+    {
+        // Start of user code StatementFactory.createFromString
+        // TODO should be implemented.
+        // End of user code
+    
+        return $genericStatement;
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param CriteriaSet $criteriaSet
+     * @return SelectStatement $selectStatement
+     */
+    public static function createSelectStatementFromCriteriaSet(EntityMapping $entityMapping, CriteriaSet $criteriaSet)
+    {
+        // Start of user code StatementFactory.createSelectStatementFromCriteriaSet
+        // TODO should be implemented.
+        // End of user code
+    
+        return $selectStatement;
     }
 
     // Start of user code StatementFactory.implementationSpecificMethods

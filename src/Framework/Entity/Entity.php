@@ -4,6 +4,7 @@ namespace TiBeN\Framework\Entity;
 
 /**
  *  
+ *
  * @package Entity
  * @author TiBeN
  */ 

@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\EntityMapping;
-use TiBeN\Framework\Datatype\U;
 use TiBeN\Framework\Datatype\Converter;
+use TiBeN\Framework\Datatype\U;
+use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Datatype\T;
 
 // Start of user code RowToEntityConverter.useStatements
@@ -20,26 +20,26 @@ use TiBeN\Framework\Datatype\T;
 class RowToEntityConverter implements Converter
 {
     /**
-     * Type of the element U
-     * @var String
-     */
-    protected $UType;
-
-    /**
      * Type of the element T
      * @var String
      */
     protected $TType;
 
     /**
+     * Type of the element U
+     * @var String
+     */
+    protected $UType;
+
+    /**
      * @var EntityMapping
      */
     public $entityMapping;
 
-    public function __construct($UType = null, $TType = null)
+    public function __construct($TType = null, $UType = null)
     {
-        $this->UType = $UType;
         $this->TType = $TType;
+        $this->UType = $UType;
 
         // Start of user code RowToEntityConverter.constructor
         // End of user code
@@ -52,21 +52,21 @@ class RowToEntityConverter implements Converter
     }
     
     /**
-     * U type getter
-     * @var String
-     */
-    public function getUType()
-    {
-        return $this->UType;
-    }
-
-    /**
      * T type getter
      * @var String
      */
     public function getTType()
     {
         return $this->TType;
+    }
+
+    /**
+     * U type getter
+     * @var String
+     */
+    public function getUType()
+    {
+        return $this->UType;
     }
 
     /**
@@ -122,20 +122,6 @@ class RowToEntityConverter implements Converter
     // Converter Realization
 
     /**
-     * @param U $itemToReverse
-     * @return T $reversedItem
-     */
-    public function reverse($itemToReverse)
-    {
-        $this->typeHint($this->UType, $itemToReverse);
-        // Start of user code Converter.reverse
-        // TODO should be implemented.
-        // End of user code
-    
-        return $reversedItem;
-    }
-
-    /**
      * @param T $itemToConvert
      * @return U $convertedItem
      */
@@ -147,6 +133,20 @@ class RowToEntityConverter implements Converter
         // End of user code
     
         return $convertedItem;
+    }
+
+    /**
+     * @param U $itemToReverse
+     * @return T $reversedItem
+     */
+    public function reverse($itemToReverse)
+    {
+        $this->typeHint($this->UType, $itemToReverse);
+        // Start of user code Converter.reverse
+        // TODO should be implemented.
+        // End of user code
+    
+        return $reversedItem;
     }
 
     // Start of user code RowToEntityConverter.implementationSpecificMethods

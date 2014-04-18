@@ -17,6 +17,7 @@ use TiBeN\Framework\Router\HttpRequest;
  * Start of user code RouteRuleTest.testAnnotations
  * PHPUnit user annotations can be placed here
  * End of user code
+ *
  * @author TiBeN
  */
 class RouteRuleTest extends \PHPUnit_Framework_TestCase
@@ -40,17 +41,42 @@ class RouteRuleTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method matchHttpRequest from class RouteRule
+     * Test method getRoute from class RouteRule
      *
-     * Start of user code RouteRuleTest.testmatchHttpRequestAnnotations 
+     * Start of user code RouteRuleTest.testgetRouteAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testMatchHttpRequest()
+    public function testGetRoute()
     {
-        // Start of user code RouteRuleTest.testmatchHttpRequest
-	    // No tests here because this method is covered by 
-        // custom tests cases that follow 
+        // Start of user code RouteRuleTest.testgetRoute
+	    $routeRule = new RouteRule();
+		$routeRule->setName('my-route-rule-with-variables-test');
+		$routeRule->setUriPattern('/test/{foo}/{bar}.html');
+		$routeRule->setController('myController');
+		$routeRule->setAction('myAction');
+						
+		$expectedRoute = new Route();
+		$expectedRoute->setController('myController');
+		$expectedRoute->setAction('myAction');
+		$expectedRoute->setVariables(AssociativeArray::createFromNativeArray(
+		    'string',
+		    array(
+    			'foo' => 'foo-content',
+    			'bar' => 'bar-content'
+    		)
+		));
+		
+		$this->assertEquals(
+            $expectedRoute, 
+            $routeRule->getRoute(AssociativeArray::createFromNativeArray(
+                'string',
+                array(
+                    'foo' => 'foo-content',
+                    'bar' => 'bar-content'					
+                )
+            ))
+        );
 		// End of user code
     }
     
@@ -107,42 +133,17 @@ class RouteRuleTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method getRoute from class RouteRule
+     * Test method matchHttpRequest from class RouteRule
      *
-     * Start of user code RouteRuleTest.testgetRouteAnnotations 
+     * Start of user code RouteRuleTest.testmatchHttpRequestAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testGetRoute()
+    public function testMatchHttpRequest()
     {
-        // Start of user code RouteRuleTest.testgetRoute
-	    $routeRule = new RouteRule();
-		$routeRule->setName('my-route-rule-with-variables-test');
-		$routeRule->setUriPattern('/test/{foo}/{bar}.html');
-		$routeRule->setController('myController');
-		$routeRule->setAction('myAction');
-						
-		$expectedRoute = new Route();
-		$expectedRoute->setController('myController');
-		$expectedRoute->setAction('myAction');
-		$expectedRoute->setVariables(AssociativeArray::createFromNativeArray(
-		    'string',
-		    array(
-    			'foo' => 'foo-content',
-    			'bar' => 'bar-content'
-    		)
-		));
-		
-		$this->assertEquals(
-            $expectedRoute, 
-            $routeRule->getRoute(AssociativeArray::createFromNativeArray(
-                'string',
-                array(
-                    'foo' => 'foo-content',
-                    'bar' => 'bar-content'					
-                )
-            ))
-        );
+        // Start of user code RouteRuleTest.testmatchHttpRequest
+	    // No tests here because this method is covered by 
+        // custom tests cases that follow 
 		// End of user code
     }
 

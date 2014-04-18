@@ -1,18 +1,20 @@
 <?php
+
+namespace TiBeN\Framework\Tests\Fixtures\Datatype;
+
 /**
  * Another lambda class with class "SomeItem" used for testing Collections objects
- * @author tiben
  *
+ * @author tiben
  */
-class SomeOtherItem {
-
+class SomeOtherItem 
+{
 	public $someData;
 	
 	public $tempFarenheit;
 
-	public function __construct($someData = null) {
+	public function __construct($someData = null) 
+    {
 		$this->someData = $someData;
 	}
-	
-	
 }

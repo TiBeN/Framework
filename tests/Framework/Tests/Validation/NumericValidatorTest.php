@@ -14,6 +14,7 @@ use TiBeN\Framework\Validation\NumericValidator;
  * Start of user code NumericValidatorTest.testAnnotations
  * PHPUnit user annotations can be placed here
  * End of user code
+ *
  * @author TiBeN
  */
 class NumericValidatorTest extends \PHPUnit_Framework_TestCase

@@ -14,6 +14,7 @@ use TiBeN\Framework\Validation\StringValidator;
  * Start of user code StringValidatorTest.testAnnotations
  * PHPUnit user annotations can be placed here
  * End of user code
+ *
  * @author TiBeN
  */
 class StringValidatorTest extends \PHPUnit_Framework_TestCase

@@ -64,6 +64,7 @@ class EntityCollection extends ProxyAbleGenericCollection
             );
         }
     }
+
     // Start of user code EntityCollection.surchargedMethods
     // Surcharge Methods here
     // End of user code

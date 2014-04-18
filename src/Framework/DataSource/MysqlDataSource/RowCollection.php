@@ -23,7 +23,12 @@ class RowCollection extends ProxyAbleGenericCollection
     protected $TType;
 
     // Start of user code RowCollection.surchargedConstructorsDestructors
-    // Surcharge Constructors and Destructors here
+    public function __construct($TType = NULL) 
+    {
+	    parent::__construct(
+            'TiBeN\\Framework\\DataSource\\MysqlDataSource\\Row'
+        );
+	}
     // End of user code
     
     /**
@@ -64,6 +69,7 @@ class RowCollection extends ProxyAbleGenericCollection
             );
         }
     }
+
     // Start of user code RowCollection.surchargedMethods
     // Surcharge Methods here
     // End of user code

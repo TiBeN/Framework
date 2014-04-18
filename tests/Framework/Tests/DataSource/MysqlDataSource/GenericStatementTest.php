@@ -14,6 +14,7 @@ use TiBeN\Framework\DataSource\MysqlDataSource\GenericStatement;
  * Start of user code GenericStatementTest.testAnnotations
  * PHPUnit user annotations can be placed here
  * End of user code
+ *
  * @author TiBeN
  */
 class GenericStatementTest extends \PHPUnit_Framework_TestCase
@@ -46,27 +47,10 @@ class GenericStatementTest extends \PHPUnit_Framework_TestCase
     public function testSetStatementParameters()
     {
         // Start of user code GenericStatementTest.testsetStatementParameters
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+        // Simple setter, nothing to test here
 		// End of user code
     }
 
-    /**
-     * Test method getStatementParameters from interface Statement
-     * Start of user code Statement.testgetStatementParametersAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetStatementParameters()
-    {
-        // Start of user code Statement.testgetStatementParameters
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
     /**
      * Test method isReadyToBeExecuted from interface Statement
      * Start of user code Statement.testisReadyToBeExecutedAnnotations 
@@ -76,9 +60,23 @@ class GenericStatementTest extends \PHPUnit_Framework_TestCase
     public function testIsReadyToBeExecuted()
     {
         // Start of user code Statement.testisReadyToBeExecuted
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $statement = new GenericStatement();
+		$this->assertFalse($statement->isReadyToBeExecuted());
+		$statement->setStatementString('SELECT * FROM `some_table`');
+		$this->assertTrue($statement->isReadyToBeExecuted());
+    	// End of user code
+    }
+    
+    /**
+     * Test method getStatementParameters from interface Statement
+     * Start of user code Statement.testgetStatementParametersAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetStatementParameters()
+    {
+        // Start of user code Statement.testgetStatementParameters
+        // Simple getter, nothing to test here
     	// End of user code
     }
     
@@ -91,13 +89,28 @@ class GenericStatementTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code Statement.testtoString
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $genericStatement = new GenericStatement();
+		$statementString = 'SELECT * FROM `some_test_table`';
+		$genericStatement->setStatementString($statementString);
+		$this->assertEquals($statementString, $genericStatement->toString());
     	// End of user code
     }
 
     // Start of user code GenericStatementTest.methods
-	// Place additional tests methods here.  
+    
+	/**
+	 * Test statement->getStatementParameters return an empty AssociativeArray when called 
+	 * on a GenericStatement instance that don't have any statement parameters.
+	 */
+	public function testEmptyStatementParametersAssociativeArray()
+	{ 
+		$statement = new GenericStatement();
+		$statementParameters = $statement->getStatementParameters();
+		$this->assertInstanceOf(
+            'TiBeN\\Framework\\Datatype\\AssociativeArray', 
+            $statementParameters
+        );
+		$this->assertTrue($statementParameters->isEmpty());
+	}
 	// End of user code
 }

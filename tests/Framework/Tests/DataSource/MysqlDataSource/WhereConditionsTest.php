@@ -14,6 +14,7 @@ use TiBeN\Framework\DataSource\MysqlDataSource\WhereConditions;
  * Start of user code WhereConditionsTest.testAnnotations
  * PHPUnit user annotations can be placed here
  * End of user code
+ *
  * @author TiBeN
  */
 class WhereConditionsTest extends \PHPUnit_Framework_TestCase
@@ -33,6 +34,22 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code WhereConditionsTest.tearDown
 		// Place additional tearDown code here.  
+		// End of user code
+    }
+    
+    /**
+     * Test method toString from class WhereConditions
+     *
+     * Start of user code WhereConditionsTest.testtoStringAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code WhereConditionsTest.testtoString
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
 		// End of user code
     }
     
@@ -62,22 +79,6 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
     public function testCreateFromCriteriaSet()
     {
         // Start of user code WhereConditionsTest.testcreateFromCriteriaSet
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test method toString from class WhereConditions
-     *
-     * Start of user code WhereConditionsTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code WhereConditionsTest.testtoString
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

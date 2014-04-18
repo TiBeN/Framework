@@ -23,7 +23,10 @@ class Row extends AssociativeArray
     protected $TType;
 
     // Start of user code Row.surchargedConstructorsDestructors
-    // Surcharge Constructors and Destructors here
+	public function __construct($TType = NULL) 
+	{
+		parent::__construct('string');
+	}
     // End of user code
     
     /**
@@ -64,6 +67,7 @@ class Row extends AssociativeArray
             );
         }
     }
+
     // Start of user code Row.surchargedMethods
     // Surcharge Methods here
     // End of user code

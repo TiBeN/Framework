@@ -15,21 +15,6 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 class StatementExecutionResult
 {
     /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var int
-     */
-    public $numberOfAffectedRows;
-
-    /**
      * @var int
      */
     public $lastInsertId;
@@ -38,6 +23,21 @@ class StatementExecutionResult
      * @var int
      */
     public $errorCode;
+
+    /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var int
+     */
+    public $numberOfAffectedRows;
 
     /**
      * @var RowCollection
@@ -54,66 +54,6 @@ class StatementExecutionResult
     {
         // Start of user code StatementExecutionResult.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getErrorMessage()
-    {
-        // Start of user code Getter StatementExecutionResult.getErrorMessage
-        // End of user code
-        return $this->errorMessage;
-    }
-
-    /**
-     * @param string $errorMessage
-     */
-    public function setErrorMessage($errorMessage)
-    {
-        // Start of user code Setter StatementExecutionResult.setErrorMessage
-        // End of user code
-        $this->errorMessage = $errorMessage;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getSuccess()
-    {
-        // Start of user code Getter StatementExecutionResult.getSuccess
-        // End of user code
-        return $this->success;
-    }
-
-    /**
-     * @param bool $success
-     */
-    public function setSuccess($success)
-    {
-        // Start of user code Setter StatementExecutionResult.setSuccess
-        // End of user code
-        $this->success = $success;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNumberOfAffectedRows()
-    {
-        // Start of user code Getter StatementExecutionResult.getNumberOfAffectedRows
-        // End of user code
-        return $this->numberOfAffectedRows;
-    }
-
-    /**
-     * @param int $numberOfAffectedRows
-     */
-    public function setNumberOfAffectedRows($numberOfAffectedRows)
-    {
-        // Start of user code Setter StatementExecutionResult.setNumberOfAffectedRows
-        // End of user code
-        $this->numberOfAffectedRows = $numberOfAffectedRows;
     }
 
     /**
@@ -154,6 +94,66 @@ class StatementExecutionResult
         // Start of user code Setter StatementExecutionResult.setErrorCode
         // End of user code
         $this->errorCode = $errorCode;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        // Start of user code Getter StatementExecutionResult.getSuccess
+        // End of user code
+        return $this->success;
+    }
+
+    /**
+     * @param bool $success
+     */
+    public function setSuccess($success)
+    {
+        // Start of user code Setter StatementExecutionResult.setSuccess
+        // End of user code
+        $this->success = $success;
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorMessage()
+    {
+        // Start of user code Getter StatementExecutionResult.getErrorMessage
+        // End of user code
+        return $this->errorMessage;
+    }
+
+    /**
+     * @param string $errorMessage
+     */
+    public function setErrorMessage($errorMessage)
+    {
+        // Start of user code Setter StatementExecutionResult.setErrorMessage
+        // End of user code
+        $this->errorMessage = $errorMessage;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumberOfAffectedRows()
+    {
+        // Start of user code Getter StatementExecutionResult.getNumberOfAffectedRows
+        // End of user code
+        return $this->numberOfAffectedRows;
+    }
+
+    /**
+     * @param int $numberOfAffectedRows
+     */
+    public function setNumberOfAffectedRows($numberOfAffectedRows)
+    {
+        // Start of user code Setter StatementExecutionResult.setNumberOfAffectedRows
+        // End of user code
+        $this->numberOfAffectedRows = $numberOfAffectedRows;
     }
 
     /**

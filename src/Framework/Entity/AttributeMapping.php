@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\Entity;
 
-use TiBeN\Framework\Validation\ValidationRule;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Validation\ValidationRule;
 
 // Start of user code AttributeMapping.useStatements
 // Place your use statements here.
@@ -18,6 +18,16 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class AttributeMapping
 {
     /**
+     * @var AssociativeArray
+     */
+    public $type;
+
+    /**
+     * @var DataSourceAttributeMappingConfiguration
+     */
+    public $dataSourceAttributeMappingConfiguration;
+
+    /**
      * @var array
      */
     public $validationRules;
@@ -26,16 +36,6 @@ class AttributeMapping
      * @var string
      */
     public $name;
-
-    /**
-     * @var DataSourceAttributeMappingConfiguration
-     */
-    public $dataSourceAttributeMappingConfiguration;
-
-    /**
-     * @var AssociativeArray
-     */
-    public $type;
 
     /**
      * @var bool
@@ -52,6 +52,46 @@ class AttributeMapping
     {
         // Start of user code AttributeMapping.destructor
         // End of user code
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getType()
+    {
+        // Start of user code Getter AttributeMapping.getType
+        // End of user code
+        return $this->type;
+    }
+
+    /**
+     * @param AssociativeArray $type
+     */
+    public function setType(AssociativeArray $type)
+    {
+        // Start of user code Setter AttributeMapping.setType
+        // End of user code
+        $this->type = $type;
+    }
+
+    /**
+     * @return DataSourceAttributeMappingConfiguration
+     */
+    public function getDataSourceAttributeMappingConfiguration()
+    {
+        // Start of user code Getter AttributeMapping.getDataSourceAttributeMappingConfiguration
+        // End of user code
+        return $this->dataSourceAttributeMappingConfiguration;
+    }
+
+    /**
+     * @param DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration
+     */
+    public function setDataSourceAttributeMappingConfiguration(DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration)
+    {
+        // Start of user code Setter AttributeMapping.setDataSourceAttributeMappingConfiguration
+        // End of user code
+        $this->dataSourceAttributeMappingConfiguration = $dataSourceAttributeMappingConfiguration;
     }
 
     /**
@@ -95,46 +135,6 @@ class AttributeMapping
     }
 
     /**
-     * @return DataSourceAttributeMappingConfiguration
-     */
-    public function getDataSourceAttributeMappingConfiguration()
-    {
-        // Start of user code Getter AttributeMapping.getDataSourceAttributeMappingConfiguration
-        // End of user code
-        return $this->dataSourceAttributeMappingConfiguration;
-    }
-
-    /**
-     * @param DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration
-     */
-    public function setDataSourceAttributeMappingConfiguration(DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration)
-    {
-        // Start of user code Setter AttributeMapping.setDataSourceAttributeMappingConfiguration
-        // End of user code
-        $this->dataSourceAttributeMappingConfiguration = $dataSourceAttributeMappingConfiguration;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getType()
-    {
-        // Start of user code Getter AttributeMapping.getType
-        // End of user code
-        return $this->type;
-    }
-
-    /**
-     * @param AssociativeArray $type
-     */
-    public function setType(AssociativeArray $type)
-    {
-        // Start of user code Setter AttributeMapping.setType
-        // End of user code
-        $this->type = $type;
-    }
-
-    /**
      * @return bool
      */
     public function getIsIdentifier()
@@ -161,7 +161,32 @@ class AttributeMapping
     public static function create(AssociativeArray $config)
     {
         // Start of user code AttributeMapping.create
-        // TODO should be implemented.
+        if (!$config->has('name')) {
+            throw new \InvalidArgumentException('No name set');
+        }
+        if (!$config->has('type')) {
+            throw new \InvalidArgumentException('No type set');
+        }        
+        if (!$config->get('type')->has('name')) {
+            throw new \InvalidArgumentException('No type name set');
+        }        
+        if (!$config->has('dataSourceAttributeMappingConfiguration')) {
+            throw new \InvalidArgumentException(
+                'No datasource attribute mapping configuration set'
+            );
+        }
+        
+        $attributeMapping = new self;
+        $attributeMapping->setName($config->get('name'));
+        if($config->has('isIdentifier')) {
+            $attributeMapping->setIsIdentifier($config->get('isIdentifier'));
+        }
+        $attributeMapping->setType(
+            $config->get('type')
+        );
+        $attributeMapping->setDataSourceAttributeMappingConfiguration(
+            $config->get('dataSourceAttributeMappingConfiguration')
+        );
         // End of user code
     
         return $attributeMapping;

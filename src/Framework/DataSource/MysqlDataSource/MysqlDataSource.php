@@ -4,8 +4,8 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\Entity\CriteriaSet;
 use TiBeN\Framework\DataSource\DataSource;
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\EntityCollection;
+use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\Entity;
 
 // Start of user code MysqlDataSource.useStatements
@@ -28,11 +28,6 @@ class MysqlDataSource implements DataSource
     /**
      * @var string
      */
-    public $password;
-
-    /**
-     * @var string
-     */
     public $databaseName;
 
     /**
@@ -41,14 +36,19 @@ class MysqlDataSource implements DataSource
     public $host;
 
     /**
-     * @var Connection
-     */
-    private $connection;
-
-    /**
      * @var int
      */
     public $port;
+
+    /**
+     * @var string
+     */
+    public $password;
+
+    /**
+     * @var Connection
+     */
+    private $connection;
 
     /**
      * @var string
@@ -85,26 +85,6 @@ class MysqlDataSource implements DataSource
         // Start of user code Setter MysqlDataSource.setUserName
         // End of user code
         $this->userName = $userName;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPassword()
-    {
-        // Start of user code Getter MysqlDataSource.getPassword
-        // End of user code
-        return $this->password;
-    }
-
-    /**
-     * @param string $password
-     */
-    public function setPassword($password)
-    {
-        // Start of user code Setter MysqlDataSource.setPassword
-        // End of user code
-        $this->password = $password;
     }
 
     /**
@@ -148,26 +128,6 @@ class MysqlDataSource implements DataSource
     }
 
     /**
-     * @return Connection
-     */
-    private function getConnection()
-    {
-        // Start of user code Getter MysqlDataSource.getConnection
-        // End of user code
-        return $this->connection;
-    }
-
-    /**
-     * @param Connection $connection
-     */
-    private function setConnection(Connection $connection)
-    {
-        // Start of user code Setter MysqlDataSource.setConnection
-        // End of user code
-        $this->connection = $connection;
-    }
-
-    /**
      * @return int
      */
     public function getPort()
@@ -185,6 +145,46 @@ class MysqlDataSource implements DataSource
         // Start of user code Setter MysqlDataSource.setPort
         // End of user code
         $this->port = $port;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword()
+    {
+        // Start of user code Getter MysqlDataSource.getPassword
+        // End of user code
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        // Start of user code Setter MysqlDataSource.setPassword
+        // End of user code
+        $this->password = $password;
+    }
+
+    /**
+     * @return Connection
+     */
+    private function getConnection()
+    {
+        // Start of user code Getter MysqlDataSource.getConnection
+        // End of user code
+        return $this->connection;
+    }
+
+    /**
+     * @param Connection $connection
+     */
+    private function setConnection(Connection $connection)
+    {
+        // Start of user code Setter MysqlDataSource.setConnection
+        // End of user code
+        $this->connection = $connection;
     }
 
     // DataSource Realization
@@ -208,6 +208,39 @@ class MysqlDataSource implements DataSource
         // End of user code
         $this->name = $name;
     }
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     */
+    public function update(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code DataSource.update
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     */
+    public function delete(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code DataSource.delete
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     */
+    public function create(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code DataSource.create
+        // TODO should be implemented.
+        // End of user code
+    }
+
     /**
      * @param EntityMapping $entityMapping
      * @param CriteriaSet $criteriaSet
@@ -235,17 +268,6 @@ class MysqlDataSource implements DataSource
     }
 
     /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     */
-    public function delete(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code DataSource.delete
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
      * @return string $className
      */
     public static function getEntityMappingConfigurationClassName()
@@ -255,28 +277,6 @@ class MysqlDataSource implements DataSource
         // End of user code
     
         return $className;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     */
-    public function create(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code DataSource.create
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     */
-    public function update(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code DataSource.update
-        // TODO should be implemented.
-        // End of user code
     }
 
     // Start of user code MysqlDataSource.implementationSpecificMethods

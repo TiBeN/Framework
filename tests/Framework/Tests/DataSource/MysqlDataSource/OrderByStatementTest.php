@@ -14,6 +14,7 @@ use TiBeN\Framework\DataSource\MysqlDataSource\OrderByStatement;
  * Start of user code OrderByStatementTest.testAnnotations
  * PHPUnit user annotations can be placed here
  * End of user code
+ *
  * @author TiBeN
  */
 class OrderByStatementTest extends \PHPUnit_Framework_TestCase

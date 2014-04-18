@@ -18,14 +18,14 @@ use TiBeN\Framework\Entity\Entity;
 class MysqlEntityAttributeMapper
 {
     /**
-     * @var Entity
-     */
-    public $entity;
-
-    /**
      * @var EntityMapping
      */
     public $entityMapping;
+
+    /**
+     * @var Entity
+     */
+    public $entity;
 
     public function __construct()
     {
@@ -37,26 +37,6 @@ class MysqlEntityAttributeMapper
     {
         // Start of user code MysqlEntityAttributeMapper.destructor
         // End of user code
-    }
-
-    /**
-     * @return Entity
-     */
-    public function getEntity()
-    {
-        // Start of user code Getter MysqlEntityAttributeMapper.getEntity
-        // End of user code
-        return $this->entity;
-    }
-
-    /**
-     * @param Entity $entity
-     */
-    public function setEntity(Entity $entity)
-    {
-        // Start of user code Setter MysqlEntityAttributeMapper.setEntity
-        // End of user code
-        $this->entity = $entity;
     }
 
     /**
@@ -80,24 +60,23 @@ class MysqlEntityAttributeMapper
     }
 
     /**
-     * @param int $identifier
+     * @return Entity
      */
-    public function setIdentifier($identifier)
+    public function getEntity()
     {
-        // Start of user code MysqlEntityAttributeMapper.setIdentifier
-        // TODO should be implemented.
+        // Start of user code Getter MysqlEntityAttributeMapper.getEntity
         // End of user code
+        return $this->entity;
     }
 
     /**
-     * @param string $columnName
-     * @param string $value
+     * @param Entity $entity
      */
-    public function setAttributeValue($columnName, $value)
+    public function setEntity(Entity $entity)
     {
-        // Start of user code MysqlEntityAttributeMapper.setAttributeValue
-        // TODO should be implemented.
+        // Start of user code Setter MysqlEntityAttributeMapper.setEntity
         // End of user code
+        $this->entity = $entity;
     }
 
     /**
@@ -114,15 +93,14 @@ class MysqlEntityAttributeMapper
     }
 
     /**
-     * @return int $identifier
+     * @param string $columnName
+     * @param string $value
      */
-    public function getIdentifierValue()
+    public function setAttributeValue($columnName, $value)
     {
-        // Start of user code MysqlEntityAttributeMapper.getIdentifierValue
+        // Start of user code MysqlEntityAttributeMapper.setAttributeValue
         // TODO should be implemented.
         // End of user code
-    
-        return $identifier;
     }
 
     /**
@@ -136,6 +114,28 @@ class MysqlEntityAttributeMapper
         // End of user code
     
         return $columnValue;
+    }
+
+    /**
+     * @return int $identifier
+     */
+    public function getIdentifierValue()
+    {
+        // Start of user code MysqlEntityAttributeMapper.getIdentifierValue
+        // TODO should be implemented.
+        // End of user code
+    
+        return $identifier;
+    }
+
+    /**
+     * @param int $identifier
+     */
+    public function setIdentifier($identifier)
+    {
+        // Start of user code MysqlEntityAttributeMapper.setIdentifier
+        // TODO should be implemented.
+        // End of user code
     }
 
     /**

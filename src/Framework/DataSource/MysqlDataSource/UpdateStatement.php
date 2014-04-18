@@ -17,14 +17,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class UpdateStatement implements Statement
 {
     /**
-     * @var WhereConditions
-     */
-    public $whereDefinition;
-
-    /**
      * @var SetStatement
      */
     public $setStatement;
+
+    /**
+     * @var WhereConditions
+     */
+    public $whereDefinition;
 
     /**
      * @var string
@@ -41,26 +41,6 @@ class UpdateStatement implements Statement
     {
         // Start of user code UpdateStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return WhereConditions
-     */
-    public function getWhereDefinition()
-    {
-        // Start of user code Getter UpdateStatement.getWhereDefinition
-        // End of user code
-        return $this->whereDefinition;
-    }
-
-    /**
-     * @param WhereConditions $whereDefinition
-     */
-    public function setWhereDefinition(WhereConditions $whereDefinition)
-    {
-        // Start of user code Setter UpdateStatement.setWhereDefinition
-        // End of user code
-        $this->whereDefinition = $whereDefinition;
     }
 
     /**
@@ -81,6 +61,26 @@ class UpdateStatement implements Statement
         // Start of user code Setter UpdateStatement.setSetStatement
         // End of user code
         $this->setStatement = $setStatement;
+    }
+
+    /**
+     * @return WhereConditions
+     */
+    public function getWhereDefinition()
+    {
+        // Start of user code Getter UpdateStatement.getWhereDefinition
+        // End of user code
+        return $this->whereDefinition;
+    }
+
+    /**
+     * @param WhereConditions $whereDefinition
+     */
+    public function setWhereDefinition(WhereConditions $whereDefinition)
+    {
+        // Start of user code Setter UpdateStatement.setWhereDefinition
+        // End of user code
+        $this->whereDefinition = $whereDefinition;
     }
 
     /**
@@ -106,18 +106,6 @@ class UpdateStatement implements Statement
     // Statement Realization
 
     /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-        // TODO should be implemented.
-        // End of user code
-    
-        return $statementParameters;
-    }
-
-    /**
      * Tell wether the statement is ready or not to be executed
      *
      * @return bool $status
@@ -129,6 +117,18 @@ class UpdateStatement implements Statement
         // End of user code
     
         return $status;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+        // TODO should be implemented.
+        // End of user code
+    
+        return $statementParameters;
     }
 
     /**

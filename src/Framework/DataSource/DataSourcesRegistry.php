@@ -55,15 +55,15 @@ class DataSourcesRegistry
 
     /**
      * @param string $dataSourceName
-     * @return DataSource $dataSource
+     * @return bool $boolean
      */
-    public static function getDataSource($dataSourceName)
+    public static function hasDataSource($dataSourceName)
     {
-        // Start of user code DataSourcesRegistry.getDataSource
+        // Start of user code DataSourcesRegistry.hasDataSource
         // TODO should be implemented.
         // End of user code
     
-        return $dataSource;
+        return $boolean;
     }
 
     /**
@@ -77,6 +77,19 @@ class DataSourcesRegistry
     }
 
     /**
+     * @param string $dataSourceName
+     * @return DataSource $dataSource
+     */
+    public static function getDataSource($dataSourceName)
+    {
+        // Start of user code DataSourcesRegistry.getDataSource
+        // TODO should be implemented.
+        // End of user code
+    
+        return $dataSource;
+    }
+
+    /**
      * @param DataSource $dataSource
      */
     public static function registerDataSource(DataSource $dataSource)
@@ -84,19 +97,6 @@ class DataSourcesRegistry
         // Start of user code DataSourcesRegistry.registerDataSource
         // TODO should be implemented.
         // End of user code
-    }
-
-    /**
-     * @param string $dataSourceName
-     * @return bool $boolean
-     */
-    public static function hasDataSource($dataSourceName)
-    {
-        // Start of user code DataSourcesRegistry.hasDataSource
-        // TODO should be implemented.
-        // End of user code
-    
-        return $boolean;
     }
 
     // Start of user code DataSourcesRegistry.implementationSpecificMethods

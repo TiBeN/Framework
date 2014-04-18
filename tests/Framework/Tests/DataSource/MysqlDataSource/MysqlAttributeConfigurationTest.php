@@ -5,7 +5,8 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 use TiBeN\Framework\DataSource\MysqlDataSource\MysqlAttributeConfiguration;
 
 // Start of user code MysqlAttributeConfiguration.useStatements
-// Place your use statements here.
+use TiBeN\Framework\Datatype\AssociativeArray;
+
 // End of user code
 
 /**
@@ -14,6 +15,7 @@ use TiBeN\Framework\DataSource\MysqlDataSource\MysqlAttributeConfiguration;
  * Start of user code MysqlAttributeConfigurationTest.testAnnotations
  * PHPUnit user annotations can be placed here
  * End of user code
+ *
  * @author TiBeN
  */
 class MysqlAttributeConfigurationTest extends \PHPUnit_Framework_TestCase
@@ -47,13 +49,43 @@ class MysqlAttributeConfigurationTest extends \PHPUnit_Framework_TestCase
     public function testCreate()
     {
         // Start of user code DataSourceAttributeMappingConfiguration.testcreate
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $expectedMac = new MysqlAttributeConfiguration();
+        $expectedMac->setColumnName('test');        
+        $expectedMac->setIsAutoIncrement(true);
+        
+        $this->assertEquals(
+            $expectedMac, 
+            MysqlAttributeConfiguration::create(
+                AssociativeArray::createFromNativeArray(
+                    null, 
+                    array(
+                        'columnName' => 'test',            
+                        'isAutoIncrement' => true
+                    )
+                )
+            )
         );
     	// End of user code
     }
 
     // Start of user code MysqlAttributeConfigurationTest.methods
-	// Place additional tests methods here.  
+    
+	/**
+	 * Test create a MysqlAttributeConfiguration without columnName
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionMessage No column name set
+	 */
+    public function testCreateAMysqlAttributeConfigurationWithoutColumnName() 
+    {
+        MysqlAttributeConfiguration::create(
+            AssociativeArray::createFromNativeArray(
+                null, 
+                array(           
+                    'isAutoIncrement' => true
+                )
+            )
+        );
+    }
 	// End of user code
 }

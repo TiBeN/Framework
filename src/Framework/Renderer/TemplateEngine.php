@@ -9,6 +9,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  * This Interface describes the engines classes used by the TemplateRenderer 
  * in order to render templates. You can implement this interface if you want to use 
  * a specific template engine with the TemplateRenderer 
+ *
  * @package Renderer
  * @author TiBeN
  */ 

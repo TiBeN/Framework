@@ -1238,6 +1238,10 @@ to match an URI with a ressource.</body>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_K-N2wLgJEeKupoY6kOjZ-Q" name="route" type="_YbLfMJkdEeKNe-pGKaimUg" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_dG6wIEclEeO-MsP0k5YFJw" name="create" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="__srwYMbAEeOil-3Rn69Cyw" annotatedElement="_dG6wIEclEeO-MsP0k5YFJw">
+          <body>Create a new Routerule from an 
+AssociativeArray of configuration. </body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_f6Ur4EclEeO-MsP0k5YFJw" name="config" type="_ti84wLoPEeKycOj42mlSMA"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_kwABYEclEeO-MsP0k5YFJw" name="routeRule" type="_a3DEsJkdEeKNe-pGKaimUg" direction="return"/>
       </ownedOperation>

@@ -22,11 +22,6 @@ class EntityMapping
     public $entityName;
 
     /**
-     * @var AssociativeArray
-     */
-    public $attributeMappings;
-
-    /**
      * @var string
      */
     public $dataSourceName;
@@ -35,6 +30,11 @@ class EntityMapping
      * @var DataSourceEntityMappingConfiguration
      */
     public $dataSourceEntityConfiguration;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $attributeMappings;
 
     public function __construct()
     {
@@ -66,26 +66,6 @@ class EntityMapping
         // Start of user code Setter EntityMapping.setEntityName
         // End of user code
         $this->entityName = $entityName;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getAttributeMappings()
-    {
-        // Start of user code Getter EntityMapping.getAttributeMappings
-        // End of user code
-        return $this->attributeMappings;
-    }
-
-    /**
-     * @param AssociativeArray $attributeMappings
-     */
-    public function setAttributeMappings(AssociativeArray $attributeMappings)
-    {
-        // Start of user code Setter EntityMapping.setAttributeMappings
-        // End of user code
-        $this->attributeMappings = $attributeMappings;
     }
 
     /**
@@ -126,6 +106,26 @@ class EntityMapping
         // Start of user code Setter EntityMapping.setDataSourceEntityConfiguration
         // End of user code
         $this->dataSourceEntityConfiguration = $dataSourceEntityConfiguration;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getAttributeMappings()
+    {
+        // Start of user code Getter EntityMapping.getAttributeMappings
+        // End of user code
+        return $this->attributeMappings;
+    }
+
+    /**
+     * @param AssociativeArray $attributeMappings
+     */
+    public function setAttributeMappings(AssociativeArray $attributeMappings)
+    {
+        // Start of user code Setter EntityMapping.setAttributeMappings
+        // End of user code
+        $this->attributeMappings = $attributeMappings;
     }
 
     /**

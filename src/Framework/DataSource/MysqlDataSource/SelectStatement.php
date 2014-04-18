@@ -17,14 +17,19 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class SelectStatement implements Statement
 {
     /**
+     * @var LimitStatement
+     */
+    public $limitStatement;
+
+    /**
      * @var OrderByStatement
      */
     public $orderByStatement;
 
     /**
-     * @var WhereConditions
+     * @var string
      */
-    public $whereConditions;
+    public $tableReferences;
 
     /**
      * @var SelectExpr
@@ -32,14 +37,9 @@ class SelectStatement implements Statement
     public $selectExpr;
 
     /**
-     * @var LimitStatement
+     * @var WhereConditions
      */
-    public $limitStatement;
-
-    /**
-     * @var string
-     */
-    public $tableReferences;
+    public $whereConditions;
 
     public function __construct()
     {
@@ -51,66 +51,6 @@ class SelectStatement implements Statement
     {
         // Start of user code SelectStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return OrderByStatement
-     */
-    public function getOrderByStatement()
-    {
-        // Start of user code Getter SelectStatement.getOrderByStatement
-        // End of user code
-        return $this->orderByStatement;
-    }
-
-    /**
-     * @param OrderByStatement $orderByStatement
-     */
-    public function setOrderByStatement(OrderByStatement $orderByStatement)
-    {
-        // Start of user code Setter SelectStatement.setOrderByStatement
-        // End of user code
-        $this->orderByStatement = $orderByStatement;
-    }
-
-    /**
-     * @return WhereConditions
-     */
-    public function getWhereConditions()
-    {
-        // Start of user code Getter SelectStatement.getWhereConditions
-        // End of user code
-        return $this->whereConditions;
-    }
-
-    /**
-     * @param WhereConditions $whereConditions
-     */
-    public function setWhereConditions(WhereConditions $whereConditions)
-    {
-        // Start of user code Setter SelectStatement.setWhereConditions
-        // End of user code
-        $this->whereConditions = $whereConditions;
-    }
-
-    /**
-     * @return SelectExpr
-     */
-    public function getSelectExpr()
-    {
-        // Start of user code Getter SelectStatement.getSelectExpr
-        // End of user code
-        return $this->selectExpr;
-    }
-
-    /**
-     * @param SelectExpr $selectExpr
-     */
-    public function setSelectExpr(SelectExpr $selectExpr)
-    {
-        // Start of user code Setter SelectStatement.setSelectExpr
-        // End of user code
-        $this->selectExpr = $selectExpr;
     }
 
     /**
@@ -134,6 +74,26 @@ class SelectStatement implements Statement
     }
 
     /**
+     * @return OrderByStatement
+     */
+    public function getOrderByStatement()
+    {
+        // Start of user code Getter SelectStatement.getOrderByStatement
+        // End of user code
+        return $this->orderByStatement;
+    }
+
+    /**
+     * @param OrderByStatement $orderByStatement
+     */
+    public function setOrderByStatement(OrderByStatement $orderByStatement)
+    {
+        // Start of user code Setter SelectStatement.setOrderByStatement
+        // End of user code
+        $this->orderByStatement = $orderByStatement;
+    }
+
+    /**
      * @return string
      */
     public function getTableReferences()
@@ -153,19 +113,47 @@ class SelectStatement implements Statement
         $this->tableReferences = $tableReferences;
     }
 
-    // Statement Realization
+    /**
+     * @return SelectExpr
+     */
+    public function getSelectExpr()
+    {
+        // Start of user code Getter SelectStatement.getSelectExpr
+        // End of user code
+        return $this->selectExpr;
+    }
 
     /**
-     * @return AssociativeArray $statementParameters
+     * @param SelectExpr $selectExpr
      */
-    public function getStatementParameters()
+    public function setSelectExpr(SelectExpr $selectExpr)
     {
-        // Start of user code Statement.getStatementParameters
-        // TODO should be implemented.
+        // Start of user code Setter SelectStatement.setSelectExpr
         // End of user code
-    
-        return $statementParameters;
+        $this->selectExpr = $selectExpr;
     }
+
+    /**
+     * @return WhereConditions
+     */
+    public function getWhereConditions()
+    {
+        // Start of user code Getter SelectStatement.getWhereConditions
+        // End of user code
+        return $this->whereConditions;
+    }
+
+    /**
+     * @param WhereConditions $whereConditions
+     */
+    public function setWhereConditions(WhereConditions $whereConditions)
+    {
+        // Start of user code Setter SelectStatement.setWhereConditions
+        // End of user code
+        $this->whereConditions = $whereConditions;
+    }
+
+    // Statement Realization
 
     /**
      * Tell wether the statement is ready or not to be executed
@@ -179,6 +167,18 @@ class SelectStatement implements Statement
         // End of user code
     
         return $status;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+        // TODO should be implemented.
+        // End of user code
+    
+        return $statementParameters;
     }
 
     /**

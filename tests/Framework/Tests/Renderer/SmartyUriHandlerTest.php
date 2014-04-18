@@ -16,6 +16,7 @@ use TiBeN\Framework\Router\Router;
  * Start of user code SmartyUriHandlerTest.testAnnotations
  * PHPUnit user annotations can be placed here
  * End of user code
+ *
  * @author TiBeN
  */
 class SmartyUriHandlerTest extends \PHPUnit_Framework_TestCase

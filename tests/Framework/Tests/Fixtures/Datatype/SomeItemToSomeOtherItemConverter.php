@@ -1,21 +1,23 @@
 <?php
+
+namespace TiBeN\Framework\Tests\Fixtures\Datatype;
+
+use TiBeN\Framework\Datatype\Converter;
+
+/**
+ * Some Fixture Converter for testing ProxyAbleGenericCollection
+ */
 class SomeItemToSomeOtherItemConverter implements Converter 
 {
     
-    private $TType = 'SomeItem';
+    private $TType = 'TiBeN\\Framework\\Tests\\Fixtures\\Datatype\\SomeItem';
     
-    private $UType = 'SomeOtherItem';
+    private $UType = 'TiBeN\\Framework\\Tests\\Fixtures\\Datatype\\SomeOtherItem';
     
-    /* (non-PHPdoc)
-     * @see CollectionItemConverter::getProxyType()
-    */
     public function getUType() {
         return $this->UType;
     }
     
-    /* (non-PHPdoc)
-     * @see CollectionItemConverter::getSourceType()
-    */
     public function getTType() {
         return $this->TType;
     }    

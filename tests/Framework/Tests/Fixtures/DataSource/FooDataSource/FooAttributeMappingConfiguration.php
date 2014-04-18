@@ -1,4 +1,10 @@
 <?php
+
+namespace TiBeN\Framework\Tests\Fixtures\DataSource\FooDataSource;
+
+use TiBeN\Framework\Entity\DataSourceAttributeMappingConfiguration;
+use TiBeN\Framework\Datatype\AssociativeArray;
+
 /**
  * DataSourceAttributeConfiguration for the Dummy DataSource 
  * used to test entity layer
@@ -20,6 +26,4 @@ class FooAttributeMappingConfiguration implements DataSourceAttributeMappingConf
         $this->field = $field;
         return $this;
     }
-	
-
 }

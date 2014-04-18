@@ -14,6 +14,7 @@ use TiBeN\Framework\DataSource\MysqlDataSource\LimitStatement;
  * Start of user code LimitStatementTest.testAnnotations
  * PHPUnit user annotations can be placed here
  * End of user code
+ *
  * @author TiBeN
  */
 class LimitStatementTest extends \PHPUnit_Framework_TestCase

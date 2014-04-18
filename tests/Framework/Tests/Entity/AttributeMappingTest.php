@@ -5,7 +5,9 @@ namespace TiBeN\Framework\Tests\Entity;
 use TiBeN\Framework\Entity\AttributeMapping;
 
 // Start of user code AttributeMapping.useStatements
-// Place your use statements here.
+use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Tests\Fixtures\DataSource\FooDataSource\FooAttributeMappingConfiguration;
+
 // End of user code
 
 /**
@@ -14,6 +16,7 @@ use TiBeN\Framework\Entity\AttributeMapping;
  * Start of user code AttributeMappingTest.testAnnotations
  * PHPUnit user annotations can be placed here
  * End of user code
+ *
  * @author TiBeN
  */
 class AttributeMappingTest extends \PHPUnit_Framework_TestCase
@@ -46,13 +49,125 @@ class AttributeMappingTest extends \PHPUnit_Framework_TestCase
     public function testCreate()
     {
         // Start of user code AttributeMappingTest.testcreate
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+	    $expectedAm = new AttributeMapping();
+	    $expectedAm->setName('test');
+	    $expectedAm->setIsIdentifier(false);
+	    $expectedAm->setType(AssociativeArray::createFromNativeArray(null, array(
+	    	'name' => 'string'
+	    )));
+	    $expectedAm->setDataSourceAttributeMappingConfiguration(
+            new FooAttributeMappingConfiguration()
+        );
+	    
+	    $this->assertEquals(
+            $expectedAm, 
+            AttributeMapping::create(
+                AssociativeArray::createFromNativeArray(
+                    null, 
+                    array(
+                        'name' => 'test',     
+                        'type' => AssociativeArray::createFromNativeArray(
+                            null, 
+                            array('name' => 'string')
+                        ),
+                    'dataSourceAttributeMappingConfiguration' 
+                        => new FooAttributeMappingConfiguration()	            
+                    )
+                )
+            )
+        );        
 		// End of user code
     }
 
     // Start of user code AttributeMappingTest.methods
-	// Place additional tests methods here.  
+
+	/**
+	 * Test create an AttributeMapping without name
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionMessage No name set
+	 */
+	public function testCreateAnAttributeMappingWithoutName()
+	{
+	    AttributeMapping::create(
+            AssociativeArray::createFromNativeArray(
+                null, 
+                array(    	    
+                    'type' => AssociativeArray::createFromNativeArray(
+                        null, 
+                        array('name' => 'string')
+                    ),	    
+                    'dataSourceAttributeMappingConfiguration' 
+                        => new FooAttributeMappingConfiguration()
+                )
+            )
+        );
+	}   
+	
+	/**
+	 * Test create an AttributeMapping without type
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionMessage No type set
+	 */
+	public function testCreateAnAttributeMappingWithoutType()
+	{
+	    AttributeMapping::create(
+            AssociativeArray::createFromNativeArray(
+                null, 
+                array(
+                   'name' => 'test',
+                   'dataSourceAttributeMappingConfiguration' 
+                       => new FooAttributeMappingConfiguration()
+                )
+            )
+        );
+	}	
+	
+	/**
+	 * Test create an AttributeMapping without type name
+     * 
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionMessage No type name set
+	 */
+	public function testCreateAnAttributeMappingWithoutTypeName()
+	{
+	    AttributeMapping::create(
+            AssociativeArray::createFromNativeArray(
+                null, 
+                array(
+                    'name' => 'test',
+                    'type' => AssociativeArray::createFromNativeArray(
+                        null, 
+                        array()
+                    ),    	    
+                    'dataSourceAttributeMappingConfiguration' 
+                        => new FooAttributeMappingConfiguration()
+                )
+            )
+        );
+	}	
+	 
+	/**
+	 * Test create an AttributeMapping without DataSourceAttributeMappingConfiguration
+     * 
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionMessage No datasource attribute mapping configuration set
+	 */
+	public function testCreateAnAttributeMappingWithoutDataSourceAttributeMappingConfiguration()
+	{
+	    AttributeMapping::create(
+            AssociativeArray::createFromNativeArray(
+                null, 
+                array(
+                   'name' => 'test',
+                   'type' => AssociativeArray::createFromNativeArray(
+                       null, 
+                       array('name' => 'string')
+                   ),	       
+                )
+            )
+        );
+	}	
 	// End of user code
 }

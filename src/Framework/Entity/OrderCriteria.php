@@ -22,7 +22,7 @@ class OrderCriteria
     /**
      * @var string
      */
-    public $direction;
+    const DIRECTION_ASC = 'asc';
 
     /**
      * @var string
@@ -32,7 +32,7 @@ class OrderCriteria
     /**
      * @var string
      */
-    const DIRECTION_ASC = 'asc';
+    public $direction;
 
     public function __construct()
     {
@@ -44,26 +44,6 @@ class OrderCriteria
     {
         // Start of user code OrderCriteria.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getDirection()
-    {
-        // Start of user code Getter OrderCriteria.getDirection
-        // End of user code
-        return $this->direction;
-    }
-
-    /**
-     * @param string $direction
-     */
-    public function setDirection($direction)
-    {
-        // Start of user code Setter OrderCriteria.setDirection
-        // End of user code
-        $this->direction = $direction;
     }
 
     /**
@@ -87,12 +67,32 @@ class OrderCriteria
     }
 
     /**
+     * @return string
+     */
+    public function getDirection()
+    {
+        // Start of user code Getter OrderCriteria.getDirection
+        // End of user code
+        return $this->direction;
+    }
+
+    /**
+     * @param string $direction
+     */
+    public function setDirection($direction)
+    {
+        // Start of user code Setter OrderCriteria.setDirection
+        // End of user code
+        $this->direction = $direction;
+    }
+
+    /**
      * @param string $attribute
      * @return OrderCriteria $orderCriteria
      */
-    public static function desc($attribute)
+    public static function asc($attribute)
     {
-        // Start of user code OrderCriteria.desc
+        // Start of user code OrderCriteria.asc
         // TODO should be implemented.
         // End of user code
     
@@ -103,9 +103,9 @@ class OrderCriteria
      * @param string $attribute
      * @return OrderCriteria $orderCriteria
      */
-    public static function asc($attribute)
+    public static function desc($attribute)
     {
-        // Start of user code OrderCriteria.asc
+        // Start of user code OrderCriteria.desc
         // TODO should be implemented.
         // End of user code
     

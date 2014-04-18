@@ -27,6 +27,7 @@ class GenericStatement implements Statement
     public function __construct()
     {
         // Start of user code GenericStatement.constructor
+        $this->statementParameters = new AssociativeArray('string');
         // End of user code
     }
 
@@ -62,23 +63,11 @@ class GenericStatement implements Statement
     public function setStatementParameters(AssociativeArray $statementParameters)
     {
         // Start of user code GenericStatement.setStatementParameters
-        // TODO should be implemented.
+        $this->statementParameters = $statementParameters;
         // End of user code
     }
 
     // Statement Realization
-
-    /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-        // TODO should be implemented.
-        // End of user code
-    
-        return $statementParameters;
-    }
 
     /**
      * Tell wether the statement is ready or not to be executed
@@ -88,10 +77,22 @@ class GenericStatement implements Statement
     public function isReadyToBeExecuted()
     {
         // Start of user code Statement.isReadyToBeExecuted
-        // TODO should be implemented.
+		return isset($this->statementString) && !empty($this->statementString);  
         // End of user code
     
         return $status;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+		$statementParameters = $this->statementParameters; 
+        // End of user code
+    
+        return $statementParameters;
     }
 
     /**
@@ -102,13 +103,18 @@ class GenericStatement implements Statement
     public function toString()
     {
         // Start of user code Statement.toString
-        // TODO should be implemented.
+        $statement = $this->statementString;
         // End of user code
     
         return $statement;
     }
 
     // Start of user code GenericStatement.implementationSpecificMethods
-    // Place your implementation specific methods here
+    
+    /**
+     * @var AssociativeArray
+     */
+	private $statementParameters;
+
     // End of user code
 }

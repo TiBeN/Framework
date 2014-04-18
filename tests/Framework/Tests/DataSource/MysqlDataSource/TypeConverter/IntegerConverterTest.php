@@ -14,6 +14,7 @@ use TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\IntegerConverter;
  * Start of user code IntegerConverterTest.testAnnotations
  * PHPUnit user annotations can be placed here
  * End of user code
+ *
  * @author TiBeN
  */
 class IntegerConverterTest extends \PHPUnit_Framework_TestCase
@@ -39,21 +40,6 @@ class IntegerConverterTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method reverse from interface TypeConverter
-     * Start of user code TypeConverter.testreverseAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testReverse()
-    {
-        // Start of user code Converter.testreverse
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
      * Test method setParameters from interface TypeConverter
      * Start of user code TypeConverter.testsetParametersAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -69,14 +55,14 @@ class IntegerConverterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method getDataSourceType from interface TypeConverter
-     * Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
+     * Test method convert from interface TypeConverter
+     * Start of user code TypeConverter.testconvertAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testGetDataSourceType()
+    public function testConvert()
     {
-        // Start of user code TypeConverter.testgetDataSourceType
+        // Start of user code Converter.testconvert
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );
@@ -99,14 +85,29 @@ class IntegerConverterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method convert from interface TypeConverter
-     * Start of user code TypeConverter.testconvertAnnotations 
+     * Test method reverse from interface TypeConverter
+     * Start of user code TypeConverter.testreverseAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testConvert()
+    public function testReverse()
     {
-        // Start of user code Converter.testconvert
+        // Start of user code Converter.testreverse
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method getDataSourceType from interface TypeConverter
+     * Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetDataSourceType()
+    {
+        // Start of user code TypeConverter.testgetDataSourceType
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );

@@ -17,14 +17,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class TemplateRenderer
 {
     /**
-     * @var TemplateEngine
-     */
-    public static $defaultTemplateEngine;
-
-    /**
      * @var AssociativeArray
      */
     public static $globals;
+
+    /**
+     * @var TemplateEngine
+     */
+    public static $defaultTemplateEngine;
 
     /**
      * @var string
@@ -41,26 +41,6 @@ class TemplateRenderer
     {
         // Start of user code TemplateRenderer.destructor
         // End of user code
-    }
-
-    /**
-     * @return TemplateEngine
-     */
-    public static function getDefaultTemplateEngine()
-    {
-        // Start of user code Static getter TemplateRenderer.getDefaultTemplateEngine
-        // End of user code
-        return self::$defaultTemplateEngine;
-    }
-
-    /**
-     * @param TemplateEngine $defaultTemplateEngine
-     */
-    public static function setDefaultTemplateEngine(TemplateEngine $defaultTemplateEngine)
-    {
-        // Start of user code Static setter TemplateRenderer.setDefaultTemplateEngine
-        // End of user code
-        self::$defaultTemplateEngine = $defaultTemplateEngine;
     }
 
     /**
@@ -84,6 +64,26 @@ class TemplateRenderer
         // Start of user code Static setter TemplateRenderer.setGlobals
         // End of user code
         self::$globals = $globals;
+    }
+
+    /**
+     * @return TemplateEngine
+     */
+    public static function getDefaultTemplateEngine()
+    {
+        // Start of user code Static getter TemplateRenderer.getDefaultTemplateEngine
+        // End of user code
+        return self::$defaultTemplateEngine;
+    }
+
+    /**
+     * @param TemplateEngine $defaultTemplateEngine
+     */
+    public static function setDefaultTemplateEngine(TemplateEngine $defaultTemplateEngine)
+    {
+        // Start of user code Static setter TemplateRenderer.setDefaultTemplateEngine
+        // End of user code
+        self::$defaultTemplateEngine = $defaultTemplateEngine;
     }
 
     /**

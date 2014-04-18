@@ -6,6 +6,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 
 /**
  *  
+ *
  * @package Entity
  * @author TiBeN
  */ 

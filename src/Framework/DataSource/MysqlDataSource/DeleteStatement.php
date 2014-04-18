@@ -17,14 +17,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class DeleteStatement implements Statement
 {
     /**
-     * @var string
-     */
-    public $tableName;
-
-    /**
      * @var WhereConditions
      */
     public $whereConditions;
+
+    /**
+     * @var string
+     */
+    public $tableName;
 
     public function __construct()
     {
@@ -36,26 +36,6 @@ class DeleteStatement implements Statement
     {
         // Start of user code DeleteStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getTableName()
-    {
-        // Start of user code Getter DeleteStatement.getTableName
-        // End of user code
-        return $this->tableName;
-    }
-
-    /**
-     * @param string $tableName
-     */
-    public function setTableName($tableName)
-    {
-        // Start of user code Setter DeleteStatement.setTableName
-        // End of user code
-        $this->tableName = $tableName;
     }
 
     /**
@@ -78,19 +58,27 @@ class DeleteStatement implements Statement
         $this->whereConditions = $whereConditions;
     }
 
-    // Statement Realization
+    /**
+     * @return string
+     */
+    public function getTableName()
+    {
+        // Start of user code Getter DeleteStatement.getTableName
+        // End of user code
+        return $this->tableName;
+    }
 
     /**
-     * @return AssociativeArray $statementParameters
+     * @param string $tableName
      */
-    public function getStatementParameters()
+    public function setTableName($tableName)
     {
-        // Start of user code Statement.getStatementParameters
-        // TODO should be implemented.
+        // Start of user code Setter DeleteStatement.setTableName
         // End of user code
-    
-        return $statementParameters;
+        $this->tableName = $tableName;
     }
+
+    // Statement Realization
 
     /**
      * Tell wether the statement is ready or not to be executed
@@ -104,6 +92,18 @@ class DeleteStatement implements Statement
         // End of user code
     
         return $status;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+        // TODO should be implemented.
+        // End of user code
+    
+        return $statementParameters;
     }
 
     /**

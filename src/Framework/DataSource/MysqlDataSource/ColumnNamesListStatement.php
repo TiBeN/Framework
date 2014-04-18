@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\GenericCollection;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Datatype\GenericCollection;
 
 // Start of user code ColumnNamesListStatement.useStatements
 // Place your use statements here.
@@ -67,29 +67,43 @@ class ColumnNamesListStatement extends GenericCollection
     }
 
     /**
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code ColumnNamesListStatement.toString
+        if($this->isEmpty()) {
+            throw new \LogicException('The ColumnNamesListStatement is empty');
+        }      
+        
+        $string = sprintf('(%s)', implode(',', $this->items));
+        // End of user code
+    
+        return $string;
+    }
+
+    /**
      * @param AssociativeArray $attributeMappings
      * @return ColumnNamesListStatement $columnNamesListStatement
      */
     public static function createFromEntityAttributes(AssociativeArray $attributeMappings)
     {
         // Start of user code ColumnNamesListStatement.createFromEntityAttributes
-        // TODO should be implemented.
+		$columnNamesListStatement = new self;
+		foreach($attributeMappings->toNativeArray() 
+            as $attributeName => $attributeMapping
+        ) {
+		    $columnNamesListStatement->add(
+                $attributeMapping
+		            ->getDataSourceAttributeMappingConfiguration()
+		            ->getColumnName()
+            );
+		}
         // End of user code
     
         return $columnNamesListStatement;
     }
 
-    /**
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code ColumnNamesListStatement.toString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $string;
-    }
     // Start of user code ColumnNamesListStatement.surchargedMethods
     // Surcharge Methods here
     // End of user code

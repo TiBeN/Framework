@@ -5,7 +5,10 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 use TiBeN\Framework\DataSource\MysqlDataSource\ColumnNamesListStatement;
 
 // Start of user code ColumnNamesListStatement.useStatements
-// Place your use statements here.
+use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\AttributeMapping;
+use TiBeN\Framework\DataSource\MysqlDataSource\MysqlAttributeConfiguration;
+
 // End of user code
 
 /**
@@ -14,6 +17,7 @@ use TiBeN\Framework\DataSource\MysqlDataSource\ColumnNamesListStatement;
  * Start of user code ColumnNamesListStatementTest.testAnnotations
  * PHPUnit user annotations can be placed here
  * End of user code
+ *
  * @author TiBeN
  */
 class ColumnNamesListStatementTest extends \PHPUnit_Framework_TestCase
@@ -37,22 +41,6 @@ class ColumnNamesListStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createFromEntityAttributes from class ColumnNamesListStatement
-     *
-     * Start of user code ColumnNamesListStatementTest.testcreateFromEntityAttributesAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateFromEntityAttributes()
-    {
-        // Start of user code ColumnNamesListStatementTest.testcreateFromEntityAttributes
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test method toString from class ColumnNamesListStatement
      *
      * Start of user code ColumnNamesListStatementTest.testtoStringAnnotations 
@@ -62,13 +50,110 @@ class ColumnNamesListStatementTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code ColumnNamesListStatementTest.testtoString
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+        $expectedStatement = "(a,b,c)";
+        $columnNamesListStatement = new ColumnNamesListStatement();
+        $columnNamesListStatement->add('a');
+        $columnNamesListStatement->add('b');
+        $columnNamesListStatement->add('c');
+        $this->assertEquals($expectedStatement, $columnNamesListStatement->toString());
+		// End of user code
+    }
+    
+    /**
+     * Test static method createFromEntityAttributes from class ColumnNamesListStatement
+     *
+     * Start of user code ColumnNamesListStatementTest.testcreateFromEntityAttributesAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateFromEntityAttributes()
+    {
+        // Start of user code ColumnNamesListStatementTest.testcreateFromEntityAttributes
+	    $expectedStatement = "(a,b,c)";
+        $attributes = AssociativeArray::createFromNativeArray(
+            null, 
+            array(
+
+                'attribute1' => AttributeMapping::create(
+                    AssociativeArray::createFromNativeArray(
+                        null, 
+                        array(
+                            'name' => 'attribute1',
+                            'type' => AssociativeArray::createFromNativeArray(
+                                null,
+                                array('name' => 'varchar')
+                            ),
+                            'dataSourceAttributeMappingConfiguration' 
+                                => MysqlAttributeConfiguration::create(
+                                    AssociativeArray::createFromNativeArray(
+                                        null, 
+                                        array(
+                                            'columnName' => 'a'                                                                     )
+                                    )
+                                )
+                        )
+                    )
+                ),
+                'attribute2' => AttributeMapping::create(
+                    AssociativeArray::createFromNativeArray(
+                        null, 
+                        array(
+                            'name' => 'attribute2',
+                            'type' => AssociativeArray::createFromNativeArray(
+                                null,
+                                array('name' => 'varchar')
+                            ),
+                            'dataSourceAttributeMappingConfiguration' 
+                                => MysqlAttributeConfiguration::create(
+                                    AssociativeArray::createFromNativeArray(
+                                        null, 
+                                        array('columnName' => 'b')
+                                    )
+                                )
+                        )
+                    )
+                ),
+                'attribute3' => AttributeMapping::create(
+                    AssociativeArray::createFromNativeArray(
+                        null, 
+                        array(
+                            'name' => 'attribute3',
+                            'type' => AssociativeArray::createFromNativeArray(
+                                null,
+                                array('name' => 'varchar')
+                            ),
+                            'dataSourceAttributeMappingConfiguration' 
+                                => MysqlAttributeConfiguration::create(
+                                    AssociativeArray::createFromNativeArray(
+                                        null, 
+                                        array('columnName' => 'c')
+                                    )
+                                )
+                        )
+                    )
+                ),                            
+            )
+        );    
+    
+        $columnNamesListStatement = ColumnNamesListStatement::createFromEntityAttributes(
+            $attributes
+        );        
+        $this->assertEquals($expectedStatement, $columnNamesListStatement->toString());
 		// End of user code
     }
 
     // Start of user code ColumnNamesListStatementTest.methods
-	// Place additional tests methods here.  
+
+	/**
+	 * Test To String on empty ColumnNamesList
+     *
+	 * @expectedException LogicException
+	 * @expectedExceptionMessage The ColumnNamesListStatement is empty
+	 */
+	public function testToStringToEmptyColumnNamesList() 
+    {
+	    $columnNamesListStatement = new ColumnNamesListStatement();
+	    $columnNamesListStatement->toString();
+	}
 	// End of user code
 }
