@@ -36,6 +36,9 @@ class BootstrapTest extends \PHPUnit_Framework_TestCase
     public function tearDown()
     {
         // Start of user code BootstrapTest.tearDown
+
+        Router::setRouteRules(array());
+
         if (!file_exists($this->frameworkTempDirectory)) {
             return;
         }
@@ -62,7 +65,7 @@ class BootstrapTest extends \PHPUnit_Framework_TestCase
      * Test static method init from class Bootstrap
      *
      * Start of user code BootstrapTest.testinitAnnotations
-     * PHPUnit user annotations can be placed here
+     * @runInSeparateProcess
      * End of user code
      */
     public function testInit()
@@ -84,7 +87,7 @@ class BootstrapTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(
             $expectedRouteRule,
             Router::getRouteRuleByName('some-route-for-testing-bootstrap')
-        );    
+        );
 
         // Bootstrap should load the routeRules config file
         // After set default special routes  

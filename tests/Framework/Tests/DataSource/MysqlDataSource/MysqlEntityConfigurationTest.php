@@ -5,7 +5,8 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 use TiBeN\Framework\DataSource\MysqlDataSource\MysqlEntityConfiguration;
 
 // Start of user code MysqlEntityConfiguration.useStatements
-// Place your use statements here.
+use TiBeN\Framework\Datatype\AssociativeArray;
+
 // End of user code
 
 /**
@@ -48,13 +49,34 @@ class MysqlEntityConfigurationTest extends \PHPUnit_Framework_TestCase
     public function testCreate()
     {
         // Start of user code DataSourceEntityMappingConfiguration.testcreate
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $expectedEc = new MysqlEntityConfiguration();
+        $expectedEc->setTableName('someTable');
+        
+        $this->assertEquals(
+            $expectedEc, 
+            MysqlEntityConfiguration::create(
+                AssociativeArray::createFromNativeArray(
+                    null, 
+                    array('tableName' => 'someTable')
+                )
+            )
         );
     	// End of user code
     }
 
     // Start of user code MysqlEntityConfigurationTest.methods
-	// Place additional tests methods here.  
+
+	/**
+	 * Test create a MysqlEntityConfiguration without tableName
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionMessage No table name set
+	 */
+	public function testCreateAMysqlEntityConfigurationWithoutTableName()
+	{
+	    MysqlEntityConfiguration::create(
+            AssociativeArray::createFromNativeArray(null, array())
+        );
+	}
 	// End of user code
 }

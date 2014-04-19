@@ -5,7 +5,8 @@ namespace TiBeN\Framework\Tests\Entity;
 use TiBeN\Framework\Entity\EntityMappingsRegistry;
 
 // Start of user code EntityMappingsRegistry.useStatements
-// Place your use statements here.
+use TiBeN\Framework\Entity\EntityMapping;
+
 // End of user code
 
 /**
@@ -38,22 +39,6 @@ class EntityMappingsRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method getEntityMapping from class EntityMappingsRegistry
-     *
-     * Start of user code EntityMappingsRegistryTest.testgetEntityMappingAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetEntityMapping()
-    {
-        // Start of user code EntityMappingsRegistryTest.testgetEntityMapping
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method registerEntityMapping from class EntityMappingsRegistry
      *
      * Start of user code EntityMappingsRegistryTest.testregisterEntityMappingAnnotations 
@@ -63,9 +48,31 @@ class EntityMappingsRegistryTest extends \PHPUnit_Framework_TestCase
     public function testRegisterEntityMapping()
     {
         // Start of user code EntityMappingsRegistryTest.testregisterEntityMapping
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+	    // Method implicitly tested by testGetEntityMapping
+		// End of user code
+    }
+    
+    /**
+     * Test static method getEntityMapping from class EntityMappingsRegistry
+     *
+     * Start of user code EntityMappingsRegistryTest.testgetEntityMappingAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetEntityMapping()
+    {
+        // Start of user code EntityMappingsRegistryTest.testgetEntityMapping
+        $entityMapping = new EntityMapping();
+        $entityMapping->setEntityName(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\TestEntity'
+        );
+        EntityMappingsRegistry::registerEntityMapping($entityMapping);
+        $this->assertEquals(
+            $entityMapping, 
+            EntityMappingsRegistry::getEntityMapping(
+                'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\TestEntity'
+            )
+        );
 		// End of user code
     }
     
@@ -79,13 +86,72 @@ class EntityMappingsRegistryTest extends \PHPUnit_Framework_TestCase
     public function testClearEntityMapping()
     {
         // Start of user code EntityMappingsRegistryTest.testclearEntityMapping
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+	    // Nothing to test here. Tested below by exceptions.
 		// End of user code
     }
 
     // Start of user code EntityMappingsRegistryTest.methods
-	// Place additional tests methods here.  
+
+	/**
+	 * Test getting a non existant EntityMapping
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionArgument No entity mapping for entity "TestEntity"
+	 */
+	public function testGettingNonExistantEntityMapping()
+	{
+	    EntityMappingsRegistry::getEntityMapping('TestEntity');
+	}
+	
+	/**
+	 * Test getting a clear EntityMapping
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionArgument No entity mapping for entity "TestEntity"
+	 */
+	public function testGettingClearEntityMapping()
+	{
+	    $dataSource = new EntityMapping();
+	    $dataSource->setEntityName('TestEntity');
+	    EntityMappingsRegistry::registerEntityMapping($dataSource);
+	    EntityMappingsRegistry::clearEntityMapping('TestEntity');
+	    EntityMappingsRegistry::getEntityMapping('TestEntity');
+	}	
+	
+	/**
+	 * Test clear a non existant EntityMapping
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionArgument No entity mapping for entity "test"
+	 */
+	public function testClearNonExistantEntityMapping()
+	{
+	    EntityMappingsRegistry::clearEntityMapping('TestEntity');
+	}
+	
+	/**
+	 * Test register a not named EntityMapping
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionArgument The entity mapping is not associated to any entity
+	 */
+	public function testRegisterNotNamedEntityMapping()
+	{
+	    $entityMapping = new EntityMapping();
+	    EntityMappingsRegistry::registerEntityMapping($entityMapping);
+	}
+
+	/**
+	 * Test register an EntityMapping of an unknow Entity "UnknownEntity"
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionArgument The entity "UnknownEntity" is unknown.
+	 */
+	public function testRegisterAnUnknownEntityMapping()
+	{
+	    $entityMapping = new EntityMapping();
+	    $entityMapping->setEntityName('UnknownEntity');
+	    EntityMappingsRegistry::registerEntityMapping($entityMapping);
+	}	
 	// End of user code
 }

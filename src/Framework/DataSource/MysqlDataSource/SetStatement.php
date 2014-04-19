@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Entity\EntityMapping;
-use TiBeN\Framework\Entity\Entity;
 
 // Start of user code SetStatement.useStatements
 // Place your use statements here.
@@ -68,27 +68,34 @@ class SetStatement extends AssociativeArray
     }
 
     /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code SetStatement.getStatementParameters
-        // TODO should be implemented.
-        // End of user code
-    
-        return $statementParameters;
-    }
-
-    /**
      * @return string $string
      */
     public function toString()
     {
         // Start of user code SetStatement.toString
-        // TODO should be implemented.
+		$statementChunks = array();
+		foreach($this as $attribute => $value) {
+		    array_push($statementChunks, sprintf('%1$s=:%1$s', $attribute));
+		}
+		$string = 'SET ' . implode(',', $statementChunks);
         // End of user code
     
         return $string;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code SetStatement.getStatementParameters
+	    $statementParameters = AssociativeArray::createFromNativeArray(
+            null, 
+            $this->toNativeArray()
+		);
+        // End of user code
+    
+        return $statementParameters;
     }
 
     /**
@@ -99,7 +106,10 @@ class SetStatement extends AssociativeArray
     public static function createKeyValueListFromEntity(EntityMapping $entityMapping, Entity $entity)
     {
         // Start of user code SetStatement.createKeyValueListFromEntity
-        // TODO should be implemented.
+        $converter = new RowToEntityConverter();
+        $converter->setEntityMapping($entityMapping);
+        $row = $converter->reverse($entity);
+        $setStatement = SetStatement::createFromNativeArray(null, $row->toNativeArray());
         // End of user code
     
         return $setStatement;

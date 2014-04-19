@@ -86,43 +86,6 @@ class HttpResponseTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method sendToClient from class HttpResponse
-     *
-     * Start of user code HttpResponseTest.testsendToClientAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testSendToClient()
-    {
-        // Start of user code HttpResponseTest.testsendToClient
-	    
-        // Test normal 200 text/html response message with custom header key value
-		$httpResponse = new HttpResponse();			
-		$httpResponse->setMessage('<html>Hello world!</html>');  
-		$httpResponse->setHeaders(
-            AssociativeArray::createFromNativeArray('string', array('foo' => 'bar'))
-        );
-		ob_start();
-		$httpResponse->sendToClient();
-		$this->assertEquals('<html>Hello world!</html>', ob_get_clean());
-
-		// Headers testing is only available using Xdebug extension 
-        // since PHP CLI SAPI mode doesn't handle any headers
-		if (function_exists('xdebug_get_headers')) {
-			$headers = xdebug_get_headers();
-			$this->assertContains('Content-type: text/html',  $headers	);
-			$this->assertContains('Foo: bar',  $headers	);
-		}
-		
-		// Note that prior to PHP 5.4 there is no way 
-        // to retrieve the status code sent
-		if (function_exists('http_response_code')){
-			$this->assertEquals(200, http_response_code());
-		}
-		// End of user code
-    }
-    
-    /**
      * Test static method createDownloadFileResponse from class HttpResponse
      *
      * Start of user code HttpResponseTest.testcreateDownloadFileResponseAnnotations 
@@ -155,6 +118,43 @@ class HttpResponseTest extends \PHPUnit_Framework_TestCase
 			
 		// note that prior to php 5.4 there is no way to retrieve the status code sent 
 		if(function_exists('http_response_code')){
+			$this->assertEquals(200, http_response_code());
+		}
+		// End of user code
+    }
+    
+    /**
+     * Test method sendToClient from class HttpResponse
+     *
+     * Start of user code HttpResponseTest.testsendToClientAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testSendToClient()
+    {
+        // Start of user code HttpResponseTest.testsendToClient
+	    
+        // Test normal 200 text/html response message with custom header key value
+		$httpResponse = new HttpResponse();			
+		$httpResponse->setMessage('<html>Hello world!</html>');  
+		$httpResponse->setHeaders(
+            AssociativeArray::createFromNativeArray('string', array('foo' => 'bar'))
+        );
+		ob_start();
+		$httpResponse->sendToClient();
+		$this->assertEquals('<html>Hello world!</html>', ob_get_clean());
+
+		// Headers testing is only available using Xdebug extension 
+        // since PHP CLI SAPI mode doesn't handle any headers
+		if (function_exists('xdebug_get_headers')) {
+			$headers = xdebug_get_headers();
+			$this->assertContains('Content-type: text/html',  $headers	);
+			$this->assertContains('Foo: bar',  $headers	);
+		}
+		
+		// Note that prior to PHP 5.4 there is no way 
+        // to retrieve the status code sent
+		if (function_exists('http_response_code')){
 			$this->assertEquals(200, http_response_code());
 		}
 		// End of user code

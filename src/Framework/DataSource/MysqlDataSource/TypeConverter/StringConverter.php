@@ -2,10 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter;
 
+use TiBeN\Framework\Datatype\T;
 use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Datatype\U;
 use TiBeN\Framework\DataSource\TypeConverter;
-use TiBeN\Framework\Datatype\T;
 
 // Start of user code StringConverter.useStatements
 // Place your use statements here.
@@ -37,6 +37,8 @@ class StringConverter implements TypeConverter
         $this->UType = $UType;
 
         // Start of user code StringConverter.constructor
+		$this->TType = 'string';
+		$this->UType = 'string';			
         // End of user code
     }
 
@@ -97,16 +99,6 @@ class StringConverter implements TypeConverter
     // TypeConverter Realization
 
     /**
-     * @param AssociativeArray $parameters
-     */
-    public function setParameters(AssociativeArray $parameters)
-    {
-        // Start of user code TypeConverter.setParameters
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
      * @param T $itemToConvert
      * @return U $convertedItem
      */
@@ -114,10 +106,33 @@ class StringConverter implements TypeConverter
     {
         $this->typeHint($this->TType, $itemToConvert);
         // Start of user code Converter.convert
-        // TODO should be implemented.
+		if(is_null($itemToConvert)) return $itemToConvert;
+		$convertedItem = $itemToConvert;
         // End of user code
     
         return $convertedItem;
+    }
+
+    /**
+     * @return string $dataSourceType
+     */
+    public function getDataSourceType()
+    {
+        // Start of user code TypeConverter.getDataSourceType
+		$dataSourceType = 'mysql';
+        // End of user code
+    
+        return $dataSourceType;
+    }
+
+    /**
+     * @param AssociativeArray $parameters
+     */
+    public function setParameters(AssociativeArray $parameters)
+    {
+        // Start of user code TypeConverter.setParameters
+		// Nothing to do here for this converter
+        // End of user code
     }
 
     /**
@@ -126,7 +141,7 @@ class StringConverter implements TypeConverter
     public function getType()
     {
         // Start of user code TypeConverter.getType
-        // TODO should be implemented.
+		$type = 'string';
         // End of user code
     
         return $type;
@@ -140,22 +155,11 @@ class StringConverter implements TypeConverter
     {
         $this->typeHint($this->UType, $itemToReverse);
         // Start of user code Converter.reverse
-        // TODO should be implemented.
+		if(is_null($itemToReverse)) return $itemToReverse;
+        $reversedItem = $itemToReverse;    
         // End of user code
     
         return $reversedItem;
-    }
-
-    /**
-     * @return string $dataSourceType
-     */
-    public function getDataSourceType()
-    {
-        // Start of user code TypeConverter.getDataSourceType
-        // TODO should be implemented.
-        // End of user code
-    
-        return $dataSourceType;
     }
 
     // Start of user code StringConverter.implementationSpecificMethods

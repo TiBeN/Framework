@@ -2,6 +2,7 @@
 
 namespace TiBeN\Framework\Entity;
 
+use TiBeN\Framework\DataSource\DataSourcesRegistry;
 use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code EntityMapping.useStatements
@@ -17,16 +18,6 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class EntityMapping
 {
     /**
-     * @var string
-     */
-    public $entityName;
-
-    /**
-     * @var string
-     */
-    public $dataSourceName;
-
-    /**
      * @var DataSourceEntityMappingConfiguration
      */
     public $dataSourceEntityConfiguration;
@@ -36,9 +27,20 @@ class EntityMapping
      */
     public $attributeMappings;
 
+    /**
+     * @var string
+     */
+    public $entityName;
+
+    /**
+     * @var string
+     */
+    public $dataSourceName;
+
     public function __construct()
     {
         // Start of user code EntityMapping.constructor
+		$this->attributeMappings = new AssociativeArray();
         // End of user code
     }
 
@@ -46,46 +48,6 @@ class EntityMapping
     {
         // Start of user code EntityMapping.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getEntityName()
-    {
-        // Start of user code Getter EntityMapping.getEntityName
-        // End of user code
-        return $this->entityName;
-    }
-
-    /**
-     * @param string $entityName
-     */
-    public function setEntityName($entityName)
-    {
-        // Start of user code Setter EntityMapping.setEntityName
-        // End of user code
-        $this->entityName = $entityName;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDataSourceName()
-    {
-        // Start of user code Getter EntityMapping.getDataSourceName
-        // End of user code
-        return $this->dataSourceName;
-    }
-
-    /**
-     * @param string $dataSourceName
-     */
-    public function setDataSourceName($dataSourceName)
-    {
-        // Start of user code Setter EntityMapping.setDataSourceName
-        // End of user code
-        $this->dataSourceName = $dataSourceName;
     }
 
     /**
@@ -129,13 +91,146 @@ class EntityMapping
     }
 
     /**
+     * @return string
+     */
+    public function getEntityName()
+    {
+        // Start of user code Getter EntityMapping.getEntityName
+        // End of user code
+        return $this->entityName;
+    }
+
+    /**
+     * @param string $entityName
+     */
+    public function setEntityName($entityName)
+    {
+        // Start of user code Setter EntityMapping.setEntityName
+        // End of user code
+        $this->entityName = $entityName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDataSourceName()
+    {
+        // Start of user code Getter EntityMapping.getDataSourceName
+        // End of user code
+        return $this->dataSourceName;
+    }
+
+    /**
+     * @param string $dataSourceName
+     */
+    public function setDataSourceName($dataSourceName)
+    {
+        // Start of user code Setter EntityMapping.setDataSourceName
+        // End of user code
+        $this->dataSourceName = $dataSourceName;
+    }
+
+    /**
      * @param AssociativeArray $config
      * @return EntityMapping $entityMapping
      */
     public static function create(AssociativeArray $config)
     {
         // Start of user code EntityMapping.create
-        // TODO should be implemented.
+        if(!$config->has('entity')) {
+            throw new \InvalidArgumentException('No Entity specified');
+        }
+        $entityName = $config->get('entity');
+        if(!class_exists($entityName)) {
+            throw new \InvalidArgumentException(
+                sprintf('The Entity "%s" doesn\'t exist', $entityName)
+            );
+        }        
+        
+        if(!$config->has('datasource')) {
+            throw new \InvalidArgumentException('No DataSource specified');
+        }
+        
+        $dataSource = $config->get('datasource');
+        
+        if(!isset($dataSource['name'])) {
+            throw new \InvalidArgumentException('No DataSource specified');
+        }
+        
+        if(!DataSourcesRegistry::hasDataSource($dataSource['name'])) {
+            throw new \InvalidArgumentException(
+                sprintf('The DataSource "%s" doesn\'t exist', $dataSource['name'])
+            );
+        }
+        
+        if(!$config->has('attributes')) {
+            throw new \InvalidArgumentException('At least one attribute must be set');
+        }        
+                                
+        $entityMapping = new self;
+        $entityMapping->setEntityName($entityName);
+        $entityMapping->setDataSourceName($dataSource['name']);
+
+        $dataSourceClassName = get_class(
+            DataSourcesRegistry::getDataSource($dataSource['name'])
+        );
+        
+        $dataSourceEntityMappingConfigurationClassName 
+            = $dataSourceClassName::getEntityMappingConfigurationClassName()
+        ;                     
+        
+        $entityMapping->setDataSourceEntityConfiguration(            
+            $dataSourceEntityMappingConfigurationClassName::create(
+                AssociativeArray::createFromNativeArray(null, $dataSource)
+            )
+	    );
+        
+        $dataSourceAttributeMappingConfigurationClassName
+            = $dataSourceClassName::getAttributeMappingConfigurationClassName()
+        ;        
+        
+        foreach($config->get('attributes') as $attributeName => $attributeConf) {
+            
+            if(!isset($attributeConf['type'])) {
+                throw new \InvalidArgumentException(
+                    sprintf('No type set for attribute \'%s\'', $attributeName)
+                );
+            }
+            
+            if(isset($attributeConf['isIdentifier'])) {
+                $isIdentifier = $attributeConf['isIdentifier'];
+                unset($attributeConf['isIdentifier']);
+            }
+            else {
+                $isIdentifier = false;
+            }
+            
+            $attributeType = $attributeConf['type'];
+            unset($attributeConf['type']);
+            
+            $attributeMapping = AttributeMapping::create(
+                AssociativeArray::createFromNativeArray(
+                    null, 
+                    array(
+                        'name' => $attributeName,
+                        'type' => AssociativeArray::createFromNativeArray(
+                            null, 
+                            $attributeType
+                        ),    
+                        'isIdentifier' => $isIdentifier,    
+                        'dataSourceAttributeMappingConfiguration' 
+                            => $dataSourceAttributeMappingConfigurationClassName::create(
+                                AssociativeArray::createFromNativeArray(null, $attributeConf)
+                            )                  
+                    )
+                )
+            );
+            
+            $entityMapping
+                ->getAttributeMappings()
+                ->set($attributeName, $attributeMapping)
+            ;
+        }
         // End of user code
     
         return $entityMapping;

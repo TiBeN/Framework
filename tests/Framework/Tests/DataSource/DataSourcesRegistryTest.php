@@ -5,7 +5,8 @@ namespace TiBeN\Framework\Tests\DataSource;
 use TiBeN\Framework\DataSource\DataSourcesRegistry;
 
 // Start of user code DataSourcesRegistry.useStatements
-// Place your use statements here.
+use TiBeN\Framework\Tests\Fixtures\DataSource\TestDataSource;
+
 // End of user code
 
 /**
@@ -38,34 +39,19 @@ class DataSourcesRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method hasDataSource from class DataSourcesRegistry
+     * Test static method registerDataSource from class DataSourcesRegistry
      *
-     * Start of user code DataSourcesRegistryTest.testhasDataSourceAnnotations 
+     * Start of user code DataSourcesRegistryTest.testregisterDataSourceAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testHasDataSource()
+    public function testRegisterDataSource()
     {
-        // Start of user code DataSourcesRegistryTest.testhasDataSource
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test static method clearDataSource from class DataSourcesRegistry
-     *
-     * Start of user code DataSourcesRegistryTest.testclearDataSourceAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testClearDataSource()
-    {
-        // Start of user code DataSourcesRegistryTest.testclearDataSource
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+        // Start of user code DataSourcesRegistryTest.testregisterDataSource
+        $dataSource = new TestDataSource();
+        $dataSource->setName('test');
+        DataSourcesRegistry::registerDataSource($dataSource);
+        $this->assertEquals($dataSource, DataSourcesRegistry::getDataSource('test'));
 		// End of user code
     }
     
@@ -79,29 +65,92 @@ class DataSourcesRegistryTest extends \PHPUnit_Framework_TestCase
     public function testGetDataSource()
     {
         // Start of user code DataSourcesRegistryTest.testgetDataSource
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+	    // Tested by "testRegisterDataSource"
 		// End of user code
     }
     
     /**
-     * Test static method registerDataSource from class DataSourcesRegistry
+     * Test static method hasDataSource from class DataSourcesRegistry
      *
-     * Start of user code DataSourcesRegistryTest.testregisterDataSourceAnnotations 
+     * Start of user code DataSourcesRegistryTest.testhasDataSourceAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testRegisterDataSource()
+    public function testHasDataSource()
     {
-        // Start of user code DataSourcesRegistryTest.testregisterDataSource
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+        // Start of user code DataSourcesRegistryTest.testhasDataSource
+        $dataSource = new TestDataSource();
+        $dataSource->setName('test');
+        DataSourcesRegistry::registerDataSource($dataSource);
+        $this->assertTrue(DataSourcesRegistry::hasDataSource('test'));
+        $this->assertFalse(DataSourcesRegistry::hasDataSource('foo'));
+		// End of user code
+    }
+    
+    /**
+     * Test static method clearDataSource from class DataSourcesRegistry
+     *
+     * Start of user code DataSourcesRegistryTest.testclearDataSourceAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testClearDataSource()
+    {
+        // Start of user code DataSourcesRegistryTest.testclearDataSource
+	    // Nothing to test here. Tested below by exceptions.
 		// End of user code
     }
 
     // Start of user code DataSourcesRegistryTest.methods
-	// Place additional tests methods here.  
+
+	/**
+	 * Test getting a non existant DataSource
+     *
+     * @runInSeparateProcess
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionArgument No data source named "test"
+	 */
+	public function testGettingNonExistantDataSource() 
+	{
+	    DataSourcesRegistry::getDataSource('test');
+	}
+	
+	/**
+	 * Test getting a clear DataSource
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionArgument No data source named "test"
+	 */
+	public function testGettingClearDataSource()
+	{
+	    $dataSource = new TestDataSource();
+	    $dataSource->setName('test');
+	    DataSourcesRegistry::registerDataSource($dataSource);
+	    DataSourcesRegistry::clearDataSource('test');
+	    DataSourcesRegistry::getDataSource('test');
+	}	
+	
+	/**
+	 * Test clear a non existant DataSource
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionArgument No data source named "test"
+	 */
+	public function testClearNonExistantDataSource()
+    {
+	    DataSourcesRegistry::clearDataSource('test');	    
+	}
+
+	/**
+	 * Test register a not named DataSource
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionArgument The data source has no name
+	 */
+	public function testRegisterNotNamedDataSource()
+	{
+	    $dataSource = new TestDataSource();
+	    DataSourcesRegistry::registerDataSource($dataSource);    
+	}	
 	// End of user code
 }

@@ -4,6 +4,7 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Datatype\GenericCollection;
+use TiBeN\Framework\Entity\OrderCriteria;
 use TiBeN\Framework\Entity\EntityMapping;
 
 // Start of user code OrderByStatement.useStatements
@@ -86,7 +87,15 @@ class OrderByStatement extends AssociativeArray
     public static function createFromOrderCriterias(EntityMapping $entityMapping, GenericCollection $orderCriterias)
     {
         // Start of user code OrderByStatement.createFromOrderCriterias
-        // TODO should be implemented.
+        $orderByStatement = new self('string');
+        $mapper = new MysqlEntityAttributeMapper();
+        $mapper->setEntityMapping($entityMapping);
+        foreach($orderCriterias as $orderCriteria) {
+            $orderByStatement->set(
+                $mapper->getColumnName($orderCriteria->getAttribute()),
+                self::$orderCriteriaOrderByDirectionMapping[$orderCriteria->getDirection()]
+            );
+        }
         // End of user code
     
         return $orderByStatement;
@@ -98,7 +107,15 @@ class OrderByStatement extends AssociativeArray
     public function toString()
     {
         // Start of user code OrderByStatement.toString
-        // TODO should be implemented.
+        if($this->isEmpty()) {
+            throw new \LogicException('No column name set');
+        }
+
+        $exprChunks = array();
+        foreach($this as $columnName => $direction) {
+            array_push($exprChunks, $columnName . ' ' . $direction); 
+        }
+        $string = 'ORDER BY ' . implode(', ', $exprChunks);
         // End of user code
     
         return $string;
@@ -109,6 +126,15 @@ class OrderByStatement extends AssociativeArray
     // End of user code
 
     // Start of user code OrderByStatement.implementationSpecificMethods
-    // Place your implementation specific methods here
+
+	/**
+	 * Hold direction mappings between the entity order criteria and Mysql order by statement
+     *
+	 * @var array
+	 */	
+	public static $orderCriteriaOrderByDirectionMapping = array(
+        OrderCriteria::DIRECTION_ASC => self::DIRECTION_ASC,
+        OrderCriteria::DIRECTION_DESC => self::DIRECTION_DESC	        		
+	);
     // End of user code
 }

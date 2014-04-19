@@ -17,6 +17,11 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class InsertStatement implements Statement
 {
     /**
+     * @var ValuesStatement
+     */
+    public $valuesStatement;
+
+    /**
      * @var string
      */
     public $tableName;
@@ -25,11 +30,6 @@ class InsertStatement implements Statement
      * @var ColumnNamesListStatement
      */
     public $columnNamesListStatement;
-
-    /**
-     * @var ValuesStatement
-     */
-    public $valuesStatement;
 
     public function __construct()
     {
@@ -41,6 +41,26 @@ class InsertStatement implements Statement
     {
         // Start of user code InsertStatement.destructor
         // End of user code
+    }
+
+    /**
+     * @return ValuesStatement
+     */
+    public function getValuesStatement()
+    {
+        // Start of user code Getter InsertStatement.getValuesStatement
+        // End of user code
+        return $this->valuesStatement;
+    }
+
+    /**
+     * @param ValuesStatement $valuesStatement
+     */
+    public function setValuesStatement(ValuesStatement $valuesStatement)
+    {
+        // Start of user code Setter InsertStatement.setValuesStatement
+        // End of user code
+        $this->valuesStatement = $valuesStatement;
     }
 
     /**
@@ -83,41 +103,7 @@ class InsertStatement implements Statement
         $this->columnNamesListStatement = $columnNamesListStatement;
     }
 
-    /**
-     * @return ValuesStatement
-     */
-    public function getValuesStatement()
-    {
-        // Start of user code Getter InsertStatement.getValuesStatement
-        // End of user code
-        return $this->valuesStatement;
-    }
-
-    /**
-     * @param ValuesStatement $valuesStatement
-     */
-    public function setValuesStatement(ValuesStatement $valuesStatement)
-    {
-        // Start of user code Setter InsertStatement.setValuesStatement
-        // End of user code
-        $this->valuesStatement = $valuesStatement;
-    }
-
     // Statement Realization
-
-    /**
-     * Tell wether the statement is ready or not to be executed
-     *
-     * @return bool $status
-     */
-    public function isReadyToBeExecuted()
-    {
-        // Start of user code Statement.isReadyToBeExecuted
-        // TODO should be implemented.
-        // End of user code
-    
-        return $status;
-    }
 
     /**
      * @return AssociativeArray $statementParameters
@@ -125,7 +111,10 @@ class InsertStatement implements Statement
     public function getStatementParameters()
     {
         // Start of user code Statement.getStatementParameters
-        // TODO should be implemented.
+		$statementParameters = AssociativeArray::createFromNativeArray(
+            null,
+            $this->valuesStatement->toNativeArray()
+        );
         // End of user code
     
         return $statementParameters;
@@ -139,10 +128,54 @@ class InsertStatement implements Statement
     public function toString()
     {
         // Start of user code Statement.toString
-        // TODO should be implemented.
+        if(!$this->isReadyToBeExecuted()) {
+            throw new \LogicException('The statement is not ready');    
+        }
+        
+        /* Compare ColumnNamesListStatement with ValuesStatement */
+        $columnsNames = array();
+        foreach($this->columnNamesListStatement as $columnName) {
+            $columnsNames[] = $columnName;
+        }
+        $valuesStatementColumnNames = array_keys($this->valuesStatement->toNativeArray());
+        if($columnsNames != $valuesStatementColumnNames) {
+            throw new \LogicException(
+                'The ColumnNamesListStatement set doesn\'t match the ValuesStatement'
+            );
+        }
+        
+        $statement = sprintf(
+            'INSERT INTO %s %s %s',
+            $this->tableName,
+            $this->columnNamesListStatement->toString(),
+            $this->valuesStatement->toString()
+        );
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * Tell wether the statement is ready or not to be executed
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+        $status = true;
+        if(
+            (!isset($this->tableName) || empty($this->tableName))
+            || (!isset($this->columnNamesListStatement) 
+                || $this->columnNamesListStatement->isEmpty() 
+            )
+            || (!isset($this->valuesStatement) || $this->valuesStatement->isEmpty())
+        ) {
+            return false;
+        }
+        // End of user code
+    
+        return $status;
     }
 
     // Start of user code InsertStatement.implementationSpecificMethods

@@ -5,7 +5,11 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 use TiBeN\Framework\DataSource\MysqlDataSource\UpdateStatement;
 
 // Start of user code UpdateStatement.useStatements
-// Place your use statements here.
+use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\DataSource\MysqlDataSource\SetStatement;
+use TiBeN\Framework\DataSource\MysqlDataSource\Expr;
+use TiBeN\Framework\DataSource\MysqlDataSource\WhereConditions;
+
 // End of user code
 
 /**
@@ -40,21 +44,6 @@ class UpdateStatementTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method isReadyToBeExecuted from interface Statement
-     * Start of user code Statement.testisReadyToBeExecutedAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testIsReadyToBeExecuted()
-    {
-        // Start of user code Statement.testisReadyToBeExecuted
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
      * Test method getStatementParameters from interface Statement
      * Start of user code Statement.testgetStatementParametersAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -63,9 +52,7 @@ class UpdateStatementTest extends \PHPUnit_Framework_TestCase
     public function testGetStatementParameters()
     {
         // Start of user code Statement.testgetStatementParameters
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+	    // implicitly test by testToString
     	// End of user code
     }
     
@@ -78,9 +65,76 @@ class UpdateStatementTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code Statement.testtoString
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+	    $update = new UpdateStatement();
+	    $this->assertFalse($update->isReadyToBeExecuted());
+	    
+	    $update->setTableName('some_table');
+	    $update->setSetStatement(SetStatement::createFromNativeArray(null, array(
+	    	'id' => 10,
+	        'foo' => 'foo'    
+	    )));    
+	    $this->assertEquals(
+            'UPDATE some_table SET id=:id,foo=:foo', 
+            $update->toString()
         );
+	    
+	    $update->setWhereDefinition(
+            WhereConditions::createFromExpr(
+                Expr::fromString(
+                    'bar!=:bar', 
+                    AssociativeArray::createFromNativeArray(
+                        null, 
+                        array('bar' => 'someValue')
+                    )
+                )
+            )
+	    );
+	    $this->assertEquals(
+            'UPDATE some_table SET id=:id,foo=:foo WHERE bar!=:bar', 
+            $update->toString()
+        );
+	    
+	    $expectedStatementParameters = AssociativeArray::createFromNativeArray(
+            null, 
+            array(
+                'id' => 10,
+                'foo' => 'foo',            	                            	            
+                'bar' => 'someValue'
+	        )
+    );
+	    
+	    $this->assertEquals(
+            $expectedStatementParameters, 
+            $update->getStatementParameters()
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method isReadyToBeExecuted from interface Statement
+     * Start of user code Statement.testisReadyToBeExecutedAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testIsReadyToBeExecuted()
+    {
+        // Start of user code Statement.testisReadyToBeExecuted
+	    $update = new UpdateStatement();
+	    $this->assertFalse($update->isReadyToBeExecuted());
+	    
+	    $update->setTableName('some_table');
+	    $this->assertFalse($update->isReadyToBeExecuted());
+	    
+	    $update->setSetStatement(
+            SetStatement::createFromNativeArray(
+                null, 
+                array(
+                    'id' => 10,
+                    'foo' => 'foo'    
+                )
+            )
+        );
+	    $this->assertTrue($update->isReadyToBeExecuted());
     	// End of user code
     }
 

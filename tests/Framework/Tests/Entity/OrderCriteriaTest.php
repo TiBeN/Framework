@@ -38,22 +38,6 @@ class OrderCriteriaTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method asc from class OrderCriteria
-     *
-     * Start of user code OrderCriteriaTest.testascAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testAsc()
-    {
-        // Start of user code OrderCriteriaTest.testasc
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method desc from class OrderCriteria
      *
      * Start of user code OrderCriteriaTest.testdescAnnotations 
@@ -63,9 +47,33 @@ class OrderCriteriaTest extends \PHPUnit_Framework_TestCase
     public function testDesc()
     {
         // Start of user code OrderCriteriaTest.testdesc
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+		$expectedOrderCriteria = new OrderCriteria();
+		$expectedOrderCriteria->setAttribute('foo');
+		$expectedOrderCriteria->setDirection(OrderCriteria::DIRECTION_DESC);
+		$this->assertEquals(
+			$expectedOrderCriteria, 
+			OrderCriteria::desc('foo')
+		);		
+		// End of user code
+    }
+    
+    /**
+     * Test static method asc from class OrderCriteria
+     *
+     * Start of user code OrderCriteriaTest.testascAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testAsc()
+    {
+        // Start of user code OrderCriteriaTest.testasc
+		$expectedOrderCriteria = new OrderCriteria();
+		$expectedOrderCriteria->setAttribute('foo');
+		$expectedOrderCriteria->setDirection(OrderCriteria::DIRECTION_ASC);
+		$this->assertEquals(
+			$expectedOrderCriteria, 
+			OrderCriteria::asc('foo')
+		);
 		// End of user code
     }
 

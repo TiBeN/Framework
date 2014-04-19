@@ -19,12 +19,12 @@ class LimitStatement
     /**
      * @var int
      */
-    public $rowCount;
+    public $offset;
 
     /**
      * @var int
      */
-    public $offset;
+    public $rowCount;
 
     public function __construct()
     {
@@ -36,26 +36,6 @@ class LimitStatement
     {
         // Start of user code LimitStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return int
-     */
-    public function getRowCount()
-    {
-        // Start of user code Getter LimitStatement.getRowCount
-        // End of user code
-        return $this->rowCount;
-    }
-
-    /**
-     * @param int $rowCount
-     */
-    public function setRowCount($rowCount)
-    {
-        // Start of user code Setter LimitStatement.setRowCount
-        // End of user code
-        $this->rowCount = $rowCount;
     }
 
     /**
@@ -79,13 +59,35 @@ class LimitStatement
     }
 
     /**
+     * @return int
+     */
+    public function getRowCount()
+    {
+        // Start of user code Getter LimitStatement.getRowCount
+        // End of user code
+        return $this->rowCount;
+    }
+
+    /**
+     * @param int $rowCount
+     */
+    public function setRowCount($rowCount)
+    {
+        // Start of user code Setter LimitStatement.setRowCount
+        // End of user code
+        $this->rowCount = $rowCount;
+    }
+
+    /**
      * @param LimitCriteria $limitCriteria
      * @return LimitStatement $limitStatement
      */
     public static function createFromLimitCriteria(LimitCriteria $limitCriteria)
     {
         // Start of user code LimitStatement.createFromLimitCriteria
-        // TODO should be implemented.
+		$limitStatement = new self();
+		$limitStatement->setOffset($limitCriteria->getOffset());
+		$limitStatement->setRowCount($limitCriteria->getNumber()); 
         // End of user code
     
         return $limitStatement;
@@ -97,7 +99,14 @@ class LimitStatement
     public function toString()
     {
         // Start of user code LimitStatement.toString
-        // TODO should be implemented.
+        if(is_null($this->rowCount)) {
+            throw new \LogicException('The number of row to limit is not set');            
+        }
+        
+        $string = 'LIMIT ' . (is_null($this->offset)
+            ? $this->rowCount
+            : ( $this->offset . ',' . $this->rowCount )    
+        );
         // End of user code
     
         return $string;

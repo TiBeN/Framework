@@ -1,9 +1,14 @@
 <?php
+
+namespace TiBeN\Framework\Tests\Fixtures\Entity;
+
+use TiBeN\Framework\Entity\Entity;
+
 /**
  * Some Entity for testing purposes
  * @author tiben
  */
-class TestEntity implements \Entity {
+class TestEntity implements Entity {
     
     private $id;
     

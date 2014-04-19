@@ -5,7 +5,10 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 use TiBeN\Framework\DataSource\MysqlDataSource\ValuesStatement;
 
 // Start of user code ValuesStatement.useStatements
-// Place your use statements here.
+use TiBeN\Framework\Tests\Fixtures\DataSource\MysqlDataSource\MysqlDataSourceTestSetupTearDown;
+use TiBeN\Framework\Tests\Fixtures\Entity\SomeEntity;
+use TiBeN\Framework\Entity\EntityMappingsRegistry;
+
 // End of user code
 
 /**
@@ -26,7 +29,8 @@ class ValuesStatementTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         // Start of user code ValuesStatementTest.setUp
-		// Place additional setUp code here.  
+        MysqlDataSourceTestSetupTearDown::declareBuiltInTypeConverters();
+		MysqlDataSourceTestSetupTearDown::declareSomeEntityMapping();
 		// End of user code
     }
 
@@ -47,9 +51,11 @@ class ValuesStatementTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code ValuesStatementTest.testtoString
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+        $valuesStatement = new ValuesStatement();
+        $valuesStatement->set('a', 'someValueForA');
+        $valuesStatement->set('b', 'someValueForB');
+        $valuesStatement->set('c', 'someValueForC');
+        $this->assertEquals('VALUES(:a,:b,:c)', $valuesStatement->toString());
 		// End of user code
     }
     
@@ -63,13 +69,30 @@ class ValuesStatementTest extends \PHPUnit_Framework_TestCase
     public function testCreateFromEntity()
     {
         // Start of user code ValuesStatementTest.testcreateFromEntity
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+	    $entity = new SomeEntity();
+	    
+	    $entity->setAttributeA('foo');
+	    $entity->setAttributeB('bar');
+	    $entity->setAttributeC('baz');	    
+	    $entityMapping = EntityMappingsRegistry::getEntityMapping(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );
+	    $valuesStatement = ValuesStatement::createFromEntity($entityMapping, $entity);
+	    $this->assertEquals('VALUES(:idTable,:a,:b,:c)', $valuesStatement->toString());
 		// End of user code
     }
 
     // Start of user code ValuesStatementTest.methods
-	// Place additional tests methods here.  
+
+	/**
+	 * Test To String on empty ValuesStatement
+     *
+	 * @expectedException LogicException
+	 * @expectedExceptionMessage The ValuesStatement is empty
+	 */
+	public function testToStringToEmptyValuesStatement() {
+	    $valuesStatement = new ValuesStatement();
+	    $valuesStatement->toString();
+	}
 	// End of user code
 }

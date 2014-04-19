@@ -2,10 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\Converter;
-use TiBeN\Framework\Datatype\U;
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Datatype\T;
+use TiBeN\Framework\Datatype\Converter;
+use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Datatype\U;
 
 // Start of user code RowToEntityConverter.useStatements
 // Place your use statements here.
@@ -42,6 +42,9 @@ class RowToEntityConverter implements Converter
         $this->UType = $UType;
 
         // Start of user code RowToEntityConverter.constructor
+		// @todo Bind theses types directly on the model
+		$this->TType = 'TiBeN\\Framework\\DataSource\\MysqlDataSource\\Row';
+		$this->UType = 'TiBeN\\Framework\\Entity\\Entity';		
         // End of user code
     }
 
@@ -129,7 +132,18 @@ class RowToEntityConverter implements Converter
     {
         $this->typeHint($this->TType, $itemToConvert);
         // Start of user code Converter.convert
-        // TODO should be implemented.
+        if(!isset($this->entityMapping)) {
+            throw new \LogicException('No entityMapping set');
+        }
+        $entityName = $this->entityMapping->getEntityName();
+		$convertedItem = new $entityName();
+
+		$mapper = new MysqlEntityAttributeMapper();
+		$mapper->setEntity($convertedItem);
+		$mapper->setEntityMapping($this->entityMapping);
+        foreach($itemToConvert->toNativeArray() as $columnName => $value) {
+            $mapper->setAttributeValue($columnName, $value);
+        }		
         // End of user code
     
         return $convertedItem;
@@ -143,7 +157,23 @@ class RowToEntityConverter implements Converter
     {
         $this->typeHint($this->UType, $itemToReverse);
         // Start of user code Converter.reverse
-        // TODO should be implemented.
+		if(!isset($this->entityMapping)) {
+		    throw new \LogicException('No entityMapping set');
+		}
+		$reversedItem = new Row(); 
+		
+		$mapper = new MysqlEntityAttributeMapper();
+		$mapper->setEntity($itemToReverse);
+		$mapper->setEntityMapping($this->entityMapping);
+		
+		foreach($this->entityMapping->getAttributeMappings()->toNativeArray() 
+            as $attributeName => $attributeMapping
+        ) {
+		    $reversedItem->set(
+                $mapper->getColumnName($attributeName),
+                $mapper->getColumnValue($attributeName)
+            );
+		}
         // End of user code
     
         return $reversedItem;

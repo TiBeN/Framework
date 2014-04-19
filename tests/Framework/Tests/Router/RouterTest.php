@@ -45,28 +45,34 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method addRouteRule from class Router
+     * Test static method forwardToRoute from class Router
      *
-     * Start of user code RouterTest.testaddRouteRuleAnnotations
+     * Start of user code RouterTest.testforwardToRouteAnnotations
      * PHPUnit users annotations can be placed here
      * End of user code
      */
-    public function testAddRouteRule()
+    public function testForwardToRoute()
     {
-        // Start of user code RouterTest.testaddRouteRule
-
-        // Case : Add a route and retrieve it by name
+        // Start of user code RouterTest.testforwardToRoute
         $routeRule = new RouteRule();
-        $routeRule->setName('my-route-rule');
+        $routeRule->setName('my-route-rule-without-vars-test');
         $routeRule->setUriPattern('/access-to-my-test-uri.html');
-        $routeRule->setController('myController');
-        $routeRule->setAction('myAction');
+        $routeRule->setController(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
+        );
+        $routeRule->setAction('caseWithoutVar');
 
         Router::addRouteRule($routeRule);
+
+        ob_start();
+        Router::forwardToRoute(
+            'my-route-rule-without-vars-test',
+            new AssociativeArray('string')
+        );
+
         $this->assertEquals(
-            $routeRule,
-            Router::getRouteRuleByName('my-route-rule'),
-            'Case 1'
+            '<html>Hello From TestController And CaseWithoutVar Action!</html>',
+            ob_get_clean()
         );
         // End of user code
     }
@@ -95,50 +101,16 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method followRoute from class Router
+     * Test static method getRouteRuleByName from class Router
      *
-     * Start of user code RouterTest.testfollowRouteAnnotations
+     * Start of user code RouterTest.testgetRouteRuleByNameAnnotations
      * PHPUnit users annotations can be placed here
      * End of user code
      */
-    public function testFollowRoute()
+    public function testGetRouteRuleByName()
     {
-        // Start of user code RouterTest.testfollowRoute
-
-        // Case : Route without variables
-        $route = new Route();
-        $route->setController(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
-        );
-        $route->setAction('caseWithoutVar');
-
-        ob_start();
-        Router::followRoute($route);
-        $this->assertEquals(
-            '<html>Hello From TestController And CaseWithoutVar Action!</html>',
-            ob_get_clean()
-        );
-
-        // Case : Route with variables
-        $route = new Route();
-        $route->setController(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
-        );
-        $route->setAction('caseWithVar');
-        $route->setVariables(AssociativeArray::createFromNativeArray(
-            'string',
-            array(
-                'foo' => 'foo-content',
-                'bar' => 'bar-content'
-            )
-        ));
-
-        ob_start();
-        Router::followRoute($route);
-        $this->assertEquals(
-            '<html>variable "foo" contains "foo-content" and variable bar contains "bar-content"</html>',
-            ob_get_clean()
-        );
+        // Start of user code RouterTest.testgetRouteRuleByName
+        // Test of this method is covered by testAddRouteRule */
         // End of user code
     }
     
@@ -146,7 +118,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
      * Test static method handleCurrentHttpRequest from class Router
      *
      * Start of user code RouterTest.testhandleCurrentHttpRequestAnnotations
-     * PHPUnit users annotations can be placed here
+     *
      * End of user code
      */
     public function testHandleCurrentHttpRequest()
@@ -235,49 +207,77 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method forwardToRoute from class Router
+     * Test static method addRouteRule from class Router
      *
-     * Start of user code RouterTest.testforwardToRouteAnnotations
+     * Start of user code RouterTest.testaddRouteRuleAnnotations
      * PHPUnit users annotations can be placed here
      * End of user code
      */
-    public function testForwardToRoute()
+    public function testAddRouteRule()
     {
-        // Start of user code RouterTest.testforwardToRoute
+        // Start of user code RouterTest.testaddRouteRule
+
+        // Case : Add a route and retrieve it by name
         $routeRule = new RouteRule();
-        $routeRule->setName('my-route-rule-without-vars-test');
+        $routeRule->setName('my-route-rule');
         $routeRule->setUriPattern('/access-to-my-test-uri.html');
-        $routeRule->setController(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
-        );
-        $routeRule->setAction('caseWithoutVar');
+        $routeRule->setController('myController');
+        $routeRule->setAction('myAction');
 
         Router::addRouteRule($routeRule);
-
-        ob_start();
-        Router::forwardToRoute(
-            'my-route-rule-without-vars-test',
-            new AssociativeArray('string')
-        );
-
         $this->assertEquals(
-            '<html>Hello From TestController And CaseWithoutVar Action!</html>',
-            ob_get_clean()
+            $routeRule,
+            Router::getRouteRuleByName('my-route-rule'),
+            'Case 1'
         );
         // End of user code
     }
     
     /**
-     * Test static method getRouteRuleByName from class Router
+     * Test static method followRoute from class Router
      *
-     * Start of user code RouterTest.testgetRouteRuleByNameAnnotations
+     * Start of user code RouterTest.testfollowRouteAnnotations
      * PHPUnit users annotations can be placed here
      * End of user code
      */
-    public function testGetRouteRuleByName()
+    public function testFollowRoute()
     {
-        // Start of user code RouterTest.testgetRouteRuleByName
-        // Test of this method is covered by testAddRouteRule */
+        // Start of user code RouterTest.testfollowRoute
+
+        // Case : Route without variables
+        $route = new Route();
+        $route->setController(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
+        );
+        $route->setAction('caseWithoutVar');
+
+        ob_start();
+        Router::followRoute($route);
+        $this->assertEquals(
+            '<html>Hello From TestController And CaseWithoutVar Action!</html>',
+            ob_get_clean()
+        );
+
+        // Case : Route with variables
+        $route = new Route();
+        $route->setController(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
+        );
+        $route->setAction('caseWithVar');
+        $route->setVariables(AssociativeArray::createFromNativeArray(
+            'string',
+            array(
+                'foo' => 'foo-content',
+                'bar' => 'bar-content'
+            )
+        ));
+
+        ob_start();
+        Router::followRoute($route);
+        $this->assertEquals(
+            '<html>variable "foo" contains "foo-content" and variable bar contains "bar-content"</html>',
+            ob_get_clean()
+        );
         // End of user code
     }
 

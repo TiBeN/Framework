@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Datatype\GenericCollection;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code SelectExpr.useStatements
 // Place your use statements here.
@@ -73,7 +73,16 @@ class SelectExpr extends GenericCollection
     public static function createFromEntityAttributes(AssociativeArray $attributeMappings)
     {
         // Start of user code SelectExpr.createFromEntityAttributes
-        // TODO should be implemented.
+	    $selectExpr = new self;
+	    foreach($attributeMappings->toNativeArray()
+            as $attributeName => $attributeMapping
+	    ) {
+	        $selectExpr->add(
+                $attributeMapping
+	                ->getDataSourceAttributeMappingConfiguration()
+	                ->getColumnName()
+	        );
+	    }         
         // End of user code
     
         return $selectExpr;
@@ -85,7 +94,11 @@ class SelectExpr extends GenericCollection
     public function toString()
     {
         // Start of user code SelectExpr.toString
-        // TODO should be implemented.
+        if($this->isEmpty()) {
+            throw new \LogicException('The SelectExpr is empty');
+        }      
+        
+        $string = implode(',', $this->items);
         // End of user code
     
         return $string;

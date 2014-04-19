@@ -5,7 +5,8 @@ namespace TiBeN\Framework\Tests\DataSource;
 use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
 
 // Start of user code DataSourceTypeConvertersRegistry.useStatements
-// Place your use statements here.
+use TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\IntegerConverter;
+
 // End of user code
 
 /**
@@ -38,22 +39,6 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method clearTypeConverter from class DataSourceTypeConvertersRegistry
-     *
-     * Start of user code DataSourceTypeConvertersRegistryTest.testclearTypeConverterAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testClearTypeConverter()
-    {
-        // Start of user code DataSourceTypeConvertersRegistryTest.testclearTypeConverter
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test static method registerTypeConverter from class DataSourceTypeConvertersRegistry
      *
      * Start of user code DataSourceTypeConvertersRegistryTest.testregisterTypeConverterAnnotations 
@@ -63,9 +48,11 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
     public function testRegisterTypeConverter()
     {
         // Start of user code DataSourceTypeConvertersRegistryTest.testregisterTypeConverter
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+        DataSourceTypeConvertersRegistry::registerTypeConverter(new IntegerConverter());
+        $this->assertInstanceOf(
+            'TiBeN\\Framework\\DataSource\\MysqlDataSource\\TypeConverter\\IntegerConverter',
+            DataSourceTypeConvertersRegistry::getTypeConverter('integer', 'mysql')
+        );
 		// End of user code
     }
     
@@ -79,9 +66,7 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
     public function testGetTypeConverter()
     {
         // Start of user code DataSourceTypeConvertersRegistryTest.testgetTypeConverter
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+	    // test case covered by testRegisterTypeConverter
 		// End of user code
     }
     
@@ -95,13 +80,66 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
     public function testHasTypeConverter()
     {
         // Start of user code DataSourceTypeConvertersRegistryTest.testhasTypeConverter
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+	    DataSourceTypeConvertersRegistry::registerTypeConverter(new IntegerConverter());
+	    $this->assertTrue(
+            DataSourceTypeConvertersRegistry::hasTypeConverter('integer', 'mysql')
+        );
+		// End of user code
+    }
+    
+    /**
+     * Test static method clearTypeConverter from class DataSourceTypeConvertersRegistry
+     *
+     * Start of user code DataSourceTypeConvertersRegistryTest.testclearTypeConverterAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testClearTypeConverter()
+    {
+        // Start of user code DataSourceTypeConvertersRegistryTest.testclearTypeConverter
+	    DataSourceTypeConvertersRegistry::registerTypeConverter(new IntegerConverter());
+	    DataSourceTypeConvertersRegistry::clearTypeConverter('integer', 'mysql');
+	    $this->assertFalse(
+            DataSourceTypeConvertersRegistry::hasTypeConverter('integer', 'mysql')
+        );
 		// End of user code
     }
 
     // Start of user code DataSourceTypeConvertersRegistryTest.methods
-	// Place additional tests methods here.  
+
+	/**
+	 * Test getting a non existant TypeConverter
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionArgument No type converter 'foo' for datasource 'bar'
+	 */
+	public function testGettingNonExistantTypeConverter()
+	{
+	    DataSourceTypeConvertersRegistry::getTypeConverter('foo', 'bar');	    
+	}
+	
+	/**
+	 * Test getting a clear TypeConverter
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionMessage No type converter 'integer' for datasource 'mysql'
+	 */
+	public function testGettingClearTypeConverter()
+	{	    
+	    DataSourceTypeConvertersRegistry::registerTypeConverter(new IntegerConverter());
+	    DataSourceTypeConvertersRegistry::clearTypeConverter('integer', 'mysql');
+	    DataSourceTypeConvertersRegistry::getTypeConverter('integer', 'mysql');
+	}
+	
+	/**
+	 * Test clear a non existant TypeConverter
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionMessage No type converter 'sometype' for datasource 'mysql'
+	 */
+	public function testClearNonExistantTypeConverter()
+	{
+	    DataSourceTypeConvertersRegistry::clearTypeConverter('sometype', 'mysql');
+	}
 	// End of user code
 }

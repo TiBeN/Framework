@@ -17,14 +17,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class SelectStatement implements Statement
 {
     /**
+     * @var SelectExpr
+     */
+    public $selectExpr;
+
+    /**
      * @var LimitStatement
      */
     public $limitStatement;
-
-    /**
-     * @var OrderByStatement
-     */
-    public $orderByStatement;
 
     /**
      * @var string
@@ -32,18 +32,19 @@ class SelectStatement implements Statement
     public $tableReferences;
 
     /**
-     * @var SelectExpr
-     */
-    public $selectExpr;
-
-    /**
      * @var WhereConditions
      */
     public $whereConditions;
 
+    /**
+     * @var OrderByStatement
+     */
+    public $orderByStatement;
+
     public function __construct()
     {
         // Start of user code SelectStatement.constructor
+	    $this->statementParameters = new AssociativeArray();
         // End of user code
     }
 
@@ -51,66 +52,6 @@ class SelectStatement implements Statement
     {
         // Start of user code SelectStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return LimitStatement
-     */
-    public function getLimitStatement()
-    {
-        // Start of user code Getter SelectStatement.getLimitStatement
-        // End of user code
-        return $this->limitStatement;
-    }
-
-    /**
-     * @param LimitStatement $limitStatement
-     */
-    public function setLimitStatement(LimitStatement $limitStatement)
-    {
-        // Start of user code Setter SelectStatement.setLimitStatement
-        // End of user code
-        $this->limitStatement = $limitStatement;
-    }
-
-    /**
-     * @return OrderByStatement
-     */
-    public function getOrderByStatement()
-    {
-        // Start of user code Getter SelectStatement.getOrderByStatement
-        // End of user code
-        return $this->orderByStatement;
-    }
-
-    /**
-     * @param OrderByStatement $orderByStatement
-     */
-    public function setOrderByStatement(OrderByStatement $orderByStatement)
-    {
-        // Start of user code Setter SelectStatement.setOrderByStatement
-        // End of user code
-        $this->orderByStatement = $orderByStatement;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTableReferences()
-    {
-        // Start of user code Getter SelectStatement.getTableReferences
-        // End of user code
-        return $this->tableReferences;
-    }
-
-    /**
-     * @param string $tableReferences
-     */
-    public function setTableReferences($tableReferences)
-    {
-        // Start of user code Setter SelectStatement.setTableReferences
-        // End of user code
-        $this->tableReferences = $tableReferences;
     }
 
     /**
@@ -134,6 +75,46 @@ class SelectStatement implements Statement
     }
 
     /**
+     * @return LimitStatement
+     */
+    public function getLimitStatement()
+    {
+        // Start of user code Getter SelectStatement.getLimitStatement
+        // End of user code
+        return $this->limitStatement;
+    }
+
+    /**
+     * @param LimitStatement $limitStatement
+     */
+    public function setLimitStatement(LimitStatement $limitStatement)
+    {
+        // Start of user code Setter SelectStatement.setLimitStatement
+        // End of user code
+        $this->limitStatement = $limitStatement;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTableReferences()
+    {
+        // Start of user code Getter SelectStatement.getTableReferences
+        // End of user code
+        return $this->tableReferences;
+    }
+
+    /**
+     * @param string $tableReferences
+     */
+    public function setTableReferences($tableReferences)
+    {
+        // Start of user code Setter SelectStatement.setTableReferences
+        // End of user code
+        $this->tableReferences = $tableReferences;
+    }
+
+    /**
      * @return WhereConditions
      */
     public function getWhereConditions()
@@ -153,21 +134,27 @@ class SelectStatement implements Statement
         $this->whereConditions = $whereConditions;
     }
 
-    // Statement Realization
+    /**
+     * @return OrderByStatement
+     */
+    public function getOrderByStatement()
+    {
+        // Start of user code Getter SelectStatement.getOrderByStatement
+        // End of user code
+        return $this->orderByStatement;
+    }
 
     /**
-     * Tell wether the statement is ready or not to be executed
-     *
-     * @return bool $status
+     * @param OrderByStatement $orderByStatement
      */
-    public function isReadyToBeExecuted()
+    public function setOrderByStatement(OrderByStatement $orderByStatement)
     {
-        // Start of user code Statement.isReadyToBeExecuted
-        // TODO should be implemented.
+        // Start of user code Setter SelectStatement.setOrderByStatement
         // End of user code
-    
-        return $status;
+        $this->orderByStatement = $orderByStatement;
     }
+
+    // Statement Realization
 
     /**
      * @return AssociativeArray $statementParameters
@@ -175,7 +162,10 @@ class SelectStatement implements Statement
     public function getStatementParameters()
     {
         // Start of user code Statement.getStatementParameters
-        // TODO should be implemented.
+		$statementParameters = !is_null($this->whereConditions)
+            ? $this->whereConditions->getStatementParameters()
+            : new AssociativeArray()
+        ;    
         // End of user code
     
         return $statementParameters;
@@ -189,10 +179,44 @@ class SelectStatement implements Statement
     public function toString()
     {
         // Start of user code Statement.toString
-        // TODO should be implemented.
+	    if(!$this->isReadyToBeExecuted()) {
+	        throw new \LogicException('The statement is not ready');
+	    }		
+	    
+		$statement = sprintf(
+            'SELECT %s FROM %s', 
+            $this->selectExpr->toString(),
+            $this->tableReferences                        		        
+        );	    
+		if($this->whereConditions instanceof WhereConditions) {
+		    $statement .= ' ' . $this->whereConditions->toString();
+		}
+		if($this->orderByStatement instanceof OrderByStatement) {
+		    $statement .= ' ' . $this->orderByStatement->toString();
+		}
+		if($this->limitStatement instanceof LimitStatement) {
+		    $statement .= ' ' . $this->limitStatement->toString();
+		}
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * Tell wether the statement is ready or not to be executed
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+		$status = $this->selectExpr instanceof SelectExpr 
+            && !is_null($this->tableReferences)
+            && !empty($this->tableReferences)
+        ;
+        // End of user code
+    
+        return $status;
     }
 
     // Start of user code SelectStatement.implementationSpecificMethods

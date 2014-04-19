@@ -5,7 +5,13 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 use TiBeN\Framework\DataSource\MysqlDataSource\SelectStatement;
 
 // Start of user code SelectStatement.useStatements
-// Place your use statements here.
+use TiBeN\Framework\DataSource\MysqlDataSource\WhereConditions;
+use TiBeN\Framework\DataSource\MysqlDataSource\Expr;
+use TiBeN\Framework\DataSource\MysqlDataSource\OrderByStatement;
+use TiBeN\Framework\DataSource\MysqlDataSource\LimitStatement;
+use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\DataSource\MysqlDataSource\SelectExpr;
+
 // End of user code
 
 /**
@@ -40,21 +46,6 @@ class SelectStatementTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method isReadyToBeExecuted from interface Statement
-     * Start of user code Statement.testisReadyToBeExecutedAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testIsReadyToBeExecuted()
-    {
-        // Start of user code Statement.testisReadyToBeExecuted
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
      * Test method getStatementParameters from interface Statement
      * Start of user code Statement.testgetStatementParametersAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -63,9 +54,7 @@ class SelectStatementTest extends \PHPUnit_Framework_TestCase
     public function testGetStatementParameters()
     {
         // Start of user code Statement.testgetStatementParameters
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+	    // Implicitly tested by toString
     	// End of user code
     }
     
@@ -78,9 +67,80 @@ class SelectStatementTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code Statement.testtoString
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+	    $selectStatement = new SelectStatement();
+	    $selectStatement->setSelectExpr(
+            SelectExpr::createFromNativeArray('string', array('foo'))
         );
+	    $selectStatement->setTableReferences('some_table');	    
+	    $this->assertEquals(
+            'SELECT foo FROM some_table', 
+            $selectStatement->toString()
+        );
+	    
+	    $selectStatement->setWhereConditions(
+            WhereConditions::createFromExpr(
+                Expr::fromString(
+                    'bar > :bar', 
+                    AssociativeArray::createFromNativeArray(
+                        null , 
+                        array('bar' => 1337)
+                    )
+	            )
+            )
+        );
+	    $this->assertEquals(
+            'SELECT foo FROM some_table WHERE bar > :bar', 
+            $selectStatement->toString()
+        );
+	    
+	    $selectStatement->setOrderByStatement(
+            OrderByStatement::createFromNativeArray(
+                'string', 
+                array('foo' => OrderByStatement::DIRECTION_ASC)
+            )
+        );
+	    $this->assertEquals(
+            'SELECT foo FROM some_table WHERE bar > :bar ORDER BY foo ASC', 
+            $selectStatement->toString()
+        );
+	    
+	    $limitStatement = new LimitStatement();
+	    $limitStatement->setRowCount(10);	    
+	    $selectStatement->setLimitStatement($limitStatement);
+	    $this->assertEquals(
+            'SELECT foo FROM some_table WHERE bar > :bar ORDER BY foo ASC LIMIT 10', 
+            $selectStatement->toString()
+        );
+	    
+	    $expectedParameters = AssociativeArray::createFromNativeArray(
+            NULL, 
+            array('bar' => 1337)
+        );
+	    $this->assertEquals(
+            $expectedParameters, 
+            $selectStatement->getStatementParameters()
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method isReadyToBeExecuted from interface Statement
+     * Start of user code Statement.testisReadyToBeExecutedAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testIsReadyToBeExecuted()
+    {
+        // Start of user code Statement.testisReadyToBeExecuted
+	    $selectStatement = new SelectStatement();	    
+	    $this->assertFalse($selectStatement->isReadyToBeExecuted());
+	    $selectStatement->setSelectExpr(
+            SelectExpr::createFromNativeArray('string', array('foo'))
+        );	    
+	    $this->assertFalse($selectStatement->isReadyToBeExecuted());
+	    
+	    $selectStatement->setTableReferences('some_table');
+	    $this->assertTrue($selectStatement->isReadyToBeExecuted());
     	// End of user code
     }
 

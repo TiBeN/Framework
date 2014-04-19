@@ -1,40 +1,72 @@
 <?php
-class FooDataSource implements \DataSource {
-    
+
+namespace TiBeN\Framework\Tests\Fixtures\DataSource\FooDataSource;
+
+use TiBeN\Framework\DataSource\DataSource;
+use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Entity\CriteriaSet;
+use TiBeN\Framework\Entity\Entity;
+
+/**
+ * Fixture Datasource used in unit tests
+ * 
+ * @author TiBeN
+ */
+class FooDataSource implements DataSource 
+{
     private $name;
     
     private $sourceFolder;    
     
-    public function update(EntityMapping $entityMapping, Entity $entity) {
+    public function update(EntityMapping $entityMapping, Entity $entity) 
+    {
         // TODO Auto-generated method stub
     }
-    public function getName() {
+
+    public function getName() 
+    {
         return $this->name;
     }
-    public function setName($name) {
+    
+    public function setName($name) 
+    {
         $this->name = $name;
     }    
-    public function delete(EntityMapping $entityMapping, Entity $entity) {
+    
+    public function delete(EntityMapping $entityMapping, Entity $entity) 
+    {
         // TODO Auto-generated method stub
     }
-    public function read(EntityMapping $entityMapping, CriteriaSet $criteriaSet) {
+
+    public function read(EntityMapping $entityMapping, CriteriaSet $criteriaSet) 
+    {
         // TODO Auto-generated method stub
     }
-    public function create(EntityMapping $entityMapping, Entity $entity) {
+    
+    public function create(EntityMapping $entityMapping, Entity $entity) 
+    {
         // TODO Auto-generated method stub
     }    
-	public static function getEntityMappingConfigurationClassName() {
-		return 'FooEntityMappingConfiguration';
+
+	public static function getEntityMappingConfigurationClassName() 
+    {
+        $namespace = 'TiBeN\\Framework\\Tests\\Fixtures\\DataSource\\FooDataSource';
+		return $namespace . '\\FooEntityMappingConfiguration';
 	}
-	public static function getAttributeMappingConfigurationClassName() {
-	    return 'FooAttributeMappingConfiguration';
+
+	public static function getAttributeMappingConfigurationClassName() 
+    {
+        $namespace = 'TiBeN\\Framework\\Tests\\Fixtures\\DataSource\\FooDataSource';
+	    return $namespace . '\\FooAttributeMappingConfiguration';
 	}	
     
-    public function getSourceFolder() {
+    public function getSourceFolder() 
+    {
         return $this->sourceFolder;
     }    
     
-    public function setSourceFolder($sourceFolder) {
+    public function setSourceFolder($sourceFolder) 
+    {
         $this->sourceFolder = $sourceFolder;
     }    
 }

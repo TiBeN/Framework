@@ -5,7 +5,10 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 use TiBeN\Framework\DataSource\MysqlDataSource\InsertStatement;
 
 // Start of user code InsertStatement.useStatements
-// Place your use statements here.
+use TiBeN\Framework\DataSource\MysqlDataSource\ColumnNamesListStatement;
+use TiBeN\Framework\DataSource\MysqlDataSource\ValuesStatement;
+use TiBeN\Framework\Datatype\AssociativeArray;
+
 // End of user code
 
 /**
@@ -40,21 +43,6 @@ class InsertStatementTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method isReadyToBeExecuted from interface Statement
-     * Start of user code Statement.testisReadyToBeExecutedAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testIsReadyToBeExecuted()
-    {
-        // Start of user code Statement.testisReadyToBeExecuted
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
      * Test method getStatementParameters from interface Statement
      * Start of user code Statement.testgetStatementParametersAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -63,9 +51,7 @@ class InsertStatementTest extends \PHPUnit_Framework_TestCase
     public function testGetStatementParameters()
     {
         // Start of user code Statement.testgetStatementParameters
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+	    // implicitly tested by testtostring
     	// End of user code
     }
     
@@ -78,13 +64,108 @@ class InsertStatementTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code Statement.testtoString
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+	    $insert = new InsertStatement();
+	    $this->assertFalse($insert->isReadyToBeExecuted());
+	    
+	    $insert->setTableName('someTable');
+	    $values = array(
+	            'a' => 'foo',
+	            'b' => 'bar',
+	            'c' => 'baz'
+	    );	     
+	    $columnNamesList = new ColumnNamesListStatement();
+	    foreach(array_keys($values) as $columnName) {
+	        $columnNamesList->add($columnName);
+	    }
+	    $insert->setColumnNamesListStatement($columnNamesList);
+	    $valuesStatement = new ValuesStatement();
+	    foreach($values as $columnName => $columnValue) {
+	        $valuesStatement->set($columnName, $columnValue);
+	    }
+	    $insert->setValuesStatement($valuesStatement);
+	    
+	    $expectedStatement = 'INSERT INTO someTable (a,b,c) VALUES(:a,:b,:c)';
+	    
+	    $this->assertEquals($expectedStatement, $insert->toString());
+	    
+	    $expectedStatementParameters = AssociativeArray::createFromNativeArray(
+            null, 
+            $values
         );
+	    
+	    $this->assertEquals($expectedStatementParameters, $insert->getStatementParameters());
+    	// End of user code
+    }
+    
+    /**
+     * Test method isReadyToBeExecuted from interface Statement
+     * Start of user code Statement.testisReadyToBeExecutedAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testIsReadyToBeExecuted()
+    {
+        // Start of user code Statement.testisReadyToBeExecuted
+	    $insert = new InsertStatement();
+	    $this->assertFalse($insert->isReadyToBeExecuted());
+	    
+	    $insert->setTableName('someTable');
+	    $this->assertFalse($insert->isReadyToBeExecuted());
+	    
+	    $values = array(
+	    	'a' => 'foo',
+	        'b' => 'bar',
+	        'c' => 'baz'        
+	    );
+	    
+	    $columnNamesList = new ColumnNamesListStatement();
+	    foreach(array_keys($values) as $columnName) {
+	        $columnNamesList->add($columnName);
+	    }
+	    $insert->setColumnNamesListStatement($columnNamesList);
+	    $this->assertFalse($insert->isReadyToBeExecuted());
+	    
+	    $valuesStatement = new ValuesStatement();
+	    foreach($values as $columnName => $columnValue) {
+            $valuesStatement->set($columnName, $columnValue);
+	    }
+	    $insert->setValuesStatement($valuesStatement);
+	    $this->assertTrue($insert->isReadyToBeExecuted());
     	// End of user code
     }
 
     // Start of user code InsertStatementTest.methods
-	// Place additional tests methods here.  
+
+	/**
+	 * @expectedException LogicException
+	 * @expectedExceptionMessage The statement is not ready
+	 */
+	public function testToStringToNotReadyStatement()
+	{
+	    $insert = new InsertStatement();
+	    $insert->toString();
+	}
+	
+	/**
+	 * @expectedException LogicException
+	 * @expectedExceptionMessage The ColumnNamesListStatement set doesn't match the ValuesStatement
+	 */
+	public function testSetAColumnNamesListStatementThatDoesntMatchTheValuesStatement()
+	{
+	    $insert = new InsertStatement();
+	    $this->assertFalse($insert->isReadyToBeExecuted());
+	    
+	    $insert->setTableName('someTable');
+	    	     
+	    $columnNamesList = new ColumnNamesListStatement();
+	    $columnNamesList->add('b');
+	    $insert->setColumnNamesListStatement($columnNamesList);
+	    	    
+	    $valuesStatement = new ValuesStatement();
+	    $valuesStatement->set('a', 'foo');
+	    $insert->setValuesStatement($valuesStatement);
+	    
+	    $insert->toString();
+	}	
 	// End of user code
 }

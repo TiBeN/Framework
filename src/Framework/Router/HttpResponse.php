@@ -150,35 +150,6 @@ class HttpResponse
     }
 
     /**
-     * Send the http response message to the client
-     */
-    public function sendToClient()
-    {
-        // Start of user code HttpResponse.sendToClient
-        
-        // Set http response status code
-		header('HTTP/1.1 ' . $this->statusCode .' ');
-		
-		// Set http content-type
-		header('Content-type: ' . $this->contentType);
-		
-		// Set custom headers
-		if(isset($this->headers)) {
-			foreach($this->headers->toNativeArray() as $key => $value) {
-				header(sprintf('%s: %s', ucfirst($key), $value));
-			}
-		}		
-		
-		// Send content
-		if(isset($this->message)) {
-			echo $this->message;
-		}
-		
-		return;
-        // End of user code
-    }
-
-    /**
      * Create an HttpResponse configured to send content of type contentType as file named fileName 
      * Typically open a download box using common browsers. 
      *
@@ -207,6 +178,35 @@ class HttpResponse
         // End of user code
     
         return $httpResponse;
+    }
+
+    /**
+     * Send the http response message to the client
+     */
+    public function sendToClient()
+    {
+        // Start of user code HttpResponse.sendToClient
+        
+        // Set http response status code
+		header('HTTP/1.1 ' . $this->statusCode .' ');
+		
+		// Set http content-type
+		header('Content-type: ' . $this->contentType);
+		
+		// Set custom headers
+		if(isset($this->headers)) {
+			foreach($this->headers->toNativeArray() as $key => $value) {
+				header(sprintf('%s: %s', ucfirst($key), $value));
+			}
+		}		
+		
+		// Send content
+		if(isset($this->message)) {
+			echo $this->message;
+		}
+		
+		return;
+        // End of user code
     }
 
     // Start of user code HttpResponse.implementationSpecificMethods

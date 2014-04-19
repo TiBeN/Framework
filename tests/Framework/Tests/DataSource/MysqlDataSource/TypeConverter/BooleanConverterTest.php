@@ -40,21 +40,6 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method setParameters from interface TypeConverter
-     * Start of user code TypeConverter.testsetParametersAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testSetParameters()
-    {
-        // Start of user code TypeConverter.testsetParameters
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
      * Test method convert from interface TypeConverter
      * Start of user code TypeConverter.testconvertAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -63,6 +48,36 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     public function testConvert()
     {
         // Start of user code Converter.testconvert
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method getDataSourceType from interface TypeConverter
+     * Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetDataSourceType()
+    {
+        // Start of user code TypeConverter.testgetDataSourceType
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method setParameters from interface TypeConverter
+     * Start of user code TypeConverter.testsetParametersAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testSetParameters()
+    {
+        // Start of user code TypeConverter.testsetParameters
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );
@@ -93,21 +108,6 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     public function testReverse()
     {
         // Start of user code Converter.testreverse
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
-     * Test method getDataSourceType from interface TypeConverter
-     * Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetDataSourceType()
-    {
-        // Start of user code TypeConverter.testgetDataSourceType
         $this->markTestIncomplete(
           'This test has not been implemented yet.'
         );

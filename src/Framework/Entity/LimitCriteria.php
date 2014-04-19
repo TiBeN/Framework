@@ -17,12 +17,12 @@ class LimitCriteria
     /**
      * @var int
      */
-    public $number;
+    public $offset;
 
     /**
      * @var int
      */
-    public $offset;
+    public $number;
 
     public function __construct()
     {
@@ -34,26 +34,6 @@ class LimitCriteria
     {
         // Start of user code LimitCriteria.destructor
         // End of user code
-    }
-
-    /**
-     * @return int
-     */
-    public function getNumber()
-    {
-        // Start of user code Getter LimitCriteria.getNumber
-        // End of user code
-        return $this->number;
-    }
-
-    /**
-     * @param int $number
-     */
-    public function setNumber($number)
-    {
-        // Start of user code Setter LimitCriteria.setNumber
-        // End of user code
-        $this->number = $number;
     }
 
     /**
@@ -77,6 +57,26 @@ class LimitCriteria
     }
 
     /**
+     * @return int
+     */
+    public function getNumber()
+    {
+        // Start of user code Getter LimitCriteria.getNumber
+        // End of user code
+        return $this->number;
+    }
+
+    /**
+     * @param int $number
+     */
+    public function setNumber($number)
+    {
+        // Start of user code Setter LimitCriteria.setNumber
+        // End of user code
+        $this->number = $number;
+    }
+
+    /**
      * @param int $number
      * @param int $offset
      * @return LimitCriteria $limitCriteria
@@ -84,7 +84,9 @@ class LimitCriteria
     public static function to($number, $offset = NULL)
     {
         // Start of user code LimitCriteria.to
-        // TODO should be implemented.
+		$limitCriteria = new self();
+		$limitCriteria->setNumber($number);
+		$limitCriteria->setOffset($offset);
         // End of user code
     
         return $limitCriteria;

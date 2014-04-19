@@ -2,10 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\CriteriaSet;
-use TiBeN\Framework\Datatype\AssociativeArray;
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\CriteriaSet;
+use TiBeN\Framework\Entity\EntityMapping;
 
 // Start of user code StatementFactory.useStatements
 // Place your use statements here.
@@ -34,15 +34,15 @@ class StatementFactory
     /**
      * @param EntityMapping $entityMapping
      * @param Entity $entity
-     * @return InsertStatement $insertStatement
+     * @return UpdateStatement $updateStatement
      */
-    public static function createInsertStatement(EntityMapping $entityMapping, Entity $entity)
+    public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
     {
-        // Start of user code StatementFactory.createInsertStatement
+        // Start of user code StatementFactory.createUpdateStatementFromEntity
         // TODO should be implemented.
         // End of user code
     
-        return $insertStatement;
+        return $updateStatement;
     }
 
     /**
@@ -61,16 +61,85 @@ class StatementFactory
 
     /**
      * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     * @return UpdateStatement $updateStatement
+     * @param CriteriaSet $criteriaSet
+     * @return SelectStatement $selectStatement
      */
-    public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
+    public static function createSelectStatementFromCriteriaSet(EntityMapping $entityMapping, CriteriaSet $criteriaSet)
     {
-        // Start of user code StatementFactory.createUpdateStatementFromEntity
-        // TODO should be implemented.
+        // Start of user code StatementFactory.createSelectStatementFromCriteriaSet
+        $selectStatement = new SelectStatement();
+        $selectStatement->setSelectExpr(
+            SelectExpr::createFromEntityAttributes(
+                $entityMapping->getAttributeMappings()
+            )
+        );
+        $selectStatement->setTableReferences(
+            $entityMapping
+                ->getDataSourceEntityConfiguration()
+                ->getTableName()
+            );
+        $selectStatement->setWhereConditions(
+            WhereConditions::createFromCriteriaSet(
+                $criteriaSet, 
+                $entityMapping
+            )
+        );
+        
+        if(!$criteriaSet->getOrderCriterias()->isEmpty()) {
+            $selectStatement->setOrderByStatement(
+                OrderByStatement::createFromOrderCriterias(
+                    $entityMapping, 
+                    $criteriaSet->getOrderCriterias()
+                )
+            );
+        }
+        
+        $limitCriteria = $criteriaSet->getLimitCriteria();
+        if(!is_null($limitCriteria)) {
+            $selectStatement->setLimitStatement(
+                LimitStatement::createFromLimitCriteria($limitCriteria)
+            );
+        }
         // End of user code
     
-        return $updateStatement;
+        return $selectStatement;
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     * @return InsertStatement $insertStatement
+     */
+    public static function createInsertStatement(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code StatementFactory.createInsertStatement
+        $mapper = new MysqlEntityAttributeMapper();
+        $mapper->setEntity($entity);
+        $mapper->setEntityMapping($entityMapping);
+        $identifier = $mapper->getIdentifierValue();
+        if(!is_null($identifier)) {
+            throw new \LogicException(
+                'Create an insert statement on an already persisted entity is not allowed'
+            );
+        }
+
+	    $insertStatement = new InsertStatement();	    
+	    $insertStatement->setTableName(
+            $entityMapping->getDataSourceEntityConfiguration()->getTableName()
+        );	    
+	    $insertStatement
+            ->setColumnNamesListStatement(
+                ColumnNamesListStatement::createFromEntityAttributes(
+                    $entityMapping->getAttributeMappings()
+                )
+            )
+	    ;	    
+	    $insertStatement->setValuesStatement(
+            ValuesStatement::createFromEntity($entityMapping, $entity)
+        );
+        // End of user code
+    
+        return $insertStatement;
     }
 
     /**
@@ -81,24 +150,12 @@ class StatementFactory
     public static function createFromString($statementString, AssociativeArray $parameters)
     {
         // Start of user code StatementFactory.createFromString
-        // TODO should be implemented.
+	    $genericStatement = new GenericStatement();
+	    $genericStatement->setStatementString($statementString);
+	    $genericStatement->setStatementParameters($parameters);
         // End of user code
     
         return $genericStatement;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     * @param CriteriaSet $criteriaSet
-     * @return SelectStatement $selectStatement
-     */
-    public static function createSelectStatementFromCriteriaSet(EntityMapping $entityMapping, CriteriaSet $criteriaSet)
-    {
-        // Start of user code StatementFactory.createSelectStatementFromCriteriaSet
-        // TODO should be implemented.
-        // End of user code
-    
-        return $selectStatement;
     }
 
     // Start of user code StatementFactory.implementationSpecificMethods

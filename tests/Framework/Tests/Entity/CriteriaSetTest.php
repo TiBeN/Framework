@@ -5,7 +5,11 @@ namespace TiBeN\Framework\Tests\Entity;
 use TiBeN\Framework\Entity\CriteriaSet;
 
 // Start of user code CriteriaSet.useStatements
-// Place your use statements here.
+use TiBeN\Framework\Entity\MatchCriteria;
+use TiBeN\Framework\Entity\OrderCriteria;
+use TiBeN\Framework\Entity\LimitCriteria;
+use TiBeN\Framework\Datatype\GenericCollection;
+
 // End of user code
 
 /**
@@ -38,18 +42,18 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method add from class CriteriaSet
+     * Test static method createAnd from class CriteriaSet
      *
-     * Start of user code CriteriaSetTest.testaddAnnotations 
+     * Start of user code CriteriaSetTest.testcreateAndAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testAdd()
+    public function testCreateAnd()
     {
-        // Start of user code CriteriaSetTest.testadd
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+        // Start of user code CriteriaSetTest.testcreateAnd
+        $expectedCriteriaSet = new CriteriaSet();
+        $expectedCriteriaSet->setLogicalSeparator(CriteriaSet::LOGICAL_SEPARATOR_AND);
+        $this->assertEquals($expectedCriteriaSet, CriteriaSet::createAnd());
 		// End of user code
     }
     
@@ -63,25 +67,10 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     public function testSetLimit()
     {
         // Start of user code CriteriaSetTest.testsetLimit
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test static method createAnd from class CriteriaSet
-     *
-     * Start of user code CriteriaSetTest.testcreateAndAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateAnd()
-    {
-        // Start of user code CriteriaSetTest.testcreateAnd
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+        $criteriaSet = new CriteriaSet();
+        $limitCriteria = LimitCriteria::to(1337);
+        $criteriaSet->setLimit($limitCriteria);
+        $this->assertEquals($limitCriteria, $criteriaSet->getLimitCriteria());
 		// End of user code
     }
     
@@ -95,9 +84,36 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     public function testCreateOr()
     {
         // Start of user code CriteriaSetTest.testcreateOr
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+	    $expectedCriteriaSet = new CriteriaSet();
+	    $expectedCriteriaSet->setLogicalSeparator(CriteriaSet::LOGICAL_SEPARATOR_OR);
+	    $this->assertEquals($expectedCriteriaSet, CriteriaSet::createOr());
+		// End of user code
+    }
+    
+    /**
+     * Test method add from class CriteriaSet
+     *
+     * Start of user code CriteriaSetTest.testaddAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testAdd()
+    {
+        // Start of user code CriteriaSetTest.testadd
+	    $matchCriteria = MatchCriteria::equals('foo', 'bar');
+	    
+	    $expectedMatchCriteriaCollection = new GenericCollection(
+            'TiBeN\\Framework\\Entity\\MatchCriteria'
+        );
+	    $expectedMatchCriteriaCollection->add($matchCriteria);
+	    
+	    $criteriaSet = new CriteriaSet();
+	    $criteriaSet->add($matchCriteria);
+	    
+	    $this->assertEquals(
+            $expectedMatchCriteriaCollection, 
+            $criteriaSet->getMatchCriterias()
+        );	    
 		// End of user code
     }
     
@@ -111,9 +127,23 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     public function testAddOrder()
     {
         // Start of user code CriteriaSetTest.testaddOrder
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+        $criteriaSet = new CriteriaSet();
+        $orderCriteria1 = OrderCriteria::asc('foo');
+        $orderCriteria2 = OrderCriteria::desc('bar');
+        
+        $expectedOrderCriteriaCollection = new GenericCollection(
+            'TiBeN\\Framework\\Entity\\OrderCriteria'
+        );
+        $expectedOrderCriteriaCollection->add($orderCriteria1);
+        $expectedOrderCriteriaCollection->add($orderCriteria2);
+        
+        $criteriaSet->addOrder($orderCriteria1);
+        $criteriaSet->addOrder($orderCriteria2);
+        
+        $this->assertEquals(
+            $expectedOrderCriteriaCollection, 
+            $criteriaSet->getOrderCriterias()
+        );
 		// End of user code
     }
     
@@ -127,9 +157,21 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     public function testAddSubSet()
     {
         // Start of user code CriteriaSetTest.testaddSubSet
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+        $criteriaSet = new CriteriaSet();
+        $criteriaSet->getMatchCriterias()->add(MatchCriteria::equals('foo', 'bar'));
+
+        $expectedCriteriaSetCollection = new GenericCollection(
+            'TiBeN\\Framework\\Entity\\CriteriaSet'
+        );
+        $expectedCriteriaSetCollection->add($criteriaSet);
+
+        $rootCriteriaSet = new CriteriaSet();
+        $rootCriteriaSet->addSubSet($criteriaSet);
+        
+        $this->assertEquals(
+            $expectedCriteriaSetCollection, 
+            $rootCriteriaSet->getCriteriaSets()
+        );
 		// End of user code
     }
 

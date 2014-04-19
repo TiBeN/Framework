@@ -2,10 +2,10 @@
 
 namespace TiBeN\Framework\Bootstrap;
 
-use TiBeN\Framework\Router\Route;
 use TiBeN\Framework\Renderer\TemplateRenderer;
-use TiBeN\Framework\Router\Router;
+use TiBeN\Framework\Router\Route;
 use TiBeN\Framework\Renderer\SmartyEngine;
+use TiBeN\Framework\Router\Router;
 
 // Start of user code Bootstrap.useStatements
 // Place your use statements here.
@@ -36,9 +36,10 @@ class Bootstrap
      * Init The booting process of the Framework.
      * Allways call this before use any component.
      *
-     * @param string $configFolder
+     * @param string $configDirectory
+     * @param string $tempDirectory
      */
-    public static function init($configFolder)
+    public static function init($configDirectory, $tempDirectory)
     {
         // Start of user code Bootstrap.init
 

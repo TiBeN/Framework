@@ -28,9 +28,9 @@ class AttributeMapping
     public $dataSourceAttributeMappingConfiguration;
 
     /**
-     * @var array
+     * @var bool
      */
-    public $validationRules;
+    public $isIdentifier;
 
     /**
      * @var string
@@ -38,9 +38,9 @@ class AttributeMapping
     public $name;
 
     /**
-     * @var bool
+     * @var array
      */
-    public $isIdentifier;
+    public $validationRules;
 
     public function __construct()
     {
@@ -95,23 +95,23 @@ class AttributeMapping
     }
 
     /**
-     * @return array
+     * @return bool
      */
-    public function getValidationRules()
+    public function getIsIdentifier()
     {
-        // Start of user code Getter AttributeMapping.getValidationRules
+        // Start of user code Getter AttributeMapping.getIsIdentifier
         // End of user code
-        return $this->validationRules;
+        return $this->isIdentifier;
     }
 
     /**
-     * @param array $validationRules
+     * @param bool $isIdentifier
      */
-    public function setValidationRules(array $validationRules)
+    public function setIsIdentifier($isIdentifier)
     {
-        // Start of user code Setter AttributeMapping.setValidationRules
+        // Start of user code Setter AttributeMapping.setIsIdentifier
         // End of user code
-        $this->validationRules = $validationRules;
+        $this->isIdentifier = $isIdentifier;
     }
 
     /**
@@ -135,23 +135,23 @@ class AttributeMapping
     }
 
     /**
-     * @return bool
+     * @return array
      */
-    public function getIsIdentifier()
+    public function getValidationRules()
     {
-        // Start of user code Getter AttributeMapping.getIsIdentifier
+        // Start of user code Getter AttributeMapping.getValidationRules
         // End of user code
-        return $this->isIdentifier;
+        return $this->validationRules;
     }
 
     /**
-     * @param bool $isIdentifier
+     * @param array $validationRules
      */
-    public function setIsIdentifier($isIdentifier)
+    public function setValidationRules(array $validationRules)
     {
-        // Start of user code Setter AttributeMapping.setIsIdentifier
+        // Start of user code Setter AttributeMapping.setValidationRules
         // End of user code
-        $this->isIdentifier = $isIdentifier;
+        $this->validationRules = $validationRules;
     }
 
     /**

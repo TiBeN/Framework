@@ -43,7 +43,7 @@ class SmartyUriHandlerTest extends \PHPUnit_Framework_TestCase
      * Test method getUri from class SmartyUriHandler
      *
      * Start of user code SmartyUriHandlerTest.testgetUriAnnotations 
-	 * PHPUnit users annotations can be placed here  
+	 * @runInSeparateProcess 
 	 * End of user code
      */
     public function testGetUri()
@@ -59,7 +59,13 @@ class SmartyUriHandlerTest extends \PHPUnit_Framework_TestCase
 		
 		$smartyUriHandler = new SmartyUriHandler();
 		
-		$smartyInternalTemplateMock = $this->getMock('Smarty_Internal_Template');
+		$smartyInternalTemplateMock = $this->getMock(
+            'Smarty_Internal_Template', 
+            array(), 
+            array(), 
+            '', 
+            false
+        );
 		
 		$this->assertEquals(
 			'/test/foo-content/bar-content.html',
@@ -80,13 +86,20 @@ class SmartyUriHandlerTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Case : Exception when no route rule name are set
      *
+     * @runInSeparateProcess
 	 * @expectedException InvalidArgumentException
 	 * @expectedExceptionMessage No route rule name set
 	 */
 	public function testExceptionWhenNoRouteRuleByNameAreSet() {
 			
 		$smartyUriHandler = new SmartyUriHandler();				
-		$smartyInternalTemplateMock = $this->getMock('Smarty_Internal_Template');
+		$smartyInternalTemplateMock = $this->getMock(
+            'Smarty_Internal_Template', 
+            array(), 
+            array(), 
+            '', 
+            false
+        );
 		$smartyUriHandler->getUri(
 			array('foo' => 'foo-content'),
 			$smartyInternalTemplateMock

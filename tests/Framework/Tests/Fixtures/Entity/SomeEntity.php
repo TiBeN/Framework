@@ -1,5 +1,9 @@
 <?php
 
+namespace TiBeN\Framework\Tests\Fixtures\Entity;
+
+use TiBeN\Framework\Entity\Entity;
+
 class SomeEntity implements Entity
 {
 

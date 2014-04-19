@@ -70,20 +70,6 @@ class GenericStatement implements Statement
     // Statement Realization
 
     /**
-     * Tell wether the statement is ready or not to be executed
-     *
-     * @return bool $status
-     */
-    public function isReadyToBeExecuted()
-    {
-        // Start of user code Statement.isReadyToBeExecuted
-		return isset($this->statementString) && !empty($this->statementString);  
-        // End of user code
-    
-        return $status;
-    }
-
-    /**
      * @return AssociativeArray $statementParameters
      */
     public function getStatementParameters()
@@ -107,6 +93,20 @@ class GenericStatement implements Statement
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * Tell wether the statement is ready or not to be executed
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+		return isset($this->statementString) && !empty($this->statementString);  
+        // End of user code
+    
+        return $status;
     }
 
     // Start of user code GenericStatement.implementationSpecificMethods

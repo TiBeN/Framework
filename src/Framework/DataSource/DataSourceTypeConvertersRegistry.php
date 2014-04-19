@@ -39,6 +39,11 @@ class DataSourceTypeConvertersRegistry
     private static function getTypeConverters()
     {
         // Start of user code Static getter DataSourceTypeConvertersRegistry.getTypeConverters
+	    if(!isset(self::$typeConverters)) {
+	        self::$typeConverters = new AssociativeArray(
+                'TiBeN\\Framework\\Datatype\\AssociativeArray'
+            );
+	    }		
         // End of user code
         return self::$typeConverters;
     }
@@ -54,23 +59,25 @@ class DataSourceTypeConvertersRegistry
     }
 
     /**
-     * @param string $type
-     * @param string $dataSourceType
-     */
-    public static function clearTypeConverter($type, $dataSourceType)
-    {
-        // Start of user code DataSourceTypeConvertersRegistry.clearTypeConverter
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
      * @param TypeConverter $typeConverter
      */
     public static function registerTypeConverter(TypeConverter $typeConverter)
     {
         // Start of user code DataSourceTypeConvertersRegistry.registerTypeConverter
-        // TODO should be implemented.
+		if(!self::getTypeConverters()->has($typeConverter->getDataSourceType())) {
+		    self::getTypeConverters()
+                ->set(                                            
+                    $typeConverter->getDataSourceType(),
+                    new AssociativeArray(
+                        'TiBeN\\Framework\\DataSource\\TypeConverter'
+                    )
+                );
+		}
+		
+		self::getTypeConverters()
+            ->get($typeConverter->getDataSourceType())
+            ->set($typeConverter->getType(), $typeConverter)    
+		;
         // End of user code
     }
 
@@ -82,7 +89,20 @@ class DataSourceTypeConvertersRegistry
     public static function getTypeConverter($type, $dataSourceType)
     {
         // Start of user code DataSourceTypeConvertersRegistry.getTypeConverter
-        // TODO should be implemented.
+	    if(!self::hasTypeConverter($type, $dataSourceType)) {
+	        throw new \InvalidArgumentException(
+                sprintf(
+                    'No type converter \'%s\' for datasource \'%s\'',
+                    $type,
+                    $dataSourceType
+                )
+	        );
+	    }
+	     
+	    $typeConverter = self::getTypeConverters()
+	       ->get($dataSourceType)
+	       ->get($type)
+        ;	           
         // End of user code
     
         return $typeConverter;
@@ -96,10 +116,33 @@ class DataSourceTypeConvertersRegistry
     public static function hasTypeConverter($type, $dataSourceType)
     {
         // Start of user code DataSourceTypeConvertersRegistry.hasTypeConverter
-        // TODO should be implemented.
+		$boolean = self::getTypeConverters()->has($dataSourceType)
+            && self::getTypeConverters()->get($dataSourceType)->has($type)
+        ;             		  	    
         // End of user code
     
         return $boolean;
+    }
+
+    /**
+     * @param string $type
+     * @param string $dataSourceType
+     */
+    public static function clearTypeConverter($type, $dataSourceType)
+    {
+        // Start of user code DataSourceTypeConvertersRegistry.clearTypeConverter
+		if(!self::hasTypeConverter($type, $dataSourceType)) {
+		    throw new \InvalidArgumentException(
+                sprintf(
+                    'No type converter \'%s\' for datasource \'%s\'', 
+                    $type, 
+                    $dataSourceType
+                )
+            );
+		}
+		
+		self::getTypeConverters()->get($dataSourceType)->remove($type);		
+        // End of user code
     }
 
     // Start of user code DataSourceTypeConvertersRegistry.implementationSpecificMethods

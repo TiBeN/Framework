@@ -2,6 +2,15 @@
 
 namespace TiBeN\Framework\Tests\Fixtures\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\DataSource\MysqlDataSource\MysqlDataSource;
+use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Entity\EntityMappingsRegistry;
+use TiBeN\Framework\DataSource\DataSourcesRegistry;
+use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
+use TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\IntegerConverter;
+use TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\StringConverter;
+
 /**
  * Setup Test class for mysql datasource
  */
@@ -93,39 +102,42 @@ class MysqlDataSourceTestSetupTearDown
 	public static function declareSomeEntityMapping() 
 	{	    
 	    self::declareMysqlDataSource();
-	    $entityMapping = EntityMapping::create(AssociativeArray::createFromNativeArray(null, array(	            
-    	    'entity' => 'SomeEntity',
-    	    'datasource' => array(
-        	    'name' => 'test-mysql',
-        	    'tableName' => 'some_entity_data_table'
-            ),
-            'attributes' => array(
-                'id' => array(
-                   'isIdentifier' => true,
-                   'isAutoIncrement' => true,
-                   'type' => array(
-                        'name' => 'integer'                 	   
+	    $entityMapping = EntityMapping::create(
+            AssociativeArray::createFromNativeArray(
+                null, 
+                array(	            
+                    'entity' => 'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity',
+                    'datasource' => array(
+                        'name' => 'test-mysql',
+                        'tableName' => 'some_entity_data_table'
                     ),
-            	   'columnName' => 'idTable'
-                ),                    
-                'attributeA' => array(
-                    'columnName' => 'a',
-                    'type' => array(
-                       'name' => 'string'
-                    )                                          
-                ),
-                'attributeB' => array(
-                    'columnName' => 'b',
-                    'type' => array(
-                        'name' => 'string'
-                    )    
-                ),
-                'attributeC' => array(
-                    'columnName' => 'c',
-                    'type' => array(
-                        'name' => 'string'
-                    )    
-                )      
+                    'attributes' => array(
+                        'id' => array(
+                           'isIdentifier' => true,
+                           'isAutoIncrement' => true,
+                           'type' => array(
+                                'name' => 'integer'                 	   
+                            ),
+                           'columnName' => 'idTable'
+                        ),                    
+                        'attributeA' => array(
+                            'columnName' => 'a',
+                            'type' => array(
+                               'name' => 'string'
+                            )                                          
+                        ),
+                        'attributeB' => array(
+                            'columnName' => 'b',
+                            'type' => array(
+                                'name' => 'string'
+                            )    
+                        ),
+                        'attributeC' => array(
+                            'columnName' => 'c',
+                            'type' => array(
+                                'name' => 'string'
+                            )    
+                        )      
 
                 /* idée de mapping relation */
 //                 'entityX' => array(
@@ -133,8 +145,10 @@ class MysqlDataSourceTestSetupTearDown
 //                     'entityName' => 'entityX',
 //                     [.. relation configuration ..]        
 //                 )        
-            )                    
-	    )));	
+                    )                    
+                )
+            )
+        );	
 	    EntityMappingsRegistry::registerEntityMapping($entityMapping);    
 	}
 	
@@ -158,4 +172,10 @@ class MysqlDataSourceTestSetupTearDown
 	    $pdo = self::getPdoConnection($GLOBALS['db_name']);
 	    $pdoStatement = $pdo->query('CREATE TABLE some_entity_data_table (idTable MEDIUMINT NOT NULL AUTO_INCREMENT, a VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci, b VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci, c VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci, PRIMARY KEY (idTable));');
 	}
+
+    public static function declareBuiltInTypeConverters()
+    {
+        DataSourceTypeConvertersRegistry::registerTypeConverter(new IntegerConverter());
+        DataSourceTypeConvertersRegistry::registerTypeConverter(new StringConverter());
+    }
 }

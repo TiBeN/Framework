@@ -20,19 +20,14 @@ class StatementExecutionResult
     public $lastInsertId;
 
     /**
-     * @var int
-     */
-    public $errorCode;
-
-    /**
      * @var bool
      */
     public $success;
 
     /**
-     * @var string
+     * @var RowCollection
      */
-    public $errorMessage;
+    public $rowCollection;
 
     /**
      * @var int
@@ -40,9 +35,14 @@ class StatementExecutionResult
     public $numberOfAffectedRows;
 
     /**
-     * @var RowCollection
+     * @var int
      */
-    public $rowCollection;
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
 
     public function __construct()
     {
@@ -77,26 +77,6 @@ class StatementExecutionResult
     }
 
     /**
-     * @return int
-     */
-    public function getErrorCode()
-    {
-        // Start of user code Getter StatementExecutionResult.getErrorCode
-        // End of user code
-        return $this->errorCode;
-    }
-
-    /**
-     * @param int $errorCode
-     */
-    public function setErrorCode($errorCode)
-    {
-        // Start of user code Setter StatementExecutionResult.setErrorCode
-        // End of user code
-        $this->errorCode = $errorCode;
-    }
-
-    /**
      * @return bool
      */
     public function getSuccess()
@@ -117,23 +97,23 @@ class StatementExecutionResult
     }
 
     /**
-     * @return string
+     * @return RowCollection
      */
-    public function getErrorMessage()
+    public function getRowCollection()
     {
-        // Start of user code Getter StatementExecutionResult.getErrorMessage
+        // Start of user code Getter StatementExecutionResult.getRowCollection
         // End of user code
-        return $this->errorMessage;
+        return $this->rowCollection;
     }
 
     /**
-     * @param string $errorMessage
+     * @param RowCollection $rowCollection
      */
-    public function setErrorMessage($errorMessage)
+    public function setRowCollection(RowCollection $rowCollection)
     {
-        // Start of user code Setter StatementExecutionResult.setErrorMessage
+        // Start of user code Setter StatementExecutionResult.setRowCollection
         // End of user code
-        $this->errorMessage = $errorMessage;
+        $this->rowCollection = $rowCollection;
     }
 
     /**
@@ -157,23 +137,43 @@ class StatementExecutionResult
     }
 
     /**
-     * @return RowCollection
+     * @return int
      */
-    public function getRowCollection()
+    public function getErrorCode()
     {
-        // Start of user code Getter StatementExecutionResult.getRowCollection
+        // Start of user code Getter StatementExecutionResult.getErrorCode
         // End of user code
-        return $this->rowCollection;
+        return $this->errorCode;
     }
 
     /**
-     * @param RowCollection $rowCollection
+     * @param int $errorCode
      */
-    public function setRowCollection(RowCollection $rowCollection)
+    public function setErrorCode($errorCode)
     {
-        // Start of user code Setter StatementExecutionResult.setRowCollection
+        // Start of user code Setter StatementExecutionResult.setErrorCode
         // End of user code
-        $this->rowCollection = $rowCollection;
+        $this->errorCode = $errorCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorMessage()
+    {
+        // Start of user code Getter StatementExecutionResult.getErrorMessage
+        // End of user code
+        return $this->errorMessage;
+    }
+
+    /**
+     * @param string $errorMessage
+     */
+    public function setErrorMessage($errorMessage)
+    {
+        // Start of user code Setter StatementExecutionResult.setErrorMessage
+        // End of user code
+        $this->errorMessage = $errorMessage;
     }
 
     // Start of user code StatementExecutionResult.implementationSpecificMethods

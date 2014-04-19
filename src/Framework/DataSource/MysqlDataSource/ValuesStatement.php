@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Entity\EntityMapping;
-use TiBeN\Framework\Entity\Entity;
 
 // Start of user code ValuesStatement.useStatements
 // Place your use statements here.
@@ -73,7 +73,19 @@ class ValuesStatement extends AssociativeArray
     public function toString()
     {
         // Start of user code ValuesStatement.toString
-        // TODO should be implemented.
+	    if($this->isEmpty()) {
+	        throw new \LogicException('The ValuesStatement is empty');
+	    }	    
+	    $string = sprintf(
+	        'VALUES(%s)', 
+	        implode(
+                ',', 
+                array_map(
+                    function($columnName){ return ':' . $columnName; },                        
+                    array_keys($this->items)                    
+                )
+            )
+        );		 
         // End of user code
     
         return $string;
@@ -87,7 +99,13 @@ class ValuesStatement extends AssociativeArray
     public static function createFromEntity(EntityMapping $entityMapping, Entity $entity)
     {
         // Start of user code ValuesStatement.createFromEntity
-        // TODO should be implemented.
+        $converter = new RowToEntityConverter();
+        $converter->setEntityMapping($entityMapping);
+        $rows = $converter->reverse($entity);
+        $valuesStatement = ValuesStatement::createFromNativeArray(
+            null, 
+            $rows->toNativeArray()
+        );
         // End of user code
     
         return $valuesStatement;

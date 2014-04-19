@@ -5,7 +5,11 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 use TiBeN\Framework\DataSource\MysqlDataSource\OrderByStatement;
 
 // Start of user code OrderByStatement.useStatements
-// Place your use statements here.
+use TiBeN\Framework\Datatype\GenericCollection;
+use TiBeN\Framework\Entity\OrderCriteria;
+use TiBeN\Framework\Entity\EntityMappingsRegistry;
+use TiBeN\Framework\Tests\Fixtures\DataSource\MysqlDataSource\MysqlDataSourceTestSetupTearDown;
+
 // End of user code
 
 /**
@@ -26,7 +30,7 @@ class OrderByStatementTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         // Start of user code OrderByStatementTest.setUp
-		// Place additional setUp code here.  
+        MysqlDataSourceTestSetupTearDown::declareSomeEntityMapping(); 
 		// End of user code
     }
 
@@ -47,9 +51,28 @@ class OrderByStatementTest extends \PHPUnit_Framework_TestCase
     public function testCreateFromOrderCriterias()
     {
         // Start of user code OrderByStatementTest.testcreateFromOrderCriterias
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+        $expectedOrderByStatementString = "ORDER BY idTable ASC, a DESC";
+        
+        $orderCriterias = GenericCollection::createFromNativeArray(
+            'TiBeN\\Framework\\Entity\\OrderCriteria', 
+            array(
+                OrderCriteria::asc('id'),
+                OrderCriteria::desc('attributeA'),
+            )
+        );
+        
+        $entityMapping = EntityMappingsRegistry::getEntityMapping(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );
+        $orderByStatement = OrderByStatement::createFromOrderCriterias(
+            $entityMapping, 
+            $orderCriterias
+        );
+        
+        $this->assertEquals(
+            $expectedOrderByStatementString, 
+            $orderByStatement->toString()
+        );
 		// End of user code
     }
     
@@ -63,9 +86,7 @@ class OrderByStatementTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code OrderByStatementTest.testtoString
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+	    // Implicitly tested
 		// End of user code
     }
 

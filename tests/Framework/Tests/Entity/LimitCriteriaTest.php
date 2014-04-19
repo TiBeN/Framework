@@ -47,9 +47,20 @@ class LimitCriteriaTest extends \PHPUnit_Framework_TestCase
     public function testTo()
     {
         // Start of user code LimitCriteriaTest.testto
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+	    $expectedLimitCriteria = new LimitCriteria();
+	    $expectedLimitCriteria->setNumber(5);
+	    $this->assertEquals(
+	    		$expectedLimitCriteria, 
+	    		LimitCriteria::to(5)
+		);
+	    
+	    $expectedLimitCriteria = new LimitCriteria();
+	    $expectedLimitCriteria->setNumber(5);
+	    $expectedLimitCriteria->setOffset(1337);
+	    $this->assertEquals(
+	    		$expectedLimitCriteria,
+	    		LimitCriteria::to(5, 1337)
+	    );	    
 		// End of user code
     }
 

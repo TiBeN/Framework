@@ -40,21 +40,6 @@ class IntegerConverterTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method setParameters from interface TypeConverter
-     * Start of user code TypeConverter.testsetParametersAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testSetParameters()
-    {
-        // Start of user code TypeConverter.testsetParameters
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
      * Test method convert from interface TypeConverter
      * Start of user code TypeConverter.testconvertAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -63,39 +48,8 @@ class IntegerConverterTest extends \PHPUnit_Framework_TestCase
     public function testConvert()
     {
         // Start of user code Converter.testconvert
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
-     * Test method getType from interface TypeConverter
-     * Start of user code TypeConverter.testgetTypeAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetType()
-    {
-        // Start of user code TypeConverter.testgetType
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
-     * Test method reverse from interface TypeConverter
-     * Start of user code TypeConverter.testreverseAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testReverse()
-    {
-        // Start of user code Converter.testreverse
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $converter = new IntegerConverter();
+        $this->assertSame('1337', $converter->convert(1337));
     	// End of user code
     }
     
@@ -108,9 +62,49 @@ class IntegerConverterTest extends \PHPUnit_Framework_TestCase
     public function testGetDataSourceType()
     {
         // Start of user code TypeConverter.testgetDataSourceType
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+		$converter = new IntegerConverter();
+	    $this->assertEquals('mysql', $converter->getDataSourceType());
+    	// End of user code
+    }
+    
+    /**
+     * Test method setParameters from interface TypeConverter
+     * Start of user code TypeConverter.testsetParametersAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testSetParameters()
+    {
+        // Start of user code TypeConverter.testsetParameters
+	    // Nothing to test here
+    	// End of user code
+    }
+    
+    /**
+     * Test method getType from interface TypeConverter
+     * Start of user code TypeConverter.testgetTypeAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetType()
+    {
+        // Start of user code TypeConverter.testgetType
+		$converter = new IntegerConverter();
+	    $this->assertEquals('integer', $converter->getType());
+    	// End of user code
+    }
+    
+    /**
+     * Test method reverse from interface TypeConverter
+     * Start of user code TypeConverter.testreverseAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testReverse()
+    {
+        // Start of user code Converter.testreverse
+        $converter = new IntegerConverter();
+        $this->assertSame(1337, $converter->reverse('1337'));
     	// End of user code
     }
 

@@ -5,7 +5,16 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 use TiBeN\Framework\DataSource\MysqlDataSource\StatementFactory;
 
 // Start of user code StatementFactory.useStatements
-// Place your use statements here.
+use TiBeN\Framework\Tests\Fixtures\DataSource\MysqlDataSource\MysqlDataSourceTestSetupTearDown;
+use TiBeN\Framework\Tests\Fixtures\Entity\SomeEntity;
+use TiBeN\Framework\Entity\EntityMappingsRegistry;
+use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\DataSource\MysqlDataSource\GenericStatement;
+use TiBeN\Framework\Entity\CriteriaSet;
+use TiBeN\Framework\Entity\MatchCriteria;
+use TiBeN\Framework\Entity\OrderCriteria;
+use TiBeN\Framework\Entity\LimitCriteria;
+
 // End of user code
 
 /**
@@ -26,7 +35,8 @@ class StatementFactoryTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         // Start of user code StatementFactoryTest.setUp
-		// Place additional setUp code here.  
+        MysqlDataSourceTestSetupTearDown::declareBuiltInTypeConverters();
+        MysqlDataSourceTestSetupTearDown::declareSomeEntityMapping();
 		// End of user code
     }
 
@@ -38,15 +48,15 @@ class StatementFactoryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createInsertStatement from class StatementFactory
+     * Test static method createUpdateStatementFromEntity from class StatementFactory
      *
-     * Start of user code StatementFactoryTest.testcreateInsertStatementAnnotations 
+     * Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntityAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testCreateInsertStatement()
+    public function testCreateUpdateStatementFromEntity()
     {
-        // Start of user code StatementFactoryTest.testcreateInsertStatement
+        // Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntity
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );
@@ -70,17 +80,86 @@ class StatementFactoryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createUpdateStatementFromEntity from class StatementFactory
+     * Test static method createSelectStatementFromCriteriaSet from class StatementFactory
      *
-     * Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntityAnnotations 
+     * Start of user code StatementFactoryTest.testcreateSelectStatementFromCriteriaSetAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testCreateUpdateStatementFromEntity()
+    public function testCreateSelectStatementFromCriteriaSet()
     {
-        // Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntity
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
+        // Start of user code StatementFactoryTest.testcreateSelectStatementFromCriteriaSet
+        $expectedStatement = 'SELECT idTable,a,b,c FROM some_entity_data_table WHERE ((b = :attributeB0 AND b != :attributeB1) OR b != :attributeB2 OR a = :attributeA0 OR a != :attributeA1 OR a > :attributeA2) AND c LIKE :attributeC0 AND a != :attributeA3 ORDER BY idTable ASC, a DESC LIMIT 5,10';
+        $criteriaSet = CriteriaSet::createAnd()
+            ->addSubSet(
+                CriteriaSet::createOr()
+                    ->add(MatchCriteria::notEquals('attributeB', 1337))
+                    ->add(MatchCriteria::equals('attributeA', 'foo'))
+                    ->add(MatchCriteria::notEquals('attributeA', 'bar'))
+                    ->add(MatchCriteria::greaterThan('attributeA', 'baz'))
+                    ->addSubSet(
+                        CriteriaSet::createAnd()
+                            ->add(MatchCriteria::equals('attributeB', 'foo'))
+                            ->add(MatchCriteria::notEquals('attributeB', 'bar'))
+                    )
+            )
+            ->add(MatchCriteria::like('attributeC', 'baz'))
+            ->add(MatchCriteria::notEquals('attributeA', 'foo'))
+            ->addOrder(OrderCriteria::asc('id'))
+            ->addOrder(OrderCriteria::desc('attributeA'))
+            ->setLimit(LimitCriteria::to(10,5))
+        ;	        
+        $entityMapping = EntityMappingsRegistry::getEntityMapping(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );                
+        $select = StatementFactory::createSelectStatementFromCriteriaSet(
+            $entityMapping, 
+            $criteriaSet
+        );
+        $this->assertEquals($expectedStatement, $select->toString());
+		// End of user code
+    }
+    
+    /**
+     * Test static method createInsertStatement from class StatementFactory
+     *
+     * Start of user code StatementFactoryTest.testcreateInsertStatementAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateInsertStatement()
+    {
+        // Start of user code StatementFactoryTest.testcreateInsertStatement
+        $expectedStatement 
+            = 'INSERT INTO some_entity_data_table (idTable,a,b,c) VALUES(:idTable,:a,:b,:c)'
+        ;
+        $expectedParameters = array(
+        	'idTable' => NULL,
+            'a' => 'foo',
+            'b' => 'bar',
+            'c' => 'baz'                                 
+        );
+        
+        $entity = new SomeEntity();
+        $entity->setAttributeA('foo');
+        $entity->setAttributeB('bar');
+        $entity->setAttributeC('baz');
+	    
+	    $actualStatement = StatementFactory::createInsertStatement(
+            EntityMappingsRegistry::getEntityMapping(
+                'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+            ), 
+            $entity
+        );        
+	    
+	    $this->assertEquals($expectedStatement, $actualStatement->toString());
+	    
+	    $this->assertEquals(
+        	AssociativeArray::createFromNativeArray(
+                null,
+                $expectedParameters                        	           
+            ),
+	        $actualStatement->getStatementParameters()    
 	    );
 		// End of user code
     }
@@ -95,29 +174,43 @@ class StatementFactoryTest extends \PHPUnit_Framework_TestCase
     public function testCreateFromString()
     {
         // Start of user code StatementFactoryTest.testcreateFromString
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test static method createSelectStatementFromCriteriaSet from class StatementFactory
-     *
-     * Start of user code StatementFactoryTest.testcreateSelectStatementFromCriteriaSetAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateSelectStatementFromCriteriaSet()
-    {
-        // Start of user code StatementFactoryTest.testcreateSelectStatementFromCriteriaSet
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+        $expectedStatement = new GenericStatement();
+        $expectedStatement->setStatementString('SELECT * someTable where id=:id');
+        
+        $statementParameters = AssociativeArray::createFromNativeArray(
+            null, 
+            array('id' => 1337)
+        );
+        
+        $expectedStatement->setStatementParameters($statementParameters);        
+        $actualStatement = StatementFactory::createFromString(
+            'SELECT * someTable where id=:id', 
+            $statementParameters
+        );
+        
+        $this->assertEquals($expectedStatement, $actualStatement);
 		// End of user code
     }
 
     // Start of user code StatementFactoryTest.methods
-	// Place additional tests methods here.  
+    
+	/**
+	 * @expectedException LogicException
+	 * @expectedExceptionMessage Create an insert statement on an already persisted entity is not allowed
+	 */
+	public function testCreateInsertStatementOnAlreadyPersistedEntity() 
+    {
+	    $entity = new SomeEntity();
+	    $entity->setId(1337);
+	    $entity->setAttributeA('foo');
+	    $entity->setAttributeB('bar');
+	    $entity->setAttributeC('baz');
+	    StatementFactory::createInsertStatement(
+            EntityMappingsRegistry::getEntityMapping(
+                'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+            ),
+            $entity
+	    );        	    
+	}
 	// End of user code
 }

@@ -17,14 +17,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class ValidationRule
 {
     /**
-     * @var string
-     */
-    public $validatorName;
-
-    /**
      * @var AssociativeArray
      */
     public $configuration;
+
+    /**
+     * @var string
+     */
+    public $validatorName;
 
     public function __construct()
     {
@@ -36,26 +36,6 @@ class ValidationRule
     {
         // Start of user code ValidationRule.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getValidatorName()
-    {
-        // Start of user code Getter ValidationRule.getValidatorName
-        // End of user code
-        return $this->validatorName;
-    }
-
-    /**
-     * @param string $validatorName
-     */
-    public function setValidatorName($validatorName)
-    {
-        // Start of user code Setter ValidationRule.setValidatorName
-        // End of user code
-        $this->validatorName = $validatorName;
     }
 
     /**
@@ -76,6 +56,26 @@ class ValidationRule
         // Start of user code Setter ValidationRule.setConfiguration
         // End of user code
         $this->configuration = $configuration;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValidatorName()
+    {
+        // Start of user code Getter ValidationRule.getValidatorName
+        // End of user code
+        return $this->validatorName;
+    }
+
+    /**
+     * @param string $validatorName
+     */
+    public function setValidatorName($validatorName)
+    {
+        // Start of user code Setter ValidationRule.setValidatorName
+        // End of user code
+        $this->validatorName = $validatorName;
     }
 
     // Start of user code ValidationRule.implementationSpecificMethods

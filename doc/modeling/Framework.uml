@@ -2175,7 +2175,7 @@ you want to create new kinds of Mysql Statement.</body>
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_gJOhkCLpEeOU6MgQ9M9Alg" name="WhereConditions">
+      <packagedElement xmi:type="uml:Class" xmi:id="_gJOhkCLpEeOU6MgQ9M9Alg" clientDependency="_bw_lQMepEeOhlq-hm4UKlg _5otb4MepEeOhlq-hm4UKlg" name="WhereConditions">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_ZGbX0FL6EeObTb2-M52a-w" name="expr" visibility="public" type="_onWE0FL2EeObTb2-M52a-w">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bYJi0FL6EeObTb2-M52a-w" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bYKJ4FL6EeObTb2-M52a-w" value="1"/>
@@ -2210,7 +2210,7 @@ you want to create new kinds of Mysql Statement.</body>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_s5xKAFL7EeObTb2-M52a-w" name="whereConditions" type="_gJOhkCLpEeOU6MgQ9M9Alg" direction="return"/>
         </ownedOperation>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_ASAb4CLqEeOU6MgQ9M9Alg" name="OrderByStatement">
+      <packagedElement xmi:type="uml:Class" xmi:id="_ASAb4CLqEeOU6MgQ9M9Alg" clientDependency="_asFCQMfCEeOhlq-hm4UKlg" name="OrderByStatement">
         <generalization xmi:type="uml:Generalization" xmi:id="_Zm_pgFnlEeO_MoikqrwZnQ" general="_ti84wLoPEeKycOj42mlSMA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_T7ficFnpEeO_MoikqrwZnQ" name="direction_asc" visibility="public" isReadOnly="true">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -2478,7 +2478,7 @@ you want to create new kinds of Mysql Statement.</body>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_iZPVsCkmEeOKLdof59zQww" name="handle insert values statement using" client="_tM1zwCLnEeOU6MgQ9M9Alg" supplier="_M7fasCkmEeOKLdof59zQww"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_C8gMkCknEeOKLdof59zQww" name="MysqlEntityAttributeMapper">
+      <packagedElement xmi:type="uml:Class" xmi:id="_C8gMkCknEeOKLdof59zQww" clientDependency="_jnFdYMcdEeOwo4bGXJhZCw" name="MysqlEntityAttributeMapper">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_6bciUEljEeOqVKRCL0isvA" name="entity" visibility="public" type="_1PtQoBloEeOF6MZOG78g_A">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AI83sElkEeOqVKRCL0isvA" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AI9ewElkEeOqVKRCL0isvA" value="1"/>
@@ -2699,6 +2699,10 @@ with other Statement classes.</body>
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_jnFdYMcdEeOwo4bGXJhZCw" name="find data converters using" client="_C8gMkCknEeOKLdof59zQww" supplier="_lqdYsEn9EeOhBJpxbXcYWQ"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_bw_lQMepEeOhlq-hm4UKlg" name="Express Entity Targeting using" client="_gJOhkCLpEeOU6MgQ9M9Alg" supplier="_gKCHEB79EeOf9MerE9_4bA"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_5otb4MepEeOhlq-hm4UKlg" name="Store data into" client="_gJOhkCLpEeOU6MgQ9M9Alg" supplier="_9fMUkEWcEeOvPbyK1FXp-A"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_asFCQMfCEeOhlq-hm4UKlg" name="Create From" client="_ASAb4CLqEeOU6MgQ9M9Alg" supplier="_yeYLsB7-EeOf9MerE9_4bA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_lqdYsEn9EeOhBJpxbXcYWQ" name="DataSourceTypeConvertersRegistry">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_QFESskn_EeOhBJpxbXcYWQ" name="typeConverters" visibility="private" isStatic="true" type="_ti84wLoPEeKycOj42mlSMA">
@@ -2805,7 +2809,7 @@ with other Statement classes.</body>
       </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_lkWZkB4fEeOAXbbnJNwHxQ" name="store validation results into" client="_WqNVgB4fEeOAXbbnJNwHxQ" supplier="_dr-IEB4fEeOAXbbnJNwHxQ"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_tDsgAB4fEeOAXbbnJNwHxQ" name="EntityMapping">
+    <packagedElement xmi:type="uml:Class" xmi:id="_tDsgAB4fEeOAXbbnJNwHxQ" clientDependency="_-tXloMcGEeOwo4bGXJhZCw" name="EntityMapping">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_T2DrgB4iEeOwhK47NxXINQ" name="dataSourceName" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W1QAgB4iEeOwhK47NxXINQ" value="1"/>
@@ -2905,7 +2909,7 @@ with other Statement classes.</body>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0gY-Qx4jEeOwhK47NxXINQ" value="1"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_e0hssB79EeOf9MerE9_4bA" name="CriteriaSet">
+    <packagedElement xmi:type="uml:Class" xmi:id="_e0hssB79EeOf9MerE9_4bA" clientDependency="_TMvuQMeTEeOhlq-hm4UKlg" name="CriteriaSet">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_ov4tIB7-EeOf9MerE9_4bA" name="logicalSeparator" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wq1KcB7-EeOf9MerE9_4bA" value="1"/>
@@ -3213,6 +3217,8 @@ with other Statement classes.</body>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_IjoUVEZLEeOgk9L_kZODLw" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
       </ownedOperation>
     </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_-tXloMcGEeOwo4bGXJhZCw" name="Obtain Datasource when create using" client="_tDsgAB4fEeOAXbbnJNwHxQ" supplier="_CrK7wBlfEeOF6MZOG78g_A"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_TMvuQMeTEeOhlq-hm4UKlg" name="Store criterias into" client="_e0hssB79EeOf9MerE9_4bA" supplier="_9fMUkEWcEeOvPbyK1FXp-A"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_wx9KoBsjEeOmN-2QJZ-Okg" name="Validation">
     <ownedComment xmi:type="uml:Comment" xmi:id="_tDCMYBskEeOmN-2QJZ-Okg">
@@ -3312,7 +3318,10 @@ needed booting tasks</body>
           <body>Init The booting process of the Framework.
 Allways call this before use any component.</body>
         </ownedComment>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_70VxUL22EeO-aaY3kqFukA" name="configFolder">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_70VxUL22EeO-aaY3kqFukA" name="configDirectory">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Qt6WsMfHEeOhlq-hm4UKlg" name="tempDirectory">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
       </ownedOperation>

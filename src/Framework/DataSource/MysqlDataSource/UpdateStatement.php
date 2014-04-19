@@ -17,9 +17,9 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class UpdateStatement implements Statement
 {
     /**
-     * @var SetStatement
+     * @var string
      */
-    public $setStatement;
+    public $tableName;
 
     /**
      * @var WhereConditions
@@ -27,9 +27,9 @@ class UpdateStatement implements Statement
     public $whereDefinition;
 
     /**
-     * @var string
+     * @var SetStatement
      */
-    public $tableName;
+    public $setStatement;
 
     public function __construct()
     {
@@ -44,23 +44,23 @@ class UpdateStatement implements Statement
     }
 
     /**
-     * @return SetStatement
+     * @return string
      */
-    public function getSetStatement()
+    public function getTableName()
     {
-        // Start of user code Getter UpdateStatement.getSetStatement
+        // Start of user code Getter UpdateStatement.getTableName
         // End of user code
-        return $this->setStatement;
+        return $this->tableName;
     }
 
     /**
-     * @param SetStatement $setStatement
+     * @param string $tableName
      */
-    public function setSetStatement(SetStatement $setStatement)
+    public function setTableName($tableName)
     {
-        // Start of user code Setter UpdateStatement.setSetStatement
+        // Start of user code Setter UpdateStatement.setTableName
         // End of user code
-        $this->setStatement = $setStatement;
+        $this->tableName = $tableName;
     }
 
     /**
@@ -84,40 +84,26 @@ class UpdateStatement implements Statement
     }
 
     /**
-     * @return string
+     * @return SetStatement
      */
-    public function getTableName()
+    public function getSetStatement()
     {
-        // Start of user code Getter UpdateStatement.getTableName
+        // Start of user code Getter UpdateStatement.getSetStatement
         // End of user code
-        return $this->tableName;
+        return $this->setStatement;
     }
 
     /**
-     * @param string $tableName
+     * @param SetStatement $setStatement
      */
-    public function setTableName($tableName)
+    public function setSetStatement(SetStatement $setStatement)
     {
-        // Start of user code Setter UpdateStatement.setTableName
+        // Start of user code Setter UpdateStatement.setSetStatement
         // End of user code
-        $this->tableName = $tableName;
+        $this->setStatement = $setStatement;
     }
 
     // Statement Realization
-
-    /**
-     * Tell wether the statement is ready or not to be executed
-     *
-     * @return bool $status
-     */
-    public function isReadyToBeExecuted()
-    {
-        // Start of user code Statement.isReadyToBeExecuted
-        // TODO should be implemented.
-        // End of user code
-    
-        return $status;
-    }
 
     /**
      * @return AssociativeArray $statementParameters
@@ -125,7 +111,13 @@ class UpdateStatement implements Statement
     public function getStatementParameters()
     {
         // Start of user code Statement.getStatementParameters
-        // TODO should be implemented.
+        $statementParameters = new AssociativeArray();
+        if($this->setStatement instanceof SetStatement) {
+            $statementParameters->merge($this->setStatement->getStatementParameters());
+        } 
+        if($this->whereDefinition instanceof WhereConditions) {
+            $statementParameters->merge($this->whereDefinition->getStatementParameters());
+        }        
         // End of user code
     
         return $statementParameters;
@@ -139,10 +131,37 @@ class UpdateStatement implements Statement
     public function toString()
     {
         // Start of user code Statement.toString
-        // TODO should be implemented.
+	    if(!$this->isReadyToBeExecuted()) {
+            throw new \LogicException('The statement is not ready');    
+        }        
+        $statement = sprintf(
+            'UPDATE %s %s',
+            $this->tableName,
+            $this->setStatement->toString()                                            	           
+        );        
+        if(!is_null($this->whereDefinition)) {
+            $statement .= ' ' . $this->whereDefinition->toString();
+        }        
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * Tell wether the statement is ready or not to be executed
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+        $status = !is_null($this->tableName)
+            && !empty($this->tableName)
+            && $this->setStatement instanceof SetStatement
+        ;                                                               	    
+        // End of user code
+    
+        return $status;
     }
 
     // Start of user code UpdateStatement.implementationSpecificMethods

@@ -5,7 +5,11 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 use TiBeN\Framework\DataSource\MysqlDataSource\SetStatement;
 
 // Start of user code SetStatement.useStatements
-// Place your use statements here.
+use TiBeN\Framework\Entity\EntityMappingsRegistry;
+use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Tests\Fixtures\DataSource\MysqlDataSource\MysqlDataSourceTestSetupTearDown;
+use TiBeN\Framework\Tests\Fixtures\Entity\SomeEntity;
+
 // End of user code
 
 /**
@@ -26,7 +30,8 @@ class SetStatementTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         // Start of user code SetStatementTest.setUp
-		// Place additional setUp code here.  
+		MysqlDataSourceTestSetupTearDown::declareSomeEntityMapping();
+        MysqlDataSourceTestSetupTearDown::declareBuiltInTypeConverters();
 		// End of user code
     }
 
@@ -34,22 +39,6 @@ class SetStatementTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code SetStatementTest.tearDown
 		// Place additional tearDown code here.  
-		// End of user code
-    }
-    
-    /**
-     * Test method getStatementParameters from class SetStatement
-     *
-     * Start of user code SetStatementTest.testgetStatementParametersAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetStatementParameters()
-    {
-        // Start of user code SetStatementTest.testgetStatementParameters
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
 		// End of user code
     }
     
@@ -63,9 +52,21 @@ class SetStatementTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code SetStatementTest.testtoString
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+	    // Implicitly tested by testCreateKeyValueListFromEntity
+		// End of user code
+    }
+    
+    /**
+     * Test method getStatementParameters from class SetStatement
+     *
+     * Start of user code SetStatementTest.testgetStatementParametersAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetStatementParameters()
+    {
+        // Start of user code SetStatementTest.testgetStatementParameters
+	    // Implicitly tested by testCreateKeyValueListFromEntity
 		// End of user code
     }
     
@@ -79,9 +80,28 @@ class SetStatementTest extends \PHPUnit_Framework_TestCase
     public function testCreateKeyValueListFromEntity()
     {
         // Start of user code SetStatementTest.testcreateKeyValueListFromEntity
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+        $entity = new SomeEntity();    
+        $entity->setId(10);
+        $entity->setAttributeA('someValue');
+        $entity->setAttributeC('someValue');
+        $entityMapping = EntityMappingsRegistry::getEntityMapping(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );        
+        $setStatement = SetStatement::createKeyValueListFromEntity($entityMapping, $entity);
+        $expectedStatement = 'SET idTable=:idTable,a=:a,b=:b,c=:c';
+        $this->assertEquals($expectedStatement, $setStatement->toString());
+
+        $expectedStatementParameters = AssociativeArray::createFromNativeArray(null, array(
+        	'idTable' => '10',
+            'a' => 'someValue',
+            'b' => null,
+            'c' => 'someValue'
+        ));
+        
+        $this->assertEquals(
+            $expectedStatementParameters, 
+            $setStatement->getStatementParameters()
+        );
 		// End of user code
     }
 

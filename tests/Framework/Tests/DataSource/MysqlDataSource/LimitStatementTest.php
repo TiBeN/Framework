@@ -5,7 +5,8 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 use TiBeN\Framework\DataSource\MysqlDataSource\LimitStatement;
 
 // Start of user code LimitStatement.useStatements
-// Place your use statements here.
+use TiBeN\Framework\Entity\LimitCriteria;
+
 // End of user code
 
 /**
@@ -47,9 +48,20 @@ class LimitStatementTest extends \PHPUnit_Framework_TestCase
     public function testCreateFromLimitCriteria()
     {
         // Start of user code LimitStatementTest.testcreateFromLimitCriteria
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+	    $this->assertEquals(
+            'LIMIT 10', 
+            LimitStatement::createFromLimitCriteria(
+                LimitCriteria::to(10)
+            )
+            ->toString()
+        );
+	    $this->assertEquals(
+            'LIMIT 5,10', 
+            LimitStatement::createFromLimitCriteria(
+                LimitCriteria::to(10,5)
+            )
+            ->toString()
+        );
 		// End of user code
     }
     
@@ -63,9 +75,7 @@ class LimitStatementTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code LimitStatementTest.testtoString
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+        // Implicitly tested by testCreateFromLimitCriteria
 		// End of user code
     }
 

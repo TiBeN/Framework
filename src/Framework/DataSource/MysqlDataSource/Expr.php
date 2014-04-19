@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Datatype\GenericCollection;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code Expr.useStatements
 // Place your use statements here.
@@ -20,12 +20,12 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_LIKE = 'LIKE';
+    const OPERATOR_NOT_LIKE = 'NOT LIKE';
 
     /**
      * @var string
      */
-    const LOGICAL_SEPARATOR_OR = 'OR';
+    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
 
     /**
      * @var string
@@ -40,7 +40,12 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_LESS_THAN = '<';
+    const OPERATOR_LIKE = 'LIKE';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_GREATER_THAN = '>';
 
     /**
      * @var AssociativeArray
@@ -50,7 +55,12 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_NOT_LIKE = 'NOT LIKE';
+    const OPERATOR_LESS_THAN = '<';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
 
     /**
      * @var string
@@ -60,12 +70,7 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_GREATER_THAN = '>';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
+    const OPERATOR_EQUALS = '=';
 
     /**
      * @var bool
@@ -75,16 +80,12 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_EQUALS = '=';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
+    const LOGICAL_SEPARATOR_OR = 'OR';
 
     public function __construct()
     {
         // Start of user code Expr.constructor
+		$this->exprParameters = new AssociativeArray();
         // End of user code
     }
 
@@ -155,18 +156,6 @@ class Expr
     }
 
     /**
-     * @return string $exprString
-     */
-    public function toString()
-    {
-        // Start of user code Expr.toString
-        // TODO should be implemented.
-        // End of user code
-    
-        return $exprString;
-    }
-
-    /**
      * @param string $exprString
      * @param AssociativeArray $exprParameters
      * @return Expr $expr
@@ -174,10 +163,24 @@ class Expr
     public static function fromString($exprString, AssociativeArray $exprParameters)
     {
         // Start of user code Expr.fromString
-        // TODO should be implemented.
+        $expr = new self(); 
+        $expr->setExprString($exprString);
+        $expr->setExprParameters($exprParameters);
         // End of user code
     
         return $expr;
+    }
+
+    /**
+     * @return string $exprString
+     */
+    public function toString()
+    {
+        // Start of user code Expr.toString
+	    $exprString = $this->exprString;
+        // End of user code
+    
+        return $exprString;
     }
 
     /**
@@ -188,7 +191,22 @@ class Expr
     public static function concat(GenericCollection $exprCollection, $logicalSeparator)
     {
         // Start of user code Expr.concat
-        // TODO should be implemented.
+		$expr = new self();
+		$expr->setIsResultOfConcatenation(true);
+		
+		$exprString = '';
+		$numberOfExprs = $exprCollection->count();
+		foreach($exprCollection as $key => $subExpr) {
+			$exprString .= $subExpr->isResultOfConcatenation 
+                ? ('('.$subExpr->toString().')') 
+                : $subExpr->toString()
+            ;
+			if($key+1 < $numberOfExprs) {
+				$exprString .= ' ' . $logicalSeparator . ' ';
+			}
+			$expr->getExprParameters()->merge($subExpr->getExprParameters());
+		}		
+		$expr->setExprString($exprString);
         // End of user code
     
         return $expr;

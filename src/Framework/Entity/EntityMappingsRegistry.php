@@ -39,6 +39,11 @@ class EntityMappingsRegistry
     private static function getEntityMappings()
     {
         // Start of user code Static getter EntityMappingsRegistry.getEntityMappings
+	    if(!isset(self::$entityMappings)) {
+	        self::$entityMappings = new AssociativeArray(
+                'TiBeN\\Framework\\Entity\\EntityMapping'
+            );
+	    }		
         // End of user code
         return self::$entityMappings;
     }
@@ -54,26 +59,42 @@ class EntityMappingsRegistry
     }
 
     /**
+     * @param EntityMapping $entityMapping
+     */
+    public static function registerEntityMapping(EntityMapping $entityMapping)
+    {
+        // Start of user code EntityMappingsRegistry.registerEntityMapping
+		$entityName = $entityMapping->getEntityName();
+		if (empty($entityName)) {
+		    throw new \InvalidArgumentException(
+                'The entity mapping is not associated to any entity'
+            );
+		}
+		if (!class_exists($entityName)) {
+		    throw new \InvalidArgumentException(
+                sprintf('The entity "%s" is unknown', $entityName)
+            );
+		}
+		self::getEntityMappings()->set($entityName, $entityMapping);
+        // End of user code
+    }
+
+    /**
      * @param string $entityName
      * @return EntityMapping $entityMapping
      */
     public static function getEntityMapping($entityName)
     {
         // Start of user code EntityMappingsRegistry.getEntityMapping
-        // TODO should be implemented.
+        if(!self::getEntityMappings()->has($entityName)) {
+		    throw new \InvalidArgumentException(
+                sprintf('No entity mapping for entity "%s"', $entityName)
+            );
+		}
+		$entityMapping = self::getEntityMappings()->get($entityName);
         // End of user code
     
         return $entityMapping;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     */
-    public static function registerEntityMapping(EntityMapping $entityMapping)
-    {
-        // Start of user code EntityMappingsRegistry.registerEntityMapping
-        // TODO should be implemented.
-        // End of user code
     }
 
     /**
@@ -82,7 +103,12 @@ class EntityMappingsRegistry
     public static function clearEntityMapping($entityName)
     {
         // Start of user code EntityMappingsRegistry.clearEntityMapping
-        // TODO should be implemented.
+		if (!self::getEntityMappings()->has($entityName)) {
+		    throw new \InvalidArgumentException(
+                sprintf('No entity mapping for entity "%s"', $entityName)
+            );
+		}
+		self::getEntityMappings()->remove($entityName);
         // End of user code
     }
 
