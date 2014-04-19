@@ -54,7 +54,7 @@ class SelectStatementTest extends \PHPUnit_Framework_TestCase
     public function testGetStatementParameters()
     {
         // Start of user code Statement.testgetStatementParameters
-	    // Implicitly tested by toString
+        // Case covered by testToString
     	// End of user code
     }
     

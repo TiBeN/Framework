@@ -44,7 +44,6 @@ class SelectStatement implements Statement
     public function __construct()
     {
         // Start of user code SelectStatement.constructor
-	    $this->statementParameters = new AssociativeArray();
         // End of user code
     }
 

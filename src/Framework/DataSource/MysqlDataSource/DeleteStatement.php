@@ -86,7 +86,10 @@ class DeleteStatement implements Statement
     public function getStatementParameters()
     {
         // Start of user code Statement.getStatementParameters
-        // TODO should be implemented.
+		$statementParameters = !is_null($this->whereConditions)
+            ? $this->whereConditions->getStatementParameters()
+            : new AssociativeArray()
+        ;    
         // End of user code
     
         return $statementParameters;
@@ -100,7 +103,17 @@ class DeleteStatement implements Statement
     public function toString()
     {
         // Start of user code Statement.toString
-        // TODO should be implemented.
+	    if(!$this->isReadyToBeExecuted()) {
+	        throw new \LogicException('The statement is not ready');
+	    }		
+	    
+		$statement = sprintf(
+            'DELETE FROM %s', 
+            $this->tableName
+        );	    
+		if($this->whereConditions instanceof WhereConditions) {
+		    $statement .= ' ' . $this->whereConditions->toString();
+		}
         // End of user code
     
         return $statement;
@@ -114,7 +127,11 @@ class DeleteStatement implements Statement
     public function isReadyToBeExecuted()
     {
         // Start of user code Statement.isReadyToBeExecuted
-        // TODO should be implemented.
+        $status = true;
+        
+        if(is_null($this->tableName)) {
+            $status = false;
+        }
         // End of user code
     
         return $status;

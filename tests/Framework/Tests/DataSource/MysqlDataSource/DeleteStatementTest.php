@@ -5,7 +5,10 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource;
 use TiBeN\Framework\DataSource\MysqlDataSource\DeleteStatement;
 
 // Start of user code DeleteStatement.useStatements
-// Place your use statements here.
+use TiBeN\Framework\DataSource\MysqlDataSource\WhereConditions;
+use TiBeN\Framework\DataSource\MysqlDataSource\Expr;
+use TiBeN\Framework\Datatype\AssociativeArray;
+
 // End of user code
 
 /**
@@ -48,9 +51,7 @@ class DeleteStatementTest extends \PHPUnit_Framework_TestCase
     public function testGetStatementParameters()
     {
         // Start of user code Statement.testgetStatementParameters
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        // Case covered by testToString
     	// End of user code
     }
     
@@ -63,8 +64,31 @@ class DeleteStatementTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code Statement.testtoString
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $deleteStatement = new DeleteStatement();
+        $deleteStatement->setTableName('foo'); 
+        $deleteStatement->setWhereConditions(
+            WhereConditions::createFromExpr(
+                Expr::fromString(
+                    'bar = :bar',
+                    AssociativeArray::createFromNativeArray(
+                        null,
+                        array('bar' => 1337)
+                    )
+                )
+            )
+        );
+        $this->assertEquals(
+            'DELETE FROM foo WHERE bar = :bar',
+            $deleteStatement->toString()
+        );
+
+        $expectedParameters = AssociativeArray::createFromNativeArray(
+            NULL, 
+            array('bar' => 1337)
+        );
+	    $this->assertEquals(
+            $expectedParameters, 
+            $deleteStatement->getStatementParameters()
         );
     	// End of user code
     }
@@ -78,9 +102,10 @@ class DeleteStatementTest extends \PHPUnit_Framework_TestCase
     public function testIsReadyToBeExecuted()
     {
         // Start of user code Statement.testisReadyToBeExecuted
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $deleteStatement = new DeleteStatement();
+        $this->assertFalse($deleteStatement->isReadyToBeExecuted());
+        $deleteStatement->setTableName('some_table');
+        $this->assertTrue($deleteStatement->isReadyToBeExecuted());
     	// End of user code
     }
 

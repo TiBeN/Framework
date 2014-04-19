@@ -101,7 +101,7 @@ class UpdateStatementTest extends \PHPUnit_Framework_TestCase
                 'foo' => 'foo',            	                            	            
                 'bar' => 'someValue'
 	        )
-    );
+        );
 	    
 	    $this->assertEquals(
             $expectedStatementParameters, 

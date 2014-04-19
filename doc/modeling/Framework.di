@@ -105,13 +105,16 @@
     <windows>
       <children xsi:type="di:TabFolder">
         <children>
-          <emfPageIdentifier href="Framework.notation#_Ch5iQCLnEeOU6MgQ9M9Alg"/>
+          <emfPageIdentifier href="Framework.notation#_vWqjgCkoEeOKLdof59zQww"/>
+        </children>
+        <children>
+          <emfPageIdentifier href="Framework.notation#_bwRM8CYNEeOOQ56jXFxKVg"/>
         </children>
         <children>
           <emfPageIdentifier href="Framework.notation#_q5n5cB8BEeOf9MerE9_4bA"/>
         </children>
         <children>
-          <emfPageIdentifier href="Framework.notation#_YUGzAL22EeO-aaY3kqFukA"/>
+          <emfPageIdentifier href="Framework.notation#_Ch5iQCLnEeOU6MgQ9M9Alg"/>
         </children>
       </children>
     </windows>
