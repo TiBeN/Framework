@@ -22,17 +22,17 @@ class OrderCriteria
     /**
      * @var string
      */
-    public $attribute;
-
-    /**
-     * @var string
-     */
     public $direction;
 
     /**
      * @var string
      */
     const DIRECTION_DESC = 'desc';
+
+    /**
+     * @var string
+     */
+    public $attribute;
 
     public function __construct()
     {
@@ -44,26 +44,6 @@ class OrderCriteria
     {
         // Start of user code OrderCriteria.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getAttribute()
-    {
-        // Start of user code Getter OrderCriteria.getAttribute
-        // End of user code
-        return $this->attribute;
-    }
-
-    /**
-     * @param string $attribute
-     */
-    public function setAttribute($attribute)
-    {
-        // Start of user code Setter OrderCriteria.setAttribute
-        // End of user code
-        $this->attribute = $attribute;
     }
 
     /**
@@ -87,18 +67,23 @@ class OrderCriteria
     }
 
     /**
-     * @param string $attribute
-     * @return OrderCriteria $orderCriteria
+     * @return string
      */
-    public static function desc($attribute)
+    public function getAttribute()
     {
-        // Start of user code OrderCriteria.desc
-		$orderCriteria = new self();
-		$orderCriteria->setAttribute($attribute);
-		$orderCriteria->setDirection(self::DIRECTION_DESC);
+        // Start of user code Getter OrderCriteria.getAttribute
         // End of user code
-    
-        return $orderCriteria;
+        return $this->attribute;
+    }
+
+    /**
+     * @param string $attribute
+     */
+    public function setAttribute($attribute)
+    {
+        // Start of user code Setter OrderCriteria.setAttribute
+        // End of user code
+        $this->attribute = $attribute;
     }
 
     /**
@@ -111,6 +96,21 @@ class OrderCriteria
 		$orderCriteria = new self();
 		$orderCriteria->setAttribute($attribute);
 		$orderCriteria->setDirection(self::DIRECTION_ASC);
+        // End of user code
+    
+        return $orderCriteria;
+    }
+
+    /**
+     * @param string $attribute
+     * @return OrderCriteria $orderCriteria
+     */
+    public static function desc($attribute)
+    {
+        // Start of user code OrderCriteria.desc
+		$orderCriteria = new self();
+		$orderCriteria->setAttribute($attribute);
+		$orderCriteria->setDirection(self::DIRECTION_DESC);
         // End of user code
     
         return $orderCriteria;

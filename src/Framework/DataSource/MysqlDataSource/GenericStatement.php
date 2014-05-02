@@ -70,18 +70,6 @@ class GenericStatement implements Statement
     // Statement Realization
 
     /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-		$statementParameters = $this->statementParameters; 
-        // End of user code
-    
-        return $statementParameters;
-    }
-
-    /**
      * Return the statement in String format
      *
      * @return string $statement
@@ -107,6 +95,18 @@ class GenericStatement implements Statement
         // End of user code
     
         return $status;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+		$statementParameters = $this->statementParameters; 
+        // End of user code
+    
+        return $statementParameters;
     }
 
     // Start of user code GenericStatement.implementationSpecificMethods

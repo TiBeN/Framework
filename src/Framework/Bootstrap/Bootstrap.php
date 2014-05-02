@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\Bootstrap;
 
-use TiBeN\Framework\Renderer\TemplateRenderer;
 use TiBeN\Framework\Router\Route;
 use TiBeN\Framework\Renderer\SmartyEngine;
+use TiBeN\Framework\Renderer\TemplateRenderer;
 use TiBeN\Framework\Router\Router;
 
 // Start of user code Bootstrap.useStatements

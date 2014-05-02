@@ -68,20 +68,20 @@ class AssociativeArrayTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method remove from class AssociativeArray
+     * Test method set from class AssociativeArray
      *
-     * Start of user code AssociativeArrayTest.testremoveAnnotations
-     * @expectedException InvalidArgumentException
-     * @expextedExceptionMessage Key "foo" not found in container 
+     * Start of user code AssociativeArrayTest.testsetAnnotations
+     * PHPUnit users annotations can be placed here
      * End of user code
      */
-    public function testRemove()
+    public function testSet()
     {
-        // Start of user code AssociativeArrayTest.testremove
+        // Start of user code AssociativeArrayTest.testset
         $associativeArray = new AssociativeArray('string');
         $associativeArray->set('foo', 'bar');
-        $associativeArray->remove('foo');
-        $associativeArray->get('foo');
+        $this->assertEquals('bar', $associativeArray->get('foo'));
+        $associativeArray->set('foo', 'another-data');
+        $this->assertEquals('another-data', $associativeArray->get('foo'));
         // End of user code
     }
     
@@ -103,24 +103,6 @@ class AssociativeArrayTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method set from class AssociativeArray
-     *
-     * Start of user code AssociativeArrayTest.testsetAnnotations
-     * PHPUnit users annotations can be placed here
-     * End of user code
-     */
-    public function testSet()
-    {
-        // Start of user code AssociativeArrayTest.testset
-        $associativeArray = new AssociativeArray('string');
-        $associativeArray->set('foo', 'bar');
-        $this->assertEquals('bar', $associativeArray->get('foo'));
-        $associativeArray->set('foo', 'another-data');
-        $this->assertEquals('another-data', $associativeArray->get('foo'));
-        // End of user code
-    }
-    
-    /**
      * Test method has from class AssociativeArray
      *
      * Start of user code AssociativeArrayTest.testhasAnnotations
@@ -138,32 +120,6 @@ class AssociativeArrayTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createFromNativeArray from class AssociativeArray
-     *
-     * Start of user code AssociativeArrayTest.testcreateFromNativeArrayAnnotations
-     * PHPUnit users annotations can be placed here
-     * End of user code
-     */
-    public function testCreateFromNativeArray()
-    {
-        // Start of user code AssociativeArrayTest.testcreateFromNativeArray
-        $expectedAssociativeArray = new AssociativeArray('string');
-        $expectedAssociativeArray->set('foo', 'bar');
-        $expectedAssociativeArray->set('foo2', 'bar');
-        $expectedAssociativeArray->set('foo3', 'bar');
-            
-        $this->assertEquals(
-            $expectedAssociativeArray, 
-            AssociativeArray::createFromNativeArray('string', array(
-                'foo' => 'bar',
-                'foo2' => 'bar',
-                'foo3' => 'bar'
-            ))
-        );
-        // End of user code
-    }
-    
-    /**
      * Test method get from class AssociativeArray
      *
      * Start of user code AssociativeArrayTest.testgetAnnotations
@@ -174,31 +130,6 @@ class AssociativeArrayTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code AssociativeArrayTest.testget
         // Test method covered by testSet
-        // End of user code
-    }
-    
-    /**
-     * Test method toNativeArray from class AssociativeArray
-     *
-     * Start of user code AssociativeArrayTest.testtoNativeArrayAnnotations
-     * PHPUnit users annotations can be placed here
-     * End of user code
-     */
-    public function testToNativeArray()
-    {
-        // Start of user code AssociativeArrayTest.testtoNativeArray
-        $associativeArray = new AssociativeArray('string');
-        $associativeArray->set('foo', 'bar');
-        $associativeArray->set('foo2', 'bar');
-        $associativeArray->set('foo3', 'bar');
-            
-        $expectedArray = array(
-            'foo' => 'bar',
-            'foo2' => 'bar',
-            'foo3' => 'bar'
-        );
-        
-        $this->assertEquals($expectedArray, $associativeArray->toNativeArray());
         // End of user code
     }
     
@@ -243,6 +174,75 @@ class AssociativeArrayTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedAssociativeArray, $associativeArray);
         // End of user code
     }
+    
+    /**
+     * Test static method createFromNativeArray from class AssociativeArray
+     *
+     * Start of user code AssociativeArrayTest.testcreateFromNativeArrayAnnotations
+     * PHPUnit users annotations can be placed here
+     * End of user code
+     */
+    public function testCreateFromNativeArray()
+    {
+        // Start of user code AssociativeArrayTest.testcreateFromNativeArray
+        $expectedAssociativeArray = new AssociativeArray('string');
+        $expectedAssociativeArray->set('foo', 'bar');
+        $expectedAssociativeArray->set('foo2', 'bar');
+        $expectedAssociativeArray->set('foo3', 'bar');
+            
+        $this->assertEquals(
+            $expectedAssociativeArray, 
+            AssociativeArray::createFromNativeArray('string', array(
+                'foo' => 'bar',
+                'foo2' => 'bar',
+                'foo3' => 'bar'
+            ))
+        );
+        // End of user code
+    }
+    
+    /**
+     * Test method remove from class AssociativeArray
+     *
+     * Start of user code AssociativeArrayTest.testremoveAnnotations
+     * @expectedException InvalidArgumentException
+     * @expextedExceptionMessage Key "foo" not found in container 
+     * End of user code
+     */
+    public function testRemove()
+    {
+        // Start of user code AssociativeArrayTest.testremove
+        $associativeArray = new AssociativeArray('string');
+        $associativeArray->set('foo', 'bar');
+        $associativeArray->remove('foo');
+        $associativeArray->get('foo');
+        // End of user code
+    }
+    
+    /**
+     * Test method toNativeArray from class AssociativeArray
+     *
+     * Start of user code AssociativeArrayTest.testtoNativeArrayAnnotations
+     * PHPUnit users annotations can be placed here
+     * End of user code
+     */
+    public function testToNativeArray()
+    {
+        // Start of user code AssociativeArrayTest.testtoNativeArray
+        $associativeArray = new AssociativeArray('string');
+        $associativeArray->set('foo', 'bar');
+        $associativeArray->set('foo2', 'bar');
+        $associativeArray->set('foo3', 'bar');
+            
+        $expectedArray = array(
+            'foo' => 'bar',
+            'foo2' => 'bar',
+            'foo3' => 'bar'
+        );
+        
+        $this->assertEquals($expectedArray, $associativeArray->toNativeArray());
+        // End of user code
+    }
 
     /**
      * Test method count from interface Countable
@@ -265,46 +265,22 @@ class AssociativeArrayTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test method rewind from interface Iterator
-     * Start of user code Iterator.testrewindAnnotations
+     * Test method next from interface Iterator
+     * Start of user code Iterator.testnextAnnotations
      * PHPUnit users annotations can be placed here
      * End of user code
      */
-    public function testRewind()
+    public function testNext()
     {
-        // Start of user code Iterator.testrewind
+        // Start of user code Iterator.testnext
         $associativeArray = new AssociativeArray();
 		$associativeArray->set('foo', new SomeItem());
 		$associativeArray->set('bar', new SomeItem());
 		$associativeArray->set('baz', new SomeItem());
-		$associativeArray->next();		
 		$associativeArray->next();
-		$associativeArray->rewind();
-		$this->assertEquals('foo', $associativeArray->key());
-        // End of user code
-    }
-    
-    /**
-     * Test method current from interface Iterator
-     * Start of user code Iterator.testcurrentAnnotations
-     * PHPUnit users annotations can be placed here
-     * End of user code
-     */
-    public function testCurrent()
-    {
-        // Start of user code Iterator.testcurrent
-        $associativeArray = new AssociativeArray();
-		$firstItem = new SomeItem('first_item');
-		$secondItem = new SomeItem('second_item');
-		$thirdItem = new SomeItem('third_item');
-		$associativeArray->set('foo', $firstItem);
-		$associativeArray->set('bar', $secondItem);
-		$associativeArray->set('baz', $thirdItem);
-		$this->assertEquals($firstItem, $associativeArray->current());
+		$this->assertEquals('bar', $associativeArray->key());
 		$associativeArray->next();
-		$this->assertEquals($secondItem, $associativeArray->current());
-		$associativeArray->next();
-		$this->assertEquals($thirdItem, $associativeArray->current());
+		$this->assertEquals('baz', $associativeArray->key());
 		$associativeArray->rewind();
         // End of user code
     }
@@ -354,22 +330,46 @@ class AssociativeArrayTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method next from interface Iterator
-     * Start of user code Iterator.testnextAnnotations
+     * Test method rewind from interface Iterator
+     * Start of user code Iterator.testrewindAnnotations
      * PHPUnit users annotations can be placed here
      * End of user code
      */
-    public function testNext()
+    public function testRewind()
     {
-        // Start of user code Iterator.testnext
+        // Start of user code Iterator.testrewind
         $associativeArray = new AssociativeArray();
 		$associativeArray->set('foo', new SomeItem());
 		$associativeArray->set('bar', new SomeItem());
 		$associativeArray->set('baz', new SomeItem());
+		$associativeArray->next();		
 		$associativeArray->next();
-		$this->assertEquals('bar', $associativeArray->key());
+		$associativeArray->rewind();
+		$this->assertEquals('foo', $associativeArray->key());
+        // End of user code
+    }
+    
+    /**
+     * Test method current from interface Iterator
+     * Start of user code Iterator.testcurrentAnnotations
+     * PHPUnit users annotations can be placed here
+     * End of user code
+     */
+    public function testCurrent()
+    {
+        // Start of user code Iterator.testcurrent
+        $associativeArray = new AssociativeArray();
+		$firstItem = new SomeItem('first_item');
+		$secondItem = new SomeItem('second_item');
+		$thirdItem = new SomeItem('third_item');
+		$associativeArray->set('foo', $firstItem);
+		$associativeArray->set('bar', $secondItem);
+		$associativeArray->set('baz', $thirdItem);
+		$this->assertEquals($firstItem, $associativeArray->current());
 		$associativeArray->next();
-		$this->assertEquals('baz', $associativeArray->key());
+		$this->assertEquals($secondItem, $associativeArray->current());
+		$associativeArray->next();
+		$this->assertEquals($thirdItem, $associativeArray->current());
 		$associativeArray->rewind();
         // End of user code
     }

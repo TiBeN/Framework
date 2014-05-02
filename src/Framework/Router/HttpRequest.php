@@ -20,9 +20,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class HttpRequest
 {
     /**
-     * @var AssociativeArray
+     * @var string
      */
-    public $postVars;
+    public $method;
+
+    /**
+     * @var string
+     */
+    public $host;
 
     /**
      * @var AssociativeArray
@@ -32,7 +37,7 @@ class HttpRequest
     /**
      * @var AssociativeArray
      */
-    public $headers;
+    public $postVars;
 
     /**
      * @var string
@@ -40,14 +45,9 @@ class HttpRequest
     public $requestUri;
 
     /**
-     * @var string
+     * @var AssociativeArray
      */
-    public $method;
-
-    /**
-     * @var string
-     */
-    public $host;
+    public $headers;
 
     /**
      * @var string
@@ -64,86 +64,6 @@ class HttpRequest
     {
         // Start of user code HttpRequest.destructor
         // End of user code
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getPostVars()
-    {
-        // Start of user code Getter HttpRequest.getPostVars
-        // End of user code
-        return $this->postVars;
-    }
-
-    /**
-     * @param AssociativeArray $postVars
-     */
-    public function setPostVars(AssociativeArray $postVars)
-    {
-        // Start of user code Setter HttpRequest.setPostVars
-        // End of user code
-        $this->postVars = $postVars;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getGetVars()
-    {
-        // Start of user code Getter HttpRequest.getGetVars
-        // End of user code
-        return $this->getVars;
-    }
-
-    /**
-     * @param AssociativeArray $getVars
-     */
-    public function setGetVars(AssociativeArray $getVars)
-    {
-        // Start of user code Setter HttpRequest.setGetVars
-        // End of user code
-        $this->getVars = $getVars;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getHeaders()
-    {
-        // Start of user code Getter HttpRequest.getHeaders
-        // End of user code
-        return $this->headers;
-    }
-
-    /**
-     * @param AssociativeArray $headers
-     */
-    public function setHeaders(AssociativeArray $headers)
-    {
-        // Start of user code Setter HttpRequest.setHeaders
-        // End of user code
-        $this->headers = $headers;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRequestUri()
-    {
-        // Start of user code Getter HttpRequest.getRequestUri
-        // End of user code
-        return $this->requestUri;
-    }
-
-    /**
-     * @param string $requestUri
-     */
-    public function setRequestUri($requestUri)
-    {
-        // Start of user code Setter HttpRequest.setRequestUri
-        // End of user code
-        $this->requestUri = $requestUri;
     }
 
     /**
@@ -184,6 +104,86 @@ class HttpRequest
         // Start of user code Setter HttpRequest.setHost
         // End of user code
         $this->host = $host;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getGetVars()
+    {
+        // Start of user code Getter HttpRequest.getGetVars
+        // End of user code
+        return $this->getVars;
+    }
+
+    /**
+     * @param AssociativeArray $getVars
+     */
+    public function setGetVars(AssociativeArray $getVars)
+    {
+        // Start of user code Setter HttpRequest.setGetVars
+        // End of user code
+        $this->getVars = $getVars;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getPostVars()
+    {
+        // Start of user code Getter HttpRequest.getPostVars
+        // End of user code
+        return $this->postVars;
+    }
+
+    /**
+     * @param AssociativeArray $postVars
+     */
+    public function setPostVars(AssociativeArray $postVars)
+    {
+        // Start of user code Setter HttpRequest.setPostVars
+        // End of user code
+        $this->postVars = $postVars;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRequestUri()
+    {
+        // Start of user code Getter HttpRequest.getRequestUri
+        // End of user code
+        return $this->requestUri;
+    }
+
+    /**
+     * @param string $requestUri
+     */
+    public function setRequestUri($requestUri)
+    {
+        // Start of user code Setter HttpRequest.setRequestUri
+        // End of user code
+        $this->requestUri = $requestUri;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getHeaders()
+    {
+        // Start of user code Getter HttpRequest.getHeaders
+        // End of user code
+        return $this->headers;
+    }
+
+    /**
+     * @param AssociativeArray $headers
+     */
+    public function setHeaders(AssociativeArray $headers)
+    {
+        // Start of user code Setter HttpRequest.setHeaders
+        // End of user code
+        $this->headers = $headers;
     }
 
     /**

@@ -79,21 +79,6 @@ class LimitStatement
     }
 
     /**
-     * @param LimitCriteria $limitCriteria
-     * @return LimitStatement $limitStatement
-     */
-    public static function createFromLimitCriteria(LimitCriteria $limitCriteria)
-    {
-        // Start of user code LimitStatement.createFromLimitCriteria
-		$limitStatement = new self();
-		$limitStatement->setOffset($limitCriteria->getOffset());
-		$limitStatement->setRowCount($limitCriteria->getNumber()); 
-        // End of user code
-    
-        return $limitStatement;
-    }
-
-    /**
      * @return string $string
      */
     public function toString()
@@ -110,6 +95,21 @@ class LimitStatement
         // End of user code
     
         return $string;
+    }
+
+    /**
+     * @param LimitCriteria $limitCriteria
+     * @return LimitStatement $limitStatement
+     */
+    public static function createFromLimitCriteria(LimitCriteria $limitCriteria)
+    {
+        // Start of user code LimitStatement.createFromLimitCriteria
+		$limitStatement = new self();
+		$limitStatement->setOffset($limitCriteria->getOffset());
+		$limitStatement->setRowCount($limitCriteria->getNumber()); 
+        // End of user code
+    
+        return $limitStatement;
     }
 
     // Start of user code LimitStatement.implementationSpecificMethods

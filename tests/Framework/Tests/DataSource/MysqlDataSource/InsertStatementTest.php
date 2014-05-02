@@ -43,19 +43,6 @@ class InsertStatementTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method getStatementParameters from interface Statement
-     * Start of user code Statement.testgetStatementParametersAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetStatementParameters()
-    {
-        // Start of user code Statement.testgetStatementParameters
-	    // implicitly tested by testtostring
-    	// End of user code
-    }
-    
-    /**
      * Test method toString from interface Statement
      * Start of user code Statement.testtoStringAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -131,6 +118,19 @@ class InsertStatementTest extends \PHPUnit_Framework_TestCase
 	    }
 	    $insert->setValuesStatement($valuesStatement);
 	    $this->assertTrue($insert->isReadyToBeExecuted());
+    	// End of user code
+    }
+    
+    /**
+     * Test method getStatementParameters from interface Statement
+     * Start of user code Statement.testgetStatementParametersAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetStatementParameters()
+    {
+        // Start of user code Statement.testgetStatementParameters
+	    // implicitly tested by testtostring
     	// End of user code
     }
 

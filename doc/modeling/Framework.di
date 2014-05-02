@@ -116,6 +116,18 @@
         <children>
           <emfPageIdentifier href="Framework.notation#_Ch5iQCLnEeOU6MgQ9M9Alg"/>
         </children>
+        <children>
+          <emfPageIdentifier href="Framework.notation#_kjz5sEn9EeOhBJpxbXcYWQ"/>
+        </children>
+        <children>
+          <emfPageIdentifier href="Framework.notation#_cCEvoCYCEeOOQ56jXFxKVg"/>
+        </children>
+        <children>
+          <emfPageIdentifier href="Framework.notation#_FZ27EB77EeOf9MerE9_4bA"/>
+        </children>
+        <children>
+          <emfPageIdentifier href="Framework.notation#_oEhhMLoPEeKycOj42mlSMA"/>
+        </children>
       </children>
     </windows>
   </sashModel>

@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter;
 
-use TiBeN\Framework\Datatype\T;
 use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Datatype\U;
+use TiBeN\Framework\Datatype\T;
 use TiBeN\Framework\DataSource\TypeConverter;
 
 // Start of user code IntegerConverter.useStatements
@@ -99,21 +99,6 @@ class IntegerConverter implements TypeConverter
     // TypeConverter Realization
 
     /**
-     * @param T $itemToConvert
-     * @return U $convertedItem
-     */
-    public function convert($itemToConvert)
-    {
-        $this->typeHint($this->TType, $itemToConvert);
-        // Start of user code Converter.convert
-		if(is_null($itemToConvert)) return $itemToConvert;
-		$convertedItem = (string)$itemToConvert;
-        // End of user code
-    
-        return $convertedItem;
-    }
-
-    /**
      * @return string $dataSourceType
      */
     public function getDataSourceType()
@@ -123,28 +108,6 @@ class IntegerConverter implements TypeConverter
         // End of user code
     
         return $dataSourceType;
-    }
-
-    /**
-     * @param AssociativeArray $parameters
-     */
-    public function setParameters(AssociativeArray $parameters)
-    {
-        // Start of user code TypeConverter.setParameters
-		// Nothing to do here
-        // End of user code
-    }
-
-    /**
-     * @return string $type
-     */
-    public function getType()
-    {
-        // Start of user code TypeConverter.getType
-		$type = 'integer';
-        // End of user code
-    
-        return $type;
     }
 
     /**
@@ -160,6 +123,43 @@ class IntegerConverter implements TypeConverter
         // End of user code
     
         return $reversedItem;
+    }
+
+    /**
+     * @param AssociativeArray $parameters
+     */
+    public function setParameters(AssociativeArray $parameters)
+    {
+        // Start of user code TypeConverter.setParameters
+		// Nothing to do here
+        // End of user code
+    }
+
+    /**
+     * @param T $itemToConvert
+     * @return U $convertedItem
+     */
+    public function convert($itemToConvert)
+    {
+        $this->typeHint($this->TType, $itemToConvert);
+        // Start of user code Converter.convert
+		if(is_null($itemToConvert)) return $itemToConvert;
+		$convertedItem = (string)$itemToConvert;
+        // End of user code
+    
+        return $convertedItem;
+    }
+
+    /**
+     * @return string $type
+     */
+    public function getType()
+    {
+        // Start of user code TypeConverter.getType
+		$type = 'integer';
+        // End of user code
+    
+        return $type;
     }
 
     // Start of user code IntegerConverter.implementationSpecificMethods

@@ -39,7 +39,24 @@ class StatementFactory
     public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
     {
         // Start of user code StatementFactory.createUpdateStatementFromEntity
-        // TODO should be implemented.
+        $updateStatement = new UpdateStatement();
+        $updateStatement->setTableName(
+            $entityMapping
+                ->getDataSourceEntityConfiguration()
+                ->getTableName()
+        );
+        $updateStatement->setSetStatement(
+            SetStatement::createKeyValueListFromEntity(
+                $entityMapping,
+                $entity
+            )
+        );
+        $updateStatement->setWhereDefinition(
+            WhereConditions::createEntityTargetFromEntity(
+                $entityMapping,
+                $entity
+            )
+        );
         // End of user code
     
         return $updateStatement;
@@ -53,7 +70,18 @@ class StatementFactory
     public static function createDeleteStatement(EntityMapping $entityMapping, Entity $entity)
     {
         // Start of user code StatementFactory.createDeleteStatement
-        // TODO should be implemented.
+        $deleteStatement = new DeleteStatement();
+        $deleteStatement->setTableName(
+            $entityMapping
+                ->getDataSourceEntityConfiguration()
+                ->getTableName()
+        );
+        $deleteStatement->setWhereConditions(
+            WhereConditions::createEntityTargetFromEntity(
+                $entityMapping,
+                $entity
+            )
+        );
         // End of user code
     
         return $deleteStatement;
@@ -77,13 +105,15 @@ class StatementFactory
             $entityMapping
                 ->getDataSourceEntityConfiguration()
                 ->getTableName()
-            );
-        $selectStatement->setWhereConditions(
-            WhereConditions::createFromCriteriaSet(
-                $criteriaSet, 
-                $entityMapping
-            )
         );
+        if($criteriaSet->hasMatchCriterias()) {
+            $selectStatement->setWhereConditions(
+                WhereConditions::createFromCriteriaSet(
+                    $criteriaSet, 
+                    $entityMapping
+                )
+            );
+        }
         
         if(!$criteriaSet->getOrderCriterias()->isEmpty()) {
             $selectStatement->setOrderByStatement(

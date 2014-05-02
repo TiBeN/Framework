@@ -23,7 +23,10 @@ class EntityCollection extends ProxyAbleGenericCollection
     protected $TType;
 
     // Start of user code EntityCollection.surchargedConstructorsDestructors
-    // Surcharge Constructors and Destructors here
+    public function __construct()
+    {
+        return parent::__construct('TiBeN\\Framework\\Entity\\Entity');
+    }
     // End of user code
     
     /**

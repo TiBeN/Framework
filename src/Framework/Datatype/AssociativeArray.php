@@ -124,19 +124,19 @@ class AssociativeArray implements \Countable, \Iterator
     }
 
     /**
-     * Remove a value
+     * Associate a value to a key and store it 
      *
      * @param string $key
+     * @param T $value
      */
-    public function remove($key)
+    public function set($key, $value)
     {
-        // Start of user code AssociativeArray.remove
-        if (!isset($this->items) || !isset($this->items[$key])) {
-            throw new InvalidArgumentException(
-                sprintf('Key "%s" not found in container', $key)
-            );
+        $this->typeHint($this->TType, $value);
+        // Start of user code AssociativeArray.set
+        if (!isset($this->items)) {
+            $this->items = array();
         }
-        unset($this->items[$key]);
+        $this->items[$key] = $value;
         // End of user code
     }
 
@@ -155,23 +155,6 @@ class AssociativeArray implements \Countable, \Iterator
     }
 
     /**
-     * Associate a value to a key and store it 
-     *
-     * @param string $key
-     * @param T $value
-     */
-    public function set($key, $value)
-    {
-        $this->typeHint($this->TType, $value);
-        // Start of user code AssociativeArray.set
-        if (!isset($this->items)) {
-            $this->items = array();
-        }
-        $this->items[$key] = $value;
-        // End of user code
-    }
-
-    /**
      * Determine if a value is stored
      *
      * @param string $key
@@ -184,6 +167,39 @@ class AssociativeArray implements \Countable, \Iterator
         // End of user code
     
         return $result;
+    }
+
+    /**
+     * Access to a value
+     *
+     * @param string $key
+     * @return string $value
+     */
+    public function get($key)
+    {
+        // Start of user code AssociativeArray.get
+        if (!isset($this->items[$key])) {
+            throw new \InvalidArgumentException(
+                sprintf('Key "%s" not found in container', $key)
+            );
+        }
+        $value = $this->items[$key];
+        // End of user code
+    
+        return $value;
+    }
+
+    /**
+     * Merge the AssociativeArray with another
+     *
+     * @param AssociativeArray $associativeArray
+     */
+    public function merge(AssociativeArray $associativeArray)
+    {
+        // Start of user code AssociativeArray.merge
+        !isset($this->items) && $this->items = array();
+        $this->items = array_merge($this->items, $associativeArray->toNativeArray());
+        // End of user code
     }
 
     /**
@@ -208,23 +224,20 @@ class AssociativeArray implements \Countable, \Iterator
     }
 
     /**
-     * Access to a value
+     * Remove a value
      *
      * @param string $key
-     * @return string $value
      */
-    public function get($key)
+    public function remove($key)
     {
-        // Start of user code AssociativeArray.get
-        if (!isset($this->items[$key])) {
-            throw new \InvalidArgumentException(
+        // Start of user code AssociativeArray.remove
+        if (!isset($this->items) || !isset($this->items[$key])) {
+            throw new InvalidArgumentException(
                 sprintf('Key "%s" not found in container', $key)
             );
         }
-        $value = $this->items[$key];
+        unset($this->items[$key]);
         // End of user code
-    
-        return $value;
     }
 
     /**
@@ -242,19 +255,6 @@ class AssociativeArray implements \Countable, \Iterator
         // End of user code
     
         return $nativeArray;
-    }
-
-    /**
-     * Merge the AssociativeArray with another
-     *
-     * @param AssociativeArray $associativeArray
-     */
-    public function merge(AssociativeArray $associativeArray)
-    {
-        // Start of user code AssociativeArray.merge
-        !isset($this->items) && $this->items = array();
-        $this->items = array_merge($this->items, $associativeArray->toNativeArray());
-        // End of user code
     }
 
     // Countable Realization
@@ -279,27 +279,13 @@ class AssociativeArray implements \Countable, \Iterator
     // Iterator Realization
 
     /**
-     * Rewinds back to the first element of the Iterator. 
+     * Moves the current position to the next element. 
      */
-    public function rewind()
+    public function next()
     {
-        // Start of user code Iterator.rewind
-        reset($this->items);
+        // Start of user code Iterator.next
+        next($this->items);
         // End of user code
-    }
-
-    /**
-     * Check if the current position is valid. 
-     *
-     * @return T $currentItem
-     */
-    public function current()
-    {
-        // Start of user code Iterator.current
-        $currentItem = current($this->items);
-        // End of user code
-    
-        return $currentItem;
     }
 
     /**
@@ -329,13 +315,27 @@ class AssociativeArray implements \Countable, \Iterator
     }
 
     /**
-     * Moves the current position to the next element. 
+     * Rewinds back to the first element of the Iterator. 
      */
-    public function next()
+    public function rewind()
     {
-        // Start of user code Iterator.next
-        next($this->items);
+        // Start of user code Iterator.rewind
+        reset($this->items);
         // End of user code
+    }
+
+    /**
+     * Check if the current position is valid. 
+     *
+     * @return T $currentItem
+     */
+    public function current()
+    {
+        // Start of user code Iterator.current
+        $currentItem = current($this->items);
+        // End of user code
+    
+        return $currentItem;
     }
 
     // Start of user code AssociativeArray.implementationSpecificMethods

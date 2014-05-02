@@ -50,6 +50,4 @@ class SomeEntity implements Entity
         $this->id = $id;
         return $this;
     }
-	
-	
 }

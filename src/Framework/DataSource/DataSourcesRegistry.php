@@ -59,38 +59,6 @@ class DataSourcesRegistry
     }
 
     /**
-     * @param DataSource $dataSource
-     */
-    public static function registerDataSource(DataSource $dataSource)
-    {
-        // Start of user code DataSourcesRegistry.registerDataSource
-		$dataSourceName = $dataSource->getName(); 
-		if(empty($dataSourceName)) {
-		    throw new \InvalidArgumentException('The data source has no name');
-		}
-	    self::getDataSources()->set($dataSourceName, $dataSource);
-        // End of user code
-    }
-
-    /**
-     * @param string $dataSourceName
-     * @return DataSource $dataSource
-     */
-    public static function getDataSource($dataSourceName)
-    {
-        // Start of user code DataSourcesRegistry.getDataSource
-		if(!self::getDataSources()->has($dataSourceName)) {
-		    throw new \InvalidArgumentException(
-                'No data source named "' . $dataSourceName . '"'
-            );
-		} 
-		$dataSource = self::getDataSources()->get($dataSourceName);
-        // End of user code
-    
-        return $dataSource;
-    }
-
-    /**
      * @param string $dataSourceName
      * @return bool $boolean
      */
@@ -115,6 +83,38 @@ class DataSourcesRegistry
             );
 		} 
 		self::getDataSources()->remove($dataSourceName);
+        // End of user code
+    }
+
+    /**
+     * @param string $dataSourceName
+     * @return DataSource $dataSource
+     */
+    public static function getDataSource($dataSourceName)
+    {
+        // Start of user code DataSourcesRegistry.getDataSource
+		if(!self::getDataSources()->has($dataSourceName)) {
+		    throw new \InvalidArgumentException(
+                'No data source named "' . $dataSourceName . '"'
+            );
+		} 
+		$dataSource = self::getDataSources()->get($dataSourceName);
+        // End of user code
+    
+        return $dataSource;
+    }
+
+    /**
+     * @param DataSource $dataSource
+     */
+    public static function registerDataSource(DataSource $dataSource)
+    {
+        // Start of user code DataSourcesRegistry.registerDataSource
+		$dataSourceName = $dataSource->getName(); 
+		if(empty($dataSourceName)) {
+		    throw new \InvalidArgumentException('The data source has no name');
+		}
+	    self::getDataSources()->set($dataSourceName, $dataSource);
         // End of user code
     }
 

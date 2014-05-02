@@ -52,19 +52,6 @@ class GenericStatementTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test method getStatementParameters from interface Statement
-     * Start of user code Statement.testgetStatementParametersAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetStatementParameters()
-    {
-        // Start of user code Statement.testgetStatementParameters
-        // Simple getter, nothing to test here
-    	// End of user code
-    }
-    
-    /**
      * Test method toString from interface Statement
      * Start of user code Statement.testtoStringAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -93,6 +80,19 @@ class GenericStatementTest extends \PHPUnit_Framework_TestCase
 		$this->assertFalse($statement->isReadyToBeExecuted());
 		$statement->setStatementString('SELECT * FROM `some_table`');
 		$this->assertTrue($statement->isReadyToBeExecuted());
+    	// End of user code
+    }
+    
+    /**
+     * Test method getStatementParameters from interface Statement
+     * Start of user code Statement.testgetStatementParametersAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetStatementParameters()
+    {
+        // Start of user code Statement.testgetStatementParameters
+        // Simple getter, nothing to test here
     	// End of user code
     }
 

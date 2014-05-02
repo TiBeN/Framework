@@ -42,6 +42,20 @@ class OrderByStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test method toString from class OrderByStatement
+     *
+     * Start of user code OrderByStatementTest.testtoStringAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code OrderByStatementTest.testtoString
+	    // Implicitly tested
+		// End of user code
+    }
+    
+    /**
      * Test static method createFromOrderCriterias from class OrderByStatement
      *
      * Start of user code OrderByStatementTest.testcreateFromOrderCriteriasAnnotations 
@@ -73,20 +87,6 @@ class OrderByStatementTest extends \PHPUnit_Framework_TestCase
             $expectedOrderByStatementString, 
             $orderByStatement->toString()
         );
-		// End of user code
-    }
-    
-    /**
-     * Test method toString from class OrderByStatement
-     *
-     * Start of user code OrderByStatementTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code OrderByStatementTest.testtoString
-	    // Implicitly tested
 		// End of user code
     }
 

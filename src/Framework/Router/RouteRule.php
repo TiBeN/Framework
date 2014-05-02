@@ -18,29 +18,9 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class RouteRule
 {
     /**
-     * @var AssociativeArray
-     */
-    public $requirments;
-
-    /**
      * @var string
      */
-    public $method;
-
-    /**
-     * @var string
-     */
-    public $host;
-
-    /**
-     * @var AssociativeArray
-     */
-    public $defaultVariables;
-
-    /**
-     * @var string
-     */
-    public $action;
+    public $controller;
 
     /**
      * @var string
@@ -50,12 +30,32 @@ class RouteRule
     /**
      * @var string
      */
+    public $action;
+
+    /**
+     * @var string
+     */
+    public $host;
+
+    /**
+     * @var string
+     */
     public $uriPattern;
 
     /**
      * @var string
      */
-    public $controller;
+    public $method;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $requirments;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $defaultVariables;
 
     public function __construct()
     {
@@ -70,103 +70,23 @@ class RouteRule
     }
 
     /**
-     * @return AssociativeArray
-     */
-    public function getRequirments()
-    {
-        // Start of user code Getter RouteRule.getRequirments
-        // End of user code
-        return $this->requirments;
-    }
-
-    /**
-     * @param AssociativeArray $requirments
-     */
-    public function setRequirments(AssociativeArray $requirments)
-    {
-        // Start of user code Setter RouteRule.setRequirments
-        // End of user code
-        $this->requirments = $requirments;
-    }
-
-    /**
      * @return string
      */
-    public function getMethod()
+    public function getController()
     {
-        // Start of user code Getter RouteRule.getMethod
+        // Start of user code Getter RouteRule.getController
         // End of user code
-        return $this->method;
+        return $this->controller;
     }
 
     /**
-     * @param string $method
+     * @param string $controller
      */
-    public function setMethod($method)
+    public function setController($controller)
     {
-        // Start of user code Setter RouteRule.setMethod
+        // Start of user code Setter RouteRule.setController
         // End of user code
-        $this->method = $method;
-    }
-
-    /**
-     * @return string
-     */
-    public function getHost()
-    {
-        // Start of user code Getter RouteRule.getHost
-        // End of user code
-        return $this->host;
-    }
-
-    /**
-     * @param string $host
-     */
-    public function setHost($host)
-    {
-        // Start of user code Setter RouteRule.setHost
-        // End of user code
-        $this->host = $host;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getDefaultVariables()
-    {
-        // Start of user code Getter RouteRule.getDefaultVariables
-        // End of user code
-        return $this->defaultVariables;
-    }
-
-    /**
-     * @param AssociativeArray $defaultVariables
-     */
-    public function setDefaultVariables(AssociativeArray $defaultVariables)
-    {
-        // Start of user code Setter RouteRule.setDefaultVariables
-        // End of user code
-        $this->defaultVariables = $defaultVariables;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAction()
-    {
-        // Start of user code Getter RouteRule.getAction
-        // End of user code
-        return $this->action;
-    }
-
-    /**
-     * @param string $action
-     */
-    public function setAction($action)
-    {
-        // Start of user code Setter RouteRule.setAction
-        // End of user code
-        $this->action = $action;
+        $this->controller = $controller;
     }
 
     /**
@@ -192,6 +112,46 @@ class RouteRule
     /**
      * @return string
      */
+    public function getAction()
+    {
+        // Start of user code Getter RouteRule.getAction
+        // End of user code
+        return $this->action;
+    }
+
+    /**
+     * @param string $action
+     */
+    public function setAction($action)
+    {
+        // Start of user code Setter RouteRule.setAction
+        // End of user code
+        $this->action = $action;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHost()
+    {
+        // Start of user code Getter RouteRule.getHost
+        // End of user code
+        return $this->host;
+    }
+
+    /**
+     * @param string $host
+     */
+    public function setHost($host)
+    {
+        // Start of user code Setter RouteRule.setHost
+        // End of user code
+        $this->host = $host;
+    }
+
+    /**
+     * @return string
+     */
     public function getUriPattern()
     {
         // Start of user code Getter RouteRule.getUriPattern
@@ -212,92 +172,61 @@ class RouteRule
     /**
      * @return string
      */
-    public function getController()
+    public function getMethod()
     {
-        // Start of user code Getter RouteRule.getController
+        // Start of user code Getter RouteRule.getMethod
         // End of user code
-        return $this->controller;
+        return $this->method;
     }
 
     /**
-     * @param string $controller
+     * @param string $method
      */
-    public function setController($controller)
+    public function setMethod($method)
     {
-        // Start of user code Setter RouteRule.setController
+        // Start of user code Setter RouteRule.setMethod
         // End of user code
-        $this->controller = $controller;
+        $this->method = $method;
     }
 
     /**
-     * Test if the routerule match an HttpRequest then return the associated route.
-     *
-     * @param HttpRequest $httpRequest
-     * @return Route $route
+     * @return AssociativeArray
      */
-    public function matchHttpRequest(HttpRequest $httpRequest)
+    public function getRequirments()
     {
-        // Start of user code RouteRule.matchHttpRequest
-        
-        // Testing RouteRule validity
-        if (!isset($this->name) || empty($this->name)) {
-            throw new \DomainException('Invalid RouteRule : a name must be set');
-        }
-
-        if (!isset($this->controller) || empty($this->controller)) {
-            throw new \DomainException(
-                sprintf('Invalid RouteRule "%s" : a controller must be set', $this->name)
-            );
-        }
-        
-        if (!isset($this->action) || empty($this->action)) {
-            throw new \DomainException(
-                sprintf('Invalid RouteRule "%s" : an action must be set', $this->name)
-            );
-        }
-        
-        if (!isset($this->uriPattern) || empty($this->uriPattern)) {
-            throw new \DomainException(
-                sprintf('Invalid RouteRule "%s" : an uri pattern must be set', $this->name)
-            );
-        }           
-        
-        // Testing HttpRequest
-        if (isset($this->method) && ($this->method != $httpRequest->getMethod())) {
-            return false;
-        }
-        
-        if (isset($this->host) && ($this->host != $httpRequest->getHost())) {
-            return false;
-        }
-
-        $routeUriManager = new RouteUriManager();
-        $matchUriResult = $routeUriManager->matchAndParseUri(
-            $httpRequest->getRequestUri(), 
-            $this->uriPattern, 
-            isset($this->requirments) ? $this->requirments : new AssociativeArray('string')
-        );
-        
-        if (!$matchUriResult->getMatch()) {
-            return false;
-        }
-        
-        $route = new Route();
-        $route->setController($this->controller);
-        $route->setAction($this->action);
-        
-        $variables = $matchUriResult->getParsedVariables();
-        
-        if (isset($this->defaultVariables) && !$this->defaultVariables->isEmpty()) {
-            $variables->merge($this->defaultVariables);             
-        }
-        
-        if (!$variables->isEmpty()) {
-            $route->setVariables($variables);
-        }
+        // Start of user code Getter RouteRule.getRequirments
         // End of user code
-    
-        return $route;
+        return $this->requirments;
+    }
+
+    /**
+     * @param AssociativeArray $requirments
+     */
+    public function setRequirments(AssociativeArray $requirments)
+    {
+        // Start of user code Setter RouteRule.setRequirments
+        // End of user code
+        $this->requirments = $requirments;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getDefaultVariables()
+    {
+        // Start of user code Getter RouteRule.getDefaultVariables
+        // End of user code
+        return $this->defaultVariables;
+    }
+
+    /**
+     * @param AssociativeArray $defaultVariables
+     */
+    public function setDefaultVariables(AssociativeArray $defaultVariables)
+    {
+        // Start of user code Setter RouteRule.setDefaultVariables
+        // End of user code
+        $this->defaultVariables = $defaultVariables;
     }
 
     /**
@@ -370,6 +299,77 @@ class RouteRule
         // End of user code
     
         return $routeRule;
+    }
+
+    /**
+     * Test if the routerule match an HttpRequest then return the associated route.
+     *
+     * @param HttpRequest $httpRequest
+     * @return Route $route
+     */
+    public function matchHttpRequest(HttpRequest $httpRequest)
+    {
+        // Start of user code RouteRule.matchHttpRequest
+        
+        // Testing RouteRule validity
+        if (!isset($this->name) || empty($this->name)) {
+            throw new \DomainException('Invalid RouteRule : a name must be set');
+        }
+
+        if (!isset($this->controller) || empty($this->controller)) {
+            throw new \DomainException(
+                sprintf('Invalid RouteRule "%s" : a controller must be set', $this->name)
+            );
+        }
+        
+        if (!isset($this->action) || empty($this->action)) {
+            throw new \DomainException(
+                sprintf('Invalid RouteRule "%s" : an action must be set', $this->name)
+            );
+        }
+        
+        if (!isset($this->uriPattern) || empty($this->uriPattern)) {
+            throw new \DomainException(
+                sprintf('Invalid RouteRule "%s" : an uri pattern must be set', $this->name)
+            );
+        }           
+        
+        // Testing HttpRequest
+        if (isset($this->method) && ($this->method != $httpRequest->getMethod())) {
+            return false;
+        }
+        
+        if (isset($this->host) && ($this->host != $httpRequest->getHost())) {
+            return false;
+        }
+
+        $routeUriManager = new RouteUriManager();
+        $matchUriResult = $routeUriManager->matchAndParseUri(
+            $httpRequest->getRequestUri(), 
+            $this->uriPattern, 
+            isset($this->requirments) ? $this->requirments : new AssociativeArray('string')
+        );
+        
+        if (!$matchUriResult->getMatch()) {
+            return false;
+        }
+        
+        $route = new Route();
+        $route->setController($this->controller);
+        $route->setAction($this->action);
+        
+        $variables = $matchUriResult->getParsedVariables();
+        
+        if (isset($this->defaultVariables) && !$this->defaultVariables->isEmpty()) {
+            $variables->merge($this->defaultVariables);             
+        }
+        
+        if (!$variables->isEmpty()) {
+            $route->setVariables($variables);
+        }
+        // End of user code
+    
+        return $route;
     }
 
     // Start of user code RouteRule.implementationSpecificMethods

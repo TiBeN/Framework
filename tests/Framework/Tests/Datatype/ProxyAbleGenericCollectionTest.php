@@ -44,25 +44,16 @@ class ProxyAbleGenericCollectionTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method defineAsSource from interface ProxyCollection
-     * Start of user code ProxyCollection.testdefineAsSourceAnnotations 
+     * Test method actAsAProxy from interface ProxyCollection
+     * Start of user code ProxyCollection.testactAsAProxyAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testDefineAsSource()
+    public function testActAsAProxy()
     {
-        // Start of user code ProxyCollection.testdefineAsSource
-		$collection = new GenericCollection();
-		$someItem = new SomeItem();
-		$someItem->someData = 'some_value';
-		$collection->add($someItem);
-		$proxyCollection = new ProxyAbleGenericCollection();
-		$proxyCollection->defineAsProxyOf($collection, null);
-		
-		$proxyCollection->defineAsSource();		
-		$this->assertFalse($proxyCollection->actAsAProxy());
-		$this->assertCount(1, $proxyCollection);
-		$this->assertEquals($someItem, $proxyCollection->get(0));
+        // Start of user code ProxyCollection.testactAsAProxy
+		// This method is implicitly tested by 
+		// "testDefineAsProxyOf" and "testDefineAsNative" 
     	// End of user code
     }
     
@@ -113,16 +104,25 @@ class ProxyAbleGenericCollectionTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method actAsAProxy from interface ProxyCollection
-     * Start of user code ProxyCollection.testactAsAProxyAnnotations 
+     * Test method defineAsSource from interface ProxyCollection
+     * Start of user code ProxyCollection.testdefineAsSourceAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testActAsAProxy()
+    public function testDefineAsSource()
     {
-        // Start of user code ProxyCollection.testactAsAProxy
-		// This method is implicitly tested by 
-		// "testDefineAsProxyOf" and "testDefineAsNative" 
+        // Start of user code ProxyCollection.testdefineAsSource
+		$collection = new GenericCollection();
+		$someItem = new SomeItem();
+		$someItem->someData = 'some_value';
+		$collection->add($someItem);
+		$proxyCollection = new ProxyAbleGenericCollection();
+		$proxyCollection->defineAsProxyOf($collection, null);
+		
+		$proxyCollection->defineAsSource();		
+		$this->assertFalse($proxyCollection->actAsAProxy());
+		$this->assertCount(1, $proxyCollection);
+		$this->assertEquals($someItem, $proxyCollection->get(0));
     	// End of user code
     }
 

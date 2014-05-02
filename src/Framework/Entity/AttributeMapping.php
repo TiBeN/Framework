@@ -18,9 +18,14 @@ use TiBeN\Framework\Validation\ValidationRule;
 class AttributeMapping
 {
     /**
-     * @var AssociativeArray
+     * @var bool
      */
-    public $type;
+    public $isIdentifier;
+
+    /**
+     * @var array
+     */
+    public $validationRules;
 
     /**
      * @var DataSourceAttributeMappingConfiguration
@@ -28,19 +33,14 @@ class AttributeMapping
     public $dataSourceAttributeMappingConfiguration;
 
     /**
-     * @var bool
+     * @var AssociativeArray
      */
-    public $isIdentifier;
+    public $type;
 
     /**
      * @var string
      */
     public $name;
-
-    /**
-     * @var array
-     */
-    public $validationRules;
 
     public function __construct()
     {
@@ -52,46 +52,6 @@ class AttributeMapping
     {
         // Start of user code AttributeMapping.destructor
         // End of user code
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getType()
-    {
-        // Start of user code Getter AttributeMapping.getType
-        // End of user code
-        return $this->type;
-    }
-
-    /**
-     * @param AssociativeArray $type
-     */
-    public function setType(AssociativeArray $type)
-    {
-        // Start of user code Setter AttributeMapping.setType
-        // End of user code
-        $this->type = $type;
-    }
-
-    /**
-     * @return DataSourceAttributeMappingConfiguration
-     */
-    public function getDataSourceAttributeMappingConfiguration()
-    {
-        // Start of user code Getter AttributeMapping.getDataSourceAttributeMappingConfiguration
-        // End of user code
-        return $this->dataSourceAttributeMappingConfiguration;
-    }
-
-    /**
-     * @param DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration
-     */
-    public function setDataSourceAttributeMappingConfiguration(DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration)
-    {
-        // Start of user code Setter AttributeMapping.setDataSourceAttributeMappingConfiguration
-        // End of user code
-        $this->dataSourceAttributeMappingConfiguration = $dataSourceAttributeMappingConfiguration;
     }
 
     /**
@@ -115,26 +75,6 @@ class AttributeMapping
     }
 
     /**
-     * @return string
-     */
-    public function getName()
-    {
-        // Start of user code Getter AttributeMapping.getName
-        // End of user code
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        // Start of user code Setter AttributeMapping.setName
-        // End of user code
-        $this->name = $name;
-    }
-
-    /**
      * @return array
      */
     public function getValidationRules()
@@ -152,6 +92,66 @@ class AttributeMapping
         // Start of user code Setter AttributeMapping.setValidationRules
         // End of user code
         $this->validationRules = $validationRules;
+    }
+
+    /**
+     * @return DataSourceAttributeMappingConfiguration
+     */
+    public function getDataSourceAttributeMappingConfiguration()
+    {
+        // Start of user code Getter AttributeMapping.getDataSourceAttributeMappingConfiguration
+        // End of user code
+        return $this->dataSourceAttributeMappingConfiguration;
+    }
+
+    /**
+     * @param DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration
+     */
+    public function setDataSourceAttributeMappingConfiguration(DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration)
+    {
+        // Start of user code Setter AttributeMapping.setDataSourceAttributeMappingConfiguration
+        // End of user code
+        $this->dataSourceAttributeMappingConfiguration = $dataSourceAttributeMappingConfiguration;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getType()
+    {
+        // Start of user code Getter AttributeMapping.getType
+        // End of user code
+        return $this->type;
+    }
+
+    /**
+     * @param AssociativeArray $type
+     */
+    public function setType(AssociativeArray $type)
+    {
+        // Start of user code Setter AttributeMapping.setType
+        // End of user code
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        // Start of user code Getter AttributeMapping.getName
+        // End of user code
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        // Start of user code Setter AttributeMapping.setName
+        // End of user code
+        $this->name = $name;
     }
 
     /**

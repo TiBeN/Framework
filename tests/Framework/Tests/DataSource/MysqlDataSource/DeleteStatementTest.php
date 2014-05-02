@@ -43,19 +43,6 @@ class DeleteStatementTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method getStatementParameters from interface Statement
-     * Start of user code Statement.testgetStatementParametersAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetStatementParameters()
-    {
-        // Start of user code Statement.testgetStatementParameters
-        // Case covered by testToString
-    	// End of user code
-    }
-    
-    /**
      * Test method toString from interface Statement
      * Start of user code Statement.testtoStringAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -108,8 +95,20 @@ class DeleteStatementTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($deleteStatement->isReadyToBeExecuted());
     	// End of user code
     }
+    
+    /**
+     * Test method getStatementParameters from interface Statement
+     * Start of user code Statement.testgetStatementParametersAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetStatementParameters()
+    {
+        // Start of user code Statement.testgetStatementParameters
+        // Case covered by testToString
+    	// End of user code
+    }
 
     // Start of user code DeleteStatementTest.methods
-	// Place additional tests methods here.  
 	// End of user code
 }

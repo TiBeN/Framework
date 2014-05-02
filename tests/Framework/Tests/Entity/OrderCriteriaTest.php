@@ -38,26 +38,6 @@ class OrderCriteriaTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method desc from class OrderCriteria
-     *
-     * Start of user code OrderCriteriaTest.testdescAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testDesc()
-    {
-        // Start of user code OrderCriteriaTest.testdesc
-		$expectedOrderCriteria = new OrderCriteria();
-		$expectedOrderCriteria->setAttribute('foo');
-		$expectedOrderCriteria->setDirection(OrderCriteria::DIRECTION_DESC);
-		$this->assertEquals(
-			$expectedOrderCriteria, 
-			OrderCriteria::desc('foo')
-		);		
-		// End of user code
-    }
-    
-    /**
      * Test static method asc from class OrderCriteria
      *
      * Start of user code OrderCriteriaTest.testascAnnotations 
@@ -74,6 +54,26 @@ class OrderCriteriaTest extends \PHPUnit_Framework_TestCase
 			$expectedOrderCriteria, 
 			OrderCriteria::asc('foo')
 		);
+		// End of user code
+    }
+    
+    /**
+     * Test static method desc from class OrderCriteria
+     *
+     * Start of user code OrderCriteriaTest.testdescAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testDesc()
+    {
+        // Start of user code OrderCriteriaTest.testdesc
+		$expectedOrderCriteria = new OrderCriteria();
+		$expectedOrderCriteria->setAttribute('foo');
+		$expectedOrderCriteria->setDirection(OrderCriteria::DIRECTION_DESC);
+		$this->assertEquals(
+			$expectedOrderCriteria, 
+			OrderCriteria::desc('foo')
+		);		
 		// End of user code
     }
 

@@ -17,14 +17,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class UpdateStatement implements Statement
 {
     /**
-     * @var string
-     */
-    public $tableName;
-
-    /**
      * @var WhereConditions
      */
     public $whereDefinition;
+
+    /**
+     * @var string
+     */
+    public $tableName;
 
     /**
      * @var SetStatement
@@ -41,26 +41,6 @@ class UpdateStatement implements Statement
     {
         // Start of user code UpdateStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getTableName()
-    {
-        // Start of user code Getter UpdateStatement.getTableName
-        // End of user code
-        return $this->tableName;
-    }
-
-    /**
-     * @param string $tableName
-     */
-    public function setTableName($tableName)
-    {
-        // Start of user code Setter UpdateStatement.setTableName
-        // End of user code
-        $this->tableName = $tableName;
     }
 
     /**
@@ -84,6 +64,26 @@ class UpdateStatement implements Statement
     }
 
     /**
+     * @return string
+     */
+    public function getTableName()
+    {
+        // Start of user code Getter UpdateStatement.getTableName
+        // End of user code
+        return $this->tableName;
+    }
+
+    /**
+     * @param string $tableName
+     */
+    public function setTableName($tableName)
+    {
+        // Start of user code Setter UpdateStatement.setTableName
+        // End of user code
+        $this->tableName = $tableName;
+    }
+
+    /**
      * @return SetStatement
      */
     public function getSetStatement()
@@ -104,24 +104,6 @@ class UpdateStatement implements Statement
     }
 
     // Statement Realization
-
-    /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-        $statementParameters = new AssociativeArray();
-        if($this->setStatement instanceof SetStatement) {
-            $statementParameters->merge($this->setStatement->getStatementParameters());
-        } 
-        if($this->whereDefinition instanceof WhereConditions) {
-            $statementParameters->merge($this->whereDefinition->getStatementParameters());
-        }        
-        // End of user code
-    
-        return $statementParameters;
-    }
 
     /**
      * Return the statement in String format
@@ -162,6 +144,24 @@ class UpdateStatement implements Statement
         // End of user code
     
         return $status;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+        $statementParameters = new AssociativeArray();
+        if($this->setStatement instanceof SetStatement) {
+            $statementParameters->merge($this->setStatement->getStatementParameters());
+        } 
+        if($this->whereDefinition instanceof WhereConditions) {
+            $statementParameters->merge($this->whereDefinition->getStatementParameters());
+        }        
+        // End of user code
+    
+        return $statementParameters;
     }
 
     // Start of user code UpdateStatement.implementationSpecificMethods
