@@ -339,7 +339,29 @@ class MysqlDataSource implements DataSource
     public function update(EntityMapping $entityMapping, Entity $entity)
     {
         // Start of user code DataSource.update
-        // TODO should be implemented.
+	    $updateStatement = StatementFactory
+            ::createUpdateStatementFromEntity($entityMapping, $entity)
+        ;
+	    $statementResult = Driver::executeStatement(
+            $updateStatement, 
+            $this->getConnection()
+        );
+	    
+	    if($statementResult->getSuccess() == false) {
+	        throw new \RuntimeException(
+	            sprintf(    
+                    'MysqlDataSource error %s : %s',
+	                $statementResult->getErrorCode(),
+                    $statementResult->getErrorMessage()	                        
+                )	                    	           
+	        );
+	    }
+
+        if ($statementResult->getNumberOfAffectedRows() !== 1) {
+            throw new \LogicException(
+                'The entity doesn\'t exist into the database.'
+            );
+        }       
         // End of user code
     }
 

@@ -226,9 +226,48 @@ class MysqlDataSourceTest extends \PHPUnit_Framework_TestCase
     public function testUpdate()
     {
         // Start of user code DataSource.testupdate
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $pdo = MysqlDataSourceTestSetupTearDown::getPdoConnection($GLOBALS['db_name']);
+       
+        // Insert a record into a table
+        $pdo->exec(
+            'INSERT INTO some_entity_data_table (idTable, a, b, c) VALUES (2, \'foo\', \'foo\', \'foo\')'
         );
+
+        // Check if the record has been inserted on the table
+        $pdoStatement = $pdo->query(
+            'SELECT * FROM some_entity_data_table WHERE idTable = 2'
+        ); 
+        $this->assertInstanceOf('PDOStatement', $pdoStatement);
+        $this->assertEquals(1, $pdoStatement->rowCount());
+
+        // Manually construct the entity
+        $entity = new SomeEntity();
+        $entity->setId(2);
+        $entity->setAttributeA('bar');
+        $entity->setAttributeB('bar');
+        $entity->setAttributeC('bar');
+
+        // Update entity using MysqlDataSource
+        $dataSource = DataSourcesRegistry::getDataSource('test-mysql');   
+        $entityMapping = EntityMappingsRegistry::getEntityMapping(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );
+        $dataSource->update($entityMapping, $entity);
+        
+        // Check if the record has been updated into the table
+        $pdoStatement = $pdo->query(
+            'SELECT * FROM some_entity_data_table WHERE idTable = 2'
+        ); 
+        $this->assertInstanceOf('PDOStatement', $pdoStatement);
+        $this->assertSame(1, $pdoStatement->rowCount());
+        
+        $expectedRow = array(
+            'idTable' => '2',
+            'a' => 'bar',
+            'b' => 'bar',
+            'c' => 'bar'
+        );
+        $this->assertEquals($expectedRow, $pdoStatement->fetch(\PDO::FETCH_ASSOC));
         // End of user code
     }
     
@@ -270,6 +309,30 @@ class MysqlDataSourceTest extends \PHPUnit_Framework_TestCase
         );
         
         $dataSource->delete($entityMapping, $entity);
+    }
+
+    /**
+     * Test update a non existant record
+     *
+     * @expectedException LogicException
+     * @expectedExceptionMessage The entity doesn't exist into the database. 
+
+     */
+    public function testUpdateANonExistantEntity()
+    {
+        $entity = new SomeEntity();
+        $entity->setId(1337);
+        $entity->setAttributeA('foo');
+        $entity->setAttributeB('bar');
+        $entity->setAttributeC('baz');
+        
+        $dataSource = DataSourcesRegistry::getDataSource('test-mysql');   
+
+        $entityMapping = EntityMappingsRegistry::getEntityMapping(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );
+        
+        $dataSource->update($entityMapping, $entity);
     }
 
     // End of user code
