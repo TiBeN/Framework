@@ -5,7 +5,6 @@ namespace TiBeN\Framework\Tests\DataSource\MysqlDataSource\TypeConverter;
 use TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\BooleanConverter;
 
 // Start of user code BooleanConverter.useStatements
-// Place your use statements here.
 // End of user code
 
 /**
@@ -26,7 +25,6 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         // Start of user code BooleanConverterTest.setUp
-		// Place additional setUp code here.  
 		// End of user code
     }
 

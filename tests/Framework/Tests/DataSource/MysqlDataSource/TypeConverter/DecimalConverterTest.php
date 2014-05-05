@@ -48,9 +48,8 @@ class DecimalConverterTest extends \PHPUnit_Framework_TestCase
     public function testGetDataSourceType()
     {
         // Start of user code TypeConverter.testgetDataSourceType
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $converter = new DecimalConverter();
+        $this->assertEquals('mysql', $converter->getDataSourceType());
     	// End of user code
     }
     
@@ -63,9 +62,8 @@ class DecimalConverterTest extends \PHPUnit_Framework_TestCase
     public function testReverse()
     {
         // Start of user code Converter.testreverse
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $converter = new DecimalConverter();
+        $this->assertSame(45.32, $converter->reverse('45.32'));
     	// End of user code
     }
     
@@ -78,9 +76,7 @@ class DecimalConverterTest extends \PHPUnit_Framework_TestCase
     public function testSetParameters()
     {
         // Start of user code TypeConverter.testsetParameters
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        // Nothing to test here
     	// End of user code
     }
     
@@ -93,9 +89,8 @@ class DecimalConverterTest extends \PHPUnit_Framework_TestCase
     public function testConvert()
     {
         // Start of user code Converter.testconvert
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $converter = new DecimalConverter();
+        $this->assertSame('45.32', $converter->convert(45.32));
     	// End of user code
     }
     
@@ -108,9 +103,8 @@ class DecimalConverterTest extends \PHPUnit_Framework_TestCase
     public function testGetType()
     {
         // Start of user code TypeConverter.testgetType
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $converter = new DecimalConverter();
+        $this->assertEquals('decimal', $converter->getType());
     	// End of user code
     }
 
