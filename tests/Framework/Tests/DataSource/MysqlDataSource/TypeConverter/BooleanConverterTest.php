@@ -48,9 +48,8 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     public function testGetDataSourceType()
     {
         // Start of user code TypeConverter.testgetDataSourceType
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $converter = new BooleanConverter();
+        $this->assertEquals('mysql', $converter->getDataSourceType());
     	// End of user code
     }
     
@@ -63,9 +62,9 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     public function testReverse()
     {
         // Start of user code Converter.testreverse
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $converter = new BooleanConverter();
+        $this->assertSame(true, $converter->reverse('1'));
+        $this->assertSame(false, $converter->reverse('0'));
     	// End of user code
     }
     
@@ -78,9 +77,7 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     public function testSetParameters()
     {
         // Start of user code TypeConverter.testsetParameters
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        // Nothing to test here
     	// End of user code
     }
     
@@ -93,9 +90,9 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     public function testConvert()
     {
         // Start of user code Converter.testconvert
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $converter = new BooleanConverter();
+        $this->assertSame('1', $converter->convert(true));
+        $this->assertSame('0', $converter->convert(false));
     	// End of user code
     }
     
@@ -108,9 +105,8 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     public function testGetType()
     {
         // Start of user code TypeConverter.testgetType
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $converter = new BooleanConverter();
+        $this->assertEquals('boolean', $converter->getType());
     	// End of user code
     }
 

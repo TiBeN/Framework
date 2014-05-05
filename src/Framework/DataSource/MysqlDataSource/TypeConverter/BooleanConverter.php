@@ -37,6 +37,8 @@ class BooleanConverter implements TypeConverter
         $this->UType = $UType;
 
         // Start of user code BooleanConverter.constructor
+        $this->TType = 'boolean';
+        $this->UType = 'string';
         // End of user code
     }
 
@@ -102,7 +104,7 @@ class BooleanConverter implements TypeConverter
     public function getDataSourceType()
     {
         // Start of user code TypeConverter.getDataSourceType
-        // TODO should be implemented.
+        $dataSourceType = 'mysql';
         // End of user code
     
         return $dataSourceType;
@@ -116,7 +118,11 @@ class BooleanConverter implements TypeConverter
     {
         $this->typeHint($this->UType, $itemToReverse);
         // Start of user code Converter.reverse
-        // TODO should be implemented.
+        if(is_null($itemToReverse)) return $itemToReverse;
+        $reversedItem = $itemToReverse === '1'
+            ? true
+            : false
+        ;
         // End of user code
     
         return $reversedItem;
@@ -128,7 +134,7 @@ class BooleanConverter implements TypeConverter
     public function setParameters(AssociativeArray $parameters)
     {
         // Start of user code TypeConverter.setParameters
-        // TODO should be implemented.
+        // Nothing to do here
         // End of user code
     }
 
@@ -140,7 +146,11 @@ class BooleanConverter implements TypeConverter
     {
         $this->typeHint($this->TType, $itemToConvert);
         // Start of user code Converter.convert
-        // TODO should be implemented.
+        if(is_null($itemToConvert)) return $itemToConvert;
+        $convertedItem = $itemToConvert === true
+            ? '1'
+            : '0'
+        ;
         // End of user code
     
         return $convertedItem;
@@ -152,7 +162,7 @@ class BooleanConverter implements TypeConverter
     public function getType()
     {
         // Start of user code TypeConverter.getType
-        // TODO should be implemented.
+        $type = 'boolean';
         // End of user code
     
         return $type;
