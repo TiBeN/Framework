@@ -48,9 +48,8 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
     public function testGetDataSourceType()
     {
         // Start of user code TypeConverter.testgetDataSourceType
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $dateTimeConverter = new DateTimeConverter();
+        $this->assertEquals('mysql', $dateTimeConverter->getDataSourceType());
     	// End of user code
     }
     
@@ -63,9 +62,10 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
     public function testReverse()
     {
         // Start of user code Converter.testreverse
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $dateTimeConverter = new DateTimeConverter();
+        $dateTime = \DateTime::createFromFormat('d/m/Y H:i:s', '23/02/2014 15:39:10');
+        $this->assertEquals($dateTime, $dateTimeConverter->reverse('2014-02-23 15:39:10'));
+        $this->assertEquals(null, $dateTimeConverter->reverse(null));
     	// End of user code
     }
     
@@ -78,9 +78,7 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
     public function testSetParameters()
     {
         // Start of user code TypeConverter.testsetParameters
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        // Nothing to test here
     	// End of user code
     }
     
@@ -93,9 +91,10 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
     public function testConvert()
     {
         // Start of user code Converter.testconvert
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $dateTimeConverter = new DateTimeConverter();
+        $dateTime = \DateTime::createFromFormat('d/m/Y H:i:s', '23/02/2014 15:39:10');
+        $this->assertEquals('2014-02-23 15:39:10', $dateTimeConverter->convert($dateTime));
+        $this->assertEquals(null, $dateTimeConverter->reverse(null));
     	// End of user code
     }
     
@@ -108,9 +107,8 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
     public function testGetType()
     {
         // Start of user code TypeConverter.testgetType
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $dateTimeConverter = new DateTimeConverter();
+        $this->assertEquals('datetime', $dateTimeConverter->getType());
     	// End of user code
     }
 

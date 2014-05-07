@@ -173,7 +173,7 @@ class RowToEntityConverter implements Converter
 		$mapper->setEntityMapping($this->entityMapping);
         foreach($itemToConvert->toNativeArray() as $columnName => $value) {
             $mapper->setAttributeValue($columnName, $value);
-        }		
+        }
         // End of user code
     
         return $convertedItem;

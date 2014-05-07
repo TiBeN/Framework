@@ -37,6 +37,8 @@ class DateTimeConverter implements TypeConverter
         $this->UType = $UType;
 
         // Start of user code DateTimeConverter.constructor
+        $this->TType = '\DateTime';
+        $this->UType = 'string';
         // End of user code
     }
 
@@ -102,7 +104,7 @@ class DateTimeConverter implements TypeConverter
     public function getDataSourceType()
     {
         // Start of user code TypeConverter.getDataSourceType
-        // TODO should be implemented.
+        $dataSourceType = 'mysql';
         // End of user code
     
         return $dataSourceType;
@@ -116,7 +118,11 @@ class DateTimeConverter implements TypeConverter
     {
         $this->typeHint($this->UType, $itemToReverse);
         // Start of user code Converter.reverse
-        // TODO should be implemented.
+        if(is_null($itemToReverse)) return $itemToReverse;
+        $reversedItem = \DateTime::createFromFormat(
+            'Y-m-d H:i:s',
+            $itemToReverse
+        );
         // End of user code
     
         return $reversedItem;
@@ -140,7 +146,8 @@ class DateTimeConverter implements TypeConverter
     {
         $this->typeHint($this->TType, $itemToConvert);
         // Start of user code Converter.convert
-        // TODO should be implemented.
+        if(is_null($itemToConvert)) return $itemToConvert;
+        $convertedItem = $itemToConvert->format('Y-m-d H:i:s');
         // End of user code
     
         return $convertedItem;
@@ -152,7 +159,7 @@ class DateTimeConverter implements TypeConverter
     public function getType()
     {
         // Start of user code TypeConverter.getType
-        // TODO should be implemented.
+        $type = 'datetime';
         // End of user code
     
         return $type;

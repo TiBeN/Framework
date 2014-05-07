@@ -100,7 +100,7 @@ class MysqlEntityAttributeMapper
         ) {
             if($attributeMapping
                 ->getDataSourceAttributeMappingConfiguration()
-                ->getColumnName() 
+                ->getColumnName()
                 == $columnName
             ) {
                 $attributeFound = $attributeMapping;
@@ -112,16 +112,21 @@ class MysqlEntityAttributeMapper
             throw new \LogicException(
                 sprintf('column \'%s\' is not mapped to any attribute', $columnName)
             );
-        }   
-        
+        }
+
         $converter = DataSourceTypeConvertersRegistry::getTypeConverter(
             $attributeFound
                 ->getType()
                 ->get('name')
             ,
             'mysql'
-        );      
-        
+        );
+
+        // Define converter parameters from type configuration of the attribute 
+        $attributeTypeParameters = clone $attributeFound->getType();
+        $attributeTypeParameters->remove('name');
+        $converter->setParameters($attributeTypeParameters);
+
         $attributeSetterName = 'set'
             . ucfirst($attributeFound->getName())
         ;
@@ -228,17 +233,24 @@ class MysqlEntityAttributeMapper
                 sprintf('Entity has no attribute \'%s\' or is not mapped', $attributeName)
             );
         }
-                
+        $attributeTypeParameters = $this
+            ->entityMapping
+            ->getAttributeMappings()
+            ->get($attributeName)
+            ->getType()
+        ;
         $converter = DataSourceTypeConvertersRegistry::getTypeConverter(
-            $this
-                ->entityMapping
-                ->getAttributeMappings()
-                ->get($attributeName)
-                ->getType()
+            $attributeTypeParameters
                 ->get('name')
             , 
             'mysql'
         );
+
+        // Define converter parameters from type configuration of the attribute 
+        $converterParameters = clone $attributeTypeParameters;
+        $converterParameters->remove('name');
+        $converter->setParameters($converterParameters);
+
         $getterName = 'get' . ucfirst($attributeName);
         $columnValue = $converter->convert($this->entity->$getterName());
         // End of user code
