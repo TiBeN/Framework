@@ -17,9 +17,9 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class TemplateRenderer
 {
     /**
-     * @var TemplateEngine
+     * @var AssociativeArray
      */
-    public static $defaultTemplateEngine;
+    public static $globals;
 
     /**
      * @var string
@@ -27,9 +27,9 @@ class TemplateRenderer
     public static $defaultTemplatesDirectory;
 
     /**
-     * @var AssociativeArray
+     * @var TemplateEngine
      */
-    public static $globals;
+    public static $defaultTemplateEngine;
 
     public function __construct()
     {
@@ -41,46 +41,6 @@ class TemplateRenderer
     {
         // Start of user code TemplateRenderer.destructor
         // End of user code
-    }
-
-    /**
-     * @return TemplateEngine
-     */
-    public static function getDefaultTemplateEngine()
-    {
-        // Start of user code Static getter TemplateRenderer.getDefaultTemplateEngine
-        // End of user code
-        return self::$defaultTemplateEngine;
-    }
-
-    /**
-     * @param TemplateEngine $defaultTemplateEngine
-     */
-    public static function setDefaultTemplateEngine(TemplateEngine $defaultTemplateEngine)
-    {
-        // Start of user code Static setter TemplateRenderer.setDefaultTemplateEngine
-        // End of user code
-        self::$defaultTemplateEngine = $defaultTemplateEngine;
-    }
-
-    /**
-     * @return string
-     */
-    public static function getDefaultTemplatesDirectory()
-    {
-        // Start of user code Static getter TemplateRenderer.getDefaultTemplatesDirectory
-        // End of user code
-        return self::$defaultTemplatesDirectory;
-    }
-
-    /**
-     * @param string $defaultTemplatesDirectory
-     */
-    public static function setDefaultTemplatesDirectory($defaultTemplatesDirectory)
-    {
-        // Start of user code Static setter TemplateRenderer.setDefaultTemplatesDirectory
-        // End of user code
-        self::$defaultTemplatesDirectory = $defaultTemplatesDirectory;
     }
 
     /**
@@ -104,6 +64,46 @@ class TemplateRenderer
         // Start of user code Static setter TemplateRenderer.setGlobals
         // End of user code
         self::$globals = $globals;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getDefaultTemplatesDirectory()
+    {
+        // Start of user code Static getter TemplateRenderer.getDefaultTemplatesDirectory
+        // End of user code
+        return self::$defaultTemplatesDirectory;
+    }
+
+    /**
+     * @param string $defaultTemplatesDirectory
+     */
+    public static function setDefaultTemplatesDirectory($defaultTemplatesDirectory)
+    {
+        // Start of user code Static setter TemplateRenderer.setDefaultTemplatesDirectory
+        // End of user code
+        self::$defaultTemplatesDirectory = $defaultTemplatesDirectory;
+    }
+
+    /**
+     * @return TemplateEngine
+     */
+    public static function getDefaultTemplateEngine()
+    {
+        // Start of user code Static getter TemplateRenderer.getDefaultTemplateEngine
+        // End of user code
+        return self::$defaultTemplateEngine;
+    }
+
+    /**
+     * @param TemplateEngine $defaultTemplateEngine
+     */
+    public static function setDefaultTemplateEngine(TemplateEngine $defaultTemplateEngine)
+    {
+        // Start of user code Static setter TemplateRenderer.setDefaultTemplateEngine
+        // End of user code
+        self::$defaultTemplateEngine = $defaultTemplateEngine;
     }
 
     /**

@@ -18,19 +18,14 @@ use TiBeN\Framework\Validation\ValidationRule;
 class AttributeMapping
 {
     /**
-     * @var bool
+     * @var DataSourceAttributeMappingConfiguration
      */
-    public $isIdentifier;
+    public $dataSourceAttributeMappingConfiguration;
 
     /**
      * @var array
      */
     public $validationRules;
-
-    /**
-     * @var DataSourceAttributeMappingConfiguration
-     */
-    public $dataSourceAttributeMappingConfiguration;
 
     /**
      * @var AssociativeArray
@@ -42,6 +37,11 @@ class AttributeMapping
      */
     public $name;
 
+    /**
+     * @var bool
+     */
+    public $isIdentifier;
+
     public function __construct()
     {
         // Start of user code AttributeMapping.constructor
@@ -52,46 +52,6 @@ class AttributeMapping
     {
         // Start of user code AttributeMapping.destructor
         // End of user code
-    }
-
-    /**
-     * @return bool
-     */
-    public function getIsIdentifier()
-    {
-        // Start of user code Getter AttributeMapping.getIsIdentifier
-        // End of user code
-        return $this->isIdentifier;
-    }
-
-    /**
-     * @param bool $isIdentifier
-     */
-    public function setIsIdentifier($isIdentifier)
-    {
-        // Start of user code Setter AttributeMapping.setIsIdentifier
-        // End of user code
-        $this->isIdentifier = $isIdentifier;
-    }
-
-    /**
-     * @return array
-     */
-    public function getValidationRules()
-    {
-        // Start of user code Getter AttributeMapping.getValidationRules
-        // End of user code
-        return $this->validationRules;
-    }
-
-    /**
-     * @param array $validationRules
-     */
-    public function setValidationRules(array $validationRules)
-    {
-        // Start of user code Setter AttributeMapping.setValidationRules
-        // End of user code
-        $this->validationRules = $validationRules;
     }
 
     /**
@@ -112,6 +72,26 @@ class AttributeMapping
         // Start of user code Setter AttributeMapping.setDataSourceAttributeMappingConfiguration
         // End of user code
         $this->dataSourceAttributeMappingConfiguration = $dataSourceAttributeMappingConfiguration;
+    }
+
+    /**
+     * @return array
+     */
+    public function getValidationRules()
+    {
+        // Start of user code Getter AttributeMapping.getValidationRules
+        // End of user code
+        return $this->validationRules;
+    }
+
+    /**
+     * @param array $validationRules
+     */
+    public function setValidationRules(array $validationRules)
+    {
+        // Start of user code Setter AttributeMapping.setValidationRules
+        // End of user code
+        $this->validationRules = $validationRules;
     }
 
     /**
@@ -152,6 +132,26 @@ class AttributeMapping
         // Start of user code Setter AttributeMapping.setName
         // End of user code
         $this->name = $name;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsIdentifier()
+    {
+        // Start of user code Getter AttributeMapping.getIsIdentifier
+        // End of user code
+        return $this->isIdentifier;
+    }
+
+    /**
+     * @param bool $isIdentifier
+     */
+    public function setIsIdentifier($isIdentifier)
+    {
+        // Start of user code Setter AttributeMapping.setIsIdentifier
+        // End of user code
+        $this->isIdentifier = $isIdentifier;
     }
 
     /**

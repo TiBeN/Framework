@@ -3,9 +3,9 @@
 namespace TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter;
 
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\DataSource\TypeConverter;
 use TiBeN\Framework\Datatype\U;
 use TiBeN\Framework\Datatype\T;
-use TiBeN\Framework\DataSource\TypeConverter;
 
 // Start of user code DateTimeConverter.useStatements
 // Place your use statements here.
@@ -111,6 +111,21 @@ class DateTimeConverter implements TypeConverter
     }
 
     /**
+     * @param T $itemToConvert
+     * @return U $convertedItem
+     */
+    public function convert($itemToConvert)
+    {
+        $this->typeHint($this->TType, $itemToConvert);
+        // Start of user code Converter.convert
+        if(is_null($itemToConvert)) return $itemToConvert;
+        $convertedItem = $itemToConvert->format('Y-m-d H:i:s');
+        // End of user code
+    
+        return $convertedItem;
+    }
+
+    /**
      * @param U $itemToReverse
      * @return T $reversedItem
      */
@@ -136,21 +151,6 @@ class DateTimeConverter implements TypeConverter
         // Start of user code TypeConverter.setParameters
         // TODO should be implemented.
         // End of user code
-    }
-
-    /**
-     * @param T $itemToConvert
-     * @return U $convertedItem
-     */
-    public function convert($itemToConvert)
-    {
-        $this->typeHint($this->TType, $itemToConvert);
-        // Start of user code Converter.convert
-        if(is_null($itemToConvert)) return $itemToConvert;
-        $convertedItem = $itemToConvert->format('Y-m-d H:i:s');
-        // End of user code
-    
-        return $convertedItem;
     }
 
     /**

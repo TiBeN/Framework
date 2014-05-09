@@ -17,19 +17,19 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class SelectStatement implements Statement
 {
     /**
-     * @var SelectExpr
-     */
-    public $selectExpr;
-
-    /**
      * @var OrderByStatement
      */
     public $orderByStatement;
 
     /**
-     * @var WhereConditions
+     * @var SelectExpr
      */
-    public $whereConditions;
+    public $selectExpr;
+
+    /**
+     * @var LimitStatement
+     */
+    public $limitStatement;
 
     /**
      * @var string
@@ -37,9 +37,9 @@ class SelectStatement implements Statement
     public $tableReferences;
 
     /**
-     * @var LimitStatement
+     * @var WhereConditions
      */
-    public $limitStatement;
+    public $whereConditions;
 
     public function __construct()
     {
@@ -51,26 +51,6 @@ class SelectStatement implements Statement
     {
         // Start of user code SelectStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return SelectExpr
-     */
-    public function getSelectExpr()
-    {
-        // Start of user code Getter SelectStatement.getSelectExpr
-        // End of user code
-        return $this->selectExpr;
-    }
-
-    /**
-     * @param SelectExpr $selectExpr
-     */
-    public function setSelectExpr(SelectExpr $selectExpr)
-    {
-        // Start of user code Setter SelectStatement.setSelectExpr
-        // End of user code
-        $this->selectExpr = $selectExpr;
     }
 
     /**
@@ -94,23 +74,43 @@ class SelectStatement implements Statement
     }
 
     /**
-     * @return WhereConditions
+     * @return SelectExpr
      */
-    public function getWhereConditions()
+    public function getSelectExpr()
     {
-        // Start of user code Getter SelectStatement.getWhereConditions
+        // Start of user code Getter SelectStatement.getSelectExpr
         // End of user code
-        return $this->whereConditions;
+        return $this->selectExpr;
     }
 
     /**
-     * @param WhereConditions $whereConditions
+     * @param SelectExpr $selectExpr
      */
-    public function setWhereConditions(WhereConditions $whereConditions)
+    public function setSelectExpr(SelectExpr $selectExpr)
     {
-        // Start of user code Setter SelectStatement.setWhereConditions
+        // Start of user code Setter SelectStatement.setSelectExpr
         // End of user code
-        $this->whereConditions = $whereConditions;
+        $this->selectExpr = $selectExpr;
+    }
+
+    /**
+     * @return LimitStatement
+     */
+    public function getLimitStatement()
+    {
+        // Start of user code Getter SelectStatement.getLimitStatement
+        // End of user code
+        return $this->limitStatement;
+    }
+
+    /**
+     * @param LimitStatement $limitStatement
+     */
+    public function setLimitStatement(LimitStatement $limitStatement)
+    {
+        // Start of user code Setter SelectStatement.setLimitStatement
+        // End of user code
+        $this->limitStatement = $limitStatement;
     }
 
     /**
@@ -134,23 +134,23 @@ class SelectStatement implements Statement
     }
 
     /**
-     * @return LimitStatement
+     * @return WhereConditions
      */
-    public function getLimitStatement()
+    public function getWhereConditions()
     {
-        // Start of user code Getter SelectStatement.getLimitStatement
+        // Start of user code Getter SelectStatement.getWhereConditions
         // End of user code
-        return $this->limitStatement;
+        return $this->whereConditions;
     }
 
     /**
-     * @param LimitStatement $limitStatement
+     * @param WhereConditions $whereConditions
      */
-    public function setLimitStatement(LimitStatement $limitStatement)
+    public function setWhereConditions(WhereConditions $whereConditions)
     {
-        // Start of user code Setter SelectStatement.setLimitStatement
+        // Start of user code Setter SelectStatement.setWhereConditions
         // End of user code
-        $this->limitStatement = $limitStatement;
+        $this->whereConditions = $whereConditions;
     }
 
     // Statement Realization

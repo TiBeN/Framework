@@ -46,6 +46,58 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method createEntityTargetFromEntity from class WhereConditions
+     *
+     * Start of user code WhereConditionsTest.testcreateEntityTargetFromEntityAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateEntityTargetFromEntity()
+    {
+        // Start of user code WhereConditionsTest.testcreateEntityTargetFromEntity
+	    $expectedWhereConditionsString = 'WHERE idTable = :id0';
+	    $someEntity = new SomeEntity();
+	    $someEntity->setId(1337);
+	    $someEntity->setAttributeA('foo');
+	    
+	    $entityMapping = EntityMappingsRegistry::getEntityMapping(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );
+	    
+	    $whereConditions = WhereConditions::createEntityTargetFromEntity(
+            $entityMapping, 
+            $someEntity
+        );
+	    
+	    $this->assertEquals($expectedWhereConditionsString, $whereConditions->toString());
+	    
+	    $expectedStatementParameters = AssociativeArray::createFromNativeArray(
+            null, 
+            array('id0' => 1337)
+        );
+	    
+	    $this->assertEquals(
+            $expectedStatementParameters, 
+            $whereConditions->getStatementParameters()
+	    );	    
+		// End of user code
+    }
+    
+    /**
+     * Test method toString from class WhereConditions
+     *
+     * Start of user code WhereConditionsTest.testtoStringAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code WhereConditionsTest.testtoString
+	    // Test case covered by others test methods
+		// End of user code
+    }
+    
+    /**
      * Test static method createFromCriteriaSet from class WhereConditions
      *
      * Start of user code WhereConditionsTest.testcreateFromCriteriaSetAnnotations 
@@ -97,20 +149,6 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
             $expectedStatementParameters, 
             $whereConditions->getStatementParameters()
         );
-		// End of user code
-    }
-    
-    /**
-     * Test method toString from class WhereConditions
-     *
-     * Start of user code WhereConditionsTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code WhereConditionsTest.testtoString
-	    // Test case covered by others test methods
 		// End of user code
     }
     
@@ -204,44 +242,6 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
             $expectedWhereConditionsString, 
             WhereConditions::createFromExpr($expr)->toString()
         );
-		// End of user code
-    }
-    
-    /**
-     * Test static method createEntityTargetFromEntity from class WhereConditions
-     *
-     * Start of user code WhereConditionsTest.testcreateEntityTargetFromEntityAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateEntityTargetFromEntity()
-    {
-        // Start of user code WhereConditionsTest.testcreateEntityTargetFromEntity
-	    $expectedWhereConditionsString = 'WHERE idTable = :id0';
-	    $someEntity = new SomeEntity();
-	    $someEntity->setId(1337);
-	    $someEntity->setAttributeA('foo');
-	    
-	    $entityMapping = EntityMappingsRegistry::getEntityMapping(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
-        );
-	    
-	    $whereConditions = WhereConditions::createEntityTargetFromEntity(
-            $entityMapping, 
-            $someEntity
-        );
-	    
-	    $this->assertEquals($expectedWhereConditionsString, $whereConditions->toString());
-	    
-	    $expectedStatementParameters = AssociativeArray::createFromNativeArray(
-            null, 
-            array('id0' => 1337)
-        );
-	    
-	    $this->assertEquals(
-            $expectedStatementParameters, 
-            $whereConditions->getStatementParameters()
-	    );	    
 		// End of user code
     }
 

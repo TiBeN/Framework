@@ -20,6 +20,16 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class HttpRequest
 {
     /**
+     * @var AssociativeArray
+     */
+    public $headers;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $postVars;
+
+    /**
      * @var string
      */
     public $method;
@@ -30,29 +40,19 @@ class HttpRequest
     public $host;
 
     /**
+     * @var string
+     */
+    public $httpVersion;
+
+    /**
      * @var AssociativeArray
      */
     public $getVars;
 
     /**
-     * @var AssociativeArray
-     */
-    public $postVars;
-
-    /**
      * @var string
      */
     public $requestUri;
-
-    /**
-     * @var AssociativeArray
-     */
-    public $headers;
-
-    /**
-     * @var string
-     */
-    public $httpVersion;
 
     public function __construct()
     {
@@ -64,6 +64,46 @@ class HttpRequest
     {
         // Start of user code HttpRequest.destructor
         // End of user code
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getHeaders()
+    {
+        // Start of user code Getter HttpRequest.getHeaders
+        // End of user code
+        return $this->headers;
+    }
+
+    /**
+     * @param AssociativeArray $headers
+     */
+    public function setHeaders(AssociativeArray $headers)
+    {
+        // Start of user code Setter HttpRequest.setHeaders
+        // End of user code
+        $this->headers = $headers;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getPostVars()
+    {
+        // Start of user code Getter HttpRequest.getPostVars
+        // End of user code
+        return $this->postVars;
+    }
+
+    /**
+     * @param AssociativeArray $postVars
+     */
+    public function setPostVars(AssociativeArray $postVars)
+    {
+        // Start of user code Setter HttpRequest.setPostVars
+        // End of user code
+        $this->postVars = $postVars;
     }
 
     /**
@@ -107,6 +147,26 @@ class HttpRequest
     }
 
     /**
+     * @return string
+     */
+    public function getHttpVersion()
+    {
+        // Start of user code Getter HttpRequest.getHttpVersion
+        // End of user code
+        return $this->httpVersion;
+    }
+
+    /**
+     * @param string $httpVersion
+     */
+    public function setHttpVersion($httpVersion)
+    {
+        // Start of user code Setter HttpRequest.setHttpVersion
+        // End of user code
+        $this->httpVersion = $httpVersion;
+    }
+
+    /**
      * @return AssociativeArray
      */
     public function getGetVars()
@@ -127,26 +187,6 @@ class HttpRequest
     }
 
     /**
-     * @return AssociativeArray
-     */
-    public function getPostVars()
-    {
-        // Start of user code Getter HttpRequest.getPostVars
-        // End of user code
-        return $this->postVars;
-    }
-
-    /**
-     * @param AssociativeArray $postVars
-     */
-    public function setPostVars(AssociativeArray $postVars)
-    {
-        // Start of user code Setter HttpRequest.setPostVars
-        // End of user code
-        $this->postVars = $postVars;
-    }
-
-    /**
      * @return string
      */
     public function getRequestUri()
@@ -164,46 +204,6 @@ class HttpRequest
         // Start of user code Setter HttpRequest.setRequestUri
         // End of user code
         $this->requestUri = $requestUri;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getHeaders()
-    {
-        // Start of user code Getter HttpRequest.getHeaders
-        // End of user code
-        return $this->headers;
-    }
-
-    /**
-     * @param AssociativeArray $headers
-     */
-    public function setHeaders(AssociativeArray $headers)
-    {
-        // Start of user code Setter HttpRequest.setHeaders
-        // End of user code
-        $this->headers = $headers;
-    }
-
-    /**
-     * @return string
-     */
-    public function getHttpVersion()
-    {
-        // Start of user code Getter HttpRequest.getHttpVersion
-        // End of user code
-        return $this->httpVersion;
-    }
-
-    /**
-     * @param string $httpVersion
-     */
-    public function setHttpVersion($httpVersion)
-    {
-        // Start of user code Setter HttpRequest.setHttpVersion
-        // End of user code
-        $this->httpVersion = $httpVersion;
     }
 
     /**

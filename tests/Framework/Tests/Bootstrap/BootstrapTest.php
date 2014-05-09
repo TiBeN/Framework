@@ -8,7 +8,7 @@ use TiBeN\Framework\Bootstrap\Bootstrap;
 use TiBeN\Framework\Router\RouteRule;
 use TiBeN\Framework\Router\Router;
 use TiBeN\Framework\Renderer\TemplateRenderer;
-
+use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
 // End of user code
 
 /**
@@ -107,6 +107,31 @@ class BootstrapTest extends \PHPUnit_Framework_TestCase
             TemplateRenderer::getDefaultTemplateEngine()
         );
 
+        // Bootstrap should declare built-in Mysql Datasource TypeConverters
+        $this->assertInstanceOf(
+            'TiBeN\\Framework\\DataSource\\MysqlDataSource\\TypeConverter\\BooleanConverter',
+            DataSourceTypeConvertersRegistry::getTypeConverter('boolean', 'mysql')
+        );
+
+        $this->assertInstanceOf(
+            'TiBeN\\Framework\\DataSource\\MysqlDataSource\\TypeConverter\\IntegerConverter',
+            DataSourceTypeConvertersRegistry::getTypeConverter('integer', 'mysql')
+        );
+
+        $this->assertInstanceOf(
+            'TiBeN\\Framework\\DataSource\\MysqlDataSource\\TypeConverter\\DecimalConverter',
+            DataSourceTypeConvertersRegistry::getTypeConverter('decimal', 'mysql')
+        );
+
+        $this->assertinstanceof(
+            'tiben\\framework\\datasource\\mysqldatasource\\TypeConverter\\Stringconverter',
+            datasourcetypeconvertersregistry::gettypeconverter('string', 'mysql')
+        );
+
+        $this->assertInstanceOf(
+            'TiBeN\\Framework\\DataSource\\MysqlDataSource\\TypeConverter\\DateTimeConverter',
+            DataSourceTypeConvertersRegistry::getTypeConverter('datetime', 'mysql')
+        );
         // End of user code
     }
 

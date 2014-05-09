@@ -20,12 +20,12 @@ class HttpResponse
     /**
      * @var string
      */
-    public $contentType = 'text/html';
+    public $message;
 
     /**
      * @var string
      */
-    public $message;
+    public $statusCode = '200';
 
     /**
      * @var AssociativeArray
@@ -35,7 +35,7 @@ class HttpResponse
     /**
      * @var string
      */
-    public $statusCode = '200';
+    public $contentType = 'text/html';
 
     public function __construct()
     {
@@ -47,26 +47,6 @@ class HttpResponse
     {
         // Start of user code HttpResponse.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getContentType()
-    {
-        // Start of user code Getter HttpResponse.getContentType
-        // End of user code
-        return $this->contentType;
-    }
-
-    /**
-     * @param string $contentType
-     */
-    public function setContentType($contentType)
-    {
-        // Start of user code Setter HttpResponse.setContentType
-        // End of user code
-        $this->contentType = $contentType;
     }
 
     /**
@@ -87,6 +67,26 @@ class HttpResponse
         // Start of user code Setter HttpResponse.setMessage
         // End of user code
         $this->message = $message;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatusCode()
+    {
+        // Start of user code Getter HttpResponse.getStatusCode
+        // End of user code
+        return $this->statusCode;
+    }
+
+    /**
+     * @param string $statusCode
+     */
+    public function setStatusCode($statusCode)
+    {
+        // Start of user code Setter HttpResponse.setStatusCode
+        // End of user code
+        $this->statusCode = $statusCode;
     }
 
     /**
@@ -112,41 +112,21 @@ class HttpResponse
     /**
      * @return string
      */
-    public function getStatusCode()
+    public function getContentType()
     {
-        // Start of user code Getter HttpResponse.getStatusCode
+        // Start of user code Getter HttpResponse.getContentType
         // End of user code
-        return $this->statusCode;
+        return $this->contentType;
     }
 
     /**
-     * @param string $statusCode
+     * @param string $contentType
      */
-    public function setStatusCode($statusCode)
+    public function setContentType($contentType)
     {
-        // Start of user code Setter HttpResponse.setStatusCode
+        // Start of user code Setter HttpResponse.setContentType
         // End of user code
-        $this->statusCode = $statusCode;
-    }
-
-    /**
-     * Create an HttpResponse object configured to send a type redirect 302 response  
-     *
-     * @param string $uri
-     * @param bool $permanent
-     * @return HttpResponse $httpResponse
-     */
-    public static function createRedirectResponse($uri, $permanent)
-    {
-        // Start of user code HttpResponse.createRedirectResponse
-        $httpResponse = new self();			
-		$httpResponse->setStatusCode($permanent ? '301' : '302');
-		$httpResponse->setHeaders(
-            AssociativeArray::createFromNativeArray('string', array('location' => $uri))
-        );
-        // End of user code
-    
-        return $httpResponse;
+        $this->contentType = $contentType;
     }
 
     /**
@@ -207,6 +187,26 @@ class HttpResponse
 		
 		return;
         // End of user code
+    }
+
+    /**
+     * Create an HttpResponse object configured to send a type redirect 302 response  
+     *
+     * @param string $uri
+     * @param bool $permanent
+     * @return HttpResponse $httpResponse
+     */
+    public static function createRedirectResponse($uri, $permanent)
+    {
+        // Start of user code HttpResponse.createRedirectResponse
+        $httpResponse = new self();			
+		$httpResponse->setStatusCode($permanent ? '301' : '302');
+		$httpResponse->setHeaders(
+            AssociativeArray::createFromNativeArray('string', array('location' => $uri))
+        );
+        // End of user code
+    
+        return $httpResponse;
     }
 
     // Start of user code HttpResponse.implementationSpecificMethods

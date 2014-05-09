@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Entity\EntityMapping;
-use TiBeN\Framework\Entity\Entity;
 
 // Start of user code SetStatement.useStatements
 // Place your use statements here.
@@ -68,6 +68,23 @@ class SetStatement extends AssociativeArray
     }
 
     /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     * @return SetStatement $setStatement
+     */
+    public static function createKeyValueListFromEntity(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code SetStatement.createKeyValueListFromEntity
+        $converter = new RowToEntityConverter();
+        $converter->setEntityMapping($entityMapping);
+        $row = $converter->reverse($entity);
+        $setStatement = SetStatement::createFromNativeArray(null, $row->toNativeArray());
+        // End of user code
+    
+        return $setStatement;
+    }
+
+    /**
      * @return AssociativeArray $statementParameters
      */
     public function getStatementParameters()
@@ -96,23 +113,6 @@ class SetStatement extends AssociativeArray
         // End of user code
     
         return $string;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     * @return SetStatement $setStatement
-     */
-    public static function createKeyValueListFromEntity(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code SetStatement.createKeyValueListFromEntity
-        $converter = new RowToEntityConverter();
-        $converter->setEntityMapping($entityMapping);
-        $row = $converter->reverse($entity);
-        $setStatement = SetStatement::createFromNativeArray(null, $row->toNativeArray());
-        // End of user code
-    
-        return $setStatement;
     }
 
     // Start of user code SetStatement.surchargedMethods

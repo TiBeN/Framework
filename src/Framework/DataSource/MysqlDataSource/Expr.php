@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\GenericCollection;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Datatype\GenericCollection;
 
 // Start of user code Expr.useStatements
 // Place your use statements here.
@@ -20,52 +20,7 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_LESS_THAN = '<';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_NOT_LIKE = 'NOT LIKE';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
-
-    /**
-     * @var string
-     */
-    const LOGICAL_SEPARATOR_AND = 'AND';
-
-    /**
-     * @var string
-     */
-    public $exprString;
-
-    /**
-     * @var bool
-     */
-    public $isResultOfConcatenation = false;
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LIKE = 'LIKE';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_NOT_EQUALS = '!=';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_GREATER_THAN = '>';
+    const OPERATOR_EQUALS = '=';
 
     /**
      * @var string
@@ -75,12 +30,57 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_EQUALS = '=';
+    const OPERATOR_GREATER_THAN = '>';
+
+    /**
+     * @var string
+     */
+    public $exprString;
+
+    /**
+     * @var string
+     */
+    const OPERATOR_NOT_LIKE = 'NOT LIKE';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LESS_THAN = '<';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_NOT_EQUALS = '!=';
+
+    /**
+     * @var string
+     */
+    const LOGICAL_SEPARATOR_AND = 'AND';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
 
     /**
      * @var AssociativeArray
      */
     public $exprParameters;
+
+    /**
+     * @var bool
+     */
+    public $isResultOfConcatenation = false;
+
+    /**
+     * @var string
+     */
+    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LIKE = 'LIKE';
 
     public function __construct()
     {
@@ -116,26 +116,6 @@ class Expr
     }
 
     /**
-     * @return bool
-     */
-    public function getIsResultOfConcatenation()
-    {
-        // Start of user code Getter Expr.getIsResultOfConcatenation
-        // End of user code
-        return $this->isResultOfConcatenation;
-    }
-
-    /**
-     * @param bool $isResultOfConcatenation
-     */
-    public function setIsResultOfConcatenation($isResultOfConcatenation)
-    {
-        // Start of user code Setter Expr.setIsResultOfConcatenation
-        // End of user code
-        $this->isResultOfConcatenation = $isResultOfConcatenation;
-    }
-
-    /**
      * @return AssociativeArray
      */
     public function getExprParameters()
@@ -156,31 +136,23 @@ class Expr
     }
 
     /**
-     * @return string $exprString
+     * @return bool
      */
-    public function toString()
+    public function getIsResultOfConcatenation()
     {
-        // Start of user code Expr.toString
-	    $exprString = $this->exprString;
+        // Start of user code Getter Expr.getIsResultOfConcatenation
         // End of user code
-    
-        return $exprString;
+        return $this->isResultOfConcatenation;
     }
 
     /**
-     * @param string $exprString
-     * @param AssociativeArray $exprParameters
-     * @return Expr $expr
+     * @param bool $isResultOfConcatenation
      */
-    public static function fromString($exprString, AssociativeArray $exprParameters)
+    public function setIsResultOfConcatenation($isResultOfConcatenation)
     {
-        // Start of user code Expr.fromString
-        $expr = new self(); 
-        $expr->setExprString($exprString);
-        $expr->setExprParameters($exprParameters);
+        // Start of user code Setter Expr.setIsResultOfConcatenation
         // End of user code
-    
-        return $expr;
+        $this->isResultOfConcatenation = $isResultOfConcatenation;
     }
 
     /**
@@ -210,6 +182,34 @@ class Expr
         // End of user code
     
         return $expr;
+    }
+
+    /**
+     * @param string $exprString
+     * @param AssociativeArray $exprParameters
+     * @return Expr $expr
+     */
+    public static function fromString($exprString, AssociativeArray $exprParameters)
+    {
+        // Start of user code Expr.fromString
+        $expr = new self(); 
+        $expr->setExprString($exprString);
+        $expr->setExprParameters($exprParameters);
+        // End of user code
+    
+        return $expr;
+    }
+
+    /**
+     * @return string $exprString
+     */
+    public function toString()
+    {
+        // Start of user code Expr.toString
+	    $exprString = $this->exprString;
+        // End of user code
+    
+        return $exprString;
     }
 
     // Start of user code Expr.implementationSpecificMethods

@@ -59,21 +59,6 @@ class EntityMappingsRegistry
     }
 
     /**
-     * @param string $entityName
-     */
-    public static function clearEntityMapping($entityName)
-    {
-        // Start of user code EntityMappingsRegistry.clearEntityMapping
-		if (!self::getEntityMappings()->has($entityName)) {
-		    throw new \InvalidArgumentException(
-                sprintf('No entity mapping for entity "%s"', $entityName)
-            );
-		}
-		self::getEntityMappings()->remove($entityName);
-        // End of user code
-    }
-
-    /**
      * @param EntityMapping $entityMapping
      */
     public static function registerEntityMapping(EntityMapping $entityMapping)
@@ -110,6 +95,21 @@ class EntityMappingsRegistry
         // End of user code
     
         return $entityMapping;
+    }
+
+    /**
+     * @param string $entityName
+     */
+    public static function clearEntityMapping($entityName)
+    {
+        // Start of user code EntityMappingsRegistry.clearEntityMapping
+		if (!self::getEntityMappings()->has($entityName)) {
+		    throw new \InvalidArgumentException(
+                sprintf('No entity mapping for entity "%s"', $entityName)
+            );
+		}
+		self::getEntityMappings()->remove($entityName);
+        // End of user code
     }
 
     // Start of user code EntityMappingsRegistry.implementationSpecificMethods

@@ -22,14 +22,14 @@ class UpdateStatement implements Statement
     public $whereDefinition;
 
     /**
-     * @var string
-     */
-    public $tableName;
-
-    /**
      * @var SetStatement
      */
     public $setStatement;
+
+    /**
+     * @var string
+     */
+    public $tableName;
 
     public function __construct()
     {
@@ -64,26 +64,6 @@ class UpdateStatement implements Statement
     }
 
     /**
-     * @return string
-     */
-    public function getTableName()
-    {
-        // Start of user code Getter UpdateStatement.getTableName
-        // End of user code
-        return $this->tableName;
-    }
-
-    /**
-     * @param string $tableName
-     */
-    public function setTableName($tableName)
-    {
-        // Start of user code Setter UpdateStatement.setTableName
-        // End of user code
-        $this->tableName = $tableName;
-    }
-
-    /**
      * @return SetStatement
      */
     public function getSetStatement()
@@ -101,6 +81,26 @@ class UpdateStatement implements Statement
         // Start of user code Setter UpdateStatement.setSetStatement
         // End of user code
         $this->setStatement = $setStatement;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTableName()
+    {
+        // Start of user code Getter UpdateStatement.getTableName
+        // End of user code
+        return $this->tableName;
+    }
+
+    /**
+     * @param string $tableName
+     */
+    public function setTableName($tableName)
+    {
+        // Start of user code Setter UpdateStatement.setTableName
+        // End of user code
+        $this->tableName = $tableName;
     }
 
     // Statement Realization

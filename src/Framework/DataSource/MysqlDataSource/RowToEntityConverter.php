@@ -125,6 +125,31 @@ class RowToEntityConverter implements Converter
     // Converter Realization
 
     /**
+     * @param T $itemToConvert
+     * @return U $convertedItem
+     */
+    public function convert($itemToConvert)
+    {
+        $this->typeHint($this->TType, $itemToConvert);
+        // Start of user code Converter.convert
+        if(!isset($this->entityMapping)) {
+            throw new \LogicException('No entityMapping set');
+        }
+        $entityName = $this->entityMapping->getEntityName();
+		$convertedItem = new $entityName();
+
+		$mapper = new MysqlEntityAttributeMapper();
+		$mapper->setEntity($convertedItem);
+		$mapper->setEntityMapping($this->entityMapping);
+        foreach($itemToConvert->toNativeArray() as $columnName => $value) {
+            $mapper->setAttributeValue($columnName, $value);
+        }
+        // End of user code
+    
+        return $convertedItem;
+    }
+
+    /**
      * @param U $itemToReverse
      * @return T $reversedItem
      */
@@ -152,31 +177,6 @@ class RowToEntityConverter implements Converter
         // End of user code
     
         return $reversedItem;
-    }
-
-    /**
-     * @param T $itemToConvert
-     * @return U $convertedItem
-     */
-    public function convert($itemToConvert)
-    {
-        $this->typeHint($this->TType, $itemToConvert);
-        // Start of user code Converter.convert
-        if(!isset($this->entityMapping)) {
-            throw new \LogicException('No entityMapping set');
-        }
-        $entityName = $this->entityMapping->getEntityName();
-		$convertedItem = new $entityName();
-
-		$mapper = new MysqlEntityAttributeMapper();
-		$mapper->setEntity($convertedItem);
-		$mapper->setEntityMapping($this->entityMapping);
-        foreach($itemToConvert->toNativeArray() as $columnName => $value) {
-            $mapper->setAttributeValue($columnName, $value);
-        }
-        // End of user code
-    
-        return $convertedItem;
     }
 
     // Start of user code RowToEntityConverter.implementationSpecificMethods

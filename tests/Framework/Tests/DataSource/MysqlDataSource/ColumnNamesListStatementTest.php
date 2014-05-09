@@ -41,25 +41,6 @@ class ColumnNamesListStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method toString from class ColumnNamesListStatement
-     *
-     * Start of user code ColumnNamesListStatementTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code ColumnNamesListStatementTest.testtoString
-        $expectedStatement = "(a,b,c)";
-        $columnNamesListStatement = new ColumnNamesListStatement();
-        $columnNamesListStatement->add('a');
-        $columnNamesListStatement->add('b');
-        $columnNamesListStatement->add('c');
-        $this->assertEquals($expectedStatement, $columnNamesListStatement->toString());
-		// End of user code
-    }
-    
-    /**
      * Test static method createFromEntityAttributes from class ColumnNamesListStatement
      *
      * Start of user code ColumnNamesListStatementTest.testcreateFromEntityAttributesAnnotations 
@@ -138,6 +119,25 @@ class ColumnNamesListStatementTest extends \PHPUnit_Framework_TestCase
         $columnNamesListStatement = ColumnNamesListStatement::createFromEntityAttributes(
             $attributes
         );        
+        $this->assertEquals($expectedStatement, $columnNamesListStatement->toString());
+		// End of user code
+    }
+    
+    /**
+     * Test method toString from class ColumnNamesListStatement
+     *
+     * Start of user code ColumnNamesListStatementTest.testtoStringAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code ColumnNamesListStatementTest.testtoString
+        $expectedStatement = "(a,b,c)";
+        $columnNamesListStatement = new ColumnNamesListStatement();
+        $columnNamesListStatement->add('a');
+        $columnNamesListStatement->add('b');
+        $columnNamesListStatement->add('c');
         $this->assertEquals($expectedStatement, $columnNamesListStatement->toString());
 		// End of user code
     }

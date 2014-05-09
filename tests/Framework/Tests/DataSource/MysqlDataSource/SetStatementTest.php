@@ -43,34 +43,6 @@ class SetStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method getStatementParameters from class SetStatement
-     *
-     * Start of user code SetStatementTest.testgetStatementParametersAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetStatementParameters()
-    {
-        // Start of user code SetStatementTest.testgetStatementParameters
-	    // Implicitly tested by testCreateKeyValueListFromEntity
-		// End of user code
-    }
-    
-    /**
-     * Test method toString from class SetStatement
-     *
-     * Start of user code SetStatementTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code SetStatementTest.testtoString
-	    // Implicitly tested by testCreateKeyValueListFromEntity
-		// End of user code
-    }
-    
-    /**
      * Test static method createKeyValueListFromEntity from class SetStatement
      *
      * Start of user code SetStatementTest.testcreateKeyValueListFromEntityAnnotations 
@@ -102,6 +74,34 @@ class SetStatementTest extends \PHPUnit_Framework_TestCase
             $expectedStatementParameters, 
             $setStatement->getStatementParameters()
         );
+		// End of user code
+    }
+    
+    /**
+     * Test method getStatementParameters from class SetStatement
+     *
+     * Start of user code SetStatementTest.testgetStatementParametersAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetStatementParameters()
+    {
+        // Start of user code SetStatementTest.testgetStatementParameters
+	    // Implicitly tested by testCreateKeyValueListFromEntity
+		// End of user code
+    }
+    
+    /**
+     * Test method toString from class SetStatement
+     *
+     * Start of user code SetStatementTest.testtoStringAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code SetStatementTest.testtoString
+	    // Implicitly tested by testCreateKeyValueListFromEntity
 		// End of user code
     }
 

@@ -19,6 +19,12 @@ interface TypeConverter extends Converter
 	public function getDataSourceType();
 
 	/**
+	 * @param T $itemToConvert
+	 * @return U $convertedItem
+	 */
+	public function convert($itemToConvert);
+
+	/**
 	 * @param U $itemToReverse
 	 * @return T $reversedItem
 	 */
@@ -28,12 +34,6 @@ interface TypeConverter extends Converter
 	 * @param AssociativeArray $parameters
 	 */
 	public function setParameters(AssociativeArray $parameters);
-
-	/**
-	 * @param T $itemToConvert
-	 * @return U $convertedItem
-	 */
-	public function convert($itemToConvert);
 
 	/**
 	 * @return string $type

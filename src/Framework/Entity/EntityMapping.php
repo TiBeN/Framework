@@ -20,17 +20,17 @@ class EntityMapping
     /**
      * @var string
      */
-    public $entityName;
-
-    /**
-     * @var string
-     */
     public $dataSourceName;
 
     /**
      * @var AssociativeArray
      */
     public $attributeMappings;
+
+    /**
+     * @var string
+     */
+    public $entityName;
 
     /**
      * @var DataSourceEntityMappingConfiguration
@@ -48,26 +48,6 @@ class EntityMapping
     {
         // Start of user code EntityMapping.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getEntityName()
-    {
-        // Start of user code Getter EntityMapping.getEntityName
-        // End of user code
-        return $this->entityName;
-    }
-
-    /**
-     * @param string $entityName
-     */
-    public function setEntityName($entityName)
-    {
-        // Start of user code Setter EntityMapping.setEntityName
-        // End of user code
-        $this->entityName = $entityName;
     }
 
     /**
@@ -108,6 +88,26 @@ class EntityMapping
         // Start of user code Setter EntityMapping.setAttributeMappings
         // End of user code
         $this->attributeMappings = $attributeMappings;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEntityName()
+    {
+        // Start of user code Getter EntityMapping.getEntityName
+        // End of user code
+        return $this->entityName;
+    }
+
+    /**
+     * @param string $entityName
+     */
+    public function setEntityName($entityName)
+    {
+        // Start of user code Setter EntityMapping.setEntityName
+        // End of user code
+        $this->entityName = $entityName;
     }
 
     /**

@@ -2,9 +2,10 @@
 
 namespace TiBeN\Framework\Bootstrap;
 
-use TiBeN\Framework\Router\Route;
 use TiBeN\Framework\Renderer\SmartyEngine;
+use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
 use TiBeN\Framework\Renderer\TemplateRenderer;
+use TiBeN\Framework\Router\Route;
 use TiBeN\Framework\Router\Router;
 
 // Start of user code Bootstrap.useStatements
@@ -42,6 +43,13 @@ class Bootstrap
     public static function init($configDirectory, $tempDirectory)
     {
         // Start of user code Bootstrap.init
+
+        // Some notes about the initialisation code below:
+        // 
+        // Theses initialisation steps are for most specific to some core 
+        // packages but add some unnessessary coupling and
+        // should be located into a class in their owning packages
+        // when a package init system will be taken in place 
 
         // Instanciate and set default template engine
         $templateTempDirectory = $tempDirectory
@@ -84,6 +92,23 @@ class Bootstrap
         if (file_exists($appRouteRulesConfigFile)) {
             include($appRouteRulesConfigFile);
         }
+
+        // Declare built-in mysql dataSource type converters
+        DataSourceTypeConvertersRegistry::registerTypeConverter(
+            new \TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\BooleanConverter()
+        );
+        DataSourceTypeConvertersRegistry::registerTypeConverter(
+            new \TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\IntegerConverter()
+        );
+        DataSourceTypeConvertersRegistry::registerTypeConverter(
+            new \TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\DecimalConverter()
+        );
+        DataSourceTypeConvertersRegistry::registerTypeConverter(
+            new \TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\StringConverter()
+        );
+        DataSourceTypeConvertersRegistry::registerTypeConverter(
+            new \TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\DateTimeConverter()
+        );
         // End of user code
     }
 

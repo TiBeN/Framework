@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
 
 // Start of user code MysqlEntityAttributeMapper.useStatements
 // Place your use statements here.

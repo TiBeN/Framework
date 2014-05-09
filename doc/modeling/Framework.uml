@@ -3301,7 +3301,7 @@ Handle data validation stuff. Theses ares used by the entity validator to valida
     </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_RGW0MBsmEeOmN-2QJZ-Okg" name="after validate, return" client="_H-JvABslEeOmN-2QJZ-Okg" supplier="_o-xQQBslEeOmN-2QJZ-Okg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_b8PYoBsmEeOmN-2QJZ-Okg" name="read the validation configuration from" client="_H-JvABslEeOmN-2QJZ-Okg" supplier="_Ow5DkBskEeOmN-2QJZ-Okg"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_GW6ZgBsnEeOmN-2QJZ-Okg" name="instantie" client="__F6_gBsjEeOmN-2QJZ-Okg" supplier="_H-JvABslEeOmN-2QJZ-Okg"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_GW6ZgBsnEeOmN-2QJZ-Okg" name="create" client="__F6_gBsjEeOmN-2QJZ-Okg" supplier="_H-JvABslEeOmN-2QJZ-Okg"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_BcLIYBsoEeOmN-2QJZ-Okg" clientDependency="_RPTC4BsoEeOmN-2QJZ-Okg" name="NotEmptyValidator">
       <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_RPTC4BsoEeOmN-2QJZ-Okg" name="InterfaceRealization1" client="_BcLIYBsoEeOmN-2QJZ-Okg" supplier="_H-JvABslEeOmN-2QJZ-Okg" contract="_H-JvABslEeOmN-2QJZ-Okg"/>
     </packagedElement>
@@ -3313,7 +3313,11 @@ Handle data validation stuff. Theses ares used by the entity validator to valida
     </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_VXkwcL22EeO-aaY3kqFukA" name="Bootstrap">
-    <packagedElement xmi:type="uml:Class" xmi:id="_ZJXnEL22EeO-aaY3kqFukA" clientDependency="_etAj4L24EeO-aaY3kqFukA _8ncXUL24EeO-aaY3kqFukA _VwcrkMMpEeOvvu_8YqlPnw _Ylm60MMpEeOvvu_8YqlPnw" name="Bootstrap">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_qd9wgNeCEeOZXK2Dv9UOeg">
+      <body> The initialisation phases introduce some unnecessary coupling with core package classes and should be decoupled using an initialisation mecanism
+</body>
+    </ownedComment>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ZJXnEL22EeO-aaY3kqFukA" clientDependency="_etAj4L24EeO-aaY3kqFukA _8ncXUL24EeO-aaY3kqFukA _VwcrkMMpEeOvvu_8YqlPnw _Ylm60MMpEeOvvu_8YqlPnw _BKqK4NeDEeOZXK2Dv9UOeg" name="Bootstrap">
       <ownedComment xmi:type="uml:Comment" xmi:id="_fdcNML22EeO-aaY3kqFukA" annotatedElement="_ZJXnEL22EeO-aaY3kqFukA">
         <body>Load application configuration and perform
 needed booting tasks</body>
@@ -3335,6 +3339,7 @@ Allways call this before use any component.</body>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_8ncXUL24EeO-aaY3kqFukA" name="configure specials route in the router using" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_YbLfMJkdEeKNe-pGKaimUg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_VwcrkMMpEeOvvu_8YqlPnw" name="set default template engine into" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_4LpgsLpaEeKbZ-V7fHb95Q"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_Ylm60MMpEeOvvu_8YqlPnw" name="instanciate as default template engine" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_cE0M4LreEeK-eqy0US4WHg"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_BKqK4NeDEeOZXK2Dv9UOeg" name="register default mysql datasource built-in type converters into" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_lqdYsEn9EeOhBJpxbXcYWQ"/>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_uRefYJoVEeKjqrzFgzAFxw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uRnCQJoVEeKjqrzFgzAFxw" source="http://www.eclipse.org/uml2/2.0.0/UML">

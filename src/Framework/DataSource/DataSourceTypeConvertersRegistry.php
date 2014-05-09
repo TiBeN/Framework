@@ -61,22 +61,6 @@ class DataSourceTypeConvertersRegistry
     /**
      * @param string $type
      * @param string $dataSourceType
-     * @return bool $boolean
-     */
-    public static function hasTypeConverter($type, $dataSourceType)
-    {
-        // Start of user code DataSourceTypeConvertersRegistry.hasTypeConverter
-		$boolean = self::getTypeConverters()->has($dataSourceType)
-            && self::getTypeConverters()->get($dataSourceType)->has($type)
-        ;             		  	    
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
-     * @param string $type
-     * @param string $dataSourceType
      * @return TypeConverter $typeConverter
      */
     public static function getTypeConverter($type, $dataSourceType)
@@ -99,6 +83,27 @@ class DataSourceTypeConvertersRegistry
         // End of user code
     
         return $typeConverter;
+    }
+
+    /**
+     * @param string $type
+     * @param string $dataSourceType
+     */
+    public static function clearTypeConverter($type, $dataSourceType)
+    {
+        // Start of user code DataSourceTypeConvertersRegistry.clearTypeConverter
+		if(!self::hasTypeConverter($type, $dataSourceType)) {
+		    throw new \InvalidArgumentException(
+                sprintf(
+                    'No type converter \'%s\' for datasource \'%s\'', 
+                    $type, 
+                    $dataSourceType
+                )
+            );
+		}
+		
+		self::getTypeConverters()->get($dataSourceType)->remove($type);		
+        // End of user code
     }
 
     /**
@@ -127,22 +132,17 @@ class DataSourceTypeConvertersRegistry
     /**
      * @param string $type
      * @param string $dataSourceType
+     * @return bool $boolean
      */
-    public static function clearTypeConverter($type, $dataSourceType)
+    public static function hasTypeConverter($type, $dataSourceType)
     {
-        // Start of user code DataSourceTypeConvertersRegistry.clearTypeConverter
-		if(!self::hasTypeConverter($type, $dataSourceType)) {
-		    throw new \InvalidArgumentException(
-                sprintf(
-                    'No type converter \'%s\' for datasource \'%s\'', 
-                    $type, 
-                    $dataSourceType
-                )
-            );
-		}
-		
-		self::getTypeConverters()->get($dataSourceType)->remove($type);		
+        // Start of user code DataSourceTypeConvertersRegistry.hasTypeConverter
+		$boolean = self::getTypeConverters()->has($dataSourceType)
+            && self::getTypeConverters()->get($dataSourceType)->has($type)
+        ;             		  	    
         // End of user code
+    
+        return $boolean;
     }
 
     // Start of user code DataSourceTypeConvertersRegistry.implementationSpecificMethods

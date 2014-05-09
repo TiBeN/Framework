@@ -14,7 +14,7 @@ use TiBeN\Framework\DataSource\DataSourcesRegistry;
  * @package Entity
  * @author TiBeN
  */
-class EntityRepository
+abstract class EntityRepository
 {
     public function __construct()
     {
@@ -25,16 +25,6 @@ class EntityRepository
     public function __destruct()
     {
         // Start of user code EntityRepository.destructor
-        // End of user code
-    }
-
-    /**
-     * @param Entity $entity
-     */
-    public function persist(Entity $entity)
-    {
-        // Start of user code EntityRepository.persist
-        // TODO should be implemented.
         // End of user code
     }
 
@@ -57,6 +47,16 @@ class EntityRepository
     public function delete(Entity $entity)
     {
         // Start of user code EntityRepository.delete
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * @param Entity $entity
+     */
+    public function persist(Entity $entity)
+    {
+        // Start of user code EntityRepository.persist
         // TODO should be implemented.
         // End of user code
     }

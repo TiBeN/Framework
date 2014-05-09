@@ -54,6 +54,22 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test method convert from interface TypeConverter
+     * Start of user code TypeConverter.testconvertAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testConvert()
+    {
+        // Start of user code Converter.testconvert
+        $dateTimeConverter = new DateTimeConverter();
+        $dateTime = \DateTime::createFromFormat('d/m/Y H:i:s', '23/02/2014 15:39:10');
+        $this->assertEquals('2014-02-23 15:39:10', $dateTimeConverter->convert($dateTime));
+        $this->assertEquals(null, $dateTimeConverter->reverse(null));
+    	// End of user code
+    }
+    
+    /**
      * Test method reverse from interface TypeConverter
      * Start of user code TypeConverter.testreverseAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -79,22 +95,6 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code TypeConverter.testsetParameters
         // Nothing to test here
-    	// End of user code
-    }
-    
-    /**
-     * Test method convert from interface TypeConverter
-     * Start of user code TypeConverter.testconvertAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testConvert()
-    {
-        // Start of user code Converter.testconvert
-        $dateTimeConverter = new DateTimeConverter();
-        $dateTime = \DateTime::createFromFormat('d/m/Y H:i:s', '23/02/2014 15:39:10');
-        $this->assertEquals('2014-02-23 15:39:10', $dateTimeConverter->convert($dateTime));
-        $this->assertEquals(null, $dateTimeConverter->reverse(null));
     	// End of user code
     }
     
