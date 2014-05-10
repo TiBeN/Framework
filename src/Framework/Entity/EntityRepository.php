@@ -29,19 +29,6 @@ abstract class EntityRepository
     }
 
     /**
-     * @param CriteriaSet $criteriaSet
-     * @return EntityCollection $entities
-     */
-    public function find(CriteriaSet $criteriaSet)
-    {
-        // Start of user code EntityRepository.find
-        // TODO should be implemented.
-        // End of user code
-    
-        return $entities;
-    }
-
-    /**
      * @param Entity $entity
      */
     public function delete(Entity $entity)
@@ -59,6 +46,19 @@ abstract class EntityRepository
         // Start of user code EntityRepository.persist
         // TODO should be implemented.
         // End of user code
+    }
+
+    /**
+     * @param CriteriaSet $criteriaSet
+     * @return EntityCollection $entities
+     */
+    public function find(CriteriaSet $criteriaSet)
+    {
+        // Start of user code EntityRepository.find
+        // TODO should be implemented.
+        // End of user code
+    
+        return $entities;
     }
 
     // Start of user code EntityRepository.implementationSpecificMethods

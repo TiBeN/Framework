@@ -19,12 +19,12 @@ class LimitStatement
     /**
      * @var int
      */
-    public $rowCount;
+    public $offset;
 
     /**
      * @var int
      */
-    public $offset;
+    public $rowCount;
 
     public function __construct()
     {
@@ -36,26 +36,6 @@ class LimitStatement
     {
         // Start of user code LimitStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return int
-     */
-    public function getRowCount()
-    {
-        // Start of user code Getter LimitStatement.getRowCount
-        // End of user code
-        return $this->rowCount;
-    }
-
-    /**
-     * @param int $rowCount
-     */
-    public function setRowCount($rowCount)
-    {
-        // Start of user code Setter LimitStatement.setRowCount
-        // End of user code
-        $this->rowCount = $rowCount;
     }
 
     /**
@@ -76,6 +56,26 @@ class LimitStatement
         // Start of user code Setter LimitStatement.setOffset
         // End of user code
         $this->offset = $offset;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRowCount()
+    {
+        // Start of user code Getter LimitStatement.getRowCount
+        // End of user code
+        return $this->rowCount;
+    }
+
+    /**
+     * @param int $rowCount
+     */
+    public function setRowCount($rowCount)
+    {
+        // Start of user code Setter LimitStatement.setRowCount
+        // End of user code
+        $this->rowCount = $rowCount;
     }
 
     /**

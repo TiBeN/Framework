@@ -40,21 +40,6 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method setValidationRule from interface Validator
-     * Start of user code Validator.testsetValidationRuleAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testSetValidationRule()
-    {
-        // Start of user code Validator.testsetValidationRule
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
-    }
-    
-    /**
      * Test method validate from interface Validator
      * Start of user code Validator.testvalidateAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -67,6 +52,21 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
           'This test has not been implemented yet.'
         );
     	// End of user code
+    }
+    
+    /**
+     * Test method getName from interface Validator
+     * Start of user code Validator.testgetNameAnnotations
+     * PHPUnit users annotations can be placed here
+     * End of user code
+     */
+    public function testGetName()
+    {
+        // Start of user code Validator.testgetName
+        $this->markTestIncomplete(
+            'This test has not been implemented yet.'
+        );
+        // End of user code
     }
 
     // Start of user code StringValidatorTest.methods

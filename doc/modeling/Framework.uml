@@ -489,10 +489,6 @@
             <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_yupRoB4UEeO39_cvMiFCoA" name="MessageRecv" covered="_Vd2REB4UEeO39_cvMiFCoA" message="_yuKwgB4UEeO39_cvMiFCoA"/>
             <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="__5BBMB4UEeO39_cvMiFCoA" name="MessageSend0" covered="_Vd2REB4UEeO39_cvMiFCoA" message="__4wigB4UEeO39_cvMiFCoA"/>
             <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="__5QRwB4UEeO39_cvMiFCoA" name="MessageRecv0" covered="_rJodgB4TEeO39_cvMiFCoA" message="__4wigB4UEeO39_cvMiFCoA"/>
-            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_MnDaEB4VEeO39_cvMiFCoA" name="MessageSend1" covered="_rJodgB4TEeO39_cvMiFCoA" message="_MmzicB4VEeO39_cvMiFCoA"/>
-            <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_FxFAwB4VEeO39_cvMiFCoA" name="BehaviorExecSpec0" covered="_DnnZ4B4VEeO39_cvMiFCoA" finish="_FxIrIB4VEeO39_cvMiFCoA" start="_MnSDkB4VEeO39_cvMiFCoA"/>
-            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_MnSDkB4VEeO39_cvMiFCoA" name="MessageRecv1" covered="_DnnZ4B4VEeO39_cvMiFCoA" message="_MmzicB4VEeO39_cvMiFCoA"/>
-            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_FxIrIB4VEeO39_cvMiFCoA" name="BehaviorExecSpec0Finish0" covered="_DnnZ4B4VEeO39_cvMiFCoA" execution="_FxFAwB4VEeO39_cvMiFCoA"/>
             <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_dsMWEB4VEeO39_cvMiFCoA" name="MessageSend2" covered="_rJodgB4TEeO39_cvMiFCoA" message="_dr73YB4VEeO39_cvMiFCoA"/>
             <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_b8c2wB4VEeO39_cvMiFCoA" name="BehaviorExecSpec1" covered="_DnnZ4B4VEeO39_cvMiFCoA" finish="_g_pD0B4VEeO39_cvMiFCoA" start="_dsa_kB4VEeO39_cvMiFCoA"/>
             <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_dsa_kB4VEeO39_cvMiFCoA" name="MessageRecv2" covered="_DnnZ4B4VEeO39_cvMiFCoA" message="_dr73YB4VEeO39_cvMiFCoA"/>
@@ -512,14 +508,13 @@
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_r8DuEB4VEeO39_cvMiFCoA" name="MessageRecv0" covered="_l64OwB4VEeO39_cvMiFCoA" message="_r7kl4B4VEeO39_cvMiFCoA"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Tb7VQB4XEeO39_cvMiFCoA" name="MessageRecv2" covered="_h2O_gB4TEeO39_cvMiFCoA" message="_TbcNEB4XEeO39_cvMiFCoA"/>
     <lifeline xmi:type="uml:Lifeline" xmi:id="_h2O_gB4TEeO39_cvMiFCoA" name="Actor" coveredBy="_t2vkAB4TEeO39_cvMiFCoA _t3Ce8B4TEeO39_cvMiFCoA _vtRn0B4TEeO39_cvMiFCoA _IM1cEB4WEeO39_cvMiFCoA _KZoOUB4XEeO39_cvMiFCoA _Tb7VQB4XEeO39_cvMiFCoA"/>
-    <lifeline xmi:type="uml:Lifeline" xmi:id="_rJodgB4TEeO39_cvMiFCoA" name="EntityValidator" coveredBy="_uo2WYB4TEeO39_cvMiFCoA _GbGDkB4UEeO39_cvMiFCoA _GbOmcB4UEeO39_cvMiFCoA _eBjXgB4UEeO39_cvMiFCoA _eByBAB4UEeO39_cvMiFCoA _yuaBEB4UEeO39_cvMiFCoA __5QRwB4UEeO39_cvMiFCoA _MnDaEB4VEeO39_cvMiFCoA _dsMWEB4VEeO39_cvMiFCoA _g_9M4B4VEeO39_cvMiFCoA _r71EkB4VEeO39_cvMiFCoA _4VGuYB4VEeO39_cvMiFCoA _IMT3oB4WEeO39_cvMiFCoA _KZ3e4B4XEeO39_cvMiFCoA _TbsEsB4XEeO39_cvMiFCoA"/>
-    <lifeline xmi:type="uml:Lifeline" xmi:id="_Vd2REB4UEeO39_cvMiFCoA" name="ValidatorFactory" coveredBy="_GbGDkB4UEeO39_cvMiFCoA _GbOmcB4UEeO39_cvMiFCoA _eBjXgB4UEeO39_cvMiFCoA _eByBAB4UEeO39_cvMiFCoA _pENzsB4UEeO39_cvMiFCoA _yupRoB4UEeO39_cvMiFCoA __5BBMB4UEeO39_cvMiFCoA"/>
-    <lifeline xmi:type="uml:Lifeline" xmi:id="_DnnZ4B4VEeO39_cvMiFCoA" name=": validator" coveredBy="_GbGDkB4UEeO39_cvMiFCoA _GbOmcB4UEeO39_cvMiFCoA _eBjXgB4UEeO39_cvMiFCoA _eByBAB4UEeO39_cvMiFCoA _FxIrIB4VEeO39_cvMiFCoA _FxFAwB4VEeO39_cvMiFCoA _MnSDkB4VEeO39_cvMiFCoA _b8c2wB4VEeO39_cvMiFCoA _dsa_kB4VEeO39_cvMiFCoA _g_pD0B4VEeO39_cvMiFCoA"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_rJodgB4TEeO39_cvMiFCoA" name="EntityValidator" coveredBy="_uo2WYB4TEeO39_cvMiFCoA _GbGDkB4UEeO39_cvMiFCoA _GbOmcB4UEeO39_cvMiFCoA _eBjXgB4UEeO39_cvMiFCoA _eByBAB4UEeO39_cvMiFCoA _yuaBEB4UEeO39_cvMiFCoA __5QRwB4UEeO39_cvMiFCoA _dsMWEB4VEeO39_cvMiFCoA _g_9M4B4VEeO39_cvMiFCoA _r71EkB4VEeO39_cvMiFCoA _4VGuYB4VEeO39_cvMiFCoA _IMT3oB4WEeO39_cvMiFCoA _KZ3e4B4XEeO39_cvMiFCoA _TbsEsB4XEeO39_cvMiFCoA"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_Vd2REB4UEeO39_cvMiFCoA" name="ValidatorsRegistry" coveredBy="_GbGDkB4UEeO39_cvMiFCoA _GbOmcB4UEeO39_cvMiFCoA _eBjXgB4UEeO39_cvMiFCoA _eByBAB4UEeO39_cvMiFCoA _pENzsB4UEeO39_cvMiFCoA _yupRoB4UEeO39_cvMiFCoA __5BBMB4UEeO39_cvMiFCoA"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_DnnZ4B4VEeO39_cvMiFCoA" name=": validator" coveredBy="_GbGDkB4UEeO39_cvMiFCoA _GbOmcB4UEeO39_cvMiFCoA _eBjXgB4UEeO39_cvMiFCoA _eByBAB4UEeO39_cvMiFCoA _b8c2wB4VEeO39_cvMiFCoA _dsa_kB4VEeO39_cvMiFCoA _g_pD0B4VEeO39_cvMiFCoA"/>
     <lifeline xmi:type="uml:Lifeline" xmi:id="_l64OwB4VEeO39_cvMiFCoA" name=": entityValidationResult" coveredBy="_r8DuEB4VEeO39_cvMiFCoA _GbGDkB4UEeO39_cvMiFCoA _GbOmcB4UEeO39_cvMiFCoA _eBjXgB4UEeO39_cvMiFCoA _eByBAB4UEeO39_cvMiFCoA _22MgYB4VEeO39_cvMiFCoA _22I2AB4VEeO39_cvMiFCoA _4VV-8B4VEeO39_cvMiFCoA"/>
-    <message xmi:type="uml:Message" xmi:id="_yuKwgB4UEeO39_cvMiFCoA" name="createFromValidationRule(validationRule)" receiveEvent="_yupRoB4UEeO39_cvMiFCoA" sendEvent="_yuaBEB4UEeO39_cvMiFCoA"/>
+    <message xmi:type="uml:Message" xmi:id="_yuKwgB4UEeO39_cvMiFCoA" name="getValidator(validationRule.validatorName)" receiveEvent="_yupRoB4UEeO39_cvMiFCoA" sendEvent="_yuaBEB4UEeO39_cvMiFCoA"/>
     <message xmi:type="uml:Message" xmi:id="__4wigB4UEeO39_cvMiFCoA" name="validator" messageSort="reply" receiveEvent="__5QRwB4UEeO39_cvMiFCoA" sendEvent="__5BBMB4UEeO39_cvMiFCoA"/>
-    <message xmi:type="uml:Message" xmi:id="_MmzicB4VEeO39_cvMiFCoA" name="setValue(entity.attributeValue)" receiveEvent="_MnSDkB4VEeO39_cvMiFCoA" sendEvent="_MnDaEB4VEeO39_cvMiFCoA"/>
-    <message xmi:type="uml:Message" xmi:id="_dr73YB4VEeO39_cvMiFCoA" name="validate()" receiveEvent="_dsa_kB4VEeO39_cvMiFCoA" sendEvent="_dsMWEB4VEeO39_cvMiFCoA"/>
+    <message xmi:type="uml:Message" xmi:id="_dr73YB4VEeO39_cvMiFCoA" name="validate(validationRule, value)" receiveEvent="_dsa_kB4VEeO39_cvMiFCoA" sendEvent="_dsMWEB4VEeO39_cvMiFCoA"/>
     <message xmi:type="uml:Message" xmi:id="_g_WI4B4VEeO39_cvMiFCoA" name="validationResult" messageSort="reply" receiveEvent="_g_9M4B4VEeO39_cvMiFCoA" sendEvent="_g_pD0B4VEeO39_cvMiFCoA"/>
     <message xmi:type="uml:Message" xmi:id="_r7kl4B4VEeO39_cvMiFCoA" name="createEntityValidationResult" messageSort="createMessage" receiveEvent="_r8DuEB4VEeO39_cvMiFCoA" sendEvent="_r71EkB4VEeO39_cvMiFCoA"/>
     <message xmi:type="uml:Message" xmi:id="_4UylUB4VEeO39_cvMiFCoA" name="addValidationResult(validationResult)" receiveEvent="_4VV-8B4VEeO39_cvMiFCoA" sendEvent="_4VGuYB4VEeO39_cvMiFCoA"/>
@@ -3230,13 +3225,46 @@ with other Statement classes.</body>
       <body>Validation :
 Handle data validation stuff. Theses ares used by the entity validator to validate an entity against the validation rules established in the associated entity mapping</body>
     </ownedComment>
-    <packagedElement xmi:type="uml:Class" xmi:id="__F6_gBsjEeOmN-2QJZ-Okg" clientDependency="_GW6ZgBsnEeOmN-2QJZ-Okg" name="ValidatorFactory">
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_EMYjABskEeOmN-2QJZ-Okg" name="createFromValidationRule" isStatic="true">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_nF7UwBskEeOmN-2QJZ-Okg" name="validationRule" type="_Ow5DkBskEeOmN-2QJZ-Okg"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="__F6_gBsjEeOmN-2QJZ-Okg" name="ValidatorsRegistry">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_GHcCYNeNEeOyWfzejOJSEA" name="validators" visibility="private" isStatic="true" type="_ti84wLoPEeKycOj42mlSMA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IfthUNeNEeOyWfzejOJSEA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IfuIYNeNEeOyWfzejOJSEA" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_IfwkoNeNEeOyWfzejOJSEA">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_EMYjABskEeOmN-2QJZ-Okg" name="getValidator" isStatic="true">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_nF7UwBskEeOmN-2QJZ-Okg" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_RuluUBslEeOmN-2QJZ-Okg" name="validator" type="_H-JvABslEeOmN-2QJZ-Okg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_ZXsyINeNEeOyWfzejOJSEA" name="registerValidator" isStatic="true">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_i7p0oNeNEeOyWfzejOJSEA" name="validator" type="_H-JvABslEeOmN-2QJZ-Okg"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_n72YENeNEeOyWfzejOJSEA" name="clearValidator" isStatic="true">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_9mxzcNeNEeOyWfzejOJSEA" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_pdkCcNeNEeOyWfzejOJSEA" name="hasValidator" isStatic="true">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_ATpCUNeOEeOyWfzejOJSEA" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_D91cINeOEeOyWfzejOJSEA" name="boolean" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedParameter>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_Ow5DkBskEeOmN-2QJZ-Okg" name="ValidationRule">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_Jm4gkNeUEeOyWfzejOJSEA" annotatedElement="_Ow5DkBskEeOmN-2QJZ-Okg">
+        <body>Describe a validation rule by specifying the 
+validator to use, its configuration and optionaly a custom
+validation error message pattern. the &quot;{value}&quot; 
+can be used in the pattern. It will be replaced by the validated value.
+
+ </body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_SizO8BskEeOmN-2QJZ-Okg" name="validatorName" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Xidm4BskEeOmN-2QJZ-Okg" value="1"/>
@@ -3246,19 +3274,36 @@ Handle data validation stuff. Theses ares used by the entity validator to valida
         </defaultValue>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_YbI7UBskEeOmN-2QJZ-Okg" name="configuration" visibility="public" type="_ti84wLoPEeKycOj42mlSMA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_deSFEBskEeOmN-2QJZ-Okg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_deSFEBskEeOmN-2QJZ-Okg"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_deaA4BskEeOmN-2QJZ-Okg" value="1"/>
         <defaultValue xmi:type="uml:LiteralString" xmi:id="_de1esBskEeOmN-2QJZ-Okg">
           <value xsi:nil="true"/>
         </defaultValue>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Upr8INeTEeOyWfzejOJSEA" name="errorMessagePattern" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YQJFcNeTEeOyWfzejOJSEA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YQJFcdeTEeOyWfzejOJSEA" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_YQJsgNeTEeOyWfzejOJSEA">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_H-JvABslEeOmN-2QJZ-Okg" clientDependency="_RGW0MBsmEeOmN-2QJZ-Okg _b8PYoBsmEeOmN-2QJZ-Okg" name="Validator">
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_WZDSUBslEeOmN-2QJZ-Okg" name="setValidationRule">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_ki3FoBslEeOmN-2QJZ-Okg" name="validationRule" type="_Ow5DkBskEeOmN-2QJZ-Okg"/>
-      </ownedOperation>
+      <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_N77H0NeMEeOyWfzejOJSEA" name="RedefinableTemplateSignature1" parameter="_fY7xQNeMEeOyWfzejOJSEA">
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_fY7xQNeMEeOyWfzejOJSEA" parameteredElement="_oeckQNeMEeOyWfzejOJSEA">
+          <ownedParameteredElement xmi:type="uml:Class" xmi:id="_oeckQNeMEeOyWfzejOJSEA" name="T" templateParameter="_fY7xQNeMEeOyWfzejOJSEA"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_l13loRslEeOmN-2QJZ-Okg" name="validate">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_bSmDcNeLEeOyWfzejOJSEA" name="validationRule" type="_Ow5DkBskEeOmN-2QJZ-Okg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1OPQoNeMEeOyWfzejOJSEA" name="value" type="_oeckQNeMEeOyWfzejOJSEA"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_tmxWIBslEeOmN-2QJZ-Okg" name="result" type="_o-xQQBslEeOmN-2QJZ-Okg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="__5GDENeHEeOZXK2Dv9UOeg" name="getName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_wmqqsNhfEeO5PK2Q8KuGLQ" name="name" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_o-xQQBslEeOmN-2QJZ-Okg" name="ValidationResult">
@@ -3270,45 +3315,43 @@ Handle data validation stuff. Theses ares used by the entity validator to valida
           <value xsi:nil="true"/>
         </defaultValue>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_OkJ9MBsmEeOmN-2QJZ-Okg" name="validationError" type="_MKWNMBsmEeOmN-2QJZ-Okg" association="_OkO1sBsmEeOmN-2QJZ-Okg">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OkJ9MRsmEeOmN-2QJZ-Okg" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OkJ9MhsmEeOmN-2QJZ-Okg" value="1"/>
-      </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_MKWNMBsmEeOmN-2QJZ-Okg" name="ValidationError">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_zaADkBsmEeOmN-2QJZ-Okg" name="validatorName" visibility="public">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_0Nv4cNeWEeOyWfzejOJSEA" name="errorMessage" visibility="public" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1mFgoBsmEeOmN-2QJZ-Okg" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1mS8ABsmEeOmN-2QJZ-Okg" value="1"/>
-        <defaultValue xmi:type="uml:LiteralString" xmi:id="_1mrWgBsmEeOmN-2QJZ-Okg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5gztgNeWEeOyWfzejOJSEA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5g0UkNeWEeOyWfzejOJSEA" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_5g07oNeWEeOyWfzejOJSEA">
           <value xsi:nil="true"/>
         </defaultValue>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_2ViAkBsmEeOmN-2QJZ-Okg" name="message" visibility="public">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4vzDkBsmEeOmN-2QJZ-Okg" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4v6_YBsmEeOmN-2QJZ-Okg" value="1"/>
-        <defaultValue xmi:type="uml:LiteralString" xmi:id="_4wUoABsmEeOmN-2QJZ-Okg">
-          <value xsi:nil="true"/>
-        </defaultValue>
-      </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_OkO1sBsmEeOmN-2QJZ-Okg" name="validationResult_validationError_1" memberEnd="_OkO1sRsmEeOmN-2QJZ-Okg _OkJ9MBsmEeOmN-2QJZ-Okg">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_OkO1sRsmEeOmN-2QJZ-Okg" name="validationResult" type="_o-xQQBslEeOmN-2QJZ-Okg" association="_OkO1sBsmEeOmN-2QJZ-Okg">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OkO1shsmEeOmN-2QJZ-Okg"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OkO1sxsmEeOmN-2QJZ-Okg" value="*"/>
-      </ownedEnd>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_ALUukNhkEeO5PK2Q8KuGLQ" name="parseAndSetErrorMessage">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_V-4hgNhkEeO5PK2Q8KuGLQ" name="errorMessagePattern">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_eUh90NhkEeO5PK2Q8KuGLQ" name="value">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_RGW0MBsmEeOmN-2QJZ-Okg" name="after validate, return" client="_H-JvABslEeOmN-2QJZ-Okg" supplier="_o-xQQBslEeOmN-2QJZ-Okg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_b8PYoBsmEeOmN-2QJZ-Okg" name="read the validation configuration from" client="_H-JvABslEeOmN-2QJZ-Okg" supplier="_Ow5DkBskEeOmN-2QJZ-Okg"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_GW6ZgBsnEeOmN-2QJZ-Okg" name="create" client="__F6_gBsjEeOmN-2QJZ-Okg" supplier="_H-JvABslEeOmN-2QJZ-Okg"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_BcLIYBsoEeOmN-2QJZ-Okg" clientDependency="_RPTC4BsoEeOmN-2QJZ-Okg" name="NotEmptyValidator">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_a4eWcNePEeOyWfzejOJSEA" annotatedElement="_BcLIYBsoEeOmN-2QJZ-Okg">
+        <body>Check whether a variable is not null nor empty.
+</body>
+      </ownedComment>
       <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_RPTC4BsoEeOmN-2QJZ-Okg" name="InterfaceRealization1" client="_BcLIYBsoEeOmN-2QJZ-Okg" supplier="_H-JvABslEeOmN-2QJZ-Okg" contract="_H-JvABslEeOmN-2QJZ-Okg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_cciXYBsoEeOmN-2QJZ-Okg" clientDependency="_iXy04BsoEeOmN-2QJZ-Okg" name="StringValidator">
+    <packagedElement xmi:type="uml:Class" xmi:id="_cciXYBsoEeOmN-2QJZ-Okg" clientDependency="_iXy04BsoEeOmN-2QJZ-Okg" name="StringLengthValidator">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_NGcfENeREeOyWfzejOJSEA" annotatedElement="_cciXYBsoEeOmN-2QJZ-Okg">
+        <body>Check wheter the number of characters of a string match min/max size.
+ValidationRules:
+	'min': (optional) The min number of characters allowed
+	'max': (optional) The max number of characters allowed 
+</body>
+      </ownedComment>
       <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_iXy04BsoEeOmN-2QJZ-Okg" name="InterfaceRealization1" client="_cciXYBsoEeOmN-2QJZ-Okg" supplier="_H-JvABslEeOmN-2QJZ-Okg" contract="_H-JvABslEeOmN-2QJZ-Okg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_zi85UBsoEeOmN-2QJZ-Okg" clientDependency="_1o2O0BsoEeOmN-2QJZ-Okg" name="NumericValidator">
+    <packagedElement xmi:type="uml:Class" xmi:id="_zi85UBsoEeOmN-2QJZ-Okg" clientDependency="_1o2O0BsoEeOmN-2QJZ-Okg" name="NumericRangeValidator">
       <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_1o2O0BsoEeOmN-2QJZ-Okg" name="InterfaceRealization1" client="_zi85UBsoEeOmN-2QJZ-Okg" supplier="_H-JvABslEeOmN-2QJZ-Okg" contract="_H-JvABslEeOmN-2QJZ-Okg"/>
     </packagedElement>
   </packagedElement>

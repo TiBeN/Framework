@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\Router;
 
-use TiBeN\Framework\Controller\Controller;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Controller\Controller;
 
 // Start of user code Router.useStatements
 // Place your use statements here.
@@ -20,6 +20,11 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class Router
 {
     /**
+     * @var array
+     */
+    public static $routeRules;
+
+    /**
      * Route who is followed when an exception is thrown during
      * the execution of an action.
      * @var Route
@@ -32,11 +37,6 @@ class Router
      */
     public static $onNotFoundRoute;
 
-    /**
-     * @var array
-     */
-    public static $routeRules;
-
     public function __construct()
     {
         // Start of user code Router.constructor
@@ -47,6 +47,26 @@ class Router
     {
         // Start of user code Router.destructor
         // End of user code
+    }
+
+    /**
+     * @return array
+     */
+    public static function getRouteRules()
+    {
+        // Start of user code Static getter Router.getRouteRules
+        // End of user code
+        return self::$routeRules;
+    }
+
+    /**
+     * @param array $routeRules
+     */
+    public static function setRouteRules(array $routeRules)
+    {
+        // Start of user code Static setter Router.setRouteRules
+        // End of user code
+        self::$routeRules = $routeRules;
     }
 
     /**
@@ -90,23 +110,21 @@ class Router
     }
 
     /**
-     * @return array
+     * Generate a ressource URI from it's routerule name and optional variables.
+     *
+     * @param string $routeName
+     * @param AssociativeArray $variables
+     * @return string $uri
      */
-    public static function getRouteRules()
+    public static function generateUri($routeName, AssociativeArray $variables)
     {
-        // Start of user code Static getter Router.getRouteRules
+        // Start of user code Router.generateUri
+        $routeRule = self::getRouteRuleByName($routeName);
+        $routeUriManager = new RouteUriManager();
+        $uri = $routeUriManager->generateUri($routeRule->getUriPattern(), $variables);
         // End of user code
-        return self::$routeRules;
-    }
-
-    /**
-     * @param array $routeRules
-     */
-    public static function setRouteRules(array $routeRules)
-    {
-        // Start of user code Static setter Router.setRouteRules
-        // End of user code
-        self::$routeRules = $routeRules;
+    
+        return $uri;
     }
 
     /**
@@ -137,39 +155,6 @@ class Router
         }
         
         self::followRoute($route);
-        // End of user code
-    }
-
-    /**
-     * Generate a ressource URI from it's routerule name and optional variables.
-     *
-     * @param string $routeName
-     * @param AssociativeArray $variables
-     * @return string $uri
-     */
-    public static function generateUri($routeName, AssociativeArray $variables)
-    {
-        // Start of user code Router.generateUri
-        $routeRule = self::getRouteRuleByName($routeName);
-        $routeUriManager = new RouteUriManager();
-        $uri = $routeUriManager->generateUri($routeRule->getUriPattern(), $variables);
-        // End of user code
-    
-        return $uri;
-    }
-
-    /**
-     * Send a redirect 302 http response to the route specified by her name and optionnal variables
-     *
-     * @param string $routeName
-     * @param AssociativeArray $variables
-     */
-    public static function redirectToRoute($routeName, AssociativeArray $variables)
-    {
-        // Start of user code Router.redirectToRoute
-        $uri = self::generateUri($routeName, $variables);
-        $redirectResponse = HttpResponse::createRedirectResponse($uri, false);
-        $redirectResponse->sendToClient();          
         // End of user code
     }
 
@@ -257,6 +242,36 @@ class Router
     }
 
     /**
+     * Find a route by her name and optionnal variables then follow it. This method can by used to control the controller / action flow.    
+     *
+     * @param string $routeName
+     * @param AssociativeArray $variables
+     */
+    public static function forwardToRoute($routeName, AssociativeArray $variables)
+    {
+        // Start of user code Router.forwardToRoute
+        $routeRule = self::getRouteRuleByName($routeName);
+        $route = $routeRule->getRoute($variables);
+        self::followRoute($route);
+        // End of user code
+    }
+
+    /**
+     * Send a redirect 302 http response to the route specified by her name and optionnal variables
+     *
+     * @param string $routeName
+     * @param AssociativeArray $variables
+     */
+    public static function redirectToRoute($routeName, AssociativeArray $variables)
+    {
+        // Start of user code Router.redirectToRoute
+        $uri = self::generateUri($routeName, $variables);
+        $redirectResponse = HttpResponse::createRedirectResponse($uri, false);
+        $redirectResponse->sendToClient();          
+        // End of user code
+    }
+
+    /**
      * Return a route rule from her name
      *
      * @param string $routeName
@@ -282,21 +297,6 @@ class Router
         // End of user code
     
         return $routeRule;
-    }
-
-    /**
-     * Find a route by her name and optionnal variables then follow it. This method can by used to control the controller / action flow.    
-     *
-     * @param string $routeName
-     * @param AssociativeArray $variables
-     */
-    public static function forwardToRoute($routeName, AssociativeArray $variables)
-    {
-        // Start of user code Router.forwardToRoute
-        $routeRule = self::getRouteRuleByName($routeName);
-        $route = $routeRule->getRoute($variables);
-        self::followRoute($route);
-        // End of user code
     }
 
     // Start of user code Router.implementationSpecificMethods

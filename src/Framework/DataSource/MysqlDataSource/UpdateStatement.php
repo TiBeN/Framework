@@ -22,14 +22,14 @@ class UpdateStatement implements Statement
     public $whereDefinition;
 
     /**
-     * @var SetStatement
-     */
-    public $setStatement;
-
-    /**
      * @var string
      */
     public $tableName;
+
+    /**
+     * @var SetStatement
+     */
+    public $setStatement;
 
     public function __construct()
     {
@@ -64,26 +64,6 @@ class UpdateStatement implements Statement
     }
 
     /**
-     * @return SetStatement
-     */
-    public function getSetStatement()
-    {
-        // Start of user code Getter UpdateStatement.getSetStatement
-        // End of user code
-        return $this->setStatement;
-    }
-
-    /**
-     * @param SetStatement $setStatement
-     */
-    public function setSetStatement(SetStatement $setStatement)
-    {
-        // Start of user code Setter UpdateStatement.setSetStatement
-        // End of user code
-        $this->setStatement = $setStatement;
-    }
-
-    /**
      * @return string
      */
     public function getTableName()
@@ -103,7 +83,45 @@ class UpdateStatement implements Statement
         $this->tableName = $tableName;
     }
 
+    /**
+     * @return SetStatement
+     */
+    public function getSetStatement()
+    {
+        // Start of user code Getter UpdateStatement.getSetStatement
+        // End of user code
+        return $this->setStatement;
+    }
+
+    /**
+     * @param SetStatement $setStatement
+     */
+    public function setSetStatement(SetStatement $setStatement)
+    {
+        // Start of user code Setter UpdateStatement.setSetStatement
+        // End of user code
+        $this->setStatement = $setStatement;
+    }
+
     // Statement Realization
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+        $statementParameters = new AssociativeArray();
+        if($this->setStatement instanceof SetStatement) {
+            $statementParameters->merge($this->setStatement->getStatementParameters());
+        } 
+        if($this->whereDefinition instanceof WhereConditions) {
+            $statementParameters->merge($this->whereDefinition->getStatementParameters());
+        }        
+        // End of user code
+    
+        return $statementParameters;
+    }
 
     /**
      * Return the statement in String format
@@ -144,24 +162,6 @@ class UpdateStatement implements Statement
         // End of user code
     
         return $status;
-    }
-
-    /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-        $statementParameters = new AssociativeArray();
-        if($this->setStatement instanceof SetStatement) {
-            $statementParameters->merge($this->setStatement->getStatementParameters());
-        } 
-        if($this->whereDefinition instanceof WhereConditions) {
-            $statementParameters->merge($this->whereDefinition->getStatementParameters());
-        }        
-        // End of user code
-    
-        return $statementParameters;
     }
 
     // Start of user code UpdateStatement.implementationSpecificMethods

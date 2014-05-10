@@ -39,20 +39,6 @@ class EntityMappingsRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method registerEntityMapping from class EntityMappingsRegistry
-     *
-     * Start of user code EntityMappingsRegistryTest.testregisterEntityMappingAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testRegisterEntityMapping()
-    {
-        // Start of user code EntityMappingsRegistryTest.testregisterEntityMapping
-	    // Method implicitly tested by testGetEntityMapping
-		// End of user code
-    }
-    
-    /**
      * Test static method getEntityMapping from class EntityMappingsRegistry
      *
      * Start of user code EntityMappingsRegistryTest.testgetEntityMappingAnnotations 
@@ -73,6 +59,20 @@ class EntityMappingsRegistryTest extends \PHPUnit_Framework_TestCase
                 'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\TestEntity'
             )
         );
+		// End of user code
+    }
+    
+    /**
+     * Test static method registerEntityMapping from class EntityMappingsRegistry
+     *
+     * Start of user code EntityMappingsRegistryTest.testregisterEntityMappingAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testRegisterEntityMapping()
+    {
+        // Start of user code EntityMappingsRegistryTest.testregisterEntityMapping
+	    // Method implicitly tested by testGetEntityMapping
 		// End of user code
     }
     

@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Entity\EntityMapping;
 
 // Start of user code SetStatement.useStatements
@@ -68,20 +68,19 @@ class SetStatement extends AssociativeArray
     }
 
     /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     * @return SetStatement $setStatement
+     * @return string $string
      */
-    public static function createKeyValueListFromEntity(EntityMapping $entityMapping, Entity $entity)
+    public function toString()
     {
-        // Start of user code SetStatement.createKeyValueListFromEntity
-        $converter = new RowToEntityConverter();
-        $converter->setEntityMapping($entityMapping);
-        $row = $converter->reverse($entity);
-        $setStatement = SetStatement::createFromNativeArray(null, $row->toNativeArray());
+        // Start of user code SetStatement.toString
+		$statementChunks = array();
+		foreach($this as $attribute => $value) {
+		    array_push($statementChunks, sprintf('%1$s=:%1$s', $attribute));
+		}
+		$string = 'SET ' . implode(',', $statementChunks);
         // End of user code
     
-        return $setStatement;
+        return $string;
     }
 
     /**
@@ -100,19 +99,20 @@ class SetStatement extends AssociativeArray
     }
 
     /**
-     * @return string $string
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     * @return SetStatement $setStatement
      */
-    public function toString()
+    public static function createKeyValueListFromEntity(EntityMapping $entityMapping, Entity $entity)
     {
-        // Start of user code SetStatement.toString
-		$statementChunks = array();
-		foreach($this as $attribute => $value) {
-		    array_push($statementChunks, sprintf('%1$s=:%1$s', $attribute));
-		}
-		$string = 'SET ' . implode(',', $statementChunks);
+        // Start of user code SetStatement.createKeyValueListFromEntity
+        $converter = new RowToEntityConverter();
+        $converter->setEntityMapping($entityMapping);
+        $row = $converter->reverse($entity);
+        $setStatement = SetStatement::createFromNativeArray(null, $row->toNativeArray());
         // End of user code
     
-        return $string;
+        return $setStatement;
     }
 
     // Start of user code SetStatement.surchargedMethods

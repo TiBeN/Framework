@@ -2,11 +2,11 @@
 
 namespace TiBeN\Framework\Bootstrap;
 
-use TiBeN\Framework\Renderer\SmartyEngine;
-use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
-use TiBeN\Framework\Renderer\TemplateRenderer;
-use TiBeN\Framework\Router\Route;
 use TiBeN\Framework\Router\Router;
+use TiBeN\Framework\Renderer\TemplateRenderer;
+use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
+use TiBeN\Framework\Router\Route;
+use TiBeN\Framework\Renderer\SmartyEngine;
 
 // Start of user code Bootstrap.useStatements
 // Place your use statements here.

@@ -9,7 +9,12 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 // End of user code
 
 /**
+ * Describe a validation rule by specifying the 
+ * validator to use, its configuration and optionaly a custom
+ * validation error message pattern. the "{value}" 
+ * can be used in the pattern. It will be replaced by the validated value.
  * 
+ *  
  *
  * @package Validation
  * @author TiBeN
@@ -19,12 +24,17 @@ class ValidationRule
     /**
      * @var string
      */
-    public $validatorName;
+    public $errorMessagePattern;
 
     /**
      * @var AssociativeArray
      */
     public $configuration;
+
+    /**
+     * @var string
+     */
+    public $validatorName;
 
     public function __construct()
     {
@@ -41,21 +51,21 @@ class ValidationRule
     /**
      * @return string
      */
-    public function getValidatorName()
+    public function getErrorMessagePattern()
     {
-        // Start of user code Getter ValidationRule.getValidatorName
+        // Start of user code Getter ValidationRule.getErrorMessagePattern
         // End of user code
-        return $this->validatorName;
+        return $this->errorMessagePattern;
     }
 
     /**
-     * @param string $validatorName
+     * @param string $errorMessagePattern
      */
-    public function setValidatorName($validatorName)
+    public function setErrorMessagePattern($errorMessagePattern)
     {
-        // Start of user code Setter ValidationRule.setValidatorName
+        // Start of user code Setter ValidationRule.setErrorMessagePattern
         // End of user code
-        $this->validatorName = $validatorName;
+        $this->errorMessagePattern = $errorMessagePattern;
     }
 
     /**
@@ -76,6 +86,26 @@ class ValidationRule
         // Start of user code Setter ValidationRule.setConfiguration
         // End of user code
         $this->configuration = $configuration;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValidatorName()
+    {
+        // Start of user code Getter ValidationRule.getValidatorName
+        // End of user code
+        return $this->validatorName;
+    }
+
+    /**
+     * @param string $validatorName
+     */
+    public function setValidatorName($validatorName)
+    {
+        // Start of user code Setter ValidationRule.setValidatorName
+        // End of user code
+        $this->validatorName = $validatorName;
     }
 
     // Start of user code ValidationRule.implementationSpecificMethods

@@ -40,6 +40,20 @@ class ExprTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method fromString from class Expr
+     *
+     * Start of user code ExprTest.testfromStringAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testFromString()
+    {
+        // Start of user code ExprTest.testfromString
+	    // Tests covered by testConcat
+		// End of user code
+    }
+    
+    /**
      * Test static method concat from class Expr
      *
      * Start of user code ExprTest.testconcatAnnotations 
@@ -140,20 +154,6 @@ class ExprTest extends \PHPUnit_Framework_TestCase
             $expectedExprParameters, 
             $expr->getExprParameters()
         );
-		// End of user code
-    }
-    
-    /**
-     * Test static method fromString from class Expr
-     *
-     * Start of user code ExprTest.testfromStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testFromString()
-    {
-        // Start of user code ExprTest.testfromString
-	    // Tests covered by testConcat
 		// End of user code
     }
     

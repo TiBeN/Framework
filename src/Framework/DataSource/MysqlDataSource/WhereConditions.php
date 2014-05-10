@@ -2,12 +2,12 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Datatype\GenericCollection;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\CriteriaSet;
+use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Entity\MatchCriteria;
 use TiBeN\Framework\Entity\EntityMapping;
-use TiBeN\Framework\Datatype\GenericCollection;
-use TiBeN\Framework\Entity\CriteriaSet;
 
 // Start of user code WhereConditions.useStatements
 // Place your use statements here.
@@ -84,37 +84,6 @@ class WhereConditions
     }
 
     /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     * @return WhereConditions $whereConditions
-     */
-    public static function createEntityTargetFromEntity(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code WhereConditions.createEntityTargetFromEntity
-		$mapper = new MysqlEntityAttributeMapper();
-		$mapper->setEntityMapping($entityMapping);
-		$mapper->setEntity($entity);		
-        if($mapper->getIdentifierValue() === NULL) {
-            throw new \LogicException(
-               'A WhereConditions can\'t be instanciated from an unidentified entity'
-            ); 
-        }
-		$criteriaSet = CriteriaSet::createAnd()
-            ->add(
-                MatchCriteria::equals(
-                    $mapper->getIdentifierAttributeName(), 
-                    $mapper->getIdentifierValue()
-                )
-            )
-        ;    		  
-
-        $whereConditions = self::createFromCriteriaSet($criteriaSet, $entityMapping);
-        // End of user code
-    
-        return $whereConditions;
-    }
-
-    /**
      * @return string $string
      */
     public function toString()
@@ -144,6 +113,37 @@ class WhereConditions
         // End of user code
     
         return $whereCondition;
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     * @return WhereConditions $whereConditions
+     */
+    public static function createEntityTargetFromEntity(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code WhereConditions.createEntityTargetFromEntity
+		$mapper = new MysqlEntityAttributeMapper();
+		$mapper->setEntityMapping($entityMapping);
+		$mapper->setEntity($entity);		
+        if($mapper->getIdentifierValue() === NULL) {
+            throw new \LogicException(
+               'A WhereConditions can\'t be instanciated from an unidentified entity'
+            ); 
+        }
+		$criteriaSet = CriteriaSet::createAnd()
+            ->add(
+                MatchCriteria::equals(
+                    $mapper->getIdentifierAttributeName(), 
+                    $mapper->getIdentifierValue()
+                )
+            )
+        ;    		  
+
+        $whereConditions = self::createFromCriteriaSet($criteriaSet, $entityMapping);
+        // End of user code
+    
+        return $whereConditions;
     }
 
     /**

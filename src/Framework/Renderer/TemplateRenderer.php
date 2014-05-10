@@ -17,14 +17,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class TemplateRenderer
 {
     /**
-     * @var AssociativeArray
-     */
-    public static $globals;
-
-    /**
      * @var string
      */
     public static $defaultTemplatesDirectory;
+
+    /**
+     * @var AssociativeArray
+     */
+    public static $globals;
 
     /**
      * @var TemplateEngine
@@ -41,6 +41,26 @@ class TemplateRenderer
     {
         // Start of user code TemplateRenderer.destructor
         // End of user code
+    }
+
+    /**
+     * @return string
+     */
+    public static function getDefaultTemplatesDirectory()
+    {
+        // Start of user code Static getter TemplateRenderer.getDefaultTemplatesDirectory
+        // End of user code
+        return self::$defaultTemplatesDirectory;
+    }
+
+    /**
+     * @param string $defaultTemplatesDirectory
+     */
+    public static function setDefaultTemplatesDirectory($defaultTemplatesDirectory)
+    {
+        // Start of user code Static setter TemplateRenderer.setDefaultTemplatesDirectory
+        // End of user code
+        self::$defaultTemplatesDirectory = $defaultTemplatesDirectory;
     }
 
     /**
@@ -64,26 +84,6 @@ class TemplateRenderer
         // Start of user code Static setter TemplateRenderer.setGlobals
         // End of user code
         self::$globals = $globals;
-    }
-
-    /**
-     * @return string
-     */
-    public static function getDefaultTemplatesDirectory()
-    {
-        // Start of user code Static getter TemplateRenderer.getDefaultTemplatesDirectory
-        // End of user code
-        return self::$defaultTemplatesDirectory;
-    }
-
-    /**
-     * @param string $defaultTemplatesDirectory
-     */
-    public static function setDefaultTemplatesDirectory($defaultTemplatesDirectory)
-    {
-        // Start of user code Static setter TemplateRenderer.setDefaultTemplatesDirectory
-        // End of user code
-        self::$defaultTemplatesDirectory = $defaultTemplatesDirectory;
     }
 
     /**

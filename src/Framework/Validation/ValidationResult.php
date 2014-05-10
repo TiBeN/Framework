@@ -15,14 +15,14 @@ namespace TiBeN\Framework\Validation;
 class ValidationResult
 {
     /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
      * @var bool
      */
     public $validationResult;
-
-    /**
-     * @var ValidationError
-     */
-    public $validationError;
 
     public function __construct()
     {
@@ -34,6 +34,26 @@ class ValidationResult
     {
         // Start of user code ValidationResult.destructor
         // End of user code
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorMessage()
+    {
+        // Start of user code Getter ValidationResult.getErrorMessage
+        // End of user code
+        return $this->errorMessage;
+    }
+
+    /**
+     * @param string $errorMessage
+     */
+    public function setErrorMessage($errorMessage)
+    {
+        // Start of user code Setter ValidationResult.setErrorMessage
+        // End of user code
+        $this->errorMessage = $errorMessage;
     }
 
     /**
@@ -57,23 +77,14 @@ class ValidationResult
     }
 
     /**
-     * @return ValidationError
+     * @param string $errorMessagePattern
+     * @param string $value
      */
-    public function getValidationError()
+    public function parseAndSetErrorMessage($errorMessagePattern, $value)
     {
-        // Start of user code Getter ValidationResult.getValidationError
+        // Start of user code ValidationResult.parseAndSetErrorMessage
+        $this->errorMessage = str_replace('{value}', $value, $errorMessagePattern);
         // End of user code
-        return $this->validationError;
-    }
-
-    /**
-     * @param ValidationError $validationError
-     */
-    public function setValidationError(ValidationError $validationError)
-    {
-        // Start of user code Setter ValidationResult.setValidationError
-        // End of user code
-        $this->validationError = $validationError;
     }
 
     // Start of user code ValidationResult.implementationSpecificMethods

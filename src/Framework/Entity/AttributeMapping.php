@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\Entity;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Validation\ValidationRule;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code AttributeMapping.useStatements
 // Place your use statements here.
@@ -18,19 +18,9 @@ use TiBeN\Framework\Validation\ValidationRule;
 class AttributeMapping
 {
     /**
-     * @var DataSourceAttributeMappingConfiguration
+     * @var bool
      */
-    public $dataSourceAttributeMappingConfiguration;
-
-    /**
-     * @var array
-     */
-    public $validationRules;
-
-    /**
-     * @var AssociativeArray
-     */
-    public $type;
+    public $isIdentifier;
 
     /**
      * @var string
@@ -38,9 +28,19 @@ class AttributeMapping
     public $name;
 
     /**
-     * @var bool
+     * @var DataSourceAttributeMappingConfiguration
      */
-    public $isIdentifier;
+    public $dataSourceAttributeMappingConfiguration;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $type;
+
+    /**
+     * @var array
+     */
+    public $validationRules;
 
     public function __construct()
     {
@@ -55,63 +55,23 @@ class AttributeMapping
     }
 
     /**
-     * @return DataSourceAttributeMappingConfiguration
+     * @return bool
      */
-    public function getDataSourceAttributeMappingConfiguration()
+    public function getIsIdentifier()
     {
-        // Start of user code Getter AttributeMapping.getDataSourceAttributeMappingConfiguration
+        // Start of user code Getter AttributeMapping.getIsIdentifier
         // End of user code
-        return $this->dataSourceAttributeMappingConfiguration;
+        return $this->isIdentifier;
     }
 
     /**
-     * @param DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration
+     * @param bool $isIdentifier
      */
-    public function setDataSourceAttributeMappingConfiguration(DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration)
+    public function setIsIdentifier($isIdentifier)
     {
-        // Start of user code Setter AttributeMapping.setDataSourceAttributeMappingConfiguration
+        // Start of user code Setter AttributeMapping.setIsIdentifier
         // End of user code
-        $this->dataSourceAttributeMappingConfiguration = $dataSourceAttributeMappingConfiguration;
-    }
-
-    /**
-     * @return array
-     */
-    public function getValidationRules()
-    {
-        // Start of user code Getter AttributeMapping.getValidationRules
-        // End of user code
-        return $this->validationRules;
-    }
-
-    /**
-     * @param array $validationRules
-     */
-    public function setValidationRules(array $validationRules)
-    {
-        // Start of user code Setter AttributeMapping.setValidationRules
-        // End of user code
-        $this->validationRules = $validationRules;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getType()
-    {
-        // Start of user code Getter AttributeMapping.getType
-        // End of user code
-        return $this->type;
-    }
-
-    /**
-     * @param AssociativeArray $type
-     */
-    public function setType(AssociativeArray $type)
-    {
-        // Start of user code Setter AttributeMapping.setType
-        // End of user code
-        $this->type = $type;
+        $this->isIdentifier = $isIdentifier;
     }
 
     /**
@@ -135,23 +95,63 @@ class AttributeMapping
     }
 
     /**
-     * @return bool
+     * @return DataSourceAttributeMappingConfiguration
      */
-    public function getIsIdentifier()
+    public function getDataSourceAttributeMappingConfiguration()
     {
-        // Start of user code Getter AttributeMapping.getIsIdentifier
+        // Start of user code Getter AttributeMapping.getDataSourceAttributeMappingConfiguration
         // End of user code
-        return $this->isIdentifier;
+        return $this->dataSourceAttributeMappingConfiguration;
     }
 
     /**
-     * @param bool $isIdentifier
+     * @param DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration
      */
-    public function setIsIdentifier($isIdentifier)
+    public function setDataSourceAttributeMappingConfiguration(DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration)
     {
-        // Start of user code Setter AttributeMapping.setIsIdentifier
+        // Start of user code Setter AttributeMapping.setDataSourceAttributeMappingConfiguration
         // End of user code
-        $this->isIdentifier = $isIdentifier;
+        $this->dataSourceAttributeMappingConfiguration = $dataSourceAttributeMappingConfiguration;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getType()
+    {
+        // Start of user code Getter AttributeMapping.getType
+        // End of user code
+        return $this->type;
+    }
+
+    /**
+     * @param AssociativeArray $type
+     */
+    public function setType(AssociativeArray $type)
+    {
+        // Start of user code Setter AttributeMapping.setType
+        // End of user code
+        $this->type = $type;
+    }
+
+    /**
+     * @return array
+     */
+    public function getValidationRules()
+    {
+        // Start of user code Getter AttributeMapping.getValidationRules
+        // End of user code
+        return $this->validationRules;
+    }
+
+    /**
+     * @param array $validationRules
+     */
+    public function setValidationRules(array $validationRules)
+    {
+        // Start of user code Setter AttributeMapping.setValidationRules
+        // End of user code
+        $this->validationRules = $validationRules;
     }
 
     /**

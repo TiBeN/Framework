@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\Controller;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Router\HttpResponse;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code RouterSpecialEventsController.useStatements
 // Place your use statements here.

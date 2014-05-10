@@ -77,60 +77,96 @@ class GenericCollectionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test method key from interface Collection
-     * Start of user code Collection.testkeyAnnotations 
+     * Test method valid from interface Collection
+     * Start of user code Collection.testvalidAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testKey()
+    public function testValid()
     {
-        // Start of user code Iterator.testkey
+        // Start of user code Iterator.testvalid
         $collection = new GenericCollection();
-		$collection->set(5, new SomeItem());
-		$collection->set(10, new SomeItem());
-		$collection->set(1337, new SomeItem());				
-		$this->assertEquals(5, $collection->key());
+		
+		$collection->add(new SomeItem());
+		$collection->add(new SomeItem());
+		$collection->set(1337, new SomeItem());
+			
 		$collection->next();
 		$collection->next();
-		$this->assertEquals(1337, $collection->key());
+		$this->assertTrue($collection->valid());
+		
+		$collection->next();
+		$this->assertFalse($collection->valid());
+
 		$collection->rewind();
-		$this->assertEquals(5, $collection->key());
     	// End of user code
     }
     
     /**
-     * Test method get from interface Collection
-     * Start of user code Collection.testgetAnnotations 
+     * Test method add from interface Collection
+     * Start of user code Collection.testaddAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testGet()
+    public function testAdd()
     {
-        // Start of user code Collection.testget
+        // Start of user code Collection.testadd
+        $collection = new GenericCollection();		
+		$collection->add(new SomeItem);
+		$this->assertCount(1, $collection);
+		unset($collection);
+    	// End of user code
+    }
+    
+    /**
+     * Test method set from interface Collection
+     * Start of user code Collection.testsetAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testSet()
+    {
+        // Start of user code Collection.testset
+        
+        // Test setting to already set slot
+	    $collection = new GenericCollection();
+	    
+	    $itemToReplace = new SomeItem();
+	    $itemToReplace->someData = 'item_to_replace';
+	    $replacedItem = new SomeItem();
+	    $replacedItem->someData = 'replaced_item';
+		$collection->add($itemToReplace);
+		$collection->set(0, $replacedItem);
+	    $this->assertEquals($replacedItem, $collection->get(0));
+	    unset($collection);
+	    
+	    // Test setting to an empty slot
+	    $collection = new GenericCollection();
+	    $itemToSet = new SomeItem();
+	    $itemToSet->someData = 'item_to_set';	    
+	    $collection->set(1337, $itemToSet);
+	    $this->assertEquals($itemToSet, $collection->get(1337));
+	    unset($collection);
+    	// End of user code
+    }
+    
+    /**
+     * Test method clear from interface Collection
+     * Start of user code Collection.testclearAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testClear()
+    {
+        // Start of user code Collection.testclear
         $collection = new GenericCollection();
 		$collection->add(new SomeItem());
-		$this->assertInstanceOf(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Datatype\\SomeItem',
-            $collection->get(0)
-        );
-    	// End of user code
-    }
-    
-    /**
-     * Test method count from interface Collection
-     * Start of user code Collection.testcountAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testCount()
-    {
-        // Start of user code Countable.testcount
-        $collection = new GenericCollection();
+		$collection->add(new SomeItem());
+		$collection->add(new SomeItem());
+		$collection->clear();
 		$this->assertCount(0, $collection);
-		$collection->add(new SomeItem());
-		$collection->add(new SomeItem());
-		$collection->add(new SomeItem());		
-		$this->assertCount(3, $collection);
+		
+		unset($collection);
     	// End of user code
     }
     
@@ -177,44 +213,22 @@ class GenericCollectionTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method rewind from interface Collection
-     * Start of user code Collection.testrewindAnnotations 
+     * Test method hasKey from interface Collection
+     * Start of user code Collection.testhasKeyAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testRewind()
+    public function testHasKey()
     {
-        // Start of user code Iterator.testrewind
+        // Start of user code Collection.testhasKey
         $collection = new GenericCollection();
 		
-		$collection->add(new SomeItem());
-		$collection->add(new SomeItem());
-		$collection->add(new SomeItem());
-			
-		$collection->next();		
-		$collection->next();
-		$collection->rewind();
-		$this->assertEquals(0, $collection->key());
-    	// End of user code
-    }
-    
-    /**
-     * Test method remove from interface Collection
-     * Start of user code Collection.testremoveAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testRemove()
-    {
-        // Start of user code Collection.testremove
-        $collection = new GenericCollection();
-		$collection->add(new SomeItem());
-		$this->assertInstanceOf(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Datatype\\SomeItem', 
-            $collection->remove(0)
-        );
-		$this->assertCount(0, $collection);
-		unset($collection);
+		$collection->add(new SomeItem());		
+		$collection->set(1337, new SomeItem());
+
+		$this->assertTrue($collection->hasKey(0));
+		$this->assertTrue($collection->hasKey(1337));
+		$this->assertFalse($collection->hasKey(1));
     	// End of user code
     }
     
@@ -234,68 +248,24 @@ class GenericCollectionTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method setAsReadOnly from interface Collection
-     * Start of user code Collection.testsetAsReadOnlyAnnotations 
+     * Test method key from interface Collection
+     * Start of user code Collection.testkeyAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testSetAsReadOnly()
+    public function testKey()
     {
-        // Start of user code Collection.testsetAsReadOnly
+        // Start of user code Iterator.testkey
         $collection = new GenericCollection();
-	    $item = new SomeItem();
-	    $collection->add($item);	    
-	    $collection->setAsReadOnly(true);	
-	    $this->assertTrue($collection->isReadOnly());
-
-	    $collection->setAsReadOnly(false);
-	    $this->assertFalse($collection->isReadOnly());
-
-	    $collection->remove(0);
-	    
-	    $this->assertCount(0, $collection);
-    	// End of user code
-    }
-    
-    /**
-     * Test method add from interface Collection
-     * Start of user code Collection.testaddAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testAdd()
-    {
-        // Start of user code Collection.testadd
-        $collection = new GenericCollection();		
-		$collection->add(new SomeItem);
-		$this->assertCount(1, $collection);
-		unset($collection);
-    	// End of user code
-    }
-    
-    /**
-     * Test method valid from interface Collection
-     * Start of user code Collection.testvalidAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testValid()
-    {
-        // Start of user code Iterator.testvalid
-        $collection = new GenericCollection();
-		
-		$collection->add(new SomeItem());
-		$collection->add(new SomeItem());
-		$collection->set(1337, new SomeItem());
-			
+		$collection->set(5, new SomeItem());
+		$collection->set(10, new SomeItem());
+		$collection->set(1337, new SomeItem());				
+		$this->assertEquals(5, $collection->key());
 		$collection->next();
 		$collection->next();
-		$this->assertTrue($collection->valid());
-		
-		$collection->next();
-		$this->assertFalse($collection->valid());
-
+		$this->assertEquals(1337, $collection->key());
 		$collection->rewind();
+		$this->assertEquals(5, $collection->key());
     	// End of user code
     }
     
@@ -329,73 +299,103 @@ class GenericCollectionTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method set from interface Collection
-     * Start of user code Collection.testsetAnnotations 
+     * Test method setAsReadOnly from interface Collection
+     * Start of user code Collection.testsetAsReadOnlyAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testSet()
+    public function testSetAsReadOnly()
     {
-        // Start of user code Collection.testset
-        
-        // Test setting to already set slot
-	    $collection = new GenericCollection();
-	    
-	    $itemToReplace = new SomeItem();
-	    $itemToReplace->someData = 'item_to_replace';
-	    $replacedItem = new SomeItem();
-	    $replacedItem->someData = 'replaced_item';
-		$collection->add($itemToReplace);
-		$collection->set(0, $replacedItem);
-	    $this->assertEquals($replacedItem, $collection->get(0));
-	    unset($collection);
-	    
-	    // Test setting to an empty slot
-	    $collection = new GenericCollection();
-	    $itemToSet = new SomeItem();
-	    $itemToSet->someData = 'item_to_set';	    
-	    $collection->set(1337, $itemToSet);
-	    $this->assertEquals($itemToSet, $collection->get(1337));
-	    unset($collection);
-    	// End of user code
-    }
-    
-    /**
-     * Test method hasKey from interface Collection
-     * Start of user code Collection.testhasKeyAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testHasKey()
-    {
-        // Start of user code Collection.testhasKey
+        // Start of user code Collection.testsetAsReadOnly
         $collection = new GenericCollection();
-		
-		$collection->add(new SomeItem());		
-		$collection->set(1337, new SomeItem());
+	    $item = new SomeItem();
+	    $collection->add($item);	    
+	    $collection->setAsReadOnly(true);	
+	    $this->assertTrue($collection->isReadOnly());
 
-		$this->assertTrue($collection->hasKey(0));
-		$this->assertTrue($collection->hasKey(1337));
-		$this->assertFalse($collection->hasKey(1));
+	    $collection->setAsReadOnly(false);
+	    $this->assertFalse($collection->isReadOnly());
+
+	    $collection->remove(0);
+	    
+	    $this->assertCount(0, $collection);
     	// End of user code
     }
     
     /**
-     * Test method clear from interface Collection
-     * Start of user code Collection.testclearAnnotations 
+     * Test method rewind from interface Collection
+     * Start of user code Collection.testrewindAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testClear()
+    public function testRewind()
     {
-        // Start of user code Collection.testclear
+        // Start of user code Iterator.testrewind
+        $collection = new GenericCollection();
+		
+		$collection->add(new SomeItem());
+		$collection->add(new SomeItem());
+		$collection->add(new SomeItem());
+			
+		$collection->next();		
+		$collection->next();
+		$collection->rewind();
+		$this->assertEquals(0, $collection->key());
+    	// End of user code
+    }
+    
+    /**
+     * Test method get from interface Collection
+     * Start of user code Collection.testgetAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGet()
+    {
+        // Start of user code Collection.testget
         $collection = new GenericCollection();
 		$collection->add(new SomeItem());
-		$collection->add(new SomeItem());
-		$collection->add(new SomeItem());
-		$collection->clear();
+		$this->assertInstanceOf(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Datatype\\SomeItem',
+            $collection->get(0)
+        );
+    	// End of user code
+    }
+    
+    /**
+     * Test method count from interface Collection
+     * Start of user code Collection.testcountAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testCount()
+    {
+        // Start of user code Countable.testcount
+        $collection = new GenericCollection();
 		$this->assertCount(0, $collection);
-		
+		$collection->add(new SomeItem());
+		$collection->add(new SomeItem());
+		$collection->add(new SomeItem());		
+		$this->assertCount(3, $collection);
+    	// End of user code
+    }
+    
+    /**
+     * Test method remove from interface Collection
+     * Start of user code Collection.testremoveAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testRemove()
+    {
+        // Start of user code Collection.testremove
+        $collection = new GenericCollection();
+		$collection->add(new SomeItem());
+		$this->assertInstanceOf(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Datatype\\SomeItem', 
+            $collection->remove(0)
+        );
+		$this->assertCount(0, $collection);
 		unset($collection);
     	// End of user code
     }

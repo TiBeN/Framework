@@ -5,7 +5,7 @@ namespace TiBeN\Framework\Tests\Validation;
 use TiBeN\Framework\Validation\NotEmptyValidator;
 
 // Start of user code NotEmptyValidator.useStatements
-// Place your use statements here.
+use TiBeN\Framework\Validation\ValidationRule;
 // End of user code
 
 /**
@@ -40,18 +40,17 @@ class NotEmptyValidatorTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method setValidationRule from interface Validator
-     * Start of user code Validator.testsetValidationRuleAnnotations 
-     * PHPUnit users annotations can be placed here  
+     * Test method getName from interface Validator
+     * Start of user code Validator.testgetNameAnnotations
+     * PHPUnit users annotations can be placed here
      * End of user code
      */
-    public function testSetValidationRule()
+    public function testGetName()
     {
-        // Start of user code Validator.testsetValidationRule
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    	// End of user code
+        // Start of user code Validator.testgetName
+        $notEmptyValidator = new NotEmptyValidator();
+        $this->assertEquals('notempty', $notEmptyValidator->getName());
+        // End of user code
     }
     
     /**
@@ -63,8 +62,35 @@ class NotEmptyValidatorTest extends \PHPUnit_Framework_TestCase
     public function testValidate()
     {
         // Start of user code Validator.testvalidate
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $notEmptyValidator = new NotEmptyValidator();
+        $validationResult = $notEmptyValidator->validate(
+            new ValidationRule(),
+            'foo'
+        );         
+        $this->assertTrue($validationResult->getValidationResult());
+        $this->assertNull($validationResult->getErrorMessage());
+
+        $validationResult = $notEmptyValidator->validate(
+            new ValidationRule(),
+            null
+        );
+        $this->assertFalse($validationResult->getValidationResult());
+        $this->assertEquals(
+            'The value is empty',
+            $validationResult->getErrorMessage()
+        );            
+
+        $validationRule = new ValidationRule();
+        $validationRule->setErrorMessagePattern('Hello, an error has been thrown!');
+
+        $validationResult = $notEmptyValidator->validate(
+            $validationRule,
+            null
+        );
+        $this->assertFalse($validationResult->getValidationResult());
+        $this->assertEquals(
+            'Hello, an error has been thrown!',
+            $validationResult->getErrorMessage()
         );
     	// End of user code
     }

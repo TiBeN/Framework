@@ -15,9 +15,19 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 class StatementExecutionResult
 {
     /**
+     * @var bool
+     */
+    public $success;
+
+    /**
      * @var int
      */
     public $numberOfAffectedRows;
+
+    /**
+     * @var int
+     */
+    public $errorCode;
 
     /**
      * @var RowCollection
@@ -30,19 +40,9 @@ class StatementExecutionResult
     public $lastInsertId;
 
     /**
-     * @var bool
-     */
-    public $success;
-
-    /**
      * @var string
      */
     public $errorMessage;
-
-    /**
-     * @var int
-     */
-    public $errorCode;
 
     public function __construct()
     {
@@ -54,6 +54,26 @@ class StatementExecutionResult
     {
         // Start of user code StatementExecutionResult.destructor
         // End of user code
+    }
+
+    /**
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        // Start of user code Getter StatementExecutionResult.getSuccess
+        // End of user code
+        return $this->success;
+    }
+
+    /**
+     * @param bool $success
+     */
+    public function setSuccess($success)
+    {
+        // Start of user code Setter StatementExecutionResult.setSuccess
+        // End of user code
+        $this->success = $success;
     }
 
     /**
@@ -74,6 +94,26 @@ class StatementExecutionResult
         // Start of user code Setter StatementExecutionResult.setNumberOfAffectedRows
         // End of user code
         $this->numberOfAffectedRows = $numberOfAffectedRows;
+    }
+
+    /**
+     * @return int
+     */
+    public function getErrorCode()
+    {
+        // Start of user code Getter StatementExecutionResult.getErrorCode
+        // End of user code
+        return $this->errorCode;
+    }
+
+    /**
+     * @param int $errorCode
+     */
+    public function setErrorCode($errorCode)
+    {
+        // Start of user code Setter StatementExecutionResult.setErrorCode
+        // End of user code
+        $this->errorCode = $errorCode;
     }
 
     /**
@@ -117,26 +157,6 @@ class StatementExecutionResult
     }
 
     /**
-     * @return bool
-     */
-    public function getSuccess()
-    {
-        // Start of user code Getter StatementExecutionResult.getSuccess
-        // End of user code
-        return $this->success;
-    }
-
-    /**
-     * @param bool $success
-     */
-    public function setSuccess($success)
-    {
-        // Start of user code Setter StatementExecutionResult.setSuccess
-        // End of user code
-        $this->success = $success;
-    }
-
-    /**
      * @return string
      */
     public function getErrorMessage()
@@ -154,26 +174,6 @@ class StatementExecutionResult
         // Start of user code Setter StatementExecutionResult.setErrorMessage
         // End of user code
         $this->errorMessage = $errorMessage;
-    }
-
-    /**
-     * @return int
-     */
-    public function getErrorCode()
-    {
-        // Start of user code Getter StatementExecutionResult.getErrorCode
-        // End of user code
-        return $this->errorCode;
-    }
-
-    /**
-     * @param int $errorCode
-     */
-    public function setErrorCode($errorCode)
-    {
-        // Start of user code Setter StatementExecutionResult.setErrorCode
-        // End of user code
-        $this->errorCode = $errorCode;
     }
 
     // Start of user code StatementExecutionResult.implementationSpecificMethods

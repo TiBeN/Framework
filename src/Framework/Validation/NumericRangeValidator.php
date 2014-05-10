@@ -2,7 +2,7 @@
 
 namespace TiBeN\Framework\Validation;
 
-// Start of user code StringValidator.useStatements
+// Start of user code NumericRangeValidator.useStatements
 // Place your use statements here.
 // End of user code
 
@@ -12,7 +12,7 @@ namespace TiBeN\Framework\Validation;
  * @package Validation
  * @author TiBeN
  */
-class StringValidator implements Validator
+class NumericRangeValidator implements Validator
 {
     /**
      * Type of the element T
@@ -24,13 +24,13 @@ class StringValidator implements Validator
     {
         $this->TType = $TType;
 
-        // Start of user code StringValidator.constructor
+        // Start of user code NumericRangeValidator.constructor
         // End of user code
     }
 
     public function __destruct()
     {
-        // Start of user code StringValidator.destructor
+        // Start of user code NumericRangeValidator.destructor
         // End of user code
     }
     
@@ -76,6 +76,18 @@ class StringValidator implements Validator
     // Validator Realization
 
     /**
+     * @return string $name
+     */
+    public function getName()
+    {
+        // Start of user code Validator.getName
+        // TODO should be implemented.
+        // End of user code
+    
+        return $name;
+    }
+
+    /**
      * @param ValidationRule $validationRule
      * @param T $value
      * @return ValidationResult $result
@@ -90,16 +102,7 @@ class StringValidator implements Validator
         return $result;
     }
 
-    /**
-     */
-    public function getName()
-    {
-        // Start of user code Validator.getName
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    // Start of user code StringValidator.implementationSpecificMethods
+    // Start of user code NumericRangeValidator.implementationSpecificMethods
     // Place your implementation specific methods here
     // End of user code
 }

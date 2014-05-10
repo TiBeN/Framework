@@ -2,17 +2,21 @@
 
 namespace TiBeN\Framework\Validation;
 
-// Start of user code StringValidator.useStatements
+// Start of user code StringLengthValidator.useStatements
 // Place your use statements here.
 // End of user code
 
 /**
+ * Check wheter the number of characters of a string match min/max size.
+ * ValidationRules:
+ * 	'min': (optional) The min number of characters allowed
+ * 	'max': (optional) The max number of characters allowed 
  * 
  *
  * @package Validation
  * @author TiBeN
  */
-class StringValidator implements Validator
+class StringLengthValidator implements Validator
 {
     /**
      * Type of the element T
@@ -24,13 +28,13 @@ class StringValidator implements Validator
     {
         $this->TType = $TType;
 
-        // Start of user code StringValidator.constructor
+        // Start of user code StringLengthValidator.constructor
         // End of user code
     }
 
     public function __destruct()
     {
-        // Start of user code StringValidator.destructor
+        // Start of user code StringLengthValidator.destructor
         // End of user code
     }
     
@@ -76,6 +80,18 @@ class StringValidator implements Validator
     // Validator Realization
 
     /**
+     * @return string $name
+     */
+    public function getName()
+    {
+        // Start of user code Validator.getName
+        // TODO should be implemented.
+        // End of user code
+    
+        return $name;
+    }
+
+    /**
      * @param ValidationRule $validationRule
      * @param T $value
      * @return ValidationResult $result
@@ -90,16 +106,7 @@ class StringValidator implements Validator
         return $result;
     }
 
-    /**
-     */
-    public function getName()
-    {
-        // Start of user code Validator.getName
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    // Start of user code StringValidator.implementationSpecificMethods
+    // Start of user code StringLengthValidator.implementationSpecificMethods
     // Place your implementation specific methods here
     // End of user code
 }

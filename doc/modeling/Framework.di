@@ -117,16 +117,10 @@
           <emfPageIdentifier href="Framework.notation#_dlVLAB4TEeO39_cvMiFCoA"/>
         </children>
         <children>
-          <emfPageIdentifier href="Framework.notation#_2ay0QB4JEeO39_cvMiFCoA"/>
-        </children>
-        <children>
           <emfPageIdentifier href="Framework.notation#_1NF5MBsjEeOmN-2QJZ-Okg"/>
         </children>
         <children>
-          <emfPageIdentifier href="Framework.notation#_sDD0UB4dEeO39_cvMiFCoA"/>
-        </children>
-        <children>
-          <emfPageIdentifier href="Framework.notation#_YUGzAL22EeO-aaY3kqFukA"/>
+          <emfPageIdentifier href="Framework.notation#_cCEvoCYCEeOOQ56jXFxKVg"/>
         </children>
       </children>
     </windows>

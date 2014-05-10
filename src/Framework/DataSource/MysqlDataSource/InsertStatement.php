@@ -17,6 +17,11 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class InsertStatement implements Statement
 {
     /**
+     * @var ValuesStatement
+     */
+    public $valuesStatement;
+
+    /**
      * @var ColumnNamesListStatement
      */
     public $columnNamesListStatement;
@@ -25,11 +30,6 @@ class InsertStatement implements Statement
      * @var string
      */
     public $tableName;
-
-    /**
-     * @var ValuesStatement
-     */
-    public $valuesStatement;
 
     public function __construct()
     {
@@ -41,6 +41,26 @@ class InsertStatement implements Statement
     {
         // Start of user code InsertStatement.destructor
         // End of user code
+    }
+
+    /**
+     * @return ValuesStatement
+     */
+    public function getValuesStatement()
+    {
+        // Start of user code Getter InsertStatement.getValuesStatement
+        // End of user code
+        return $this->valuesStatement;
+    }
+
+    /**
+     * @param ValuesStatement $valuesStatement
+     */
+    public function setValuesStatement(ValuesStatement $valuesStatement)
+    {
+        // Start of user code Setter InsertStatement.setValuesStatement
+        // End of user code
+        $this->valuesStatement = $valuesStatement;
     }
 
     /**
@@ -83,27 +103,22 @@ class InsertStatement implements Statement
         $this->tableName = $tableName;
     }
 
-    /**
-     * @return ValuesStatement
-     */
-    public function getValuesStatement()
-    {
-        // Start of user code Getter InsertStatement.getValuesStatement
-        // End of user code
-        return $this->valuesStatement;
-    }
-
-    /**
-     * @param ValuesStatement $valuesStatement
-     */
-    public function setValuesStatement(ValuesStatement $valuesStatement)
-    {
-        // Start of user code Setter InsertStatement.setValuesStatement
-        // End of user code
-        $this->valuesStatement = $valuesStatement;
-    }
-
     // Statement Realization
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+		$statementParameters = AssociativeArray::createFromNativeArray(
+            null,
+            $this->valuesStatement->toNativeArray()
+        );
+        // End of user code
+    
+        return $statementParameters;
+    }
 
     /**
      * Return the statement in String format
@@ -161,21 +176,6 @@ class InsertStatement implements Statement
         // End of user code
     
         return $status;
-    }
-
-    /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-		$statementParameters = AssociativeArray::createFromNativeArray(
-            null,
-            $this->valuesStatement->toNativeArray()
-        );
-        // End of user code
-    
-        return $statementParameters;
     }
 
     // Start of user code InsertStatement.implementationSpecificMethods

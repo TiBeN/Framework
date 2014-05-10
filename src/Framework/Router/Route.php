@@ -26,12 +26,12 @@ class Route
     /**
      * @var string
      */
-    public $action;
+    public $controller;
 
     /**
      * @var string
      */
-    public $controller;
+    public $action;
 
     public function __construct()
     {
@@ -68,26 +68,6 @@ class Route
     /**
      * @return string
      */
-    public function getAction()
-    {
-        // Start of user code Getter Route.getAction
-        // End of user code
-        return $this->action;
-    }
-
-    /**
-     * @param string $action
-     */
-    public function setAction($action)
-    {
-        // Start of user code Setter Route.setAction
-        // End of user code
-        $this->action = $action;
-    }
-
-    /**
-     * @return string
-     */
     public function getController()
     {
         // Start of user code Getter Route.getController
@@ -103,6 +83,26 @@ class Route
         // Start of user code Setter Route.setController
         // End of user code
         $this->controller = $controller;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAction()
+    {
+        // Start of user code Getter Route.getAction
+        // End of user code
+        return $this->action;
+    }
+
+    /**
+     * @param string $action
+     */
+    public function setAction($action)
+    {
+        // Start of user code Setter Route.setAction
+        // End of user code
+        $this->action = $action;
     }
 
     /**

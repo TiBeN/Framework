@@ -14,6 +14,11 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 interface Statement
 {
 	/**
+	 * @return AssociativeArray $statementParameters
+	 */
+	public function getStatementParameters();
+
+	/**
 	 * Return the statement in String format
 	 *
 	 * @return string $statement
@@ -26,10 +31,5 @@ interface Statement
 	 * @return bool $status
 	 */
 	public function isReadyToBeExecuted();
-
-	/**
-	 * @return AssociativeArray $statementParameters
-	 */
-	public function getStatementParameters();
 
 }

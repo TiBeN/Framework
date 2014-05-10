@@ -59,19 +59,6 @@ class DataSourcesRegistry
     }
 
     /**
-     * @param string $dataSourceName
-     * @return bool $boolean
-     */
-    public static function hasDataSource($dataSourceName)
-    {
-        // Start of user code DataSourcesRegistry.hasDataSource
-		return self::getDataSources()->has($dataSourceName);
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
      * @param DataSource $dataSource
      */
     public static function registerDataSource(DataSource $dataSource)
@@ -83,6 +70,19 @@ class DataSourcesRegistry
 		}
 	    self::getDataSources()->set($dataSourceName, $dataSource);
         // End of user code
+    }
+
+    /**
+     * @param string $dataSourceName
+     * @return bool $boolean
+     */
+    public static function hasDataSource($dataSourceName)
+    {
+        // Start of user code DataSourcesRegistry.hasDataSource
+		return self::getDataSources()->has($dataSourceName);
+        // End of user code
+    
+        return $boolean;
     }
 
     /**
