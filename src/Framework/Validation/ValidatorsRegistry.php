@@ -39,6 +39,11 @@ class ValidatorsRegistry
     private static function getValidators()
     {
         // Start of user code Static getter ValidatorsRegistry.getValidators
+	    if(!isset(self::$validators)) {
+	        self::$validators = new AssociativeArray(
+                'TiBeN\\Framework\\Validation\\Validator'
+            );
+	    }		
         // End of user code
         return self::$validators;
     }
@@ -60,7 +65,7 @@ class ValidatorsRegistry
     public static function hasValidator($name)
     {
         // Start of user code ValidatorsRegistry.hasValidator
-        // TODO should be implemented.
+        $boolean = self::getValidators()->has($name);
         // End of user code
     
         return $boolean;
@@ -72,7 +77,15 @@ class ValidatorsRegistry
     public static function clearValidator($name)
     {
         // Start of user code ValidatorsRegistry.clearValidator
-        // TODO should be implemented.
+        if (!self::hasValidator($name)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    'There isnt %s Validator registered',
+                    $name                
+                )
+            );
+        }
+        self::getValidators()->remove($name);
         // End of user code
     }
 
@@ -82,7 +95,7 @@ class ValidatorsRegistry
     public static function registerValidator(Validator $validator)
     {
         // Start of user code ValidatorsRegistry.registerValidator
-        // TODO should be implemented.
+        self::getValidators()->set($validator->getName(), $validator);
         // End of user code
     }
 
@@ -93,7 +106,15 @@ class ValidatorsRegistry
     public static function getValidator($name)
     {
         // Start of user code ValidatorsRegistry.getValidator
-        // TODO should be implemented.
+        if(!self::hasValidator($name)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    'There isnt %s Validator registered',
+                    $name                
+                )
+            );
+		}
+		$validator = self::getValidators()->get($name);
         // End of user code
     
         return $validator;

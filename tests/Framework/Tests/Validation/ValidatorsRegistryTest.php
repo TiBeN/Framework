@@ -5,7 +5,8 @@ namespace TiBeN\Framework\Tests\Validation;
 use TiBeN\Framework\Validation\ValidatorsRegistry;
 
 // Start of user code ValidatorsRegistry.useStatements
-// Place your use statements here.
+use TiBeN\Framework\Validation\NotEmptyValidator;
+
 // End of user code
 
 /**
@@ -48,9 +49,10 @@ class ValidatorsRegistryTest extends \PHPUnit_Framework_TestCase
     public function testHasValidator()
     {
         // Start of user code ValidatorsRegistryTest.testhasValidator
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $validator = new NotEmptyValidator();
+        ValidatorsRegistry::registerValidator($validator);
+        $this->assertTrue(ValidatorsRegistry::hasValidator('notempty'));
+        $this->assertFalse(ValidatorsRegistry::hasValidator('foo'));
         // End of user code
     }
     
@@ -64,9 +66,7 @@ class ValidatorsRegistryTest extends \PHPUnit_Framework_TestCase
     public function testClearValidator()
     {
         // Start of user code ValidatorsRegistryTest.testclearValidator
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+	    // Nothing to test here. Tested below by exceptions.
         // End of user code
     }
     
@@ -80,9 +80,7 @@ class ValidatorsRegistryTest extends \PHPUnit_Framework_TestCase
     public function testRegisterValidator()
     {
         // Start of user code ValidatorsRegistryTest.testregisterValidator
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+	    // Method implicitly tested by testGetValidator
         // End of user code
     }
     
@@ -96,13 +94,51 @@ class ValidatorsRegistryTest extends \PHPUnit_Framework_TestCase
     public function testGetValidator()
     {
         // Start of user code ValidatorsRegistryTest.testgetValidator
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
+        $validator = new NotEmptyValidator();
+        ValidatorsRegistry::registerValidator($validator);
+        $this->assertEquals(
+            $validator, 
+            ValidatorsRegistry::getValidator('notempty')
         );
         // End of user code
     }
 
     // Start of user code ValidatorsRegistryTest.methods
-    // Place additional tests methods here.
+    
+	/**
+	 * Test getting a non existant Validator
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionArgument There isnt 'foo' Validator registered
+	 */
+	public function testGettingNonExistantValidator()
+	{
+	    ValidatorsRegistry::getValidator('foo');
+	}
+	
+	/**
+	 * Test getting a clear Validator
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionArgument There isnt 'foo' Validator registered
+	 */
+	public function testGettingClearValidator()
+	{
+        $validator = new NotEmptyValidator();
+        ValidatorsRegistry::registerValidator($validator);
+	    ValidatorsRegistry::clearValidator('notempty');
+	    ValidatorsRegistry::getValidator('notempty');
+	}	
+	
+	/**
+	 * Test clear a non existant Validator
+     *
+	 * @expectedException InvalidArgumentException
+	 * @expectedExceptionArgument No entity mapping for entity "test"
+	 */
+	public function testClearNonExistantValidator()
+	{
+	    ValidatorsRegistry::clearValidator('foo');
+	}
     // End of user code
 }
