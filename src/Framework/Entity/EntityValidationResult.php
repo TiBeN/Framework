@@ -11,7 +11,7 @@ use TiBeN\Framework\Validation\ValidationResult;
 /**
  * 
  *
- * @package Entity
+ * @package TiBeN\Framework\Entity
  * @author TiBeN
  */
 class EntityValidationResult

@@ -4254,7 +4254,7 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Gl0-otd5EeOZXK2Dv9UOeg"/>
       </children>
       <element xmi:type="uml:Class" href="Framework.uml#_Ow5DkBskEeOmN-2QJZ-Okg"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OxDboRskEeOmN-2QJZ-Okg" x="341" y="510" width="340" height="207"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OxDboRskEeOmN-2QJZ-Okg" x="120" y="505" width="340" height="207"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_tDTSIBskEeOmN-2QJZ-Okg" type="2012" fontName="Cantarell" fontHeight="10" lineColor="0">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tDTSIhskEeOmN-2QJZ-Okg" source="ShadowFigure">
@@ -4383,7 +4383,7 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Gl4pAtd5EeOZXK2Dv9UOeg"/>
       </children>
       <element xmi:type="uml:Class" href="Framework.uml#_o-xQQBslEeOmN-2QJZ-Okg"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_o-8PYRslEeOmN-2QJZ-Okg" x="745" y="527" width="264" height="131"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_o-8PYRslEeOmN-2QJZ-Okg" x="519" y="531" width="490" height="164"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_BcX8sBsoEeOmN-2QJZ-Okg" type="2008" fontName="Cantarell" fontHeight="10" lineColor="0">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BcX8shsoEeOmN-2QJZ-Okg" source="ShadowFigure">

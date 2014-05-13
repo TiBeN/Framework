@@ -17,6 +17,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\Renderer
  * @author TiBeN
  */
 class TemplateRendererTest extends \PHPUnit_Framework_TestCase

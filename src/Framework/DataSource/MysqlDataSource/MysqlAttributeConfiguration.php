@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\DataSourceAttributeMappingConfiguration;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\DataSourceAttributeMappingConfiguration;
 
 // Start of user code MysqlAttributeConfiguration.useStatements
 // Place your use statements here.
@@ -12,7 +12,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 /**
  * 
  *
- * @package MysqlDataSource
+ * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class MysqlAttributeConfiguration implements DataSourceAttributeMappingConfiguration

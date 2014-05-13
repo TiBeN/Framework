@@ -15,6 +15,7 @@ use TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\DecimalConverter;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\DataSource\MysqlDataSource\TypeConverter
  * @author TiBeN
  */
 class DecimalConverterTest extends \PHPUnit_Framework_TestCase
@@ -40,6 +41,47 @@ class DecimalConverterTest extends \PHPUnit_Framework_TestCase
     
 
     /**
+     * Test method getType from interface TypeConverter
+     * Start of user code TypeConverter.testgetTypeAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetType()
+    {
+        // Start of user code TypeConverter.testgetType
+        $converter = new DecimalConverter();
+        $this->assertEquals('decimal', $converter->getType());
+    	// End of user code
+    }
+    
+    /**
+     * Test method setParameters from interface TypeConverter
+     * Start of user code TypeConverter.testsetParametersAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testSetParameters()
+    {
+        // Start of user code TypeConverter.testsetParameters
+        // Nothing to test here
+    	// End of user code
+    }
+    
+    /**
+     * Test method convert from interface TypeConverter
+     * Start of user code TypeConverter.testconvertAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testConvert()
+    {
+        // Start of user code Converter.testconvert
+        $converter = new DecimalConverter();
+        $this->assertSame('45.32', $converter->convert(45.32));
+    	// End of user code
+    }
+    
+    /**
      * Test method getDataSourceType from interface TypeConverter
      * Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -64,47 +106,6 @@ class DecimalConverterTest extends \PHPUnit_Framework_TestCase
         // Start of user code Converter.testreverse
         $converter = new DecimalConverter();
         $this->assertSame(45.32, $converter->reverse('45.32'));
-    	// End of user code
-    }
-    
-    /**
-     * Test method convert from interface TypeConverter
-     * Start of user code TypeConverter.testconvertAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testConvert()
-    {
-        // Start of user code Converter.testconvert
-        $converter = new DecimalConverter();
-        $this->assertSame('45.32', $converter->convert(45.32));
-    	// End of user code
-    }
-    
-    /**
-     * Test method getType from interface TypeConverter
-     * Start of user code TypeConverter.testgetTypeAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetType()
-    {
-        // Start of user code TypeConverter.testgetType
-        $converter = new DecimalConverter();
-        $this->assertEquals('decimal', $converter->getType());
-    	// End of user code
-    }
-    
-    /**
-     * Test method setParameters from interface TypeConverter
-     * Start of user code TypeConverter.testsetParametersAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testSetParameters()
-    {
-        // Start of user code TypeConverter.testsetParameters
-        // Nothing to test here
     	// End of user code
     }
 

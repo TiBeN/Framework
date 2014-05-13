@@ -11,7 +11,7 @@ use TiBeN\Framework\Entity\LimitCriteria;
 /**
  * 
  *
- * @package MysqlDataSource
+ * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class LimitStatement

@@ -11,7 +11,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 /**
  * 
  *
- * @package DataSource
+ * @package TiBeN\Framework\DataSource
  * @author TiBeN
  */
 class DataSourcesRegistry
@@ -59,6 +59,24 @@ class DataSourcesRegistry
     }
 
     /**
+     * @param string $dataSourceName
+     * @return DataSource $dataSource
+     */
+    public static function getDataSource($dataSourceName)
+    {
+        // Start of user code DataSourcesRegistry.getDataSource
+		if(!self::getDataSources()->has($dataSourceName)) {
+		    throw new \InvalidArgumentException(
+                'No data source named "' . $dataSourceName . '"'
+            );
+		} 
+		$dataSource = self::getDataSources()->get($dataSourceName);
+        // End of user code
+    
+        return $dataSource;
+    }
+
+    /**
      * @param DataSource $dataSource
      */
     public static function registerDataSource(DataSource $dataSource)
@@ -70,19 +88,6 @@ class DataSourcesRegistry
 		}
 	    self::getDataSources()->set($dataSourceName, $dataSource);
         // End of user code
-    }
-
-    /**
-     * @param string $dataSourceName
-     * @return bool $boolean
-     */
-    public static function hasDataSource($dataSourceName)
-    {
-        // Start of user code DataSourcesRegistry.hasDataSource
-		return self::getDataSources()->has($dataSourceName);
-        // End of user code
-    
-        return $boolean;
     }
 
     /**
@@ -102,20 +107,15 @@ class DataSourcesRegistry
 
     /**
      * @param string $dataSourceName
-     * @return DataSource $dataSource
+     * @return bool $boolean
      */
-    public static function getDataSource($dataSourceName)
+    public static function hasDataSource($dataSourceName)
     {
-        // Start of user code DataSourcesRegistry.getDataSource
-		if(!self::getDataSources()->has($dataSourceName)) {
-		    throw new \InvalidArgumentException(
-                'No data source named "' . $dataSourceName . '"'
-            );
-		} 
-		$dataSource = self::getDataSources()->get($dataSourceName);
+        // Start of user code DataSourcesRegistry.hasDataSource
+		return self::getDataSources()->has($dataSourceName);
         // End of user code
     
-        return $dataSource;
+        return $boolean;
     }
 
     // Start of user code DataSourcesRegistry.implementationSpecificMethods

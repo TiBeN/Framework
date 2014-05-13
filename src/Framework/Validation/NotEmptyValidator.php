@@ -10,7 +10,7 @@ namespace TiBeN\Framework\Validation;
  * Check whether a variable is not null nor empty.
  * 
  *
- * @package Validation
+ * @package TiBeN\Framework\Validation
  * @author TiBeN
  */
 class NotEmptyValidator implements Validator

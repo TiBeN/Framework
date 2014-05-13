@@ -15,6 +15,7 @@ use TiBeN\Framework\Renderer\SmartyEngine;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\Renderer
  * @author TiBeN
  */
 class SmartyEngineTest extends \PHPUnit_Framework_TestCase

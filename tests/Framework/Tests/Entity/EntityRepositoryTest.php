@@ -15,6 +15,7 @@ use TiBeN\Framework\Entity\EntityRepository;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\Entity
  * @author TiBeN
  */
 class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
@@ -34,6 +35,22 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code EntityRepositoryTest.tearDown
 		// Place additional tearDown code here.  
+		// End of user code
+    }
+    
+    /**
+     * Test method find from class EntityRepository
+     *
+     * Start of user code EntityRepositoryTest.testfindAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testFind()
+    {
+        // Start of user code EntityRepositoryTest.testfind
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
 		// End of user code
     }
     
@@ -63,22 +80,6 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
     public function testPersist()
     {
         // Start of user code EntityRepositoryTest.testpersist
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
-     * Test method find from class EntityRepository
-     *
-     * Start of user code EntityRepositoryTest.testfindAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testFind()
-    {
-        // Start of user code EntityRepositoryTest.testfind
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

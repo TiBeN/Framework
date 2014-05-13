@@ -11,20 +11,20 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 /**
  * Object/value that hold a route URI match and parse result operation
  *
- * @package Router
+ * @package TiBeN\Framework\Router
  * @author TiBeN
  */
 class RouteUriMatchAndParseResult
 {
     /**
-     * @var bool
-     */
-    public $match;
-
-    /**
      * @var AssociativeArray
      */
     public $parsedVariables;
+
+    /**
+     * @var bool
+     */
+    public $match;
 
     public function __construct()
     {
@@ -36,26 +36,6 @@ class RouteUriMatchAndParseResult
     {
         // Start of user code RouteUriMatchAndParseResult.destructor
         // End of user code
-    }
-
-    /**
-     * @return bool
-     */
-    public function getMatch()
-    {
-        // Start of user code Getter RouteUriMatchAndParseResult.getMatch
-        // End of user code
-        return $this->match;
-    }
-
-    /**
-     * @param bool $match
-     */
-    public function setMatch($match)
-    {
-        // Start of user code Setter RouteUriMatchAndParseResult.setMatch
-        // End of user code
-        $this->match = $match;
     }
 
     /**
@@ -76,6 +56,26 @@ class RouteUriMatchAndParseResult
         // Start of user code Setter RouteUriMatchAndParseResult.setParsedVariables
         // End of user code
         $this->parsedVariables = $parsedVariables;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getMatch()
+    {
+        // Start of user code Getter RouteUriMatchAndParseResult.getMatch
+        // End of user code
+        return $this->match;
+    }
+
+    /**
+     * @param bool $match
+     */
+    public function setMatch($match)
+    {
+        // Start of user code Setter RouteUriMatchAndParseResult.setMatch
+        // End of user code
+        $this->match = $match;
     }
 
     // Start of user code RouteUriMatchAndParseResult.implementationSpecificMethods

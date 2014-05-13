@@ -15,6 +15,7 @@ use TiBeN\Framework\DataSource\MysqlDataSource\GenericStatement;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class GenericStatementTest extends \PHPUnit_Framework_TestCase
@@ -52,19 +53,6 @@ class GenericStatementTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test method getStatementParameters from interface Statement
-     * Start of user code Statement.testgetStatementParametersAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetStatementParameters()
-    {
-        // Start of user code Statement.testgetStatementParameters
-        // Simple getter, nothing to test here
-    	// End of user code
-    }
-    
-    /**
      * Test method toString from interface Statement
      * Start of user code Statement.testtoStringAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -77,6 +65,19 @@ class GenericStatementTest extends \PHPUnit_Framework_TestCase
 		$statementString = 'SELECT * FROM `some_test_table`';
 		$genericStatement->setStatementString($statementString);
 		$this->assertEquals($statementString, $genericStatement->toString());
+    	// End of user code
+    }
+    
+    /**
+     * Test method getStatementParameters from interface Statement
+     * Start of user code Statement.testgetStatementParametersAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetStatementParameters()
+    {
+        // Start of user code Statement.testgetStatementParameters
+        // Simple getter, nothing to test here
     	// End of user code
     }
     

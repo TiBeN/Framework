@@ -22,6 +22,7 @@ use TiBeN\Framework\Entity\AttributeMapping;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\Entity
  * @author TiBeN
  */
 class EntityMappingTest extends \PHPUnit_Framework_TestCase

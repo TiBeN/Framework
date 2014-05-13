@@ -18,6 +18,7 @@ use TiBeN\Framework\Entity\EntityMappingsRegistry;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class ValuesStatementTest extends \PHPUnit_Framework_TestCase
@@ -42,24 +43,6 @@ class ValuesStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method toString from class ValuesStatement
-     *
-     * Start of user code ValuesStatementTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code ValuesStatementTest.testtoString
-        $valuesStatement = new ValuesStatement();
-        $valuesStatement->set('a', 'someValueForA');
-        $valuesStatement->set('b', 'someValueForB');
-        $valuesStatement->set('c', 'someValueForC');
-        $this->assertEquals('VALUES(:a,:b,:c)', $valuesStatement->toString());
-		// End of user code
-    }
-    
-    /**
      * Test static method createFromEntity from class ValuesStatement
      *
      * Start of user code ValuesStatementTest.testcreateFromEntityAnnotations 
@@ -79,6 +62,24 @@ class ValuesStatementTest extends \PHPUnit_Framework_TestCase
         );
 	    $valuesStatement = ValuesStatement::createFromEntity($entityMapping, $entity);
 	    $this->assertEquals('VALUES(:idTable,:a,:b,:c)', $valuesStatement->toString());
+		// End of user code
+    }
+    
+    /**
+     * Test method toString from class ValuesStatement
+     *
+     * Start of user code ValuesStatementTest.testtoStringAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code ValuesStatementTest.testtoString
+        $valuesStatement = new ValuesStatement();
+        $valuesStatement->set('a', 'someValueForA');
+        $valuesStatement->set('b', 'someValueForB');
+        $valuesStatement->set('c', 'someValueForC');
+        $this->assertEquals('VALUES(:a,:b,:c)', $valuesStatement->toString());
 		// End of user code
     }
 

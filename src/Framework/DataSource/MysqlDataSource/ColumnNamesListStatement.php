@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\GenericCollection;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Datatype\GenericCollection;
 
 // Start of user code ColumnNamesListStatement.useStatements
 // Place your use statements here.
@@ -12,7 +12,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 /**
  * 
  *
- * @package MysqlDataSource
+ * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class ColumnNamesListStatement extends GenericCollection

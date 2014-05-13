@@ -2,11 +2,11 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\EntityCollection;
-use TiBeN\Framework\DataSource\DataSource;
 use TiBeN\Framework\Entity\CriteriaSet;
-use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Entity\EntityCollection;
+use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\DataSource\DataSource;
 
 // Start of user code MysqlDataSource.useStatements
 // Place your use statements here.
@@ -15,7 +15,7 @@ use TiBeN\Framework\Entity\EntityMapping;
 /**
  * 
  *
- * @package MysqlDataSource
+ * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class MysqlDataSource implements DataSource
@@ -26,19 +26,14 @@ class MysqlDataSource implements DataSource
     public $userName;
 
     /**
+     * @var string
+     */
+    public $databaseName;
+
+    /**
      * @var int
      */
     public $port;
-
-    /**
-     * @var string
-     */
-    public $host;
-
-    /**
-     * @var string
-     */
-    public $password;
 
     /**
      * @var Connection
@@ -48,7 +43,12 @@ class MysqlDataSource implements DataSource
     /**
      * @var string
      */
-    public $databaseName;
+    public $password;
+
+    /**
+     * @var string
+     */
+    public $host;
 
     /**
      * @var string
@@ -88,6 +88,26 @@ class MysqlDataSource implements DataSource
     }
 
     /**
+     * @return string
+     */
+    public function getDatabaseName()
+    {
+        // Start of user code Getter MysqlDataSource.getDatabaseName
+        // End of user code
+        return $this->databaseName;
+    }
+
+    /**
+     * @param string $databaseName
+     */
+    public function setDatabaseName($databaseName)
+    {
+        // Start of user code Setter MysqlDataSource.setDatabaseName
+        // End of user code
+        $this->databaseName = $databaseName;
+    }
+
+    /**
      * @return int
      */
     public function getPort()
@@ -105,46 +125,6 @@ class MysqlDataSource implements DataSource
         // Start of user code Setter MysqlDataSource.setPort
         // End of user code
         $this->port = $port;
-    }
-
-    /**
-     * @return string
-     */
-    public function getHost()
-    {
-        // Start of user code Getter MysqlDataSource.getHost
-        // End of user code
-        return $this->host;
-    }
-
-    /**
-     * @param string $host
-     */
-    public function setHost($host)
-    {
-        // Start of user code Setter MysqlDataSource.setHost
-        // End of user code
-        $this->host = $host;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPassword()
-    {
-        // Start of user code Getter MysqlDataSource.getPassword
-        // End of user code
-        return $this->password;
-    }
-
-    /**
-     * @param string $password
-     */
-    public function setPassword($password)
-    {
-        // Start of user code Setter MysqlDataSource.setPassword
-        // End of user code
-        $this->password = $password;
     }
 
     /**
@@ -179,21 +159,41 @@ class MysqlDataSource implements DataSource
     /**
      * @return string
      */
-    public function getDatabaseName()
+    public function getPassword()
     {
-        // Start of user code Getter MysqlDataSource.getDatabaseName
+        // Start of user code Getter MysqlDataSource.getPassword
         // End of user code
-        return $this->databaseName;
+        return $this->password;
     }
 
     /**
-     * @param string $databaseName
+     * @param string $password
      */
-    public function setDatabaseName($databaseName)
+    public function setPassword($password)
     {
-        // Start of user code Setter MysqlDataSource.setDatabaseName
+        // Start of user code Setter MysqlDataSource.setPassword
         // End of user code
-        $this->databaseName = $databaseName;
+        $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHost()
+    {
+        // Start of user code Getter MysqlDataSource.getHost
+        // End of user code
+        return $this->host;
+    }
+
+    /**
+     * @param string $host
+     */
+    public function setHost($host)
+    {
+        // Start of user code Setter MysqlDataSource.setHost
+        // End of user code
+        $this->host = $host;
     }
 
     // DataSource Realization
@@ -220,44 +220,14 @@ class MysqlDataSource implements DataSource
     /**
      * @return string $className
      */
-    public static function getEntityMappingConfigurationClassName()
+    public static function getAttributeMappingConfigurationClassName()
     {
-        // Start of user code DataSource.getEntityMappingConfigurationClassName
+        // Start of user code DataSource.getAttributeMappingConfigurationClassName
         $namespace = 'TiBeN\\Framework\\DataSource\\MysqlDataSource';
-        $className = $namespace . '\\MysqlEntityConfiguration';
+		$className = $namespace . '\\MysqlAttributeConfiguration';
         // End of user code
     
         return $className;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     */
-    public function create(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code DataSource.create
-	    $insertStatement = StatementFactory::createInsertStatement($entityMapping, $entity);
-	    $statementResult = Driver::executeStatement(
-            $insertStatement, 
-            $this->getConnection()
-        );
-	    
-	    if($statementResult->getSuccess() == false) {
-	        throw new \RuntimeException(
-	            sprintf(    
-                    'MysqlDataSource error %s : %s',
-	                $statementResult->getErrorCode(),
-                    $statementResult->getErrorMessage()	                        
-                )	                    	           
-	        );
-	    }
-	    
-	    $mapper = new MysqlEntityAttributeMapper();
-	    $mapper->setEntity($entity);
-	    $mapper->setEntityMapping($entityMapping);
-	    $mapper->setIdentifier($statementResult->getLastInsertId());
-        // End of user code
     }
 
     /**
@@ -288,6 +258,69 @@ class MysqlDataSource implements DataSource
                 'The entity doesn\'t exist. Maybe it has already been deleted ?'
             );
         }       
+        // End of user code
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     */
+    public function update(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code DataSource.update
+	    $updateStatement = StatementFactory
+            ::createUpdateStatementFromEntity($entityMapping, $entity)
+        ;
+	    $statementResult = Driver::executeStatement(
+            $updateStatement, 
+            $this->getConnection()
+        );
+	    
+	    if($statementResult->getSuccess() == false) {
+	        throw new \RuntimeException(
+	            sprintf(    
+                    'MysqlDataSource error %s : %s',
+	                $statementResult->getErrorCode(),
+                    $statementResult->getErrorMessage()	                        
+                )	                    	           
+	        );
+	    }
+
+        if ($statementResult->getNumberOfAffectedRows() !== 1) {
+            throw new \LogicException(
+                'The entity doesn\'t exist into the database.'
+            );
+        }       
+        // End of user code
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     */
+    public function create(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code DataSource.create
+	    $insertStatement = StatementFactory::createInsertStatement($entityMapping, $entity);
+	    $statementResult = Driver::executeStatement(
+            $insertStatement, 
+            $this->getConnection()
+        );
+	    
+	    if($statementResult->getSuccess() == false) {
+	        throw new \RuntimeException(
+	            sprintf(    
+                    'MysqlDataSource error %s : %s',
+	                $statementResult->getErrorCode(),
+                    $statementResult->getErrorMessage()	                        
+                )	                    	           
+	        );
+	    }
+	    
+	    $mapper = new MysqlEntityAttributeMapper();
+	    $mapper->setEntity($entity);
+	    $mapper->setEntityMapping($entityMapping);
+	    $mapper->setIdentifier($statementResult->getLastInsertId());
         // End of user code
     }
 
@@ -333,46 +366,13 @@ class MysqlDataSource implements DataSource
     }
 
     /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     */
-    public function update(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code DataSource.update
-	    $updateStatement = StatementFactory
-            ::createUpdateStatementFromEntity($entityMapping, $entity)
-        ;
-	    $statementResult = Driver::executeStatement(
-            $updateStatement, 
-            $this->getConnection()
-        );
-	    
-	    if($statementResult->getSuccess() == false) {
-	        throw new \RuntimeException(
-	            sprintf(    
-                    'MysqlDataSource error %s : %s',
-	                $statementResult->getErrorCode(),
-                    $statementResult->getErrorMessage()	                        
-                )	                    	           
-	        );
-	    }
-
-        if ($statementResult->getNumberOfAffectedRows() !== 1) {
-            throw new \LogicException(
-                'The entity doesn\'t exist into the database.'
-            );
-        }       
-        // End of user code
-    }
-
-    /**
      * @return string $className
      */
-    public static function getAttributeMappingConfigurationClassName()
+    public static function getEntityMappingConfigurationClassName()
     {
-        // Start of user code DataSource.getAttributeMappingConfigurationClassName
+        // Start of user code DataSource.getEntityMappingConfigurationClassName
         $namespace = 'TiBeN\\Framework\\DataSource\\MysqlDataSource';
-		$className = $namespace . '\\MysqlAttributeConfiguration';
+        $className = $namespace . '\\MysqlEntityConfiguration';
         // End of user code
     
         return $className;

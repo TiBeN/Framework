@@ -15,6 +15,7 @@ use TiBeN\Framework\Entity\OrderCriteria;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\Entity
  * @author TiBeN
  */
 class OrderCriteriaTest extends \PHPUnit_Framework_TestCase

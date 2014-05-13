@@ -19,6 +19,7 @@ use TiBeN\Framework\Tests\Fixtures\Entity\SomeEntity;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class SetStatementTest extends \PHPUnit_Framework_TestCase
@@ -39,20 +40,6 @@ class SetStatementTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code SetStatementTest.tearDown
 		// Place additional tearDown code here.  
-		// End of user code
-    }
-    
-    /**
-     * Test method toString from class SetStatement
-     *
-     * Start of user code SetStatementTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code SetStatementTest.testtoString
-	    // Implicitly tested by testCreateKeyValueListFromEntity
 		// End of user code
     }
     
@@ -102,6 +89,20 @@ class SetStatementTest extends \PHPUnit_Framework_TestCase
             $expectedStatementParameters, 
             $setStatement->getStatementParameters()
         );
+		// End of user code
+    }
+    
+    /**
+     * Test method toString from class SetStatement
+     *
+     * Start of user code SetStatementTest.testtoStringAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code SetStatementTest.testtoString
+	    // Implicitly tested by testCreateKeyValueListFromEntity
 		// End of user code
     }
 

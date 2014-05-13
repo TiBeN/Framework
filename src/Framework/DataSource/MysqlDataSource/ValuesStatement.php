@@ -3,8 +3,8 @@
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\Datatype\AssociativeArray;
-use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Entity\Entity;
 
 // Start of user code ValuesStatement.useStatements
 // Place your use statements here.
@@ -13,7 +13,7 @@ use TiBeN\Framework\Entity\EntityMapping;
 /**
  * 
  *
- * @package MysqlDataSource
+ * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class ValuesStatement extends AssociativeArray
@@ -68,6 +68,26 @@ class ValuesStatement extends AssociativeArray
     }
 
     /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     * @return ValuesStatement $valuesStatement
+     */
+    public static function createFromEntity(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code ValuesStatement.createFromEntity
+        $converter = new RowToEntityConverter();
+        $converter->setEntityMapping($entityMapping);
+        $rows = $converter->reverse($entity);
+        $valuesStatement = ValuesStatement::createFromNativeArray(
+            null, 
+            $rows->toNativeArray()
+        );
+        // End of user code
+    
+        return $valuesStatement;
+    }
+
+    /**
      * @return string $string
      */
     public function toString()
@@ -89,26 +109,6 @@ class ValuesStatement extends AssociativeArray
         // End of user code
     
         return $string;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     * @return ValuesStatement $valuesStatement
-     */
-    public static function createFromEntity(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code ValuesStatement.createFromEntity
-        $converter = new RowToEntityConverter();
-        $converter->setEntityMapping($entityMapping);
-        $rows = $converter->reverse($entity);
-        $valuesStatement = ValuesStatement::createFromNativeArray(
-            null, 
-            $rows->toNativeArray()
-        );
-        // End of user code
-    
-        return $valuesStatement;
     }
 
     // Start of user code ValuesStatement.surchargedMethods

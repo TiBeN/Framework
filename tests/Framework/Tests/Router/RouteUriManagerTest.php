@@ -17,6 +17,7 @@ use TiBeN\Framework\Router\RouteUriMatchAndParseResult;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\Router
  * @author TiBeN
  */
 class RouteUriManagerTest extends \PHPUnit_Framework_TestCase

@@ -13,7 +13,7 @@ namespace TiBeN\Framework\Validation;
  * 	'max': (optional) The max number of characters allowed 
  * 
  *
- * @package Validation
+ * @package TiBeN\Framework\Validation
  * @author TiBeN
  */
 class StringLengthValidator implements Validator
@@ -29,6 +29,7 @@ class StringLengthValidator implements Validator
         $this->TType = $TType;
 
         // Start of user code StringLengthValidator.constructor
+        $this->TType = 'string';
         // End of user code
     }
 
@@ -85,7 +86,7 @@ class StringLengthValidator implements Validator
     public function getName()
     {
         // Start of user code Validator.getName
-        // TODO should be implemented.
+        $name = 'stringlength';
         // End of user code
     
         return $name;
@@ -100,7 +101,50 @@ class StringLengthValidator implements Validator
     {
         $this->typeHint($this->TType, $value);
         // Start of user code Validator.validate
-        // TODO should be implemented.
+        $configuration = $validationRule->getConfiguration();
+        if (!$configuration->has('min') && !$configuration->has('max')) {
+            throw new \InvalidArgumentException(
+                'You must specify at least a \'min\' or a \'max\' rule'
+            );
+        }
+
+        $result = new ValidationResult();
+        $result->setValidationResult(true);
+
+        if (($configuration->has('min') && strlen($value) < $configuration->get('min'))
+            || ($configuration->has('max') && strlen($value) > $configuration->get('max'))         ) {
+            $result->setValidationResult(false);
+            $errorMessagePattern = $validationRule->getErrorMessagePattern();
+            if (!empty($errorMessagePattern)) {
+                $result->parseAndSetErrorMessage($errorMessagePattern, $value);
+            } else {
+                if($configuration->has('min') && !$configuration->has('max')) {
+                    $result->setErrorMessage(
+                        sprintf(
+                            'The string must contain %s characters min',
+                            $configuration->get('min')
+                        ) 
+                    );
+                } 
+                elseif ($configuration->has('max') && !$configuration->has('min')) {
+                    $result->setErrorMessage(
+                        sprintf(
+                            'The string must contain %s characters max',
+                            $configuration->get('max')
+                        ) 
+                    );
+                }
+                else {
+                    $result->setErrorMessage(
+                        sprintf(
+                            'The string must contain between %s and %s characters',
+                            $configuration->get('min'),
+                            $configuration->get('max')
+                        ) 
+                    );
+                }
+            }
+        }
         // End of user code
     
         return $result;

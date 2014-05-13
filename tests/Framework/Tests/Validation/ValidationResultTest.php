@@ -15,6 +15,7 @@ use TiBeN\Framework\Validation\ValidationResult;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\Validation
  * @author TiBeN
  */
 class ValidationResultTest extends \PHPUnit_Framework_TestCase

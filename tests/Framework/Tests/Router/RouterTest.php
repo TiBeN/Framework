@@ -18,6 +18,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  * @runTestsInSeparateProcesses	 
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\Router
  * @author TiBeN
  */
 class RouterTest extends \PHPUnit_Framework_TestCase
@@ -41,6 +42,56 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         $_SERVER = $this->originalPhpServerGlobal;
         $_GET = $this->originalPhpGetGlobal;
         $_POST = $this->originalPhpPostGlobal;
+        // End of user code
+    }
+    
+    /**
+     * Test static method redirectToRoute from class Router
+     *
+     * Start of user code RouterTest.testredirectToRouteAnnotations
+     * PHPUnit users annotations can be placed here
+     * End of user code
+     */
+    public function testRedirectToRoute()
+    {
+        // Start of user code RouterTest.testredirectToRoute
+        $routeRule = new RouteRule();
+        $routeRule->setName('my-route-rule-without-vars-test');
+        $routeRule->setUriPattern('/access-to-my-test-uri.html');
+        $routeRule->setController('test');
+        $routeRule->setAction('caseWithoutVar');
+        Router::addRouteRule($routeRule);
+        Router::redirectToRoute(
+            'my-route-rule-without-vars-test',
+            new AssociativeArray('string')
+        );
+        // End of user code
+    }
+    
+    /**
+     * Test static method addRouteRule from class Router
+     *
+     * Start of user code RouterTest.testaddRouteRuleAnnotations
+     * PHPUnit users annotations can be placed here
+     * End of user code
+     */
+    public function testAddRouteRule()
+    {
+        // Start of user code RouterTest.testaddRouteRule
+
+        // Case : Add a route and retrieve it by name
+        $routeRule = new RouteRule();
+        $routeRule->setName('my-route-rule');
+        $routeRule->setUriPattern('/access-to-my-test-uri.html');
+        $routeRule->setController('myController');
+        $routeRule->setAction('myAction');
+
+        Router::addRouteRule($routeRule);
+        $this->assertEquals(
+            $routeRule,
+            Router::getRouteRuleByName('my-route-rule'),
+            'Case 1'
+        );
         // End of user code
     }
     
@@ -86,79 +137,6 @@ class RouterTest extends \PHPUnit_Framework_TestCase
                     array('foo' => 'foo-content', 'bar' => 'bar-content')
                 )
             )
-        );
-        // End of user code
-    }
-    
-    /**
-     * Test static method handleCurrentHttpRequest from class Router
-     *
-     * Start of user code RouterTest.testhandleCurrentHttpRequestAnnotations
-     *
-     * End of user code
-     */
-    public function testHandleCurrentHttpRequest()
-    {
-        // Start of user code RouterTest.testhandleCurrentHttpRequest
-        // Add route rule
-        $routeRule = new RouteRule();
-        $routeRule->setName('my-route-rule-without-vars-test');
-        $routeRule->setUriPattern('/access-to-my-test-uri.html');
-        $routeRule->setController(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
-        );
-        $routeRule->setAction('caseWithoutVar');
-
-        Router::addRouteRule($routeRule);
-
-        // Simulate a request at the php globals level
-        $_SERVER['REQUEST_METHOD'] = 'get';
-        $_SERVER['REQUEST_URI'] = '/access-to-my-test-uri.html';
-        $_SERVER['SERVER_PROTOCOL'] = 'HTTP/1.1';
-        $_SERVER['HTTP_HOST'] = 'http://www.my-host.com';
-        $_SERVER['HTTP_USER_AGENT']
-            = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:20.0) Gecko/20100101 Firefox/20.0'
-        ;
-        $_SERVER['HTTP_ACCEPT']
-            = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-        ;
-        $_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'fr,fr-fr;q=0.8,en-us;q=0.5,en;q=0.3';
-        $_SERVER['HTTP_ACCEPT_ENCODING'] = 'gzip, deflate';
-        $_SERVER['HTTP_CONNECTION'] = 'keep-alive';
-
-        ob_start();
-        Router::handleCurrentHttpRequest();
-
-        $this->assertEquals(
-            '<html>Hello From TestController And CaseWithoutVar Action!</html>',
-            ob_get_clean()
-        );
-        // End of user code
-    }
-    
-    /**
-     * Test static method addRouteRule from class Router
-     *
-     * Start of user code RouterTest.testaddRouteRuleAnnotations
-     * PHPUnit users annotations can be placed here
-     * End of user code
-     */
-    public function testAddRouteRule()
-    {
-        // Start of user code RouterTest.testaddRouteRule
-
-        // Case : Add a route and retrieve it by name
-        $routeRule = new RouteRule();
-        $routeRule->setName('my-route-rule');
-        $routeRule->setUriPattern('/access-to-my-test-uri.html');
-        $routeRule->setController('myController');
-        $routeRule->setAction('myAction');
-
-        Router::addRouteRule($routeRule);
-        $this->assertEquals(
-            $routeRule,
-            Router::getRouteRuleByName('my-route-rule'),
-            'Case 1'
         );
         // End of user code
     }
@@ -212,6 +190,52 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method handleCurrentHttpRequest from class Router
+     *
+     * Start of user code RouterTest.testhandleCurrentHttpRequestAnnotations
+     *
+     * End of user code
+     */
+    public function testHandleCurrentHttpRequest()
+    {
+        // Start of user code RouterTest.testhandleCurrentHttpRequest
+        // Add route rule
+        $routeRule = new RouteRule();
+        $routeRule->setName('my-route-rule-without-vars-test');
+        $routeRule->setUriPattern('/access-to-my-test-uri.html');
+        $routeRule->setController(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
+        );
+        $routeRule->setAction('caseWithoutVar');
+
+        Router::addRouteRule($routeRule);
+
+        // Simulate a request at the php globals level
+        $_SERVER['REQUEST_METHOD'] = 'get';
+        $_SERVER['REQUEST_URI'] = '/access-to-my-test-uri.html';
+        $_SERVER['SERVER_PROTOCOL'] = 'HTTP/1.1';
+        $_SERVER['HTTP_HOST'] = 'http://www.my-host.com';
+        $_SERVER['HTTP_USER_AGENT']
+            = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:20.0) Gecko/20100101 Firefox/20.0'
+        ;
+        $_SERVER['HTTP_ACCEPT']
+            = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+        ;
+        $_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'fr,fr-fr;q=0.8,en-us;q=0.5,en;q=0.3';
+        $_SERVER['HTTP_ACCEPT_ENCODING'] = 'gzip, deflate';
+        $_SERVER['HTTP_CONNECTION'] = 'keep-alive';
+
+        ob_start();
+        Router::handleCurrentHttpRequest();
+
+        $this->assertEquals(
+            '<html>Hello From TestController And CaseWithoutVar Action!</html>',
+            ob_get_clean()
+        );
+        // End of user code
+    }
+    
+    /**
      * Test static method forwardToRoute from class Router
      *
      * Start of user code RouterTest.testforwardToRouteAnnotations
@@ -240,29 +264,6 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(
             '<html>Hello From TestController And CaseWithoutVar Action!</html>',
             ob_get_clean()
-        );
-        // End of user code
-    }
-    
-    /**
-     * Test static method redirectToRoute from class Router
-     *
-     * Start of user code RouterTest.testredirectToRouteAnnotations
-     * PHPUnit users annotations can be placed here
-     * End of user code
-     */
-    public function testRedirectToRoute()
-    {
-        // Start of user code RouterTest.testredirectToRoute
-        $routeRule = new RouteRule();
-        $routeRule->setName('my-route-rule-without-vars-test');
-        $routeRule->setUriPattern('/access-to-my-test-uri.html');
-        $routeRule->setController('test');
-        $routeRule->setAction('caseWithoutVar');
-        Router::addRouteRule($routeRule);
-        Router::redirectToRoute(
-            'my-route-rule-without-vars-test',
-            new AssociativeArray('string')
         );
         // End of user code
     }

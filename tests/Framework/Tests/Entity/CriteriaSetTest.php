@@ -19,6 +19,7 @@ use TiBeN\Framework\Datatype\GenericCollection;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\Entity
  * @author TiBeN
  */
 class CriteriaSetTest extends \PHPUnit_Framework_TestCase
@@ -38,22 +39,6 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code CriteriaSetTest.tearDown
 		// Place additional tearDown code here.  
-		// End of user code
-    }
-    
-    /**
-     * Test static method createAnd from class CriteriaSet
-     *
-     * Start of user code CriteriaSetTest.testcreateAndAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateAnd()
-    {
-        // Start of user code CriteriaSetTest.testcreateAnd
-        $expectedCriteriaSet = new CriteriaSet();
-        $expectedCriteriaSet->setLogicalSeparator(CriteriaSet::LOGICAL_SEPARATOR_AND);
-        $this->assertEquals($expectedCriteriaSet, CriteriaSet::createAnd());
 		// End of user code
     }
     
@@ -99,33 +84,6 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
         $limitCriteria = LimitCriteria::to(1337);
         $criteriaSet->setLimit($limitCriteria);
         $this->assertEquals($limitCriteria, $criteriaSet->getLimitCriteria());
-		// End of user code
-    }
-    
-    /**
-     * Test method add from class CriteriaSet
-     *
-     * Start of user code CriteriaSetTest.testaddAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testAdd()
-    {
-        // Start of user code CriteriaSetTest.testadd
-	    $matchCriteria = MatchCriteria::equals('foo', 'bar');
-	    
-	    $expectedMatchCriteriaCollection = new GenericCollection(
-            'TiBeN\\Framework\\Entity\\MatchCriteria'
-        );
-	    $expectedMatchCriteriaCollection->add($matchCriteria);
-	    
-	    $criteriaSet = new CriteriaSet();
-	    $criteriaSet->add($matchCriteria);
-	    
-	    $this->assertEquals(
-            $expectedMatchCriteriaCollection, 
-            $criteriaSet->getMatchCriterias()
-        );	    
 		// End of user code
     }
     
@@ -176,6 +134,33 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test method add from class CriteriaSet
+     *
+     * Start of user code CriteriaSetTest.testaddAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testAdd()
+    {
+        // Start of user code CriteriaSetTest.testadd
+	    $matchCriteria = MatchCriteria::equals('foo', 'bar');
+	    
+	    $expectedMatchCriteriaCollection = new GenericCollection(
+            'TiBeN\\Framework\\Entity\\MatchCriteria'
+        );
+	    $expectedMatchCriteriaCollection->add($matchCriteria);
+	    
+	    $criteriaSet = new CriteriaSet();
+	    $criteriaSet->add($matchCriteria);
+	    
+	    $this->assertEquals(
+            $expectedMatchCriteriaCollection, 
+            $criteriaSet->getMatchCriterias()
+        );	    
+		// End of user code
+    }
+    
+    /**
      * Test method hasMatchCriterias from class CriteriaSet
      *
      * Start of user code CriteriaSetTest.testhasMatchCriteriasAnnotations
@@ -198,6 +183,22 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
         $anotherCriteriaSet->addSubSet($criteriaSet);
         $this->assertTrue($criteriaSet->hasMatchCriterias());
         // End of user code
+    }
+    
+    /**
+     * Test static method createAnd from class CriteriaSet
+     *
+     * Start of user code CriteriaSetTest.testcreateAndAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateAnd()
+    {
+        // Start of user code CriteriaSetTest.testcreateAnd
+        $expectedCriteriaSet = new CriteriaSet();
+        $expectedCriteriaSet->setLogicalSeparator(CriteriaSet::LOGICAL_SEPARATOR_AND);
+        $this->assertEquals($expectedCriteriaSet, CriteriaSet::createAnd());
+		// End of user code
     }
 
     // Start of user code CriteriaSetTest.methods

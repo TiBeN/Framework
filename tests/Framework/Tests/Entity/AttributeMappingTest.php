@@ -17,6 +17,7 @@ use TiBeN\Framework\Tests\Fixtures\DataSource\FooDataSource\FooAttributeMappingC
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\Entity
  * @author TiBeN
  */
 class AttributeMappingTest extends \PHPUnit_Framework_TestCase

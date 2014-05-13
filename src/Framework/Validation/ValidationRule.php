@@ -16,20 +16,20 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  * 
  *  
  *
- * @package Validation
+ * @package TiBeN\Framework\Validation
  * @author TiBeN
  */
 class ValidationRule
 {
     /**
-     * @var string
-     */
-    public $errorMessagePattern;
-
-    /**
      * @var AssociativeArray
      */
     public $configuration;
+
+    /**
+     * @var string
+     */
+    public $errorMessagePattern;
 
     /**
      * @var string
@@ -39,6 +39,8 @@ class ValidationRule
     public function __construct()
     {
         // Start of user code ValidationRule.constructor
+        $this->configuration = new AssociativeArray();
+
         // End of user code
     }
 
@@ -46,26 +48,6 @@ class ValidationRule
     {
         // Start of user code ValidationRule.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getErrorMessagePattern()
-    {
-        // Start of user code Getter ValidationRule.getErrorMessagePattern
-        // End of user code
-        return $this->errorMessagePattern;
-    }
-
-    /**
-     * @param string $errorMessagePattern
-     */
-    public function setErrorMessagePattern($errorMessagePattern)
-    {
-        // Start of user code Setter ValidationRule.setErrorMessagePattern
-        // End of user code
-        $this->errorMessagePattern = $errorMessagePattern;
     }
 
     /**
@@ -86,6 +68,26 @@ class ValidationRule
         // Start of user code Setter ValidationRule.setConfiguration
         // End of user code
         $this->configuration = $configuration;
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorMessagePattern()
+    {
+        // Start of user code Getter ValidationRule.getErrorMessagePattern
+        // End of user code
+        return $this->errorMessagePattern;
+    }
+
+    /**
+     * @param string $errorMessagePattern
+     */
+    public function setErrorMessagePattern($errorMessagePattern)
+    {
+        // Start of user code Setter ValidationRule.setErrorMessagePattern
+        // End of user code
+        $this->errorMessagePattern = $errorMessagePattern;
     }
 
     /**

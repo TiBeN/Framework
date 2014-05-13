@@ -11,15 +11,15 @@ use TiBeN\Framework\Datatype\GenericCollection;
 /**
  * 
  *
- * @package Entity
+ * @package TiBeN\Framework\Entity
  * @author TiBeN
  */
 class CriteriaSet
 {
     /**
-     * @var GenericCollection
+     * @var string
      */
-    public $criteriaSets;
+    const LOGICAL_SEPARATOR_AND = 'and';
 
     /**
      * @var LimitCriteria
@@ -29,22 +29,22 @@ class CriteriaSet
     /**
      * @var string
      */
-    const LOGICAL_SEPARATOR_AND = 'and';
-
-    /**
-     * @var string
-     */
     public $logicalSeparator;
-
-    /**
-     * @var string
-     */
-    const LOGICAL_SEPARATOR_OR = 'or';
 
     /**
      * @var GenericCollection
      */
     public $orderCriterias;
+
+    /**
+     * @var GenericCollection
+     */
+    public $criteriaSets;
+
+    /**
+     * @var string
+     */
+    const LOGICAL_SEPARATOR_OR = 'or';
 
     /**
      * @var GenericCollection
@@ -70,26 +70,6 @@ class CriteriaSet
     {
         // Start of user code CriteriaSet.destructor
         // End of user code
-    }
-
-    /**
-     * @return GenericCollection
-     */
-    public function getCriteriaSets()
-    {
-        // Start of user code Getter CriteriaSet.getCriteriaSets
-        // End of user code
-        return $this->criteriaSets;
-    }
-
-    /**
-     * @param GenericCollection $criteriaSets
-     */
-    public function setCriteriaSets(GenericCollection $criteriaSets)
-    {
-        // Start of user code Setter CriteriaSet.setCriteriaSets
-        // End of user code
-        $this->criteriaSets = $criteriaSets;
     }
 
     /**
@@ -155,6 +135,26 @@ class CriteriaSet
     /**
      * @return GenericCollection
      */
+    public function getCriteriaSets()
+    {
+        // Start of user code Getter CriteriaSet.getCriteriaSets
+        // End of user code
+        return $this->criteriaSets;
+    }
+
+    /**
+     * @param GenericCollection $criteriaSets
+     */
+    public function setCriteriaSets(GenericCollection $criteriaSets)
+    {
+        // Start of user code Setter CriteriaSet.setCriteriaSets
+        // End of user code
+        $this->criteriaSets = $criteriaSets;
+    }
+
+    /**
+     * @return GenericCollection
+     */
     public function getMatchCriterias()
     {
         // Start of user code Getter CriteriaSet.getMatchCriterias
@@ -170,19 +170,6 @@ class CriteriaSet
         // Start of user code Setter CriteriaSet.setMatchCriterias
         // End of user code
         $this->matchCriterias = $matchCriterias;
-    }
-
-    /**
-     * @return CriteriaSet $criteriaSet
-     */
-    public static function createAnd()
-    {
-        // Start of user code CriteriaSet.createAnd
-		$criteriaSet = new self();
-		$criteriaSet->setLogicalSeparator(self::LOGICAL_SEPARATOR_AND); 
-        // End of user code
-    
-        return $criteriaSet;
     }
 
     /**
@@ -204,17 +191,6 @@ class CriteriaSet
         // Start of user code CriteriaSet.setLimit
 		$this->limitCriteria = $limitCriteria;
 		return $this;
-        // End of user code
-    }
-
-    /**
-     * @param MatchCriteria $matchCriteria
-     */
-    public function add(MatchCriteria $matchCriteria)
-    {
-        // Start of user code CriteriaSet.add
-        $this->matchCriterias->add($matchCriteria);
-        return $this; 
         // End of user code
     }
 
@@ -243,6 +219,17 @@ class CriteriaSet
     }
 
     /**
+     * @param MatchCriteria $matchCriteria
+     */
+    public function add(MatchCriteria $matchCriteria)
+    {
+        // Start of user code CriteriaSet.add
+        $this->matchCriterias->add($matchCriteria);
+        return $this; 
+        // End of user code
+    }
+
+    /**
      * @return bool $boolean
      */
     public function hasMatchCriterias()
@@ -262,6 +249,19 @@ class CriteriaSet
         // End of user code
     
         return $boolean;
+    }
+
+    /**
+     * @return CriteriaSet $criteriaSet
+     */
+    public static function createAnd()
+    {
+        // Start of user code CriteriaSet.createAnd
+		$criteriaSet = new self();
+		$criteriaSet->setLogicalSeparator(self::LOGICAL_SEPARATOR_AND); 
+        // End of user code
+    
+        return $criteriaSet;
     }
 
     // Start of user code CriteriaSet.implementationSpecificMethods

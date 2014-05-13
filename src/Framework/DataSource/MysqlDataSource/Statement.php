@@ -8,22 +8,22 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  * Represent a Mysql Statement. Implement this interface when 
  * you want to create new kinds of Mysql Statement. 
  *
- * @package MysqlDataSource
+ * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
  */ 
 interface Statement
 {
-	/**
-	 * @return AssociativeArray $statementParameters
-	 */
-	public function getStatementParameters();
-
 	/**
 	 * Return the statement in String format
 	 *
 	 * @return string $statement
 	 */
 	public function toString();
+
+	/**
+	 * @return AssociativeArray $statementParameters
+	 */
+	public function getStatementParameters();
 
 	/**
 	 * Tell wether the statement is ready or not to be executed

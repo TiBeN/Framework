@@ -11,20 +11,20 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 /**
  * 
  *
- * @package MysqlDataSource
+ * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class UpdateStatement implements Statement
 {
     /**
-     * @var WhereConditions
-     */
-    public $whereDefinition;
-
-    /**
      * @var string
      */
     public $tableName;
+
+    /**
+     * @var WhereConditions
+     */
+    public $whereDefinition;
 
     /**
      * @var SetStatement
@@ -41,26 +41,6 @@ class UpdateStatement implements Statement
     {
         // Start of user code UpdateStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return WhereConditions
-     */
-    public function getWhereDefinition()
-    {
-        // Start of user code Getter UpdateStatement.getWhereDefinition
-        // End of user code
-        return $this->whereDefinition;
-    }
-
-    /**
-     * @param WhereConditions $whereDefinition
-     */
-    public function setWhereDefinition(WhereConditions $whereDefinition)
-    {
-        // Start of user code Setter UpdateStatement.setWhereDefinition
-        // End of user code
-        $this->whereDefinition = $whereDefinition;
     }
 
     /**
@@ -81,6 +61,26 @@ class UpdateStatement implements Statement
         // Start of user code Setter UpdateStatement.setTableName
         // End of user code
         $this->tableName = $tableName;
+    }
+
+    /**
+     * @return WhereConditions
+     */
+    public function getWhereDefinition()
+    {
+        // Start of user code Getter UpdateStatement.getWhereDefinition
+        // End of user code
+        return $this->whereDefinition;
+    }
+
+    /**
+     * @param WhereConditions $whereDefinition
+     */
+    public function setWhereDefinition(WhereConditions $whereDefinition)
+    {
+        // Start of user code Setter UpdateStatement.setWhereDefinition
+        // End of user code
+        $this->whereDefinition = $whereDefinition;
     }
 
     /**
@@ -106,24 +106,6 @@ class UpdateStatement implements Statement
     // Statement Realization
 
     /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-        $statementParameters = new AssociativeArray();
-        if($this->setStatement instanceof SetStatement) {
-            $statementParameters->merge($this->setStatement->getStatementParameters());
-        } 
-        if($this->whereDefinition instanceof WhereConditions) {
-            $statementParameters->merge($this->whereDefinition->getStatementParameters());
-        }        
-        // End of user code
-    
-        return $statementParameters;
-    }
-
-    /**
      * Return the statement in String format
      *
      * @return string $statement
@@ -145,6 +127,24 @@ class UpdateStatement implements Statement
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+        $statementParameters = new AssociativeArray();
+        if($this->setStatement instanceof SetStatement) {
+            $statementParameters->merge($this->setStatement->getStatementParameters());
+        } 
+        if($this->whereDefinition instanceof WhereConditions) {
+            $statementParameters->merge($this->whereDefinition->getStatementParameters());
+        }        
+        // End of user code
+    
+        return $statementParameters;
     }
 
     /**

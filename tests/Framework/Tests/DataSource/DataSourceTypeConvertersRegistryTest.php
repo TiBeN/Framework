@@ -16,6 +16,7 @@ use TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\IntegerConverter;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\DataSource
  * @author TiBeN
  */
 class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
@@ -39,23 +40,6 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method hasTypeConverter from class DataSourceTypeConvertersRegistry
-     *
-     * Start of user code DataSourceTypeConvertersRegistryTest.testhasTypeConverterAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testHasTypeConverter()
-    {
-        // Start of user code DataSourceTypeConvertersRegistryTest.testhasTypeConverter
-	    DataSourceTypeConvertersRegistry::registerTypeConverter(new IntegerConverter());
-	    $this->assertTrue(
-            DataSourceTypeConvertersRegistry::hasTypeConverter('integer', 'mysql')
-        );
-		// End of user code
-    }
-    
-    /**
      * Test static method registerTypeConverter from class DataSourceTypeConvertersRegistry
      *
      * Start of user code DataSourceTypeConvertersRegistryTest.testregisterTypeConverterAnnotations 
@@ -69,6 +53,23 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(
             'TiBeN\\Framework\\DataSource\\MysqlDataSource\\TypeConverter\\IntegerConverter',
             DataSourceTypeConvertersRegistry::getTypeConverter('integer', 'mysql')
+        );
+		// End of user code
+    }
+    
+    /**
+     * Test static method hasTypeConverter from class DataSourceTypeConvertersRegistry
+     *
+     * Start of user code DataSourceTypeConvertersRegistryTest.testhasTypeConverterAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testHasTypeConverter()
+    {
+        // Start of user code DataSourceTypeConvertersRegistryTest.testhasTypeConverter
+	    DataSourceTypeConvertersRegistry::registerTypeConverter(new IntegerConverter());
+	    $this->assertTrue(
+            DataSourceTypeConvertersRegistry::hasTypeConverter('integer', 'mysql')
         );
 		// End of user code
     }

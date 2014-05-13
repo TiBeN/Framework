@@ -12,11 +12,16 @@ use TiBeN\Framework\DataSource\DataSourcesRegistry;
 /**
  * 
  *
- * @package Entity
+ * @package TiBeN\Framework\Entity
  * @author TiBeN
  */
 class EntityMapping
 {
+    /**
+     * @var AssociativeArray
+     */
+    public $attributeMappings;
+
     /**
      * @var DataSourceEntityMappingConfiguration
      */
@@ -26,11 +31,6 @@ class EntityMapping
      * @var string
      */
     public $entityName;
-
-    /**
-     * @var AssociativeArray
-     */
-    public $attributeMappings;
 
     /**
      * @var string
@@ -48,6 +48,26 @@ class EntityMapping
     {
         // Start of user code EntityMapping.destructor
         // End of user code
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getAttributeMappings()
+    {
+        // Start of user code Getter EntityMapping.getAttributeMappings
+        // End of user code
+        return $this->attributeMappings;
+    }
+
+    /**
+     * @param AssociativeArray $attributeMappings
+     */
+    public function setAttributeMappings(AssociativeArray $attributeMappings)
+    {
+        // Start of user code Setter EntityMapping.setAttributeMappings
+        // End of user code
+        $this->attributeMappings = $attributeMappings;
     }
 
     /**
@@ -88,26 +108,6 @@ class EntityMapping
         // Start of user code Setter EntityMapping.setEntityName
         // End of user code
         $this->entityName = $entityName;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getAttributeMappings()
-    {
-        // Start of user code Getter EntityMapping.getAttributeMappings
-        // End of user code
-        return $this->attributeMappings;
-    }
-
-    /**
-     * @param AssociativeArray $attributeMappings
-     */
-    public function setAttributeMappings(AssociativeArray $attributeMappings)
-    {
-        // Start of user code Setter EntityMapping.setAttributeMappings
-        // End of user code
-        $this->attributeMappings = $attributeMappings;
     }
 
     /**

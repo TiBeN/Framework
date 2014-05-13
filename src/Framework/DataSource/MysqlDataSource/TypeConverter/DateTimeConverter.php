@@ -3,9 +3,9 @@
 namespace TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter;
 
 use TiBeN\Framework\Datatype\T;
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\DataSource\TypeConverter;
 use TiBeN\Framework\Datatype\U;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code DateTimeConverter.useStatements
 // Place your use statements here.
@@ -14,27 +14,27 @@ use TiBeN\Framework\Datatype\U;
 /**
  * 
  *
- * @package TypeConverter
+ * @package TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter
  * @author TiBeN
  */
 class DateTimeConverter implements TypeConverter
 {
-    /**
-     * Type of the element U
-     * @var String
-     */
-    protected $UType;
-
     /**
      * Type of the element T
      * @var String
      */
     protected $TType;
 
-    public function __construct($UType = null, $TType = null)
+    /**
+     * Type of the element U
+     * @var String
+     */
+    protected $UType;
+
+    public function __construct($TType = null, $UType = null)
     {
-        $this->UType = $UType;
         $this->TType = $TType;
+        $this->UType = $UType;
 
         // Start of user code DateTimeConverter.constructor
         $this->TType = '\DateTime';
@@ -49,21 +49,21 @@ class DateTimeConverter implements TypeConverter
     }
     
     /**
-     * U type getter
-     * @var String
-     */
-    public function getUType()
-    {
-        return $this->UType;
-    }
-
-    /**
      * T type getter
      * @var String
      */
     public function getTType()
     {
         return $this->TType;
+    }
+
+    /**
+     * U type getter
+     * @var String
+     */
+    public function getUType()
+    {
+        return $this->UType;
     }
 
     /**
@@ -99,6 +99,43 @@ class DateTimeConverter implements TypeConverter
     // TypeConverter Realization
 
     /**
+     * @return string $type
+     */
+    public function getType()
+    {
+        // Start of user code TypeConverter.getType
+        $type = 'datetime';
+        // End of user code
+    
+        return $type;
+    }
+
+    /**
+     * @param AssociativeArray $parameters
+     */
+    public function setParameters(AssociativeArray $parameters)
+    {
+        // Start of user code TypeConverter.setParameters
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * @param T $itemToConvert
+     * @return U $convertedItem
+     */
+    public function convert($itemToConvert)
+    {
+        $this->typeHint($this->TType, $itemToConvert);
+        // Start of user code Converter.convert
+        if(is_null($itemToConvert)) return $itemToConvert;
+        $convertedItem = $itemToConvert->format('Y-m-d H:i:s');
+        // End of user code
+    
+        return $convertedItem;
+    }
+
+    /**
      * @return string $dataSourceType
      */
     public function getDataSourceType()
@@ -126,43 +163,6 @@ class DateTimeConverter implements TypeConverter
         // End of user code
     
         return $reversedItem;
-    }
-
-    /**
-     * @param T $itemToConvert
-     * @return U $convertedItem
-     */
-    public function convert($itemToConvert)
-    {
-        $this->typeHint($this->TType, $itemToConvert);
-        // Start of user code Converter.convert
-        if(is_null($itemToConvert)) return $itemToConvert;
-        $convertedItem = $itemToConvert->format('Y-m-d H:i:s');
-        // End of user code
-    
-        return $convertedItem;
-    }
-
-    /**
-     * @return string $type
-     */
-    public function getType()
-    {
-        // Start of user code TypeConverter.getType
-        $type = 'datetime';
-        // End of user code
-    
-        return $type;
-    }
-
-    /**
-     * @param AssociativeArray $parameters
-     */
-    public function setParameters(AssociativeArray $parameters)
-    {
-        // Start of user code TypeConverter.setParameters
-        // TODO should be implemented.
-        // End of user code
     }
 
     // Start of user code DateTimeConverter.implementationSpecificMethods

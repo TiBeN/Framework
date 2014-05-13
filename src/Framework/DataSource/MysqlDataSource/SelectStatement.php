@@ -11,25 +11,15 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 /**
  * 
  *
- * @package MysqlDataSource
+ * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class SelectStatement implements Statement
 {
     /**
-     * @var LimitStatement
+     * @var OrderByStatement
      */
-    public $limitStatement;
-
-    /**
-     * @var string
-     */
-    public $tableReferences;
-
-    /**
-     * @var SelectExpr
-     */
-    public $selectExpr;
+    public $orderByStatement;
 
     /**
      * @var WhereConditions
@@ -37,9 +27,19 @@ class SelectStatement implements Statement
     public $whereConditions;
 
     /**
-     * @var OrderByStatement
+     * @var SelectExpr
      */
-    public $orderByStatement;
+    public $selectExpr;
+
+    /**
+     * @var string
+     */
+    public $tableReferences;
+
+    /**
+     * @var LimitStatement
+     */
+    public $limitStatement;
 
     public function __construct()
     {
@@ -54,63 +54,23 @@ class SelectStatement implements Statement
     }
 
     /**
-     * @return LimitStatement
+     * @return OrderByStatement
      */
-    public function getLimitStatement()
+    public function getOrderByStatement()
     {
-        // Start of user code Getter SelectStatement.getLimitStatement
+        // Start of user code Getter SelectStatement.getOrderByStatement
         // End of user code
-        return $this->limitStatement;
+        return $this->orderByStatement;
     }
 
     /**
-     * @param LimitStatement $limitStatement
+     * @param OrderByStatement $orderByStatement
      */
-    public function setLimitStatement(LimitStatement $limitStatement)
+    public function setOrderByStatement(OrderByStatement $orderByStatement)
     {
-        // Start of user code Setter SelectStatement.setLimitStatement
+        // Start of user code Setter SelectStatement.setOrderByStatement
         // End of user code
-        $this->limitStatement = $limitStatement;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTableReferences()
-    {
-        // Start of user code Getter SelectStatement.getTableReferences
-        // End of user code
-        return $this->tableReferences;
-    }
-
-    /**
-     * @param string $tableReferences
-     */
-    public function setTableReferences($tableReferences)
-    {
-        // Start of user code Setter SelectStatement.setTableReferences
-        // End of user code
-        $this->tableReferences = $tableReferences;
-    }
-
-    /**
-     * @return SelectExpr
-     */
-    public function getSelectExpr()
-    {
-        // Start of user code Getter SelectStatement.getSelectExpr
-        // End of user code
-        return $this->selectExpr;
-    }
-
-    /**
-     * @param SelectExpr $selectExpr
-     */
-    public function setSelectExpr(SelectExpr $selectExpr)
-    {
-        // Start of user code Setter SelectStatement.setSelectExpr
-        // End of user code
-        $this->selectExpr = $selectExpr;
+        $this->orderByStatement = $orderByStatement;
     }
 
     /**
@@ -134,41 +94,66 @@ class SelectStatement implements Statement
     }
 
     /**
-     * @return OrderByStatement
+     * @return SelectExpr
      */
-    public function getOrderByStatement()
+    public function getSelectExpr()
     {
-        // Start of user code Getter SelectStatement.getOrderByStatement
+        // Start of user code Getter SelectStatement.getSelectExpr
         // End of user code
-        return $this->orderByStatement;
+        return $this->selectExpr;
     }
 
     /**
-     * @param OrderByStatement $orderByStatement
+     * @param SelectExpr $selectExpr
      */
-    public function setOrderByStatement(OrderByStatement $orderByStatement)
+    public function setSelectExpr(SelectExpr $selectExpr)
     {
-        // Start of user code Setter SelectStatement.setOrderByStatement
+        // Start of user code Setter SelectStatement.setSelectExpr
         // End of user code
-        $this->orderByStatement = $orderByStatement;
+        $this->selectExpr = $selectExpr;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTableReferences()
+    {
+        // Start of user code Getter SelectStatement.getTableReferences
+        // End of user code
+        return $this->tableReferences;
+    }
+
+    /**
+     * @param string $tableReferences
+     */
+    public function setTableReferences($tableReferences)
+    {
+        // Start of user code Setter SelectStatement.setTableReferences
+        // End of user code
+        $this->tableReferences = $tableReferences;
+    }
+
+    /**
+     * @return LimitStatement
+     */
+    public function getLimitStatement()
+    {
+        // Start of user code Getter SelectStatement.getLimitStatement
+        // End of user code
+        return $this->limitStatement;
+    }
+
+    /**
+     * @param LimitStatement $limitStatement
+     */
+    public function setLimitStatement(LimitStatement $limitStatement)
+    {
+        // Start of user code Setter SelectStatement.setLimitStatement
+        // End of user code
+        $this->limitStatement = $limitStatement;
     }
 
     // Statement Realization
-
-    /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-		$statementParameters = !is_null($this->whereConditions)
-            ? $this->whereConditions->getStatementParameters()
-            : new AssociativeArray()
-        ;    
-        // End of user code
-    
-        return $statementParameters;
-    }
 
     /**
      * Return the statement in String format
@@ -199,6 +184,21 @@ class SelectStatement implements Statement
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+		$statementParameters = !is_null($this->whereConditions)
+            ? $this->whereConditions->getStatementParameters()
+            : new AssociativeArray()
+        ;    
+        // End of user code
+    
+        return $statementParameters;
     }
 
     /**

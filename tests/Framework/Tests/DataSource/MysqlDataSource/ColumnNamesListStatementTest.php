@@ -18,6 +18,7 @@ use TiBeN\Framework\DataSource\MysqlDataSource\MysqlAttributeConfiguration;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class ColumnNamesListStatementTest extends \PHPUnit_Framework_TestCase

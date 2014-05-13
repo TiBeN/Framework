@@ -11,7 +11,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 /**
  * Contain methods to manipulate ressources URIs
  *
- * @package Router
+ * @package TiBeN\Framework\Router
  * @author TiBeN
  */
 class RouteUriManager

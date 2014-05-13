@@ -13,11 +13,16 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  * Contain controller + action name to execute and 
  * optional variables needed by the action.    
  *
- * @package Router
+ * @package TiBeN\Framework\Router
  * @author TiBeN
  */
 class Route
 {
+    /**
+     * @var string
+     */
+    public $action;
+
     /**
      * @var AssociativeArray
      */
@@ -27,11 +32,6 @@ class Route
      * @var string
      */
     public $controller;
-
-    /**
-     * @var string
-     */
-    public $action;
 
     public function __construct()
     {
@@ -43,6 +43,26 @@ class Route
     {
         // Start of user code Route.destructor
         // End of user code
+    }
+
+    /**
+     * @return string
+     */
+    public function getAction()
+    {
+        // Start of user code Getter Route.getAction
+        // End of user code
+        return $this->action;
+    }
+
+    /**
+     * @param string $action
+     */
+    public function setAction($action)
+    {
+        // Start of user code Setter Route.setAction
+        // End of user code
+        $this->action = $action;
     }
 
     /**
@@ -83,26 +103,6 @@ class Route
         // Start of user code Setter Route.setController
         // End of user code
         $this->controller = $controller;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAction()
-    {
-        // Start of user code Getter Route.getAction
-        // End of user code
-        return $this->action;
-    }
-
-    /**
-     * @param string $action
-     */
-    public function setAction($action)
-    {
-        // Start of user code Setter Route.setAction
-        // End of user code
-        $this->action = $action;
     }
 
     /**

@@ -7,7 +7,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 /**
  *  
  *
- * @package Entity
+ * @package TiBeN\Framework\Entity
  * @author TiBeN
  */ 
 interface DataSourceEntityMappingConfiguration

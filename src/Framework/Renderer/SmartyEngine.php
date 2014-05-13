@@ -13,7 +13,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  * This is used by default by the TemplateRenderer.
  * more infos about Smarty : 
  *
- * @package Renderer
+ * @package TiBeN\Framework\Renderer
  * @author TiBeN
  */
 class SmartyEngine implements TemplateEngine

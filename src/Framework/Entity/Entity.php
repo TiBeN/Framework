@@ -5,7 +5,7 @@ namespace TiBeN\Framework\Entity;
 /**
  *  
  *
- * @package Entity
+ * @package TiBeN\Framework\Entity
  * @author TiBeN
  */ 
 interface Entity

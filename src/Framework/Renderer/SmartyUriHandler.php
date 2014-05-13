@@ -14,7 +14,7 @@ use \Smarty_Internal_Template as Smarty_Internal_Template;
  * Bridge between Smarty and the uri generation that offer the Router. 
  * Allow generating uris inside templates.
  *
- * @package Renderer
+ * @package TiBeN\Framework\Renderer
  * @author TiBeN
  */
 class SmartyUriHandler

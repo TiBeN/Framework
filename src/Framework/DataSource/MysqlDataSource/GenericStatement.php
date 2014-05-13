@@ -13,7 +13,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  * Use it when you have to execute custom queries that can't be built 
  * with other Statement classes.
  *
- * @package MysqlDataSource
+ * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class GenericStatement implements Statement
@@ -70,18 +70,6 @@ class GenericStatement implements Statement
     // Statement Realization
 
     /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-		$statementParameters = $this->statementParameters; 
-        // End of user code
-    
-        return $statementParameters;
-    }
-
-    /**
      * Return the statement in String format
      *
      * @return string $statement
@@ -93,6 +81,18 @@ class GenericStatement implements Statement
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+		$statementParameters = $this->statementParameters; 
+        // End of user code
+    
+        return $statementParameters;
     }
 
     /**

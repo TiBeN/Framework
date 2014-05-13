@@ -11,7 +11,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 /**
  * 
  *
- * @package MysqlDataSource
+ * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class Row extends AssociativeArray

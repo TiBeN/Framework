@@ -14,7 +14,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  * that launched the runtime by using the createFromClientRequest() factory method,  
  * HttpRequest can be also manualy constructed for simulation purposes.
  *
- * @package Router
+ * @package TiBeN\Framework\Router
  * @author TiBeN
  */
 class HttpRequest
@@ -22,7 +22,7 @@ class HttpRequest
     /**
      * @var AssociativeArray
      */
-    public $headers;
+    public $getVars;
 
     /**
      * @var string
@@ -32,12 +32,7 @@ class HttpRequest
     /**
      * @var AssociativeArray
      */
-    public $getVars;
-
-    /**
-     * @var string
-     */
-    public $host;
+    public $postVars;
 
     /**
      * @var string
@@ -45,14 +40,19 @@ class HttpRequest
     public $requestUri;
 
     /**
+     * @var string
+     */
+    public $httpVersion;
+
+    /**
      * @var AssociativeArray
      */
-    public $postVars;
+    public $headers;
 
     /**
      * @var string
      */
-    public $httpVersion;
+    public $host;
 
     public function __construct()
     {
@@ -64,46 +64,6 @@ class HttpRequest
     {
         // Start of user code HttpRequest.destructor
         // End of user code
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getHeaders()
-    {
-        // Start of user code Getter HttpRequest.getHeaders
-        // End of user code
-        return $this->headers;
-    }
-
-    /**
-     * @param AssociativeArray $headers
-     */
-    public function setHeaders(AssociativeArray $headers)
-    {
-        // Start of user code Setter HttpRequest.setHeaders
-        // End of user code
-        $this->headers = $headers;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMethod()
-    {
-        // Start of user code Getter HttpRequest.getMethod
-        // End of user code
-        return $this->method;
-    }
-
-    /**
-     * @param string $method
-     */
-    public function setMethod($method)
-    {
-        // Start of user code Setter HttpRequest.setMethod
-        // End of user code
-        $this->method = $method;
     }
 
     /**
@@ -129,41 +89,21 @@ class HttpRequest
     /**
      * @return string
      */
-    public function getHost()
+    public function getMethod()
     {
-        // Start of user code Getter HttpRequest.getHost
+        // Start of user code Getter HttpRequest.getMethod
         // End of user code
-        return $this->host;
+        return $this->method;
     }
 
     /**
-     * @param string $host
+     * @param string $method
      */
-    public function setHost($host)
+    public function setMethod($method)
     {
-        // Start of user code Setter HttpRequest.setHost
+        // Start of user code Setter HttpRequest.setMethod
         // End of user code
-        $this->host = $host;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRequestUri()
-    {
-        // Start of user code Getter HttpRequest.getRequestUri
-        // End of user code
-        return $this->requestUri;
-    }
-
-    /**
-     * @param string $requestUri
-     */
-    public function setRequestUri($requestUri)
-    {
-        // Start of user code Setter HttpRequest.setRequestUri
-        // End of user code
-        $this->requestUri = $requestUri;
+        $this->method = $method;
     }
 
     /**
@@ -189,6 +129,26 @@ class HttpRequest
     /**
      * @return string
      */
+    public function getRequestUri()
+    {
+        // Start of user code Getter HttpRequest.getRequestUri
+        // End of user code
+        return $this->requestUri;
+    }
+
+    /**
+     * @param string $requestUri
+     */
+    public function setRequestUri($requestUri)
+    {
+        // Start of user code Setter HttpRequest.setRequestUri
+        // End of user code
+        $this->requestUri = $requestUri;
+    }
+
+    /**
+     * @return string
+     */
     public function getHttpVersion()
     {
         // Start of user code Getter HttpRequest.getHttpVersion
@@ -204,6 +164,46 @@ class HttpRequest
         // Start of user code Setter HttpRequest.setHttpVersion
         // End of user code
         $this->httpVersion = $httpVersion;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getHeaders()
+    {
+        // Start of user code Getter HttpRequest.getHeaders
+        // End of user code
+        return $this->headers;
+    }
+
+    /**
+     * @param AssociativeArray $headers
+     */
+    public function setHeaders(AssociativeArray $headers)
+    {
+        // Start of user code Setter HttpRequest.setHeaders
+        // End of user code
+        $this->headers = $headers;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHost()
+    {
+        // Start of user code Getter HttpRequest.getHost
+        // End of user code
+        return $this->host;
+    }
+
+    /**
+     * @param string $host
+     */
+    public function setHost($host)
+    {
+        // Start of user code Setter HttpRequest.setHost
+        // End of user code
+        $this->host = $host;
     }
 
     /**

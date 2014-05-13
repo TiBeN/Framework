@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\Bootstrap;
 
-use TiBeN\Framework\Router\Router;
 use TiBeN\Framework\Renderer\TemplateRenderer;
 use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
+use TiBeN\Framework\Router\Router;
 use TiBeN\Framework\Router\Route;
 use TiBeN\Framework\Renderer\SmartyEngine;
 
@@ -16,7 +16,7 @@ use TiBeN\Framework\Renderer\SmartyEngine;
  * Load application configuration and perform
  * needed booting tasks
  *
- * @package Bootstrap
+ * @package TiBeN\Framework\Bootstrap
  * @author TiBeN
  */
 class Bootstrap

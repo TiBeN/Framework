@@ -11,7 +11,7 @@ use TiBeN\Framework\Datatype\ProxyAbleGenericCollection;
 /**
  * 
  *
- * @package Entity
+ * @package TiBeN\Framework\Entity
  * @author TiBeN
  */
 class EntityCollection extends ProxyAbleGenericCollection

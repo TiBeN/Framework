@@ -12,11 +12,31 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  * Holds rules and conditions 
  * to match an URI with a ressource.
  *
- * @package Router
+ * @package TiBeN\Framework\Router
  * @author TiBeN
  */
 class RouteRule
 {
+    /**
+     * @var string
+     */
+    public $uriPattern;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $defaultVariables;
+
+    /**
+     * @var string
+     */
+    public $method;
+
+    /**
+     * @var string
+     */
+    public $action;
+
     /**
      * @var string
      */
@@ -25,32 +45,12 @@ class RouteRule
     /**
      * @var string
      */
-    public $uriPattern;
-
-    /**
-     * @var string
-     */
-    public $method;
+    public $name;
 
     /**
      * @var AssociativeArray
      */
     public $requirments;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $action;
-
-    /**
-     * @var AssociativeArray
-     */
-    public $defaultVariables;
 
     /**
      * @var string
@@ -67,6 +67,86 @@ class RouteRule
     {
         // Start of user code RouteRule.destructor
         // End of user code
+    }
+
+    /**
+     * @return string
+     */
+    public function getUriPattern()
+    {
+        // Start of user code Getter RouteRule.getUriPattern
+        // End of user code
+        return $this->uriPattern;
+    }
+
+    /**
+     * @param string $uriPattern
+     */
+    public function setUriPattern($uriPattern)
+    {
+        // Start of user code Setter RouteRule.setUriPattern
+        // End of user code
+        $this->uriPattern = $uriPattern;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getDefaultVariables()
+    {
+        // Start of user code Getter RouteRule.getDefaultVariables
+        // End of user code
+        return $this->defaultVariables;
+    }
+
+    /**
+     * @param AssociativeArray $defaultVariables
+     */
+    public function setDefaultVariables(AssociativeArray $defaultVariables)
+    {
+        // Start of user code Setter RouteRule.setDefaultVariables
+        // End of user code
+        $this->defaultVariables = $defaultVariables;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMethod()
+    {
+        // Start of user code Getter RouteRule.getMethod
+        // End of user code
+        return $this->method;
+    }
+
+    /**
+     * @param string $method
+     */
+    public function setMethod($method)
+    {
+        // Start of user code Setter RouteRule.setMethod
+        // End of user code
+        $this->method = $method;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAction()
+    {
+        // Start of user code Getter RouteRule.getAction
+        // End of user code
+        return $this->action;
+    }
+
+    /**
+     * @param string $action
+     */
+    public function setAction($action)
+    {
+        // Start of user code Setter RouteRule.setAction
+        // End of user code
+        $this->action = $action;
     }
 
     /**
@@ -92,41 +172,21 @@ class RouteRule
     /**
      * @return string
      */
-    public function getUriPattern()
+    public function getName()
     {
-        // Start of user code Getter RouteRule.getUriPattern
+        // Start of user code Getter RouteRule.getName
         // End of user code
-        return $this->uriPattern;
+        return $this->name;
     }
 
     /**
-     * @param string $uriPattern
+     * @param string $name
      */
-    public function setUriPattern($uriPattern)
+    public function setName($name)
     {
-        // Start of user code Setter RouteRule.setUriPattern
+        // Start of user code Setter RouteRule.setName
         // End of user code
-        $this->uriPattern = $uriPattern;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMethod()
-    {
-        // Start of user code Getter RouteRule.getMethod
-        // End of user code
-        return $this->method;
-    }
-
-    /**
-     * @param string $method
-     */
-    public function setMethod($method)
-    {
-        // Start of user code Setter RouteRule.setMethod
-        // End of user code
-        $this->method = $method;
+        $this->name = $name;
     }
 
     /**
@@ -147,66 +207,6 @@ class RouteRule
         // Start of user code Setter RouteRule.setRequirments
         // End of user code
         $this->requirments = $requirments;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        // Start of user code Getter RouteRule.getName
-        // End of user code
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        // Start of user code Setter RouteRule.setName
-        // End of user code
-        $this->name = $name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAction()
-    {
-        // Start of user code Getter RouteRule.getAction
-        // End of user code
-        return $this->action;
-    }
-
-    /**
-     * @param string $action
-     */
-    public function setAction($action)
-    {
-        // Start of user code Setter RouteRule.setAction
-        // End of user code
-        $this->action = $action;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getDefaultVariables()
-    {
-        // Start of user code Getter RouteRule.getDefaultVariables
-        // End of user code
-        return $this->defaultVariables;
-    }
-
-    /**
-     * @param AssociativeArray $defaultVariables
-     */
-    public function setDefaultVariables(AssociativeArray $defaultVariables)
-    {
-        // Start of user code Setter RouteRule.setDefaultVariables
-        // End of user code
-        $this->defaultVariables = $defaultVariables;
     }
 
     /**
@@ -284,6 +284,24 @@ class RouteRule
     }
 
     /**
+     * Generate the Route from the RouteRule and optional variables
+     *
+     * @param AssociativeArray $variables
+     * @return Route $route
+     */
+    public function getRoute(AssociativeArray $variables)
+    {
+        // Start of user code RouteRule.getRoute
+        $route = new Route();
+        $route->setController($this->controller);
+        $route->setAction($this->action);
+        $route->setVariables($variables); 
+        // End of user code
+    
+        return $route;
+    }
+
+    /**
      * Test if the routerule match an HttpRequest then return the associated route.
      *
      * @param HttpRequest $httpRequest
@@ -349,24 +367,6 @@ class RouteRule
         if (!$variables->isEmpty()) {
             $route->setVariables($variables);
         }
-        // End of user code
-    
-        return $route;
-    }
-
-    /**
-     * Generate the Route from the RouteRule and optional variables
-     *
-     * @param AssociativeArray $variables
-     * @return Route $route
-     */
-    public function getRoute(AssociativeArray $variables)
-    {
-        // Start of user code RouteRule.getRoute
-        $route = new Route();
-        $route->setController($this->controller);
-        $route->setAction($this->action);
-        $route->setVariables($variables); 
         // End of user code
     
         return $route;

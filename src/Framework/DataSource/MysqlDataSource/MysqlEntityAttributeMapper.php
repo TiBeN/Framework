@@ -3,8 +3,8 @@
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
-use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Entity\Entity;
 
 // Start of user code MysqlEntityAttributeMapper.useStatements
 // Place your use statements here.
@@ -13,7 +13,7 @@ use TiBeN\Framework\Entity\EntityMapping;
 /**
  * 
  *
- * @package MysqlDataSource
+ * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class MysqlEntityAttributeMapper
@@ -175,21 +175,6 @@ class MysqlEntityAttributeMapper
     }
 
     /**
-     * @return int $identifier
-     */
-    public function getIdentifierValue()
-    {
-        // Start of user code MysqlEntityAttributeMapper.getIdentifierValue
-        $attributeSetterName = 'get'
-            . ucfirst($this->getIdentifierAttributeName())
-        ;   
-        $identifier = $this->entity->$attributeSetterName();
-        // End of user code
-    
-        return $identifier;
-    }
-
-    /**
      * @param string $attributeName
      * @return string $columnValue
      */
@@ -287,6 +272,21 @@ class MysqlEntityAttributeMapper
          
         $this->entity->$attributeSetterName($converter->reverse($value));
         // End of user code
+    }
+
+    /**
+     * @return int $identifier
+     */
+    public function getIdentifierValue()
+    {
+        // Start of user code MysqlEntityAttributeMapper.getIdentifierValue
+        $attributeSetterName = 'get'
+            . ucfirst($this->getIdentifierAttributeName())
+        ;   
+        $identifier = $this->entity->$attributeSetterName();
+        // End of user code
+    
+        return $identifier;
     }
 
     // Start of user code MysqlEntityAttributeMapper.implementationSpecificMethods

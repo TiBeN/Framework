@@ -16,6 +16,7 @@ use TiBeN\Framework\Entity\LimitCriteria;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class LimitStatementTest extends \PHPUnit_Framework_TestCase

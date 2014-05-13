@@ -2,15 +2,15 @@
 
 namespace TiBeN\Framework\DataSource;
 
-use TiBeN\Framework\Entity\EntityCollection;
 use TiBeN\Framework\Entity\CriteriaSet;
-use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Entity\EntityCollection;
+use TiBeN\Framework\Entity\Entity;
 
 /**
  *  
  *
- * @package DataSource
+ * @package TiBeN\Framework\DataSource
  * @author TiBeN
  */ 
 interface DataSource
@@ -28,13 +28,7 @@ interface DataSource
 	/**
 	 * @return string $className
 	 */
-	public static function getEntityMappingConfigurationClassName();
-
-	/**
-	 * @param EntityMapping $entityMapping
-	 * @param Entity $entity
-	 */
-	public function create(EntityMapping $entityMapping, Entity $entity);
+	public static function getAttributeMappingConfigurationClassName();
 
 	/**
 	 * @param EntityMapping $entityMapping
@@ -44,20 +38,26 @@ interface DataSource
 
 	/**
 	 * @param EntityMapping $entityMapping
+	 * @param Entity $entity
+	 */
+	public function update(EntityMapping $entityMapping, Entity $entity);
+
+	/**
+	 * @param EntityMapping $entityMapping
+	 * @param Entity $entity
+	 */
+	public function create(EntityMapping $entityMapping, Entity $entity);
+
+	/**
+	 * @param EntityMapping $entityMapping
 	 * @param CriteriaSet $criteriaSet
 	 * @return EntityCollection $entityCollection
 	 */
 	public function read(EntityMapping $entityMapping, CriteriaSet $criteriaSet);
 
 	/**
-	 * @param EntityMapping $entityMapping
-	 * @param Entity $entity
-	 */
-	public function update(EntityMapping $entityMapping, Entity $entity);
-
-	/**
 	 * @return string $className
 	 */
-	public static function getAttributeMappingConfigurationClassName();
+	public static function getEntityMappingConfigurationClassName();
 
 }

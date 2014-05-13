@@ -11,7 +11,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 /**
  * 
  *
- * @package Validation
+ * @package TiBeN\Framework\Validation
  * @author TiBeN
  */
 class ValidatorsRegistry
@@ -54,16 +54,6 @@ class ValidatorsRegistry
     }
 
     /**
-     * @param Validator $validator
-     */
-    public static function registerValidator(Validator $validator)
-    {
-        // Start of user code ValidatorsRegistry.registerValidator
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
      * @param string $name
      * @return bool $boolean
      */
@@ -82,6 +72,16 @@ class ValidatorsRegistry
     public static function clearValidator($name)
     {
         // Start of user code ValidatorsRegistry.clearValidator
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * @param Validator $validator
+     */
+    public static function registerValidator(Validator $validator)
+    {
+        // Start of user code ValidatorsRegistry.registerValidator
         // TODO should be implemented.
         // End of user code
     }

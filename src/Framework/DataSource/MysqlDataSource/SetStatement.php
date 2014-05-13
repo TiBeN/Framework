@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Entity\Entity;
-use TiBeN\Framework\Entity\EntityMapping;
 
 // Start of user code SetStatement.useStatements
 // Place your use statements here.
@@ -13,7 +13,7 @@ use TiBeN\Framework\Entity\EntityMapping;
 /**
  * 
  *
- * @package MysqlDataSource
+ * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class SetStatement extends AssociativeArray
@@ -68,22 +68,6 @@ class SetStatement extends AssociativeArray
     }
 
     /**
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code SetStatement.toString
-		$statementChunks = array();
-		foreach($this as $attribute => $value) {
-		    array_push($statementChunks, sprintf('%1$s=:%1$s', $attribute));
-		}
-		$string = 'SET ' . implode(',', $statementChunks);
-        // End of user code
-    
-        return $string;
-    }
-
-    /**
      * @return AssociativeArray $statementParameters
      */
     public function getStatementParameters()
@@ -113,6 +97,22 @@ class SetStatement extends AssociativeArray
         // End of user code
     
         return $setStatement;
+    }
+
+    /**
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code SetStatement.toString
+		$statementChunks = array();
+		foreach($this as $attribute => $value) {
+		    array_push($statementChunks, sprintf('%1$s=:%1$s', $attribute));
+		}
+		$string = 'SET ' . implode(',', $statementChunks);
+        // End of user code
+    
+        return $string;
     }
 
     // Start of user code SetStatement.surchargedMethods

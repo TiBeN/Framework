@@ -11,7 +11,7 @@ use TiBeN\Framework\DataSource\DataSourcesRegistry;
 /**
  * 
  *
- * @package Entity
+ * @package TiBeN\Framework\Entity
  * @author TiBeN
  */
 abstract class EntityRepository
@@ -26,6 +26,19 @@ abstract class EntityRepository
     {
         // Start of user code EntityRepository.destructor
         // End of user code
+    }
+
+    /**
+     * @param CriteriaSet $criteriaSet
+     * @return EntityCollection $entities
+     */
+    public function find(CriteriaSet $criteriaSet)
+    {
+        // Start of user code EntityRepository.find
+        // TODO should be implemented.
+        // End of user code
+    
+        return $entities;
     }
 
     /**
@@ -46,19 +59,6 @@ abstract class EntityRepository
         // Start of user code EntityRepository.persist
         // TODO should be implemented.
         // End of user code
-    }
-
-    /**
-     * @param CriteriaSet $criteriaSet
-     * @return EntityCollection $entities
-     */
-    public function find(CriteriaSet $criteriaSet)
-    {
-        // Start of user code EntityRepository.find
-        // TODO should be implemented.
-        // End of user code
-    
-        return $entities;
     }
 
     // Start of user code EntityRepository.implementationSpecificMethods

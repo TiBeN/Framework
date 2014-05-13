@@ -15,6 +15,7 @@ use TiBeN\Framework\Validation\ValidationRule;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\Validation
  * @author TiBeN
  */
 class NotEmptyValidatorTest extends \PHPUnit_Framework_TestCase

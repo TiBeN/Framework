@@ -9,7 +9,7 @@ namespace TiBeN\Framework\Entity;
 /**
  * 
  *
- * @package Entity
+ * @package TiBeN\Framework\Entity
  * @author TiBeN
  */
 class LimitCriteria
@@ -17,12 +17,12 @@ class LimitCriteria
     /**
      * @var int
      */
-    public $offset;
+    public $number;
 
     /**
      * @var int
      */
-    public $number;
+    public $offset;
 
     public function __construct()
     {
@@ -34,26 +34,6 @@ class LimitCriteria
     {
         // Start of user code LimitCriteria.destructor
         // End of user code
-    }
-
-    /**
-     * @return int
-     */
-    public function getOffset()
-    {
-        // Start of user code Getter LimitCriteria.getOffset
-        // End of user code
-        return $this->offset;
-    }
-
-    /**
-     * @param int $offset
-     */
-    public function setOffset($offset)
-    {
-        // Start of user code Setter LimitCriteria.setOffset
-        // End of user code
-        $this->offset = $offset;
     }
 
     /**
@@ -74,6 +54,26 @@ class LimitCriteria
         // Start of user code Setter LimitCriteria.setNumber
         // End of user code
         $this->number = $number;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOffset()
+    {
+        // Start of user code Getter LimitCriteria.getOffset
+        // End of user code
+        return $this->offset;
+    }
+
+    /**
+     * @param int $offset
+     */
+    public function setOffset($offset)
+    {
+        // Start of user code Setter LimitCriteria.setOffset
+        // End of user code
+        $this->offset = $offset;
     }
 
     /**

@@ -9,7 +9,7 @@ namespace TiBeN\Framework\Entity;
 /**
  * 
  *
- * @package Entity
+ * @package TiBeN\Framework\Entity
  * @author TiBeN
  */
 class OrderCriteria
@@ -22,7 +22,7 @@ class OrderCriteria
     /**
      * @var string
      */
-    const DIRECTION_DESC = 'desc';
+    const DIRECTION_ASC = 'asc';
 
     /**
      * @var string
@@ -32,7 +32,7 @@ class OrderCriteria
     /**
      * @var string
      */
-    const DIRECTION_ASC = 'asc';
+    const DIRECTION_DESC = 'desc';
 
     public function __construct()
     {

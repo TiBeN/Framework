@@ -19,6 +19,7 @@ use TiBeN\Framework\DataSource\MysqlDataSource\WhereConditions;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class UpdateStatementTest extends \PHPUnit_Framework_TestCase
@@ -43,19 +44,6 @@ class UpdateStatementTest extends \PHPUnit_Framework_TestCase
     
     
 
-    /**
-     * Test method getStatementParameters from interface Statement
-     * Start of user code Statement.testgetStatementParametersAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetStatementParameters()
-    {
-        // Start of user code Statement.testgetStatementParameters
-	    // implicitly test by testToString
-    	// End of user code
-    }
-    
     /**
      * Test method toString from interface Statement
      * Start of user code Statement.testtoStringAnnotations 
@@ -107,6 +95,19 @@ class UpdateStatementTest extends \PHPUnit_Framework_TestCase
             $expectedStatementParameters, 
             $update->getStatementParameters()
         );
+    	// End of user code
+    }
+    
+    /**
+     * Test method getStatementParameters from interface Statement
+     * Start of user code Statement.testgetStatementParametersAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetStatementParameters()
+    {
+        // Start of user code Statement.testgetStatementParameters
+	    // implicitly test by testToString
     	// End of user code
     }
     

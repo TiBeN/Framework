@@ -12,7 +12,7 @@ use TiBeN\Framework\Renderer\SmartyEngine;
 /**
  * 
  *
- * @package Controller
+ * @package TiBeN\Framework\Controller
  * @author TiBeN
  */
 class Controller

@@ -10,7 +10,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  * in order to render templates. You can implement this interface if you want to use 
  * a specific template engine with the TemplateRenderer 
  *
- * @package Renderer
+ * @package TiBeN\Framework\Renderer
  * @author TiBeN
  */ 
 interface TemplateEngine

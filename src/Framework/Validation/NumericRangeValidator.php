@@ -7,9 +7,13 @@ namespace TiBeN\Framework\Validation;
 // End of user code
 
 /**
+ * Check wheter a number fit in a specified range.
+ * ValidationRules:
+ * 	'min': (optional) The min number 
+ * 	'max': (optional) The max number 
  * 
  *
- * @package Validation
+ * @package TiBeN\Framework\Validation
  * @author TiBeN
  */
 class NumericRangeValidator implements Validator
@@ -81,7 +85,7 @@ class NumericRangeValidator implements Validator
     public function getName()
     {
         // Start of user code Validator.getName
-        // TODO should be implemented.
+        $name = "numericrange";
         // End of user code
     
         return $name;
@@ -96,7 +100,50 @@ class NumericRangeValidator implements Validator
     {
         $this->typeHint($this->TType, $value);
         // Start of user code Validator.validate
-        // TODO should be implemented.
+        $configuration = $validationRule->getConfiguration();
+        if (!$configuration->has('min') && !$configuration->has('max')) {
+            throw new \InvalidArgumentException(
+                'You must specify at least a \'min\' or a \'max\' rule'
+            );
+        }
+
+        $result = new ValidationResult();
+        $result->setValidationResult(true);
+
+        if (($configuration->has('min') && $value < $configuration->get('min'))
+            || ($configuration->has('max') && $value > $configuration->get('max'))         ) {
+            $result->setValidationResult(false);
+            $errorMessagePattern = $validationRule->getErrorMessagePattern();
+            if (!empty($errorMessagePattern)) {
+                $result->parseAndSetErrorMessage($errorMessagePattern, $value);
+            } else {
+                if($configuration->has('min') && !$configuration->has('max')) {
+                    $result->setErrorMessage(
+                        sprintf(
+                            'The number must equal %s or higher',
+                            $configuration->get('min')
+                        ) 
+                    );
+                } 
+                elseif ($configuration->has('max') && !$configuration->has('min')) {
+                    $result->setErrorMessage(
+                        sprintf(
+                            'The number must equal %s or lower',
+                            $configuration->get('max')
+                        ) 
+                    );
+                }
+                else {
+                    $result->setErrorMessage(
+                        sprintf(
+                            'The number must be between %s and %s',
+                            $configuration->get('min'),
+                            $configuration->get('max')
+                        ) 
+                    );
+                }
+            }
+        }
         // End of user code
     
         return $result;

@@ -3352,6 +3352,13 @@ ValidationRules:
       <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_iXy04BsoEeOmN-2QJZ-Okg" name="InterfaceRealization1" client="_cciXYBsoEeOmN-2QJZ-Okg" supplier="_H-JvABslEeOmN-2QJZ-Okg" contract="_H-JvABslEeOmN-2QJZ-Okg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_zi85UBsoEeOmN-2QJZ-Okg" clientDependency="_1o2O0BsoEeOmN-2QJZ-Okg" name="NumericRangeValidator">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_7JPeINq7EeO8ppwbvxNVlg" annotatedElement="_zi85UBsoEeOmN-2QJZ-Okg">
+        <body>Check wheter a number fit in a specified range.
+ValidationRules:
+	'min': (optional) The min number 
+	'max': (optional) The max number 
+</body>
+      </ownedComment>
       <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_1o2O0BsoEeOmN-2QJZ-Okg" name="InterfaceRealization1" client="_zi85UBsoEeOmN-2QJZ-Okg" supplier="_H-JvABslEeOmN-2QJZ-Okg" contract="_H-JvABslEeOmN-2QJZ-Okg"/>
     </packagedElement>
   </packagedElement>

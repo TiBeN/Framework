@@ -19,6 +19,7 @@ use TiBeN\Framework\Entity\EntityMappingsRegistry;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class RowToEntityConverterTest extends \PHPUnit_Framework_TestCase
@@ -44,6 +45,36 @@ class RowToEntityConverterTest extends \PHPUnit_Framework_TestCase
     
     
 
+    /**
+     * Test method convert from interface Converter
+     * Start of user code Converter.testconvertAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testConvert()
+    {
+        // Start of user code Converter.testconvert
+	    $row = new Row();
+	    $row->set('idTable', '2');
+	    $row->set('a', 'foo');
+	    $row->set('b', 'bar');
+	    $row->set('c', 'baz');
+	    
+	    $expectedEntity = new SomeEntity();
+	    $expectedEntity->setId(2);
+	    $expectedEntity->setAttributeA('foo');
+	    $expectedEntity->setAttributeB('bar');
+	    $expectedEntity->setAttributeC('baz');
+	    
+	    $converter = new RowToEntityConverter();
+	    $converter->setEntityMapping(EntityMappingsRegistry::getEntityMapping(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        ));
+	    
+	    $this->assertEquals($expectedEntity, $converter->convert($row));	    
+    	// End of user code
+    }
+    
     /**
      * Test method reverse from interface Converter
      * Start of user code Converter.testreverseAnnotations 
@@ -72,36 +103,6 @@ class RowToEntityConverterTest extends \PHPUnit_Framework_TestCase
             )
         );
 	    $this->assertEquals($expectedRow, $converter->reverse($entity));
-    	// End of user code
-    }
-    
-    /**
-     * Test method convert from interface Converter
-     * Start of user code Converter.testconvertAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testConvert()
-    {
-        // Start of user code Converter.testconvert
-	    $row = new Row();
-	    $row->set('idTable', '2');
-	    $row->set('a', 'foo');
-	    $row->set('b', 'bar');
-	    $row->set('c', 'baz');
-	    
-	    $expectedEntity = new SomeEntity();
-	    $expectedEntity->setId(2);
-	    $expectedEntity->setAttributeA('foo');
-	    $expectedEntity->setAttributeB('bar');
-	    $expectedEntity->setAttributeC('baz');
-	    
-	    $converter = new RowToEntityConverter();
-	    $converter->setEntityMapping(EntityMappingsRegistry::getEntityMapping(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
-        ));
-	    
-	    $this->assertEquals($expectedEntity, $converter->convert($row));	    
     	// End of user code
     }
 

@@ -11,16 +11,11 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 /**
  * Service that help in generating views using templates.
  *
- * @package Renderer
+ * @package TiBeN\Framework\Renderer
  * @author TiBeN
  */
 class TemplateRenderer
 {
-    /**
-     * @var string
-     */
-    public static $defaultTemplatesDirectory;
-
     /**
      * @var AssociativeArray
      */
@@ -30,6 +25,11 @@ class TemplateRenderer
      * @var TemplateEngine
      */
     public static $defaultTemplateEngine;
+
+    /**
+     * @var string
+     */
+    public static $defaultTemplatesDirectory;
 
     public function __construct()
     {
@@ -41,26 +41,6 @@ class TemplateRenderer
     {
         // Start of user code TemplateRenderer.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public static function getDefaultTemplatesDirectory()
-    {
-        // Start of user code Static getter TemplateRenderer.getDefaultTemplatesDirectory
-        // End of user code
-        return self::$defaultTemplatesDirectory;
-    }
-
-    /**
-     * @param string $defaultTemplatesDirectory
-     */
-    public static function setDefaultTemplatesDirectory($defaultTemplatesDirectory)
-    {
-        // Start of user code Static setter TemplateRenderer.setDefaultTemplatesDirectory
-        // End of user code
-        self::$defaultTemplatesDirectory = $defaultTemplatesDirectory;
     }
 
     /**
@@ -104,6 +84,26 @@ class TemplateRenderer
         // Start of user code Static setter TemplateRenderer.setDefaultTemplateEngine
         // End of user code
         self::$defaultTemplateEngine = $defaultTemplateEngine;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getDefaultTemplatesDirectory()
+    {
+        // Start of user code Static getter TemplateRenderer.getDefaultTemplatesDirectory
+        // End of user code
+        return self::$defaultTemplatesDirectory;
+    }
+
+    /**
+     * @param string $defaultTemplatesDirectory
+     */
+    public static function setDefaultTemplatesDirectory($defaultTemplatesDirectory)
+    {
+        // Start of user code Static setter TemplateRenderer.setDefaultTemplatesDirectory
+        // End of user code
+        self::$defaultTemplatesDirectory = $defaultTemplatesDirectory;
     }
 
     /**

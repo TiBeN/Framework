@@ -16,6 +16,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\Router
  * @author TiBeN
  */
 class HttpRequestTest extends \PHPUnit_Framework_TestCase

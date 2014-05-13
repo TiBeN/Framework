@@ -14,6 +14,7 @@ use TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\BooleanConverter;
  * PHPUnit user annotations can be placed here
  * End of user code
  *
+ * @package TiBeN\Framework\Tests\DataSource\MysqlDataSource\TypeConverter
  * @author TiBeN
  */
 class BooleanConverterTest extends \PHPUnit_Framework_TestCase
@@ -37,6 +38,48 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     
     
 
+    /**
+     * Test method getType from interface TypeConverter
+     * Start of user code TypeConverter.testgetTypeAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetType()
+    {
+        // Start of user code TypeConverter.testgetType
+        $converter = new BooleanConverter();
+        $this->assertEquals('boolean', $converter->getType());
+    	// End of user code
+    }
+    
+    /**
+     * Test method setParameters from interface TypeConverter
+     * Start of user code TypeConverter.testsetParametersAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testSetParameters()
+    {
+        // Start of user code TypeConverter.testsetParameters
+        // Nothing to test here
+    	// End of user code
+    }
+    
+    /**
+     * Test method convert from interface TypeConverter
+     * Start of user code TypeConverter.testconvertAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testConvert()
+    {
+        // Start of user code Converter.testconvert
+        $converter = new BooleanConverter();
+        $this->assertSame('1', $converter->convert(true));
+        $this->assertSame('0', $converter->convert(false));
+    	// End of user code
+    }
+    
     /**
      * Test method getDataSourceType from interface TypeConverter
      * Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
@@ -63,48 +106,6 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
         $converter = new BooleanConverter();
         $this->assertSame(true, $converter->reverse('1'));
         $this->assertSame(false, $converter->reverse('0'));
-    	// End of user code
-    }
-    
-    /**
-     * Test method convert from interface TypeConverter
-     * Start of user code TypeConverter.testconvertAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testConvert()
-    {
-        // Start of user code Converter.testconvert
-        $converter = new BooleanConverter();
-        $this->assertSame('1', $converter->convert(true));
-        $this->assertSame('0', $converter->convert(false));
-    	// End of user code
-    }
-    
-    /**
-     * Test method getType from interface TypeConverter
-     * Start of user code TypeConverter.testgetTypeAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetType()
-    {
-        // Start of user code TypeConverter.testgetType
-        $converter = new BooleanConverter();
-        $this->assertEquals('boolean', $converter->getType());
-    	// End of user code
-    }
-    
-    /**
-     * Test method setParameters from interface TypeConverter
-     * Start of user code TypeConverter.testsetParametersAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testSetParameters()
-    {
-        // Start of user code TypeConverter.testsetParameters
-        // Nothing to test here
     	// End of user code
     }
 

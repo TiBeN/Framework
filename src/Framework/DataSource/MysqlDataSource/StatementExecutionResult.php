@@ -9,25 +9,15 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 /**
  * 
  *
- * @package MysqlDataSource
+ * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class StatementExecutionResult
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
-
-    /**
-     * @var int
-     */
-    public $numberOfAffectedRows;
-
-    /**
-     * @var int
-     */
-    public $errorCode;
+    public $errorMessage;
 
     /**
      * @var RowCollection
@@ -37,12 +27,22 @@ class StatementExecutionResult
     /**
      * @var int
      */
-    public $lastInsertId;
+    public $errorCode;
 
     /**
-     * @var string
+     * @var int
      */
-    public $errorMessage;
+    public $numberOfAffectedRows;
+
+    /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var int
+     */
+    public $lastInsertId;
 
     public function __construct()
     {
@@ -57,63 +57,23 @@ class StatementExecutionResult
     }
 
     /**
-     * @return bool
+     * @return string
      */
-    public function getSuccess()
+    public function getErrorMessage()
     {
-        // Start of user code Getter StatementExecutionResult.getSuccess
+        // Start of user code Getter StatementExecutionResult.getErrorMessage
         // End of user code
-        return $this->success;
+        return $this->errorMessage;
     }
 
     /**
-     * @param bool $success
+     * @param string $errorMessage
      */
-    public function setSuccess($success)
+    public function setErrorMessage($errorMessage)
     {
-        // Start of user code Setter StatementExecutionResult.setSuccess
+        // Start of user code Setter StatementExecutionResult.setErrorMessage
         // End of user code
-        $this->success = $success;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNumberOfAffectedRows()
-    {
-        // Start of user code Getter StatementExecutionResult.getNumberOfAffectedRows
-        // End of user code
-        return $this->numberOfAffectedRows;
-    }
-
-    /**
-     * @param int $numberOfAffectedRows
-     */
-    public function setNumberOfAffectedRows($numberOfAffectedRows)
-    {
-        // Start of user code Setter StatementExecutionResult.setNumberOfAffectedRows
-        // End of user code
-        $this->numberOfAffectedRows = $numberOfAffectedRows;
-    }
-
-    /**
-     * @return int
-     */
-    public function getErrorCode()
-    {
-        // Start of user code Getter StatementExecutionResult.getErrorCode
-        // End of user code
-        return $this->errorCode;
-    }
-
-    /**
-     * @param int $errorCode
-     */
-    public function setErrorCode($errorCode)
-    {
-        // Start of user code Setter StatementExecutionResult.setErrorCode
-        // End of user code
-        $this->errorCode = $errorCode;
+        $this->errorMessage = $errorMessage;
     }
 
     /**
@@ -139,6 +99,66 @@ class StatementExecutionResult
     /**
      * @return int
      */
+    public function getErrorCode()
+    {
+        // Start of user code Getter StatementExecutionResult.getErrorCode
+        // End of user code
+        return $this->errorCode;
+    }
+
+    /**
+     * @param int $errorCode
+     */
+    public function setErrorCode($errorCode)
+    {
+        // Start of user code Setter StatementExecutionResult.setErrorCode
+        // End of user code
+        $this->errorCode = $errorCode;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumberOfAffectedRows()
+    {
+        // Start of user code Getter StatementExecutionResult.getNumberOfAffectedRows
+        // End of user code
+        return $this->numberOfAffectedRows;
+    }
+
+    /**
+     * @param int $numberOfAffectedRows
+     */
+    public function setNumberOfAffectedRows($numberOfAffectedRows)
+    {
+        // Start of user code Setter StatementExecutionResult.setNumberOfAffectedRows
+        // End of user code
+        $this->numberOfAffectedRows = $numberOfAffectedRows;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        // Start of user code Getter StatementExecutionResult.getSuccess
+        // End of user code
+        return $this->success;
+    }
+
+    /**
+     * @param bool $success
+     */
+    public function setSuccess($success)
+    {
+        // Start of user code Setter StatementExecutionResult.setSuccess
+        // End of user code
+        $this->success = $success;
+    }
+
+    /**
+     * @return int
+     */
     public function getLastInsertId()
     {
         // Start of user code Getter StatementExecutionResult.getLastInsertId
@@ -154,26 +174,6 @@ class StatementExecutionResult
         // Start of user code Setter StatementExecutionResult.setLastInsertId
         // End of user code
         $this->lastInsertId = $lastInsertId;
-    }
-
-    /**
-     * @return string
-     */
-    public function getErrorMessage()
-    {
-        // Start of user code Getter StatementExecutionResult.getErrorMessage
-        // End of user code
-        return $this->errorMessage;
-    }
-
-    /**
-     * @param string $errorMessage
-     */
-    public function setErrorMessage($errorMessage)
-    {
-        // Start of user code Setter StatementExecutionResult.setErrorMessage
-        // End of user code
-        $this->errorMessage = $errorMessage;
     }
 
     // Start of user code StatementExecutionResult.implementationSpecificMethods

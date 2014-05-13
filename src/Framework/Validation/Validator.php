@@ -5,7 +5,7 @@ namespace TiBeN\Framework\Validation;
 /**
  *  
  *
- * @package Validation
+ * @package TiBeN\Framework\Validation
  * @author TiBeN
  */ 
 interface Validator
