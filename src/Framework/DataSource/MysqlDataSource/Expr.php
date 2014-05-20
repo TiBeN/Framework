@@ -20,12 +20,52 @@ class Expr
     /**
      * @var string
      */
+    const OPERATOR_EQUALS = '=';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
+
+    /**
+     * @var string
+     */
+    public $exprString;
+
+    /**
+     * @var string
+     */
+    const OPERATOR_NOT_EQUALS = '!=';
+
+    /**
+     * @var AssociativeArray
+     */
+    public $exprParameters;
+
+    /**
+     * @var bool
+     */
+    public $isResultOfConcatenation = false;
+
+    /**
+     * @var string
+     */
     const OPERATOR_NOT_LIKE = 'NOT LIKE';
 
     /**
      * @var string
      */
-    const OPERATOR_LESS_THAN = '<';
+    const LOGICAL_SEPARATOR_AND = 'AND';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LIKE = 'LIKE';
 
     /**
      * @var string
@@ -40,47 +80,7 @@ class Expr
     /**
      * @var string
      */
-    const LOGICAL_SEPARATOR_AND = 'AND';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_EQUALS = '=';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LIKE = 'LIKE';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
-
-    /**
-     * @var AssociativeArray
-     */
-    public $exprParameters;
-
-    /**
-     * @var string
-     */
-    public $exprString;
-
-    /**
-     * @var string
-     */
-    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_NOT_EQUALS = '!=';
-
-    /**
-     * @var bool
-     */
-    public $isResultOfConcatenation = false;
+    const OPERATOR_LESS_THAN = '<';
 
     public function __construct()
     {
@@ -93,26 +93,6 @@ class Expr
     {
         // Start of user code Expr.destructor
         // End of user code
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getExprParameters()
-    {
-        // Start of user code Getter Expr.getExprParameters
-        // End of user code
-        return $this->exprParameters;
-    }
-
-    /**
-     * @param AssociativeArray $exprParameters
-     */
-    public function setExprParameters(AssociativeArray $exprParameters)
-    {
-        // Start of user code Setter Expr.setExprParameters
-        // End of user code
-        $this->exprParameters = $exprParameters;
     }
 
     /**
@@ -136,6 +116,26 @@ class Expr
     }
 
     /**
+     * @return AssociativeArray
+     */
+    public function getExprParameters()
+    {
+        // Start of user code Getter Expr.getExprParameters
+        // End of user code
+        return $this->exprParameters;
+    }
+
+    /**
+     * @param AssociativeArray $exprParameters
+     */
+    public function setExprParameters(AssociativeArray $exprParameters)
+    {
+        // Start of user code Setter Expr.setExprParameters
+        // End of user code
+        $this->exprParameters = $exprParameters;
+    }
+
+    /**
      * @return bool
      */
     public function getIsResultOfConcatenation()
@@ -153,6 +153,34 @@ class Expr
         // Start of user code Setter Expr.setIsResultOfConcatenation
         // End of user code
         $this->isResultOfConcatenation = $isResultOfConcatenation;
+    }
+
+    /**
+     * @param string $exprString
+     * @param AssociativeArray $exprParameters
+     * @return Expr $expr
+     */
+    public static function fromString($exprString, AssociativeArray $exprParameters)
+    {
+        // Start of user code Expr.fromString
+        $expr = new self(); 
+        $expr->setExprString($exprString);
+        $expr->setExprParameters($exprParameters);
+        // End of user code
+    
+        return $expr;
+    }
+
+    /**
+     * @return string $exprString
+     */
+    public function toString()
+    {
+        // Start of user code Expr.toString
+	    $exprString = $this->exprString;
+        // End of user code
+    
+        return $exprString;
     }
 
     /**
@@ -179,34 +207,6 @@ class Expr
 			$expr->getExprParameters()->merge($subExpr->getExprParameters());
 		}		
 		$expr->setExprString($exprString);
-        // End of user code
-    
-        return $expr;
-    }
-
-    /**
-     * @return string $exprString
-     */
-    public function toString()
-    {
-        // Start of user code Expr.toString
-	    $exprString = $this->exprString;
-        // End of user code
-    
-        return $exprString;
-    }
-
-    /**
-     * @param string $exprString
-     * @param AssociativeArray $exprParameters
-     * @return Expr $expr
-     */
-    public static function fromString($exprString, AssociativeArray $exprParameters)
-    {
-        // Start of user code Expr.fromString
-        $expr = new self(); 
-        $expr->setExprString($exprString);
-        $expr->setExprParameters($exprParameters);
         // End of user code
     
         return $expr;

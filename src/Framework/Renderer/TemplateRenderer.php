@@ -17,11 +17,6 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class TemplateRenderer
 {
     /**
-     * @var AssociativeArray
-     */
-    public static $globals;
-
-    /**
      * @var TemplateEngine
      */
     public static $defaultTemplateEngine;
@@ -30,6 +25,11 @@ class TemplateRenderer
      * @var string
      */
     public static $defaultTemplatesDirectory;
+
+    /**
+     * @var AssociativeArray
+     */
+    public static $globals;
 
     public function __construct()
     {
@@ -41,29 +41,6 @@ class TemplateRenderer
     {
         // Start of user code TemplateRenderer.destructor
         // End of user code
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public static function getGlobals()
-    {
-        // Start of user code Static getter TemplateRenderer.getGlobals
-        if (!self::$globals instanceof AssociativeArray) {
-            self::$globals = new AssociativeArray();
-        }
-        // End of user code
-        return self::$globals;
-    }
-
-    /**
-     * @param AssociativeArray $globals
-     */
-    public static function setGlobals(AssociativeArray $globals)
-    {
-        // Start of user code Static setter TemplateRenderer.setGlobals
-        // End of user code
-        self::$globals = $globals;
     }
 
     /**
@@ -104,6 +81,29 @@ class TemplateRenderer
         // Start of user code Static setter TemplateRenderer.setDefaultTemplatesDirectory
         // End of user code
         self::$defaultTemplatesDirectory = $defaultTemplatesDirectory;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public static function getGlobals()
+    {
+        // Start of user code Static getter TemplateRenderer.getGlobals
+        if (!self::$globals instanceof AssociativeArray) {
+            self::$globals = new AssociativeArray();
+        }
+        // End of user code
+        return self::$globals;
+    }
+
+    /**
+     * @param AssociativeArray $globals
+     */
+    public static function setGlobals(AssociativeArray $globals)
+    {
+        // Start of user code Static setter TemplateRenderer.setGlobals
+        // End of user code
+        self::$globals = $globals;
     }
 
     /**

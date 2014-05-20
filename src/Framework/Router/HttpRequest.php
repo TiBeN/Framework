@@ -27,22 +27,17 @@ class HttpRequest
     /**
      * @var string
      */
-    public $method;
-
-    /**
-     * @var AssociativeArray
-     */
-    public $postVars;
-
-    /**
-     * @var string
-     */
-    public $requestUri;
+    public $host;
 
     /**
      * @var string
      */
     public $httpVersion;
+
+    /**
+     * @var string
+     */
+    public $method;
 
     /**
      * @var AssociativeArray
@@ -52,7 +47,12 @@ class HttpRequest
     /**
      * @var string
      */
-    public $host;
+    public $requestUri;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $postVars;
 
     public function __construct()
     {
@@ -89,61 +89,21 @@ class HttpRequest
     /**
      * @return string
      */
-    public function getMethod()
+    public function getHost()
     {
-        // Start of user code Getter HttpRequest.getMethod
+        // Start of user code Getter HttpRequest.getHost
         // End of user code
-        return $this->method;
+        return $this->host;
     }
 
     /**
-     * @param string $method
+     * @param string $host
      */
-    public function setMethod($method)
+    public function setHost($host)
     {
-        // Start of user code Setter HttpRequest.setMethod
+        // Start of user code Setter HttpRequest.setHost
         // End of user code
-        $this->method = $method;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getPostVars()
-    {
-        // Start of user code Getter HttpRequest.getPostVars
-        // End of user code
-        return $this->postVars;
-    }
-
-    /**
-     * @param AssociativeArray $postVars
-     */
-    public function setPostVars(AssociativeArray $postVars)
-    {
-        // Start of user code Setter HttpRequest.setPostVars
-        // End of user code
-        $this->postVars = $postVars;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRequestUri()
-    {
-        // Start of user code Getter HttpRequest.getRequestUri
-        // End of user code
-        return $this->requestUri;
-    }
-
-    /**
-     * @param string $requestUri
-     */
-    public function setRequestUri($requestUri)
-    {
-        // Start of user code Setter HttpRequest.setRequestUri
-        // End of user code
-        $this->requestUri = $requestUri;
+        $this->host = $host;
     }
 
     /**
@@ -164,6 +124,26 @@ class HttpRequest
         // Start of user code Setter HttpRequest.setHttpVersion
         // End of user code
         $this->httpVersion = $httpVersion;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMethod()
+    {
+        // Start of user code Getter HttpRequest.getMethod
+        // End of user code
+        return $this->method;
+    }
+
+    /**
+     * @param string $method
+     */
+    public function setMethod($method)
+    {
+        // Start of user code Setter HttpRequest.setMethod
+        // End of user code
+        $this->method = $method;
     }
 
     /**
@@ -189,21 +169,41 @@ class HttpRequest
     /**
      * @return string
      */
-    public function getHost()
+    public function getRequestUri()
     {
-        // Start of user code Getter HttpRequest.getHost
+        // Start of user code Getter HttpRequest.getRequestUri
         // End of user code
-        return $this->host;
+        return $this->requestUri;
     }
 
     /**
-     * @param string $host
+     * @param string $requestUri
      */
-    public function setHost($host)
+    public function setRequestUri($requestUri)
     {
-        // Start of user code Setter HttpRequest.setHost
+        // Start of user code Setter HttpRequest.setRequestUri
         // End of user code
-        $this->host = $host;
+        $this->requestUri = $requestUri;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getPostVars()
+    {
+        // Start of user code Getter HttpRequest.getPostVars
+        // End of user code
+        return $this->postVars;
+    }
+
+    /**
+     * @param AssociativeArray $postVars
+     */
+    public function setPostVars(AssociativeArray $postVars)
+    {
+        // Start of user code Setter HttpRequest.setPostVars
+        // End of user code
+        $this->postVars = $postVars;
     }
 
     /**

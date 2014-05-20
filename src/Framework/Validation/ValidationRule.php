@@ -22,11 +22,6 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class ValidationRule
 {
     /**
-     * @var AssociativeArray
-     */
-    public $configuration;
-
-    /**
      * @var string
      */
     public $errorMessagePattern;
@@ -35,6 +30,11 @@ class ValidationRule
      * @var string
      */
     public $validatorName;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $configuration;
 
     public function __construct()
     {
@@ -48,26 +48,6 @@ class ValidationRule
     {
         // Start of user code ValidationRule.destructor
         // End of user code
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getConfiguration()
-    {
-        // Start of user code Getter ValidationRule.getConfiguration
-        // End of user code
-        return $this->configuration;
-    }
-
-    /**
-     * @param AssociativeArray $configuration
-     */
-    public function setConfiguration(AssociativeArray $configuration)
-    {
-        // Start of user code Setter ValidationRule.setConfiguration
-        // End of user code
-        $this->configuration = $configuration;
     }
 
     /**
@@ -108,6 +88,55 @@ class ValidationRule
         // Start of user code Setter ValidationRule.setValidatorName
         // End of user code
         $this->validatorName = $validatorName;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getConfiguration()
+    {
+        // Start of user code Getter ValidationRule.getConfiguration
+        // End of user code
+        return $this->configuration;
+    }
+
+    /**
+     * @param AssociativeArray $configuration
+     */
+    public function setConfiguration(AssociativeArray $configuration)
+    {
+        // Start of user code Setter ValidationRule.setConfiguration
+        // End of user code
+        $this->configuration = $configuration;
+    }
+
+    /**
+     * @param AssociativeArray $config
+     * @return ValidationRule $validationRule
+     */
+    public static function create(AssociativeArray $config)
+    {
+        // Start of user code ValidationRule.create
+        if(!$config->has('name') || empty($config->get('name'))) {
+            throw new \InvalidArgument('The validator name must be set');
+        }
+
+        $validationRule = new self;
+        $validationRule->setValidatorName($config->get('name'));
+        if($config->has('configuration')) {
+            $validationRule->setConfiguration(
+                AssociativeArray::createFromNativeArray(
+                    null, 
+                    $config->get('configuration')
+                )
+            );
+        }
+        if($config->has('message')) {
+            $validationRule->setErrorMessagePattern($config->get('message'));
+        }
+        // End of user code
+    
+        return $validationRule;
     }
 
     // Start of user code ValidationRule.implementationSpecificMethods

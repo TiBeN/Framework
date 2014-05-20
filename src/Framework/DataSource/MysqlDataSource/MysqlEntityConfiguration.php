@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Entity\DataSourceEntityMappingConfiguration;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code MysqlEntityConfiguration.useStatements
 // Place your use statements here.

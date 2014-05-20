@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\Router;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Controller\Controller;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code Router.useStatements
 // Place your use statements here.
@@ -20,17 +20,17 @@ use TiBeN\Framework\Controller\Controller;
 class Router
 {
     /**
-     * Route who is followed when the initial Route is not found 
-     * @var Route
-     */
-    public static $onNotFoundRoute;
-
-    /**
      * Route who is followed when an exception is thrown during
      * the execution of an action.
      * @var Route
      */
     public static $onExecuteActionExceptionRoute;
+
+    /**
+     * Route who is followed when the initial Route is not found 
+     * @var Route
+     */
+    public static $onNotFoundRoute;
 
     /**
      * @var array
@@ -47,26 +47,6 @@ class Router
     {
         // Start of user code Router.destructor
         // End of user code
-    }
-
-    /**
-     * @return Route
-     */
-    public static function getOnNotFoundRoute()
-    {
-        // Start of user code Static getter Router.getOnNotFoundRoute
-        // End of user code
-        return self::$onNotFoundRoute;
-    }
-
-    /**
-     * @param Route $onNotFoundRoute
-     */
-    public static function setOnNotFoundRoute(Route $onNotFoundRoute)
-    {
-        // Start of user code Static setter Router.setOnNotFoundRoute
-        // End of user code
-        self::$onNotFoundRoute = $onNotFoundRoute;
     }
 
     /**
@@ -90,6 +70,26 @@ class Router
     }
 
     /**
+     * @return Route
+     */
+    public static function getOnNotFoundRoute()
+    {
+        // Start of user code Static getter Router.getOnNotFoundRoute
+        // End of user code
+        return self::$onNotFoundRoute;
+    }
+
+    /**
+     * @param Route $onNotFoundRoute
+     */
+    public static function setOnNotFoundRoute(Route $onNotFoundRoute)
+    {
+        // Start of user code Static setter Router.setOnNotFoundRoute
+        // End of user code
+        self::$onNotFoundRoute = $onNotFoundRoute;
+    }
+
+    /**
      * @return array
      */
     public static function getRouteRules()
@@ -107,6 +107,80 @@ class Router
         // Start of user code Static setter Router.setRouteRules
         // End of user code
         self::$routeRules = $routeRules;
+    }
+
+    /**
+     * Return a route rule from her name
+     *
+     * @param string $routeName
+     * @return RouteRule $routeRule
+     */
+    public static function getRouteRuleByName($routeName)
+    {
+        // Start of user code Router.getRouteRuleByName
+        if (isset(self::$routeRules) && !empty(self::$routeRules)) {
+            foreach (self::$routeRules as $routeRuleCandidate) {
+                if ($routeName == $routeRuleCandidate->getName()) {
+                    $routeRule = $routeRuleCandidate;
+                    break;
+                }
+            }
+        }
+        
+        if (!isset($routeRule)) {
+            throw new \InvalidArgumentException(
+                sprintf('No RouteRule named "%s" exist', $routeName)
+            );
+        }
+        // End of user code
+    
+        return $routeRule;
+    }
+
+    /**
+     * Search route as requested by client Http request then follow it.
+     */
+    public static function handleCurrentHttpRequest()
+    {
+        // Start of user code Router.handleCurrentHttpRequest
+        $httpRequest = HttpRequest::createFromClientRequest();
+        
+        if (isset(self::$routeRules)) {
+            foreach (self::$routeRules as $routeRule) {
+                $matchResult = $routeRule->matchHttpRequest($httpRequest);
+                if ($matchResult instanceof Route) {
+                    $route = $matchResult;
+                    break;                      
+                }
+            }
+        }
+        
+        // Define special route when not found or throw not found exception 
+        if (!isset($route)) {
+            if (self::$onNotFoundRoute instanceof Route) {
+                $route = self::$onNotFoundRoute;
+            } else {
+                throw new \RuntimeException('No route match current request');
+            }
+        }
+        
+        self::followRoute($route);
+        // End of user code
+    }
+
+    /**
+     * Find a route by her name and optionnal variables then follow it. This method can by used to control the controller / action flow.    
+     *
+     * @param string $routeName
+     * @param AssociativeArray $variables
+     */
+    public static function forwardToRoute($routeName, AssociativeArray $variables)
+    {
+        // Start of user code Router.forwardToRoute
+        $routeRule = self::getRouteRuleByName($routeName);
+        $route = $routeRule->getRoute($variables);
+        self::followRoute($route);
+        // End of user code
     }
 
     /**
@@ -223,80 +297,6 @@ class Router
             }
         }
         // End of user code
-    }
-
-    /**
-     * Search route as requested by client Http request then follow it.
-     */
-    public static function handleCurrentHttpRequest()
-    {
-        // Start of user code Router.handleCurrentHttpRequest
-        $httpRequest = HttpRequest::createFromClientRequest();
-        
-        if (isset(self::$routeRules)) {
-            foreach (self::$routeRules as $routeRule) {
-                $matchResult = $routeRule->matchHttpRequest($httpRequest);
-                if ($matchResult instanceof Route) {
-                    $route = $matchResult;
-                    break;                      
-                }
-            }
-        }
-        
-        // Define special route when not found or throw not found exception 
-        if (!isset($route)) {
-            if (self::$onNotFoundRoute instanceof Route) {
-                $route = self::$onNotFoundRoute;
-            } else {
-                throw new \RuntimeException('No route match current request');
-            }
-        }
-        
-        self::followRoute($route);
-        // End of user code
-    }
-
-    /**
-     * Find a route by her name and optionnal variables then follow it. This method can by used to control the controller / action flow.    
-     *
-     * @param string $routeName
-     * @param AssociativeArray $variables
-     */
-    public static function forwardToRoute($routeName, AssociativeArray $variables)
-    {
-        // Start of user code Router.forwardToRoute
-        $routeRule = self::getRouteRuleByName($routeName);
-        $route = $routeRule->getRoute($variables);
-        self::followRoute($route);
-        // End of user code
-    }
-
-    /**
-     * Return a route rule from her name
-     *
-     * @param string $routeName
-     * @return RouteRule $routeRule
-     */
-    public static function getRouteRuleByName($routeName)
-    {
-        // Start of user code Router.getRouteRuleByName
-        if (isset(self::$routeRules) && !empty(self::$routeRules)) {
-            foreach (self::$routeRules as $routeRuleCandidate) {
-                if ($routeName == $routeRuleCandidate->getName()) {
-                    $routeRule = $routeRuleCandidate;
-                    break;
-                }
-            }
-        }
-        
-        if (!isset($routeRule)) {
-            throw new \InvalidArgumentException(
-                sprintf('No RouteRule named "%s" exist', $routeName)
-            );
-        }
-        // End of user code
-    
-        return $routeRule;
     }
 
     // Start of user code Router.implementationSpecificMethods

@@ -81,6 +81,39 @@ class DeleteStatement implements Statement
     // Statement Realization
 
     /**
+     * Tell wether the statement is ready or not to be executed
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+        $status = true;
+        
+        if(is_null($this->tableName)) {
+            $status = false;
+        }
+        // End of user code
+    
+        return $status;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+		$statementParameters = !is_null($this->whereConditions)
+            ? $this->whereConditions->getStatementParameters()
+            : new AssociativeArray()
+        ;    
+        // End of user code
+    
+        return $statementParameters;
+    }
+
+    /**
      * Return the statement in String format
      *
      * @return string $statement
@@ -102,39 +135,6 @@ class DeleteStatement implements Statement
         // End of user code
     
         return $statement;
-    }
-
-    /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-		$statementParameters = !is_null($this->whereConditions)
-            ? $this->whereConditions->getStatementParameters()
-            : new AssociativeArray()
-        ;    
-        // End of user code
-    
-        return $statementParameters;
-    }
-
-    /**
-     * Tell wether the statement is ready or not to be executed
-     *
-     * @return bool $status
-     */
-    public function isReadyToBeExecuted()
-    {
-        // Start of user code Statement.isReadyToBeExecuted
-        $status = true;
-        
-        if(is_null($this->tableName)) {
-            $status = false;
-        }
-        // End of user code
-    
-        return $status;
     }
 
     // Start of user code DeleteStatement.implementationSpecificMethods

@@ -3,9 +3,9 @@
 namespace TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter;
 
 use TiBeN\Framework\Datatype\T;
-use TiBeN\Framework\DataSource\TypeConverter;
-use TiBeN\Framework\Datatype\U;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Datatype\U;
+use TiBeN\Framework\DataSource\TypeConverter;
 
 // Start of user code DateTimeConverter.useStatements
 // Place your use statements here.
@@ -99,25 +99,21 @@ class DateTimeConverter implements TypeConverter
     // TypeConverter Realization
 
     /**
-     * @return string $type
+     * @param U $itemToReverse
+     * @return T $reversedItem
      */
-    public function getType()
+    public function reverse($itemToReverse)
     {
-        // Start of user code TypeConverter.getType
-        $type = 'datetime';
+        $this->typeHint($this->UType, $itemToReverse);
+        // Start of user code Converter.reverse
+        if(is_null($itemToReverse)) return $itemToReverse;
+        $reversedItem = \DateTime::createFromFormat(
+            'Y-m-d H:i:s',
+            $itemToReverse
+        );
         // End of user code
     
-        return $type;
-    }
-
-    /**
-     * @param AssociativeArray $parameters
-     */
-    public function setParameters(AssociativeArray $parameters)
-    {
-        // Start of user code TypeConverter.setParameters
-        // TODO should be implemented.
-        // End of user code
+        return $reversedItem;
     }
 
     /**
@@ -136,6 +132,28 @@ class DateTimeConverter implements TypeConverter
     }
 
     /**
+     * @param AssociativeArray $parameters
+     */
+    public function setParameters(AssociativeArray $parameters)
+    {
+        // Start of user code TypeConverter.setParameters
+        // TODO should be implemented.
+        // End of user code
+    }
+
+    /**
+     * @return string $type
+     */
+    public function getType()
+    {
+        // Start of user code TypeConverter.getType
+        $type = 'datetime';
+        // End of user code
+    
+        return $type;
+    }
+
+    /**
      * @return string $dataSourceType
      */
     public function getDataSourceType()
@@ -145,24 +163,6 @@ class DateTimeConverter implements TypeConverter
         // End of user code
     
         return $dataSourceType;
-    }
-
-    /**
-     * @param U $itemToReverse
-     * @return T $reversedItem
-     */
-    public function reverse($itemToReverse)
-    {
-        $this->typeHint($this->UType, $itemToReverse);
-        // Start of user code Converter.reverse
-        if(is_null($itemToReverse)) return $itemToReverse;
-        $reversedItem = \DateTime::createFromFormat(
-            'Y-m-d H:i:s',
-            $itemToReverse
-        );
-        // End of user code
-    
-        return $reversedItem;
     }
 
     // Start of user code DateTimeConverter.implementationSpecificMethods

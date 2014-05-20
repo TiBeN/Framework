@@ -22,16 +22,6 @@ class SelectStatement implements Statement
     public $orderByStatement;
 
     /**
-     * @var WhereConditions
-     */
-    public $whereConditions;
-
-    /**
-     * @var SelectExpr
-     */
-    public $selectExpr;
-
-    /**
      * @var string
      */
     public $tableReferences;
@@ -40,6 +30,16 @@ class SelectStatement implements Statement
      * @var LimitStatement
      */
     public $limitStatement;
+
+    /**
+     * @var WhereConditions
+     */
+    public $whereConditions;
+
+    /**
+     * @var SelectExpr
+     */
+    public $selectExpr;
 
     public function __construct()
     {
@@ -71,46 +71,6 @@ class SelectStatement implements Statement
         // Start of user code Setter SelectStatement.setOrderByStatement
         // End of user code
         $this->orderByStatement = $orderByStatement;
-    }
-
-    /**
-     * @return WhereConditions
-     */
-    public function getWhereConditions()
-    {
-        // Start of user code Getter SelectStatement.getWhereConditions
-        // End of user code
-        return $this->whereConditions;
-    }
-
-    /**
-     * @param WhereConditions $whereConditions
-     */
-    public function setWhereConditions(WhereConditions $whereConditions)
-    {
-        // Start of user code Setter SelectStatement.setWhereConditions
-        // End of user code
-        $this->whereConditions = $whereConditions;
-    }
-
-    /**
-     * @return SelectExpr
-     */
-    public function getSelectExpr()
-    {
-        // Start of user code Getter SelectStatement.getSelectExpr
-        // End of user code
-        return $this->selectExpr;
-    }
-
-    /**
-     * @param SelectExpr $selectExpr
-     */
-    public function setSelectExpr(SelectExpr $selectExpr)
-    {
-        // Start of user code Setter SelectStatement.setSelectExpr
-        // End of user code
-        $this->selectExpr = $selectExpr;
     }
 
     /**
@@ -153,7 +113,79 @@ class SelectStatement implements Statement
         $this->limitStatement = $limitStatement;
     }
 
+    /**
+     * @return WhereConditions
+     */
+    public function getWhereConditions()
+    {
+        // Start of user code Getter SelectStatement.getWhereConditions
+        // End of user code
+        return $this->whereConditions;
+    }
+
+    /**
+     * @param WhereConditions $whereConditions
+     */
+    public function setWhereConditions(WhereConditions $whereConditions)
+    {
+        // Start of user code Setter SelectStatement.setWhereConditions
+        // End of user code
+        $this->whereConditions = $whereConditions;
+    }
+
+    /**
+     * @return SelectExpr
+     */
+    public function getSelectExpr()
+    {
+        // Start of user code Getter SelectStatement.getSelectExpr
+        // End of user code
+        return $this->selectExpr;
+    }
+
+    /**
+     * @param SelectExpr $selectExpr
+     */
+    public function setSelectExpr(SelectExpr $selectExpr)
+    {
+        // Start of user code Setter SelectStatement.setSelectExpr
+        // End of user code
+        $this->selectExpr = $selectExpr;
+    }
+
     // Statement Realization
+
+    /**
+     * Tell wether the statement is ready or not to be executed
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+		$status = $this->selectExpr instanceof SelectExpr 
+            && !is_null($this->tableReferences)
+            && !empty($this->tableReferences)
+        ;
+        // End of user code
+    
+        return $status;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+		$statementParameters = !is_null($this->whereConditions)
+            ? $this->whereConditions->getStatementParameters()
+            : new AssociativeArray()
+        ;    
+        // End of user code
+    
+        return $statementParameters;
+    }
 
     /**
      * Return the statement in String format
@@ -184,38 +216,6 @@ class SelectStatement implements Statement
         // End of user code
     
         return $statement;
-    }
-
-    /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-		$statementParameters = !is_null($this->whereConditions)
-            ? $this->whereConditions->getStatementParameters()
-            : new AssociativeArray()
-        ;    
-        // End of user code
-    
-        return $statementParameters;
-    }
-
-    /**
-     * Tell wether the statement is ready or not to be executed
-     *
-     * @return bool $status
-     */
-    public function isReadyToBeExecuted()
-    {
-        // Start of user code Statement.isReadyToBeExecuted
-		$status = $this->selectExpr instanceof SelectExpr 
-            && !is_null($this->tableReferences)
-            && !empty($this->tableReferences)
-        ;
-        // End of user code
-    
-        return $status;
     }
 
     // Start of user code SelectStatement.implementationSpecificMethods

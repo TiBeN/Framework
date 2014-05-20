@@ -20,32 +20,12 @@ class RouteRule
     /**
      * @var string
      */
-    public $uriPattern;
+    public $host;
 
     /**
      * @var AssociativeArray
      */
     public $defaultVariables;
-
-    /**
-     * @var string
-     */
-    public $method;
-
-    /**
-     * @var string
-     */
-    public $action;
-
-    /**
-     * @var string
-     */
-    public $host;
-
-    /**
-     * @var string
-     */
-    public $name;
 
     /**
      * @var AssociativeArray
@@ -55,7 +35,27 @@ class RouteRule
     /**
      * @var string
      */
+    public $action;
+
+    /**
+     * @var string
+     */
     public $controller;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $uriPattern;
+
+    /**
+     * @var string
+     */
+    public $method;
 
     public function __construct()
     {
@@ -67,86 +67,6 @@ class RouteRule
     {
         // Start of user code RouteRule.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getUriPattern()
-    {
-        // Start of user code Getter RouteRule.getUriPattern
-        // End of user code
-        return $this->uriPattern;
-    }
-
-    /**
-     * @param string $uriPattern
-     */
-    public function setUriPattern($uriPattern)
-    {
-        // Start of user code Setter RouteRule.setUriPattern
-        // End of user code
-        $this->uriPattern = $uriPattern;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getDefaultVariables()
-    {
-        // Start of user code Getter RouteRule.getDefaultVariables
-        // End of user code
-        return $this->defaultVariables;
-    }
-
-    /**
-     * @param AssociativeArray $defaultVariables
-     */
-    public function setDefaultVariables(AssociativeArray $defaultVariables)
-    {
-        // Start of user code Setter RouteRule.setDefaultVariables
-        // End of user code
-        $this->defaultVariables = $defaultVariables;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMethod()
-    {
-        // Start of user code Getter RouteRule.getMethod
-        // End of user code
-        return $this->method;
-    }
-
-    /**
-     * @param string $method
-     */
-    public function setMethod($method)
-    {
-        // Start of user code Setter RouteRule.setMethod
-        // End of user code
-        $this->method = $method;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAction()
-    {
-        // Start of user code Getter RouteRule.getAction
-        // End of user code
-        return $this->action;
-    }
-
-    /**
-     * @param string $action
-     */
-    public function setAction($action)
-    {
-        // Start of user code Setter RouteRule.setAction
-        // End of user code
-        $this->action = $action;
     }
 
     /**
@@ -170,23 +90,23 @@ class RouteRule
     }
 
     /**
-     * @return string
+     * @return AssociativeArray
      */
-    public function getName()
+    public function getDefaultVariables()
     {
-        // Start of user code Getter RouteRule.getName
+        // Start of user code Getter RouteRule.getDefaultVariables
         // End of user code
-        return $this->name;
+        return $this->defaultVariables;
     }
 
     /**
-     * @param string $name
+     * @param AssociativeArray $defaultVariables
      */
-    public function setName($name)
+    public function setDefaultVariables(AssociativeArray $defaultVariables)
     {
-        // Start of user code Setter RouteRule.setName
+        // Start of user code Setter RouteRule.setDefaultVariables
         // End of user code
-        $this->name = $name;
+        $this->defaultVariables = $defaultVariables;
     }
 
     /**
@@ -212,6 +132,26 @@ class RouteRule
     /**
      * @return string
      */
+    public function getAction()
+    {
+        // Start of user code Getter RouteRule.getAction
+        // End of user code
+        return $this->action;
+    }
+
+    /**
+     * @param string $action
+     */
+    public function setAction($action)
+    {
+        // Start of user code Setter RouteRule.setAction
+        // End of user code
+        $this->action = $action;
+    }
+
+    /**
+     * @return string
+     */
     public function getController()
     {
         // Start of user code Getter RouteRule.getController
@@ -227,6 +167,66 @@ class RouteRule
         // Start of user code Setter RouteRule.setController
         // End of user code
         $this->controller = $controller;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        // Start of user code Getter RouteRule.getName
+        // End of user code
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        // Start of user code Setter RouteRule.setName
+        // End of user code
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUriPattern()
+    {
+        // Start of user code Getter RouteRule.getUriPattern
+        // End of user code
+        return $this->uriPattern;
+    }
+
+    /**
+     * @param string $uriPattern
+     */
+    public function setUriPattern($uriPattern)
+    {
+        // Start of user code Setter RouteRule.setUriPattern
+        // End of user code
+        $this->uriPattern = $uriPattern;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMethod()
+    {
+        // Start of user code Getter RouteRule.getMethod
+        // End of user code
+        return $this->method;
+    }
+
+    /**
+     * @param string $method
+     */
+    public function setMethod($method)
+    {
+        // Start of user code Setter RouteRule.setMethod
+        // End of user code
+        $this->method = $method;
     }
 
     /**

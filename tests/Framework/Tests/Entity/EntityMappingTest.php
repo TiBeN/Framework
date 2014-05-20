@@ -12,6 +12,7 @@ use TiBeN\Framework\Tests\Fixtures\Entity\SomeEntity;
 use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\DataSource\DataSourcesRegistry;
 use TiBeN\Framework\Entity\AttributeMapping;
+use TiBeN\Framework\Validation\ValidationRule;
 
 // End of user code
 
@@ -76,7 +77,13 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
         $dsAttributeConf = new FooAttributeMappingConfiguration();
         $dsAttributeConf->setField('fooField');
         $someAttribute->setDataSourceAttributeMappingConfiguration($dsAttributeConf);
-        
+
+        $validationRule = new ValidationRule();
+        $validationRule->setValidatorName('stringlength');
+        $validationRule->getConfiguration()->set('min', 4);
+        $validationRule->setErrorMessagePattern('Some error message');
+	    $someAttribute->setValidationRules(array($validationRule));
+
         $expectedEm->getAttributeMappings()->set('someAttribute', $someAttribute);
         
         $factorisedEntityMapping = EntityMapping::create(
@@ -91,12 +98,21 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
                     'attributes' => array(
                         'someAttribute' => array(
                             'field' => 'fooField',
-                            'type' => array('name' => 'string')    
+                            'type' => array('name' => 'string'),
+                            'validationRules' => array(
+                                array(
+                                    'name' => 'stringlength',
+                                    'configuration' => array(
+                                        'min' => 4
+                                    ),
+                                    'message' => 'Some error message'
+                                )
+                            )
                         )
-                    )                                       	
+                    )
                 )
             )
-        );       
+        );
         
         $this->assertEquals($expectedEm, $factorisedEntityMapping);
 		// End of user code

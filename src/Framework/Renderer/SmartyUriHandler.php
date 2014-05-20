@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\Renderer;
 
-use TiBeN\Framework\Router\Router;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Router\Router;
 
 // Start of user code SmartyUriHandler.useStatements
 use \Smarty_Internal_Template as Smarty_Internal_Template;

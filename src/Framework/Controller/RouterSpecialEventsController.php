@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\Controller;
 
-use TiBeN\Framework\Router\HttpResponse;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Router\HttpResponse;
 
 // Start of user code RouterSpecialEventsController.useStatements
 // Place your use statements here.
@@ -31,6 +31,25 @@ class RouterSpecialEventsController
     }
 
     /**
+     * Executed when no routes has been found during
+     * request handling
+     *
+     * @param AssociativeArray $variables
+     * @return HttpResponse $httpResponse
+     */
+    public function onNotFound(AssociativeArray $variables)
+    {
+        // Start of user code RouterSpecialEventsController.onNotFound
+        $httpResponse = new HttpResponse();
+        $httpResponse->setStatusCode(404);
+        $httpResponse->setMessage("<html><h1>Error 404</h1><p>No ressource available at this URI</p><p>TiBeN Framework</p></html>");
+        return $httpResponse;
+        // End of user code
+    
+        return $httpResponse;
+    }
+
+    /**
      * Executed by the router when an exception is thrown
      * during the execution of an action.
      *
@@ -51,25 +70,6 @@ class RouterSpecialEventsController
                 $variables->get('message')
             )
         );
-        return $httpResponse;
-        // End of user code
-    
-        return $httpResponse;
-    }
-
-    /**
-     * Executed when no routes has been found during
-     * request handling
-     *
-     * @param AssociativeArray $variables
-     * @return HttpResponse $httpResponse
-     */
-    public function onNotFound(AssociativeArray $variables)
-    {
-        // Start of user code RouterSpecialEventsController.onNotFound
-        $httpResponse = new HttpResponse();
-        $httpResponse->setStatusCode(404);
-        $httpResponse->setMessage("<html><h1>Error 404</h1><p>No ressource available at this URI</p><p>TiBeN Framework</p></html>");
         return $httpResponse;
         // End of user code
     

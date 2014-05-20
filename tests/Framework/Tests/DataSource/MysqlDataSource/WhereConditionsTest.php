@@ -61,61 +61,6 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createFromCriteriaSet from class WhereConditions
-     *
-     * Start of user code WhereConditionsTest.testcreateFromCriteriaSetAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateFromCriteriaSet()
-    {
-        // Start of user code WhereConditionsTest.testcreateFromCriteriaSet
-	    $expectedWhereConditionsString 
-	       = "WHERE ((b = :attributeB0 AND b != :attributeB1) OR b != :attributeB2 OR a = :attributeA0 OR a != :attributeA1 OR a > :attributeA2) AND c LIKE :attributeC0 AND a != :attributeA3"
-        ;
-	    $criteriaSet = CriteriaSet::createAnd()
-            ->addSubSet(
-                CriteriaSet::createOr()
-                    ->add(MatchCriteria::notEquals('attributeB', 1337))
-                    ->add(MatchCriteria::equals('attributeA', 'foo'))
-                    ->add(MatchCriteria::notEquals('attributeA', 'bar'))
-                    ->add(MatchCriteria::greaterThan('attributeA', 'baz'))
-                    ->addSubSet(
-                        CriteriaSet::createAnd()
-                            ->add(MatchCriteria::equals('attributeB', 'foo'))
-                            ->add(MatchCriteria::notEquals('attributeB', 'bar'))                            
-	                )
-            )
-            ->add(MatchCriteria::like('attributeC', 'baz'))
-            ->add(MatchCriteria::notEquals('attributeA', 'foo'))
-        ;                        	       
-	    $entityMapping = EntityMappingsRegistry::getEntityMapping(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
-        );
-        $whereConditions = WhereConditions::createFromCriteriaSet(
-            $criteriaSet, 
-            $entityMapping
-        );
-        $this->assertEquals($expectedWhereConditionsString, $whereConditions->toString());
-        
-        $expectedStatementParameters = AssociativeArray::createFromNativeArray(null, array(
-            'attributeB0' => 'foo',
-            'attributeB1' => 'bar',
-            'attributeB2' => 1337,
-            'attributeA0' => 'foo',
-            'attributeA1' => 'bar',
-            'attributeA2' => 'baz',
-            'attributeC0' => 'baz',
-            'attributeA3' => 'foo'             
-        ));        
-        $this->assertEquals(
-            $expectedStatementParameters, 
-            $whereConditions->getStatementParameters()
-        );
-		// End of user code
-    }
-    
-    /**
      * Test static method createFromExpr from class WhereConditions
      *
      * Start of user code WhereConditionsTest.testcreateFromExprAnnotations 
@@ -204,6 +149,61 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
 	    $this->assertEquals(
             $expectedWhereConditionsString, 
             WhereConditions::createFromExpr($expr)->toString()
+        );
+		// End of user code
+    }
+    
+    /**
+     * Test static method createFromCriteriaSet from class WhereConditions
+     *
+     * Start of user code WhereConditionsTest.testcreateFromCriteriaSetAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateFromCriteriaSet()
+    {
+        // Start of user code WhereConditionsTest.testcreateFromCriteriaSet
+	    $expectedWhereConditionsString 
+	       = "WHERE ((b = :attributeB0 AND b != :attributeB1) OR b != :attributeB2 OR a = :attributeA0 OR a != :attributeA1 OR a > :attributeA2) AND c LIKE :attributeC0 AND a != :attributeA3"
+        ;
+	    $criteriaSet = CriteriaSet::createAnd()
+            ->addSubSet(
+                CriteriaSet::createOr()
+                    ->add(MatchCriteria::notEquals('attributeB', 1337))
+                    ->add(MatchCriteria::equals('attributeA', 'foo'))
+                    ->add(MatchCriteria::notEquals('attributeA', 'bar'))
+                    ->add(MatchCriteria::greaterThan('attributeA', 'baz'))
+                    ->addSubSet(
+                        CriteriaSet::createAnd()
+                            ->add(MatchCriteria::equals('attributeB', 'foo'))
+                            ->add(MatchCriteria::notEquals('attributeB', 'bar'))                            
+	                )
+            )
+            ->add(MatchCriteria::like('attributeC', 'baz'))
+            ->add(MatchCriteria::notEquals('attributeA', 'foo'))
+        ;                        	       
+	    $entityMapping = EntityMappingsRegistry::getEntityMapping(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );
+        $whereConditions = WhereConditions::createFromCriteriaSet(
+            $criteriaSet, 
+            $entityMapping
+        );
+        $this->assertEquals($expectedWhereConditionsString, $whereConditions->toString());
+        
+        $expectedStatementParameters = AssociativeArray::createFromNativeArray(null, array(
+            'attributeB0' => 'foo',
+            'attributeB1' => 'bar',
+            'attributeB2' => 1337,
+            'attributeA0' => 'foo',
+            'attributeA1' => 'bar',
+            'attributeA2' => 'baz',
+            'attributeC0' => 'baz',
+            'attributeA3' => 'foo'             
+        ));        
+        $this->assertEquals(
+            $expectedStatementParameters, 
+            $whereConditions->getStatementParameters()
         );
 		// End of user code
     }

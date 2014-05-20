@@ -40,6 +40,44 @@ class HttpResponseTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method createDownloadFileResponse from class HttpResponse
+     *
+     * Start of user code HttpResponseTest.testcreateDownloadFileResponseAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateDownloadFileResponse()
+    {
+        // Start of user code HttpResponseTest.testcreateDownloadFileResponse
+	    $downloadFileResponse = HttpResponse::createDownloadFileResponse(
+			'my-test-file.txt',
+			'text/plain',
+			'hello world!'
+		);
+		
+		ob_start();
+		$downloadFileResponse->sendToClient();
+		$this->assertEquals('hello world!', ob_get_clean());
+		
+		// headers testing is only available using xdebug extension 
+        // since php cli sapi mode doesn't handle any headers
+		if(function_exists('xdebug_get_headers')) {
+			$headers = xdebug_get_headers();
+            $this->assertContains('Content-type: text/plain', $headers);
+			$this->assertContains(
+                'Content-Disposition: attachment; filename="my-test-file.txt"',
+                $headers
+            );
+		}
+			
+		// note that prior to php 5.4 there is no way to retrieve the status code sent 
+		if(function_exists('http_response_code')){
+			$this->assertEquals(200, http_response_code());
+		}
+		// End of user code
+    }
+    
+    /**
      * Test static method createRedirectResponse from class HttpResponse
      *
      * Start of user code HttpResponseTest.testcreateRedirectResponseAnnotations 
@@ -82,44 +120,6 @@ class HttpResponseTest extends \PHPUnit_Framework_TestCase
 		// Note that prior to PHP 5.4 there is no way to retrieve the status code sent
 		if(function_exists('http_response_code')){
 			$this->assertEquals(301, http_response_code());
-		}
-		// End of user code
-    }
-    
-    /**
-     * Test static method createDownloadFileResponse from class HttpResponse
-     *
-     * Start of user code HttpResponseTest.testcreateDownloadFileResponseAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateDownloadFileResponse()
-    {
-        // Start of user code HttpResponseTest.testcreateDownloadFileResponse
-	    $downloadFileResponse = HttpResponse::createDownloadFileResponse(
-			'my-test-file.txt',
-			'text/plain',
-			'hello world!'
-		);
-		
-		ob_start();
-		$downloadFileResponse->sendToClient();
-		$this->assertEquals('hello world!', ob_get_clean());
-		
-		// headers testing is only available using xdebug extension 
-        // since php cli sapi mode doesn't handle any headers
-		if(function_exists('xdebug_get_headers')) {
-			$headers = xdebug_get_headers();
-            $this->assertContains('Content-type: text/plain', $headers);
-			$this->assertContains(
-                'Content-Disposition: attachment; filename="my-test-file.txt"',
-                $headers
-            );
-		}
-			
-		// note that prior to php 5.4 there is no way to retrieve the status code sent 
-		if(function_exists('http_response_code')){
-			$this->assertEquals(200, http_response_code());
 		}
 		// End of user code
     }

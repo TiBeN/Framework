@@ -60,19 +60,6 @@ class ValidatorsRegistry
 
     /**
      * @param string $name
-     * @return bool $boolean
-     */
-    public static function hasValidator($name)
-    {
-        // Start of user code ValidatorsRegistry.hasValidator
-        $boolean = self::getValidators()->has($name);
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
-     * @param string $name
      */
     public static function clearValidator($name)
     {
@@ -97,6 +84,19 @@ class ValidatorsRegistry
         // Start of user code ValidatorsRegistry.registerValidator
         self::getValidators()->set($validator->getName(), $validator);
         // End of user code
+    }
+
+    /**
+     * @param string $name
+     * @return bool $boolean
+     */
+    public static function hasValidator($name)
+    {
+        // Start of user code ValidatorsRegistry.hasValidator
+        $boolean = self::getValidators()->has($name);
+        // End of user code
+    
+        return $boolean;
     }
 
     /**

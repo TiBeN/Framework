@@ -48,9 +48,7 @@ class EntityValidatorTest extends \PHPUnit_Framework_TestCase
     public function testValidate()
     {
         // Start of user code EntityValidatorTest.testvalidate
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
+        
 		// End of user code
     }
 

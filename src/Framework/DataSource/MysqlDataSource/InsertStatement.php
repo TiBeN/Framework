@@ -17,9 +17,9 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class InsertStatement implements Statement
 {
     /**
-     * @var string
+     * @var ColumnNamesListStatement
      */
-    public $tableName;
+    public $columnNamesListStatement;
 
     /**
      * @var ValuesStatement
@@ -27,9 +27,9 @@ class InsertStatement implements Statement
     public $valuesStatement;
 
     /**
-     * @var ColumnNamesListStatement
+     * @var string
      */
-    public $columnNamesListStatement;
+    public $tableName;
 
     public function __construct()
     {
@@ -44,23 +44,23 @@ class InsertStatement implements Statement
     }
 
     /**
-     * @return string
+     * @return ColumnNamesListStatement
      */
-    public function getTableName()
+    public function getColumnNamesListStatement()
     {
-        // Start of user code Getter InsertStatement.getTableName
+        // Start of user code Getter InsertStatement.getColumnNamesListStatement
         // End of user code
-        return $this->tableName;
+        return $this->columnNamesListStatement;
     }
 
     /**
-     * @param string $tableName
+     * @param ColumnNamesListStatement $columnNamesListStatement
      */
-    public function setTableName($tableName)
+    public function setColumnNamesListStatement(ColumnNamesListStatement $columnNamesListStatement)
     {
-        // Start of user code Setter InsertStatement.setTableName
+        // Start of user code Setter InsertStatement.setColumnNamesListStatement
         // End of user code
-        $this->tableName = $tableName;
+        $this->columnNamesListStatement = $columnNamesListStatement;
     }
 
     /**
@@ -84,26 +84,64 @@ class InsertStatement implements Statement
     }
 
     /**
-     * @return ColumnNamesListStatement
+     * @return string
      */
-    public function getColumnNamesListStatement()
+    public function getTableName()
     {
-        // Start of user code Getter InsertStatement.getColumnNamesListStatement
+        // Start of user code Getter InsertStatement.getTableName
         // End of user code
-        return $this->columnNamesListStatement;
+        return $this->tableName;
     }
 
     /**
-     * @param ColumnNamesListStatement $columnNamesListStatement
+     * @param string $tableName
      */
-    public function setColumnNamesListStatement(ColumnNamesListStatement $columnNamesListStatement)
+    public function setTableName($tableName)
     {
-        // Start of user code Setter InsertStatement.setColumnNamesListStatement
+        // Start of user code Setter InsertStatement.setTableName
         // End of user code
-        $this->columnNamesListStatement = $columnNamesListStatement;
+        $this->tableName = $tableName;
     }
 
     // Statement Realization
+
+    /**
+     * Tell wether the statement is ready or not to be executed
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+        $status = true;
+        if(
+            (!isset($this->tableName) || empty($this->tableName))
+            || (!isset($this->columnNamesListStatement) 
+                || $this->columnNamesListStatement->isEmpty() 
+            )
+            || (!isset($this->valuesStatement) || $this->valuesStatement->isEmpty())
+        ) {
+            return false;
+        }
+        // End of user code
+    
+        return $status;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+		$statementParameters = AssociativeArray::createFromNativeArray(
+            null,
+            $this->valuesStatement->toNativeArray()
+        );
+        // End of user code
+    
+        return $statementParameters;
+    }
 
     /**
      * Return the statement in String format
@@ -138,44 +176,6 @@ class InsertStatement implements Statement
         // End of user code
     
         return $statement;
-    }
-
-    /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-		$statementParameters = AssociativeArray::createFromNativeArray(
-            null,
-            $this->valuesStatement->toNativeArray()
-        );
-        // End of user code
-    
-        return $statementParameters;
-    }
-
-    /**
-     * Tell wether the statement is ready or not to be executed
-     *
-     * @return bool $status
-     */
-    public function isReadyToBeExecuted()
-    {
-        // Start of user code Statement.isReadyToBeExecuted
-        $status = true;
-        if(
-            (!isset($this->tableName) || empty($this->tableName))
-            || (!isset($this->columnNamesListStatement) 
-                || $this->columnNamesListStatement->isEmpty() 
-            )
-            || (!isset($this->valuesStatement) || $this->valuesStatement->isEmpty())
-        ) {
-            return false;
-        }
-        // End of user code
-    
-        return $status;
     }
 
     // Start of user code InsertStatement.implementationSpecificMethods

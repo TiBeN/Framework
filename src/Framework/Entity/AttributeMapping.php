@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\Entity;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Validation\ValidationRule;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code AttributeMapping.useStatements
 // Place your use statements here.
@@ -23,28 +23,30 @@ class AttributeMapping
     public $validationRules;
 
     /**
-     * @var AssociativeArray
+     * @var DataSourceAttributeMappingConfiguration
      */
-    public $type;
+    public $dataSourceAttributeMappingConfiguration;
 
     /**
      * @var bool
      */
-    public $isIdentifier;
+    public $isIdentifier = false;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $type;
 
     /**
      * @var string
      */
     public $name;
 
-    /**
-     * @var DataSourceAttributeMappingConfiguration
-     */
-    public $dataSourceAttributeMappingConfiguration;
-
     public function __construct()
     {
         // Start of user code AttributeMapping.constructor
+        $this->validationRules = array();
+
         // End of user code
     }
 
@@ -75,23 +77,23 @@ class AttributeMapping
     }
 
     /**
-     * @return AssociativeArray
+     * @return DataSourceAttributeMappingConfiguration
      */
-    public function getType()
+    public function getDataSourceAttributeMappingConfiguration()
     {
-        // Start of user code Getter AttributeMapping.getType
+        // Start of user code Getter AttributeMapping.getDataSourceAttributeMappingConfiguration
         // End of user code
-        return $this->type;
+        return $this->dataSourceAttributeMappingConfiguration;
     }
 
     /**
-     * @param AssociativeArray $type
+     * @param DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration
      */
-    public function setType(AssociativeArray $type)
+    public function setDataSourceAttributeMappingConfiguration(DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration)
     {
-        // Start of user code Setter AttributeMapping.setType
+        // Start of user code Setter AttributeMapping.setDataSourceAttributeMappingConfiguration
         // End of user code
-        $this->type = $type;
+        $this->dataSourceAttributeMappingConfiguration = $dataSourceAttributeMappingConfiguration;
     }
 
     /**
@@ -115,6 +117,26 @@ class AttributeMapping
     }
 
     /**
+     * @return AssociativeArray
+     */
+    public function getType()
+    {
+        // Start of user code Getter AttributeMapping.getType
+        // End of user code
+        return $this->type;
+    }
+
+    /**
+     * @param AssociativeArray $type
+     */
+    public function setType(AssociativeArray $type)
+    {
+        // Start of user code Setter AttributeMapping.setType
+        // End of user code
+        $this->type = $type;
+    }
+
+    /**
      * @return string
      */
     public function getName()
@@ -132,26 +154,6 @@ class AttributeMapping
         // Start of user code Setter AttributeMapping.setName
         // End of user code
         $this->name = $name;
-    }
-
-    /**
-     * @return DataSourceAttributeMappingConfiguration
-     */
-    public function getDataSourceAttributeMappingConfiguration()
-    {
-        // Start of user code Getter AttributeMapping.getDataSourceAttributeMappingConfiguration
-        // End of user code
-        return $this->dataSourceAttributeMappingConfiguration;
-    }
-
-    /**
-     * @param DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration
-     */
-    public function setDataSourceAttributeMappingConfiguration(DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration)
-    {
-        // Start of user code Setter AttributeMapping.setDataSourceAttributeMappingConfiguration
-        // End of user code
-        $this->dataSourceAttributeMappingConfiguration = $dataSourceAttributeMappingConfiguration;
     }
 
     /**
@@ -187,6 +189,11 @@ class AttributeMapping
         $attributeMapping->setDataSourceAttributeMappingConfiguration(
             $config->get('dataSourceAttributeMappingConfiguration')
         );
+        if($config->has('validationRules')) {
+            $attributeMapping->setValidationRules(
+                $config->get('validationRules')
+            );
+        }
         // End of user code
     
         return $attributeMapping;

@@ -26,18 +26,18 @@ interface ProxyCollection
 	public function defineAsProxyOf(Collection $collection, Converter $converter = NULL);
 
 	/**
-	 * Determine whether the collection act as a proxy of another collection or not.
-	 *
-	 * @return bool $boolean
-	 */
-	public function actAsAProxy();
-
-	/**
 	 * Detach the proxy collection from the initial collection and dump all items contained in the initial collection.
 	 * If the proxy collection is configured with a CollectionItemConverter, all items will converted during the dump.
 	 * If the initial collection has a stream or lazy fetching behavior this operation can 
 	 * issue some performance drawbacks because it browse all the collection during the dump.
 	 */
 	public function defineAsSource();
+
+	/**
+	 * Determine whether the collection act as a proxy of another collection or not.
+	 *
+	 * @return bool $boolean
+	 */
+	public function actAsAProxy();
 
 }

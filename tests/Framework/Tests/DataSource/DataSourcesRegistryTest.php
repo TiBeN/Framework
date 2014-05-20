@@ -40,20 +40,6 @@ class DataSourcesRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method getDataSource from class DataSourcesRegistry
-     *
-     * Start of user code DataSourcesRegistryTest.testgetDataSourceAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetDataSource()
-    {
-        // Start of user code DataSourcesRegistryTest.testgetDataSource
-	    // Tested by "testRegisterDataSource"
-		// End of user code
-    }
-    
-    /**
      * Test static method registerDataSource from class DataSourcesRegistry
      *
      * Start of user code DataSourcesRegistryTest.testregisterDataSourceAnnotations 
@@ -67,6 +53,20 @@ class DataSourcesRegistryTest extends \PHPUnit_Framework_TestCase
         $dataSource->setName('test');
         DataSourcesRegistry::registerDataSource($dataSource);
         $this->assertEquals($dataSource, DataSourcesRegistry::getDataSource('test'));
+		// End of user code
+    }
+    
+    /**
+     * Test static method getDataSource from class DataSourcesRegistry
+     *
+     * Start of user code DataSourcesRegistryTest.testgetDataSourceAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetDataSource()
+    {
+        // Start of user code DataSourcesRegistryTest.testgetDataSource
+	    // Tested by "testRegisterDataSource"
 		// End of user code
     }
     

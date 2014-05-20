@@ -59,6 +59,54 @@ class DataSourceTypeConvertersRegistry
     }
 
     /**
+     * @param string $type
+     * @param string $dataSourceType
+     */
+    public static function clearTypeConverter($type, $dataSourceType)
+    {
+        // Start of user code DataSourceTypeConvertersRegistry.clearTypeConverter
+		if(!self::hasTypeConverter($type, $dataSourceType)) {
+		    throw new \InvalidArgumentException(
+                sprintf(
+                    'No type converter \'%s\' for datasource \'%s\'', 
+                    $type, 
+                    $dataSourceType
+                )
+            );
+		}
+		
+		self::getTypeConverters()->get($dataSourceType)->remove($type);		
+        // End of user code
+    }
+
+    /**
+     * @param string $type
+     * @param string $dataSourceType
+     * @return TypeConverter $typeConverter
+     */
+    public static function getTypeConverter($type, $dataSourceType)
+    {
+        // Start of user code DataSourceTypeConvertersRegistry.getTypeConverter
+	    if(!self::hasTypeConverter($type, $dataSourceType)) {
+	        throw new \InvalidArgumentException(
+                sprintf(
+                    'No type converter \'%s\' for datasource \'%s\'',
+                    $type,
+                    $dataSourceType
+                )
+	        );
+	    }
+	     
+	    $typeConverter = self::getTypeConverters()
+	       ->get($dataSourceType)
+	       ->get($type)
+        ;	           
+        // End of user code
+    
+        return $typeConverter;
+    }
+
+    /**
      * @param TypeConverter $typeConverter
      */
     public static function registerTypeConverter(TypeConverter $typeConverter)
@@ -95,54 +143,6 @@ class DataSourceTypeConvertersRegistry
         // End of user code
     
         return $boolean;
-    }
-
-    /**
-     * @param string $type
-     * @param string $dataSourceType
-     * @return TypeConverter $typeConverter
-     */
-    public static function getTypeConverter($type, $dataSourceType)
-    {
-        // Start of user code DataSourceTypeConvertersRegistry.getTypeConverter
-	    if(!self::hasTypeConverter($type, $dataSourceType)) {
-	        throw new \InvalidArgumentException(
-                sprintf(
-                    'No type converter \'%s\' for datasource \'%s\'',
-                    $type,
-                    $dataSourceType
-                )
-	        );
-	    }
-	     
-	    $typeConverter = self::getTypeConverters()
-	       ->get($dataSourceType)
-	       ->get($type)
-        ;	           
-        // End of user code
-    
-        return $typeConverter;
-    }
-
-    /**
-     * @param string $type
-     * @param string $dataSourceType
-     */
-    public static function clearTypeConverter($type, $dataSourceType)
-    {
-        // Start of user code DataSourceTypeConvertersRegistry.clearTypeConverter
-		if(!self::hasTypeConverter($type, $dataSourceType)) {
-		    throw new \InvalidArgumentException(
-                sprintf(
-                    'No type converter \'%s\' for datasource \'%s\'', 
-                    $type, 
-                    $dataSourceType
-                )
-            );
-		}
-		
-		self::getTypeConverters()->get($dataSourceType)->remove($type);		
-        // End of user code
     }
 
     // Start of user code DataSourceTypeConvertersRegistry.implementationSpecificMethods

@@ -7,6 +7,7 @@ use TiBeN\Framework\Entity\AttributeMapping;
 // Start of user code AttributeMapping.useStatements
 use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Tests\Fixtures\DataSource\FooDataSource\FooAttributeMappingConfiguration;
+use TiBeN\Framework\Validation\ValidationRule;
 
 // End of user code
 
@@ -59,7 +60,10 @@ class AttributeMappingTest extends \PHPUnit_Framework_TestCase
 	    $expectedAm->setDataSourceAttributeMappingConfiguration(
             new FooAttributeMappingConfiguration()
         );
-	    
+        $validationRule = new ValidationRule();
+        $validationRule->setValidatorName('notempty');
+	    $expectedAm->setValidationRules(array($validationRule));
+
 	    $this->assertEquals(
             $expectedAm, 
             AttributeMapping::create(
@@ -71,8 +75,10 @@ class AttributeMappingTest extends \PHPUnit_Framework_TestCase
                             null, 
                             array('name' => 'string')
                         ),
-                    'dataSourceAttributeMappingConfiguration' 
-                        => new FooAttributeMappingConfiguration()	            
+                        'dataSourceAttributeMappingConfiguration' 
+                            => new FooAttributeMappingConfiguration()
+                        ,
+                        'validationRules' => array($validationRule)
                     )
                 )
             )

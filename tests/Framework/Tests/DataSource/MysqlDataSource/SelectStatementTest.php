@@ -47,6 +47,40 @@ class SelectStatementTest extends \PHPUnit_Framework_TestCase
     
 
     /**
+     * Test method isReadyToBeExecuted from interface Statement
+     * Start of user code Statement.testisReadyToBeExecutedAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testIsReadyToBeExecuted()
+    {
+        // Start of user code Statement.testisReadyToBeExecuted
+	    $selectStatement = new SelectStatement();	    
+	    $this->assertFalse($selectStatement->isReadyToBeExecuted());
+	    $selectStatement->setSelectExpr(
+            SelectExpr::createFromNativeArray('string', array('foo'))
+        );	    
+	    $this->assertFalse($selectStatement->isReadyToBeExecuted());
+	    
+	    $selectStatement->setTableReferences('some_table');
+	    $this->assertTrue($selectStatement->isReadyToBeExecuted());
+    	// End of user code
+    }
+    
+    /**
+     * Test method getStatementParameters from interface Statement
+     * Start of user code Statement.testgetStatementParametersAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetStatementParameters()
+    {
+        // Start of user code Statement.testgetStatementParameters
+        // Case covered by testToString
+    	// End of user code
+    }
+    
+    /**
      * Test method toString from interface Statement
      * Start of user code Statement.testtoStringAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -108,40 +142,6 @@ class SelectStatementTest extends \PHPUnit_Framework_TestCase
             $expectedParameters, 
             $selectStatement->getStatementParameters()
         );
-    	// End of user code
-    }
-    
-    /**
-     * Test method getStatementParameters from interface Statement
-     * Start of user code Statement.testgetStatementParametersAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetStatementParameters()
-    {
-        // Start of user code Statement.testgetStatementParameters
-        // Case covered by testToString
-    	// End of user code
-    }
-    
-    /**
-     * Test method isReadyToBeExecuted from interface Statement
-     * Start of user code Statement.testisReadyToBeExecutedAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testIsReadyToBeExecuted()
-    {
-        // Start of user code Statement.testisReadyToBeExecuted
-	    $selectStatement = new SelectStatement();	    
-	    $this->assertFalse($selectStatement->isReadyToBeExecuted());
-	    $selectStatement->setSelectExpr(
-            SelectExpr::createFromNativeArray('string', array('foo'))
-        );	    
-	    $this->assertFalse($selectStatement->isReadyToBeExecuted());
-	    
-	    $selectStatement->setTableReferences('some_table');
-	    $this->assertTrue($selectStatement->isReadyToBeExecuted());
     	// End of user code
     }
 

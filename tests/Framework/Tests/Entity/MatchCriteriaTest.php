@@ -39,23 +39,23 @@ class MatchCriteriaTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method equals from class MatchCriteria
+     * Test static method notEquals from class MatchCriteria
      *
-     * Start of user code MatchCriteriaTest.testequalsAnnotations 
+     * Start of user code MatchCriteriaTest.testnotEqualsAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testEquals()
+    public function testNotEquals()
     {
-        // Start of user code MatchCriteriaTest.testequals
+        // Start of user code MatchCriteriaTest.testnotEquals
 		$expectedMatchCriteria = new MatchCriteria();
 		$expectedMatchCriteria->setAttribute('foo');
 		$expectedMatchCriteria->setValue('bar');
-		$expectedMatchCriteria->setOperator(MatchCriteria::OPERATOR_EQUALS);
+		$expectedMatchCriteria->setOperator(MatchCriteria::OPERATOR_NOT_EQUALS);
 		$this->assertEquals(
 			$expectedMatchCriteria,
-			MatchCriteria::equals('foo', 'bar')
-		);
+			MatchCriteria::notEquals('foo', 'bar')
+		);		
 		// End of user code
     }
     
@@ -77,69 +77,6 @@ class MatchCriteriaTest extends \PHPUnit_Framework_TestCase
 			$expectedMatchCriteria,
 			MatchCriteria::greaterThanOrEquals('foo', 1337)
 		);
-		// End of user code
-    }
-    
-    /**
-     * Test static method greaterThan from class MatchCriteria
-     *
-     * Start of user code MatchCriteriaTest.testgreaterThanAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGreaterThan()
-    {
-        // Start of user code MatchCriteriaTest.testgreaterThan
-		$expectedMatchCriteria = new MatchCriteria();
-		$expectedMatchCriteria->setAttribute('foo');
-		$expectedMatchCriteria->setValue(1337);
-		$expectedMatchCriteria->setOperator(MatchCriteria::OPERATOR_GREATER_THAN);
-		$this->assertEquals(
-			$expectedMatchCriteria,
-			MatchCriteria::greaterThan('foo', 1337)
-		);
-		// End of user code
-    }
-    
-    /**
-     * Test static method like from class MatchCriteria
-     *
-     * Start of user code MatchCriteriaTest.testlikeAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testLike()
-    {
-        // Start of user code MatchCriteriaTest.testlike
-		$expectedMatchCriteria = new MatchCriteria();
-		$expectedMatchCriteria->setAttribute('foo');
-		$expectedMatchCriteria->setValue('%bar%');
-		$expectedMatchCriteria->setOperator(MatchCriteria::OPERATOR_LIKE);
-		$this->assertEquals(
-			$expectedMatchCriteria,
-			MatchCriteria::like('foo', '%bar%')
-		);
-		// End of user code
-    }
-    
-    /**
-     * Test static method notEquals from class MatchCriteria
-     *
-     * Start of user code MatchCriteriaTest.testnotEqualsAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testNotEquals()
-    {
-        // Start of user code MatchCriteriaTest.testnotEquals
-		$expectedMatchCriteria = new MatchCriteria();
-		$expectedMatchCriteria->setAttribute('foo');
-		$expectedMatchCriteria->setValue('bar');
-		$expectedMatchCriteria->setOperator(MatchCriteria::OPERATOR_NOT_EQUALS);
-		$this->assertEquals(
-			$expectedMatchCriteria,
-			MatchCriteria::notEquals('foo', 'bar')
-		);		
 		// End of user code
     }
     
@@ -186,6 +123,27 @@ class MatchCriteriaTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method greaterThan from class MatchCriteria
+     *
+     * Start of user code MatchCriteriaTest.testgreaterThanAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGreaterThan()
+    {
+        // Start of user code MatchCriteriaTest.testgreaterThan
+		$expectedMatchCriteria = new MatchCriteria();
+		$expectedMatchCriteria->setAttribute('foo');
+		$expectedMatchCriteria->setValue(1337);
+		$expectedMatchCriteria->setOperator(MatchCriteria::OPERATOR_GREATER_THAN);
+		$this->assertEquals(
+			$expectedMatchCriteria,
+			MatchCriteria::greaterThan('foo', 1337)
+		);
+		// End of user code
+    }
+    
+    /**
      * Test static method lessThan from class MatchCriteria
      *
      * Start of user code MatchCriteriaTest.testlessThanAnnotations 
@@ -202,6 +160,48 @@ class MatchCriteriaTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals(
 			$expectedMatchCriteria,
 			MatchCriteria::lessThan('foo', 1337)
+		);
+		// End of user code
+    }
+    
+    /**
+     * Test static method equals from class MatchCriteria
+     *
+     * Start of user code MatchCriteriaTest.testequalsAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testEquals()
+    {
+        // Start of user code MatchCriteriaTest.testequals
+		$expectedMatchCriteria = new MatchCriteria();
+		$expectedMatchCriteria->setAttribute('foo');
+		$expectedMatchCriteria->setValue('bar');
+		$expectedMatchCriteria->setOperator(MatchCriteria::OPERATOR_EQUALS);
+		$this->assertEquals(
+			$expectedMatchCriteria,
+			MatchCriteria::equals('foo', 'bar')
+		);
+		// End of user code
+    }
+    
+    /**
+     * Test static method like from class MatchCriteria
+     *
+     * Start of user code MatchCriteriaTest.testlikeAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testLike()
+    {
+        // Start of user code MatchCriteriaTest.testlike
+		$expectedMatchCriteria = new MatchCriteria();
+		$expectedMatchCriteria->setAttribute('foo');
+		$expectedMatchCriteria->setValue('%bar%');
+		$expectedMatchCriteria->setOperator(MatchCriteria::OPERATOR_LIKE);
+		$this->assertEquals(
+			$expectedMatchCriteria,
+			MatchCriteria::like('foo', '%bar%')
 		);
 		// End of user code
     }

@@ -2,10 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\CriteriaSet;
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Entity\CriteriaSet;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code StatementFactory.useStatements
 // Place your use statements here.
@@ -32,19 +32,28 @@ class StatementFactory
     }
 
     /**
-     * @param string $statementString
-     * @param AssociativeArray $parameters
-     * @return GenericStatement $genericStatement
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     * @return DeleteStatement $deleteStatement
      */
-    public static function createFromString($statementString, AssociativeArray $parameters)
+    public static function createDeleteStatement(EntityMapping $entityMapping, Entity $entity)
     {
-        // Start of user code StatementFactory.createFromString
-	    $genericStatement = new GenericStatement();
-	    $genericStatement->setStatementString($statementString);
-	    $genericStatement->setStatementParameters($parameters);
+        // Start of user code StatementFactory.createDeleteStatement
+        $deleteStatement = new DeleteStatement();
+        $deleteStatement->setTableName(
+            $entityMapping
+                ->getDataSourceEntityConfiguration()
+                ->getTableName()
+        );
+        $deleteStatement->setWhereConditions(
+            WhereConditions::createEntityTargetFromEntity(
+                $entityMapping,
+                $entity
+            )
+        );
         // End of user code
     
-        return $genericStatement;
+        return $deleteStatement;
     }
 
     /**
@@ -85,59 +94,19 @@ class StatementFactory
     }
 
     /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     * @return DeleteStatement $deleteStatement
+     * @param string $statementString
+     * @param AssociativeArray $parameters
+     * @return GenericStatement $genericStatement
      */
-    public static function createDeleteStatement(EntityMapping $entityMapping, Entity $entity)
+    public static function createFromString($statementString, AssociativeArray $parameters)
     {
-        // Start of user code StatementFactory.createDeleteStatement
-        $deleteStatement = new DeleteStatement();
-        $deleteStatement->setTableName(
-            $entityMapping
-                ->getDataSourceEntityConfiguration()
-                ->getTableName()
-        );
-        $deleteStatement->setWhereConditions(
-            WhereConditions::createEntityTargetFromEntity(
-                $entityMapping,
-                $entity
-            )
-        );
+        // Start of user code StatementFactory.createFromString
+	    $genericStatement = new GenericStatement();
+	    $genericStatement->setStatementString($statementString);
+	    $genericStatement->setStatementParameters($parameters);
         // End of user code
     
-        return $deleteStatement;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     * @return UpdateStatement $updateStatement
-     */
-    public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code StatementFactory.createUpdateStatementFromEntity
-        $updateStatement = new UpdateStatement();
-        $updateStatement->setTableName(
-            $entityMapping
-                ->getDataSourceEntityConfiguration()
-                ->getTableName()
-        );
-        $updateStatement->setSetStatement(
-            SetStatement::createKeyValueListFromEntity(
-                $entityMapping,
-                $entity
-            )
-        );
-        $updateStatement->setWhereDefinition(
-            WhereConditions::createEntityTargetFromEntity(
-                $entityMapping,
-                $entity
-            )
-        );
-        // End of user code
-    
-        return $updateStatement;
+        return $genericStatement;
     }
 
     /**
@@ -186,6 +155,37 @@ class StatementFactory
         // End of user code
     
         return $selectStatement;
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     * @return UpdateStatement $updateStatement
+     */
+    public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code StatementFactory.createUpdateStatementFromEntity
+        $updateStatement = new UpdateStatement();
+        $updateStatement->setTableName(
+            $entityMapping
+                ->getDataSourceEntityConfiguration()
+                ->getTableName()
+        );
+        $updateStatement->setSetStatement(
+            SetStatement::createKeyValueListFromEntity(
+                $entityMapping,
+                $entity
+            )
+        );
+        $updateStatement->setWhereDefinition(
+            WhereConditions::createEntityTargetFromEntity(
+                $entityMapping,
+                $entity
+            )
+        );
+        // End of user code
+    
+        return $updateStatement;
     }
 
     // Start of user code StatementFactory.implementationSpecificMethods

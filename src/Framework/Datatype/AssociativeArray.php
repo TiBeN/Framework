@@ -100,20 +100,6 @@ class AssociativeArray implements \Iterator, \Countable
     }
 
     /**
-     * Determine if the DataContainer is empty or not
-     *
-     * @return string $boolean
-     */
-    public function isEmpty()
-    {
-        // Start of user code AssociativeArray.isEmpty
-        $boolean = (!isset($this->items) || empty($this->items));
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
      * Search for an item and return an AssociativeArrayFindResult
      *
      * @param string $item
@@ -132,106 +118,6 @@ class AssociativeArray implements \Iterator, \Countable
                 $result->setKey($search);
             }
         }
-        // End of user code
-    
-        return $result;
-    }
-
-    /**
-     * Remove a value
-     *
-     * @param string $key
-     */
-    public function remove($key)
-    {
-        // Start of user code AssociativeArray.remove
-        if (!isset($this->items) || !isset($this->items[$key])) {
-            throw new InvalidArgumentException(
-                sprintf('Key "%s" not found in container', $key)
-            );
-        }
-        unset($this->items[$key]);
-        // End of user code
-    }
-
-    /**
-     * Associate a value to a key and store it 
-     *
-     * @param string $key
-     * @param T $value
-     */
-    public function set($key, $value)
-    {
-        $this->typeHint($this->TType, $value);
-        // Start of user code AssociativeArray.set
-        if (!isset($this->items)) {
-            $this->items = array();
-        }
-        $this->items[$key] = $value;
-        // End of user code
-    }
-
-    /**
-     * Factory method to create an Associative from a language native array
-     *
-     * @param string $type
-     * @param array $nativeArray
-     * @return AssociativeArray $associativeArray
-     */
-    public static function createFromNativeArray($type, array $nativeArray)
-    {
-        // Start of user code AssociativeArray.createFromNativeArray
-        $className = get_called_class();
-        $associativeArray = new $className($type);
-        foreach ($nativeArray as $key => $value) {
-            self::typeHint($type, $value);
-            $associativeArray->set($key, $value);
-        }
-        // End of user code
-    
-        return $associativeArray;
-    }
-
-    /**
-     * Merge the AssociativeArray with another
-     *
-     * @param AssociativeArray $associativeArray
-     */
-    public function merge(AssociativeArray $associativeArray)
-    {
-        // Start of user code AssociativeArray.merge
-        !isset($this->items) && $this->items = array();
-        $this->items = array_merge($this->items, $associativeArray->toNativeArray());
-        // End of user code
-    }
-
-    /**
-     * Convert to a language native array
-     *
-     * @return array $nativeArray
-     */
-    public function toNativeArray()
-    {
-        // Start of user code AssociativeArray.toNativeArray
-        $nativeArray = isset($this->items)
-            ? $this->items
-            : array()
-        ;
-        // End of user code
-    
-        return $nativeArray;
-    }
-
-    /**
-     * Determine if a value is stored
-     *
-     * @param string $key
-     * @return bool $result
-     */
-    public function has($key)
-    {
-        // Start of user code AssociativeArray.has
-        $result = (isset($this->items) && isset($this->items[$key]));
         // End of user code
     
         return $result;
@@ -257,17 +143,121 @@ class AssociativeArray implements \Iterator, \Countable
         return $value;
     }
 
-    // Iterator Realization
+    /**
+     * Convert to a language native array
+     *
+     * @return array $nativeArray
+     */
+    public function toNativeArray()
+    {
+        // Start of user code AssociativeArray.toNativeArray
+        $nativeArray = isset($this->items)
+            ? $this->items
+            : array()
+        ;
+        // End of user code
+    
+        return $nativeArray;
+    }
 
     /**
-     * Moves the current position to the next element. 
+     * Merge the AssociativeArray with another
+     *
+     * @param AssociativeArray $associativeArray
      */
-    public function next()
+    public function merge(AssociativeArray $associativeArray)
     {
-        // Start of user code Iterator.next
-        next($this->items);
+        // Start of user code AssociativeArray.merge
+        !isset($this->items) && $this->items = array();
+        $this->items = array_merge($this->items, $associativeArray->toNativeArray());
         // End of user code
     }
+
+    /**
+     * Factory method to create an Associative from a language native array
+     *
+     * @param string $type
+     * @param array $nativeArray
+     * @return AssociativeArray $associativeArray
+     */
+    public static function createFromNativeArray($type, array $nativeArray)
+    {
+        // Start of user code AssociativeArray.createFromNativeArray
+        $className = get_called_class();
+        $associativeArray = new $className($type);
+        foreach ($nativeArray as $key => $value) {
+            self::typeHint($type, $value);
+            $associativeArray->set($key, $value);
+        }
+        // End of user code
+    
+        return $associativeArray;
+    }
+
+    /**
+     * Determine if a value is stored
+     *
+     * @param string $key
+     * @return bool $result
+     */
+    public function has($key)
+    {
+        // Start of user code AssociativeArray.has
+        $result = (isset($this->items) && isset($this->items[$key]));
+        // End of user code
+    
+        return $result;
+    }
+
+    /**
+     * Determine if the DataContainer is empty or not
+     *
+     * @return string $boolean
+     */
+    public function isEmpty()
+    {
+        // Start of user code AssociativeArray.isEmpty
+        $boolean = (!isset($this->items) || empty($this->items));
+        // End of user code
+    
+        return $boolean;
+    }
+
+    /**
+     * Associate a value to a key and store it 
+     *
+     * @param string $key
+     * @param T $value
+     */
+    public function set($key, $value)
+    {
+        $this->typeHint($this->TType, $value);
+        // Start of user code AssociativeArray.set
+        if (!isset($this->items)) {
+            $this->items = array();
+        }
+        $this->items[$key] = $value;
+        // End of user code
+    }
+
+    /**
+     * Remove a value
+     *
+     * @param string $key
+     */
+    public function remove($key)
+    {
+        // Start of user code AssociativeArray.remove
+        if (!isset($this->items) || !isset($this->items[$key])) {
+            throw new InvalidArgumentException(
+                sprintf('Key "%s" not found in container', $key)
+            );
+        }
+        unset($this->items[$key]);
+        // End of user code
+    }
+
+    // Iterator Realization
 
     /**
      * Rewinds back to the first element of the Iterator. 
@@ -276,6 +266,16 @@ class AssociativeArray implements \Iterator, \Countable
     {
         // Start of user code Iterator.rewind
         reset($this->items);
+        // End of user code
+    }
+
+    /**
+     * Moves the current position to the next element. 
+     */
+    public function next()
+    {
+        // Start of user code Iterator.next
+        next($this->items);
         // End of user code
     }
 

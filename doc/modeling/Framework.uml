@@ -2804,7 +2804,7 @@ with other Statement classes.</body>
       </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_lkWZkB4fEeOAXbbnJNwHxQ" name="store validation results into" client="_WqNVgB4fEeOAXbbnJNwHxQ" supplier="_dr-IEB4fEeOAXbbnJNwHxQ"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_tDsgAB4fEeOAXbbnJNwHxQ" clientDependency="_-tXloMcGEeOwo4bGXJhZCw" name="EntityMapping">
+    <packagedElement xmi:type="uml:Class" xmi:id="_tDsgAB4fEeOAXbbnJNwHxQ" clientDependency="_-tXloMcGEeOwo4bGXJhZCw __i62sN_2EeOBsPjkboT0ig" name="EntityMapping">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_T2DrgB4iEeOwhK47NxXINQ" name="dataSourceName" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W1QAgB4iEeOwhK47NxXINQ" value="1"/>
@@ -2870,9 +2870,7 @@ with other Statement classes.</body>
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t5SxoB4nEeOwhK47NxXINQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t5bUgB4nEeOwhK47NxXINQ" value="1"/>
-        <defaultValue xmi:type="uml:LiteralString" xmi:id="_t50WEB4nEeOwhK47NxXINQ">
-          <value xsi:nil="true"/>
-        </defaultValue>
+        <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_9bqMEN_yEeOBsPjkboT0ig"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_LYBQkEoGEeOhBJpxbXcYWQ" name="type" visibility="public" type="_ti84wLoPEeKycOj42mlSMA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NGN3wEoGEeOhBJpxbXcYWQ" value="1"/>
@@ -3219,6 +3217,7 @@ with other Statement classes.</body>
     </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_-tXloMcGEeOwo4bGXJhZCw" name="Obtain Datasource when create using" client="_tDsgAB4fEeOAXbbnJNwHxQ" supplier="_CrK7wBlfEeOF6MZOG78g_A"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_TMvuQMeTEeOhlq-hm4UKlg" name="Store criterias into" client="_e0hssB79EeOf9MerE9_4bA" supplier="_9fMUkEWcEeOvPbyK1FXp-A"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="__i62sN_2EeOBsPjkboT0ig" name="generate validation rules of attributes using" client="_tDsgAB4fEeOAXbbnJNwHxQ" supplier="_Ow5DkBskEeOmN-2QJZ-Okg"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_wx9KoBsjEeOmN-2QJZ-Okg" name="Validation">
     <ownedComment xmi:type="uml:Comment" xmi:id="_tDCMYBskEeOmN-2QJZ-Okg">
@@ -3288,6 +3287,10 @@ can be used in the pattern. It will be replaced by the validated value.
           <value xsi:nil="true"/>
         </defaultValue>
       </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Hc8NkN9gEeOA6NW-Tj7oDw" name="create" isStatic="true">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_RCPT4N9gEeOA6NW-Tj7oDw" name="config" type="_ti84wLoPEeKycOj42mlSMA"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_V_XVMN9gEeOA6NW-Tj7oDw" name="validationRule" type="_Ow5DkBskEeOmN-2QJZ-Okg" direction="return"/>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_H-JvABslEeOmN-2QJZ-Okg" clientDependency="_RGW0MBsmEeOmN-2QJZ-Okg _b8PYoBsmEeOmN-2QJZ-Okg" name="Validator">
       <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_N77H0NeMEeOyWfzejOJSEA" name="RedefinableTemplateSignature1" parameter="_fY7xQNeMEeOyWfzejOJSEA">

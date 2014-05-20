@@ -70,17 +70,17 @@ class GenericStatement implements Statement
     // Statement Realization
 
     /**
-     * Return the statement in String format
+     * Tell wether the statement is ready or not to be executed
      *
-     * @return string $statement
+     * @return bool $status
      */
-    public function toString()
+    public function isReadyToBeExecuted()
     {
-        // Start of user code Statement.toString
-        $statement = $this->statementString;
+        // Start of user code Statement.isReadyToBeExecuted
+		return isset($this->statementString) && !empty($this->statementString);  
         // End of user code
     
-        return $statement;
+        return $status;
     }
 
     /**
@@ -96,17 +96,17 @@ class GenericStatement implements Statement
     }
 
     /**
-     * Tell wether the statement is ready or not to be executed
+     * Return the statement in String format
      *
-     * @return bool $status
+     * @return string $statement
      */
-    public function isReadyToBeExecuted()
+    public function toString()
     {
-        // Start of user code Statement.isReadyToBeExecuted
-		return isset($this->statementString) && !empty($this->statementString);  
+        // Start of user code Statement.toString
+        $statement = $this->statementString;
         // End of user code
     
-        return $status;
+        return $statement;
     }
 
     // Start of user code GenericStatement.implementationSpecificMethods

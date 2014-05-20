@@ -21,6 +21,11 @@ class GenericCollection implements Collection
     protected $TType;
 
     /**
+     * @var bool
+     */
+    protected $isReadOnly;
+
+    /**
      * @var array
      */
     protected $items;
@@ -29,11 +34,6 @@ class GenericCollection implements Collection
      * @var int
      */
     protected $iteratorPosition;
-
-    /**
-     * @var bool
-     */
-    protected $isReadOnly;
 
     public function __construct($TType = null)
     {
@@ -91,6 +91,26 @@ class GenericCollection implements Collection
     }
 
     /**
+     * @return bool
+     */
+    protected function getIsReadOnly()
+    {
+        // Start of user code Getter GenericCollection.getIsReadOnly
+        // End of user code
+        return $this->isReadOnly;
+    }
+
+    /**
+     * @param bool $isReadOnly
+     */
+    protected function setIsReadOnly($isReadOnly)
+    {
+        // Start of user code Setter GenericCollection.setIsReadOnly
+        // End of user code
+        $this->isReadOnly = $isReadOnly;
+    }
+
+    /**
      * @return array
      */
     protected function getItems()
@@ -131,26 +151,6 @@ class GenericCollection implements Collection
     }
 
     /**
-     * @return bool
-     */
-    protected function getIsReadOnly()
-    {
-        // Start of user code Getter GenericCollection.getIsReadOnly
-        // End of user code
-        return $this->isReadOnly;
-    }
-
-    /**
-     * @param bool $isReadOnly
-     */
-    protected function setIsReadOnly($isReadOnly)
-    {
-        // Start of user code Setter GenericCollection.setIsReadOnly
-        // End of user code
-        $this->isReadOnly = $isReadOnly;
-    }
-
-    /**
      * @param string $type
      * @param array $nativeArray
      * @return GenericCollection $genericCollection
@@ -169,6 +169,37 @@ class GenericCollection implements Collection
     }
 
     // Collection Realization
+
+    /**
+     * Define the collection as read only. All writing method then throws exceptions. 
+     *
+     * @param bool $boolean
+     */
+    public function setAsReadOnly($boolean)
+    {
+        // Start of user code Collection.setAsReadOnly
+		$this->isReadOnly = $boolean; 
+        // End of user code
+    }
+
+    /**
+     * Insert of replace an item at the provided key slot.
+     *
+     * @param int $key
+     * @param T $itemToSet
+     */
+    public function set($key, $itemToSet)
+    {
+        $this->typeHint($this->TType, $itemToSet);
+        // Start of user code Collection.set
+		if($this->isReadOnly) {
+			throw new \LogicException(
+                'Setting an item to a read only collection is not allowed'
+            );
+		}
+		$this->items[$key] = $itemToSet;
+        // End of user code
+    }
 
     /**
      * Return the object stored in the provided key slot.
@@ -196,24 +227,15 @@ class GenericCollection implements Collection
     }
 
     /**
-     * Moves the current position to the next element. 
-     */
-    public function next()
-    {
-        // Start of user code Iterator.next
-		next($this->items);
-        // End of user code
-    }
-
-    /**
-     * Tell whether the collection is read only or not.
+     * Tell wheter an item is stored in the provided key slot.
      *
+     * @param int $key
      * @return bool $boolean
      */
-    public function isReadOnly()
+    public function hasKey($key)
     {
-        // Start of user code Collection.isReadOnly
-		$boolean = $this->isReadOnly;
+        // Start of user code Collection.hasKey
+		$boolean = isset($this->items[$key]);
         // End of user code
     
         return $boolean;
@@ -230,30 +252,6 @@ class GenericCollection implements Collection
     }
 
     /**
-     * Rewinds back to the first element of the Iterator. 
-     */
-    public function rewind()
-    {
-        // Start of user code Iterator.rewind
-		reset($this->items);		 
-        // End of user code
-    }
-
-    /**
-     * Count elements of an object
-     *
-     * @return int $numberOfItems
-     */
-    public function count()
-    {
-        // Start of user code Countable.count
-		$numberOfItems = count($this->items);
-        // End of user code
-    
-        return $numberOfItems;
-    }
-
-    /**
      * Returns the key of the current element. 
      *
      * @return int $key
@@ -265,59 +263,6 @@ class GenericCollection implements Collection
         // End of user code
     
         return $key;
-    }
-
-    /**
-     * @return bool $boolean
-     */
-    public function valid()
-    {
-        // Start of user code Iterator.valid
-		$boolean = current($this->items) !== false;
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
-     * Define the collection as read only. All writing method then throws exceptions. 
-     *
-     * @param bool $boolean
-     */
-    public function setAsReadOnly($boolean)
-    {
-        // Start of user code Collection.setAsReadOnly
-		$this->isReadOnly = $boolean; 
-        // End of user code
-    }
-
-    /**
-     * Tell whether the collection is empty or not.
-     *
-     * @return bool $boolean
-     */
-    public function isEmpty()
-    {
-        // Start of user code Collection.isEmpty
-		$boolean = empty($this->items);
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
-     * Tell wheter an item is stored in the provided key slot.
-     *
-     * @param int $key
-     * @return bool $boolean
-     */
-    public function hasKey($key)
-    {
-        // Start of user code Collection.hasKey
-		$boolean = isset($this->items[$key]);
-        // End of user code
-    
-        return $boolean;
     }
 
     /**
@@ -353,25 +298,6 @@ class GenericCollection implements Collection
     }
 
     /**
-     * Insert of replace an item at the provided key slot.
-     *
-     * @param int $key
-     * @param T $itemToSet
-     */
-    public function set($key, $itemToSet)
-    {
-        $this->typeHint($this->TType, $itemToSet);
-        // Start of user code Collection.set
-		if($this->isReadOnly) {
-			throw new \LogicException(
-                'Setting an item to a read only collection is not allowed'
-            );
-		}
-		$this->items[$key] = $itemToSet;
-        // End of user code
-    }
-
-    /**
      * Adding a new item to the end of the collection.
      *
      * @param T $itemToAdd
@@ -403,6 +329,34 @@ class GenericCollection implements Collection
     }
 
     /**
+     * Count elements of an object
+     *
+     * @return int $numberOfItems
+     */
+    public function count()
+    {
+        // Start of user code Countable.count
+		$numberOfItems = count($this->items);
+        // End of user code
+    
+        return $numberOfItems;
+    }
+
+    /**
+     * Tell whether the collection is empty or not.
+     *
+     * @return bool $boolean
+     */
+    public function isEmpty()
+    {
+        // Start of user code Collection.isEmpty
+		$boolean = empty($this->items);
+        // End of user code
+    
+        return $boolean;
+    }
+
+    /**
      * Check if the current position is valid. 
      *
      * @return T $currentItem
@@ -414,6 +368,52 @@ class GenericCollection implements Collection
         // End of user code
     
         return $currentItem;
+    }
+
+    /**
+     * Rewinds back to the first element of the Iterator. 
+     */
+    public function rewind()
+    {
+        // Start of user code Iterator.rewind
+		reset($this->items);		 
+        // End of user code
+    }
+
+    /**
+     * Tell whether the collection is read only or not.
+     *
+     * @return bool $boolean
+     */
+    public function isReadOnly()
+    {
+        // Start of user code Collection.isReadOnly
+		$boolean = $this->isReadOnly;
+        // End of user code
+    
+        return $boolean;
+    }
+
+    /**
+     * Moves the current position to the next element. 
+     */
+    public function next()
+    {
+        // Start of user code Iterator.next
+		next($this->items);
+        // End of user code
+    }
+
+    /**
+     * @return bool $boolean
+     */
+    public function valid()
+    {
+        // Start of user code Iterator.valid
+		$boolean = current($this->items) !== false;
+        // End of user code
+    
+        return $boolean;
     }
 
     // Start of user code GenericCollection.implementationSpecificMethods

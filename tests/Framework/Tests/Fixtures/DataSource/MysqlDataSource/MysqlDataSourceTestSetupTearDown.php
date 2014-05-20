@@ -124,20 +124,35 @@ class MysqlDataSourceTestSetupTearDown
                             'columnName' => 'a',
                             'type' => array(
                                'name' => 'string'
-                            )                                          
+                            ),                                        
+                            'validationRules' => array(
+                                array(
+                                    'name' => 'notempty',
+                                    'message' => 'AttributeA is not set'
+                                )
+                            )
                         ),
                         'attributeB' => array(
                             'columnName' => 'b',
                             'type' => array(
                                 'name' => 'string'
-                            )    
+                            ), 
+                            'validationRules' => array(
+                                array(
+                                    'name' => 'stringlength',
+                                    'configuration' => array(
+                                        'min' => 3
+                                    ),
+                                    'message' => 'AttributeB is too short (3 chars min)'
+                                )
+                            )
                         ),
                         'attributeC' => array(
                             'columnName' => 'c',
                             'type' => array(
                                 'name' => 'string'
-                            )    
-                        )      
+                            )
+                        )
 
                 /* idée de mapping relation */
 //                 'entityX' => array(
