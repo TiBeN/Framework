@@ -43,31 +43,6 @@ class MysqlEntityAttributeMapperTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method getColumnValue from class MysqlEntityAttributeMapper
-     *
-     * Start of user code MysqlEntityAttributeMapperTest.testgetColumnValueAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetColumnValue()
-    {
-        // Start of user code MysqlEntityAttributeMapperTest.testgetColumnValue
-	    $entity = new SomeEntity();
-	    $entity->setId(1337);
-	    $entity->setAttributeA('foo');
-	    $mapper = new MysqlEntityAttributeMapper();
-	    $mapper->setEntity($entity);
-	    $mapper->setEntityMapping(
-            EntityMappingsRegistry::getEntityMapping(
-                'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
-            )
-        );	    
-	    $this->assertSame('foo', $mapper->getColumnValue('attributeA'));
-	    $this->assertSame('1337', $mapper->getColumnValue('id'));
-		// End of user code
-    }
-    
-    /**
      * Test method getIdentifierAttributeName from class MysqlEntityAttributeMapper
      *
      * Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierAttributeNameAnnotations 
@@ -154,6 +129,31 @@ class MysqlEntityAttributeMapperTest extends \PHPUnit_Framework_TestCase
         );
 	    $mapper->setIdentifier(1337);
 	    $this->assertEquals(1337, $entity->getId());        
+		// End of user code
+    }
+    
+    /**
+     * Test method getColumnValue from class MysqlEntityAttributeMapper
+     *
+     * Start of user code MysqlEntityAttributeMapperTest.testgetColumnValueAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetColumnValue()
+    {
+        // Start of user code MysqlEntityAttributeMapperTest.testgetColumnValue
+	    $entity = new SomeEntity();
+	    $entity->setId(1337);
+	    $entity->setAttributeA('foo');
+	    $mapper = new MysqlEntityAttributeMapper();
+	    $mapper->setEntity($entity);
+	    $mapper->setEntityMapping(
+            EntityMappingsRegistry::getEntityMapping(
+                'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+            )
+        );	    
+	    $this->assertSame('foo', $mapper->getColumnValue('attributeA'));
+	    $this->assertSame('1337', $mapper->getColumnValue('id'));
 		// End of user code
     }
     

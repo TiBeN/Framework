@@ -15,9 +15,9 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 class StatementExecutionResult
 {
     /**
-     * @var string
+     * @var int
      */
-    public $errorMessage;
+    public $numberOfAffectedRows;
 
     /**
      * @var bool
@@ -27,17 +27,17 @@ class StatementExecutionResult
     /**
      * @var int
      */
-    public $lastInsertId;
-
-    /**
-     * @var int
-     */
-    public $numberOfAffectedRows;
-
-    /**
-     * @var int
-     */
     public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var int
+     */
+    public $lastInsertId;
 
     /**
      * @var RowCollection
@@ -57,23 +57,23 @@ class StatementExecutionResult
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getErrorMessage()
+    public function getNumberOfAffectedRows()
     {
-        // Start of user code Getter StatementExecutionResult.getErrorMessage
+        // Start of user code Getter StatementExecutionResult.getNumberOfAffectedRows
         // End of user code
-        return $this->errorMessage;
+        return $this->numberOfAffectedRows;
     }
 
     /**
-     * @param string $errorMessage
+     * @param int $numberOfAffectedRows
      */
-    public function setErrorMessage($errorMessage)
+    public function setNumberOfAffectedRows($numberOfAffectedRows)
     {
-        // Start of user code Setter StatementExecutionResult.setErrorMessage
+        // Start of user code Setter StatementExecutionResult.setNumberOfAffectedRows
         // End of user code
-        $this->errorMessage = $errorMessage;
+        $this->numberOfAffectedRows = $numberOfAffectedRows;
     }
 
     /**
@@ -99,46 +99,6 @@ class StatementExecutionResult
     /**
      * @return int
      */
-    public function getLastInsertId()
-    {
-        // Start of user code Getter StatementExecutionResult.getLastInsertId
-        // End of user code
-        return $this->lastInsertId;
-    }
-
-    /**
-     * @param int $lastInsertId
-     */
-    public function setLastInsertId($lastInsertId)
-    {
-        // Start of user code Setter StatementExecutionResult.setLastInsertId
-        // End of user code
-        $this->lastInsertId = $lastInsertId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNumberOfAffectedRows()
-    {
-        // Start of user code Getter StatementExecutionResult.getNumberOfAffectedRows
-        // End of user code
-        return $this->numberOfAffectedRows;
-    }
-
-    /**
-     * @param int $numberOfAffectedRows
-     */
-    public function setNumberOfAffectedRows($numberOfAffectedRows)
-    {
-        // Start of user code Setter StatementExecutionResult.setNumberOfAffectedRows
-        // End of user code
-        $this->numberOfAffectedRows = $numberOfAffectedRows;
-    }
-
-    /**
-     * @return int
-     */
     public function getErrorCode()
     {
         // Start of user code Getter StatementExecutionResult.getErrorCode
@@ -154,6 +114,46 @@ class StatementExecutionResult
         // Start of user code Setter StatementExecutionResult.setErrorCode
         // End of user code
         $this->errorCode = $errorCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorMessage()
+    {
+        // Start of user code Getter StatementExecutionResult.getErrorMessage
+        // End of user code
+        return $this->errorMessage;
+    }
+
+    /**
+     * @param string $errorMessage
+     */
+    public function setErrorMessage($errorMessage)
+    {
+        // Start of user code Setter StatementExecutionResult.setErrorMessage
+        // End of user code
+        $this->errorMessage = $errorMessage;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLastInsertId()
+    {
+        // Start of user code Getter StatementExecutionResult.getLastInsertId
+        // End of user code
+        return $this->lastInsertId;
+    }
+
+    /**
+     * @param int $lastInsertId
+     */
+    public function setLastInsertId($lastInsertId)
+    {
+        // Start of user code Setter StatementExecutionResult.setLastInsertId
+        // End of user code
+        $this->lastInsertId = $lastInsertId;
     }
 
     /**

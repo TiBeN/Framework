@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\Entity;
-use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code SetStatement.useStatements
 // Place your use statements here.
@@ -68,19 +68,18 @@ class SetStatement extends AssociativeArray
     }
 
     /**
-     * @return string $string
+     * @return AssociativeArray $statementParameters
      */
-    public function toString()
+    public function getStatementParameters()
     {
-        // Start of user code SetStatement.toString
-		$statementChunks = array();
-		foreach($this as $attribute => $value) {
-		    array_push($statementChunks, sprintf('%1$s=:%1$s', $attribute));
-		}
-		$string = 'SET ' . implode(',', $statementChunks);
+        // Start of user code SetStatement.getStatementParameters
+	    $statementParameters = AssociativeArray::createFromNativeArray(
+            null, 
+            $this->toNativeArray()
+		);
         // End of user code
     
-        return $string;
+        return $statementParameters;
     }
 
     /**
@@ -101,18 +100,19 @@ class SetStatement extends AssociativeArray
     }
 
     /**
-     * @return AssociativeArray $statementParameters
+     * @return string $string
      */
-    public function getStatementParameters()
+    public function toString()
     {
-        // Start of user code SetStatement.getStatementParameters
-	    $statementParameters = AssociativeArray::createFromNativeArray(
-            null, 
-            $this->toNativeArray()
-		);
+        // Start of user code SetStatement.toString
+		$statementChunks = array();
+		foreach($this as $attribute => $value) {
+		    array_push($statementChunks, sprintf('%1$s=:%1$s', $attribute));
+		}
+		$string = 'SET ' . implode(',', $statementChunks);
         // End of user code
     
-        return $statementParameters;
+        return $string;
     }
 
     // Start of user code SetStatement.surchargedMethods

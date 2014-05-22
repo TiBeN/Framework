@@ -17,22 +17,7 @@ class MatchCriteria
     /**
      * @var string
      */
-    const OPERATOR_LIKE = 'like';
-
-    /**
-     * @var string
-     */
-    public $operator;
-
-    /**
-     * @var string
-     */
     const OPERATOR_NOT_LIKE = '!like';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
 
     /**
      * @var string
@@ -42,12 +27,12 @@ class MatchCriteria
     /**
      * @var string
      */
-    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
+    const OPERATOR_LIKE = 'like';
 
     /**
      * @var string
      */
-    const OPERATOR_LESS_THAN = '<';
+    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
 
     /**
      * @var string
@@ -57,7 +42,7 @@ class MatchCriteria
     /**
      * @var string
      */
-    const OPERATOR_GREATER_THAN = '>';
+    const OPERATOR_LESS_THAN = '<';
 
     /**
      * @var string
@@ -67,7 +52,22 @@ class MatchCriteria
     /**
      * @var string
      */
+    const OPERATOR_GREATER_THAN = '>';
+
+    /**
+     * @var string
+     */
     public $attribute;
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
+
+    /**
+     * @var string
+     */
+    public $operator;
 
     public function __construct()
     {
@@ -79,26 +79,6 @@ class MatchCriteria
     {
         // Start of user code MatchCriteria.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getOperator()
-    {
-        // Start of user code Getter MatchCriteria.getOperator
-        // End of user code
-        return $this->operator;
-    }
-
-    /**
-     * @param string $operator
-     */
-    public function setOperator($operator)
-    {
-        // Start of user code Setter MatchCriteria.setOperator
-        // End of user code
-        $this->operator = $operator;
     }
 
     /**
@@ -142,6 +122,43 @@ class MatchCriteria
     }
 
     /**
+     * @return string
+     */
+    public function getOperator()
+    {
+        // Start of user code Getter MatchCriteria.getOperator
+        // End of user code
+        return $this->operator;
+    }
+
+    /**
+     * @param string $operator
+     */
+    public function setOperator($operator)
+    {
+        // Start of user code Setter MatchCriteria.setOperator
+        // End of user code
+        $this->operator = $operator;
+    }
+
+    /**
+     * @param string $attribute
+     * @param string $value
+     * @return MatchCriteria $matchCriteria
+     */
+    public static function notLike($attribute, $value)
+    {
+        // Start of user code MatchCriteria.notLike
+		$matchCriteria = new self();
+		$matchCriteria->setAttribute($attribute);
+		$matchCriteria->setValue($value);
+		$matchCriteria->setOperator(self::OPERATOR_NOT_LIKE);		
+        // End of user code
+    
+        return $matchCriteria;
+    }
+
+    /**
      * @param string $attribute
      * @param string $value
      * @return MatchCriteria $matchCriteria
@@ -153,6 +170,57 @@ class MatchCriteria
 		$matchCriteria->setAttribute($attribute);
 		$matchCriteria->setValue($value);
 		$matchCriteria->setOperator(self::OPERATOR_NOT_EQUALS);
+        // End of user code
+    
+        return $matchCriteria;
+    }
+
+    /**
+     * @param string $attribute
+     * @param string $value
+     * @return MatchCriteria $matchCriteria
+     */
+    public static function equals($attribute, $value)
+    {
+        // Start of user code MatchCriteria.equals
+		$matchCriteria = new self();
+		$matchCriteria->setAttribute($attribute);
+		$matchCriteria->setValue($value);
+		$matchCriteria->setOperator(self::OPERATOR_EQUALS);
+        // End of user code
+    
+        return $matchCriteria;
+    }
+
+    /**
+     * @param string $attribute
+     * @param string $value
+     * @return MatchCriteria $matchCriteria
+     */
+    public static function greaterThan($attribute, $value)
+    {
+        // Start of user code MatchCriteria.greaterThan
+		$matchCriteria = new self();
+		$matchCriteria->setAttribute($attribute);
+		$matchCriteria->setValue($value);
+		$matchCriteria->setOperator(self::OPERATOR_GREATER_THAN);
+        // End of user code
+    
+        return $matchCriteria;
+    }
+
+    /**
+     * @param string $attribute
+     * @param string $value
+     * @return MatchCriteria $matchCriteria
+     */
+    public static function like($attribute, $value)
+    {
+        // Start of user code MatchCriteria.like
+		$matchCriteria = new self();
+		$matchCriteria->setAttribute($attribute);
+		$matchCriteria->setValue($value);
+		$matchCriteria->setOperator(self::OPERATOR_LIKE);
         // End of user code
     
         return $matchCriteria;
@@ -197,40 +265,6 @@ class MatchCriteria
      * @param string $value
      * @return MatchCriteria $matchCriteria
      */
-    public static function notLike($attribute, $value)
-    {
-        // Start of user code MatchCriteria.notLike
-		$matchCriteria = new self();
-		$matchCriteria->setAttribute($attribute);
-		$matchCriteria->setValue($value);
-		$matchCriteria->setOperator(self::OPERATOR_NOT_LIKE);		
-        // End of user code
-    
-        return $matchCriteria;
-    }
-
-    /**
-     * @param string $attribute
-     * @param string $value
-     * @return MatchCriteria $matchCriteria
-     */
-    public static function greaterThan($attribute, $value)
-    {
-        // Start of user code MatchCriteria.greaterThan
-		$matchCriteria = new self();
-		$matchCriteria->setAttribute($attribute);
-		$matchCriteria->setValue($value);
-		$matchCriteria->setOperator(self::OPERATOR_GREATER_THAN);
-        // End of user code
-    
-        return $matchCriteria;
-    }
-
-    /**
-     * @param string $attribute
-     * @param string $value
-     * @return MatchCriteria $matchCriteria
-     */
     public static function lessThan($attribute, $value)
     {
         // Start of user code MatchCriteria.lessThan
@@ -238,40 +272,6 @@ class MatchCriteria
 		$matchCriteria->setAttribute($attribute);
 		$matchCriteria->setValue($value);
 		$matchCriteria->setOperator(self::OPERATOR_LESS_THAN); 
-        // End of user code
-    
-        return $matchCriteria;
-    }
-
-    /**
-     * @param string $attribute
-     * @param string $value
-     * @return MatchCriteria $matchCriteria
-     */
-    public static function equals($attribute, $value)
-    {
-        // Start of user code MatchCriteria.equals
-		$matchCriteria = new self();
-		$matchCriteria->setAttribute($attribute);
-		$matchCriteria->setValue($value);
-		$matchCriteria->setOperator(self::OPERATOR_EQUALS);
-        // End of user code
-    
-        return $matchCriteria;
-    }
-
-    /**
-     * @param string $attribute
-     * @param string $value
-     * @return MatchCriteria $matchCriteria
-     */
-    public static function like($attribute, $value)
-    {
-        // Start of user code MatchCriteria.like
-		$matchCriteria = new self();
-		$matchCriteria->setAttribute($attribute);
-		$matchCriteria->setValue($value);
-		$matchCriteria->setOperator(self::OPERATOR_LIKE);
         // End of user code
     
         return $matchCriteria;

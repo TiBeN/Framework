@@ -60,34 +60,6 @@ class ValidatorsRegistry
 
     /**
      * @param string $name
-     */
-    public static function clearValidator($name)
-    {
-        // Start of user code ValidatorsRegistry.clearValidator
-        if (!self::hasValidator($name)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    'There isnt %s Validator registered',
-                    $name                
-                )
-            );
-        }
-        self::getValidators()->remove($name);
-        // End of user code
-    }
-
-    /**
-     * @param Validator $validator
-     */
-    public static function registerValidator(Validator $validator)
-    {
-        // Start of user code ValidatorsRegistry.registerValidator
-        self::getValidators()->set($validator->getName(), $validator);
-        // End of user code
-    }
-
-    /**
-     * @param string $name
      * @return bool $boolean
      */
     public static function hasValidator($name)
@@ -118,6 +90,34 @@ class ValidatorsRegistry
         // End of user code
     
         return $validator;
+    }
+
+    /**
+     * @param Validator $validator
+     */
+    public static function registerValidator(Validator $validator)
+    {
+        // Start of user code ValidatorsRegistry.registerValidator
+        self::getValidators()->set($validator->getName(), $validator);
+        // End of user code
+    }
+
+    /**
+     * @param string $name
+     */
+    public static function clearValidator($name)
+    {
+        // Start of user code ValidatorsRegistry.clearValidator
+        if (!self::hasValidator($name)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    'There isnt %s Validator registered',
+                    $name                
+                )
+            );
+        }
+        self::getValidators()->remove($name);
+        // End of user code
     }
 
     // Start of user code ValidatorsRegistry.implementationSpecificMethods

@@ -18,14 +18,9 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class AttributeMapping
 {
     /**
-     * @var array
+     * @var string
      */
-    public $validationRules;
-
-    /**
-     * @var DataSourceAttributeMappingConfiguration
-     */
-    public $dataSourceAttributeMappingConfiguration;
+    public $name;
 
     /**
      * @var bool
@@ -33,14 +28,19 @@ class AttributeMapping
     public $isIdentifier = false;
 
     /**
+     * @var DataSourceAttributeMappingConfiguration
+     */
+    public $dataSourceAttributeMappingConfiguration;
+
+    /**
      * @var AssociativeArray
      */
     public $type;
 
     /**
-     * @var string
+     * @var array
      */
-    public $name;
+    public $validationRules;
 
     public function __construct()
     {
@@ -57,43 +57,23 @@ class AttributeMapping
     }
 
     /**
-     * @return array
+     * @return string
      */
-    public function getValidationRules()
+    public function getName()
     {
-        // Start of user code Getter AttributeMapping.getValidationRules
+        // Start of user code Getter AttributeMapping.getName
         // End of user code
-        return $this->validationRules;
+        return $this->name;
     }
 
     /**
-     * @param array $validationRules
+     * @param string $name
      */
-    public function setValidationRules(array $validationRules)
+    public function setName($name)
     {
-        // Start of user code Setter AttributeMapping.setValidationRules
+        // Start of user code Setter AttributeMapping.setName
         // End of user code
-        $this->validationRules = $validationRules;
-    }
-
-    /**
-     * @return DataSourceAttributeMappingConfiguration
-     */
-    public function getDataSourceAttributeMappingConfiguration()
-    {
-        // Start of user code Getter AttributeMapping.getDataSourceAttributeMappingConfiguration
-        // End of user code
-        return $this->dataSourceAttributeMappingConfiguration;
-    }
-
-    /**
-     * @param DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration
-     */
-    public function setDataSourceAttributeMappingConfiguration(DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration)
-    {
-        // Start of user code Setter AttributeMapping.setDataSourceAttributeMappingConfiguration
-        // End of user code
-        $this->dataSourceAttributeMappingConfiguration = $dataSourceAttributeMappingConfiguration;
+        $this->name = $name;
     }
 
     /**
@@ -117,6 +97,26 @@ class AttributeMapping
     }
 
     /**
+     * @return DataSourceAttributeMappingConfiguration
+     */
+    public function getDataSourceAttributeMappingConfiguration()
+    {
+        // Start of user code Getter AttributeMapping.getDataSourceAttributeMappingConfiguration
+        // End of user code
+        return $this->dataSourceAttributeMappingConfiguration;
+    }
+
+    /**
+     * @param DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration
+     */
+    public function setDataSourceAttributeMappingConfiguration(DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration)
+    {
+        // Start of user code Setter AttributeMapping.setDataSourceAttributeMappingConfiguration
+        // End of user code
+        $this->dataSourceAttributeMappingConfiguration = $dataSourceAttributeMappingConfiguration;
+    }
+
+    /**
      * @return AssociativeArray
      */
     public function getType()
@@ -137,23 +137,23 @@ class AttributeMapping
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getName()
+    public function getValidationRules()
     {
-        // Start of user code Getter AttributeMapping.getName
+        // Start of user code Getter AttributeMapping.getValidationRules
         // End of user code
-        return $this->name;
+        return $this->validationRules;
     }
 
     /**
-     * @param string $name
+     * @param array $validationRules
      */
-    public function setName($name)
+    public function setValidationRules(array $validationRules)
     {
-        // Start of user code Setter AttributeMapping.setName
+        // Start of user code Setter AttributeMapping.setValidationRules
         // End of user code
-        $this->name = $name;
+        $this->validationRules = $validationRules;
     }
 
     /**

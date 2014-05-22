@@ -78,6 +78,18 @@ class NotEmptyValidator implements Validator
     // Validator Realization
 
     /**
+     * @return string $name
+     */
+    public function getName()
+    {
+        // Start of user code Validator.getName
+        $name = 'notempty';
+        // End of user code
+    
+        return $name;
+    }
+
+    /**
      * @param ValidationRule $validationRule
      * @param T $value
      * @return ValidationResult $result
@@ -101,18 +113,6 @@ class NotEmptyValidator implements Validator
         // End of user code
     
         return $result;
-    }
-
-    /**
-     * @return string $name
-     */
-    public function getName()
-    {
-        // Start of user code Validator.getName
-        $name = 'notempty';
-        // End of user code
-    
-        return $name;
     }
 
     // Start of user code NotEmptyValidator.implementationSpecificMethods

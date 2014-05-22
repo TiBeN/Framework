@@ -22,11 +22,6 @@ class SelectStatement implements Statement
     public $orderByStatement;
 
     /**
-     * @var string
-     */
-    public $tableReferences;
-
-    /**
      * @var LimitStatement
      */
     public $limitStatement;
@@ -40,6 +35,11 @@ class SelectStatement implements Statement
      * @var SelectExpr
      */
     public $selectExpr;
+
+    /**
+     * @var string
+     */
+    public $tableReferences;
 
     public function __construct()
     {
@@ -71,26 +71,6 @@ class SelectStatement implements Statement
         // Start of user code Setter SelectStatement.setOrderByStatement
         // End of user code
         $this->orderByStatement = $orderByStatement;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTableReferences()
-    {
-        // Start of user code Getter SelectStatement.getTableReferences
-        // End of user code
-        return $this->tableReferences;
-    }
-
-    /**
-     * @param string $tableReferences
-     */
-    public function setTableReferences($tableReferences)
-    {
-        // Start of user code Setter SelectStatement.setTableReferences
-        // End of user code
-        $this->tableReferences = $tableReferences;
     }
 
     /**
@@ -153,6 +133,26 @@ class SelectStatement implements Statement
         $this->selectExpr = $selectExpr;
     }
 
+    /**
+     * @return string
+     */
+    public function getTableReferences()
+    {
+        // Start of user code Getter SelectStatement.getTableReferences
+        // End of user code
+        return $this->tableReferences;
+    }
+
+    /**
+     * @param string $tableReferences
+     */
+    public function setTableReferences($tableReferences)
+    {
+        // Start of user code Setter SelectStatement.setTableReferences
+        // End of user code
+        $this->tableReferences = $tableReferences;
+    }
+
     // Statement Realization
 
     /**
@@ -170,21 +170,6 @@ class SelectStatement implements Statement
         // End of user code
     
         return $status;
-    }
-
-    /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-		$statementParameters = !is_null($this->whereConditions)
-            ? $this->whereConditions->getStatementParameters()
-            : new AssociativeArray()
-        ;    
-        // End of user code
-    
-        return $statementParameters;
     }
 
     /**
@@ -216,6 +201,21 @@ class SelectStatement implements Statement
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+		$statementParameters = !is_null($this->whereConditions)
+            ? $this->whereConditions->getStatementParameters()
+            : new AssociativeArray()
+        ;    
+        // End of user code
+    
+        return $statementParameters;
     }
 
     // Start of user code SelectStatement.implementationSpecificMethods

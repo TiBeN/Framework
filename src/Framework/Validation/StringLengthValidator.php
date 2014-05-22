@@ -81,6 +81,18 @@ class StringLengthValidator implements Validator
     // Validator Realization
 
     /**
+     * @return string $name
+     */
+    public function getName()
+    {
+        // Start of user code Validator.getName
+        $name = 'stringlength';
+        // End of user code
+    
+        return $name;
+    }
+
+    /**
      * @param ValidationRule $validationRule
      * @param T $value
      * @return ValidationResult $result
@@ -136,18 +148,6 @@ class StringLengthValidator implements Validator
         // End of user code
     
         return $result;
-    }
-
-    /**
-     * @return string $name
-     */
-    public function getName()
-    {
-        // Start of user code Validator.getName
-        $name = 'stringlength';
-        // End of user code
-    
-        return $name;
     }
 
     // Start of user code StringLengthValidator.implementationSpecificMethods

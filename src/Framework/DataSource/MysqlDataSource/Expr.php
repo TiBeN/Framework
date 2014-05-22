@@ -20,7 +20,22 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_EQUALS = '=';
+    const LOGICAL_SEPARATOR_OR = 'OR';
+
+    /**
+     * @var string
+     */
+    const LOGICAL_SEPARATOR_AND = 'AND';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_NOT_LIKE = 'NOT LIKE';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LIKE = 'LIKE';
 
     /**
      * @var string
@@ -30,12 +45,12 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
+    const OPERATOR_EQUALS = '=';
 
     /**
      * @var string
      */
-    public $exprString;
+    const OPERATOR_LESS_THAN = '<';
 
     /**
      * @var string
@@ -48,6 +63,11 @@ class Expr
     public $exprParameters;
 
     /**
+     * @var string
+     */
+    const OPERATOR_GREATER_THAN = '>';
+
+    /**
      * @var bool
      */
     public $isResultOfConcatenation = false;
@@ -55,32 +75,12 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_NOT_LIKE = 'NOT LIKE';
+    public $exprString;
 
     /**
      * @var string
      */
-    const LOGICAL_SEPARATOR_AND = 'AND';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LIKE = 'LIKE';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_GREATER_THAN = '>';
-
-    /**
-     * @var string
-     */
-    const LOGICAL_SEPARATOR_OR = 'OR';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LESS_THAN = '<';
+    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
 
     public function __construct()
     {
@@ -93,26 +93,6 @@ class Expr
     {
         // Start of user code Expr.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getExprString()
-    {
-        // Start of user code Getter Expr.getExprString
-        // End of user code
-        return $this->exprString;
-    }
-
-    /**
-     * @param string $exprString
-     */
-    public function setExprString($exprString)
-    {
-        // Start of user code Setter Expr.setExprString
-        // End of user code
-        $this->exprString = $exprString;
     }
 
     /**
@@ -156,6 +136,38 @@ class Expr
     }
 
     /**
+     * @return string
+     */
+    public function getExprString()
+    {
+        // Start of user code Getter Expr.getExprString
+        // End of user code
+        return $this->exprString;
+    }
+
+    /**
+     * @param string $exprString
+     */
+    public function setExprString($exprString)
+    {
+        // Start of user code Setter Expr.setExprString
+        // End of user code
+        $this->exprString = $exprString;
+    }
+
+    /**
+     * @return string $exprString
+     */
+    public function toString()
+    {
+        // Start of user code Expr.toString
+	    $exprString = $this->exprString;
+        // End of user code
+    
+        return $exprString;
+    }
+
+    /**
      * @param string $exprString
      * @param AssociativeArray $exprParameters
      * @return Expr $expr
@@ -169,18 +181,6 @@ class Expr
         // End of user code
     
         return $expr;
-    }
-
-    /**
-     * @return string $exprString
-     */
-    public function toString()
-    {
-        // Start of user code Expr.toString
-	    $exprString = $this->exprString;
-        // End of user code
-    
-        return $exprString;
     }
 
     /**

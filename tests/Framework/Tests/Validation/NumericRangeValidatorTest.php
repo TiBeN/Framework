@@ -42,6 +42,20 @@ class NumericRangeValidatorTest extends \PHPUnit_Framework_TestCase
     
 
     /**
+     * Test method getName from interface Validator
+     * Start of user code Validator.testgetNameAnnotations
+     * PHPUnit users annotations can be placed here
+     * End of user code
+     */
+    public function testGetName()
+    {
+        // Start of user code Validator.testgetName
+        $numericRangeValidator = new NumericRangeValidator();
+        $this->assertEquals('numericrange', $numericRangeValidator->getName());
+        // End of user code
+    }
+    
+    /**
      * Test method validate from interface Validator
      * Start of user code Validator.testvalidateAnnotations
      * PHPUnit users annotations can be placed here
@@ -104,20 +118,6 @@ class NumericRangeValidatorTest extends \PHPUnit_Framework_TestCase
             '"4.999" is out of range!',        
             $validationResult->getErrorMessage()
         );
-        // End of user code
-    }
-    
-    /**
-     * Test method getName from interface Validator
-     * Start of user code Validator.testgetNameAnnotations
-     * PHPUnit users annotations can be placed here
-     * End of user code
-     */
-    public function testGetName()
-    {
-        // Start of user code Validator.testgetName
-        $numericRangeValidator = new NumericRangeValidator();
-        $this->assertEquals('numericrange', $numericRangeValidator->getName());
         // End of user code
     }
 

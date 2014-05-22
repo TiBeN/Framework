@@ -40,34 +40,6 @@ class ValidatorsRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method clearValidator from class ValidatorsRegistry
-     *
-     * Start of user code ValidatorsRegistryTest.testclearValidatorAnnotations
-     * PHPUnit user annotations can be placed here
-     * End of user code
-     */
-    public function testClearValidator()
-    {
-        // Start of user code ValidatorsRegistryTest.testclearValidator
-	    // Nothing to test here. Tested below by exceptions.
-        // End of user code
-    }
-    
-    /**
-     * Test static method registerValidator from class ValidatorsRegistry
-     *
-     * Start of user code ValidatorsRegistryTest.testregisterValidatorAnnotations
-     * PHPUnit user annotations can be placed here
-     * End of user code
-     */
-    public function testRegisterValidator()
-    {
-        // Start of user code ValidatorsRegistryTest.testregisterValidator
-	    // Method implicitly tested by testGetValidator
-        // End of user code
-    }
-    
-    /**
      * Test static method hasValidator from class ValidatorsRegistry
      *
      * Start of user code ValidatorsRegistryTest.testhasValidatorAnnotations
@@ -100,6 +72,34 @@ class ValidatorsRegistryTest extends \PHPUnit_Framework_TestCase
             $validator, 
             ValidatorsRegistry::getValidator('notempty')
         );
+        // End of user code
+    }
+    
+    /**
+     * Test static method registerValidator from class ValidatorsRegistry
+     *
+     * Start of user code ValidatorsRegistryTest.testregisterValidatorAnnotations
+     * PHPUnit user annotations can be placed here
+     * End of user code
+     */
+    public function testRegisterValidator()
+    {
+        // Start of user code ValidatorsRegistryTest.testregisterValidator
+	    // Method implicitly tested by testGetValidator
+        // End of user code
+    }
+    
+    /**
+     * Test static method clearValidator from class ValidatorsRegistry
+     *
+     * Start of user code ValidatorsRegistryTest.testclearValidatorAnnotations
+     * PHPUnit user annotations can be placed here
+     * End of user code
+     */
+    public function testClearValidator()
+    {
+        // Start of user code ValidatorsRegistryTest.testclearValidator
+	    // Nothing to test here. Tested below by exceptions.
         // End of user code
     }
 

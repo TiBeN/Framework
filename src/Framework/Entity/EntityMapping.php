@@ -3,8 +3,8 @@
 namespace TiBeN\Framework\Entity;
 
 use TiBeN\Framework\Validation\ValidationRule;
-use TiBeN\Framework\DataSource\DataSourcesRegistry;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\DataSource\DataSourcesRegistry;
 
 // Start of user code EntityMapping.useStatements
 // Place your use statements here.
@@ -21,12 +21,12 @@ class EntityMapping
     /**
      * @var string
      */
-    public $entityName;
+    public $dataSourceName;
 
     /**
-     * @var string
+     * @var DataSourceEntityMappingConfiguration
      */
-    public $dataSourceName;
+    public $dataSourceEntityConfiguration;
 
     /**
      * @var AssociativeArray
@@ -34,9 +34,9 @@ class EntityMapping
     public $attributeMappings;
 
     /**
-     * @var DataSourceEntityMappingConfiguration
+     * @var string
      */
-    public $dataSourceEntityConfiguration;
+    public $entityName;
 
     public function __construct()
     {
@@ -49,26 +49,6 @@ class EntityMapping
     {
         // Start of user code EntityMapping.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getEntityName()
-    {
-        // Start of user code Getter EntityMapping.getEntityName
-        // End of user code
-        return $this->entityName;
-    }
-
-    /**
-     * @param string $entityName
-     */
-    public function setEntityName($entityName)
-    {
-        // Start of user code Setter EntityMapping.setEntityName
-        // End of user code
-        $this->entityName = $entityName;
     }
 
     /**
@@ -92,6 +72,26 @@ class EntityMapping
     }
 
     /**
+     * @return DataSourceEntityMappingConfiguration
+     */
+    public function getDataSourceEntityConfiguration()
+    {
+        // Start of user code Getter EntityMapping.getDataSourceEntityConfiguration
+        // End of user code
+        return $this->dataSourceEntityConfiguration;
+    }
+
+    /**
+     * @param DataSourceEntityMappingConfiguration $dataSourceEntityConfiguration
+     */
+    public function setDataSourceEntityConfiguration(DataSourceEntityMappingConfiguration $dataSourceEntityConfiguration)
+    {
+        // Start of user code Setter EntityMapping.setDataSourceEntityConfiguration
+        // End of user code
+        $this->dataSourceEntityConfiguration = $dataSourceEntityConfiguration;
+    }
+
+    /**
      * @return AssociativeArray
      */
     public function getAttributeMappings()
@@ -112,23 +112,23 @@ class EntityMapping
     }
 
     /**
-     * @return DataSourceEntityMappingConfiguration
+     * @return string
      */
-    public function getDataSourceEntityConfiguration()
+    public function getEntityName()
     {
-        // Start of user code Getter EntityMapping.getDataSourceEntityConfiguration
+        // Start of user code Getter EntityMapping.getEntityName
         // End of user code
-        return $this->dataSourceEntityConfiguration;
+        return $this->entityName;
     }
 
     /**
-     * @param DataSourceEntityMappingConfiguration $dataSourceEntityConfiguration
+     * @param string $entityName
      */
-    public function setDataSourceEntityConfiguration(DataSourceEntityMappingConfiguration $dataSourceEntityConfiguration)
+    public function setEntityName($entityName)
     {
-        // Start of user code Setter EntityMapping.setDataSourceEntityConfiguration
+        // Start of user code Setter EntityMapping.setEntityName
         // End of user code
-        $this->dataSourceEntityConfiguration = $dataSourceEntityConfiguration;
+        $this->entityName = $entityName;
     }
 
     /**
@@ -237,7 +237,10 @@ class EntityMapping
                         'isIdentifier' => $isIdentifier,    
                         'dataSourceAttributeMappingConfiguration' 
                             => $dataSourceAttributeMappingConfigurationClassName::create(
-                                AssociativeArray::createFromNativeArray(null, $attributeConf)
+                                AssociativeArray::createFromNativeArray(
+                                    null, 
+                                    $attributeConf
+                                )
                             )                  
                         ,
                         'validationRules' => $attributeValidationRules

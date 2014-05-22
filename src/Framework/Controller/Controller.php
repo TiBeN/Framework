@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\Controller;
 
-use TiBeN\Framework\Renderer\SmartyEngine;
 use TiBeN\Framework\Router\HttpResponse;
+use TiBeN\Framework\Renderer\SmartyEngine;
 
 // Start of user code Controller.useStatements
 // Place your use statements here.

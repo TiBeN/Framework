@@ -40,6 +40,20 @@ class LimitStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test method toString from class LimitStatement
+     *
+     * Start of user code LimitStatementTest.testtoStringAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code LimitStatementTest.testtoString
+        // Implicitly tested by testCreateFromLimitCriteria
+		// End of user code
+    }
+    
+    /**
      * Test static method createFromLimitCriteria from class LimitStatement
      *
      * Start of user code LimitStatementTest.testcreateFromLimitCriteriaAnnotations 
@@ -63,20 +77,6 @@ class LimitStatementTest extends \PHPUnit_Framework_TestCase
             )
             ->toString()
         );
-		// End of user code
-    }
-    
-    /**
-     * Test method toString from class LimitStatement
-     *
-     * Start of user code LimitStatementTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code LimitStatementTest.testtoString
-        // Implicitly tested by testCreateFromLimitCriteria
 		// End of user code
     }
 

@@ -88,6 +88,93 @@ class StatementFactoryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method createUpdateStatementFromEntity from class StatementFactory
+     *
+     * Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntityAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateUpdateStatementFromEntity()
+    {
+        // Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntity
+        $expectedStatement = 'UPDATE some_entity_data_table SET idTable=:idTable,a=:a,b=:b,c=:c WHERE idTable = :id0'; 
+        
+        $expectedParameters = array(
+            'idTable' => '1337',
+            'a' => 'foo',
+            'b' => 'bar',
+            'c' => 'baz',
+            'id0' => '1337'
+        );
+
+	    $entity = new SomeEntity();
+	    $entity->setId(1337);
+	    $entity->setAttributeA('foo');
+	    $entity->setAttributeB('bar');
+	    $entity->setAttributeC('baz');
+
+        $entityMapping = EntityMappingsRegistry::getEntityMapping(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );
+
+        $update = StatementFactory::createUpdateStatementFromEntity(
+            $entityMapping,
+            $entity
+        );
+
+        $this->assertEquals($expectedStatement, $update->toString());
+        $this->assertEquals(
+            AssociativeArray::createFromNativeArray(
+                null, 
+                $expectedParameters
+            ),
+            $update->getStatementParameters()
+        );
+		// End of user code
+    }
+    
+    /**
+     * Test static method createSelectStatementFromCriteriaSet from class StatementFactory
+     *
+     * Start of user code StatementFactoryTest.testcreateSelectStatementFromCriteriaSetAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateSelectStatementFromCriteriaSet()
+    {
+        // Start of user code StatementFactoryTest.testcreateSelectStatementFromCriteriaSet
+        $expectedStatement = 'SELECT idTable,a,b,c FROM some_entity_data_table WHERE ((b = :attributeB0 AND b != :attributeB1) OR b != :attributeB2 OR a = :attributeA0 OR a != :attributeA1 OR a > :attributeA2) AND c LIKE :attributeC0 AND a != :attributeA3 ORDER BY idTable ASC, a DESC LIMIT 5,10';
+        $criteriaSet = CriteriaSet::createAnd()
+            ->addSubSet(
+                CriteriaSet::createOr()
+                    ->add(MatchCriteria::notEquals('attributeB', 1337))
+                    ->add(MatchCriteria::equals('attributeA', 'foo'))
+                    ->add(MatchCriteria::notEquals('attributeA', 'bar'))
+                    ->add(MatchCriteria::greaterThan('attributeA', 'baz'))
+                    ->addSubSet(
+                        CriteriaSet::createAnd()
+                            ->add(MatchCriteria::equals('attributeB', 'foo'))
+                            ->add(MatchCriteria::notEquals('attributeB', 'bar'))
+                    )
+            )
+            ->add(MatchCriteria::like('attributeC', 'baz'))
+            ->add(MatchCriteria::notEquals('attributeA', 'foo'))
+            ->addOrder(OrderCriteria::asc('id'))
+            ->addOrder(OrderCriteria::desc('attributeA'))
+            ->setLimit(LimitCriteria::to(10,5))
+        ;	        
+        $entityMapping = EntityMappingsRegistry::getEntityMapping(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );                
+        $select = StatementFactory::createSelectStatementFromCriteriaSet(
+            $entityMapping, 
+            $criteriaSet
+        );
+        $this->assertEquals($expectedStatement, $select->toString());
+		// End of user code
+    }
+    
+    /**
      * Test static method createInsertStatement from class StatementFactory
      *
      * Start of user code StatementFactoryTest.testcreateInsertStatementAnnotations 
@@ -156,93 +243,6 @@ class StatementFactoryTest extends \PHPUnit_Framework_TestCase
         );
         
         $this->assertEquals($expectedStatement, $actualStatement);
-		// End of user code
-    }
-    
-    /**
-     * Test static method createSelectStatementFromCriteriaSet from class StatementFactory
-     *
-     * Start of user code StatementFactoryTest.testcreateSelectStatementFromCriteriaSetAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateSelectStatementFromCriteriaSet()
-    {
-        // Start of user code StatementFactoryTest.testcreateSelectStatementFromCriteriaSet
-        $expectedStatement = 'SELECT idTable,a,b,c FROM some_entity_data_table WHERE ((b = :attributeB0 AND b != :attributeB1) OR b != :attributeB2 OR a = :attributeA0 OR a != :attributeA1 OR a > :attributeA2) AND c LIKE :attributeC0 AND a != :attributeA3 ORDER BY idTable ASC, a DESC LIMIT 5,10';
-        $criteriaSet = CriteriaSet::createAnd()
-            ->addSubSet(
-                CriteriaSet::createOr()
-                    ->add(MatchCriteria::notEquals('attributeB', 1337))
-                    ->add(MatchCriteria::equals('attributeA', 'foo'))
-                    ->add(MatchCriteria::notEquals('attributeA', 'bar'))
-                    ->add(MatchCriteria::greaterThan('attributeA', 'baz'))
-                    ->addSubSet(
-                        CriteriaSet::createAnd()
-                            ->add(MatchCriteria::equals('attributeB', 'foo'))
-                            ->add(MatchCriteria::notEquals('attributeB', 'bar'))
-                    )
-            )
-            ->add(MatchCriteria::like('attributeC', 'baz'))
-            ->add(MatchCriteria::notEquals('attributeA', 'foo'))
-            ->addOrder(OrderCriteria::asc('id'))
-            ->addOrder(OrderCriteria::desc('attributeA'))
-            ->setLimit(LimitCriteria::to(10,5))
-        ;	        
-        $entityMapping = EntityMappingsRegistry::getEntityMapping(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
-        );                
-        $select = StatementFactory::createSelectStatementFromCriteriaSet(
-            $entityMapping, 
-            $criteriaSet
-        );
-        $this->assertEquals($expectedStatement, $select->toString());
-		// End of user code
-    }
-    
-    /**
-     * Test static method createUpdateStatementFromEntity from class StatementFactory
-     *
-     * Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntityAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateUpdateStatementFromEntity()
-    {
-        // Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntity
-        $expectedStatement = 'UPDATE some_entity_data_table SET idTable=:idTable,a=:a,b=:b,c=:c WHERE idTable = :id0'; 
-        
-        $expectedParameters = array(
-            'idTable' => '1337',
-            'a' => 'foo',
-            'b' => 'bar',
-            'c' => 'baz',
-            'id0' => '1337'
-        );
-
-	    $entity = new SomeEntity();
-	    $entity->setId(1337);
-	    $entity->setAttributeA('foo');
-	    $entity->setAttributeB('bar');
-	    $entity->setAttributeC('baz');
-
-        $entityMapping = EntityMappingsRegistry::getEntityMapping(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
-        );
-
-        $update = StatementFactory::createUpdateStatementFromEntity(
-            $entityMapping,
-            $entity
-        );
-
-        $this->assertEquals($expectedStatement, $update->toString());
-        $this->assertEquals(
-            AssociativeArray::createFromNativeArray(
-                null, 
-                $expectedParameters
-            ),
-            $update->getStatementParameters()
-        );
 		// End of user code
     }
 

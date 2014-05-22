@@ -17,14 +17,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class DeleteStatement implements Statement
 {
     /**
-     * @var WhereConditions
-     */
-    public $whereConditions;
-
-    /**
      * @var string
      */
     public $tableName;
+
+    /**
+     * @var WhereConditions
+     */
+    public $whereConditions;
 
     public function __construct()
     {
@@ -36,26 +36,6 @@ class DeleteStatement implements Statement
     {
         // Start of user code DeleteStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return WhereConditions
-     */
-    public function getWhereConditions()
-    {
-        // Start of user code Getter DeleteStatement.getWhereConditions
-        // End of user code
-        return $this->whereConditions;
-    }
-
-    /**
-     * @param WhereConditions $whereConditions
-     */
-    public function setWhereConditions(WhereConditions $whereConditions)
-    {
-        // Start of user code Setter DeleteStatement.setWhereConditions
-        // End of user code
-        $this->whereConditions = $whereConditions;
     }
 
     /**
@@ -78,6 +58,26 @@ class DeleteStatement implements Statement
         $this->tableName = $tableName;
     }
 
+    /**
+     * @return WhereConditions
+     */
+    public function getWhereConditions()
+    {
+        // Start of user code Getter DeleteStatement.getWhereConditions
+        // End of user code
+        return $this->whereConditions;
+    }
+
+    /**
+     * @param WhereConditions $whereConditions
+     */
+    public function setWhereConditions(WhereConditions $whereConditions)
+    {
+        // Start of user code Setter DeleteStatement.setWhereConditions
+        // End of user code
+        $this->whereConditions = $whereConditions;
+    }
+
     // Statement Realization
 
     /**
@@ -96,21 +96,6 @@ class DeleteStatement implements Statement
         // End of user code
     
         return $status;
-    }
-
-    /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-		$statementParameters = !is_null($this->whereConditions)
-            ? $this->whereConditions->getStatementParameters()
-            : new AssociativeArray()
-        ;    
-        // End of user code
-    
-        return $statementParameters;
     }
 
     /**
@@ -135,6 +120,21 @@ class DeleteStatement implements Statement
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+		$statementParameters = !is_null($this->whereConditions)
+            ? $this->whereConditions->getStatementParameters()
+            : new AssociativeArray()
+        ;    
+        // End of user code
+    
+        return $statementParameters;
     }
 
     // Start of user code DeleteStatement.implementationSpecificMethods

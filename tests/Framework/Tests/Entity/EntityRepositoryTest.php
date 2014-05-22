@@ -39,22 +39,6 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method persist from class EntityRepository
-     *
-     * Start of user code EntityRepositoryTest.testpersistAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testPersist()
-    {
-        // Start of user code EntityRepositoryTest.testpersist
-	    $this->markTestIncomplete(
-	      'This test has not been implemented yet.'
-	    );
-		// End of user code
-    }
-    
-    /**
      * Test method find from class EntityRepository
      *
      * Start of user code EntityRepositoryTest.testfindAnnotations 
@@ -64,6 +48,22 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
     public function testFind()
     {
         // Start of user code EntityRepositoryTest.testfind
+	    $this->markTestIncomplete(
+	      'This test has not been implemented yet.'
+	    );
+		// End of user code
+    }
+    
+    /**
+     * Test method persist from class EntityRepository
+     *
+     * Start of user code EntityRepositoryTest.testpersistAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testPersist()
+    {
+        // Start of user code EntityRepositoryTest.testpersist
 	    $this->markTestIncomplete(
 	      'This test has not been implemented yet.'
 	    );

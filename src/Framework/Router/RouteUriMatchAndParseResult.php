@@ -17,14 +17,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class RouteUriMatchAndParseResult
 {
     /**
-     * @var AssociativeArray
-     */
-    public $parsedVariables;
-
-    /**
      * @var bool
      */
     public $match;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $parsedVariables;
 
     public function __construct()
     {
@@ -36,26 +36,6 @@ class RouteUriMatchAndParseResult
     {
         // Start of user code RouteUriMatchAndParseResult.destructor
         // End of user code
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getParsedVariables()
-    {
-        // Start of user code Getter RouteUriMatchAndParseResult.getParsedVariables
-        // End of user code
-        return $this->parsedVariables;
-    }
-
-    /**
-     * @param AssociativeArray $parsedVariables
-     */
-    public function setParsedVariables(AssociativeArray $parsedVariables)
-    {
-        // Start of user code Setter RouteUriMatchAndParseResult.setParsedVariables
-        // End of user code
-        $this->parsedVariables = $parsedVariables;
     }
 
     /**
@@ -76,6 +56,26 @@ class RouteUriMatchAndParseResult
         // Start of user code Setter RouteUriMatchAndParseResult.setMatch
         // End of user code
         $this->match = $match;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getParsedVariables()
+    {
+        // Start of user code Getter RouteUriMatchAndParseResult.getParsedVariables
+        // End of user code
+        return $this->parsedVariables;
+    }
+
+    /**
+     * @param AssociativeArray $parsedVariables
+     */
+    public function setParsedVariables(AssociativeArray $parsedVariables)
+    {
+        // Start of user code Setter RouteUriMatchAndParseResult.setParsedVariables
+        // End of user code
+        $this->parsedVariables = $parsedVariables;
     }
 
     // Start of user code RouteUriMatchAndParseResult.implementationSpecificMethods

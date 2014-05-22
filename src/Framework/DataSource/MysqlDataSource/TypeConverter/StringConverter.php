@@ -2,10 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter;
 
-use TiBeN\Framework\Datatype\T;
 use TiBeN\Framework\Datatype\AssociativeArray;
-use TiBeN\Framework\Datatype\U;
+use TiBeN\Framework\Datatype\T;
 use TiBeN\Framework\DataSource\TypeConverter;
+use TiBeN\Framework\Datatype\U;
 
 // Start of user code StringConverter.useStatements
 // Place your use statements here.
@@ -20,21 +20,21 @@ use TiBeN\Framework\DataSource\TypeConverter;
 class StringConverter implements TypeConverter
 {
     /**
-     * Type of the element T
-     * @var String
-     */
-    protected $TType;
-
-    /**
      * Type of the element U
      * @var String
      */
     protected $UType;
 
-    public function __construct($TType = null, $UType = null)
+    /**
+     * Type of the element T
+     * @var String
+     */
+    protected $TType;
+
+    public function __construct($UType = null, $TType = null)
     {
-        $this->TType = $TType;
         $this->UType = $UType;
+        $this->TType = $TType;
 
         // Start of user code StringConverter.constructor
 		$this->TType = 'string';
@@ -49,21 +49,21 @@ class StringConverter implements TypeConverter
     }
     
     /**
-     * T type getter
-     * @var String
-     */
-    public function getTType()
-    {
-        return $this->TType;
-    }
-
-    /**
      * U type getter
      * @var String
      */
     public function getUType()
     {
         return $this->UType;
+    }
+
+    /**
+     * T type getter
+     * @var String
+     */
+    public function getTType()
+    {
+        return $this->TType;
     }
 
     /**
@@ -99,18 +99,13 @@ class StringConverter implements TypeConverter
     // TypeConverter Realization
 
     /**
-     * @param U $itemToReverse
-     * @return T $reversedItem
+     * @param AssociativeArray $parameters
      */
-    public function reverse($itemToReverse)
+    public function setParameters(AssociativeArray $parameters)
     {
-        $this->typeHint($this->UType, $itemToReverse);
-        // Start of user code Converter.reverse
-		if(is_null($itemToReverse)) return $itemToReverse;
-        $reversedItem = $itemToReverse;    
+        // Start of user code TypeConverter.setParameters
+		// Nothing to do here for this converter
         // End of user code
-    
-        return $reversedItem;
     }
 
     /**
@@ -129,25 +124,18 @@ class StringConverter implements TypeConverter
     }
 
     /**
-     * @param AssociativeArray $parameters
+     * @param U $itemToReverse
+     * @return T $reversedItem
      */
-    public function setParameters(AssociativeArray $parameters)
+    public function reverse($itemToReverse)
     {
-        // Start of user code TypeConverter.setParameters
-		// Nothing to do here for this converter
-        // End of user code
-    }
-
-    /**
-     * @return string $type
-     */
-    public function getType()
-    {
-        // Start of user code TypeConverter.getType
-		$type = 'string';
+        $this->typeHint($this->UType, $itemToReverse);
+        // Start of user code Converter.reverse
+		if(is_null($itemToReverse)) return $itemToReverse;
+        $reversedItem = $itemToReverse;    
         // End of user code
     
-        return $type;
+        return $reversedItem;
     }
 
     /**
@@ -160,6 +148,18 @@ class StringConverter implements TypeConverter
         // End of user code
     
         return $dataSourceType;
+    }
+
+    /**
+     * @return string $type
+     */
+    public function getType()
+    {
+        // Start of user code TypeConverter.getType
+		$type = 'string';
+        // End of user code
+    
+        return $type;
     }
 
     // Start of user code StringConverter.implementationSpecificMethods

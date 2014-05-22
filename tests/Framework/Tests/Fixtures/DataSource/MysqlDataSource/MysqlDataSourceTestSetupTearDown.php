@@ -10,6 +10,10 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
 use TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\IntegerConverter;
 use TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\StringConverter;
+use TiBeN\Framework\Validation\ValidatorsRegistry;
+use TiBeN\Framework\Validation\NotEmptyValidator;
+use TiBeN\Framework\Validation\StringLengthValidator;
+use TiBeN\Framework\Validation\NumericRangeValidator;
 
 /**
  * Setup Test class for mysql datasource
@@ -192,5 +196,12 @@ class MysqlDataSourceTestSetupTearDown
     {
         DataSourceTypeConvertersRegistry::registerTypeConverter(new IntegerConverter());
         DataSourceTypeConvertersRegistry::registerTypeConverter(new StringConverter());
+    }
+
+    public static function declareBuiltInValidators()
+    {
+        ValidatorsRegistry::registerValidator(new NotEmptyValidator());
+        ValidatorsRegistry::registerValidator(new StringLengthValidator());
+        ValidatorsRegistry::registerValidator(new NumericRangeValidator());
     }
 }

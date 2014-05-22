@@ -21,15 +21,15 @@ interface Statement
 	public function isReadyToBeExecuted();
 
 	/**
-	 * @return AssociativeArray $statementParameters
-	 */
-	public function getStatementParameters();
-
-	/**
 	 * Return the statement in String format
 	 *
 	 * @return string $statement
 	 */
 	public function toString();
+
+	/**
+	 * @return AssociativeArray $statementParameters
+	 */
+	public function getStatementParameters();
 
 }

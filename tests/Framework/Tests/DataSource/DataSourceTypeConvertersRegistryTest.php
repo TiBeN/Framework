@@ -40,38 +40,6 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method clearTypeConverter from class DataSourceTypeConvertersRegistry
-     *
-     * Start of user code DataSourceTypeConvertersRegistryTest.testclearTypeConverterAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testClearTypeConverter()
-    {
-        // Start of user code DataSourceTypeConvertersRegistryTest.testclearTypeConverter
-	    DataSourceTypeConvertersRegistry::registerTypeConverter(new IntegerConverter());
-	    DataSourceTypeConvertersRegistry::clearTypeConverter('integer', 'mysql');
-	    $this->assertFalse(
-            DataSourceTypeConvertersRegistry::hasTypeConverter('integer', 'mysql')
-        );
-		// End of user code
-    }
-    
-    /**
-     * Test static method getTypeConverter from class DataSourceTypeConvertersRegistry
-     *
-     * Start of user code DataSourceTypeConvertersRegistryTest.testgetTypeConverterAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetTypeConverter()
-    {
-        // Start of user code DataSourceTypeConvertersRegistryTest.testgetTypeConverter
-	    // test case covered by testRegisterTypeConverter
-		// End of user code
-    }
-    
-    /**
      * Test static method registerTypeConverter from class DataSourceTypeConvertersRegistry
      *
      * Start of user code DataSourceTypeConvertersRegistryTest.testregisterTypeConverterAnnotations 
@@ -90,6 +58,24 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method clearTypeConverter from class DataSourceTypeConvertersRegistry
+     *
+     * Start of user code DataSourceTypeConvertersRegistryTest.testclearTypeConverterAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testClearTypeConverter()
+    {
+        // Start of user code DataSourceTypeConvertersRegistryTest.testclearTypeConverter
+	    DataSourceTypeConvertersRegistry::registerTypeConverter(new IntegerConverter());
+	    DataSourceTypeConvertersRegistry::clearTypeConverter('integer', 'mysql');
+	    $this->assertFalse(
+            DataSourceTypeConvertersRegistry::hasTypeConverter('integer', 'mysql')
+        );
+		// End of user code
+    }
+    
+    /**
      * Test static method hasTypeConverter from class DataSourceTypeConvertersRegistry
      *
      * Start of user code DataSourceTypeConvertersRegistryTest.testhasTypeConverterAnnotations 
@@ -103,6 +89,20 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
 	    $this->assertTrue(
             DataSourceTypeConvertersRegistry::hasTypeConverter('integer', 'mysql')
         );
+		// End of user code
+    }
+    
+    /**
+     * Test static method getTypeConverter from class DataSourceTypeConvertersRegistry
+     *
+     * Start of user code DataSourceTypeConvertersRegistryTest.testgetTypeConverterAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetTypeConverter()
+    {
+        // Start of user code DataSourceTypeConvertersRegistryTest.testgetTypeConverter
+	    // test case covered by testRegisterTypeConverter
 		// End of user code
     }
 

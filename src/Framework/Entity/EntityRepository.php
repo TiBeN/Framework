@@ -29,16 +29,6 @@ abstract class EntityRepository
     }
 
     /**
-     * @param Entity $entity
-     */
-    public function persist(Entity $entity)
-    {
-        // Start of user code EntityRepository.persist
-        // TODO should be implemented.
-        // End of user code
-    }
-
-    /**
      * @param CriteriaSet $criteriaSet
      * @return EntityCollection $entities
      */
@@ -49,6 +39,16 @@ abstract class EntityRepository
         // End of user code
     
         return $entities;
+    }
+
+    /**
+     * @param Entity $entity
+     */
+    public function persist(Entity $entity)
+    {
+        // Start of user code EntityRepository.persist
+        // TODO should be implemented.
+        // End of user code
     }
 
     /**

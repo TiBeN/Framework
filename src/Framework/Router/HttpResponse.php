@@ -18,16 +18,6 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class HttpResponse
 {
     /**
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $contentType = 'text/html';
-
-    /**
      * @var AssociativeArray
      */
     public $headers;
@@ -36,6 +26,16 @@ class HttpResponse
      * @var string
      */
     public $statusCode = '200';
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $contentType = 'text/html';
 
     public function __construct()
     {
@@ -47,6 +47,46 @@ class HttpResponse
     {
         // Start of user code HttpResponse.destructor
         // End of user code
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getHeaders()
+    {
+        // Start of user code Getter HttpResponse.getHeaders
+        // End of user code
+        return $this->headers;
+    }
+
+    /**
+     * @param AssociativeArray $headers
+     */
+    public function setHeaders(AssociativeArray $headers)
+    {
+        // Start of user code Setter HttpResponse.setHeaders
+        // End of user code
+        $this->headers = $headers;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatusCode()
+    {
+        // Start of user code Getter HttpResponse.getStatusCode
+        // End of user code
+        return $this->statusCode;
+    }
+
+    /**
+     * @param string $statusCode
+     */
+    public function setStatusCode($statusCode)
+    {
+        // Start of user code Setter HttpResponse.setStatusCode
+        // End of user code
+        $this->statusCode = $statusCode;
     }
 
     /**
@@ -90,43 +130,32 @@ class HttpResponse
     }
 
     /**
-     * @return AssociativeArray
+     * Send the http response message to the client
      */
-    public function getHeaders()
+    public function sendToClient()
     {
-        // Start of user code Getter HttpResponse.getHeaders
+        // Start of user code HttpResponse.sendToClient
+        
+        // Set http response status code
+		header('HTTP/1.1 ' . $this->statusCode .' ');
+		
+		// Set http content-type
+		header('Content-type: ' . $this->contentType);
+		
+		// Set custom headers
+		if(isset($this->headers)) {
+			foreach($this->headers->toNativeArray() as $key => $value) {
+				header(sprintf('%s: %s', ucfirst($key), $value));
+			}
+		}		
+		
+		// Send content
+		if(isset($this->message)) {
+			echo $this->message;
+		}
+		
+		return;
         // End of user code
-        return $this->headers;
-    }
-
-    /**
-     * @param AssociativeArray $headers
-     */
-    public function setHeaders(AssociativeArray $headers)
-    {
-        // Start of user code Setter HttpResponse.setHeaders
-        // End of user code
-        $this->headers = $headers;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStatusCode()
-    {
-        // Start of user code Getter HttpResponse.getStatusCode
-        // End of user code
-        return $this->statusCode;
-    }
-
-    /**
-     * @param string $statusCode
-     */
-    public function setStatusCode($statusCode)
-    {
-        // Start of user code Setter HttpResponse.setStatusCode
-        // End of user code
-        $this->statusCode = $statusCode;
     }
 
     /**
@@ -178,35 +207,6 @@ class HttpResponse
         // End of user code
     
         return $httpResponse;
-    }
-
-    /**
-     * Send the http response message to the client
-     */
-    public function sendToClient()
-    {
-        // Start of user code HttpResponse.sendToClient
-        
-        // Set http response status code
-		header('HTTP/1.1 ' . $this->statusCode .' ');
-		
-		// Set http content-type
-		header('Content-type: ' . $this->contentType);
-		
-		// Set custom headers
-		if(isset($this->headers)) {
-			foreach($this->headers->toNativeArray() as $key => $value) {
-				header(sprintf('%s: %s', ucfirst($key), $value));
-			}
-		}		
-		
-		// Send content
-		if(isset($this->message)) {
-			echo $this->message;
-		}
-		
-		return;
-        // End of user code
     }
 
     // Start of user code HttpResponse.implementationSpecificMethods

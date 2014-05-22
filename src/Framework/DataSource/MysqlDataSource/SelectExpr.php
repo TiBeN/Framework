@@ -67,22 +67,6 @@ class SelectExpr extends GenericCollection
     }
 
     /**
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code SelectExpr.toString
-        if($this->isEmpty()) {
-            throw new \LogicException('The SelectExpr is empty');
-        }      
-        
-        $string = implode(',', $this->items);
-        // End of user code
-    
-        return $string;
-    }
-
-    /**
      * @param AssociativeArray $attributeMappings
      * @return SelectExpr $selectExpr
      */
@@ -102,6 +86,22 @@ class SelectExpr extends GenericCollection
         // End of user code
     
         return $selectExpr;
+    }
+
+    /**
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code SelectExpr.toString
+        if($this->isEmpty()) {
+            throw new \LogicException('The SelectExpr is empty');
+        }      
+        
+        $string = implode(',', $this->items);
+        // End of user code
+    
+        return $string;
     }
 
     // Start of user code SelectExpr.surchargedMethods

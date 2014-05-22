@@ -41,16 +41,15 @@ class DecimalConverterTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method reverse from interface TypeConverter
-     * Start of user code TypeConverter.testreverseAnnotations 
+     * Test method setParameters from interface TypeConverter
+     * Start of user code TypeConverter.testsetParametersAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testReverse()
+    public function testSetParameters()
     {
-        // Start of user code Converter.testreverse
-        $converter = new DecimalConverter();
-        $this->assertSame(45.32, $converter->reverse('45.32'));
+        // Start of user code TypeConverter.testsetParameters
+        // Nothing to test here
     	// End of user code
     }
     
@@ -69,29 +68,16 @@ class DecimalConverterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method setParameters from interface TypeConverter
-     * Start of user code TypeConverter.testsetParametersAnnotations 
+     * Test method reverse from interface TypeConverter
+     * Start of user code TypeConverter.testreverseAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testSetParameters()
+    public function testReverse()
     {
-        // Start of user code TypeConverter.testsetParameters
-        // Nothing to test here
-    	// End of user code
-    }
-    
-    /**
-     * Test method getType from interface TypeConverter
-     * Start of user code TypeConverter.testgetTypeAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetType()
-    {
-        // Start of user code TypeConverter.testgetType
+        // Start of user code Converter.testreverse
         $converter = new DecimalConverter();
-        $this->assertEquals('decimal', $converter->getType());
+        $this->assertSame(45.32, $converter->reverse('45.32'));
     	// End of user code
     }
     
@@ -106,6 +92,20 @@ class DecimalConverterTest extends \PHPUnit_Framework_TestCase
         // Start of user code TypeConverter.testgetDataSourceType
         $converter = new DecimalConverter();
         $this->assertEquals('mysql', $converter->getDataSourceType());
+    	// End of user code
+    }
+    
+    /**
+     * Test method getType from interface TypeConverter
+     * Start of user code TypeConverter.testgetTypeAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetType()
+    {
+        // Start of user code TypeConverter.testgetType
+        $converter = new DecimalConverter();
+        $this->assertEquals('decimal', $converter->getType());
     	// End of user code
     }
 

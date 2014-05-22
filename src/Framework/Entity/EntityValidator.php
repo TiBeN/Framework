@@ -2,6 +2,8 @@
 
 namespace TiBeN\Framework\Entity;
 
+use TiBeN\Framework\Validation\ValidatorsRegistry;
+
 // Start of user code EntityValidator.useStatements
 // Place your use statements here.
 // End of user code
@@ -34,7 +36,45 @@ class EntityValidator
     public function validate(EntityMapping $entityMapping, Entity $entity)
     {
         // Start of user code EntityValidator.validate
-        // TODO should be implemented.
+        $entityValidationResult = new EntityValidationResult();
+        $entityValidationResult->setResult(true);
+        foreach($entityMapping->getAttributeMappings() 
+            as $attributeName => $attributeMapping
+        ) {
+            if(!empty($attributeMapping->getValidationRules())) {
+                foreach($attributeMapping->getValidationRules() as $validationRule) {
+                    $validator = ValidatorsRegistry::getValidator(
+                        $validationRule->getValidatorName()
+                    );
+                    $entityAttributeGetterMethodName = 'get' . ucfirst($attributeName);
+                    if(!method_exists($entity, $entityAttributeGetterMethodName)) {
+                        throw new \LogicException(
+                            sprintf(
+                                'No getter method found for the declared attribute'
+                                    . '\'%s\' in entity \'%s\''
+                                ,
+                                $attributeName,
+                                get_class($entity) 
+                            )
+                        );
+                    }
+                    $validationResult = $validator->validate(
+                        $validationRule, 
+                        $entity->$entityAttributeGetterMethodName()
+                    );
+                    if(!$validationResult->getValidationResult()) {
+                        $entityValidationResult->setResult(false);
+                        $validationResults = $entityValidationResult
+                            ->getValidationResults()
+                        ;
+                        array_push($validationResults, $validationResult);
+                        $entityValidationResult->setValidationResults(
+                            $validationResults
+                        );
+                    }
+                }
+            }
+        }
         // End of user code
     
         return $entityValidationResult;

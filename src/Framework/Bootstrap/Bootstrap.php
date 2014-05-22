@@ -2,11 +2,12 @@
 
 namespace TiBeN\Framework\Bootstrap;
 
-use TiBeN\Framework\Router\Route;
-use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
-use TiBeN\Framework\Renderer\SmartyEngine;
 use TiBeN\Framework\Renderer\TemplateRenderer;
+use TiBeN\Framework\Validation\ValidatorsRegistry;
+use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
 use TiBeN\Framework\Router\Router;
+use TiBeN\Framework\Renderer\SmartyEngine;
+use TiBeN\Framework\Router\Route;
 
 // Start of user code Bootstrap.useStatements
 // Place your use statements here.
@@ -108,6 +109,18 @@ class Bootstrap
         );
         DataSourceTypeConvertersRegistry::registerTypeConverter(
             new \TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\DateTimeConverter()
+        );
+
+        ValidatorsRegistry::registerValidator(
+            new \TiBeN\Framework\Validation\NotEmptyValidator()
+        );
+        
+        ValidatorsRegistry::registerValidator(
+            new \TiBeN\Framework\Validation\StringLengthValidator()
+        );
+
+        ValidatorsRegistry::registerValidator(
+            new \TiBeN\Framework\Validation\NumericRangeValidator()
         );
         // End of user code
     }

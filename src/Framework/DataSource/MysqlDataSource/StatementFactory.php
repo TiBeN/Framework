@@ -2,10 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\CriteriaSet;
 use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\Entity;
-use TiBeN\Framework\Entity\CriteriaSet;
-use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code StatementFactory.useStatements
 // Place your use statements here.
@@ -59,54 +59,32 @@ class StatementFactory
     /**
      * @param EntityMapping $entityMapping
      * @param Entity $entity
-     * @return InsertStatement $insertStatement
+     * @return UpdateStatement $updateStatement
      */
-    public static function createInsertStatement(EntityMapping $entityMapping, Entity $entity)
+    public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
     {
-        // Start of user code StatementFactory.createInsertStatement
-        $mapper = new MysqlEntityAttributeMapper();
-        $mapper->setEntity($entity);
-        $mapper->setEntityMapping($entityMapping);
-        $identifier = $mapper->getIdentifierValue();
-        if(!is_null($identifier)) {
-            throw new \LogicException(
-                'Create an insert statement on an already persisted entity is not allowed'
-            );
-        }
-
-	    $insertStatement = new InsertStatement();	    
-	    $insertStatement->setTableName(
-            $entityMapping->getDataSourceEntityConfiguration()->getTableName()
-        );	    
-	    $insertStatement
-            ->setColumnNamesListStatement(
-                ColumnNamesListStatement::createFromEntityAttributes(
-                    $entityMapping->getAttributeMappings()
-                )
+        // Start of user code StatementFactory.createUpdateStatementFromEntity
+        $updateStatement = new UpdateStatement();
+        $updateStatement->setTableName(
+            $entityMapping
+                ->getDataSourceEntityConfiguration()
+                ->getTableName()
+        );
+        $updateStatement->setSetStatement(
+            SetStatement::createKeyValueListFromEntity(
+                $entityMapping,
+                $entity
             )
-	    ;	    
-	    $insertStatement->setValuesStatement(
-            ValuesStatement::createFromEntity($entityMapping, $entity)
+        );
+        $updateStatement->setWhereDefinition(
+            WhereConditions::createEntityTargetFromEntity(
+                $entityMapping,
+                $entity
+            )
         );
         // End of user code
     
-        return $insertStatement;
-    }
-
-    /**
-     * @param string $statementString
-     * @param AssociativeArray $parameters
-     * @return GenericStatement $genericStatement
-     */
-    public static function createFromString($statementString, AssociativeArray $parameters)
-    {
-        // Start of user code StatementFactory.createFromString
-	    $genericStatement = new GenericStatement();
-	    $genericStatement->setStatementString($statementString);
-	    $genericStatement->setStatementParameters($parameters);
-        // End of user code
-    
-        return $genericStatement;
+        return $updateStatement;
     }
 
     /**
@@ -160,32 +138,54 @@ class StatementFactory
     /**
      * @param EntityMapping $entityMapping
      * @param Entity $entity
-     * @return UpdateStatement $updateStatement
+     * @return InsertStatement $insertStatement
      */
-    public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
+    public static function createInsertStatement(EntityMapping $entityMapping, Entity $entity)
     {
-        // Start of user code StatementFactory.createUpdateStatementFromEntity
-        $updateStatement = new UpdateStatement();
-        $updateStatement->setTableName(
-            $entityMapping
-                ->getDataSourceEntityConfiguration()
-                ->getTableName()
-        );
-        $updateStatement->setSetStatement(
-            SetStatement::createKeyValueListFromEntity(
-                $entityMapping,
-                $entity
+        // Start of user code StatementFactory.createInsertStatement
+        $mapper = new MysqlEntityAttributeMapper();
+        $mapper->setEntity($entity);
+        $mapper->setEntityMapping($entityMapping);
+        $identifier = $mapper->getIdentifierValue();
+        if(!is_null($identifier)) {
+            throw new \LogicException(
+                'Create an insert statement on an already persisted entity is not allowed'
+            );
+        }
+
+	    $insertStatement = new InsertStatement();	    
+	    $insertStatement->setTableName(
+            $entityMapping->getDataSourceEntityConfiguration()->getTableName()
+        );	    
+	    $insertStatement
+            ->setColumnNamesListStatement(
+                ColumnNamesListStatement::createFromEntityAttributes(
+                    $entityMapping->getAttributeMappings()
+                )
             )
-        );
-        $updateStatement->setWhereDefinition(
-            WhereConditions::createEntityTargetFromEntity(
-                $entityMapping,
-                $entity
-            )
+	    ;	    
+	    $insertStatement->setValuesStatement(
+            ValuesStatement::createFromEntity($entityMapping, $entity)
         );
         // End of user code
     
-        return $updateStatement;
+        return $insertStatement;
+    }
+
+    /**
+     * @param string $statementString
+     * @param AssociativeArray $parameters
+     * @return GenericStatement $genericStatement
+     */
+    public static function createFromString($statementString, AssociativeArray $parameters)
+    {
+        // Start of user code StatementFactory.createFromString
+	    $genericStatement = new GenericStatement();
+	    $genericStatement->setStatementString($statementString);
+	    $genericStatement->setStatementParameters($parameters);
+        // End of user code
+    
+        return $genericStatement;
     }
 
     // Start of user code StatementFactory.implementationSpecificMethods

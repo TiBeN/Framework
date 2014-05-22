@@ -24,14 +24,14 @@ class Route
     public $controller;
 
     /**
-     * @var AssociativeArray
-     */
-    public $variables;
-
-    /**
      * @var string
      */
     public $action;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $variables;
 
     public function __construct()
     {
@@ -66,26 +66,6 @@ class Route
     }
 
     /**
-     * @return AssociativeArray
-     */
-    public function getVariables()
-    {
-        // Start of user code Getter Route.getVariables
-        // End of user code
-        return $this->variables;
-    }
-
-    /**
-     * @param AssociativeArray $variables
-     */
-    public function setVariables(AssociativeArray $variables)
-    {
-        // Start of user code Setter Route.setVariables
-        // End of user code
-        $this->variables = $variables;
-    }
-
-    /**
      * @return string
      */
     public function getAction()
@@ -103,6 +83,26 @@ class Route
         // Start of user code Setter Route.setAction
         // End of user code
         $this->action = $action;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getVariables()
+    {
+        // Start of user code Getter Route.getVariables
+        // End of user code
+        return $this->variables;
+    }
+
+    /**
+     * @param AssociativeArray $variables
+     */
+    public function setVariables(AssociativeArray $variables)
+    {
+        // Start of user code Setter Route.setVariables
+        // End of user code
+        $this->variables = $variables;
     }
 
     /**

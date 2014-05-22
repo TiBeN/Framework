@@ -2776,7 +2776,7 @@ with other Statement classes.</body>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_jid6MBllEeOF6MZOG78g_A" name="generate from datasource" client="_jguqQBlkEeOF6MZOG78g_A" supplier="_f3O-kBllEeOF6MZOG78g_A"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_2tHKIBllEeOF6MZOG78g_A" name="map data source to entities using" client="_jguqQBlkEeOF6MZOG78g_A" supplier="_tDsgAB4fEeOAXbbnJNwHxQ"/>
     <packagedElement xmi:type="uml:Interface" xmi:id="_1PtQoBloEeOF6MZOG78g_A" name="Entity"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_WqNVgB4fEeOAXbbnJNwHxQ" clientDependency="_lkWZkB4fEeOAXbbnJNwHxQ" name="EntityValidator">
+    <packagedElement xmi:type="uml:Class" xmi:id="_WqNVgB4fEeOAXbbnJNwHxQ" clientDependency="_lkWZkB4fEeOAXbbnJNwHxQ _ZiIXgOG0EeONiYHrVv7XiQ" name="EntityValidator">
       <ownedOperation xmi:type="uml:Operation" xmi:id="_o5kB4B4fEeOAXbbnJNwHxQ" name="validate">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_iGTTcB4hEeOGRufT5peS-Q" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_mf7mIB4hEeOGRufT5peS-Q" name="entity" type="_1PtQoBloEeOF6MZOG78g_A"/>
@@ -3218,6 +3218,7 @@ with other Statement classes.</body>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_-tXloMcGEeOwo4bGXJhZCw" name="Obtain Datasource when create using" client="_tDsgAB4fEeOAXbbnJNwHxQ" supplier="_CrK7wBlfEeOF6MZOG78g_A"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_TMvuQMeTEeOhlq-hm4UKlg" name="Store criterias into" client="_e0hssB79EeOf9MerE9_4bA" supplier="_9fMUkEWcEeOvPbyK1FXp-A"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="__i62sN_2EeOBsPjkboT0ig" name="generate validation rules of attributes using" client="_tDsgAB4fEeOAXbbnJNwHxQ" supplier="_Ow5DkBskEeOmN-2QJZ-Okg"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_ZiIXgOG0EeONiYHrVv7XiQ" name="retrieve validator used for validation using" client="_WqNVgB4fEeOAXbbnJNwHxQ" supplier="__F6_gBsjEeOmN-2QJZ-Okg"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_wx9KoBsjEeOmN-2QJZ-Okg" name="Validation">
     <ownedComment xmi:type="uml:Comment" xmi:id="_tDCMYBskEeOmN-2QJZ-Okg">
@@ -3370,7 +3371,7 @@ ValidationRules:
       <body> The initialisation phases introduce some unnecessary coupling with core package classes and should be decoupled using an initialisation mecanism
 </body>
     </ownedComment>
-    <packagedElement xmi:type="uml:Class" xmi:id="_ZJXnEL22EeO-aaY3kqFukA" clientDependency="_etAj4L24EeO-aaY3kqFukA _8ncXUL24EeO-aaY3kqFukA _VwcrkMMpEeOvvu_8YqlPnw _Ylm60MMpEeOvvu_8YqlPnw _BKqK4NeDEeOZXK2Dv9UOeg" name="Bootstrap">
+    <packagedElement xmi:type="uml:Class" xmi:id="_ZJXnEL22EeO-aaY3kqFukA" clientDependency="_etAj4L24EeO-aaY3kqFukA _8ncXUL24EeO-aaY3kqFukA _VwcrkMMpEeOvvu_8YqlPnw _Ylm60MMpEeOvvu_8YqlPnw _BKqK4NeDEeOZXK2Dv9UOeg _A6WbUOAFEeOpmaCe-_ev5g" name="Bootstrap">
       <ownedComment xmi:type="uml:Comment" xmi:id="_fdcNML22EeO-aaY3kqFukA" annotatedElement="_ZJXnEL22EeO-aaY3kqFukA">
         <body>Load application configuration and perform
 needed booting tasks</body>
@@ -3393,6 +3394,7 @@ Allways call this before use any component.</body>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_VwcrkMMpEeOvvu_8YqlPnw" name="set default template engine into" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_4LpgsLpaEeKbZ-V7fHb95Q"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_Ylm60MMpEeOvvu_8YqlPnw" name="instanciate as default template engine" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_cE0M4LreEeK-eqy0US4WHg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_BKqK4NeDEeOZXK2Dv9UOeg" name="register default mysql datasource built-in type converters into" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_lqdYsEn9EeOhBJpxbXcYWQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_A6WbUOAFEeOpmaCe-_ev5g" name="Dependency1" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="__F6_gBsjEeOmN-2QJZ-Okg"/>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_uRefYJoVEeKjqrzFgzAFxw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uRnCQJoVEeKjqrzFgzAFxw" source="http://www.eclipse.org/uml2/2.0.0/UML">

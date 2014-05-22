@@ -59,6 +59,29 @@ class DataSourceTypeConvertersRegistry
     }
 
     /**
+     * @param TypeConverter $typeConverter
+     */
+    public static function registerTypeConverter(TypeConverter $typeConverter)
+    {
+        // Start of user code DataSourceTypeConvertersRegistry.registerTypeConverter
+		if(!self::getTypeConverters()->has($typeConverter->getDataSourceType())) {
+		    self::getTypeConverters()
+                ->set(                                            
+                    $typeConverter->getDataSourceType(),
+                    new AssociativeArray(
+                        'TiBeN\\Framework\\DataSource\\TypeConverter'
+                    )
+                );
+		}
+		
+		self::getTypeConverters()
+            ->get($typeConverter->getDataSourceType())
+            ->set($typeConverter->getType(), $typeConverter)    
+		;
+        // End of user code
+    }
+
+    /**
      * @param string $type
      * @param string $dataSourceType
      */
@@ -77,6 +100,22 @@ class DataSourceTypeConvertersRegistry
 		
 		self::getTypeConverters()->get($dataSourceType)->remove($type);		
         // End of user code
+    }
+
+    /**
+     * @param string $type
+     * @param string $dataSourceType
+     * @return bool $boolean
+     */
+    public static function hasTypeConverter($type, $dataSourceType)
+    {
+        // Start of user code DataSourceTypeConvertersRegistry.hasTypeConverter
+		$boolean = self::getTypeConverters()->has($dataSourceType)
+            && self::getTypeConverters()->get($dataSourceType)->has($type)
+        ;             		  	    
+        // End of user code
+    
+        return $boolean;
     }
 
     /**
@@ -104,45 +143,6 @@ class DataSourceTypeConvertersRegistry
         // End of user code
     
         return $typeConverter;
-    }
-
-    /**
-     * @param TypeConverter $typeConverter
-     */
-    public static function registerTypeConverter(TypeConverter $typeConverter)
-    {
-        // Start of user code DataSourceTypeConvertersRegistry.registerTypeConverter
-		if(!self::getTypeConverters()->has($typeConverter->getDataSourceType())) {
-		    self::getTypeConverters()
-                ->set(                                            
-                    $typeConverter->getDataSourceType(),
-                    new AssociativeArray(
-                        'TiBeN\\Framework\\DataSource\\TypeConverter'
-                    )
-                );
-		}
-		
-		self::getTypeConverters()
-            ->get($typeConverter->getDataSourceType())
-            ->set($typeConverter->getType(), $typeConverter)    
-		;
-        // End of user code
-    }
-
-    /**
-     * @param string $type
-     * @param string $dataSourceType
-     * @return bool $boolean
-     */
-    public static function hasTypeConverter($type, $dataSourceType)
-    {
-        // Start of user code DataSourceTypeConvertersRegistry.hasTypeConverter
-		$boolean = self::getTypeConverters()->has($dataSourceType)
-            && self::getTypeConverters()->get($dataSourceType)->has($type)
-        ;             		  	    
-        // End of user code
-    
-        return $boolean;
     }
 
     // Start of user code DataSourceTypeConvertersRegistry.implementationSpecificMethods

@@ -17,9 +17,9 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class UpdateStatement implements Statement
 {
     /**
-     * @var SetStatement
+     * @var WhereConditions
      */
-    public $setStatement;
+    public $whereDefinition;
 
     /**
      * @var string
@@ -27,9 +27,9 @@ class UpdateStatement implements Statement
     public $tableName;
 
     /**
-     * @var WhereConditions
+     * @var SetStatement
      */
-    public $whereDefinition;
+    public $setStatement;
 
     public function __construct()
     {
@@ -44,23 +44,23 @@ class UpdateStatement implements Statement
     }
 
     /**
-     * @return SetStatement
+     * @return WhereConditions
      */
-    public function getSetStatement()
+    public function getWhereDefinition()
     {
-        // Start of user code Getter UpdateStatement.getSetStatement
+        // Start of user code Getter UpdateStatement.getWhereDefinition
         // End of user code
-        return $this->setStatement;
+        return $this->whereDefinition;
     }
 
     /**
-     * @param SetStatement $setStatement
+     * @param WhereConditions $whereDefinition
      */
-    public function setSetStatement(SetStatement $setStatement)
+    public function setWhereDefinition(WhereConditions $whereDefinition)
     {
-        // Start of user code Setter UpdateStatement.setSetStatement
+        // Start of user code Setter UpdateStatement.setWhereDefinition
         // End of user code
-        $this->setStatement = $setStatement;
+        $this->whereDefinition = $whereDefinition;
     }
 
     /**
@@ -84,23 +84,23 @@ class UpdateStatement implements Statement
     }
 
     /**
-     * @return WhereConditions
+     * @return SetStatement
      */
-    public function getWhereDefinition()
+    public function getSetStatement()
     {
-        // Start of user code Getter UpdateStatement.getWhereDefinition
+        // Start of user code Getter UpdateStatement.getSetStatement
         // End of user code
-        return $this->whereDefinition;
+        return $this->setStatement;
     }
 
     /**
-     * @param WhereConditions $whereDefinition
+     * @param SetStatement $setStatement
      */
-    public function setWhereDefinition(WhereConditions $whereDefinition)
+    public function setSetStatement(SetStatement $setStatement)
     {
-        // Start of user code Setter UpdateStatement.setWhereDefinition
+        // Start of user code Setter UpdateStatement.setSetStatement
         // End of user code
-        $this->whereDefinition = $whereDefinition;
+        $this->setStatement = $setStatement;
     }
 
     // Statement Realization
@@ -120,24 +120,6 @@ class UpdateStatement implements Statement
         // End of user code
     
         return $status;
-    }
-
-    /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-        $statementParameters = new AssociativeArray();
-        if($this->setStatement instanceof SetStatement) {
-            $statementParameters->merge($this->setStatement->getStatementParameters());
-        } 
-        if($this->whereDefinition instanceof WhereConditions) {
-            $statementParameters->merge($this->whereDefinition->getStatementParameters());
-        }        
-        // End of user code
-    
-        return $statementParameters;
     }
 
     /**
@@ -162,6 +144,24 @@ class UpdateStatement implements Statement
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+        $statementParameters = new AssociativeArray();
+        if($this->setStatement instanceof SetStatement) {
+            $statementParameters->merge($this->setStatement->getStatementParameters());
+        } 
+        if($this->whereDefinition instanceof WhereConditions) {
+            $statementParameters->merge($this->whereDefinition->getStatementParameters());
+        }        
+        // End of user code
+    
+        return $statementParameters;
     }
 
     // Start of user code UpdateStatement.implementationSpecificMethods

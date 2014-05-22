@@ -13,8 +13,8 @@ class SomeEntity implements Entity
     
     protected $attributeB;
     
-    protected $attributeC;    
-    
+    protected $attributeC; 
+
     public function getAttributeA() {
         return $this->attributeA;
     }

@@ -24,12 +24,12 @@ class ValidationRule
     /**
      * @var string
      */
-    public $errorMessagePattern;
+    public $validatorName;
 
     /**
      * @var string
      */
-    public $validatorName;
+    public $errorMessagePattern;
 
     /**
      * @var AssociativeArray
@@ -53,26 +53,6 @@ class ValidationRule
     /**
      * @return string
      */
-    public function getErrorMessagePattern()
-    {
-        // Start of user code Getter ValidationRule.getErrorMessagePattern
-        // End of user code
-        return $this->errorMessagePattern;
-    }
-
-    /**
-     * @param string $errorMessagePattern
-     */
-    public function setErrorMessagePattern($errorMessagePattern)
-    {
-        // Start of user code Setter ValidationRule.setErrorMessagePattern
-        // End of user code
-        $this->errorMessagePattern = $errorMessagePattern;
-    }
-
-    /**
-     * @return string
-     */
     public function getValidatorName()
     {
         // Start of user code Getter ValidationRule.getValidatorName
@@ -88,6 +68,26 @@ class ValidationRule
         // Start of user code Setter ValidationRule.setValidatorName
         // End of user code
         $this->validatorName = $validatorName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorMessagePattern()
+    {
+        // Start of user code Getter ValidationRule.getErrorMessagePattern
+        // End of user code
+        return $this->errorMessagePattern;
+    }
+
+    /**
+     * @param string $errorMessagePattern
+     */
+    public function setErrorMessagePattern($errorMessagePattern)
+    {
+        // Start of user code Setter ValidationRule.setErrorMessagePattern
+        // End of user code
+        $this->errorMessagePattern = $errorMessagePattern;
     }
 
     /**

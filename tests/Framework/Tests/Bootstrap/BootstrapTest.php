@@ -9,6 +9,8 @@ use TiBeN\Framework\Router\RouteRule;
 use TiBeN\Framework\Router\Router;
 use TiBeN\Framework\Renderer\TemplateRenderer;
 use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
+use TiBeN\Framework\Validation\ValidatorsRegistry;
+
 // End of user code
 
 /**
@@ -132,6 +134,22 @@ class BootstrapTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(
             'TiBeN\\Framework\\DataSource\\MysqlDataSource\\TypeConverter\\DateTimeConverter',
             DataSourceTypeConvertersRegistry::getTypeConverter('datetime', 'mysql')
+        );
+
+        // Bootstrap should declare built-in Validators
+        $this->assertInstanceOf(
+            'TiBeN\\Framework\\Validation\\NotEmptyValidator',
+            ValidatorsRegistry::getValidator('notempty')
+        );
+        
+        $this->assertInstanceOf(
+            'TiBeN\\Framework\\Validation\\StringLengthValidator',
+            ValidatorsRegistry::getValidator('stringlength')
+        );
+
+        $this->assertInstanceOf(
+            'TiBeN\\Framework\\Validation\\NumericRangeValidator',
+            ValidatorsRegistry::getValidator('numericrange')
         );
         // End of user code
     }

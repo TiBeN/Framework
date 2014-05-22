@@ -29,6 +29,7 @@ class EntityValidationResult
     public function __construct()
     {
         // Start of user code EntityValidationResult.constructor
+        $this->validationResults = array();
         // End of user code
     }
 

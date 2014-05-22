@@ -41,16 +41,15 @@ class StringConverterTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method reverse from interface TypeConverter
-     * Start of user code TypeConverter.testreverseAnnotations 
+     * Test method setParameters from interface TypeConverter
+     * Start of user code TypeConverter.testsetParametersAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testReverse()
+    public function testSetParameters()
     {
-        // Start of user code Converter.testreverse
-	    $converter = new StringConverter();		
-	    $this->assertEquals('foo!!', $converter->reverse('foo!!'));
+        // Start of user code TypeConverter.testsetParameters
+	    // Nothing to test here
     	// End of user code
     }
     
@@ -69,29 +68,16 @@ class StringConverterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method setParameters from interface TypeConverter
-     * Start of user code TypeConverter.testsetParametersAnnotations 
+     * Test method reverse from interface TypeConverter
+     * Start of user code TypeConverter.testreverseAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testSetParameters()
+    public function testReverse()
     {
-        // Start of user code TypeConverter.testsetParameters
-	    // Nothing to test here
-    	// End of user code
-    }
-    
-    /**
-     * Test method getType from interface TypeConverter
-     * Start of user code TypeConverter.testgetTypeAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetType()
-    {
-        // Start of user code TypeConverter.testgetType
-		$converter = new StringConverter();		
-	    $this->assertEquals('string', $converter->getType());
+        // Start of user code Converter.testreverse
+	    $converter = new StringConverter();		
+	    $this->assertEquals('foo!!', $converter->reverse('foo!!'));
     	// End of user code
     }
     
@@ -106,6 +92,20 @@ class StringConverterTest extends \PHPUnit_Framework_TestCase
         // Start of user code TypeConverter.testgetDataSourceType
 	    $converter = new StringConverter();		
 	    $this->assertEquals('mysql', $converter->getDataSourceType());
+    	// End of user code
+    }
+    
+    /**
+     * Test method getType from interface TypeConverter
+     * Start of user code TypeConverter.testgetTypeAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetType()
+    {
+        // Start of user code TypeConverter.testgetType
+		$converter = new StringConverter();		
+	    $this->assertEquals('string', $converter->getType());
     	// End of user code
     }
 

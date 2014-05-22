@@ -41,20 +41,6 @@ class ExprTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method fromString from class Expr
-     *
-     * Start of user code ExprTest.testfromStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testFromString()
-    {
-        // Start of user code ExprTest.testfromString
-	    // Tests covered by testConcat
-		// End of user code
-    }
-    
-    /**
      * Test method toString from class Expr
      *
      * Start of user code ExprTest.testtoStringAnnotations 
@@ -64,6 +50,20 @@ class ExprTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code ExprTest.testtoString
+	    // Tests covered by testConcat
+		// End of user code
+    }
+    
+    /**
+     * Test static method fromString from class Expr
+     *
+     * Start of user code ExprTest.testfromStringAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testFromString()
+    {
+        // Start of user code ExprTest.testfromString
 	    // Tests covered by testConcat
 		// End of user code
     }

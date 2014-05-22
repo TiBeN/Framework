@@ -22,17 +22,17 @@ class OrderCriteria
     /**
      * @var string
      */
-    public $direction;
-
-    /**
-     * @var string
-     */
     const DIRECTION_DESC = 'desc';
 
     /**
      * @var string
      */
     const DIRECTION_ASC = 'asc';
+
+    /**
+     * @var string
+     */
+    public $direction;
 
     public function __construct()
     {

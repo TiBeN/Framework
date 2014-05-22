@@ -2,12 +2,12 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\CriteriaSet;
+use TiBeN\Framework\Datatype\GenericCollection;
 use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\MatchCriteria;
 use TiBeN\Framework\Entity\Entity;
-use TiBeN\Framework\Entity\CriteriaSet;
-use TiBeN\Framework\Datatype\AssociativeArray;
-use TiBeN\Framework\Datatype\GenericCollection;
 
 // Start of user code WhereConditions.useStatements
 // Place your use statements here.
@@ -22,14 +22,14 @@ use TiBeN\Framework\Datatype\GenericCollection;
 class WhereConditions
 {
     /**
-     * @var AssociativeArray
-     */
-    public $statementParameters;
-
-    /**
      * @var Expr
      */
     public $expr;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $statementParameters;
 
     public function __construct()
     {
@@ -41,26 +41,6 @@ class WhereConditions
     {
         // Start of user code WhereConditions.destructor
         // End of user code
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Getter WhereConditions.getStatementParameters
-        // End of user code
-        return $this->statementParameters;
-    }
-
-    /**
-     * @param AssociativeArray $statementParameters
-     */
-    public function setStatementParameters(AssociativeArray $statementParameters)
-    {
-        // Start of user code Setter WhereConditions.setStatementParameters
-        // End of user code
-        $this->statementParameters = $statementParameters;
     }
 
     /**
@@ -84,18 +64,23 @@ class WhereConditions
     }
 
     /**
-     * @return string $string
+     * @return AssociativeArray
      */
-    public function toString()
+    public function getStatementParameters()
     {
-        // Start of user code WhereConditions.toString
-		if(is_null($this->expr)) {
-		    throw new \LogicException('No expr set');
-		}
-		$string = 'WHERE ' . $this->expr->toString(); 
+        // Start of user code Getter WhereConditions.getStatementParameters
         // End of user code
-    
-        return $string;
+        return $this->statementParameters;
+    }
+
+    /**
+     * @param AssociativeArray $statementParameters
+     */
+    public function setStatementParameters(AssociativeArray $statementParameters)
+    {
+        // Start of user code Setter WhereConditions.setStatementParameters
+        // End of user code
+        $this->statementParameters = $statementParameters;
     }
 
     /**
@@ -111,6 +96,21 @@ class WhereConditions
         // End of user code
     
         return $whereConditions;
+    }
+
+    /**
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code WhereConditions.toString
+		if(is_null($this->expr)) {
+		    throw new \LogicException('No expr set');
+		}
+		$string = 'WHERE ' . $this->expr->toString(); 
+        // End of user code
+    
+        return $string;
     }
 
     /**

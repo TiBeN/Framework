@@ -57,85 +57,6 @@ class MysqlDataSourceTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method delete from interface DataSource
-     * Start of user code DataSource.testdeleteAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testDelete()
-    {
-        // Start of user code DataSource.testdelete
-        $pdo = MysqlDataSourceTestSetupTearDown::getPdoConnection($GLOBALS['db_name']);
-       
-        // Insert a record into a table
-        $pdo->exec(
-            'INSERT INTO some_entity_data_table (idTable, a, b, c) VALUES (2, \'foo\', \'foo\', \'foo\')'
-        );
-
-        // Check if the record has been inserted on the table
-        $pdoStatement = $pdo->query(
-            'SELECT * FROM some_entity_data_table WHERE idTable = 2'
-        ); 
-        $this->assertInstanceOf('PDOStatement', $pdoStatement);
-        $this->assertEquals(1, $pdoStatement->rowCount());
-
-        // Manually construct the entity
-        $entity = new SomeEntity();
-        $entity->setId(2);
-        $entity->setAttributeA('foo');
-        $entity->setAttributeB('foo');
-        $entity->setAttributeC('foo');
-
-        // Delete entity using MysqlDataSource
-        $dataSource = DataSourcesRegistry::getDataSource('test-mysql');   
-        $entityMapping = EntityMappingsRegistry::getEntityMapping(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
-        );
-        $dataSource->delete($entityMapping, $entity);
-        
-        // Check if the record has been deleted from the table
-        $pdoStatement = $pdo->query(
-            'SELECT * FROM some_entity_data_table WHERE idTable = 2'
-        ); 
-        $this->assertInstanceOf('PDOStatement', $pdoStatement);
-        $this->assertSame(0, $pdoStatement->rowCount());
-        
-        // End of user code
-    }
-    
-    /**
-     * Test static method getAttributeMappingConfigurationClassName from interface DataSource
-     * Start of user code DataSource.testgetAttributeMappingConfigurationClassNameAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetAttributeMappingConfigurationClassName()
-    {
-        // Start of user code DataSource.testgetAttributeMappingConfigurationClassName
-        $this->assertEquals(
-            'TiBeN\\Framework\\DataSource\\MysqlDataSource\\MysqlAttributeConfiguration', 
-            MysqlDataSource::getAttributeMappingConfigurationClassName()
-        );
-        // End of user code
-    }
-    
-    /**
-     * Test static method getEntityMappingConfigurationClassName from interface DataSource
-     * Start of user code DataSource.testgetEntityMappingConfigurationClassNameAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetEntityMappingConfigurationClassName()
-    {
-        // Start of user code DataSource.testgetEntityMappingConfigurationClassName
-        $this->assertEquals(
-            'TiBeN\\Framework\\DataSource\\MysqlDataSource\\MysqlEntityConfiguration',
-            MysqlDataSource::getEntityMappingConfigurationClassName()
-        );        
-        // End of user code
-    }
-    
-    /**
      * Test method read from interface DataSource
      * Start of user code DataSource.testreadAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -195,6 +116,109 @@ class MysqlDataSourceTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test method delete from interface DataSource
+     * Start of user code DataSource.testdeleteAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testDelete()
+    {
+        // Start of user code DataSource.testdelete
+        $pdo = MysqlDataSourceTestSetupTearDown::getPdoConnection($GLOBALS['db_name']);
+       
+        // Insert a record into a table
+        $pdo->exec(
+            'INSERT INTO some_entity_data_table (idTable, a, b, c) VALUES (2, \'foo\', \'foo\', \'foo\')'
+        );
+
+        // Check if the record has been inserted on the table
+        $pdoStatement = $pdo->query(
+            'SELECT * FROM some_entity_data_table WHERE idTable = 2'
+        ); 
+        $this->assertInstanceOf('PDOStatement', $pdoStatement);
+        $this->assertEquals(1, $pdoStatement->rowCount());
+
+        // Manually construct the entity
+        $entity = new SomeEntity();
+        $entity->setId(2);
+        $entity->setAttributeA('foo');
+        $entity->setAttributeB('foo');
+        $entity->setAttributeC('foo');
+
+        // Delete entity using MysqlDataSource
+        $dataSource = DataSourcesRegistry::getDataSource('test-mysql');   
+        $entityMapping = EntityMappingsRegistry::getEntityMapping(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );
+        $dataSource->delete($entityMapping, $entity);
+        
+        // Check if the record has been deleted from the table
+        $pdoStatement = $pdo->query(
+            'SELECT * FROM some_entity_data_table WHERE idTable = 2'
+        ); 
+        $this->assertInstanceOf('PDOStatement', $pdoStatement);
+        $this->assertSame(0, $pdoStatement->rowCount());
+        
+        // End of user code
+    }
+    
+    /**
+     * Test method create from interface DataSource
+     * Start of user code DataSource.testcreateAnnotations 
+     * @group mysqldatasource-create 
+     * End of user code
+     */
+    public function testCreate()
+    {
+        // Start of user code DataSource.testcreate
+        $entity = new SomeEntity();
+        $entity->setAttributeA('foo');
+        $entity->setAttributeB('bar');
+        $entity->setAttributeC('baz');
+        
+        $dataSource = DataSourcesRegistry::getDataSource('test-mysql');   
+
+        $entityMapping = EntityMappingsRegistry::getEntityMapping(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );
+        
+        $dataSource->create($entityMapping, $entity);
+        
+        $pdo = MysqlDataSourceTestSetupTearDown::getPdoConnection($GLOBALS['db_name']);
+        $pdoStatement = $pdo->query(
+            'SELECT * FROM some_entity_data_table WHERE idTable = 1'
+        );
+        $this->assertInstanceOf('PDOStatement', $pdoStatement);
+        $this->assertEquals(1, $pdoStatement->rowCount());
+        
+        $expectedRow = array(
+            'idTable' => '1',
+            'a' => 'foo',
+            'b' => 'bar',
+            'c' => 'baz'
+        );
+        $this->assertEquals($expectedRow, $pdoStatement->fetch(\PDO::FETCH_ASSOC));
+        $this->assertSame(1, $entity->getId());
+        // End of user code
+    }
+    
+    /**
+     * Test static method getEntityMappingConfigurationClassName from interface DataSource
+     * Start of user code DataSource.testgetEntityMappingConfigurationClassNameAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetEntityMappingConfigurationClassName()
+    {
+        // Start of user code DataSource.testgetEntityMappingConfigurationClassName
+        $this->assertEquals(
+            'TiBeN\\Framework\\DataSource\\MysqlDataSource\\MysqlEntityConfiguration',
+            MysqlDataSource::getEntityMappingConfigurationClassName()
+        );        
+        // End of user code
+    }
+    
+    /**
      * Test method update from interface DataSource
      * Start of user code DataSource.testupdateAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -249,42 +273,18 @@ class MysqlDataSourceTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method create from interface DataSource
-     * Start of user code DataSource.testcreateAnnotations 
-     * @group mysqldatasource-create 
+     * Test static method getAttributeMappingConfigurationClassName from interface DataSource
+     * Start of user code DataSource.testgetAttributeMappingConfigurationClassNameAnnotations 
+     * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testCreate()
+    public function testGetAttributeMappingConfigurationClassName()
     {
-        // Start of user code DataSource.testcreate
-        $entity = new SomeEntity();
-        $entity->setAttributeA('foo');
-        $entity->setAttributeB('bar');
-        $entity->setAttributeC('baz');
-        
-        $dataSource = DataSourcesRegistry::getDataSource('test-mysql');   
-
-        $entityMapping = EntityMappingsRegistry::getEntityMapping(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        // Start of user code DataSource.testgetAttributeMappingConfigurationClassName
+        $this->assertEquals(
+            'TiBeN\\Framework\\DataSource\\MysqlDataSource\\MysqlAttributeConfiguration', 
+            MysqlDataSource::getAttributeMappingConfigurationClassName()
         );
-        
-        $dataSource->create($entityMapping, $entity);
-        
-        $pdo = MysqlDataSourceTestSetupTearDown::getPdoConnection($GLOBALS['db_name']);
-        $pdoStatement = $pdo->query(
-            'SELECT * FROM some_entity_data_table WHERE idTable = 1'
-        );
-        $this->assertInstanceOf('PDOStatement', $pdoStatement);
-        $this->assertEquals(1, $pdoStatement->rowCount());
-        
-        $expectedRow = array(
-            'idTable' => '1',
-            'a' => 'foo',
-            'b' => 'bar',
-            'c' => 'baz'
-        );
-        $this->assertEquals($expectedRow, $pdoStatement->fetch(\PDO::FETCH_ASSOC));
-        $this->assertSame(1, $entity->getId());
         // End of user code
     }
 

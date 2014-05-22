@@ -20,24 +20,9 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class HttpRequest
 {
     /**
-     * @var AssociativeArray
-     */
-    public $getVars;
-
-    /**
      * @var string
      */
     public $host;
-
-    /**
-     * @var string
-     */
-    public $httpVersion;
-
-    /**
-     * @var string
-     */
-    public $method;
 
     /**
      * @var AssociativeArray
@@ -54,6 +39,21 @@ class HttpRequest
      */
     public $postVars;
 
+    /**
+     * @var AssociativeArray
+     */
+    public $getVars;
+
+    /**
+     * @var string
+     */
+    public $method;
+
+    /**
+     * @var string
+     */
+    public $httpVersion;
+
     public function __construct()
     {
         // Start of user code HttpRequest.constructor
@@ -64,26 +64,6 @@ class HttpRequest
     {
         // Start of user code HttpRequest.destructor
         // End of user code
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getGetVars()
-    {
-        // Start of user code Getter HttpRequest.getGetVars
-        // End of user code
-        return $this->getVars;
-    }
-
-    /**
-     * @param AssociativeArray $getVars
-     */
-    public function setGetVars(AssociativeArray $getVars)
-    {
-        // Start of user code Setter HttpRequest.setGetVars
-        // End of user code
-        $this->getVars = $getVars;
     }
 
     /**
@@ -104,46 +84,6 @@ class HttpRequest
         // Start of user code Setter HttpRequest.setHost
         // End of user code
         $this->host = $host;
-    }
-
-    /**
-     * @return string
-     */
-    public function getHttpVersion()
-    {
-        // Start of user code Getter HttpRequest.getHttpVersion
-        // End of user code
-        return $this->httpVersion;
-    }
-
-    /**
-     * @param string $httpVersion
-     */
-    public function setHttpVersion($httpVersion)
-    {
-        // Start of user code Setter HttpRequest.setHttpVersion
-        // End of user code
-        $this->httpVersion = $httpVersion;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMethod()
-    {
-        // Start of user code Getter HttpRequest.getMethod
-        // End of user code
-        return $this->method;
-    }
-
-    /**
-     * @param string $method
-     */
-    public function setMethod($method)
-    {
-        // Start of user code Setter HttpRequest.setMethod
-        // End of user code
-        $this->method = $method;
     }
 
     /**
@@ -204,6 +144,66 @@ class HttpRequest
         // Start of user code Setter HttpRequest.setPostVars
         // End of user code
         $this->postVars = $postVars;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getGetVars()
+    {
+        // Start of user code Getter HttpRequest.getGetVars
+        // End of user code
+        return $this->getVars;
+    }
+
+    /**
+     * @param AssociativeArray $getVars
+     */
+    public function setGetVars(AssociativeArray $getVars)
+    {
+        // Start of user code Setter HttpRequest.setGetVars
+        // End of user code
+        $this->getVars = $getVars;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMethod()
+    {
+        // Start of user code Getter HttpRequest.getMethod
+        // End of user code
+        return $this->method;
+    }
+
+    /**
+     * @param string $method
+     */
+    public function setMethod($method)
+    {
+        // Start of user code Setter HttpRequest.setMethod
+        // End of user code
+        $this->method = $method;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHttpVersion()
+    {
+        // Start of user code Getter HttpRequest.getHttpVersion
+        // End of user code
+        return $this->httpVersion;
+    }
+
+    /**
+     * @param string $httpVersion
+     */
+    public function setHttpVersion($httpVersion)
+    {
+        // Start of user code Setter HttpRequest.setHttpVersion
+        // End of user code
+        $this->httpVersion = $httpVersion;
     }
 
     /**
