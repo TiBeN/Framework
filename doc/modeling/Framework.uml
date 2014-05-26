@@ -403,7 +403,7 @@
     <message xmi:type="uml:Message" xmi:id="_n_QC4B1oEeO39_cvMiFCoA" name="dataSource" messageSort="reply" receiveEvent="_n_tV4B1oEeO39_cvMiFCoA" sendEvent="_n_fTcB1oEeO39_cvMiFCoA"/>
     <message xmi:type="uml:Message" xmi:id="_-i9gYB1oEeO39_cvMiFCoA" name="instanciateEntityMapping" messageSort="createMessage" receiveEvent="_-jazYB1oEeO39_cvMiFCoA" sendEvent="_-jMw8B1oEeO39_cvMiFCoA"/>
     <message xmi:type="uml:Message" xmi:id="_GCChEB1pEeO39_cvMiFCoA" name="instantiateDataSource" messageSort="createMessage" receiveEvent="_GChpQB1pEeO39_cvMiFCoA" sendEvent="_GCS_wB1pEeO39_cvMiFCoA"/>
-    <message xmi:type="uml:Message" xmi:id="_OJkhgB1sEeO39_cvMiFCoA" name="read(criteriaSet)" receiveEvent="_OKV9kB1sEeO39_cvMiFCoA" sendEvent="_OJ1nQB1sEeO39_cvMiFCoA"/>
+    <message xmi:type="uml:Message" xmi:id="_OJkhgB1sEeO39_cvMiFCoA" name="read(entityMapping, criteriaSet)" receiveEvent="_OKV9kB1sEeO39_cvMiFCoA" sendEvent="_OJ1nQB1sEeO39_cvMiFCoA"/>
     <message xmi:type="uml:Message" xmi:id="_Qk1DAB1sEeO39_cvMiFCoA" name="entityCollection" messageSort="reply" receiveEvent="_QlSWAB1sEeO39_cvMiFCoA" sendEvent="_QlDsgB1sEeO39_cvMiFCoA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interaction" xmi:id="_z21CsB4JEeO39_cvMiFCoA" name="Entity Int. - Persist entity">
@@ -2757,7 +2757,21 @@ with other Statement classes.</body>
     <ownedComment xmi:type="uml:Comment" xmi:id="_TISxIB4jEeOwhK47NxXINQ">
       <body>The classes that implement this interface contain all attribute related parameters used by specific dataSource (ex : datasource Mysql has a class &quot;MysqlAttributeConfiguration&quot; that hold column name mapping)</body>
     </ownedComment>
-    <packagedElement xmi:type="uml:Class" xmi:id="_w6S7IBleEeOF6MZOG78g_A" clientDependency="_2FPHQBlkEeOF6MZOG78g_A _TogG4B8CEeOf9MerE9_4bA _ct98IEZKEeOgk9L_kZODLw" name="EntityRepository" isAbstract="true">
+    <packagedElement xmi:type="uml:Class" xmi:id="_w6S7IBleEeOF6MZOG78g_A" clientDependency="_2FPHQBlkEeOF6MZOG78g_A _TogG4B8CEeOf9MerE9_4bA _ct98IEZKEeOgk9L_kZODLw _kaWvMOG9EeONiYHrVv7XiQ" name="EntityRepository">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_6TUKEOG-EeONiYHrVv7XiQ" name="dataSource" visibility="public" type="_jguqQBlkEeOF6MZOG78g_A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9cfhgOG-EeONiYHrVv7XiQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9cgIkOG-EeONiYHrVv7XiQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_9cik0OG-EeONiYHrVv7XiQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-NZaAOG-EeONiYHrVv7XiQ" name="entityMapping" visibility="public" type="_tDsgAB4fEeOAXbbnJNwHxQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AuL7wOG_EeONiYHrVv7XiQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AuNJ4OG_EeONiYHrVv7XiQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_AuQNMOG_EeONiYHrVv7XiQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_qz98cBlmEeOF6MZOG78g_A" name="find">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_5wZfgBlmEeOF6MZOG78g_A" name="criteriaSet" type="_e0hssB79EeOf9MerE9_4bA"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_98DAkBlmEeOF6MZOG78g_A" name="entities" type="_f3O-kBllEeOF6MZOG78g_A" direction="return"/>
@@ -2767,6 +2781,12 @@ with other Statement classes.</body>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_LlEBsBlsEeOF6MZOG78g_A" name="delete">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ul5wEBlsEeOF6MZOG78g_A" name="entity" type="_1PtQoBloEeOF6MZOG78g_A"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_07O9AOG8EeONiYHrVv7XiQ" name="instantiateFromEntityClassName" isStatic="true">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_OLgucOG9EeONiYHrVv7XiQ" name="entityClassName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_VAC9UOG9EeONiYHrVv7XiQ" name="entityRepository" type="_w6S7IBleEeOF6MZOG78g_A" direction="return"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_2FPHQBlkEeOF6MZOG78g_A" name="connect to source using" client="_w6S7IBleEeOF6MZOG78g_A" supplier="_CrK7wBlfEeOF6MZOG78g_A"/>
@@ -2835,6 +2855,9 @@ with other Statement classes.</body>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_9le_IEcjEeO-MsP0k5YFJw" name="create" isStatic="true">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_IPjVIEckEeO-MsP0k5YFJw" name="config" type="_ti84wLoPEeKycOj42mlSMA"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_QCa0gEckEeO-MsP0k5YFJw" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_mFSmwOTNEeOhWq8Np-BNQw" name="getIdentifierAttributeMapping">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1hkukOTNEeOhWq8Np-BNQw" name="attributeMapping" type="_X6n3sB4jEeOwhK47NxXINQ" direction="return"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_erPsYB4iEeOwhK47NxXINQ" name="DataSourceEntityMappingConfiguration">
@@ -3219,6 +3242,7 @@ with other Statement classes.</body>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_TMvuQMeTEeOhlq-hm4UKlg" name="Store criterias into" client="_e0hssB79EeOf9MerE9_4bA" supplier="_9fMUkEWcEeOvPbyK1FXp-A"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="__i62sN_2EeOBsPjkboT0ig" name="generate validation rules of attributes using" client="_tDsgAB4fEeOAXbbnJNwHxQ" supplier="_Ow5DkBskEeOmN-2QJZ-Okg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_ZiIXgOG0EeONiYHrVv7XiQ" name="retrieve validator used for validation using" client="_WqNVgB4fEeOAXbbnJNwHxQ" supplier="__F6_gBsjEeOmN-2QJZ-Okg"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_kaWvMOG9EeONiYHrVv7XiQ" name="Retrieve entitymapping using" client="_w6S7IBleEeOF6MZOG78g_A" supplier="_7gmi4EZKEeOgk9L_kZODLw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_wx9KoBsjEeOmN-2QJZ-Okg" name="Validation">
     <ownedComment xmi:type="uml:Comment" xmi:id="_tDCMYBskEeOmN-2QJZ-Okg">

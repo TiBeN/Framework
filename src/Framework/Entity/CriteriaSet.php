@@ -17,19 +17,19 @@ use TiBeN\Framework\Datatype\GenericCollection;
 class CriteriaSet
 {
     /**
+     * @var GenericCollection
+     */
+    public $matchCriterias;
+
+    /**
      * @var string
      */
     const LOGICAL_SEPARATOR_AND = 'and';
 
     /**
-     * @var LimitCriteria
+     * @var string
      */
-    public $limitCriteria;
-
-    /**
-     * @var GenericCollection
-     */
-    public $matchCriterias;
+    public $logicalSeparator;
 
     /**
      * @var string
@@ -47,9 +47,9 @@ class CriteriaSet
     public $orderCriterias;
 
     /**
-     * @var string
+     * @var LimitCriteria
      */
-    public $logicalSeparator;
+    public $limitCriteria;
 
     public function __construct()
     {
@@ -73,26 +73,6 @@ class CriteriaSet
     }
 
     /**
-     * @return LimitCriteria
-     */
-    public function getLimitCriteria()
-    {
-        // Start of user code Getter CriteriaSet.getLimitCriteria
-        // End of user code
-        return $this->limitCriteria;
-    }
-
-    /**
-     * @param LimitCriteria $limitCriteria
-     */
-    public function setLimitCriteria(LimitCriteria $limitCriteria)
-    {
-        // Start of user code Setter CriteriaSet.setLimitCriteria
-        // End of user code
-        $this->limitCriteria = $limitCriteria;
-    }
-
-    /**
      * @return GenericCollection
      */
     public function getMatchCriterias()
@@ -110,6 +90,26 @@ class CriteriaSet
         // Start of user code Setter CriteriaSet.setMatchCriterias
         // End of user code
         $this->matchCriterias = $matchCriterias;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLogicalSeparator()
+    {
+        // Start of user code Getter CriteriaSet.getLogicalSeparator
+        // End of user code
+        return $this->logicalSeparator;
+    }
+
+    /**
+     * @param string $logicalSeparator
+     */
+    public function setLogicalSeparator($logicalSeparator)
+    {
+        // Start of user code Setter CriteriaSet.setLogicalSeparator
+        // End of user code
+        $this->logicalSeparator = $logicalSeparator;
     }
 
     /**
@@ -153,23 +153,56 @@ class CriteriaSet
     }
 
     /**
-     * @return string
+     * @return LimitCriteria
      */
-    public function getLogicalSeparator()
+    public function getLimitCriteria()
     {
-        // Start of user code Getter CriteriaSet.getLogicalSeparator
+        // Start of user code Getter CriteriaSet.getLimitCriteria
         // End of user code
-        return $this->logicalSeparator;
+        return $this->limitCriteria;
     }
 
     /**
-     * @param string $logicalSeparator
+     * @param LimitCriteria $limitCriteria
      */
-    public function setLogicalSeparator($logicalSeparator)
+    public function setLimitCriteria(LimitCriteria $limitCriteria)
     {
-        // Start of user code Setter CriteriaSet.setLogicalSeparator
+        // Start of user code Setter CriteriaSet.setLimitCriteria
         // End of user code
-        $this->logicalSeparator = $logicalSeparator;
+        $this->limitCriteria = $limitCriteria;
+    }
+
+    /**
+     * @param CriteriaSet $criteriaSet
+     */
+    public function addSubSet(CriteriaSet $criteriaSet)
+    {
+        // Start of user code CriteriaSet.addSubSet
+		$this->criteriaSets->add($criteriaSet);
+		return $this; 
+        // End of user code
+    }
+
+    /**
+     * @param MatchCriteria $matchCriteria
+     */
+    public function add(MatchCriteria $matchCriteria)
+    {
+        // Start of user code CriteriaSet.add
+        $this->matchCriterias->add($matchCriteria);
+        return $this; 
+        // End of user code
+    }
+
+    /**
+     * @param OrderCriteria $orderCriteria
+     */
+    public function addOrder(OrderCriteria $orderCriteria)
+    {
+        // Start of user code CriteriaSet.addOrder
+		$this->orderCriterias->add($orderCriteria);
+		return $this; 
+        // End of user code
     }
 
     /**
@@ -195,14 +228,16 @@ class CriteriaSet
     }
 
     /**
-     * @param CriteriaSet $criteriaSet
+     * @return CriteriaSet $criteriaSet
      */
-    public function addSubSet(CriteriaSet $criteriaSet)
+    public static function createOr()
     {
-        // Start of user code CriteriaSet.addSubSet
-		$this->criteriaSets->add($criteriaSet);
-		return $this; 
+        // Start of user code CriteriaSet.createOr
+		$criteriaSet = new self();
+		$criteriaSet->setLogicalSeparator(self::LOGICAL_SEPARATOR_OR); 
         // End of user code
+    
+        return $criteriaSet;
     }
 
     /**
@@ -213,41 +248,6 @@ class CriteriaSet
         // Start of user code CriteriaSet.createAnd
 		$criteriaSet = new self();
 		$criteriaSet->setLogicalSeparator(self::LOGICAL_SEPARATOR_AND); 
-        // End of user code
-    
-        return $criteriaSet;
-    }
-
-    /**
-     * @param OrderCriteria $orderCriteria
-     */
-    public function addOrder(OrderCriteria $orderCriteria)
-    {
-        // Start of user code CriteriaSet.addOrder
-		$this->orderCriterias->add($orderCriteria);
-		return $this; 
-        // End of user code
-    }
-
-    /**
-     * @param MatchCriteria $matchCriteria
-     */
-    public function add(MatchCriteria $matchCriteria)
-    {
-        // Start of user code CriteriaSet.add
-        $this->matchCriterias->add($matchCriteria);
-        return $this; 
-        // End of user code
-    }
-
-    /**
-     * @return CriteriaSet $criteriaSet
-     */
-    public static function createOr()
-    {
-        // Start of user code CriteriaSet.createOr
-		$criteriaSet = new self();
-		$criteriaSet->setLogicalSeparator(self::LOGICAL_SEPARATOR_OR); 
         // End of user code
     
         return $criteriaSet;

@@ -99,6 +99,21 @@ class DeleteStatement implements Statement
     }
 
     /**
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+		$statementParameters = !is_null($this->whereConditions)
+            ? $this->whereConditions->getStatementParameters()
+            : new AssociativeArray()
+        ;    
+        // End of user code
+    
+        return $statementParameters;
+    }
+
+    /**
      * Return the statement in String format
      *
      * @return string $statement
@@ -120,21 +135,6 @@ class DeleteStatement implements Statement
         // End of user code
     
         return $statement;
-    }
-
-    /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-		$statementParameters = !is_null($this->whereConditions)
-            ? $this->whereConditions->getStatementParameters()
-            : new AssociativeArray()
-        ;    
-        // End of user code
-    
-        return $statementParameters;
     }
 
     // Start of user code DeleteStatement.implementationSpecificMethods

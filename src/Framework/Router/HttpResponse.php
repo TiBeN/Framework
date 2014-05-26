@@ -18,9 +18,9 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class HttpResponse
 {
     /**
-     * @var AssociativeArray
+     * @var string
      */
-    public $headers;
+    public $message;
 
     /**
      * @var string
@@ -28,9 +28,9 @@ class HttpResponse
     public $statusCode = '200';
 
     /**
-     * @var string
+     * @var AssociativeArray
      */
-    public $message;
+    public $headers;
 
     /**
      * @var string
@@ -47,46 +47,6 @@ class HttpResponse
     {
         // Start of user code HttpResponse.destructor
         // End of user code
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getHeaders()
-    {
-        // Start of user code Getter HttpResponse.getHeaders
-        // End of user code
-        return $this->headers;
-    }
-
-    /**
-     * @param AssociativeArray $headers
-     */
-    public function setHeaders(AssociativeArray $headers)
-    {
-        // Start of user code Setter HttpResponse.setHeaders
-        // End of user code
-        $this->headers = $headers;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStatusCode()
-    {
-        // Start of user code Getter HttpResponse.getStatusCode
-        // End of user code
-        return $this->statusCode;
-    }
-
-    /**
-     * @param string $statusCode
-     */
-    public function setStatusCode($statusCode)
-    {
-        // Start of user code Setter HttpResponse.setStatusCode
-        // End of user code
-        $this->statusCode = $statusCode;
     }
 
     /**
@@ -112,6 +72,46 @@ class HttpResponse
     /**
      * @return string
      */
+    public function getStatusCode()
+    {
+        // Start of user code Getter HttpResponse.getStatusCode
+        // End of user code
+        return $this->statusCode;
+    }
+
+    /**
+     * @param string $statusCode
+     */
+    public function setStatusCode($statusCode)
+    {
+        // Start of user code Setter HttpResponse.setStatusCode
+        // End of user code
+        $this->statusCode = $statusCode;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getHeaders()
+    {
+        // Start of user code Getter HttpResponse.getHeaders
+        // End of user code
+        return $this->headers;
+    }
+
+    /**
+     * @param AssociativeArray $headers
+     */
+    public function setHeaders(AssociativeArray $headers)
+    {
+        // Start of user code Setter HttpResponse.setHeaders
+        // End of user code
+        $this->headers = $headers;
+    }
+
+    /**
+     * @return string
+     */
     public function getContentType()
     {
         // Start of user code Getter HttpResponse.getContentType
@@ -127,6 +127,26 @@ class HttpResponse
         // Start of user code Setter HttpResponse.setContentType
         // End of user code
         $this->contentType = $contentType;
+    }
+
+    /**
+     * Create an HttpResponse object configured to send a type redirect 302 response  
+     *
+     * @param string $uri
+     * @param bool $permanent
+     * @return HttpResponse $httpResponse
+     */
+    public static function createRedirectResponse($uri, $permanent)
+    {
+        // Start of user code HttpResponse.createRedirectResponse
+        $httpResponse = new self();			
+		$httpResponse->setStatusCode($permanent ? '301' : '302');
+		$httpResponse->setHeaders(
+            AssociativeArray::createFromNativeArray('string', array('location' => $uri))
+        );
+        // End of user code
+    
+        return $httpResponse;
     }
 
     /**
@@ -184,26 +204,6 @@ class HttpResponse
 			)
 		);
 		$httpResponse->setMessage($content);
-        // End of user code
-    
-        return $httpResponse;
-    }
-
-    /**
-     * Create an HttpResponse object configured to send a type redirect 302 response  
-     *
-     * @param string $uri
-     * @param bool $permanent
-     * @return HttpResponse $httpResponse
-     */
-    public static function createRedirectResponse($uri, $permanent)
-    {
-        // Start of user code HttpResponse.createRedirectResponse
-        $httpResponse = new self();			
-		$httpResponse->setStatusCode($permanent ? '301' : '302');
-		$httpResponse->setHeaders(
-            AssociativeArray::createFromNativeArray('string', array('location' => $uri))
-        );
         // End of user code
     
         return $httpResponse;

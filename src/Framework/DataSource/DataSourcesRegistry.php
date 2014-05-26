@@ -74,19 +74,6 @@ class DataSourcesRegistry
 
     /**
      * @param string $dataSourceName
-     * @return bool $boolean
-     */
-    public static function hasDataSource($dataSourceName)
-    {
-        // Start of user code DataSourcesRegistry.hasDataSource
-		return self::getDataSources()->has($dataSourceName);
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
-     * @param string $dataSourceName
      * @return DataSource $dataSource
      */
     public static function getDataSource($dataSourceName)
@@ -116,6 +103,19 @@ class DataSourcesRegistry
 		} 
 		self::getDataSources()->remove($dataSourceName);
         // End of user code
+    }
+
+    /**
+     * @param string $dataSourceName
+     * @return bool $boolean
+     */
+    public static function hasDataSource($dataSourceName)
+    {
+        // Start of user code DataSourcesRegistry.hasDataSource
+		return self::getDataSources()->has($dataSourceName);
+        // End of user code
+    
+        return $boolean;
     }
 
     // Start of user code DataSourcesRegistry.implementationSpecificMethods

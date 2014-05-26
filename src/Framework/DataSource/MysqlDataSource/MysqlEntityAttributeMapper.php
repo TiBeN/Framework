@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\EntityMapping;
-use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
+use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Entity\EntityMapping;
 
 // Start of user code MysqlEntityAttributeMapper.useStatements
 // Place your use statements here.
@@ -81,6 +81,140 @@ class MysqlEntityAttributeMapper
     }
 
     /**
+     * @param string $attributeName
+     * @return string $columnValue
+     */
+    public function getColumnValue($attributeName)
+    {
+        // Start of user code MysqlEntityAttributeMapper.getColumnValue
+        if(!isset($this->entity)) {
+            throw new \LogicException('No entity set');
+        }
+        
+        if(!isset($this->entityMapping)) {
+            throw new \LogicException('No entity mapping set');
+        }       
+        
+        if(!$this->entityMapping->getAttributeMappings()->has($attributeName)) {
+            throw new \InvalidArgumentException(
+                sprintf('Entity has no attribute \'%s\' or is not mapped', $attributeName)
+            );
+        }
+        $attributeTypeParameters = $this
+            ->entityMapping
+            ->getAttributeMappings()
+            ->get($attributeName)
+            ->getType()
+        ;
+        $converter = DataSourceTypeConvertersRegistry::getTypeConverter(
+            $attributeTypeParameters
+                ->get('name')
+            , 
+            'mysql'
+        );
+
+        // Define converter parameters from type configuration of the attribute 
+        $converterParameters = clone $attributeTypeParameters;
+        $converterParameters->remove('name');
+        $converter->setParameters($converterParameters);
+
+        $getterName = 'get' . ucfirst($attributeName);
+        $columnValue = $converter->convert($this->entity->$getterName());
+        // End of user code
+    
+        return $columnValue;
+    }
+
+    /**
+     * @param int $identifier
+     */
+    public function setIdentifier($identifier)
+    {
+        // Start of user code MysqlEntityAttributeMapper.setIdentifier
+        if(!isset($this->entity)) {
+            throw new \LogicException('No entity set');
+        }
+        
+        if(!isset($this->entityMapping)) {
+            throw new \LogicException('No entity mapping set');
+        }
+
+        foreach($this->entityMapping->getAttributeMappings()->toNativeArray() 
+            as $attributeName => $attributeMapping
+        ) {
+            if($attributeMapping->getIsIdentifier()) {
+                $columnName = $attributeMapping
+                    ->getDataSourceAttributeMappingConfiguration()
+                    ->getColumnName()
+                ;
+                break;
+            }                                     
+        }       
+        
+        if(!isset($columnName)) {
+            throw new \LogicException('Entity has no identifier attribute mapped');
+        }
+        
+        $this->setAttributeValue($columnName, (string)$identifier);
+        // End of user code
+    }
+
+    /**
+     * @param string $columnName
+     * @param string $value
+     */
+    public function setAttributeValue($columnName, $value)
+    {
+        // Start of user code MysqlEntityAttributeMapper.setAttributeValue
+        if(!isset($this->entity)) {
+            throw new \LogicException('No entity set');
+        }
+         
+        if(!isset($this->entityMapping)) {
+            throw new \LogicException('No entity mapping set');
+        }
+        
+        foreach($this->entityMapping->getAttributeMappings()->toNativeArray() 
+            as $attributeName => $attributeMapping
+        ) {
+            if($attributeMapping
+                ->getDataSourceAttributeMappingConfiguration()
+                ->getColumnName()
+                == $columnName
+            ) {
+                $attributeFound = $attributeMapping;
+                break;
+            }                                     
+        }       
+        
+        if(!isset($attributeFound)) {
+            throw new \LogicException(
+                sprintf('column \'%s\' is not mapped to any attribute', $columnName)
+            );
+        }
+
+        $converter = DataSourceTypeConvertersRegistry::getTypeConverter(
+            $attributeFound
+                ->getType()
+                ->get('name')
+            ,
+            'mysql'
+        );
+
+        // Define converter parameters from type configuration of the attribute 
+        $attributeTypeParameters = clone $attributeFound->getType();
+        $attributeTypeParameters->remove('name');
+        $converter->setParameters($attributeTypeParameters);
+
+        $attributeSetterName = 'set'
+            . ucfirst($attributeFound->getName())
+        ;
+         
+        $this->entity->$attributeSetterName($converter->reverse($value));
+        // End of user code
+    }
+
+    /**
      * @return string $attributeName
      */
     public function getIdentifierAttributeName()
@@ -153,140 +287,6 @@ class MysqlEntityAttributeMapper
         // End of user code
     
         return $identifier;
-    }
-
-    /**
-     * @param int $identifier
-     */
-    public function setIdentifier($identifier)
-    {
-        // Start of user code MysqlEntityAttributeMapper.setIdentifier
-        if(!isset($this->entity)) {
-            throw new \LogicException('No entity set');
-        }
-        
-        if(!isset($this->entityMapping)) {
-            throw new \LogicException('No entity mapping set');
-        }
-
-        foreach($this->entityMapping->getAttributeMappings()->toNativeArray() 
-            as $attributeName => $attributeMapping
-        ) {
-            if($attributeMapping->getIsIdentifier()) {
-                $columnName = $attributeMapping
-                    ->getDataSourceAttributeMappingConfiguration()
-                    ->getColumnName()
-                ;
-                break;
-            }                                     
-        }       
-        
-        if(!isset($columnName)) {
-            throw new \LogicException('Entity has no identifier attribute mapped');
-        }
-        
-        $this->setAttributeValue($columnName, (string)$identifier);
-        // End of user code
-    }
-
-    /**
-     * @param string $attributeName
-     * @return string $columnValue
-     */
-    public function getColumnValue($attributeName)
-    {
-        // Start of user code MysqlEntityAttributeMapper.getColumnValue
-        if(!isset($this->entity)) {
-            throw new \LogicException('No entity set');
-        }
-        
-        if(!isset($this->entityMapping)) {
-            throw new \LogicException('No entity mapping set');
-        }       
-        
-        if(!$this->entityMapping->getAttributeMappings()->has($attributeName)) {
-            throw new \InvalidArgumentException(
-                sprintf('Entity has no attribute \'%s\' or is not mapped', $attributeName)
-            );
-        }
-        $attributeTypeParameters = $this
-            ->entityMapping
-            ->getAttributeMappings()
-            ->get($attributeName)
-            ->getType()
-        ;
-        $converter = DataSourceTypeConvertersRegistry::getTypeConverter(
-            $attributeTypeParameters
-                ->get('name')
-            , 
-            'mysql'
-        );
-
-        // Define converter parameters from type configuration of the attribute 
-        $converterParameters = clone $attributeTypeParameters;
-        $converterParameters->remove('name');
-        $converter->setParameters($converterParameters);
-
-        $getterName = 'get' . ucfirst($attributeName);
-        $columnValue = $converter->convert($this->entity->$getterName());
-        // End of user code
-    
-        return $columnValue;
-    }
-
-    /**
-     * @param string $columnName
-     * @param string $value
-     */
-    public function setAttributeValue($columnName, $value)
-    {
-        // Start of user code MysqlEntityAttributeMapper.setAttributeValue
-        if(!isset($this->entity)) {
-            throw new \LogicException('No entity set');
-        }
-         
-        if(!isset($this->entityMapping)) {
-            throw new \LogicException('No entity mapping set');
-        }
-        
-        foreach($this->entityMapping->getAttributeMappings()->toNativeArray() 
-            as $attributeName => $attributeMapping
-        ) {
-            if($attributeMapping
-                ->getDataSourceAttributeMappingConfiguration()
-                ->getColumnName()
-                == $columnName
-            ) {
-                $attributeFound = $attributeMapping;
-                break;
-            }                                     
-        }       
-        
-        if(!isset($attributeFound)) {
-            throw new \LogicException(
-                sprintf('column \'%s\' is not mapped to any attribute', $columnName)
-            );
-        }
-
-        $converter = DataSourceTypeConvertersRegistry::getTypeConverter(
-            $attributeFound
-                ->getType()
-                ->get('name')
-            ,
-            'mysql'
-        );
-
-        // Define converter parameters from type configuration of the attribute 
-        $attributeTypeParameters = clone $attributeFound->getType();
-        $attributeTypeParameters->remove('name');
-        $converter->setParameters($attributeTypeParameters);
-
-        $attributeSetterName = 'set'
-            . ucfirst($attributeFound->getName())
-        ;
-         
-        $this->entity->$attributeSetterName($converter->reverse($value));
-        // End of user code
     }
 
     // Start of user code MysqlEntityAttributeMapper.implementationSpecificMethods

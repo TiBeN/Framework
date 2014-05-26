@@ -117,6 +117,63 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedEm, $factorisedEntityMapping);
 		// End of user code
     }
+    
+    /**
+     * Test method getIdentifierAttributeMapping from class EntityMapping
+     *
+     * Start of user code EntityMappingTest.testgetIdentifierAttributeMappingAnnotations
+     * PHPUnit user annotations can be placed here
+     * End of user code
+     */
+    public function testGetIdentifierAttributeMapping()
+    {
+        // Start of user code EntityMappingTest.testgetIdentifierAttributeMapping
+        $entityManager = new EntityMapping();
+        $entityManager->setEntityName(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity');
+        $entityManager->setDataSourceName('fooSource');
+
+        $dsEntityConf = new FooEntityMappingConfiguration();
+        $dsEntityConf->setFile('fooFile');
+        $entityManager->setDataSourceEntityConfiguration($dsEntityConf);
+        
+        $someAttribute = new AttributeMapping();
+        $someAttribute->setName('someAttribute');
+        $someAttribute->setType(AssociativeArray::createFromNativeArray(null, array(
+        	'name' => 'string'                
+        )));
+        $dsAttributeConf = new FooAttributeMappingConfiguration();
+        $dsAttributeConf->setField('fooField');
+        $someAttribute->setDataSourceAttributeMappingConfiguration($dsAttributeConf);
+        $entityManager->getAttributeMappings()->set('someAttribute', $someAttribute);
+        
+        $someIdentifierAttribute = new AttributeMapping();
+        $someIdentifierAttribute->setName('someIdentifierAttribute');
+        $someIdentifierAttribute->setType(
+            AssociativeArray::createFromNativeArray(
+                null, 
+                array(
+                    'name' => 'string'                
+                )
+            )
+        );
+        $someIdentifierAttribute->setIsIdentifier(true);
+        $dsIdentifierAttributeConf = new FooAttributeMappingConfiguration();
+        $dsIdentifierAttributeConf->setField('fooField');
+        $someIdentifierAttribute->setDataSourceAttributeMappingConfiguration(
+            $dsIdentifierAttributeConf
+        );
+        $entityManager
+            ->getAttributeMappings()
+            ->set('someIdentifierAttribute', $someIdentifierAttribute)
+        ;
+
+        $this->assertSame(
+            $someIdentifierAttribute,
+            $entityManager->getIdentifierAttributeMapping()
+        );
+        // End of user code
+    }
 
     // Start of user code EntityMappingTest.methods
     
@@ -312,5 +369,36 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
             )
         );
 	}	
+
+    /**
+     * Test getting identifier attribute mapping 
+     * of an entity mapping without identifier attribute
+     *
+     * @expectedException LogicException
+     * @expectedExceptionMessage The EntityMapping has no attribute set as identifier
+     */
+    public function testGetIdentifierAttributeMappingFromAnEntityMapingWithoutIdentifier()
+    {
+        $entityManager = new EntityMapping();
+        $entityManager->setEntityName(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity');
+        $entityManager->setDataSourceName('fooSource');
+
+        $dsEntityConf = new FooEntityMappingConfiguration();
+        $dsEntityConf->setFile('fooFile');
+        $entityManager->setDataSourceEntityConfiguration($dsEntityConf);
+        
+        $someAttribute = new AttributeMapping();
+        $someAttribute->setName('someAttribute');
+        $someAttribute->setType(AssociativeArray::createFromNativeArray(null, array(
+        	'name' => 'string'                
+        )));
+        $dsAttributeConf = new FooAttributeMappingConfiguration();
+        $dsAttributeConf->setField('fooField');
+        $someAttribute->setDataSourceAttributeMappingConfiguration($dsAttributeConf);
+        $entityManager->getAttributeMappings()->set('someAttribute', $someAttribute);
+
+        $entityManager->getIdentifierAttributeMapping();
+    }
 	// End of user code
 }

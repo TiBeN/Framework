@@ -22,9 +22,9 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class ValidationRule
 {
     /**
-     * @var string
+     * @var AssociativeArray
      */
-    public $validatorName;
+    public $configuration;
 
     /**
      * @var string
@@ -32,9 +32,9 @@ class ValidationRule
     public $errorMessagePattern;
 
     /**
-     * @var AssociativeArray
+     * @var string
      */
-    public $configuration;
+    public $validatorName;
 
     public function __construct()
     {
@@ -51,23 +51,23 @@ class ValidationRule
     }
 
     /**
-     * @return string
+     * @return AssociativeArray
      */
-    public function getValidatorName()
+    public function getConfiguration()
     {
-        // Start of user code Getter ValidationRule.getValidatorName
+        // Start of user code Getter ValidationRule.getConfiguration
         // End of user code
-        return $this->validatorName;
+        return $this->configuration;
     }
 
     /**
-     * @param string $validatorName
+     * @param AssociativeArray $configuration
      */
-    public function setValidatorName($validatorName)
+    public function setConfiguration(AssociativeArray $configuration)
     {
-        // Start of user code Setter ValidationRule.setValidatorName
+        // Start of user code Setter ValidationRule.setConfiguration
         // End of user code
-        $this->validatorName = $validatorName;
+        $this->configuration = $configuration;
     }
 
     /**
@@ -91,23 +91,23 @@ class ValidationRule
     }
 
     /**
-     * @return AssociativeArray
+     * @return string
      */
-    public function getConfiguration()
+    public function getValidatorName()
     {
-        // Start of user code Getter ValidationRule.getConfiguration
+        // Start of user code Getter ValidationRule.getValidatorName
         // End of user code
-        return $this->configuration;
+        return $this->validatorName;
     }
 
     /**
-     * @param AssociativeArray $configuration
+     * @param string $validatorName
      */
-    public function setConfiguration(AssociativeArray $configuration)
+    public function setValidatorName($validatorName)
     {
-        // Start of user code Setter ValidationRule.setConfiguration
+        // Start of user code Setter ValidationRule.setValidatorName
         // End of user code
-        $this->configuration = $configuration;
+        $this->validatorName = $validatorName;
     }
 
     /**

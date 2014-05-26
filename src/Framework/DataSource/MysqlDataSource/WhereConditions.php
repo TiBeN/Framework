@@ -2,12 +2,12 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Entity\MatchCriteria;
 use TiBeN\Framework\Datatype\AssociativeArray;
-use TiBeN\Framework\Entity\CriteriaSet;
+use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Datatype\GenericCollection;
 use TiBeN\Framework\Entity\EntityMapping;
-use TiBeN\Framework\Entity\MatchCriteria;
-use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Entity\CriteriaSet;
 
 // Start of user code WhereConditions.useStatements
 // Place your use statements here.
@@ -84,53 +84,6 @@ class WhereConditions
     }
 
     /**
-     * @param Expr $expr
-     * @return WhereConditions $whereConditions
-     */
-    public static function createFromExpr(Expr $expr)
-    {
-        // Start of user code WhereConditions.createFromExpr
-		$whereConditions = new self();
-		$whereConditions->expr = $expr;
-		$whereConditions->statementParameters = $expr->getExprParameters();
-        // End of user code
-    
-        return $whereConditions;
-    }
-
-    /**
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code WhereConditions.toString
-		if(is_null($this->expr)) {
-		    throw new \LogicException('No expr set');
-		}
-		$string = 'WHERE ' . $this->expr->toString(); 
-        // End of user code
-    
-        return $string;
-    }
-
-    /**
-     * @param CriteriaSet $criteriaSet
-     * @param EntityMapping $entityMapping
-     * @return WhereConditions $whereCondition
-     */
-    public static function createFromCriteriaSet(CriteriaSet $criteriaSet, EntityMapping $entityMapping)
-    {
-        // Start of user code WhereConditions.createFromCriteriaSet
-        $whereCondition = new self();                
-        $expr = self::convertCriteriaSetToExpr($criteriaSet, $entityMapping);
-        $whereCondition->setExpr($expr);        
-        $whereCondition->setStatementParameters($expr->getExprParameters());               
-        // End of user code
-    
-        return $whereCondition;
-    }
-
-    /**
      * @param EntityMapping $entityMapping
      * @param Entity $entity
      * @return WhereConditions $whereConditions
@@ -159,6 +112,53 @@ class WhereConditions
         // End of user code
     
         return $whereConditions;
+    }
+
+    /**
+     * @param CriteriaSet $criteriaSet
+     * @param EntityMapping $entityMapping
+     * @return WhereConditions $whereCondition
+     */
+    public static function createFromCriteriaSet(CriteriaSet $criteriaSet, EntityMapping $entityMapping)
+    {
+        // Start of user code WhereConditions.createFromCriteriaSet
+        $whereCondition = new self();                
+        $expr = self::convertCriteriaSetToExpr($criteriaSet, $entityMapping);
+        $whereCondition->setExpr($expr);        
+        $whereCondition->setStatementParameters($expr->getExprParameters());               
+        // End of user code
+    
+        return $whereCondition;
+    }
+
+    /**
+     * @param Expr $expr
+     * @return WhereConditions $whereConditions
+     */
+    public static function createFromExpr(Expr $expr)
+    {
+        // Start of user code WhereConditions.createFromExpr
+		$whereConditions = new self();
+		$whereConditions->expr = $expr;
+		$whereConditions->statementParameters = $expr->getExprParameters();
+        // End of user code
+    
+        return $whereConditions;
+    }
+
+    /**
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code WhereConditions.toString
+		if(is_null($this->expr)) {
+		    throw new \LogicException('No expr set');
+		}
+		$string = 'WHERE ' . $this->expr->toString(); 
+        // End of user code
+    
+        return $string;
     }
 
     // Start of user code WhereConditions.implementationSpecificMethods

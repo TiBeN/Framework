@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\Entity;
 
-use TiBeN\Framework\Validation\ValidationRule;
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\DataSource\DataSourcesRegistry;
+use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Validation\ValidationRule;
 
 // Start of user code EntityMapping.useStatements
 // Place your use statements here.
@@ -19,16 +19,6 @@ use TiBeN\Framework\DataSource\DataSourcesRegistry;
 class EntityMapping
 {
     /**
-     * @var string
-     */
-    public $dataSourceName;
-
-    /**
-     * @var DataSourceEntityMappingConfiguration
-     */
-    public $dataSourceEntityConfiguration;
-
-    /**
      * @var AssociativeArray
      */
     public $attributeMappings;
@@ -37,6 +27,16 @@ class EntityMapping
      * @var string
      */
     public $entityName;
+
+    /**
+     * @var DataSourceEntityMappingConfiguration
+     */
+    public $dataSourceEntityConfiguration;
+
+    /**
+     * @var string
+     */
+    public $dataSourceName;
 
     public function __construct()
     {
@@ -49,46 +49,6 @@ class EntityMapping
     {
         // Start of user code EntityMapping.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getDataSourceName()
-    {
-        // Start of user code Getter EntityMapping.getDataSourceName
-        // End of user code
-        return $this->dataSourceName;
-    }
-
-    /**
-     * @param string $dataSourceName
-     */
-    public function setDataSourceName($dataSourceName)
-    {
-        // Start of user code Setter EntityMapping.setDataSourceName
-        // End of user code
-        $this->dataSourceName = $dataSourceName;
-    }
-
-    /**
-     * @return DataSourceEntityMappingConfiguration
-     */
-    public function getDataSourceEntityConfiguration()
-    {
-        // Start of user code Getter EntityMapping.getDataSourceEntityConfiguration
-        // End of user code
-        return $this->dataSourceEntityConfiguration;
-    }
-
-    /**
-     * @param DataSourceEntityMappingConfiguration $dataSourceEntityConfiguration
-     */
-    public function setDataSourceEntityConfiguration(DataSourceEntityMappingConfiguration $dataSourceEntityConfiguration)
-    {
-        // Start of user code Setter EntityMapping.setDataSourceEntityConfiguration
-        // End of user code
-        $this->dataSourceEntityConfiguration = $dataSourceEntityConfiguration;
     }
 
     /**
@@ -129,6 +89,46 @@ class EntityMapping
         // Start of user code Setter EntityMapping.setEntityName
         // End of user code
         $this->entityName = $entityName;
+    }
+
+    /**
+     * @return DataSourceEntityMappingConfiguration
+     */
+    public function getDataSourceEntityConfiguration()
+    {
+        // Start of user code Getter EntityMapping.getDataSourceEntityConfiguration
+        // End of user code
+        return $this->dataSourceEntityConfiguration;
+    }
+
+    /**
+     * @param DataSourceEntityMappingConfiguration $dataSourceEntityConfiguration
+     */
+    public function setDataSourceEntityConfiguration(DataSourceEntityMappingConfiguration $dataSourceEntityConfiguration)
+    {
+        // Start of user code Setter EntityMapping.setDataSourceEntityConfiguration
+        // End of user code
+        $this->dataSourceEntityConfiguration = $dataSourceEntityConfiguration;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDataSourceName()
+    {
+        // Start of user code Getter EntityMapping.getDataSourceName
+        // End of user code
+        return $this->dataSourceName;
+    }
+
+    /**
+     * @param string $dataSourceName
+     */
+    public function setDataSourceName($dataSourceName)
+    {
+        // Start of user code Setter EntityMapping.setDataSourceName
+        // End of user code
+        $this->dataSourceName = $dataSourceName;
     }
 
     /**
@@ -256,6 +256,29 @@ class EntityMapping
         // End of user code
     
         return $entityMapping;
+    }
+
+    /**
+     * @return AttributeMapping $attributeMapping
+     */
+    public function getIdentifierAttributeMapping()
+    {
+        // Start of user code EntityMapping.getIdentifierAttributeMapping
+        foreach ($this->getAttributeMappings()->toNativeArray()
+            as $attributeName => $attributeMapping
+        ) {
+            if($attributeMapping->getIsIdentifier()) {
+                $attributeIdentifier = $attributeMapping;
+                break;
+            }
+        }
+        if (!isset($attributeIdentifier)) {
+            throw new \LogicException('The EntityMapping has no attribute set as identifier');
+        }
+        $attributeMapping = $attributeIdentifier;
+        // End of user code
+    
+        return $attributeMapping;
     }
 
     // Start of user code EntityMapping.implementationSpecificMethods

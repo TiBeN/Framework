@@ -46,94 +46,73 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method generateUri from class Router
+     * Test static method addRouteRule from class Router
      *
-     * Start of user code RouterTest.testgenerateUriAnnotations
+     * Start of user code RouterTest.testaddRouteRuleAnnotations
      * PHPUnit users annotations can be placed here
      * End of user code
      */
-    public function testGenerateUri()
+    public function testAddRouteRule()
     {
-        // Start of user code RouterTest.testgenerateUri
+        // Start of user code RouterTest.testaddRouteRule
 
-        // Case : Generate an uri without variables
+        // Case : Add a route and retrieve it by name
         $routeRule = new RouteRule();
-        $routeRule->setName('my-route-rule-without-vars-test');
+        $routeRule->setName('my-route-rule');
         $routeRule->setUriPattern('/access-to-my-test-uri.html');
         $routeRule->setController('myController');
         $routeRule->setAction('myAction');
-        Router::addRouteRule($routeRule);
-        $this->assertEquals(
-            '/access-to-my-test-uri.html',
-            Router::generateUri(
-                'my-route-rule-without-vars-test',
-                new AssociativeArray('string')
-            )
-        );
 
-        // Case : Generate an uri with variables
-        $routeRule = new RouteRule();
-        $routeRule->setName('my-route-rule-with-variables-test');
-        $routeRule->setUriPattern('/test/{foo}/{bar}.html');
-        $routeRule->setController('myController');
-        $routeRule->setAction('myAction');
         Router::addRouteRule($routeRule);
         $this->assertEquals(
-            '/test/foo-content/bar-content.html',
-            Router::generateUri(
-                'my-route-rule-with-variables-test',
-                AssociativeArray::createFromNativeArray(
-                    'string',
-                    array('foo' => 'foo-content', 'bar' => 'bar-content')
-                )
-            )
+            $routeRule,
+            Router::getRouteRuleByName('my-route-rule'),
+            'Case 1'
         );
         // End of user code
     }
     
     /**
-     * Test static method followRoute from class Router
+     * Test static method handleCurrentHttpRequest from class Router
      *
-     * Start of user code RouterTest.testfollowRouteAnnotations
-     * PHPUnit users annotations can be placed here
+     * Start of user code RouterTest.testhandleCurrentHttpRequestAnnotations
+     *
      * End of user code
      */
-    public function testFollowRoute()
+    public function testHandleCurrentHttpRequest()
     {
-        // Start of user code RouterTest.testfollowRoute
-
-        // Case : Route without variables
-        $route = new Route();
-        $route->setController(
+        // Start of user code RouterTest.testhandleCurrentHttpRequest
+        // Add route rule
+        $routeRule = new RouteRule();
+        $routeRule->setName('my-route-rule-without-vars-test');
+        $routeRule->setUriPattern('/access-to-my-test-uri.html');
+        $routeRule->setController(
             'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
         );
-        $route->setAction('caseWithoutVar');
+        $routeRule->setAction('caseWithoutVar');
+
+        Router::addRouteRule($routeRule);
+
+        // Simulate a request at the php globals level
+        $_SERVER['REQUEST_METHOD'] = 'get';
+        $_SERVER['REQUEST_URI'] = '/access-to-my-test-uri.html';
+        $_SERVER['SERVER_PROTOCOL'] = 'HTTP/1.1';
+        $_SERVER['HTTP_HOST'] = 'http://www.my-host.com';
+        $_SERVER['HTTP_USER_AGENT']
+            = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:20.0) Gecko/20100101 Firefox/20.0'
+        ;
+        $_SERVER['HTTP_ACCEPT']
+            = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+        ;
+        $_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'fr,fr-fr;q=0.8,en-us;q=0.5,en;q=0.3';
+        $_SERVER['HTTP_ACCEPT_ENCODING'] = 'gzip, deflate';
+        $_SERVER['HTTP_CONNECTION'] = 'keep-alive';
 
         ob_start();
-        Router::followRoute($route);
+        Router::handleCurrentHttpRequest();
+
         $this->assertEquals(
             '<html>Hello From TestController And CaseWithoutVar Action!</html>',
-            ob_get_clean()
-        );
-
-        // Case : Route with variables
-        $route = new Route();
-        $route->setController(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
-        );
-        $route->setAction('caseWithVar');
-        $route->setVariables(AssociativeArray::createFromNativeArray(
-            'string',
-            array(
-                'foo' => 'foo-content',
-                'bar' => 'bar-content'
-            )
-        ));
-
-        ob_start();
-        Router::followRoute($route);
-        $this->assertEquals(
-            '<html>variable "foo" contains "foo-content" and variable bar contains "bar-content"</html>',
             ob_get_clean()
         );
         // End of user code
@@ -210,74 +189,95 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method addRouteRule from class Router
+     * Test static method followRoute from class Router
      *
-     * Start of user code RouterTest.testaddRouteRuleAnnotations
+     * Start of user code RouterTest.testfollowRouteAnnotations
      * PHPUnit users annotations can be placed here
      * End of user code
      */
-    public function testAddRouteRule()
+    public function testFollowRoute()
     {
-        // Start of user code RouterTest.testaddRouteRule
+        // Start of user code RouterTest.testfollowRoute
 
-        // Case : Add a route and retrieve it by name
-        $routeRule = new RouteRule();
-        $routeRule->setName('my-route-rule');
-        $routeRule->setUriPattern('/access-to-my-test-uri.html');
-        $routeRule->setController('myController');
-        $routeRule->setAction('myAction');
+        // Case : Route without variables
+        $route = new Route();
+        $route->setController(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
+        );
+        $route->setAction('caseWithoutVar');
 
-        Router::addRouteRule($routeRule);
+        ob_start();
+        Router::followRoute($route);
         $this->assertEquals(
-            $routeRule,
-            Router::getRouteRuleByName('my-route-rule'),
-            'Case 1'
+            '<html>Hello From TestController And CaseWithoutVar Action!</html>',
+            ob_get_clean()
+        );
+
+        // Case : Route with variables
+        $route = new Route();
+        $route->setController(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
+        );
+        $route->setAction('caseWithVar');
+        $route->setVariables(AssociativeArray::createFromNativeArray(
+            'string',
+            array(
+                'foo' => 'foo-content',
+                'bar' => 'bar-content'
+            )
+        ));
+
+        ob_start();
+        Router::followRoute($route);
+        $this->assertEquals(
+            '<html>variable "foo" contains "foo-content" and variable bar contains "bar-content"</html>',
+            ob_get_clean()
         );
         // End of user code
     }
     
     /**
-     * Test static method handleCurrentHttpRequest from class Router
+     * Test static method generateUri from class Router
      *
-     * Start of user code RouterTest.testhandleCurrentHttpRequestAnnotations
-     *
+     * Start of user code RouterTest.testgenerateUriAnnotations
+     * PHPUnit users annotations can be placed here
      * End of user code
      */
-    public function testHandleCurrentHttpRequest()
+    public function testGenerateUri()
     {
-        // Start of user code RouterTest.testhandleCurrentHttpRequest
-        // Add route rule
+        // Start of user code RouterTest.testgenerateUri
+
+        // Case : Generate an uri without variables
         $routeRule = new RouteRule();
         $routeRule->setName('my-route-rule-without-vars-test');
         $routeRule->setUriPattern('/access-to-my-test-uri.html');
-        $routeRule->setController(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Controller\\TestController'
-        );
-        $routeRule->setAction('caseWithoutVar');
-
+        $routeRule->setController('myController');
+        $routeRule->setAction('myAction');
         Router::addRouteRule($routeRule);
-
-        // Simulate a request at the php globals level
-        $_SERVER['REQUEST_METHOD'] = 'get';
-        $_SERVER['REQUEST_URI'] = '/access-to-my-test-uri.html';
-        $_SERVER['SERVER_PROTOCOL'] = 'HTTP/1.1';
-        $_SERVER['HTTP_HOST'] = 'http://www.my-host.com';
-        $_SERVER['HTTP_USER_AGENT']
-            = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:20.0) Gecko/20100101 Firefox/20.0'
-        ;
-        $_SERVER['HTTP_ACCEPT']
-            = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-        ;
-        $_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'fr,fr-fr;q=0.8,en-us;q=0.5,en;q=0.3';
-        $_SERVER['HTTP_ACCEPT_ENCODING'] = 'gzip, deflate';
-        $_SERVER['HTTP_CONNECTION'] = 'keep-alive';
-
-        ob_start();
-        Router::handleCurrentHttpRequest();
-
         $this->assertEquals(
-            '<html>Hello From TestController And CaseWithoutVar Action!</html>',
-            ob_get_clean()
+            '/access-to-my-test-uri.html',
+            Router::generateUri(
+                'my-route-rule-without-vars-test',
+                new AssociativeArray('string')
+            )
+        );
+
+        // Case : Generate an uri with variables
+        $routeRule = new RouteRule();
+        $routeRule->setName('my-route-rule-with-variables-test');
+        $routeRule->setUriPattern('/test/{foo}/{bar}.html');
+        $routeRule->setController('myController');
+        $routeRule->setAction('myAction');
+        Router::addRouteRule($routeRule);
+        $this->assertEquals(
+            '/test/foo-content/bar-content.html',
+            Router::generateUri(
+                'my-route-rule-with-variables-test',
+                AssociativeArray::createFromNativeArray(
+                    'string',
+                    array('foo' => 'foo-content', 'bar' => 'bar-content')
+                )
+            )
         );
         // End of user code
     }

@@ -41,6 +41,52 @@ class RouteUriManagerTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method generateUri from class RouteUriManager
+     *
+     * Start of user code RouteUriManagerTest.testgenerateUriAnnotations
+     * PHPUnit users annotations can be placed here
+     * End of user code
+     */
+    public function testGenerateUri()
+    {
+        // Start of user code RouteUriManagerTest.testgenerateUri
+        // Test cases
+        $testCases = array(
+            array('/', array(), '/'),
+            array('/test/', array(), '/test/'),
+            array('/test.html', array(), '/test.html'),
+            array(
+                '/test/{foo}/{bar}.html',
+                array('foo' => 'somedata', 'bar' => '1'),
+                '/test/somedata/1.html'
+            ),
+            array(
+                '/test/{foo}/{foo}.html',
+                array('foo' => 'somedata'),
+                '/test/somedata/somedata.html'
+            ),
+        );
+
+        foreach ($testCases as $testCase) {
+
+            $routeUriManager = new RouteUriManager();
+
+            $this->assertEquals(
+                // expected uri
+                $testCase[2],
+                $routeUriManager->generateUri(
+                    // uri pattern
+                    $testCase[0],
+                    // variables
+                    AssociativeArray::createFromNativeArray('string', $testCase[1])
+                )
+            );
+
+        }
+        // End of user code
+    }
+    
+    /**
      * Test static method matchAndParseUri from class RouteUriManager
      *
      * Start of user code RouteUriManagerTest.testmatchAndParseUriAnnotations
@@ -154,52 +200,6 @@ class RouteUriManagerTest extends \PHPUnit_Framework_TestCase
                 $expectedMatchResult,
                 $matchResult
             );
-        }
-        // End of user code
-    }
-    
-    /**
-     * Test static method generateUri from class RouteUriManager
-     *
-     * Start of user code RouteUriManagerTest.testgenerateUriAnnotations
-     * PHPUnit users annotations can be placed here
-     * End of user code
-     */
-    public function testGenerateUri()
-    {
-        // Start of user code RouteUriManagerTest.testgenerateUri
-        // Test cases
-        $testCases = array(
-            array('/', array(), '/'),
-            array('/test/', array(), '/test/'),
-            array('/test.html', array(), '/test.html'),
-            array(
-                '/test/{foo}/{bar}.html',
-                array('foo' => 'somedata', 'bar' => '1'),
-                '/test/somedata/1.html'
-            ),
-            array(
-                '/test/{foo}/{foo}.html',
-                array('foo' => 'somedata'),
-                '/test/somedata/somedata.html'
-            ),
-        );
-
-        foreach ($testCases as $testCase) {
-
-            $routeUriManager = new RouteUriManager();
-
-            $this->assertEquals(
-                // expected uri
-                $testCase[2],
-                $routeUriManager->generateUri(
-                    // uri pattern
-                    $testCase[0],
-                    // variables
-                    AssociativeArray::createFromNativeArray('string', $testCase[1])
-                )
-            );
-
         }
         // End of user code
     }

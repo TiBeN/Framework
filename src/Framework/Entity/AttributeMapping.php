@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\Entity;
 
-use TiBeN\Framework\Validation\ValidationRule;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Validation\ValidationRule;
 
 // Start of user code AttributeMapping.useStatements
 // Place your use statements here.
@@ -17,6 +17,16 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  */
 class AttributeMapping
 {
+    /**
+     * @var array
+     */
+    public $validationRules;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $type;
+
     /**
      * @var string
      */
@@ -32,16 +42,6 @@ class AttributeMapping
      */
     public $dataSourceAttributeMappingConfiguration;
 
-    /**
-     * @var AssociativeArray
-     */
-    public $type;
-
-    /**
-     * @var array
-     */
-    public $validationRules;
-
     public function __construct()
     {
         // Start of user code AttributeMapping.constructor
@@ -54,6 +54,46 @@ class AttributeMapping
     {
         // Start of user code AttributeMapping.destructor
         // End of user code
+    }
+
+    /**
+     * @return array
+     */
+    public function getValidationRules()
+    {
+        // Start of user code Getter AttributeMapping.getValidationRules
+        // End of user code
+        return $this->validationRules;
+    }
+
+    /**
+     * @param array $validationRules
+     */
+    public function setValidationRules(array $validationRules)
+    {
+        // Start of user code Setter AttributeMapping.setValidationRules
+        // End of user code
+        $this->validationRules = $validationRules;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getType()
+    {
+        // Start of user code Getter AttributeMapping.getType
+        // End of user code
+        return $this->type;
+    }
+
+    /**
+     * @param AssociativeArray $type
+     */
+    public function setType(AssociativeArray $type)
+    {
+        // Start of user code Setter AttributeMapping.setType
+        // End of user code
+        $this->type = $type;
     }
 
     /**
@@ -114,46 +154,6 @@ class AttributeMapping
         // Start of user code Setter AttributeMapping.setDataSourceAttributeMappingConfiguration
         // End of user code
         $this->dataSourceAttributeMappingConfiguration = $dataSourceAttributeMappingConfiguration;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getType()
-    {
-        // Start of user code Getter AttributeMapping.getType
-        // End of user code
-        return $this->type;
-    }
-
-    /**
-     * @param AssociativeArray $type
-     */
-    public function setType(AssociativeArray $type)
-    {
-        // Start of user code Setter AttributeMapping.setType
-        // End of user code
-        $this->type = $type;
-    }
-
-    /**
-     * @return array
-     */
-    public function getValidationRules()
-    {
-        // Start of user code Getter AttributeMapping.getValidationRules
-        // End of user code
-        return $this->validationRules;
-    }
-
-    /**
-     * @param array $validationRules
-     */
-    public function setValidationRules(array $validationRules)
-    {
-        // Start of user code Setter AttributeMapping.setValidationRules
-        // End of user code
-        $this->validationRules = $validationRules;
     }
 
     /**

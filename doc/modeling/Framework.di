@@ -125,6 +125,15 @@
         <children>
           <emfPageIdentifier href="Framework.notation#_YUGzAL22EeO-aaY3kqFukA"/>
         </children>
+        <children>
+          <emfPageIdentifier href="Framework.notation#_2ay0QB4JEeO39_cvMiFCoA"/>
+        </children>
+        <children>
+          <emfPageIdentifier href="Framework.notation#_G_sOUB4oEeOwhK47NxXINQ"/>
+        </children>
+        <children>
+          <emfPageIdentifier href="Framework.notation#_Ch5iQCLnEeOU6MgQ9M9Alg"/>
+        </children>
       </children>
     </windows>
   </sashModel>

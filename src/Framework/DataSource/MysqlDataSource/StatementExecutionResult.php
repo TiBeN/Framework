@@ -17,7 +17,12 @@ class StatementExecutionResult
     /**
      * @var int
      */
-    public $numberOfAffectedRows;
+    public $lastInsertId;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
 
     /**
      * @var bool
@@ -30,14 +35,9 @@ class StatementExecutionResult
     public $errorCode;
 
     /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
      * @var int
      */
-    public $lastInsertId;
+    public $numberOfAffectedRows;
 
     /**
      * @var RowCollection
@@ -59,21 +59,41 @@ class StatementExecutionResult
     /**
      * @return int
      */
-    public function getNumberOfAffectedRows()
+    public function getLastInsertId()
     {
-        // Start of user code Getter StatementExecutionResult.getNumberOfAffectedRows
+        // Start of user code Getter StatementExecutionResult.getLastInsertId
         // End of user code
-        return $this->numberOfAffectedRows;
+        return $this->lastInsertId;
     }
 
     /**
-     * @param int $numberOfAffectedRows
+     * @param int $lastInsertId
      */
-    public function setNumberOfAffectedRows($numberOfAffectedRows)
+    public function setLastInsertId($lastInsertId)
     {
-        // Start of user code Setter StatementExecutionResult.setNumberOfAffectedRows
+        // Start of user code Setter StatementExecutionResult.setLastInsertId
         // End of user code
-        $this->numberOfAffectedRows = $numberOfAffectedRows;
+        $this->lastInsertId = $lastInsertId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorMessage()
+    {
+        // Start of user code Getter StatementExecutionResult.getErrorMessage
+        // End of user code
+        return $this->errorMessage;
+    }
+
+    /**
+     * @param string $errorMessage
+     */
+    public function setErrorMessage($errorMessage)
+    {
+        // Start of user code Setter StatementExecutionResult.setErrorMessage
+        // End of user code
+        $this->errorMessage = $errorMessage;
     }
 
     /**
@@ -117,43 +137,23 @@ class StatementExecutionResult
     }
 
     /**
-     * @return string
-     */
-    public function getErrorMessage()
-    {
-        // Start of user code Getter StatementExecutionResult.getErrorMessage
-        // End of user code
-        return $this->errorMessage;
-    }
-
-    /**
-     * @param string $errorMessage
-     */
-    public function setErrorMessage($errorMessage)
-    {
-        // Start of user code Setter StatementExecutionResult.setErrorMessage
-        // End of user code
-        $this->errorMessage = $errorMessage;
-    }
-
-    /**
      * @return int
      */
-    public function getLastInsertId()
+    public function getNumberOfAffectedRows()
     {
-        // Start of user code Getter StatementExecutionResult.getLastInsertId
+        // Start of user code Getter StatementExecutionResult.getNumberOfAffectedRows
         // End of user code
-        return $this->lastInsertId;
+        return $this->numberOfAffectedRows;
     }
 
     /**
-     * @param int $lastInsertId
+     * @param int $numberOfAffectedRows
      */
-    public function setLastInsertId($lastInsertId)
+    public function setNumberOfAffectedRows($numberOfAffectedRows)
     {
-        // Start of user code Setter StatementExecutionResult.setLastInsertId
+        // Start of user code Setter StatementExecutionResult.setNumberOfAffectedRows
         // End of user code
-        $this->lastInsertId = $lastInsertId;
+        $this->numberOfAffectedRows = $numberOfAffectedRows;
     }
 
     /**

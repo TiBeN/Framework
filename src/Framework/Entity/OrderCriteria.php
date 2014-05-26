@@ -17,12 +17,12 @@ class OrderCriteria
     /**
      * @var string
      */
-    public $attribute;
+    const DIRECTION_DESC = 'desc';
 
     /**
      * @var string
      */
-    const DIRECTION_DESC = 'desc';
+    public $attribute;
 
     /**
      * @var string
@@ -90,12 +90,12 @@ class OrderCriteria
      * @param string $attribute
      * @return OrderCriteria $orderCriteria
      */
-    public static function asc($attribute)
+    public static function desc($attribute)
     {
-        // Start of user code OrderCriteria.asc
+        // Start of user code OrderCriteria.desc
 		$orderCriteria = new self();
 		$orderCriteria->setAttribute($attribute);
-		$orderCriteria->setDirection(self::DIRECTION_ASC);
+		$orderCriteria->setDirection(self::DIRECTION_DESC);
         // End of user code
     
         return $orderCriteria;
@@ -105,12 +105,12 @@ class OrderCriteria
      * @param string $attribute
      * @return OrderCriteria $orderCriteria
      */
-    public static function desc($attribute)
+    public static function asc($attribute)
     {
-        // Start of user code OrderCriteria.desc
+        // Start of user code OrderCriteria.asc
 		$orderCriteria = new self();
 		$orderCriteria->setAttribute($attribute);
-		$orderCriteria->setDirection(self::DIRECTION_DESC);
+		$orderCriteria->setDirection(self::DIRECTION_ASC);
         // End of user code
     
         return $orderCriteria;

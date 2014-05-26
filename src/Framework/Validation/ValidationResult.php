@@ -15,14 +15,14 @@ namespace TiBeN\Framework\Validation;
 class ValidationResult
 {
     /**
-     * @var bool
-     */
-    public $validationResult;
-
-    /**
      * @var string
      */
     public $errorMessage;
+
+    /**
+     * @var bool
+     */
+    public $validationResult;
 
     public function __construct()
     {
@@ -34,26 +34,6 @@ class ValidationResult
     {
         // Start of user code ValidationResult.destructor
         // End of user code
-    }
-
-    /**
-     * @return bool
-     */
-    public function getValidationResult()
-    {
-        // Start of user code Getter ValidationResult.getValidationResult
-        // End of user code
-        return $this->validationResult;
-    }
-
-    /**
-     * @param bool $validationResult
-     */
-    public function setValidationResult($validationResult)
-    {
-        // Start of user code Setter ValidationResult.setValidationResult
-        // End of user code
-        $this->validationResult = $validationResult;
     }
 
     /**
@@ -74,6 +54,26 @@ class ValidationResult
         // Start of user code Setter ValidationResult.setErrorMessage
         // End of user code
         $this->errorMessage = $errorMessage;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getValidationResult()
+    {
+        // Start of user code Getter ValidationResult.getValidationResult
+        // End of user code
+        return $this->validationResult;
+    }
+
+    /**
+     * @param bool $validationResult
+     */
+    public function setValidationResult($validationResult)
+    {
+        // Start of user code Setter ValidationResult.setValidationResult
+        // End of user code
+        $this->validationResult = $validationResult;
     }
 
     /**

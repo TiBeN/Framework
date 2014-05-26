@@ -40,6 +40,53 @@ class HttpResponseTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method createRedirectResponse from class HttpResponse
+     *
+     * Start of user code HttpResponseTest.testcreateRedirectResponseAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateRedirectResponse()
+    {
+        // Start of user code HttpResponseTest.testcreateRedirectResponse
+	    $redirectToUri = '/redirect-to-uri.html';
+		
+		// Test temporary redirect response type (302 http code)
+		$redirectResponse = HttpResponse::createRedirectResponse($redirectToUri, false);  
+		$redirectResponse->sendToClient();
+		
+		// Headers testing is only available using Xdebug extension 
+        // since PHP CLI SAPI mode doesn't handle any headers 
+		if(function_exists('xdebug_get_headers')) {
+			$headers = xdebug_get_headers();				
+			$this->assertContains('Location: /redirect-to-uri.html',  $headers);
+		}
+		
+		// Note that prior to PHP 5.4 there is no way to retrieve the status code sent
+		if(function_exists('http_response_code')){
+			$this->assertEquals(302, http_response_code());
+		}
+
+		// Test permanent redirect response type (301 http code)
+		header_remove();
+		$redirectResponse = HttpResponse::createRedirectResponse($redirectToUri, true);
+		$redirectResponse->sendToClient();			
+
+		// Headers testing is only available using Xdebug extension 
+        // since PHP CLI SAPI mode doesn't handle any headers 
+		if(function_exists('xdebug_get_headers')) {
+			$headers = xdebug_get_headers();
+			$this->assertContains('Location: /redirect-to-uri.html',  $headers);
+		}
+			
+		// Note that prior to PHP 5.4 there is no way to retrieve the status code sent
+		if(function_exists('http_response_code')){
+			$this->assertEquals(301, http_response_code());
+		}
+		// End of user code
+    }
+    
+    /**
      * Test method sendToClient from class HttpResponse
      *
      * Start of user code HttpResponseTest.testsendToClientAnnotations 
@@ -110,53 +157,6 @@ class HttpResponseTest extends \PHPUnit_Framework_TestCase
 		// note that prior to php 5.4 there is no way to retrieve the status code sent 
 		if(function_exists('http_response_code')){
 			$this->assertEquals(200, http_response_code());
-		}
-		// End of user code
-    }
-    
-    /**
-     * Test static method createRedirectResponse from class HttpResponse
-     *
-     * Start of user code HttpResponseTest.testcreateRedirectResponseAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateRedirectResponse()
-    {
-        // Start of user code HttpResponseTest.testcreateRedirectResponse
-	    $redirectToUri = '/redirect-to-uri.html';
-		
-		// Test temporary redirect response type (302 http code)
-		$redirectResponse = HttpResponse::createRedirectResponse($redirectToUri, false);  
-		$redirectResponse->sendToClient();
-		
-		// Headers testing is only available using Xdebug extension 
-        // since PHP CLI SAPI mode doesn't handle any headers 
-		if(function_exists('xdebug_get_headers')) {
-			$headers = xdebug_get_headers();				
-			$this->assertContains('Location: /redirect-to-uri.html',  $headers);
-		}
-		
-		// Note that prior to PHP 5.4 there is no way to retrieve the status code sent
-		if(function_exists('http_response_code')){
-			$this->assertEquals(302, http_response_code());
-		}
-
-		// Test permanent redirect response type (301 http code)
-		header_remove();
-		$redirectResponse = HttpResponse::createRedirectResponse($redirectToUri, true);
-		$redirectResponse->sendToClient();			
-
-		// Headers testing is only available using Xdebug extension 
-        // since PHP CLI SAPI mode doesn't handle any headers 
-		if(function_exists('xdebug_get_headers')) {
-			$headers = xdebug_get_headers();
-			$this->assertContains('Location: /redirect-to-uri.html',  $headers);
-		}
-			
-		// Note that prior to PHP 5.4 there is no way to retrieve the status code sent
-		if(function_exists('http_response_code')){
-			$this->assertEquals(301, http_response_code());
 		}
 		// End of user code
     }
