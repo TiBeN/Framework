@@ -9,18 +9,13 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 // End of user code
 
 /**
- * 
+ * Represent an mysql insert statement.
  *
  * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
  */
 class InsertStatement implements Statement
 {
-    /**
-     * @var ColumnNamesListStatement
-     */
-    public $columnNamesListStatement;
-
     /**
      * @var ValuesStatement
      */
@@ -30,6 +25,11 @@ class InsertStatement implements Statement
      * @var string
      */
     public $tableName;
+
+    /**
+     * @var ColumnNamesListStatement
+     */
+    public $columnNamesListStatement;
 
     public function __construct()
     {
@@ -41,26 +41,6 @@ class InsertStatement implements Statement
     {
         // Start of user code InsertStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return ColumnNamesListStatement
-     */
-    public function getColumnNamesListStatement()
-    {
-        // Start of user code Getter InsertStatement.getColumnNamesListStatement
-        // End of user code
-        return $this->columnNamesListStatement;
-    }
-
-    /**
-     * @param ColumnNamesListStatement $columnNamesListStatement
-     */
-    public function setColumnNamesListStatement(ColumnNamesListStatement $columnNamesListStatement)
-    {
-        // Start of user code Setter InsertStatement.setColumnNamesListStatement
-        // End of user code
-        $this->columnNamesListStatement = $columnNamesListStatement;
     }
 
     /**
@@ -103,10 +83,32 @@ class InsertStatement implements Statement
         $this->tableName = $tableName;
     }
 
+    /**
+     * @return ColumnNamesListStatement
+     */
+    public function getColumnNamesListStatement()
+    {
+        // Start of user code Getter InsertStatement.getColumnNamesListStatement
+        // End of user code
+        return $this->columnNamesListStatement;
+    }
+
+    /**
+     * @param ColumnNamesListStatement $columnNamesListStatement
+     */
+    public function setColumnNamesListStatement(ColumnNamesListStatement $columnNamesListStatement)
+    {
+        // Start of user code Setter InsertStatement.setColumnNamesListStatement
+        // End of user code
+        $this->columnNamesListStatement = $columnNamesListStatement;
+    }
+
     // Statement Realization
 
     /**
-     * Tell wether the statement is ready or not to be executed
+     * Check whether all statement chunks are set 
+     * in order to generate a complete statement string to 
+     * be executed.
      *
      * @return bool $status
      */
@@ -129,6 +131,10 @@ class InsertStatement implements Statement
     }
 
     /**
+     * Return an associative array of parameters of the corresponding
+     * named placeholder in the statement. 
+     * 
+     *
      * @return AssociativeArray $statementParameters
      */
     public function getStatementParameters()
@@ -144,7 +150,7 @@ class InsertStatement implements Statement
     }
 
     /**
-     * Return the statement in String format
+     * Generate the statement as a string.
      *
      * @return string $statement
      */

@@ -7,7 +7,8 @@ namespace TiBeN\Framework\Entity;
 // End of user code
 
 /**
- * 
+ * Determine a entity sorting condition of an 
+ * entity collection.
  *
  * @package TiBeN\Framework\Entity
  * @author TiBeN
@@ -17,12 +18,7 @@ class OrderCriteria
     /**
      * @var string
      */
-    const DIRECTION_DESC = 'desc';
-
-    /**
-     * @var string
-     */
-    public $attribute;
+    public $direction;
 
     /**
      * @var string
@@ -32,7 +28,12 @@ class OrderCriteria
     /**
      * @var string
      */
-    public $direction;
+    const DIRECTION_DESC = 'desc';
+
+    /**
+     * @var string
+     */
+    public $attribute;
 
     public function __construct()
     {
@@ -44,26 +45,6 @@ class OrderCriteria
     {
         // Start of user code OrderCriteria.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getAttribute()
-    {
-        // Start of user code Getter OrderCriteria.getAttribute
-        // End of user code
-        return $this->attribute;
-    }
-
-    /**
-     * @param string $attribute
-     */
-    public function setAttribute($attribute)
-    {
-        // Start of user code Setter OrderCriteria.setAttribute
-        // End of user code
-        $this->attribute = $attribute;
     }
 
     /**
@@ -87,6 +68,29 @@ class OrderCriteria
     }
 
     /**
+     * @return string
+     */
+    public function getAttribute()
+    {
+        // Start of user code Getter OrderCriteria.getAttribute
+        // End of user code
+        return $this->attribute;
+    }
+
+    /**
+     * @param string $attribute
+     */
+    public function setAttribute($attribute)
+    {
+        // Start of user code Setter OrderCriteria.setAttribute
+        // End of user code
+        $this->attribute = $attribute;
+    }
+
+    /**
+     * Factory method that create an OrderCriteria 
+     * having a DESC direction.
+     *
      * @param string $attribute
      * @return OrderCriteria $orderCriteria
      */
@@ -102,6 +106,9 @@ class OrderCriteria
     }
 
     /**
+     * Factory method that create an OrderCriteria 
+     * having a ASC direction.
+     *
      * @param string $attribute
      * @return OrderCriteria $orderCriteria
      */

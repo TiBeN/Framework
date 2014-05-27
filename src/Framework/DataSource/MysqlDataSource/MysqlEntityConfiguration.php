@@ -2,15 +2,16 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Entity\DataSourceEntityMappingConfiguration;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code MysqlEntityConfiguration.useStatements
 // Place your use statements here.
 // End of user code
 
 /**
- * 
+ * Hold specific entity mapping data required 
+ * by the mysql data source.
  *
  * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
@@ -57,6 +58,9 @@ class MysqlEntityConfiguration implements DataSourceEntityMappingConfiguration
     // DataSourceEntityMappingConfiguration Realization
 
     /**
+     * Factory method that ease the instanciation process using
+     * associative arrays.
+     *
      * @param AssociativeArray $config
      * @return DataSourceEntityMappingConfiguration $dataSourceEntityMappingConfiguration
      */

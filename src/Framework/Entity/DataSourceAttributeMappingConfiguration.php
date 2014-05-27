@@ -5,7 +5,7 @@ namespace TiBeN\Framework\Entity;
 use TiBeN\Framework\Datatype\AssociativeArray;
 
 /**
- *  
+ * Holds datasource specific attribute mapping data. 
  *
  * @package TiBeN\Framework\Entity
  * @author TiBeN

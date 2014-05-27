@@ -9,7 +9,8 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 // End of user code
 
 /**
- * 
+ * Represent a Mysql select statement used to 
+ * retrieve rows from one table.
  *
  * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
@@ -22,24 +23,24 @@ class SelectStatement implements Statement
     public $selectExpr;
 
     /**
-     * @var string
-     */
-    public $tableReferences;
-
-    /**
      * @var WhereConditions
      */
     public $whereConditions;
 
     /**
-     * @var OrderByStatement
-     */
-    public $orderByStatement;
-
-    /**
      * @var LimitStatement
      */
     public $limitStatement;
+
+    /**
+     * @var string
+     */
+    public $tableReferences;
+
+    /**
+     * @var OrderByStatement
+     */
+    public $orderByStatement;
 
     public function __construct()
     {
@@ -74,26 +75,6 @@ class SelectStatement implements Statement
     }
 
     /**
-     * @return string
-     */
-    public function getTableReferences()
-    {
-        // Start of user code Getter SelectStatement.getTableReferences
-        // End of user code
-        return $this->tableReferences;
-    }
-
-    /**
-     * @param string $tableReferences
-     */
-    public function setTableReferences($tableReferences)
-    {
-        // Start of user code Setter SelectStatement.setTableReferences
-        // End of user code
-        $this->tableReferences = $tableReferences;
-    }
-
-    /**
      * @return WhereConditions
      */
     public function getWhereConditions()
@@ -111,26 +92,6 @@ class SelectStatement implements Statement
         // Start of user code Setter SelectStatement.setWhereConditions
         // End of user code
         $this->whereConditions = $whereConditions;
-    }
-
-    /**
-     * @return OrderByStatement
-     */
-    public function getOrderByStatement()
-    {
-        // Start of user code Getter SelectStatement.getOrderByStatement
-        // End of user code
-        return $this->orderByStatement;
-    }
-
-    /**
-     * @param OrderByStatement $orderByStatement
-     */
-    public function setOrderByStatement(OrderByStatement $orderByStatement)
-    {
-        // Start of user code Setter SelectStatement.setOrderByStatement
-        // End of user code
-        $this->orderByStatement = $orderByStatement;
     }
 
     /**
@@ -153,10 +114,52 @@ class SelectStatement implements Statement
         $this->limitStatement = $limitStatement;
     }
 
+    /**
+     * @return string
+     */
+    public function getTableReferences()
+    {
+        // Start of user code Getter SelectStatement.getTableReferences
+        // End of user code
+        return $this->tableReferences;
+    }
+
+    /**
+     * @param string $tableReferences
+     */
+    public function setTableReferences($tableReferences)
+    {
+        // Start of user code Setter SelectStatement.setTableReferences
+        // End of user code
+        $this->tableReferences = $tableReferences;
+    }
+
+    /**
+     * @return OrderByStatement
+     */
+    public function getOrderByStatement()
+    {
+        // Start of user code Getter SelectStatement.getOrderByStatement
+        // End of user code
+        return $this->orderByStatement;
+    }
+
+    /**
+     * @param OrderByStatement $orderByStatement
+     */
+    public function setOrderByStatement(OrderByStatement $orderByStatement)
+    {
+        // Start of user code Setter SelectStatement.setOrderByStatement
+        // End of user code
+        $this->orderByStatement = $orderByStatement;
+    }
+
     // Statement Realization
 
     /**
-     * Tell wether the statement is ready or not to be executed
+     * Check whether all statement chunks are set 
+     * in order to generate a complete statement string to 
+     * be executed.
      *
      * @return bool $status
      */
@@ -173,6 +176,10 @@ class SelectStatement implements Statement
     }
 
     /**
+     * Return an associative array of parameters of the corresponding
+     * named placeholder in the statement. 
+     * 
+     *
      * @return AssociativeArray $statementParameters
      */
     public function getStatementParameters()
@@ -188,7 +195,7 @@ class SelectStatement implements Statement
     }
 
     /**
-     * Return the statement in String format
+     * Generate the statement as a string.
      *
      * @return string $statement
      */

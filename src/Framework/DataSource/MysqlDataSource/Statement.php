@@ -5,8 +5,7 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 use TiBeN\Framework\Datatype\AssociativeArray;
 
 /**
- * Represent a Mysql Statement. Implement this interface when 
- * you want to create new kinds of Mysql Statement. 
+ *  
  *
  * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
@@ -14,19 +13,25 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 interface Statement
 {
 	/**
-	 * Tell wether the statement is ready or not to be executed
+	 * Check whether all statement chunks are set 
+	 * in order to generate a complete statement string to 
+	 * be executed.
 	 *
 	 * @return bool $status
 	 */
 	public function isReadyToBeExecuted();
 
 	/**
+	 * Return an associative array of parameters of the corresponding
+	 * named placeholder in the statement. 
+	 * 
+	 *
 	 * @return AssociativeArray $statementParameters
 	 */
 	public function getStatementParameters();
 
 	/**
-	 * Return the statement in String format
+	 * Generate the statement as a string.
 	 *
 	 * @return string $statement
 	 */

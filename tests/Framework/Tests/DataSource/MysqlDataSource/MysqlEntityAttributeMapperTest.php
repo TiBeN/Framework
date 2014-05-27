@@ -43,6 +43,27 @@ class MysqlEntityAttributeMapperTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test method getColumnName from class MysqlEntityAttributeMapper
+     *
+     * Start of user code MysqlEntityAttributeMapperTest.testgetColumnNameAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetColumnName()
+    {
+        // Start of user code MysqlEntityAttributeMapperTest.testgetColumnName
+	    $mapper = new MysqlEntityAttributeMapper();
+	    $mapper->setEntityMapping(
+            EntityMappingsRegistry::getEntityMapping(
+                'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+            )
+        );	    
+	    $this->assertEquals('idTable', $mapper->getColumnName('id'));
+	    $this->assertEquals('a', $mapper->getColumnName('attributeA'));	    
+		// End of user code
+    }
+    
+    /**
      * Test method getColumnValue from class MysqlEntityAttributeMapper
      *
      * Start of user code MysqlEntityAttributeMapperTest.testgetColumnValueAnnotations 
@@ -68,25 +89,27 @@ class MysqlEntityAttributeMapperTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method setIdentifier from class MysqlEntityAttributeMapper
+     * Test method getIdentifierValue from class MysqlEntityAttributeMapper
      *
-     * Start of user code MysqlEntityAttributeMapperTest.testsetIdentifierAnnotations 
+     * Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierValueAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testSetIdentifier()
+    public function testGetIdentifierValue()
     {
-        // Start of user code MysqlEntityAttributeMapperTest.testsetIdentifier
+        // Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierValue
 	    $entity = new SomeEntity();
 	    $mapper = new MysqlEntityAttributeMapper();
-	    $mapper->setEntity($entity);
 	    $mapper->setEntityMapping(
             EntityMappingsRegistry::getEntityMapping(
                 'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
             )
         );
-	    $mapper->setIdentifier(1337);
-	    $this->assertEquals(1337, $entity->getId());        
+	    $mapper->setEntity($entity);
+	    $this->assertNull($mapper->getIdentifierValue());
+	    
+	    $entity->setId(1337);
+	    $this->assertSame(1337, $mapper->getIdentifierValue());
 		// End of user code
     }
     
@@ -117,6 +140,29 @@ class MysqlEntityAttributeMapperTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test method setIdentifier from class MysqlEntityAttributeMapper
+     *
+     * Start of user code MysqlEntityAttributeMapperTest.testsetIdentifierAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testSetIdentifier()
+    {
+        // Start of user code MysqlEntityAttributeMapperTest.testsetIdentifier
+	    $entity = new SomeEntity();
+	    $mapper = new MysqlEntityAttributeMapper();
+	    $mapper->setEntity($entity);
+	    $mapper->setEntityMapping(
+            EntityMappingsRegistry::getEntityMapping(
+                'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+            )
+        );
+	    $mapper->setIdentifier(1337);
+	    $this->assertEquals(1337, $entity->getId());        
+		// End of user code
+    }
+    
+    /**
      * Test method getIdentifierAttributeName from class MysqlEntityAttributeMapper
      *
      * Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierAttributeNameAnnotations 
@@ -134,52 +180,6 @@ class MysqlEntityAttributeMapperTest extends \PHPUnit_Framework_TestCase
         );
         $mapper->setEntity(new SomeEntity());
         $this->assertEquals('id', $mapper->getIdentifierAttributeName());
-		// End of user code
-    }
-    
-    /**
-     * Test method getColumnName from class MysqlEntityAttributeMapper
-     *
-     * Start of user code MysqlEntityAttributeMapperTest.testgetColumnNameAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetColumnName()
-    {
-        // Start of user code MysqlEntityAttributeMapperTest.testgetColumnName
-	    $mapper = new MysqlEntityAttributeMapper();
-	    $mapper->setEntityMapping(
-            EntityMappingsRegistry::getEntityMapping(
-                'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
-            )
-        );	    
-	    $this->assertEquals('idTable', $mapper->getColumnName('id'));
-	    $this->assertEquals('a', $mapper->getColumnName('attributeA'));	    
-		// End of user code
-    }
-    
-    /**
-     * Test method getIdentifierValue from class MysqlEntityAttributeMapper
-     *
-     * Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierValueAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetIdentifierValue()
-    {
-        // Start of user code MysqlEntityAttributeMapperTest.testgetIdentifierValue
-	    $entity = new SomeEntity();
-	    $mapper = new MysqlEntityAttributeMapper();
-	    $mapper->setEntityMapping(
-            EntityMappingsRegistry::getEntityMapping(
-                'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
-            )
-        );
-	    $mapper->setEntity($entity);
-	    $this->assertNull($mapper->getIdentifierValue());
-	    
-	    $entity->setId(1337);
-	    $this->assertSame(1337, $mapper->getIdentifierValue());
 		// End of user code
     }
 

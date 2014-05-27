@@ -9,7 +9,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 // End of user code
 
 /**
- * 
+ * Holds the instanciated EntityMappings
  *
  * @package TiBeN\Framework\Entity
  * @author TiBeN
@@ -59,6 +59,46 @@ class EntityMappingsRegistry
     }
 
     /**
+     * Get an EntityMapping of an Entity class from
+     * its class name.
+     *
+     * @param string $entityName
+     * @return EntityMapping $entityMapping
+     */
+    public static function getEntityMapping($entityName)
+    {
+        // Start of user code EntityMappingsRegistry.getEntityMapping
+        if(!self::getEntityMappings()->has($entityName)) {
+		    throw new \InvalidArgumentException(
+                sprintf('No entity mapping for entity "%s"', $entityName)
+            );
+		}
+		$entityMapping = self::getEntityMappings()->get($entityName);
+        // End of user code
+    
+        return $entityMapping;
+    }
+
+    /**
+     * Remove all registered EntityMappings.
+     *
+     * @param string $entityName
+     */
+    public static function clearEntityMapping($entityName)
+    {
+        // Start of user code EntityMappingsRegistry.clearEntityMapping
+		if (!self::getEntityMappings()->has($entityName)) {
+		    throw new \InvalidArgumentException(
+                sprintf('No entity mapping for entity "%s"', $entityName)
+            );
+		}
+		self::getEntityMappings()->remove($entityName);
+        // End of user code
+    }
+
+    /**
+     * Set an EntityMapping in the Registry.
+     *
      * @param EntityMapping $entityMapping
      */
     public static function registerEntityMapping(EntityMapping $entityMapping)
@@ -77,39 +117,6 @@ class EntityMappingsRegistry
 		}
 		self::getEntityMappings()->set($entityName, $entityMapping);
         // End of user code
-    }
-
-    /**
-     * @param string $entityName
-     */
-    public static function clearEntityMapping($entityName)
-    {
-        // Start of user code EntityMappingsRegistry.clearEntityMapping
-		if (!self::getEntityMappings()->has($entityName)) {
-		    throw new \InvalidArgumentException(
-                sprintf('No entity mapping for entity "%s"', $entityName)
-            );
-		}
-		self::getEntityMappings()->remove($entityName);
-        // End of user code
-    }
-
-    /**
-     * @param string $entityName
-     * @return EntityMapping $entityMapping
-     */
-    public static function getEntityMapping($entityName)
-    {
-        // Start of user code EntityMappingsRegistry.getEntityMapping
-        if(!self::getEntityMappings()->has($entityName)) {
-		    throw new \InvalidArgumentException(
-                sprintf('No entity mapping for entity "%s"', $entityName)
-            );
-		}
-		$entityMapping = self::getEntityMappings()->get($entityName);
-        // End of user code
-    
-        return $entityMapping;
     }
 
     // Start of user code EntityMappingsRegistry.implementationSpecificMethods

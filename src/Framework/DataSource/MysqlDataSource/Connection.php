@@ -7,7 +7,7 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 // End of user code
 
 /**
- * Hold connexion with Mysql server
+ * Hold a connection with Mysql server
  *
  * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN

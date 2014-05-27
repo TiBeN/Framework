@@ -40,48 +40,39 @@ class HttpResponseTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createRedirectResponse from class HttpResponse
+     * Test static method createDownloadFileResponse from class HttpResponse
      *
-     * Start of user code HttpResponseTest.testcreateRedirectResponseAnnotations 
+     * Start of user code HttpResponseTest.testcreateDownloadFileResponseAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testCreateRedirectResponse()
+    public function testCreateDownloadFileResponse()
     {
-        // Start of user code HttpResponseTest.testcreateRedirectResponse
-	    $redirectToUri = '/redirect-to-uri.html';
+        // Start of user code HttpResponseTest.testcreateDownloadFileResponse
+	    $downloadFileResponse = HttpResponse::createDownloadFileResponse(
+			'my-test-file.txt',
+			'text/plain',
+			'hello world!'
+		);
 		
-		// Test temporary redirect response type (302 http code)
-		$redirectResponse = HttpResponse::createRedirectResponse($redirectToUri, false);  
-		$redirectResponse->sendToClient();
+		ob_start();
+		$downloadFileResponse->sendToClient();
+		$this->assertEquals('hello world!', ob_get_clean());
 		
-		// Headers testing is only available using Xdebug extension 
-        // since PHP CLI SAPI mode doesn't handle any headers 
-		if(function_exists('xdebug_get_headers')) {
-			$headers = xdebug_get_headers();				
-			$this->assertContains('Location: /redirect-to-uri.html',  $headers);
-		}
-		
-		// Note that prior to PHP 5.4 there is no way to retrieve the status code sent
-		if(function_exists('http_response_code')){
-			$this->assertEquals(302, http_response_code());
-		}
-
-		// Test permanent redirect response type (301 http code)
-		header_remove();
-		$redirectResponse = HttpResponse::createRedirectResponse($redirectToUri, true);
-		$redirectResponse->sendToClient();			
-
-		// Headers testing is only available using Xdebug extension 
-        // since PHP CLI SAPI mode doesn't handle any headers 
+		// headers testing is only available using xdebug extension 
+        // since php cli sapi mode doesn't handle any headers
 		if(function_exists('xdebug_get_headers')) {
 			$headers = xdebug_get_headers();
-			$this->assertContains('Location: /redirect-to-uri.html',  $headers);
+            $this->assertContains('Content-type: text/plain', $headers);
+			$this->assertContains(
+                'Content-Disposition: attachment; filename="my-test-file.txt"',
+                $headers
+            );
 		}
 			
-		// Note that prior to PHP 5.4 there is no way to retrieve the status code sent
+		// note that prior to php 5.4 there is no way to retrieve the status code sent 
 		if(function_exists('http_response_code')){
-			$this->assertEquals(301, http_response_code());
+			$this->assertEquals(200, http_response_code());
 		}
 		// End of user code
     }
@@ -124,39 +115,48 @@ class HttpResponseTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createDownloadFileResponse from class HttpResponse
+     * Test static method createRedirectResponse from class HttpResponse
      *
-     * Start of user code HttpResponseTest.testcreateDownloadFileResponseAnnotations 
+     * Start of user code HttpResponseTest.testcreateRedirectResponseAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testCreateDownloadFileResponse()
+    public function testCreateRedirectResponse()
     {
-        // Start of user code HttpResponseTest.testcreateDownloadFileResponse
-	    $downloadFileResponse = HttpResponse::createDownloadFileResponse(
-			'my-test-file.txt',
-			'text/plain',
-			'hello world!'
-		);
+        // Start of user code HttpResponseTest.testcreateRedirectResponse
+	    $redirectToUri = '/redirect-to-uri.html';
 		
-		ob_start();
-		$downloadFileResponse->sendToClient();
-		$this->assertEquals('hello world!', ob_get_clean());
+		// Test temporary redirect response type (302 http code)
+		$redirectResponse = HttpResponse::createRedirectResponse($redirectToUri, false);  
+		$redirectResponse->sendToClient();
 		
-		// headers testing is only available using xdebug extension 
-        // since php cli sapi mode doesn't handle any headers
+		// Headers testing is only available using Xdebug extension 
+        // since PHP CLI SAPI mode doesn't handle any headers 
+		if(function_exists('xdebug_get_headers')) {
+			$headers = xdebug_get_headers();				
+			$this->assertContains('Location: /redirect-to-uri.html',  $headers);
+		}
+		
+		// Note that prior to PHP 5.4 there is no way to retrieve the status code sent
+		if(function_exists('http_response_code')){
+			$this->assertEquals(302, http_response_code());
+		}
+
+		// Test permanent redirect response type (301 http code)
+		header_remove();
+		$redirectResponse = HttpResponse::createRedirectResponse($redirectToUri, true);
+		$redirectResponse->sendToClient();			
+
+		// Headers testing is only available using Xdebug extension 
+        // since PHP CLI SAPI mode doesn't handle any headers 
 		if(function_exists('xdebug_get_headers')) {
 			$headers = xdebug_get_headers();
-            $this->assertContains('Content-type: text/plain', $headers);
-			$this->assertContains(
-                'Content-Disposition: attachment; filename="my-test-file.txt"',
-                $headers
-            );
+			$this->assertContains('Location: /redirect-to-uri.html',  $headers);
 		}
 			
-		// note that prior to php 5.4 there is no way to retrieve the status code sent 
+		// Note that prior to PHP 5.4 there is no way to retrieve the status code sent
 		if(function_exists('http_response_code')){
-			$this->assertEquals(200, http_response_code());
+			$this->assertEquals(301, http_response_code());
 		}
 		// End of user code
     }

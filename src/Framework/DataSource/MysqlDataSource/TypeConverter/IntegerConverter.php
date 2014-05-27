@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter;
 
-use TiBeN\Framework\Datatype\T;
 use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Datatype\U;
+use TiBeN\Framework\Datatype\T;
 use TiBeN\Framework\DataSource\TypeConverter;
 
 // Start of user code IntegerConverter.useStatements
@@ -12,7 +12,7 @@ use TiBeN\Framework\DataSource\TypeConverter;
 // End of user code
 
 /**
- * 
+ * Convert a PHP integer to a Mysql Integer
  *
  * @package TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter
  * @author TiBeN
@@ -20,21 +20,21 @@ use TiBeN\Framework\DataSource\TypeConverter;
 class IntegerConverter implements TypeConverter
 {
     /**
-     * Type of the element T
-     * @var String
-     */
-    protected $TType;
-
-    /**
      * Type of the element U
      * @var String
      */
     protected $UType;
 
-    public function __construct($TType = null, $UType = null)
+    /**
+     * Type of the element T
+     * @var String
+     */
+    protected $TType;
+
+    public function __construct($UType = null, $TType = null)
     {
-        $this->TType = $TType;
         $this->UType = $UType;
+        $this->TType = $TType;
 
         // Start of user code IntegerConverter.constructor
 		$this->TType = 'integer';
@@ -49,21 +49,21 @@ class IntegerConverter implements TypeConverter
     }
     
     /**
-     * T type getter
-     * @var String
-     */
-    public function getTType()
-    {
-        return $this->TType;
-    }
-
-    /**
      * U type getter
      * @var String
      */
     public function getUType()
     {
         return $this->UType;
+    }
+
+    /**
+     * T type getter
+     * @var String
+     */
+    public function getTType()
+    {
+        return $this->TType;
     }
 
     /**
@@ -99,6 +99,28 @@ class IntegerConverter implements TypeConverter
     // TypeConverter Realization
 
     /**
+     * @param AssociativeArray $parameters
+     */
+    public function setParameters(AssociativeArray $parameters)
+    {
+        // Start of user code TypeConverter.setParameters
+		// Nothing to do here
+        // End of user code
+    }
+
+    /**
+     * @return string $type
+     */
+    public function getType()
+    {
+        // Start of user code TypeConverter.getType
+		$type = 'integer';
+        // End of user code
+    
+        return $type;
+    }
+
+    /**
      * @return string $dataSourceType
      */
     public function getDataSourceType()
@@ -123,28 +145,6 @@ class IntegerConverter implements TypeConverter
         // End of user code
     
         return $convertedItem;
-    }
-
-    /**
-     * @param AssociativeArray $parameters
-     */
-    public function setParameters(AssociativeArray $parameters)
-    {
-        // Start of user code TypeConverter.setParameters
-		// Nothing to do here
-        // End of user code
-    }
-
-    /**
-     * @return string $type
-     */
-    public function getType()
-    {
-        // Start of user code TypeConverter.getType
-		$type = 'integer';
-        // End of user code
-    
-        return $type;
     }
 
     /**

@@ -22,14 +22,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class ValidationRule
 {
     /**
-     * @var AssociativeArray
-     */
-    public $configuration;
-
-    /**
      * @var string
      */
     public $errorMessagePattern;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $configuration;
 
     /**
      * @var string
@@ -48,6 +48,26 @@ class ValidationRule
     {
         // Start of user code ValidationRule.destructor
         // End of user code
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorMessagePattern()
+    {
+        // Start of user code Getter ValidationRule.getErrorMessagePattern
+        // End of user code
+        return $this->errorMessagePattern;
+    }
+
+    /**
+     * @param string $errorMessagePattern
+     */
+    public function setErrorMessagePattern($errorMessagePattern)
+    {
+        // Start of user code Setter ValidationRule.setErrorMessagePattern
+        // End of user code
+        $this->errorMessagePattern = $errorMessagePattern;
     }
 
     /**
@@ -73,26 +93,6 @@ class ValidationRule
     /**
      * @return string
      */
-    public function getErrorMessagePattern()
-    {
-        // Start of user code Getter ValidationRule.getErrorMessagePattern
-        // End of user code
-        return $this->errorMessagePattern;
-    }
-
-    /**
-     * @param string $errorMessagePattern
-     */
-    public function setErrorMessagePattern($errorMessagePattern)
-    {
-        // Start of user code Setter ValidationRule.setErrorMessagePattern
-        // End of user code
-        $this->errorMessagePattern = $errorMessagePattern;
-    }
-
-    /**
-     * @return string
-     */
     public function getValidatorName()
     {
         // Start of user code Getter ValidationRule.getValidatorName
@@ -111,6 +111,9 @@ class ValidationRule
     }
 
     /**
+     * Factory method that ease ValidationRule creation 
+     * from associative arrays.
+     *
      * @param AssociativeArray $config
      * @return ValidationRule $validationRule
      */

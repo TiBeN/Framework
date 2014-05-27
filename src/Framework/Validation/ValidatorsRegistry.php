@@ -9,7 +9,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 // End of user code
 
 /**
- * 
+ * Holds instanciated Validators.
  *
  * @package TiBeN\Framework\Validation
  * @author TiBeN
@@ -59,6 +59,35 @@ class ValidatorsRegistry
     }
 
     /**
+     * Determine wheter the Registry has a Validator or not.
+     *
+     * @param string $name
+     * @return bool $boolean
+     */
+    public static function hasValidator($name)
+    {
+        // Start of user code ValidatorsRegistry.hasValidator
+        $boolean = self::getValidators()->has($name);
+        // End of user code
+    
+        return $boolean;
+    }
+
+    /**
+     * Register a Validator in the Registry.
+     *
+     * @param Validator $validator
+     */
+    public static function registerValidator(Validator $validator)
+    {
+        // Start of user code ValidatorsRegistry.registerValidator
+        self::getValidators()->set($validator->getName(), $validator);
+        // End of user code
+    }
+
+    /**
+     * Remove all registered Validators.
+     *
      * @param string $name
      */
     public static function clearValidator($name)
@@ -77,19 +106,8 @@ class ValidatorsRegistry
     }
 
     /**
-     * @param string $name
-     * @return bool $boolean
-     */
-    public static function hasValidator($name)
-    {
-        // Start of user code ValidatorsRegistry.hasValidator
-        $boolean = self::getValidators()->has($name);
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
+     * Return a Validator from its name.
+     *
      * @param string $name
      * @return Validator $validator
      */
@@ -108,16 +126,6 @@ class ValidatorsRegistry
         // End of user code
     
         return $validator;
-    }
-
-    /**
-     * @param Validator $validator
-     */
-    public static function registerValidator(Validator $validator)
-    {
-        // Start of user code ValidatorsRegistry.registerValidator
-        self::getValidators()->set($validator->getName(), $validator);
-        // End of user code
     }
 
     // Start of user code ValidatorsRegistry.implementationSpecificMethods

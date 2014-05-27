@@ -7,6 +7,7 @@ namespace TiBeN\Framework\Datatype;
 // End of user code
 
 /**
+ * Simple implementation of the Collection Interface.
  * 
  *
  * @package TiBeN\Framework\Datatype
@@ -171,20 +172,6 @@ class GenericCollection implements Collection
     // Collection Realization
 
     /**
-     * Tell whether the collection is empty or not.
-     *
-     * @return bool $boolean
-     */
-    public function isEmpty()
-    {
-        // Start of user code Collection.isEmpty
-		$boolean = empty($this->items);
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
      * Insert of replace an item at the provided key slot.
      *
      * @param int $key
@@ -204,17 +191,66 @@ class GenericCollection implements Collection
     }
 
     /**
-     * Check if the current position is valid. 
-     *
-     * @return T $currentItem
+     * Reset the collection by deleting all item it contain.
      */
-    public function current()
+    public function clear()
     {
-        // Start of user code Iterator.current
-		$currentItem = current($this->items);	
+        // Start of user code Collection.clear
+		$this->items = array();
+        // End of user code
+    }
+
+    /**
+     * Returns the key of the current element. 
+     *
+     * @return int $key
+     */
+    public function key()
+    {
+        // Start of user code Iterator.key
+		$key = key($this->items);
         // End of user code
     
-        return $currentItem;
+        return $key;
+    }
+
+    /**
+     * Moves the current position to the next element. 
+     */
+    public function next()
+    {
+        // Start of user code Iterator.next
+		next($this->items);
+        // End of user code
+    }
+
+    /**
+     * Tell wheter an item is stored in the provided key slot.
+     *
+     * @param int $key
+     * @return bool $boolean
+     */
+    public function hasKey($key)
+    {
+        // Start of user code Collection.hasKey
+		$boolean = isset($this->items[$key]);
+        // End of user code
+    
+        return $boolean;
+    }
+
+    /**
+     * Tell whether the collection is empty or not.
+     *
+     * @return bool $boolean
+     */
+    public function isEmpty()
+    {
+        // Start of user code Collection.isEmpty
+		$boolean = empty($this->items);
+        // End of user code
+    
+        return $boolean;
     }
 
     /**
@@ -244,27 +280,49 @@ class GenericCollection implements Collection
     }
 
     /**
-     * Tell wheter an item is stored in the provided key slot.
-     *
-     * @param int $key
-     * @return bool $boolean
-     */
-    public function hasKey($key)
-    {
-        // Start of user code Collection.hasKey
-		$boolean = isset($this->items[$key]);
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
      * Rewinds back to the first element of the Iterator. 
      */
     public function rewind()
     {
         // Start of user code Iterator.rewind
 		reset($this->items);		 
+        // End of user code
+    }
+
+    /**
+     * Return the object stored in the provided key slot.
+     *
+     * @param int $key
+     * @return T $item
+     */
+    public function get($key)
+    {
+        // Start of user code Collection.get
+		if(!is_int($key)) {
+			throw new \InvalidArgumentException(
+                'the value of the key passed is not an integer'
+            );
+		}
+		if(!isset($this->items[$key])) {
+			throw new \InvalidArgumentException(
+                sprintf('This collection contain no item at key %s', $key)
+            );
+		} 
+		$item = $this->items[$key];
+        // End of user code
+    
+        return $item;
+    }
+
+    /**
+     * Define the collection as read only. All writing method then throws exceptions. 
+     *
+     * @param bool $boolean
+     */
+    public function setAsReadOnly($boolean)
+    {
+        // Start of user code Collection.setAsReadOnly
+		$this->isReadOnly = $boolean; 
         // End of user code
     }
 
@@ -301,37 +359,31 @@ class GenericCollection implements Collection
     }
 
     /**
-     * Returns the key of the current element. 
+     * Tell whether the collection is read only or not.
      *
-     * @return int $key
+     * @return bool $boolean
      */
-    public function key()
+    public function isReadOnly()
     {
-        // Start of user code Iterator.key
-		$key = key($this->items);
+        // Start of user code Collection.isReadOnly
+		$boolean = $this->isReadOnly;
         // End of user code
     
-        return $key;
+        return $boolean;
     }
 
     /**
-     * Reset the collection by deleting all item it contain.
+     * Check if the current position is valid. 
+     *
+     * @return T $currentItem
      */
-    public function clear()
+    public function current()
     {
-        // Start of user code Collection.clear
-		$this->items = array();
+        // Start of user code Iterator.current
+		$currentItem = current($this->items);	
         // End of user code
-    }
-
-    /**
-     * Moves the current position to the next element. 
-     */
-    public function next()
-    {
-        // Start of user code Iterator.next
-		next($this->items);
-        // End of user code
+    
+        return $currentItem;
     }
 
     /**
@@ -363,57 +415,6 @@ class GenericCollection implements Collection
 		}			
 		return $this->set($newIndex, $itemToAdd);
         // End of user code
-    }
-
-    /**
-     * Define the collection as read only. All writing method then throws exceptions. 
-     *
-     * @param bool $boolean
-     */
-    public function setAsReadOnly($boolean)
-    {
-        // Start of user code Collection.setAsReadOnly
-		$this->isReadOnly = $boolean; 
-        // End of user code
-    }
-
-    /**
-     * Return the object stored in the provided key slot.
-     *
-     * @param int $key
-     * @return T $item
-     */
-    public function get($key)
-    {
-        // Start of user code Collection.get
-		if(!is_int($key)) {
-			throw new \InvalidArgumentException(
-                'the value of the key passed is not an integer'
-            );
-		}
-		if(!isset($this->items[$key])) {
-			throw new \InvalidArgumentException(
-                sprintf('This collection contain no item at key %s', $key)
-            );
-		} 
-		$item = $this->items[$key];
-        // End of user code
-    
-        return $item;
-    }
-
-    /**
-     * Tell whether the collection is read only or not.
-     *
-     * @return bool $boolean
-     */
-    public function isReadOnly()
-    {
-        // Start of user code Collection.isReadOnly
-		$boolean = $this->isReadOnly;
-        // End of user code
-    
-        return $boolean;
     }
 
     // Start of user code GenericCollection.implementationSpecificMethods

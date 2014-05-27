@@ -9,7 +9,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 // End of user code
 
 /**
- * 
+ * Hold instanciated DataSources
  *
  * @package TiBeN\Framework\DataSource
  * @author TiBeN
@@ -59,6 +59,34 @@ class DataSourcesRegistry
     }
 
     /**
+     * @param string $dataSourceName
+     */
+    public static function clearDataSource($dataSourceName)
+    {
+        // Start of user code DataSourcesRegistry.clearDataSource
+		if(!self::getDataSources()->has($dataSourceName)) {
+		    throw new \InvalidArgumentException(
+                'No data source named "' . $dataSourceName . '"'
+            );
+		} 
+		self::getDataSources()->remove($dataSourceName);
+        // End of user code
+    }
+
+    /**
+     * @param string $dataSourceName
+     * @return bool $boolean
+     */
+    public static function hasDataSource($dataSourceName)
+    {
+        // Start of user code DataSourcesRegistry.hasDataSource
+		return self::getDataSources()->has($dataSourceName);
+        // End of user code
+    
+        return $boolean;
+    }
+
+    /**
      * @param DataSource $dataSource
      */
     public static function registerDataSource(DataSource $dataSource)
@@ -88,34 +116,6 @@ class DataSourcesRegistry
         // End of user code
     
         return $dataSource;
-    }
-
-    /**
-     * @param string $dataSourceName
-     */
-    public static function clearDataSource($dataSourceName)
-    {
-        // Start of user code DataSourcesRegistry.clearDataSource
-		if(!self::getDataSources()->has($dataSourceName)) {
-		    throw new \InvalidArgumentException(
-                'No data source named "' . $dataSourceName . '"'
-            );
-		} 
-		self::getDataSources()->remove($dataSourceName);
-        // End of user code
-    }
-
-    /**
-     * @param string $dataSourceName
-     * @return bool $boolean
-     */
-    public static function hasDataSource($dataSourceName)
-    {
-        // Start of user code DataSourcesRegistry.hasDataSource
-		return self::getDataSources()->has($dataSourceName);
-        // End of user code
-    
-        return $boolean;
     }
 
     // Start of user code DataSourcesRegistry.implementationSpecificMethods

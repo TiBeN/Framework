@@ -9,7 +9,8 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 // End of user code
 
 /**
- * 
+ * AssociativeArray that holds the key/values pairs of a 
+ * mysql table row.
  *
  * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN

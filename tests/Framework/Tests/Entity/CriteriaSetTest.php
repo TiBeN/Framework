@@ -43,29 +43,31 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method addSubSet from class CriteriaSet
+     * Test method addOrder from class CriteriaSet
      *
-     * Start of user code CriteriaSetTest.testaddSubSetAnnotations 
+     * Start of user code CriteriaSetTest.testaddOrderAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testAddSubSet()
+    public function testAddOrder()
     {
-        // Start of user code CriteriaSetTest.testaddSubSet
+        // Start of user code CriteriaSetTest.testaddOrder
         $criteriaSet = new CriteriaSet();
-        $criteriaSet->getMatchCriterias()->add(MatchCriteria::equals('foo', 'bar'));
-
-        $expectedCriteriaSetCollection = new GenericCollection(
-            'TiBeN\\Framework\\Entity\\CriteriaSet'
+        $orderCriteria1 = OrderCriteria::asc('foo');
+        $orderCriteria2 = OrderCriteria::desc('bar');
+        
+        $expectedOrderCriteriaCollection = new GenericCollection(
+            'TiBeN\\Framework\\Entity\\OrderCriteria'
         );
-        $expectedCriteriaSetCollection->add($criteriaSet);
-
-        $rootCriteriaSet = new CriteriaSet();
-        $rootCriteriaSet->addSubSet($criteriaSet);
+        $expectedOrderCriteriaCollection->add($orderCriteria1);
+        $expectedOrderCriteriaCollection->add($orderCriteria2);
+        
+        $criteriaSet->addOrder($orderCriteria1);
+        $criteriaSet->addOrder($orderCriteria2);
         
         $this->assertEquals(
-            $expectedCriteriaSetCollection, 
-            $rootCriteriaSet->getCriteriaSets()
+            $expectedOrderCriteriaCollection, 
+            $criteriaSet->getOrderCriterias()
         );
 		// End of user code
     }
@@ -98,32 +100,63 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method addOrder from class CriteriaSet
+     * Test method setLimit from class CriteriaSet
      *
-     * Start of user code CriteriaSetTest.testaddOrderAnnotations 
+     * Start of user code CriteriaSetTest.testsetLimitAnnotations 
 	 * PHPUnit users annotations can be placed here  
 	 * End of user code
      */
-    public function testAddOrder()
+    public function testSetLimit()
     {
-        // Start of user code CriteriaSetTest.testaddOrder
+        // Start of user code CriteriaSetTest.testsetLimit
         $criteriaSet = new CriteriaSet();
-        $orderCriteria1 = OrderCriteria::asc('foo');
-        $orderCriteria2 = OrderCriteria::desc('bar');
-        
-        $expectedOrderCriteriaCollection = new GenericCollection(
-            'TiBeN\\Framework\\Entity\\OrderCriteria'
+        $limitCriteria = LimitCriteria::to(1337);
+        $criteriaSet->setLimit($limitCriteria);
+        $this->assertEquals($limitCriteria, $criteriaSet->getLimitCriteria());
+		// End of user code
+    }
+    
+    /**
+     * Test method addSubSet from class CriteriaSet
+     *
+     * Start of user code CriteriaSetTest.testaddSubSetAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testAddSubSet()
+    {
+        // Start of user code CriteriaSetTest.testaddSubSet
+        $criteriaSet = new CriteriaSet();
+        $criteriaSet->getMatchCriterias()->add(MatchCriteria::equals('foo', 'bar'));
+
+        $expectedCriteriaSetCollection = new GenericCollection(
+            'TiBeN\\Framework\\Entity\\CriteriaSet'
         );
-        $expectedOrderCriteriaCollection->add($orderCriteria1);
-        $expectedOrderCriteriaCollection->add($orderCriteria2);
-        
-        $criteriaSet->addOrder($orderCriteria1);
-        $criteriaSet->addOrder($orderCriteria2);
+        $expectedCriteriaSetCollection->add($criteriaSet);
+
+        $rootCriteriaSet = new CriteriaSet();
+        $rootCriteriaSet->addSubSet($criteriaSet);
         
         $this->assertEquals(
-            $expectedOrderCriteriaCollection, 
-            $criteriaSet->getOrderCriterias()
+            $expectedCriteriaSetCollection, 
+            $rootCriteriaSet->getCriteriaSets()
         );
+		// End of user code
+    }
+    
+    /**
+     * Test static method createOr from class CriteriaSet
+     *
+     * Start of user code CriteriaSetTest.testcreateOrAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testCreateOr()
+    {
+        // Start of user code CriteriaSetTest.testcreateOr
+	    $expectedCriteriaSet = new CriteriaSet();
+	    $expectedCriteriaSet->setLogicalSeparator(CriteriaSet::LOGICAL_SEPARATOR_OR);
+	    $this->assertEquals($expectedCriteriaSet, CriteriaSet::createOr());
 		// End of user code
     }
     
@@ -153,22 +186,6 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createOr from class CriteriaSet
-     *
-     * Start of user code CriteriaSetTest.testcreateOrAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testCreateOr()
-    {
-        // Start of user code CriteriaSetTest.testcreateOr
-	    $expectedCriteriaSet = new CriteriaSet();
-	    $expectedCriteriaSet->setLogicalSeparator(CriteriaSet::LOGICAL_SEPARATOR_OR);
-	    $this->assertEquals($expectedCriteriaSet, CriteriaSet::createOr());
-		// End of user code
-    }
-    
-    /**
      * Test static method createAnd from class CriteriaSet
      *
      * Start of user code CriteriaSetTest.testcreateAndAnnotations 
@@ -181,23 +198,6 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
         $expectedCriteriaSet = new CriteriaSet();
         $expectedCriteriaSet->setLogicalSeparator(CriteriaSet::LOGICAL_SEPARATOR_AND);
         $this->assertEquals($expectedCriteriaSet, CriteriaSet::createAnd());
-		// End of user code
-    }
-    
-    /**
-     * Test method setLimit from class CriteriaSet
-     *
-     * Start of user code CriteriaSetTest.testsetLimitAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testSetLimit()
-    {
-        // Start of user code CriteriaSetTest.testsetLimit
-        $criteriaSet = new CriteriaSet();
-        $limitCriteria = LimitCriteria::to(1337);
-        $criteriaSet->setLimit($limitCriteria);
-        $this->assertEquals($limitCriteria, $criteriaSet->getLimitCriteria());
 		// End of user code
     }
 

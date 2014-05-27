@@ -78,6 +78,8 @@ class NotEmptyValidator implements Validator
     // Validator Realization
 
     /**
+     * Return the name of the validator.
+     *
      * @return string $name
      */
     public function getName()
@@ -90,6 +92,8 @@ class NotEmptyValidator implements Validator
     }
 
     /**
+     * Perform the validation of a value.
+     *
      * @param ValidationRule $validationRule
      * @param T $value
      * @return ValidationResult $result

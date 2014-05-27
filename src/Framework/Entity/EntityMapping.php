@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\Entity;
 
-use TiBeN\Framework\DataSource\DataSourcesRegistry;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\DataSource\DataSourcesRegistry;
 use TiBeN\Framework\Validation\ValidationRule;
 
 // Start of user code EntityMapping.useStatements
@@ -11,7 +11,10 @@ use TiBeN\Framework\Validation\ValidationRule;
 // End of user code
 
 /**
+ * Holds mapping informations between an entity 
+ * and its datasource representation.
  * 
+ *  
  *
  * @package TiBeN\Framework\Entity
  * @author TiBeN
@@ -24,11 +27,6 @@ class EntityMapping
     public $attributeMappings;
 
     /**
-     * @var string
-     */
-    public $entityName;
-
-    /**
      * @var DataSourceEntityMappingConfiguration
      */
     public $dataSourceEntityConfiguration;
@@ -37,6 +35,11 @@ class EntityMapping
      * @var string
      */
     public $dataSourceName;
+
+    /**
+     * @var string
+     */
+    public $entityName;
 
     public function __construct()
     {
@@ -69,26 +72,6 @@ class EntityMapping
         // Start of user code Setter EntityMapping.setAttributeMappings
         // End of user code
         $this->attributeMappings = $attributeMappings;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEntityName()
-    {
-        // Start of user code Getter EntityMapping.getEntityName
-        // End of user code
-        return $this->entityName;
-    }
-
-    /**
-     * @param string $entityName
-     */
-    public function setEntityName($entityName)
-    {
-        // Start of user code Setter EntityMapping.setEntityName
-        // End of user code
-        $this->entityName = $entityName;
     }
 
     /**
@@ -132,6 +115,55 @@ class EntityMapping
     }
 
     /**
+     * @return string
+     */
+    public function getEntityName()
+    {
+        // Start of user code Getter EntityMapping.getEntityName
+        // End of user code
+        return $this->entityName;
+    }
+
+    /**
+     * @param string $entityName
+     */
+    public function setEntityName($entityName)
+    {
+        // Start of user code Setter EntityMapping.setEntityName
+        // End of user code
+        $this->entityName = $entityName;
+    }
+
+    /**
+     * Determine the attribute which acts as an identifer of
+     * the entity and return its attributemapping. 
+     *
+     * @return AttributeMapping $attributeMapping
+     */
+    public function getIdentifierAttributeMapping()
+    {
+        // Start of user code EntityMapping.getIdentifierAttributeMapping
+        foreach ($this->getAttributeMappings()->toNativeArray()
+            as $attributeName => $attributeMapping
+        ) {
+            if($attributeMapping->getIsIdentifier()) {
+                $attributeIdentifier = $attributeMapping;
+                break;
+            }
+        }
+        if (!isset($attributeIdentifier)) {
+            throw new \LogicException('The EntityMapping has no attribute set as identifier');
+        }
+        $attributeMapping = $attributeIdentifier;
+        // End of user code
+    
+        return $attributeMapping;
+    }
+
+    /**
+     * Factory methods that ease the instantiation 
+     * process of an EntityMapping using associative arrays.
+     *
      * @param AssociativeArray $config
      * @return EntityMapping $entityMapping
      */
@@ -256,29 +288,6 @@ class EntityMapping
         // End of user code
     
         return $entityMapping;
-    }
-
-    /**
-     * @return AttributeMapping $attributeMapping
-     */
-    public function getIdentifierAttributeMapping()
-    {
-        // Start of user code EntityMapping.getIdentifierAttributeMapping
-        foreach ($this->getAttributeMappings()->toNativeArray()
-            as $attributeName => $attributeMapping
-        ) {
-            if($attributeMapping->getIsIdentifier()) {
-                $attributeIdentifier = $attributeMapping;
-                break;
-            }
-        }
-        if (!isset($attributeIdentifier)) {
-            throw new \LogicException('The EntityMapping has no attribute set as identifier');
-        }
-        $attributeMapping = $attributeIdentifier;
-        // End of user code
-    
-        return $attributeMapping;
     }
 
     // Start of user code EntityMapping.implementationSpecificMethods

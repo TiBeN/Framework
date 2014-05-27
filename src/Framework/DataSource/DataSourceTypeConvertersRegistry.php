@@ -9,7 +9,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 // End of user code
 
 /**
- * 
+ * Holds all type converters instances.
  *
  * @package TiBeN\Framework\DataSource
  * @author TiBeN
@@ -61,22 +61,6 @@ class DataSourceTypeConvertersRegistry
     /**
      * @param string $type
      * @param string $dataSourceType
-     * @return bool $boolean
-     */
-    public static function hasTypeConverter($type, $dataSourceType)
-    {
-        // Start of user code DataSourceTypeConvertersRegistry.hasTypeConverter
-		$boolean = self::getTypeConverters()->has($dataSourceType)
-            && self::getTypeConverters()->get($dataSourceType)->has($type)
-        ;             		  	    
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
-     * @param string $type
-     * @param string $dataSourceType
      */
     public static function clearTypeConverter($type, $dataSourceType)
     {
@@ -120,6 +104,22 @@ class DataSourceTypeConvertersRegistry
         // End of user code
     
         return $typeConverter;
+    }
+
+    /**
+     * @param string $type
+     * @param string $dataSourceType
+     * @return bool $boolean
+     */
+    public static function hasTypeConverter($type, $dataSourceType)
+    {
+        // Start of user code DataSourceTypeConvertersRegistry.hasTypeConverter
+		$boolean = self::getTypeConverters()->has($dataSourceType)
+            && self::getTypeConverters()->get($dataSourceType)->has($type)
+        ;             		  	    
+        // End of user code
+    
+        return $boolean;
     }
 
     /**

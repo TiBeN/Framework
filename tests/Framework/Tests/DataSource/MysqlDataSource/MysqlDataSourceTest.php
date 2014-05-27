@@ -57,42 +57,61 @@ class MysqlDataSourceTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method create from interface DataSource
-     * Start of user code DataSource.testcreateAnnotations 
-     * @group mysqldatasource-create 
+     * Test method read from interface DataSource
+     * Start of user code DataSource.testreadAnnotations 
+     * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testCreate()
+    public function testRead()
     {
-        // Start of user code DataSource.testcreate
-        $entity = new SomeEntity();
-        $entity->setAttributeA('foo');
-        $entity->setAttributeB('bar');
-        $entity->setAttributeC('baz');
+        // Start of user code DataSource.testread
+        $pdo = MysqlDataSourceTestSetupTearDown::getPdoConnection($GLOBALS['db_name']);
         
-        $dataSource = DataSourcesRegistry::getDataSource('test-mysql');   
+        // Insert some records into table
+        $pdo->exec(
+            'INSERT INTO some_entity_data_table (idTable, a, b, c) VALUES (1, \'foo\', \'foo\', \'foo\')'
+        );
 
+        $pdo->exec(
+            'INSERT INTO some_entity_data_table (idTable, a, b, c) VALUES (2, \'bar\', \'bar\', \'bar\')'
+        );
+
+        $expectedEntity1 = new SomeEntity();
+        $expectedEntity1->setId(1);
+        $expectedEntity1->setAttributeA('foo');
+        $expectedEntity1->setAttributeB('foo');
+        $expectedEntity1->setAttributeC('foo');
+
+        $expectedEntity2 = new SomeEntity();
+        $expectedEntity2->setId(2);
+        $expectedEntity2->setAttributeA('bar');
+        $expectedEntity2->setAttributeB('bar');
+        $expectedEntity2->setAttributeC('bar');
+
+        $dataSource = DataSourcesRegistry::getDataSource('test-mysql');   
         $entityMapping = EntityMappingsRegistry::getEntityMapping(
             'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
         );
+
+        $criterias = CriteriaSet::createAnd();
+
+        $entityCollection = $dataSource->read($entityMapping, $criterias);
+        $this->assertEquals(2, $entityCollection->count()); 
+        $this->assertEquals($expectedEntity1, $entityCollection->get(0));
+        $this->assertEquals($expectedEntity2, $entityCollection->get(1));
+       
+        $criterias->getOrderCriterias()->add(OrderCriteria::desc('id')); 
         
-        $dataSource->create($entityMapping, $entity);
-        
-        $pdo = MysqlDataSourceTestSetupTearDown::getPdoConnection($GLOBALS['db_name']);
-        $pdoStatement = $pdo->query(
-            'SELECT * FROM some_entity_data_table WHERE idTable = 1'
-        );
-        $this->assertInstanceOf('PDOStatement', $pdoStatement);
-        $this->assertEquals(1, $pdoStatement->rowCount());
-        
-        $expectedRow = array(
-            'idTable' => '1',
-            'a' => 'foo',
-            'b' => 'bar',
-            'c' => 'baz'
-        );
-        $this->assertEquals($expectedRow, $pdoStatement->fetch(\PDO::FETCH_ASSOC));
-        $this->assertSame(1, $entity->getId());
+        $entityCollection = $dataSource->read($entityMapping, $criterias);
+        $this->assertEquals(2, $entityCollection->count()); 
+        $this->assertEquals($expectedEntity2, $entityCollection->get(0));
+        $this->assertEquals($expectedEntity1, $entityCollection->get(1));
+      
+        $criterias->setLimitCriteria(LimitCriteria::to(1));
+
+        $entityCollection = $dataSource->read($entityMapping, $criterias);
+        $this->assertEquals(1, $entityCollection->count()); 
+        $this->assertEquals($expectedEntity2, $entityCollection->get(0));
         // End of user code
     }
     
@@ -147,6 +166,62 @@ class MysqlDataSourceTest extends \PHPUnit_Framework_TestCase
             'c' => 'bar'
         );
         $this->assertEquals($expectedRow, $pdoStatement->fetch(\PDO::FETCH_ASSOC));
+        // End of user code
+    }
+    
+    /**
+     * Test method create from interface DataSource
+     * Start of user code DataSource.testcreateAnnotations 
+     * @group mysqldatasource-create 
+     * End of user code
+     */
+    public function testCreate()
+    {
+        // Start of user code DataSource.testcreate
+        $entity = new SomeEntity();
+        $entity->setAttributeA('foo');
+        $entity->setAttributeB('bar');
+        $entity->setAttributeC('baz');
+        
+        $dataSource = DataSourcesRegistry::getDataSource('test-mysql');   
+
+        $entityMapping = EntityMappingsRegistry::getEntityMapping(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );
+        
+        $dataSource->create($entityMapping, $entity);
+        
+        $pdo = MysqlDataSourceTestSetupTearDown::getPdoConnection($GLOBALS['db_name']);
+        $pdoStatement = $pdo->query(
+            'SELECT * FROM some_entity_data_table WHERE idTable = 1'
+        );
+        $this->assertInstanceOf('PDOStatement', $pdoStatement);
+        $this->assertEquals(1, $pdoStatement->rowCount());
+        
+        $expectedRow = array(
+            'idTable' => '1',
+            'a' => 'foo',
+            'b' => 'bar',
+            'c' => 'baz'
+        );
+        $this->assertEquals($expectedRow, $pdoStatement->fetch(\PDO::FETCH_ASSOC));
+        $this->assertSame(1, $entity->getId());
+        // End of user code
+    }
+    
+    /**
+     * Test static method getAttributeMappingConfigurationClassName from interface DataSource
+     * Start of user code DataSource.testgetAttributeMappingConfigurationClassNameAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetAttributeMappingConfigurationClassName()
+    {
+        // Start of user code DataSource.testgetAttributeMappingConfigurationClassName
+        $this->assertEquals(
+            'TiBeN\\Framework\\DataSource\\MysqlDataSource\\MysqlAttributeConfiguration', 
+            MysqlDataSource::getAttributeMappingConfigurationClassName()
+        );
         // End of user code
     }
     
@@ -210,81 +285,6 @@ class MysqlDataSourceTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('PDOStatement', $pdoStatement);
         $this->assertSame(0, $pdoStatement->rowCount());
         
-        // End of user code
-    }
-    
-    /**
-     * Test method read from interface DataSource
-     * Start of user code DataSource.testreadAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testRead()
-    {
-        // Start of user code DataSource.testread
-        $pdo = MysqlDataSourceTestSetupTearDown::getPdoConnection($GLOBALS['db_name']);
-        
-        // Insert some records into table
-        $pdo->exec(
-            'INSERT INTO some_entity_data_table (idTable, a, b, c) VALUES (1, \'foo\', \'foo\', \'foo\')'
-        );
-
-        $pdo->exec(
-            'INSERT INTO some_entity_data_table (idTable, a, b, c) VALUES (2, \'bar\', \'bar\', \'bar\')'
-        );
-
-        $expectedEntity1 = new SomeEntity();
-        $expectedEntity1->setId(1);
-        $expectedEntity1->setAttributeA('foo');
-        $expectedEntity1->setAttributeB('foo');
-        $expectedEntity1->setAttributeC('foo');
-
-        $expectedEntity2 = new SomeEntity();
-        $expectedEntity2->setId(2);
-        $expectedEntity2->setAttributeA('bar');
-        $expectedEntity2->setAttributeB('bar');
-        $expectedEntity2->setAttributeC('bar');
-
-        $dataSource = DataSourcesRegistry::getDataSource('test-mysql');   
-        $entityMapping = EntityMappingsRegistry::getEntityMapping(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
-        );
-
-        $criterias = CriteriaSet::createAnd();
-
-        $entityCollection = $dataSource->read($entityMapping, $criterias);
-        $this->assertEquals(2, $entityCollection->count()); 
-        $this->assertEquals($expectedEntity1, $entityCollection->get(0));
-        $this->assertEquals($expectedEntity2, $entityCollection->get(1));
-       
-        $criterias->getOrderCriterias()->add(OrderCriteria::desc('id')); 
-        
-        $entityCollection = $dataSource->read($entityMapping, $criterias);
-        $this->assertEquals(2, $entityCollection->count()); 
-        $this->assertEquals($expectedEntity2, $entityCollection->get(0));
-        $this->assertEquals($expectedEntity1, $entityCollection->get(1));
-      
-        $criterias->setLimitCriteria(LimitCriteria::to(1));
-
-        $entityCollection = $dataSource->read($entityMapping, $criterias);
-        $this->assertEquals(1, $entityCollection->count()); 
-        $this->assertEquals($expectedEntity2, $entityCollection->get(0));
-        // End of user code
-    }
-    
-    /**
-     * Test static method getAttributeMappingConfigurationClassName from interface DataSource
-     * Start of user code DataSource.testgetAttributeMappingConfigurationClassNameAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetAttributeMappingConfigurationClassName()
-    {
-        // Start of user code DataSource.testgetAttributeMappingConfigurationClassName
-        $this->assertEquals(
-            'TiBeN\\Framework\\DataSource\\MysqlDataSource\\MysqlAttributeConfiguration', 
-            MysqlDataSource::getAttributeMappingConfigurationClassName()
-        );
         // End of user code
     }
 

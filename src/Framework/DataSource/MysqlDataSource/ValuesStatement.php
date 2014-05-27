@@ -2,16 +2,17 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Entity\Entity;
-use TiBeN\Framework\Entity\EntityMapping;
 
 // Start of user code ValuesStatement.useStatements
 // Place your use statements here.
 // End of user code
 
 /**
- * 
+ * Represent the values statement chunk used in 
+ * mysql insert statements.
  *
  * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
@@ -68,6 +69,8 @@ class ValuesStatement extends AssociativeArray
     }
 
     /**
+     * Generate the values statement chunk as a string.
+     *
      * @return string $string
      */
     public function toString()
@@ -92,6 +95,9 @@ class ValuesStatement extends AssociativeArray
     }
 
     /**
+     * Factory method that generate a ValuesStatement 
+     * from the values of the attributes of an entity.
+     *
      * @param EntityMapping $entityMapping
      * @param Entity $entity
      * @return ValuesStatement $valuesStatement

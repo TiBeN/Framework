@@ -2,16 +2,17 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
-use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code SetStatement.useStatements
 // Place your use statements here.
 // End of user code
 
 /**
- * 
+ * Represent a "set" statement chunk used in 
+ * mysql update statements.
  *
  * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
@@ -68,6 +69,26 @@ class SetStatement extends AssociativeArray
     }
 
     /**
+     * Return an associative array of parameters of the corresponding
+     * named placeholder in the set statement chunk. 
+     *
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code SetStatement.getStatementParameters
+	    $statementParameters = AssociativeArray::createFromNativeArray(
+            null, 
+            $this->toNativeArray()
+		);
+        // End of user code
+    
+        return $statementParameters;
+    }
+
+    /**
+     * Generate the set statement chunk as a string.
+     *
      * @return string $string
      */
     public function toString()
@@ -84,21 +105,9 @@ class SetStatement extends AssociativeArray
     }
 
     /**
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code SetStatement.getStatementParameters
-	    $statementParameters = AssociativeArray::createFromNativeArray(
-            null, 
-            $this->toNativeArray()
-		);
-        // End of user code
-    
-        return $statementParameters;
-    }
-
-    /**
+     * Factory method that generate a SetStatement 
+     * from the attributes keys and their values of an entity. 
+     *
      * @param EntityMapping $entityMapping
      * @param Entity $entity
      * @return SetStatement $setStatement

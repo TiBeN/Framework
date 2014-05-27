@@ -97,52 +97,6 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method find from class EntityRepository
-     *
-     * Start of user code EntityRepositoryTest.testfindAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testFind()
-    {
-        // Start of user code EntityRepositoryTest.testfind
-        $pdo = MysqlDataSourceTestSetupTearDown::getPdoConnection($GLOBALS['db_name']);
-        
-        // Insert some records into table
-        $pdo->exec(
-            'INSERT INTO some_entity_data_table (idTable, a, b, c) VALUES (1, \'foo\', \'foo\', \'foo\')'
-        );
-
-        $pdo->exec(
-            'INSERT INTO some_entity_data_table (idTable, a, b, c) VALUES (2, \'bar\', \'bar\', \'bar\')'
-        );
-
-        $expectedEntity1 = new SomeEntity();
-        $expectedEntity1->setId(1);
-        $expectedEntity1->setAttributeA('foo');
-        $expectedEntity1->setAttributeB('foo');
-        $expectedEntity1->setAttributeC('foo');
-
-        $expectedEntity2 = new SomeEntity();
-        $expectedEntity2->setId(2);
-        $expectedEntity2->setAttributeA('bar');
-        $expectedEntity2->setAttributeB('bar');
-        $expectedEntity2->setAttributeC('bar');
-    
-        $repository = EntityRepository::instantiateFromEntityClassName(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
-        );
-
-        $criterias = CriteriaSet::createAnd();
-
-        $entityCollection = $repository->find($criterias);
-        $this->assertEquals(2, $entityCollection->count()); 
-        $this->assertEquals($expectedEntity1, $entityCollection->get(0));
-        $this->assertEquals($expectedEntity2, $entityCollection->get(1));
-		// End of user code
-    }
-    
-    /**
      * Test method persist from class EntityRepository
      *
      * Start of user code EntityRepositoryTest.testpersistAnnotations 
@@ -197,6 +151,52 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedRow, $pdoStatement->fetch(\PDO::FETCH_ASSOC));
         $this->assertSame(1, $entity->getId());
 
+		// End of user code
+    }
+    
+    /**
+     * Test method find from class EntityRepository
+     *
+     * Start of user code EntityRepositoryTest.testfindAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testFind()
+    {
+        // Start of user code EntityRepositoryTest.testfind
+        $pdo = MysqlDataSourceTestSetupTearDown::getPdoConnection($GLOBALS['db_name']);
+        
+        // Insert some records into table
+        $pdo->exec(
+            'INSERT INTO some_entity_data_table (idTable, a, b, c) VALUES (1, \'foo\', \'foo\', \'foo\')'
+        );
+
+        $pdo->exec(
+            'INSERT INTO some_entity_data_table (idTable, a, b, c) VALUES (2, \'bar\', \'bar\', \'bar\')'
+        );
+
+        $expectedEntity1 = new SomeEntity();
+        $expectedEntity1->setId(1);
+        $expectedEntity1->setAttributeA('foo');
+        $expectedEntity1->setAttributeB('foo');
+        $expectedEntity1->setAttributeC('foo');
+
+        $expectedEntity2 = new SomeEntity();
+        $expectedEntity2->setId(2);
+        $expectedEntity2->setAttributeA('bar');
+        $expectedEntity2->setAttributeB('bar');
+        $expectedEntity2->setAttributeC('bar');
+    
+        $repository = EntityRepository::instantiateFromEntityClassName(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );
+
+        $criterias = CriteriaSet::createAnd();
+
+        $entityCollection = $repository->find($criterias);
+        $this->assertEquals(2, $entityCollection->count()); 
+        $this->assertEquals($expectedEntity1, $entityCollection->get(0));
+        $this->assertEquals($expectedEntity2, $entityCollection->get(1));
 		// End of user code
     }
     

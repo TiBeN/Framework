@@ -9,7 +9,7 @@ use TiBeN\Framework\Datatype\ProxyAbleGenericCollection;
 // End of user code
 
 /**
- * 
+ * Collection that holds entities.
  *
  * @package TiBeN\Framework\Entity
  * @author TiBeN

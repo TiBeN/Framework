@@ -10,7 +10,8 @@ use TiBeN\Framework\Datatype\GenericCollection;
 // End of user code
 
 /**
- * 
+ * Represent the column names list statement chunk 
+ * used in mysql insert statements
  *
  * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
@@ -67,6 +68,29 @@ class ColumnNamesListStatement extends GenericCollection
     }
 
     /**
+     * Generate the column names list statement chunk as 
+     * a string.
+     *
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code ColumnNamesListStatement.toString
+        if($this->isEmpty()) {
+            throw new \LogicException('The ColumnNamesListStatement is empty');
+        }      
+        
+        $string = sprintf('(%s)', implode(',', $this->items));
+        // End of user code
+    
+        return $string;
+    }
+
+    /**
+     * Factory method that generate a 
+     * ColumnNamesListStament from the attributes of an 
+     * entity.
+     *
      * @param AssociativeArray $attributeMappings
      * @return ColumnNamesListStatement $columnNamesListStatement
      */
@@ -86,22 +110,6 @@ class ColumnNamesListStatement extends GenericCollection
         // End of user code
     
         return $columnNamesListStatement;
-    }
-
-    /**
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code ColumnNamesListStatement.toString
-        if($this->isEmpty()) {
-            throw new \LogicException('The ColumnNamesListStatement is empty');
-        }      
-        
-        $string = sprintf('(%s)', implode(',', $this->items));
-        // End of user code
-    
-        return $string;
     }
 
     // Start of user code ColumnNamesListStatement.surchargedMethods

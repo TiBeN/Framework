@@ -9,6 +9,9 @@ use TiBeN\Framework\Validation\ValidatorsRegistry;
 // End of user code
 
 /**
+ * Service class which aims to validate
+ * the conformance of an entity against the validation rules 
+ * declared in its entitymapping. 
  * 
  *
  * @package TiBeN\Framework\Entity
@@ -29,6 +32,8 @@ class EntityValidator
     }
 
     /**
+     * Validate the entity conformance.
+     *
      * @param EntityMapping $entityMapping
      * @param Entity $entity
      * @return EntityValidationResult $entityValidationResult

@@ -9,7 +9,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 // End of user code
 
 /**
- * 
+ * Represent a mysql delete statement.
  *
  * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
@@ -81,7 +81,9 @@ class DeleteStatement implements Statement
     // Statement Realization
 
     /**
-     * Tell wether the statement is ready or not to be executed
+     * Check whether all statement chunks are set 
+     * in order to generate a complete statement string to 
+     * be executed.
      *
      * @return bool $status
      */
@@ -99,6 +101,10 @@ class DeleteStatement implements Statement
     }
 
     /**
+     * Return an associative array of parameters of the corresponding
+     * named placeholder in the statement. 
+     * 
+     *
      * @return AssociativeArray $statementParameters
      */
     public function getStatementParameters()
@@ -114,7 +120,7 @@ class DeleteStatement implements Statement
     }
 
     /**
-     * Return the statement in String format
+     * Generate the statement as a string.
      *
      * @return string $statement
      */

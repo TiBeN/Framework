@@ -7,7 +7,7 @@ namespace TiBeN\Framework\Validation;
 // End of user code
 
 /**
- * Check wheter a number fit in a specified range.
+ * Check whether a number fit in a specified range.
  * ValidationRules:
  * 	'min': (optional) The min number 
  * 	'max': (optional) The max number 
@@ -80,6 +80,8 @@ class NumericRangeValidator implements Validator
     // Validator Realization
 
     /**
+     * Return the name of the validator.
+     *
      * @return string $name
      */
     public function getName()
@@ -92,6 +94,8 @@ class NumericRangeValidator implements Validator
     }
 
     /**
+     * Perform the validation of a value.
+     *
      * @param ValidationRule $validationRule
      * @param T $value
      * @return ValidationResult $result

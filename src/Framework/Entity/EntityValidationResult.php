@@ -9,6 +9,7 @@ use TiBeN\Framework\Validation\ValidationResult;
 // End of user code
 
 /**
+ * Holds entity validation results.
  * 
  *
  * @package TiBeN\Framework\Entity

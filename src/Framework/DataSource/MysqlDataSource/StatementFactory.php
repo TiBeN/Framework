@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Entity\Entity;
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\CriteriaSet;
 
 // Start of user code StatementFactory.useStatements
@@ -12,7 +12,9 @@ use TiBeN\Framework\Entity\CriteriaSet;
 // End of user code
 
 /**
- * 
+ * Factory methods that generate 
+ * common mysql statements (select / insert etc.) 
+ * from entities.
  *
  * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
@@ -32,6 +34,42 @@ class StatementFactory
     }
 
     /**
+     * Create an "update" statement that will update the row 
+     * pointed by the specified entity. 
+     *
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     * @return UpdateStatement $updateStatement
+     */
+    public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code StatementFactory.createUpdateStatementFromEntity
+        $updateStatement = new UpdateStatement();
+        $updateStatement->setTableName(
+            $entityMapping
+                ->getDataSourceEntityConfiguration()
+                ->getTableName()
+        );
+        $updateStatement->setSetStatement(
+            SetStatement::createKeyValueListFromEntity(
+                $entityMapping,
+                $entity
+            )
+        );
+        $updateStatement->setWhereDefinition(
+            WhereConditions::createEntityTargetFromEntity(
+                $entityMapping,
+                $entity
+            )
+        );
+        // End of user code
+    
+        return $updateStatement;
+    }
+
+    /**
+     * Create a statement object from a statement string.
+     *
      * @param string $statementString
      * @param AssociativeArray $parameters
      * @return GenericStatement $genericStatement
@@ -48,6 +86,9 @@ class StatementFactory
     }
 
     /**
+     * Create an "delete" statement that will delete the row 
+     * pointed by the specified entity. 
+     *
      * @param EntityMapping $entityMapping
      * @param Entity $entity
      * @return DeleteStatement $deleteStatement
@@ -73,6 +114,10 @@ class StatementFactory
     }
 
     /**
+     * Create a "select" statement to retrieve records of the table
+     * specified in the EntityMapping and that matches the CriteriaSet.
+     * 
+     *
      * @param EntityMapping $entityMapping
      * @param CriteriaSet $criteriaSet
      * @return SelectStatement $selectStatement
@@ -121,6 +166,9 @@ class StatementFactory
     }
 
     /**
+     * Create an "insert" statement that will insert a row 
+     * according to the specified entity. 
+     *
      * @param EntityMapping $entityMapping
      * @param Entity $entity
      * @return InsertStatement $insertStatement
@@ -155,37 +203,6 @@ class StatementFactory
         // End of user code
     
         return $insertStatement;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     * @return UpdateStatement $updateStatement
-     */
-    public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code StatementFactory.createUpdateStatementFromEntity
-        $updateStatement = new UpdateStatement();
-        $updateStatement->setTableName(
-            $entityMapping
-                ->getDataSourceEntityConfiguration()
-                ->getTableName()
-        );
-        $updateStatement->setSetStatement(
-            SetStatement::createKeyValueListFromEntity(
-                $entityMapping,
-                $entity
-            )
-        );
-        $updateStatement->setWhereDefinition(
-            WhereConditions::createEntityTargetFromEntity(
-                $entityMapping,
-                $entity
-            )
-        );
-        // End of user code
-    
-        return $updateStatement;
     }
 
     // Start of user code StatementFactory.implementationSpecificMethods

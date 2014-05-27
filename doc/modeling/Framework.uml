@@ -1530,7 +1530,8 @@ Allow generating uris inside templates.</body>
   <packagedElement xmi:type="uml:Package" xmi:id="_IJiAsLoOEeKycOj42mlSMA" name="Datatype">
     <packagedElement xmi:type="uml:Class" xmi:id="_ti84wLoPEeKycOj42mlSMA" clientDependency="_SwgeELocEeK9Q_4hHGDnNA _WxyuEFnREeO_MoikqrwZnQ _apA3QFnREeO_MoikqrwZnQ" name="AssociativeArray">
       <ownedComment xmi:type="uml:Comment" xmi:id="_VbOY4LoREeKycOj42mlSMA">
-        <body>Implementation of data container with methods to access data </body>
+        <body>Collection of values that can be addresses by key strings.
+ </body>
       </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_QB-4wLoQEeKycOj42mlSMA" name="item" visibility="protected" type="_pbJmEUStEeO0DpIJd8AJow" isUnique="false">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YGloYLoQEeKycOj42mlSMA"/>
@@ -1653,7 +1654,8 @@ Allow generating uris inside templates.</body>
     <packagedElement xmi:type="uml:Interface" xmi:id="_u981QDA-EeO8QsWDOBjGSA" name="Collection">
       <ownedComment xmi:type="uml:Comment" xmi:id="_cjBhkDl_EeO5o_fbMLIDcQ">
         <body>Interface for classes that acts as a collection of object of a certain type.
-It contains methods to manipulate these items like retrieving them, setting them, counting them etc.</body>
+It contains methods to manipulate these items 
+like retrieving them, setting them, counting them etc.</body>
       </ownedComment>
       <generalization xmi:type="uml:Generalization" xmi:id="_etnLUDNUEeOks8nM2Eg1eg" general="_QFlAYDNTEeOks8nM2Eg1eg"/>
       <generalization xmi:type="uml:Generalization" xmi:id="_fxGBkDNUEeOks8nM2Eg1eg" general="_b768QDNTEeOks8nM2Eg1eg"/>
@@ -1734,9 +1736,12 @@ The removed item is returned back.</body>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_1sqI8DA-EeO8QsWDOBjGSA" name="ProxyCollection">
       <ownedComment xmi:type="uml:Comment" xmi:id="_3nKA0DmAEeO5o_fbMLIDcQ">
-        <body>Interface for collection classes adding the ability for a collection to be a proxy of another collection object.
-By defining an converter object that implement the CollectionItemConverter interface, the objects handled by the initial collection can automatically 
-be converted (or cast) to another type when manipulated through the proxy collection object in both directions (in and out). </body>
+        <body>Interface for collection classes adding the ability for a collection 
+to be a proxy of another collection object. By defining an converter object 
+that implement the CollectionItemConverter interface, the objects 
+handled by the initial collection can automatically be converted (or cast) 
+to another type when manipulated through the proxy collection object 
+in both directions (in and out). </body>
       </ownedComment>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_hF_8EDBAEeOGBOm_cd_YdQ" name="defineAsProxyOf">
         <ownedComment xmi:type="uml:Comment" xmi:id="_v3rXMDmBEeO5o_fbMLIDcQ">
@@ -1793,7 +1798,7 @@ issue some performance drawbacks because it browse all the collection during the
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_Ogd5cDBCEeOtN7AKiL-MgA" clientDependency="_eduAUDBCEeOtN7AKiL-MgA" name="ProxyAbleGenericCollection">
       <ownedComment xmi:type="uml:Comment" xmi:id="_8BcJEDmnEeO5o_fbMLIDcQ">
-        <body>Generic implementation of Collection interface.</body>
+        <body>Generic implementation of the ProxyCollection interface.</body>
       </ownedComment>
       <generalization xmi:type="uml:Generalization" xmi:id="_L3daoEWdEeOvPbyK1FXp-A" general="_9fMUkEWcEeOvPbyK1FXp-A"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_yN4Y4DNHEeOks8nM2Eg1eg" name="collection" type="_u981QDA-EeO8QsWDOBjGSA" association="_yN94cDNHEeOks8nM2Eg1eg">
@@ -1879,6 +1884,10 @@ issue some performance drawbacks because it browse all the collection during the
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_9fMUkEWcEeOvPbyK1FXp-A" clientDependency="_OLAKkEWdEeOvPbyK1FXp-A" name="GenericCollection">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_UUM-MOTiEeOhWq8Np-BNQw" annotatedElement="_9fMUkEWcEeOvPbyK1FXp-A">
+        <body>Simple implementation of the Collection Interface.
+</body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Nt-NgDmuEeO5o_fbMLIDcQ" name="isReadOnly" visibility="protected">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OIHy4DmuEeO5o_fbMLIDcQ" value="1"/>
@@ -1919,6 +1928,9 @@ issue some performance drawbacks because it browse all the collection during the
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_2zBMwBIxEeODbtCcScBryQ" name="DataSource">
     <packagedElement xmi:type="uml:Class" xmi:id="_CrK7wBlfEeOF6MZOG78g_A" name="DataSourcesRegistry">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_SA0UYOTkEeOhWq8Np-BNQw" annotatedElement="_CrK7wBlfEeOF6MZOG78g_A">
+        <body>Hold instanciated DataSources</body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Q_bNIBsjEeOmN-2QJZ-Okg" name="dataSources" visibility="private" isStatic="true" type="_ti84wLoPEeKycOj42mlSMA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Q_bNIRsjEeOmN-2QJZ-Okg" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Q_bNIhsjEeOmN-2QJZ-Okg" value="1"/>
@@ -1947,6 +1959,13 @@ issue some performance drawbacks because it browse all the collection during the
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_jguqQBlkEeOF6MZOG78g_A" clientDependency="_jid6MBllEeOF6MZOG78g_A _2tHKIBllEeOF6MZOG78g_A" name="DataSource">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_ZiGCkOTmEeOhWq8Np-BNQw" annotatedElement="_jguqQBlkEeOF6MZOG78g_A">
+        <body>This is the main entry point of a DataSource.
+Its purpose is to abstract specific target datasource handling 
+behind a standardised entity aware CRUD interface.
+
+</body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_pyhnwCYCEeOOQ56jXFxKVg" name="name" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rqwUsCYCEeOOQ56jXFxKVg" value="1"/>
@@ -1956,28 +1975,51 @@ issue some performance drawbacks because it browse all the collection during the
         </defaultValue>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_oaLIoBloEeOF6MZOG78g_A" name="read">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ALETcOTnEeOhWq8Np-BNQw" annotatedElement="_oaLIoBloEeOF6MZOG78g_A">
+          <body>Retrieve a collection of entities of the specified EntityMapping
+ that matches some CriteriaSet.
+  </body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_tjDuABloEeOF6MZOG78g_A" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_fs_McB8CEeOf9MerE9_4bA" name="criteriaSet" type="_e0hssB79EeOf9MerE9_4bA"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="__kXXUBloEeOF6MZOG78g_A" name="entityCollection" type="_f3O-kBllEeOF6MZOG78g_A" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_3Z0s4BlqEeOF6MZOG78g_A" name="update">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_IFOtoOTnEeOhWq8Np-BNQw" annotatedElement="_3Z0s4BlqEeOF6MZOG78g_A">
+          <body>Update the content of an entity.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_7TDBMBlqEeOF6MZOG78g_A" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="__U67MBlqEeOF6MZOG78g_A" name="entity" type="_1PtQoBloEeOF6MZOG78g_A"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_CI6s0BlrEeOF6MZOG78g_A" name="create">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_SyVwkOTnEeOhWq8Np-BNQw" annotatedElement="_CI6s0BlrEeOF6MZOG78g_A">
+          <body>Store a new entity on the datasource.
+The entity must not be already on the datasource.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_F6IUoBlrEeOF6MZOG78g_A" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_INI5EBlrEeOF6MZOG78g_A" name="entity" type="_1PtQoBloEeOF6MZOG78g_A"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_W2LwoBlsEeOF6MZOG78g_A" name="delete">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_U5tFsOTnEeOhWq8Np-BNQw" annotatedElement="_W2LwoBlsEeOF6MZOG78g_A">
+          <body>Delete an entity from the datasource.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_Zf4WwBlsEeOF6MZOG78g_A" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_atRW8BlsEeOF6MZOG78g_A" name="entity" type="_1PtQoBloEeOF6MZOG78g_A"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_D4qPAEk1EeOqVKRCL0isvA" name="getEntityMappingConfigurationClassName" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_jqI0IOTnEeOhWq8Np-BNQw" annotatedElement="_D4qPAEk1EeOqVKRCL0isvA">
+          <body>Return the name of the EntityMappingConfiguration class 
+of the data source.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_TPWFIEk1EeOqVKRCL0isvA" name="className" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_Leoh4Ek1EeOqVKRCL0isvA" name="getAttributeMappingConfigurationClassName" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_oKlggOTnEeOhWq8Np-BNQw" annotatedElement="_Leoh4Ek1EeOqVKRCL0isvA">
+          <body>Return the name of the AttributeMappingConfiguration class
+of the datasource</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_WLwL4Ek1EeOqVKRCL0isvA" name="className" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
@@ -1985,6 +2027,10 @@ issue some performance drawbacks because it browse all the collection during the
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="__4sWcB4nEeOwhK47NxXINQ" name="MysqlDataSource">
       <packagedElement xmi:type="uml:Class" xmi:id="_IDjfEB4oEeOwhK47NxXINQ" clientDependency="_TfVl4B4oEeOwhK47NxXINQ" name="MysqlEntityConfiguration">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6TnicOTnEeOhWq8Np-BNQw" annotatedElement="_IDjfEB4oEeOwhK47NxXINQ">
+          <body>Hold specific entity mapping data required 
+by the mysql data source.</body>
+        </ownedComment>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_U5iTAB4oEeOwhK47NxXINQ" name="tableName" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Z7o68B4oEeOwhK47NxXINQ" value="1"/>
@@ -1996,6 +2042,10 @@ issue some performance drawbacks because it browse all the collection during the
         <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_TfVl4B4oEeOwhK47NxXINQ" name="InterfaceRealization1" client="_IDjfEB4oEeOwhK47NxXINQ" supplier="_erPsYB4iEeOwhK47NxXINQ" contract="_erPsYB4iEeOwhK47NxXINQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_cqNaAB4oEeOwhK47NxXINQ" clientDependency="_nRYNAB4oEeOwhK47NxXINQ" name="MysqlAttributeConfiguration">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_9AKBMOTnEeOhWq8Np-BNQw" annotatedElement="_cqNaAB4oEeOwhK47NxXINQ">
+          <body>Hold specific attribute mapping data required 
+by the mysql data source.</body>
+        </ownedComment>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_oQdEYB4oEeOwhK47NxXINQ" name="columnName" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sVBGAB4oEeOwhK47NxXINQ" value="1"/>
@@ -2013,6 +2063,10 @@ issue some performance drawbacks because it browse all the collection during the
         <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_nRYNAB4oEeOwhK47NxXINQ" name="InterfaceRealization1" client="_cqNaAB4oEeOwhK47NxXINQ" supplier="_hnSKQB4jEeOwhK47NxXINQ" contract="_hnSKQB4jEeOwhK47NxXINQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_HoXs0CLnEeOU6MgQ9M9Alg" clientDependency="_pWud0CLnEeOU6MgQ9M9Alg _MGSzECR7EeOsrc8JubOXTQ _6OYg4CR7EeOsrc8JubOXTQ _hqoMUCR9EeOsrc8JubOXTQ _2sw9QC3cEeOKBsZegWeKbA" name="MysqlDataSource">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Un5HgOToEeOhWq8Np-BNQw" annotatedElement="_HoXs0CLnEeOU6MgQ9M9Alg">
+          <body>This datasource allow the use of a Mysql database 
+as a datasource.</body>
+        </ownedComment>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_D2w2wCSEEeOsrc8JubOXTQ" name="host" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GSocQCSEEeOsrc8JubOXTQ" value="1"/>
@@ -2063,27 +2117,52 @@ issue some performance drawbacks because it browse all the collection during the
         <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_pWud0CLnEeOU6MgQ9M9Alg" name="InterfaceRealization1" client="_HoXs0CLnEeOU6MgQ9M9Alg" supplier="_jguqQBlkEeOF6MZOG78g_A" contract="_jguqQBlkEeOF6MZOG78g_A"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_tM1zwCLnEeOU6MgQ9M9Alg" clientDependency="_dQf1QCR7EeOsrc8JubOXTQ _nffY0CR7EeOsrc8JubOXTQ _qj3v0CR7EeOsrc8JubOXTQ _sAk-YCR7EeOsrc8JubOXTQ _xMNVwCR7EeOsrc8JubOXTQ _c2tE8CbbEeOyL80wZn-qzg _K6BAcCbcEeOyL80wZn-qzg _779z8CkkEeOKLdof59zQww _-qL4QCklEeOKLdof59zQww _iZPVsCkmEeOKLdof59zQww _7RHUkCkuEeOKLdof59zQww _FoaCECk7EeOKLdof59zQww" name="StatementFactory">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_nOSlcOTpEeOhWq8Np-BNQw" annotatedElement="_tM1zwCLnEeOU6MgQ9M9Alg">
+          <body>Factory methods that generate 
+common mysql statements (select / insert etc.) 
+from entities.</body>
+        </ownedComment>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_wGYzwCLnEeOU6MgQ9M9Alg" name="createSelectStatementFromCriteriaSet" isStatic="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_BUmKgOTrEeOhWq8Np-BNQw" annotatedElement="_wGYzwCLnEeOU6MgQ9M9Alg">
+            <body>Create a &quot;select&quot; statement to retrieve records of the table
+specified in the EntityMapping and that matches the CriteriaSet.
+</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_4yY6kCLnEeOU6MgQ9M9Alg" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_9MSTACLnEeOU6MgQ9M9Alg" name="criteriaSet" type="_e0hssB79EeOf9MerE9_4bA"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_HF_bsCLrEeOU6MgQ9M9Alg" name="selectStatement" type="_B1ersCLoEeOU6MgQ9M9Alg" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_sM2lACbaEeOyL80wZn-qzg" name="createUpdateStatementFromEntity" isStatic="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_PH47QOTrEeOhWq8Np-BNQw" annotatedElement="_sM2lACbaEeOyL80wZn-qzg">
+            <body>Create an &quot;update&quot; statement that will update the row 
+pointed by the specified entity. </body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_yDMGQCbaEeOyL80wZn-qzg" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_2WJJMCbaEeOyL80wZn-qzg" name="entity" type="_1PtQoBloEeOF6MZOG78g_A"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_bHiNYCbbEeOyL80wZn-qzg" name="updateStatement" type="_M9aRACbbEeOyL80wZn-qzg" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_Y5XM0CkkEeOKLdof59zQww" name="createInsertStatement" isStatic="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_HtH9YOTsEeOhWq8Np-BNQw" annotatedElement="_Y5XM0CkkEeOKLdof59zQww">
+            <body>Create an &quot;insert&quot; statement that will insert a row 
+according to the specified entity. </body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_qbN6ACkkEeOKLdof59zQww" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_ssD7QCkkEeOKLdof59zQww" name="entity" type="_1PtQoBloEeOF6MZOG78g_A"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_443PUCkkEeOKLdof59zQww" name="insertStatement" type="_wvZ04CkkEeOKLdof59zQww" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_0LO3ACkuEeOKLdof59zQww" name="createDeleteStatement" isStatic="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_SExtsOTsEeOhWq8Np-BNQw" annotatedElement="_0LO3ACkuEeOKLdof59zQww">
+            <body>Create an &quot;delete&quot; statement that will delete the row 
+pointed by the specified entity. </body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_2qcEYCkuEeOKLdof59zQww" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_4Z9hQCkuEeOKLdof59zQww" name="entity" type="_1PtQoBloEeOF6MZOG78g_A"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_HRVlMCkvEeOKLdof59zQww" name="deleteStatement" type="_6LOqkCkuEeOKLdof59zQww" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_wSSZECk6EeOKLdof59zQww" name="createFromString" isStatic="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_bIUx0OTsEeOhWq8Np-BNQw" annotatedElement="_wSSZECk6EeOKLdof59zQww">
+            <body>Create a statement object from a statement string.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_4FG1ICk6EeOKLdof59zQww" name="statementString">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
@@ -2092,6 +2171,10 @@ issue some performance drawbacks because it browse all the collection during the
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_B1ersCLoEeOU6MgQ9M9Alg" clientDependency="_Kj83sCLoEeOU6MgQ9M9Alg" name="SelectStatement">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_HAge0OV3EeOo76lsZKod3g" annotatedElement="_B1ersCLoEeOU6MgQ9M9Alg">
+          <body>Represent a Mysql select statement used to 
+retrieve rows from one table.</body>
+        </ownedComment>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_nUXWoCbbEeOyL80wZn-qzg" name="selectExpr" visibility="public" type="_bYhoICLoEeOU6MgQ9M9Alg">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_palcQCbbEeOyL80wZn-qzg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pay3oCbbEeOyL80wZn-qzg" value="1"/>
@@ -2131,33 +2214,45 @@ issue some performance drawbacks because it browse all the collection during the
         <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_Kj83sCLoEeOU6MgQ9M9Alg" name="InterfaceRealization1" client="_B1ersCLoEeOU6MgQ9M9Alg" supplier="_H0KQoCLoEeOU6MgQ9M9Alg" contract="_H0KQoCLoEeOU6MgQ9M9Alg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Interface" xmi:id="_H0KQoCLoEeOU6MgQ9M9Alg" name="Statement">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_tWGh4C52EeOKBsZegWeKbA">
-          <body>Represent a Mysql Statement. Implement this interface when 
-you want to create new kinds of Mysql Statement.</body>
-        </ownedComment>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_Te7uUCLrEeOU6MgQ9M9Alg" name="toString">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_B1IK0C53EeOKBsZegWeKbA">
-            <body>Return the statement in String format</body>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_nnR8sOV3EeOo76lsZKod3g" annotatedElement="_Te7uUCLrEeOU6MgQ9M9Alg">
+            <body>Generate the statement as a string.</body>
           </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZRe7wCLrEeOU6MgQ9M9Alg" name="statement" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_su-eMC57EeOKBsZegWeKbA" name="isReadyToBeExecuted">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_K1KOoC58EeOKBsZegWeKbA">
-            <body>Tell wether the statement is ready or not to be executed</body>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Cq_aoOV4EeOo76lsZKod3g" annotatedElement="_su-eMC57EeOKBsZegWeKbA">
+            <body>Check whether all statement chunks are set 
+in order to generate a complete statement string to 
+be executed.</body>
           </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_E30tgC58EeOKBsZegWeKbA" name="status" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_uMx8kFn3EeO_MoikqrwZnQ" name="getStatementParameters">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_2Ig8EOV4EeOo76lsZKod3g" annotatedElement="_uMx8kFn3EeO_MoikqrwZnQ">
+            <body>Return an associative array of parameters of the corresponding
+named placeholder in the statement. 
+</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_eSf0sFn4EeO_MoikqrwZnQ" name="statementParameters" type="_ti84wLoPEeKycOj42mlSMA" direction="return"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_bYhoICLoEeOU6MgQ9M9Alg" name="SelectExpr">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ChYWMOV5EeOo76lsZKod3g" annotatedElement="_bYhoICLoEeOU6MgQ9M9Alg">
+          <body>Represent a select_expr statement chunk.
+</body>
+        </ownedComment>
         <generalization xmi:type="uml:Generalization" xmi:id="_j1juYEwzEeO_9dxb1dNUtQ" general="_9fMUkEWcEeOvPbyK1FXp-A"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_2-HEECLoEeOU6MgQ9M9Alg" name="createFromEntityAttributes" isStatic="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_RWkBwOV5EeOo76lsZKod3g" annotatedElement="_2-HEECLoEeOU6MgQ9M9Alg">
+            <body>Factory method that generate a comma separated 
+list of column names from a collection 
+of entity attribute mappings.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_BUuSkCLpEeOU6MgQ9M9Alg" name="attributeMappings" type="_ti84wLoPEeKycOj42mlSMA">
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kicTUCklEeOKLdof59zQww" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kinScCklEeOKLdof59zQww" value="1"/>
@@ -2165,12 +2260,19 @@ you want to create new kinds of Mysql Statement.</body>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_FFvtICLpEeOU6MgQ9M9Alg" name="selectExpr" type="_bYhoICLoEeOU6MgQ9M9Alg" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_I500kEMbEeO0DpIJd8AJow" name="toString">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_XeY7oOV5EeOo76lsZKod3g" annotatedElement="_I500kEMbEeO0DpIJd8AJow">
+            <body>Generate the select_expr as a string</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_I500kUMbEeO0DpIJd8AJow" name="string" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_gJOhkCLpEeOU6MgQ9M9Alg" clientDependency="_bw_lQMepEeOhlq-hm4UKlg _5otb4MepEeOhlq-hm4UKlg" name="WhereConditions">
+        <ownedComment xmi:type="uml:Comment" xmi:id="__xcvwOV5EeOo76lsZKod3g" annotatedElement="_gJOhkCLpEeOU6MgQ9M9Alg">
+          <body>Represent a where_condition statement chunk.
+</body>
+        </ownedComment>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_ZGbX0FL6EeObTb2-M52a-w" name="expr" visibility="public" type="_onWE0FL2EeObTb2-M52a-w">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bYJi0FL6EeObTb2-M52a-w" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bYKJ4FL6EeObTb2-M52a-w" value="1"/>
@@ -2186,26 +2288,45 @@ you want to create new kinds of Mysql Statement.</body>
           </defaultValue>
         </ownedAttribute>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_kq0dcCLpEeOU6MgQ9M9Alg" name="createFromCriteriaSet" isStatic="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Fbtj4OV6EeOo76lsZKod3g" annotatedElement="_kq0dcCLpEeOU6MgQ9M9Alg">
+            <body>Factory Method that create a WhereConditions 
+from an entity CriterieSet.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_nnaxcCLpEeOU6MgQ9M9Alg" name="criteriaSet" type="_e0hssB79EeOf9MerE9_4bA"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_twDjoCLpEeOU6MgQ9M9Alg" name="whereCondition" type="_gJOhkCLpEeOU6MgQ9M9Alg" direction="return"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_8TsMMCLpEeOU6MgQ9M9Alg" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_qfQI0CbcEeOyL80wZn-qzg" name="createEntityTargetFromEntity" isStatic="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_fv0w4OV6EeOo76lsZKod3g" annotatedElement="_qfQI0CbcEeOyL80wZn-qzg">
+            <body>Factory method that generate a WhereConditions 
+that target the row pointed by the entity.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_r5CmQCbcEeOyL80wZn-qzg" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_x0MWECbcEeOyL80wZn-qzg" name="entity" type="_1PtQoBloEeOF6MZOG78g_A"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_3Jp-4CbcEeOyL80wZn-qzg" name="whereConditions" type="_gJOhkCLpEeOU6MgQ9M9Alg" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_FCjoEEMbEeO0DpIJd8AJow" name="toString">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_pf2ggOV6EeOo76lsZKod3g" annotatedElement="_FCjoEEMbEeO0DpIJd8AJow">
+            <body>Generate the where_condition as a string.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_FCjoEUMbEeO0DpIJd8AJow" name="string" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_iKvbgFL7EeObTb2-M52a-w" name="createFromExpr" isStatic="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_w_logOV6EeOo76lsZKod3g" annotatedElement="_iKvbgFL7EeObTb2-M52a-w">
+            <body>Factory method that generate a WhereConditions
+fom an Expr.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_mM1X8FL7EeObTb2-M52a-w" name="expr" type="_onWE0FL2EeObTb2-M52a-w"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_s5xKAFL7EeObTb2-M52a-w" name="whereConditions" type="_gJOhkCLpEeOU6MgQ9M9Alg" direction="return"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_ASAb4CLqEeOU6MgQ9M9Alg" clientDependency="_asFCQMfCEeOhlq-hm4UKlg" name="OrderByStatement">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NFx3IOV7EeOo76lsZKod3g" annotatedElement="_ASAb4CLqEeOU6MgQ9M9Alg">
+          <body>Represent an order by statement chunk.
+</body>
+        </ownedComment>
         <generalization xmi:type="uml:Generalization" xmi:id="_Zm_pgFnlEeO_MoikqrwZnQ" general="_ti84wLoPEeKycOj42mlSMA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_T7ficFnpEeO_MoikqrwZnQ" name="direction_asc" visibility="public" isReadOnly="true">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -2220,17 +2341,27 @@ you want to create new kinds of Mysql Statement.</body>
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_bt02UFnpEeO_MoikqrwZnQ" value="DESC"/>
         </ownedAttribute>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_C34R8CLqEeOU6MgQ9M9Alg" name="createFromOrderCriterias" isStatic="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_i3f3AOV7EeOo76lsZKod3g" annotatedElement="_C34R8CLqEeOU6MgQ9M9Alg">
+            <body>Factory method that generate an OrderByStatement 
+from a collection of OrderCriterias.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_FoweICLqEeOU6MgQ9M9Alg" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_NT_EcCLqEeOU6MgQ9M9Alg" name="orderCriterias" type="_9fMUkEWcEeOvPbyK1FXp-A"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_R77f8CLqEeOU6MgQ9M9Alg" name="orderByStatement" type="_ASAb4CLqEeOU6MgQ9M9Alg" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_8OXOkEMaEeO0DpIJd8AJow" name="toString">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_qOw_gOV7EeOo76lsZKod3g" annotatedElement="_8OXOkEMaEeO0DpIJd8AJow">
+            <body>Generate the order by statement as a string.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_8OXOkUMaEeO0DpIJd8AJow" name="string" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_lle5cCLqEeOU6MgQ9M9Alg" name="LimitStatement">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_t7GHUOV7EeOo76lsZKod3g" annotatedElement="_lle5cCLqEeOU6MgQ9M9Alg">
+          <body>Represent a limit statement chunk.</body>
+        </ownedComment>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_G3dkEFnsEeO_MoikqrwZnQ" name="rowCount" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HclDUFnsEeO_MoikqrwZnQ" value="1"/>
@@ -2245,30 +2376,37 @@ you want to create new kinds of Mysql Statement.</body>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_POWWgFnsEeO_MoikqrwZnQ" value="1"/>
         </ownedAttribute>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_qGtB4CLqEeOU6MgQ9M9Alg" name="createFromLimitCriteria" isStatic="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_zjCAMOV7EeOo76lsZKod3g" annotatedElement="_qGtB4CLqEeOU6MgQ9M9Alg">
+            <body>Factory method that generate a LimitStatement 
+from a LimitCriteria</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_1swfACLqEeOU6MgQ9M9Alg" name="limitCriteria" type="_7O7bUB7-EeOf9MerE9_4bA"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_5MIv8CLqEeOU6MgQ9M9Alg" name="limitStatement" type="_lle5cCLqEeOU6MgQ9M9Alg" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_1Mw0EEMaEeO0DpIJd8AJow" name="toString">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_22-dMOV7EeOo76lsZKod3g" annotatedElement="_1Mw0EEMaEeO0DpIJd8AJow">
+            <body>Generate the limit statement as a string.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_1Mw0EUMaEeO0DpIJd8AJow" name="string" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_hOIpQCLrEeOU6MgQ9M9Alg" clientDependency="_bshzACR5EeOsrc8JubOXTQ _vlnV0CYEEeOOQ56jXFxKVg" name="Driver">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_o5LrACxPEeOYa-MbTpDfyQ">
-          <body>Handle communication with Mysql server</body>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_9sbSEOV7EeOo76lsZKod3g" annotatedElement="_hOIpQCLrEeOU6MgQ9M9Alg">
+          <body>Handle communication with Mysql server.</body>
         </ownedComment>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_HPwM0CR5EeOsrc8JubOXTQ" name="executeStatement" isStatic="true">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_fy-soC3dEeOKBsZegWeKbA">
-            <body>Execute a statement to a Mysql database</body>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_D805IOV8EeOo76lsZKod3g" annotatedElement="_HPwM0CR5EeOsrc8JubOXTQ">
+            <body>Execute a statement to a Mysql database.</body>
           </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_P9RWkCR5EeOsrc8JubOXTQ" name="statement" type="_H0KQoCLoEeOU6MgQ9M9Alg"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_qrbPkCYLEeOOQ56jXFxKVg" name="connection" type="_45JbACR1EeO4SN23QonE8w"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_kMFKIC35EeOKBsZegWeKbA" name="statementResult" type="_Wc33QCR5EeOsrc8JubOXTQ" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_qD3vECYFEeOOQ56jXFxKVg" name="connect" isStatic="true">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_SZIWoC3dEeOKBsZegWeKbA">
-            <body>Create a new connection to a Mysql database</body>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_O8CYsOV8EeOo76lsZKod3g" annotatedElement="_qD3vECYFEeOOQ56jXFxKVg">
+            <body>Create a new connection to a Mysql database.</body>
           </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_xNy_ICYFEeOOQ56jXFxKVg" name="host">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -2288,18 +2426,23 @@ you want to create new kinds of Mysql Statement.</body>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_Nt_pMCYGEeOOQ56jXFxKVg" name="disconnect" isStatic="true">
-          <ownedComment xmi:type="uml:Comment" xmi:id="_ZqN-oC3dEeOKBsZegWeKbA">
-            <body>Close the connexion to a Mysql database</body>
+          <ownedComment xmi:type="uml:Comment" xmi:id="_S4PvkOV8EeOo76lsZKod3g" annotatedElement="_Nt_pMCYGEeOOQ56jXFxKVg">
+            <body>Close the connexion to a Mysql database.</body>
           </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_RIYscCYGEeOOQ56jXFxKVg" name="connection" type="_45JbACR1EeO4SN23QonE8w"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_45JbACR1EeO4SN23QonE8w" name="Connection">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_J5nbgCxPEeOYa-MbTpDfyQ">
-          <body>Hold connexion with Mysql server</body>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_YAHBQOV8EeOo76lsZKod3g" annotatedElement="_45JbACR1EeO4SN23QonE8w">
+          <body>Hold a connection with Mysql server</body>
         </ownedComment>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_Wc33QCR5EeOsrc8JubOXTQ" name="StatementExecutionResult">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_0WBt8OV8EeOo76lsZKod3g" annotatedElement="_Wc33QCR5EeOsrc8JubOXTQ">
+          <body>Hold statement execution results informations 
+and eventually a collection of mysql rows which is
+ dynamically fetched.</body>
+        </ownedComment>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_OQ-XYCR6EeOsrc8JubOXTQ" name="rowCollection" type="_6UxusCR5EeOsrc8JubOXTQ" association="_ORGTMCR6EeOsrc8JubOXTQ">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OQ-XYSR6EeOsrc8JubOXTQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OQ-XYiR6EeOsrc8JubOXTQ" value="1"/>
@@ -2347,6 +2490,12 @@ you want to create new kinds of Mysql Statement.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_bshzACR5EeOsrc8JubOXTQ" name="store statement result into" client="_hOIpQCLrEeOU6MgQ9M9Alg" supplier="_Wc33QCR5EeOsrc8JubOXTQ"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_6UxusCR5EeOsrc8JubOXTQ" name="RowCollection">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_RjFeAOV9EeOo76lsZKod3g" annotatedElement="_6UxusCR5EeOsrc8JubOXTQ">
+          <body>Holds a collection of mysql rows. 
+The rows are dynamically fetched when the collection
+is browsed (inside a loop for example).
+ </body>
+        </ownedComment>
         <generalization xmi:type="uml:Generalization" xmi:id="_S10mgDNrEeO4KYgFCsV-_w" general="_Ogd5cDBCEeOtN7AKiL-MgA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_ORGTMCR6EeOsrc8JubOXTQ" name="statementExecutionResult_resultCollection_1" memberEnd="_ORGTMSR6EeOsrc8JubOXTQ _OQ-XYCR6EeOsrc8JubOXTQ">
@@ -2363,6 +2512,10 @@ you want to create new kinds of Mysql Statement.</body>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_xMNVwCR7EeOsrc8JubOXTQ" name="handle OrderByStatement using" client="_tM1zwCLnEeOU6MgQ9M9Alg" supplier="_ASAb4CLqEeOU6MgQ9M9Alg"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_6OYg4CR7EeOsrc8JubOXTQ" name="communicate with mysql using" client="_HoXs0CLnEeOU6MgQ9M9Alg" supplier="_hOIpQCLrEeOU6MgQ9M9Alg"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_S0PcUCR8EeOsrc8JubOXTQ" clientDependency="_w3-ykDNrEeO4KYgFCsV-_w _Wm52ADNsEeO4KYgFCsV-_w" name="RowToEntityConverter">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_bdt7IOV9EeOo76lsZKod3g" annotatedElement="_S0PcUCR8EeOsrc8JubOXTQ">
+          <body>Converter that can convert a 
+mysql row to an entity in both directions.</body>
+        </ownedComment>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Gu3UYElnEeOqVKRCL0isvA" name="entityMapping" visibility="public" type="_tDsgAB4fEeOAXbbnJNwHxQ">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JJvbYElnEeOqVKRCL0isvA" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JJwpgElnEeOqVKRCL0isvA" value="1"/>
@@ -2375,6 +2528,9 @@ you want to create new kinds of Mysql Statement.</body>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_hqoMUCR9EeOsrc8JubOXTQ" name="convert select statement result to" client="_HoXs0CLnEeOU6MgQ9M9Alg" supplier="_f3O-kBllEeOF6MZOG78g_A"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_vlnV0CYEEeOOQ56jXFxKVg" name="instantiate and store connexion to mysql into" client="_hOIpQCLrEeOU6MgQ9M9Alg" supplier="_45JbACR1EeO4SN23QonE8w"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_M9aRACbbEeOyL80wZn-qzg" clientDependency="_9YQEkCbbEeOyL80wZn-qzg" name="UpdateStatement">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hDvIcOV9EeOo76lsZKod3g" annotatedElement="_M9aRACbbEeOyL80wZn-qzg">
+          <body>Represent a mysql update statement.</body>
+        </ownedComment>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_A3DtwCbcEeOyL80wZn-qzg" name="tableName" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CPkY0CbcEeOyL80wZn-qzg" value="1"/>
@@ -2401,23 +2557,41 @@ you want to create new kinds of Mysql Statement.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_c2tE8CbbEeOyL80wZn-qzg" name="create update from entity" client="_tM1zwCLnEeOU6MgQ9M9Alg" supplier="_M9aRACbbEeOyL80wZn-qzg"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_HTeXkCbcEeOyL80wZn-qzg" name="SetStatement">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_no760OV9EeOo76lsZKod3g" annotatedElement="_HTeXkCbcEeOyL80wZn-qzg">
+          <body>Represent a &quot;set&quot; statement chunk used in 
+mysql update statements.</body>
+        </ownedComment>
         <generalization xmi:type="uml:Generalization" xmi:id="_7tmRsFoBEeO_MoikqrwZnQ" general="_ti84wLoPEeKycOj42mlSMA"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_QqB3QCbcEeOyL80wZn-qzg" name="createKeyValueListFromEntity" isStatic="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_4vB5EOV9EeOo76lsZKod3g" annotatedElement="_QqB3QCbcEeOyL80wZn-qzg">
+            <body>Factory method that generate a SetStatement 
+from the attributes keys and their values of an entity. </body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_WNOaECbcEeOyL80wZn-qzg" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_b5LQQCbcEeOyL80wZn-qzg" name="entity" type="_1PtQoBloEeOF6MZOG78g_A"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_ig9ckCbcEeOyL80wZn-qzg" name="setStatement" type="_HTeXkCbcEeOyL80wZn-qzg" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_uGriMEMaEeO0DpIJd8AJow" name="toString">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_8uszoOV9EeOo76lsZKod3g" annotatedElement="_uGriMEMaEeO0DpIJd8AJow">
+            <body>Generate the set statement chunk as a string.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_uGriMUMaEeO0DpIJd8AJow" name="string" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="__3GdsFoBEeO_MoikqrwZnQ" name="getStatementParameters">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_BhoXIOV-EeOo76lsZKod3g" annotatedElement="__3GdsFoBEeO_MoikqrwZnQ">
+            <body>Return an associative array of parameters of the corresponding
+named placeholder in the set statement chunk. </body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_TcnrwFoCEeO_MoikqrwZnQ" name="statementParameters" type="_ti84wLoPEeKycOj42mlSMA" direction="return"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_K6BAcCbcEeOyL80wZn-qzg" name="Handle set statement using" client="_tM1zwCLnEeOU6MgQ9M9Alg" supplier="_HTeXkCbcEeOyL80wZn-qzg"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_wvZ04CkkEeOKLdof59zQww" clientDependency="_jHYfACkvEeOKLdof59zQww" name="InsertStatement">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_IHKgsOV-EeOo76lsZKod3g" annotatedElement="_wvZ04CkkEeOKLdof59zQww">
+          <body>Represent an mysql insert statement.</body>
+        </ownedComment>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Co3JwCklEeOKLdof59zQww" name="tableName" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EIPR0CklEeOKLdof59zQww" value="1"/>
@@ -2444,8 +2618,17 @@ you want to create new kinds of Mysql Statement.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_779z8CkkEeOKLdof59zQww" name="create insert from entity" client="_tM1zwCLnEeOU6MgQ9M9Alg" supplier="_wvZ04CkkEeOKLdof59zQww"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_HcZKMCklEeOKLdof59zQww" name="ColumnNamesListStatement">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_UbQIgOV-EeOo76lsZKod3g" annotatedElement="_HcZKMCklEeOKLdof59zQww">
+          <body>Represent the column names list statement chunk 
+used in mysql insert statements</body>
+        </ownedComment>
         <generalization xmi:type="uml:Generalization" xmi:id="_RuNHwEXuEeOwg6nScjiPlQ" general="_9fMUkEWcEeOvPbyK1FXp-A"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_QzPk0CklEeOKLdof59zQww" name="createFromEntityAttributes" isStatic="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_amimEOV-EeOo76lsZKod3g" annotatedElement="_QzPk0CklEeOKLdof59zQww">
+            <body>Factory method that generate a 
+ColumnNamesListStament from the attributes of an 
+entity.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_qexH0CklEeOKLdof59zQww" name="attributeMappings" type="_ti84wLoPEeKycOj42mlSMA">
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_u0eRwEMZEeO0DpIJd8AJow" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_u0wloEMZEeO0DpIJd8AJow" value="1"/>
@@ -2453,6 +2636,10 @@ you want to create new kinds of Mysql Statement.</body>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_35TaUCklEeOKLdof59zQww" name="columnNamesListStatement" type="_HcZKMCklEeOKLdof59zQww" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_iAJ1QEMaEeO0DpIJd8AJow" name="toString">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ebQ04OV-EeOo76lsZKod3g" annotatedElement="_iAJ1QEMaEeO0DpIJd8AJow">
+            <body>Generate the column names list statement chunk as 
+a string.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_iAJ1QUMaEeO0DpIJd8AJow" name="string" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
@@ -2460,13 +2647,24 @@ you want to create new kinds of Mysql Statement.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_-qL4QCklEeOKLdof59zQww" name="handle insert statement columns list using" client="_tM1zwCLnEeOU6MgQ9M9Alg" supplier="_HcZKMCklEeOKLdof59zQww"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_M7fasCkmEeOKLdof59zQww" name="ValuesStatement">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_jzCx4OV-EeOo76lsZKod3g" annotatedElement="_M7fasCkmEeOKLdof59zQww">
+          <body>Represent the values statement chunk used in 
+mysql insert statements.</body>
+        </ownedComment>
         <generalization xmi:type="uml:Generalization" xmi:id="_Vj8kMEllEeOqVKRCL0isvA" general="_ti84wLoPEeKycOj42mlSMA"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_SawfwCkmEeOKLdof59zQww" name="createFromEntity" isStatic="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_trO_AOV-EeOo76lsZKod3g" annotatedElement="_SawfwCkmEeOKLdof59zQww">
+            <body>Factory method that generate a ValuesStatement 
+from the values of the attributes of an entity.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_VFp_wCkmEeOKLdof59zQww" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_XNzYACkmEeOKLdof59zQww" name="entity" type="_1PtQoBloEeOF6MZOG78g_A"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_doPE0CkmEeOKLdof59zQww" name="valuesStatement" type="_M7fasCkmEeOKLdof59zQww" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_YOLk4EMaEeO0DpIJd8AJow" name="toString">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_zQ0HcOV-EeOo76lsZKod3g" annotatedElement="_YOLk4EMaEeO0DpIJd8AJow">
+            <body>Generate the values statement chunk as a string.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_dHjHkEMaEeO0DpIJd8AJow" name="string" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
@@ -2474,6 +2672,10 @@ you want to create new kinds of Mysql Statement.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_iZPVsCkmEeOKLdof59zQww" name="handle insert values statement using" client="_tM1zwCLnEeOU6MgQ9M9Alg" supplier="_M7fasCkmEeOKLdof59zQww"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_C8gMkCknEeOKLdof59zQww" clientDependency="_jnFdYMcdEeOwo4bGXJhZCw" name="MysqlEntityAttributeMapper">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ePgbYOV_EeOo76lsZKod3g" annotatedElement="_C8gMkCknEeOKLdof59zQww">
+          <body>Contains entity mapping related services.
+</body>
+        </ownedComment>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_6bciUEljEeOqVKRCL0isvA" name="entity" visibility="public" type="_1PtQoBloEeOF6MZOG78g_A">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AI83sElkEeOqVKRCL0isvA" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AI9ewElkEeOqVKRCL0isvA" value="1"/>
@@ -2489,11 +2691,18 @@ you want to create new kinds of Mysql Statement.</body>
           </defaultValue>
         </ownedAttribute>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_FsiEMCknEeOKLdof59zQww" name="setIdentifier">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_29BeAOV_EeOo76lsZKod3g" annotatedElement="_FsiEMCknEeOKLdof59zQww">
+            <body>Set the identifier value of an entity.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_dhP2kCknEeOKLdof59zQww" name="identifier">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="__9u7ECk2EeOKLdof59zQww" name="setAttributeValue">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_8hLDEOV_EeOo76lsZKod3g" annotatedElement="__9u7ECk2EeOKLdof59zQww">
+            <body>Set the value of an entity attribute from its
+mapped mysql column name.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_UVrroCk3EeOKLdof59zQww" name="columnName">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
@@ -2502,6 +2711,10 @@ you want to create new kinds of Mysql Statement.</body>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_SuGUQElsEeOqVKRCL0isvA" name="getColumnName" visibility="public">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_FMU1UOWAEeOo76lsZKod3g" annotatedElement="_SuGUQElsEeOqVKRCL0isvA">
+            <body>Get the mapped mysql column name of 
+an attribute.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_WhEPkElsEeOqVKRCL0isvA" name="attributeName">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
@@ -2510,6 +2723,10 @@ you want to create new kinds of Mysql Statement.</body>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_ZM5jsElsEeOqVKRCL0isvA" name="getColumnValue">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_QGZWMOWAEeOo76lsZKod3g" annotatedElement="_ZM5jsElsEeOqVKRCL0isvA">
+            <body>Get the mysql column converted value of an attribute.
+</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_dQ92EElsEeOqVKRCL0isvA" name="attributeName">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
@@ -2518,17 +2735,27 @@ you want to create new kinds of Mysql Statement.</body>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_HL_vkEvIEeOjT8liNhYTFg" name="getIdentifierValue">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_UHQjkOWAEeOo76lsZKod3g" annotatedElement="_HL_vkEvIEeOjT8liNhYTFg">
+            <body>Get the value of the identifier of an entity.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_c5v1cEvIEeOjT8liNhYTFg" name="identifier" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_2AlukFngEeO_MoikqrwZnQ" name="getIdentifierAttributeName">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ZtiPkOWAEeOo76lsZKod3g" annotatedElement="_2AlukFngEeO_MoikqrwZnQ">
+            <body>Get the attribute name which hold the identifier of 
+an entity.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_-kmXAFngEeO_MoikqrwZnQ" name="attributeName" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_6LOqkCkuEeOKLdof59zQww" clientDependency="_kH7WACkvEeOKLdof59zQww" name="DeleteStatement">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_czmooOWAEeOo76lsZKod3g" annotatedElement="_6LOqkCkuEeOKLdof59zQww">
+          <body>Represent a mysql delete statement.</body>
+        </ownedComment>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Kg__ICkvEeOKLdof59zQww" name="tableName" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MKEOsCkvEeOKLdof59zQww" value="1"/>
@@ -2548,10 +2775,14 @@ you want to create new kinds of Mysql Statement.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_7RHUkCkuEeOKLdof59zQww" name="create delete from entity" client="_tM1zwCLnEeOU6MgQ9M9Alg" supplier="_6LOqkCkuEeOKLdof59zQww"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_IfyRICk2EeOKLdof59zQww" name="Row">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_jC7RoOWAEeOo76lsZKod3g" annotatedElement="_IfyRICk2EeOKLdof59zQww">
+          <body>AssociativeArray that holds the key/values pairs of a 
+mysql table row.</body>
+        </ownedComment>
         <generalization xmi:type="uml:Generalization" xmi:id="_4_-Q8DYqEeOSf4Q0MSIs8g" general="_ti84wLoPEeKycOj42mlSMA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_CrflACk7EeOKLdof59zQww" clientDependency="_o-SKgCk7EeOKLdof59zQww" name="GenericStatement">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_MU6OVS51EeOKBsZegWeKbA">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_nomcQOWAEeOo76lsZKod3g" annotatedElement="_CrflACk7EeOKLdof59zQww">
           <body>Container for custom string queries. 
 Use it when you have to execute custom queries that can't be built 
 with other Statement classes.</body>
@@ -2569,6 +2800,10 @@ with other Statement classes.</body>
         </ownedAttribute>
         <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_o-SKgCk7EeOKLdof59zQww" name="InterfaceRealization1" client="_CrflACk7EeOKLdof59zQww" supplier="_H0KQoCLoEeOU6MgQ9M9Alg" contract="_H0KQoCLoEeOU6MgQ9M9Alg"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_TvnH8Fn8EeO_MoikqrwZnQ" name="setStatementParameters">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_4KHt0OWAEeOo76lsZKod3g" annotatedElement="_TvnH8Fn8EeO_MoikqrwZnQ">
+            <body>Set an associative array of parameters of the corresponding
+named placeholders of the statement.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZECO8Fn8EeO_MoikqrwZnQ" name="statementParameters" type="_ti84wLoPEeKycOj42mlSMA"/>
         </ownedOperation>
       </packagedElement>
@@ -2577,22 +2812,42 @@ with other Statement classes.</body>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_Wm52ADNsEeO4KYgFCsV-_w" name="handle attribute mapping using" client="_S0PcUCR8EeOsrc8JubOXTQ" supplier="_C8gMkCknEeOKLdof59zQww"/>
       <packagedElement xmi:type="uml:Package" xmi:id="_uGcwwEoBEeOhBJpxbXcYWQ" name="TypeConverter">
         <packagedElement xmi:type="uml:Class" xmi:id="_6hQroEoBEeOhBJpxbXcYWQ" clientDependency="_-q5lEEoCEeOhBJpxbXcYWQ" name="StringConverter">
+          <ownedComment xmi:type="uml:Comment" xmi:id="__67XsOWAEeOo76lsZKod3g" annotatedElement="_6hQroEoBEeOhBJpxbXcYWQ">
+            <body>Convert a PHP string to it's Mysql equivalent.</body>
+          </ownedComment>
           <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_-q5lEEoCEeOhBJpxbXcYWQ" name="InterfaceRealization1" client="_6hQroEoBEeOhBJpxbXcYWQ" supplier="_CCGjsEn-EeOhBJpxbXcYWQ" contract="_CCGjsEn-EeOhBJpxbXcYWQ"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_-OYdoEoBEeOhBJpxbXcYWQ" clientDependency="__wn3AEoCEeOhBJpxbXcYWQ" name="IntegerConverter">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_C3ZI0OWBEeOo76lsZKod3g" annotatedElement="_-OYdoEoBEeOhBJpxbXcYWQ">
+            <body>Convert a PHP integer to a Mysql Integer</body>
+          </ownedComment>
           <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="__wn3AEoCEeOhBJpxbXcYWQ" name="InterfaceRealization1" client="_-OYdoEoBEeOhBJpxbXcYWQ" supplier="_CCGjsEn-EeOhBJpxbXcYWQ" contract="_CCGjsEn-EeOhBJpxbXcYWQ"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_AKHxkEoCEeOhBJpxbXcYWQ" clientDependency="_C5HR8EoDEeOhBJpxbXcYWQ" name="BooleanConverter">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_GhUc4OWBEeOo76lsZKod3g" annotatedElement="_AKHxkEoCEeOhBJpxbXcYWQ">
+            <body>Convert a PHP boolean to it's Mysql equivalent.</body>
+          </ownedComment>
           <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_C5HR8EoDEeOhBJpxbXcYWQ" name="InterfaceRealization1" client="_AKHxkEoCEeOhBJpxbXcYWQ" supplier="_CCGjsEn-EeOhBJpxbXcYWQ" contract="_CCGjsEn-EeOhBJpxbXcYWQ"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_EeE6EEoCEeOhBJpxbXcYWQ" clientDependency="_A2R3gEoDEeOhBJpxbXcYWQ" name="DateTimeConverter">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_LqkOoOWBEeOo76lsZKod3g" annotatedElement="_EeE6EEoCEeOhBJpxbXcYWQ">
+            <body>Convert a PHP DateTime to it's Mysql string equivalent.</body>
+          </ownedComment>
           <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_A2R3gEoDEeOhBJpxbXcYWQ" name="InterfaceRealization1" client="_EeE6EEoCEeOhBJpxbXcYWQ" supplier="_CCGjsEn-EeOhBJpxbXcYWQ" contract="_CCGjsEn-EeOhBJpxbXcYWQ"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_VNUekEoCEeOhBJpxbXcYWQ" clientDependency="_B2q9gEoDEeOhBJpxbXcYWQ" name="DecimalConverter">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NOSrMOWBEeOo76lsZKod3g" annotatedElement="_VNUekEoCEeOhBJpxbXcYWQ">
+            <body>Convert a PHP decimal to it's Mysql equivalent.</body>
+          </ownedComment>
           <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_B2q9gEoDEeOhBJpxbXcYWQ" name="InterfaceRealization1" client="_VNUekEoCEeOhBJpxbXcYWQ" supplier="_CCGjsEn-EeOhBJpxbXcYWQ" contract="_CCGjsEn-EeOhBJpxbXcYWQ"/>
         </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_onWE0FL2EeObTb2-M52a-w" name="Expr">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ol7xwOWBEeOo76lsZKod3g" annotatedElement="_onWE0FL2EeObTb2-M52a-w">
+          <body>Represent a mysql expr statement chunk. 
+an expr is a sequence of comparaison operators between values
+or others exprs.</body>
+        </ownedComment>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_tRzo0FL2EeObTb2-M52a-w" name="exprString" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vvtOoFL2EeObTb2-M52a-w" value="1"/>
@@ -2675,6 +2930,11 @@ with other Statement classes.</body>
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_ujCNo1h8EeO3V7v-kQjwnw" value="!="/>
         </ownedAttribute>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_1r6HUFL2EeObTb2-M52a-w" name="concat" isStatic="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_QXy9UOWCEeOo76lsZKod3g" annotatedElement="_1r6HUFL2EeObTb2-M52a-w">
+            <body>Factory method which create an Expr resulting
+of the concatenation of two others.
+</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_uuCS0FhzEeO3V7v-kQjwnw" name="exprCollection" type="_9fMUkEWcEeOvPbyK1FXp-A"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_RYkboFL3EeObTb2-M52a-w" name="logicalSeparator">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -2682,6 +2942,10 @@ with other Statement classes.</body>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_VBqCMFL3EeObTb2-M52a-w" name="expr" type="_onWE0FL2EeObTb2-M52a-w" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_20nb0FL2EeObTb2-M52a-w" name="fromString" isStatic="true">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_V1y3EOWCEeOo76lsZKod3g" annotatedElement="_20nb0FL2EeObTb2-M52a-w">
+            <body>Factory method which create an expr from its string
+representation.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_XkUzQFL3EeObTb2-M52a-w" name="exprString">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
@@ -2689,6 +2953,9 @@ with other Statement classes.</body>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_lQLygFZpEeOD95QjlPuUcQ" name="exprParameters" type="_ti84wLoPEeKycOj42mlSMA"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_NJy4oFL4EeObTb2-M52a-w" name="toString">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ZIn5wOWCEeOo76lsZKod3g" annotatedElement="_NJy4oFL4EeObTb2-M52a-w">
+            <body>Generate the string representation of the expr.</body>
+          </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_RKVV4FL4EeObTb2-M52a-w" name="exprString" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
@@ -2700,6 +2967,9 @@ with other Statement classes.</body>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_asFCQMfCEeOhlq-hm4UKlg" name="Create From" client="_ASAb4CLqEeOU6MgQ9M9Alg" supplier="_yeYLsB7-EeOf9MerE9_4bA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_lqdYsEn9EeOhBJpxbXcYWQ" name="DataSourceTypeConvertersRegistry">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_gzqS0OWCEeOo76lsZKod3g" annotatedElement="_lqdYsEn9EeOhBJpxbXcYWQ">
+        <body>Holds all type converters instances.</body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_QFESskn_EeOhBJpxbXcYWQ" name="typeConverters" visibility="private" isStatic="true" type="_ti84wLoPEeKycOj42mlSMA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QFESs0n_EeOhBJpxbXcYWQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QFEStEn_EeOhBJpxbXcYWQ" value="1"/>
@@ -2737,6 +3007,14 @@ with other Statement classes.</body>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_CCGjsEn-EeOhBJpxbXcYWQ" name="TypeConverter">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_sPb9IOWDEeOo76lsZKod3g" annotatedElement="_CCGjsEn-EeOhBJpxbXcYWQ">
+        <body>Convert a PHP type to it's datasource equivalent.
+TypeConverters can be used during entity mapping operations 
+that occured when read or write operations are executed 
+agains't the DataSource. 
+
+</body>
+      </ownedComment>
       <generalization xmi:type="uml:Generalization" xmi:id="_KGOyMEn-EeOhBJpxbXcYWQ" general="_3WE90DA-EeO8QsWDOBjGSA"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_oaas8En_EeOhBJpxbXcYWQ" name="getType">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_tk500En_EeOhBJpxbXcYWQ" name="type" direction="return">
@@ -2754,10 +3032,17 @@ with other Statement classes.</body>
     </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_-y4mUBIxEeODbtCcScBryQ" name="Entity">
-    <ownedComment xmi:type="uml:Comment" xmi:id="_TISxIB4jEeOwhK47NxXINQ">
-      <body>The classes that implement this interface contain all attribute related parameters used by specific dataSource (ex : datasource Mysql has a class &quot;MysqlAttributeConfiguration&quot; that hold column name mapping)</body>
-    </ownedComment>
     <packagedElement xmi:type="uml:Class" xmi:id="_w6S7IBleEeOF6MZOG78g_A" clientDependency="_2FPHQBlkEeOF6MZOG78g_A _TogG4B8CEeOf9MerE9_4bA _ct98IEZKEeOgk9L_kZODLw _kaWvMOG9EeONiYHrVv7XiQ" name="EntityRepository">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_S4IEsOWFEeOo76lsZKod3g" annotatedElement="_w6S7IBleEeOF6MZOG78g_A">
+        <body>Service which allow entity fetching and persistance.  
+
+The entity repository acts as an abstract layer of 
+datasources which allow datasource agnostic entity manipulation.
+
+Despite the fact that this class can be instanciated, it is
+recommended to extend this class and put your custom domain
+ entity manipulation logic into. </body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_6TUKEOG-EeONiYHrVv7XiQ" name="dataSource" visibility="public" type="_jguqQBlkEeOF6MZOG78g_A">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9cfhgOG-EeONiYHrVv7XiQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9cgIkOG-EeONiYHrVv7XiQ" value="1"/>
@@ -2773,16 +3058,31 @@ with other Statement classes.</body>
         </defaultValue>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_qz98cBlmEeOF6MZOG78g_A" name="find">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Zp4FUOWFEeOo76lsZKod3g" annotatedElement="_qz98cBlmEeOF6MZOG78g_A">
+          <body>Fetch entities from datasource that matches some criteria 
+set.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_5wZfgBlmEeOF6MZOG78g_A" name="criteriaSet" type="_e0hssB79EeOf9MerE9_4bA"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_98DAkBlmEeOF6MZOG78g_A" name="entities" type="_f3O-kBllEeOF6MZOG78g_A" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_djirYBlqEeOF6MZOG78g_A" name="persist">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_eRfJoOWFEeOo76lsZKod3g" annotatedElement="_djirYBlqEeOF6MZOG78g_A">
+          <body>Persist the state of an entity to its datasource.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_jhnMUBlqEeOF6MZOG78g_A" name="entity" type="_1PtQoBloEeOF6MZOG78g_A"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_LlEBsBlsEeOF6MZOG78g_A" name="delete">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_m7tHwOWFEeOo76lsZKod3g" annotatedElement="_LlEBsBlsEeOF6MZOG78g_A">
+          <body>Delete an entity from its datasource.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ul5wEBlsEeOF6MZOG78g_A" name="entity" type="_1PtQoBloEeOF6MZOG78g_A"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_07O9AOG8EeONiYHrVv7XiQ" name="instantiateFromEntityClassName" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_2eKwEOWFEeOo76lsZKod3g" annotatedElement="_07O9AOG8EeONiYHrVv7XiQ">
+          <body>Factory method that instanciate an
+entity factory from an entity classname.
+</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_OLgucOG9EeONiYHrVv7XiQ" name="entityClassName">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
@@ -2791,19 +3091,40 @@ with other Statement classes.</body>
     </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_2FPHQBlkEeOF6MZOG78g_A" name="connect to source using" client="_w6S7IBleEeOF6MZOG78g_A" supplier="_CrK7wBlfEeOF6MZOG78g_A"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_f3O-kBllEeOF6MZOG78g_A" name="EntityCollection">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_73MqQOWFEeOo76lsZKod3g" annotatedElement="_f3O-kBllEeOF6MZOG78g_A">
+        <body>Collection that holds entities.</body>
+      </ownedComment>
       <generalization xmi:type="uml:Generalization" xmi:id="_f4lAQDNtEeO4KYgFCsV-_w" general="_Ogd5cDBCEeOtN7AKiL-MgA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_jid6MBllEeOF6MZOG78g_A" name="generate from datasource" client="_jguqQBlkEeOF6MZOG78g_A" supplier="_f3O-kBllEeOF6MZOG78g_A"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_2tHKIBllEeOF6MZOG78g_A" name="map data source to entities using" client="_jguqQBlkEeOF6MZOG78g_A" supplier="_tDsgAB4fEeOAXbbnJNwHxQ"/>
-    <packagedElement xmi:type="uml:Interface" xmi:id="_1PtQoBloEeOF6MZOG78g_A" name="Entity"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_1PtQoBloEeOF6MZOG78g_A" name="Entity">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_CZrf0OWGEeOo76lsZKod3g" annotatedElement="_1PtQoBloEeOF6MZOG78g_A">
+        <body>Represent an Entity. 
+All entity class musts implements this interface.</body>
+      </ownedComment>
+    </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_WqNVgB4fEeOAXbbnJNwHxQ" clientDependency="_lkWZkB4fEeOAXbbnJNwHxQ _ZiIXgOG0EeONiYHrVv7XiQ" name="EntityValidator">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_eSy7wOWGEeOo76lsZKod3g" annotatedElement="_WqNVgB4fEeOAXbbnJNwHxQ">
+        <body>Service class which aims to validate
+the conformance of an entity against the validation rules 
+declared in its entitymapping. 
+</body>
+      </ownedComment>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_o5kB4B4fEeOAXbbnJNwHxQ" name="validate">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_izlmYOWGEeOo76lsZKod3g" annotatedElement="_o5kB4B4fEeOAXbbnJNwHxQ">
+          <body>Validate the entity conformance.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_iGTTcB4hEeOGRufT5peS-Q" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_mf7mIB4hEeOGRufT5peS-Q" name="entity" type="_1PtQoBloEeOF6MZOG78g_A"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_uSvbIB4hEeOGRufT5peS-Q" name="entityValidationResult" type="_dr-IEB4fEeOAXbbnJNwHxQ" direction="return"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_dr-IEB4fEeOAXbbnJNwHxQ" name="EntityValidationResult">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_2cxMcOWGEeOo76lsZKod3g" annotatedElement="_dr-IEB4fEeOAXbbnJNwHxQ">
+        <body>Holds entity validation results.
+</body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_gWyIgB4fEeOAXbbnJNwHxQ" name="validationResult" type="_o-xQQBslEeOmN-2QJZ-Okg" association="_gW4PIB4fEeOAXbbnJNwHxQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gWyIgR4fEeOAXbbnJNwHxQ"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gWyIgh4fEeOAXbbnJNwHxQ" value="*"/>
@@ -2825,6 +3146,12 @@ with other Statement classes.</body>
     </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_lkWZkB4fEeOAXbbnJNwHxQ" name="store validation results into" client="_WqNVgB4fEeOAXbbnJNwHxQ" supplier="_dr-IEB4fEeOAXbbnJNwHxQ"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_tDsgAB4fEeOAXbbnJNwHxQ" clientDependency="_-tXloMcGEeOwo4bGXJhZCw __i62sN_2EeOBsPjkboT0ig" name="EntityMapping">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_8DQ64OWGEeOo76lsZKod3g" annotatedElement="_tDsgAB4fEeOAXbbnJNwHxQ">
+        <body>Holds mapping informations between an entity 
+and its datasource representation.
+
+ </body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_T2DrgB4iEeOwhK47NxXINQ" name="dataSourceName" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W1QAgB4iEeOwhK47NxXINQ" value="1"/>
@@ -2853,15 +3180,31 @@ with other Statement classes.</body>
         </defaultValue>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_9le_IEcjEeO-MsP0k5YFJw" name="create" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_c7euEOWHEeOo76lsZKod3g" annotatedElement="_9le_IEcjEeO-MsP0k5YFJw">
+          <body>Factory methods that ease the instantiation 
+process of an EntityMapping using associative arrays.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_IPjVIEckEeO-MsP0k5YFJw" name="config" type="_ti84wLoPEeKycOj42mlSMA"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_QCa0gEckEeO-MsP0k5YFJw" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_mFSmwOTNEeOhWq8Np-BNQw" name="getIdentifierAttributeMapping">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_mENNIOWHEeOo76lsZKod3g" annotatedElement="_mFSmwOTNEeOhWq8Np-BNQw">
+          <body>Determine the attribute which acts as an identifer of
+the entity and return its attributemapping. </body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_1hkukOTNEeOhWq8Np-BNQw" name="attributeMapping" type="_X6n3sB4jEeOwhK47NxXINQ" direction="return"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_erPsYB4iEeOwhK47NxXINQ" name="DataSourceEntityMappingConfiguration">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_00DFsOWHEeOo76lsZKod3g" annotatedElement="_erPsYB4iEeOwhK47NxXINQ">
+        <body>Holds the datasource specific entity mapping data.
+ </body>
+      </ownedComment>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_AH4N8EclEeO-MsP0k5YFJw" name="create" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_5BAOUOWHEeOo76lsZKod3g" annotatedElement="_AH4N8EclEeO-MsP0k5YFJw">
+          <body>Factory method that ease the instanciation process using
+associative arrays.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_AH4N8UclEeO-MsP0k5YFJw" name="config" type="_ti84wLoPEeKycOj42mlSMA"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_AH4N8kclEeO-MsP0k5YFJw" name="dataSourceEntityMappingConfiguration" type="_erPsYB4iEeOwhK47NxXINQ" direction="return"/>
       </ownedOperation>
@@ -2873,6 +3216,10 @@ with other Statement classes.</body>
       </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_X6n3sB4jEeOwhK47NxXINQ" name="AttributeMapping">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_AwlwMOWIEeOo76lsZKod3g" annotatedElement="_X6n3sB4jEeOwhK47NxXINQ">
+        <body>Holds mapping informations between an attribute of 
+an entity and its datasource's representation</body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_cFtYEB4jEeOwhK47NxXINQ" name="name" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eF8xgB4jEeOwhK47NxXINQ" value="1"/>
@@ -2903,11 +3250,18 @@ with other Statement classes.</body>
         </defaultValue>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_YD27YEckEeO-MsP0k5YFJw" name="create" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_FVfewOWIEeOo76lsZKod3g" annotatedElement="_YD27YEckEeO-MsP0k5YFJw">
+          <body>Factory method that ease the instantiation from 
+associative arrays.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_YD27YUckEeO-MsP0k5YFJw" name="config" type="_ti84wLoPEeKycOj42mlSMA"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_YD27YkckEeO-MsP0k5YFJw" name="attributeMapping" type="_X6n3sB4jEeOwhK47NxXINQ" direction="return"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_hnSKQB4jEeOwhK47NxXINQ" name="DataSourceAttributeMappingConfiguration">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_Iei6YOWIEeOo76lsZKod3g" annotatedElement="_hnSKQB4jEeOwhK47NxXINQ">
+        <body>Holds datasource specific attribute mapping data.</body>
+      </ownedComment>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_uyxjUEckEeO-MsP0k5YFJw" name="create" isStatic="true">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_uyxjUUckEeO-MsP0k5YFJw" name="config" type="_ti84wLoPEeKycOj42mlSMA"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_uyxjUkckEeO-MsP0k5YFJw" name="dataSourceAttributeMappingConfiguration" type="_hnSKQB4jEeOwhK47NxXINQ" direction="return"/>
@@ -2926,6 +3280,9 @@ with other Statement classes.</body>
       </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_e0hssB79EeOf9MerE9_4bA" clientDependency="_TMvuQMeTEeOhlq-hm4UKlg" name="CriteriaSet">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_ch_akOWIEeOo76lsZKod3g" annotatedElement="_e0hssB79EeOf9MerE9_4bA">
+        <body>Set of MatchCriterias separed by logical AND or OR. </body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_ov4tIB7-EeOf9MerE9_4bA" name="logicalSeparator" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wq1KcB7-EeOf9MerE9_4bA" value="1"/>
@@ -2972,30 +3329,58 @@ with other Statement classes.</body>
         <defaultValue xmi:type="uml:LiteralString" xmi:id="_c-3m0FLrEeOdH8sXcE9Rjg" value="or"/>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_eXpNEFLqEeOdH8sXcE9Rjg" name="add">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ky9LMOWIEeOo76lsZKod3g" annotatedElement="_eXpNEFLqEeOdH8sXcE9Rjg">
+          <body>Add a MatchCriteria to the set.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_tDzfgFLqEeOdH8sXcE9Rjg" name="matchCriteria" type="_gKCHEB79EeOf9MerE9_4bA"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_gNq6kFLqEeOdH8sXcE9Rjg" name="addSubSet">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_wlSJwOWIEeOo76lsZKod3g" annotatedElement="_gNq6kFLqEeOdH8sXcE9Rjg">
+          <body>Add a CriteriaSet as a subset of the set.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_3eLMoFLqEeOdH8sXcE9Rjg" name="criteriaSet" type="_e0hssB79EeOf9MerE9_4bA"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_j_-ukFLqEeOdH8sXcE9Rjg" name="addOrder">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_13Rn0OWIEeOo76lsZKod3g" annotatedElement="_j_-ukFLqEeOdH8sXcE9Rjg">
+          <body>Add an order criteria to the set.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="__RU_4FLqEeOdH8sXcE9Rjg" name="orderCriteria" type="_yeYLsB7-EeOf9MerE9_4bA"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_mgkcAFLqEeOdH8sXcE9Rjg" name="setLimit">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6tfv4OWIEeOo76lsZKod3g" annotatedElement="_mgkcAFLqEeOdH8sXcE9Rjg">
+          <body>Define a LimitCriteria to the set.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ewld4FLrEeOdH8sXcE9Rjg" name="limitCriteria" type="_7O7bUB7-EeOf9MerE9_4bA"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_LplWAFLrEeOdH8sXcE9Rjg" name="createAnd" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="__b3uEOWJEeOo76lsZKod3g" annotatedElement="_LplWAFLrEeOdH8sXcE9Rjg">
+          <body>Factory method that instanciate a CriteriaSet having 'AND' logical
+separators. </body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_SzuBcFLrEeOdH8sXcE9Rjg" name="criteriaSet" type="_e0hssB79EeOf9MerE9_4bA" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_MqW2gFLrEeOdH8sXcE9Rjg" name="createOr" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_DCczMOWKEeOo76lsZKod3g" annotatedElement="_MqW2gFLrEeOdH8sXcE9Rjg">
+          <body>Factory method that instanciate a CriteriaSet having 'OR' logical
+separators. </body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_VrSEcFLrEeOdH8sXcE9Rjg" name="criteriaSet" type="_e0hssB79EeOf9MerE9_4bA" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_hOXIwMvOEeOXv9CQm1BpuA" name="hasMatchCriterias">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_LjiqgOWKEeOo76lsZKod3g" annotatedElement="_hOXIwMvOEeOXv9CQm1BpuA">
+          <body>Determine whether the CriteriaSet or it's Subset contains MatchCriterias
+or not.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_gfXfUMvPEeOXv9CQm1BpuA" name="boolean" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
         </ownedParameter>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_gKCHEB79EeOf9MerE9_4bA" name="MatchCriteria">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_RVhQMOWKEeOo76lsZKod3g" annotatedElement="_gKCHEB79EeOf9MerE9_4bA">
+        <body>Determine an entity attribute matching condition.
+</body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_kBh9EB79EeOf9MerE9_4bA" name="attribute" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mZUT0B79EeOf9MerE9_4bA" value="1"/>
@@ -3064,6 +3449,9 @@ with other Statement classes.</body>
         <defaultValue xmi:type="uml:LiteralString" xmi:id="_e2ZPcFFGEeOoNcwjGD6Eiw" value="!like"/>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_p5XcIEz9EeOsBKRlFZJmdw" name="equals" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ecTgQOWKEeOo76lsZKod3g" annotatedElement="_p5XcIEz9EeOsBKRlFZJmdw">
+          <body>Factory method that create an equal match condition.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_wWEZ0Ez9EeOsBKRlFZJmdw" name="attribute">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
@@ -3073,6 +3461,9 @@ with other Statement classes.</body>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_7i10QEz9EeOsBKRlFZJmdw" name="matchCriteria" type="_gKCHEB79EeOf9MerE9_4bA" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_GpLPgEz-EeOsBKRlFZJmdw" name="greaterThan" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_gXWQoOWKEeOo76lsZKod3g" annotatedElement="_GpLPgEz-EeOsBKRlFZJmdw">
+          <body>Factory method that create a greater than match condition.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_AEyq0FFDEeOoNcwjGD6Eiw" name="attribute">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
@@ -3082,6 +3473,9 @@ with other Statement classes.</body>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_Go5RAFFDEeOoNcwjGD6Eiw" name="matchCriteria" type="_gKCHEB79EeOf9MerE9_4bA" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_JR3JAEz-EeOsBKRlFZJmdw" name="greaterThanOrEquals" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iU7XoOWKEeOo76lsZKod3g" annotatedElement="_JR3JAEz-EeOsBKRlFZJmdw">
+          <body>Factory method that create a greater than or equal match condition.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_NkfKIFFDEeOoNcwjGD6Eiw" name="attribute">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
@@ -3091,6 +3485,9 @@ with other Statement classes.</body>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_RPn_IFFDEeOoNcwjGD6Eiw" name="matchCriteria" type="_gKCHEB79EeOf9MerE9_4bA" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_MWszAEz-EeOsBKRlFZJmdw" name="lessThan" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_jr4jgOWKEeOo76lsZKod3g" annotatedElement="_MWszAEz-EeOsBKRlFZJmdw">
+          <body>Factory method that create a less than match condition.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_UP1n0FFDEeOoNcwjGD6Eiw" name="attribute">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
@@ -3100,6 +3497,9 @@ with other Statement classes.</body>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_X7I04FFDEeOoNcwjGD6Eiw" name="matchCriteria" type="_gKCHEB79EeOf9MerE9_4bA" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_Nv9sAEz-EeOsBKRlFZJmdw" name="lessThanOrEquals" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_lkcAkOWKEeOo76lsZKod3g" annotatedElement="_Nv9sAEz-EeOsBKRlFZJmdw">
+          <body>Factory method that create a less than or equal match condition.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_a1-1YFFDEeOoNcwjGD6Eiw" name="attribute">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
@@ -3109,6 +3509,9 @@ with other Statement classes.</body>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_eOXtgFFDEeOoNcwjGD6Eiw" name="matchCriteria" type="_gKCHEB79EeOf9MerE9_4bA" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_QZViAEz-EeOsBKRlFZJmdw" name="notEquals" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_neFp0OWKEeOo76lsZKod3g" annotatedElement="_QZViAEz-EeOsBKRlFZJmdw">
+          <body>Factory method that create a not equals match condition.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_g3XJAFFDEeOoNcwjGD6Eiw" name="attribute">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
@@ -3118,6 +3521,9 @@ with other Statement classes.</body>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_k1pjgFFDEeOoNcwjGD6Eiw" name="matchCriteria" type="_gKCHEB79EeOf9MerE9_4bA" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_R9yXUEz-EeOsBKRlFZJmdw" name="like" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_o9fnEOWKEeOo76lsZKod3g" annotatedElement="_R9yXUEz-EeOsBKRlFZJmdw">
+          <body>Factory method that create a like match condition.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_n0hvcFFDEeOoNcwjGD6Eiw" name="attribute">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
@@ -3127,6 +3533,9 @@ with other Statement classes.</body>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_rNLtUFFDEeOoNcwjGD6Eiw" name="matchCriteria" type="_gKCHEB79EeOf9MerE9_4bA" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_TUQbAEz-EeOsBKRlFZJmdw" name="notLike" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_qpX6EOWKEeOo76lsZKod3g" annotatedElement="_TUQbAEz-EeOsBKRlFZJmdw">
+          <body>Factory method that create a not like match condition.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_taWvgFFDEeOoNcwjGD6Eiw" name="attribute">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
@@ -3137,6 +3546,10 @@ with other Statement classes.</body>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_yeYLsB7-EeOf9MerE9_4bA" name="OrderCriteria">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_0DNXQOWKEeOo76lsZKod3g" annotatedElement="_yeYLsB7-EeOf9MerE9_4bA">
+        <body>Determine a entity sorting condition of an 
+entity collection.</body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_2gzfUB7-EeOf9MerE9_4bA" name="attribute" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4bfDUB7-EeOf9MerE9_4bA" value="1"/>
@@ -3166,12 +3579,20 @@ with other Statement classes.</body>
         <defaultValue xmi:type="uml:LiteralString" xmi:id="_JXQE4FIYEeOnT5kdLUOBgA" value="desc"/>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_K_q0MFIYEeOnT5kdLUOBgA" name="asc" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_JhHqUOWLEeOo76lsZKod3g" annotatedElement="_K_q0MFIYEeOnT5kdLUOBgA">
+          <body>Factory method that create an OrderCriteria 
+having a ASC direction.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_qpik8FIYEeOnT5kdLUOBgA" name="attribute">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_vnuWMFIYEeOnT5kdLUOBgA" name="orderCriteria" type="_yeYLsB7-EeOf9MerE9_4bA" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_MLkmoFIYEeOnT5kdLUOBgA" name="desc" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_L4-SgOWLEeOo76lsZKod3g" annotatedElement="_MLkmoFIYEeOnT5kdLUOBgA">
+          <body>Factory method that create an OrderCriteria 
+having a DESC direction.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_x8enEFIYEeOnT5kdLUOBgA" name="attribute">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
@@ -3179,6 +3600,10 @@ with other Statement classes.</body>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_7O7bUB7-EeOf9MerE9_4bA" name="LimitCriteria">
+      <ownedComment xmi:type="uml:Comment" xmi:id="__zcEEOWKEeOo76lsZKod3g" annotatedElement="_7O7bUB7-EeOf9MerE9_4bA">
+        <body>Determine the number max of entities an entity collection
+and the start offset from the unlimited original collection.</body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_A0IwUB7_EeOf9MerE9_4bA" name="number" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_E-0BAB7_EeOf9MerE9_4bA" value="1"/>
@@ -3196,6 +3621,9 @@ with other Statement classes.</body>
         </defaultValue>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_uS7RAFIZEeOnT5kdLUOBgA" name="to" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_WS2QYOWLEeOo76lsZKod3g" annotatedElement="_uS7RAFIZEeOnT5kdLUOBgA">
+          <body>Factory method that create a LimitStatement.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_3XbXYFIZEeOnT5kdLUOBgA" name="number">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         </ownedParameter>
@@ -3216,6 +3644,9 @@ with other Statement classes.</body>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_TogG4B8CEeOf9MerE9_4bA" name="retrieve entities from dataSource using" client="_w6S7IBleEeOF6MZOG78g_A" supplier="_e0hssB79EeOf9MerE9_4bA"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_ct98IEZKEeOgk9L_kZODLw" name="handle from datasource" client="_w6S7IBleEeOF6MZOG78g_A" supplier="_1PtQoBloEeOF6MZOG78g_A"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_7gmi4EZKEeOgk9L_kZODLw" name="EntityMappingsRegistry">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_Qb0LkOWLEeOo76lsZKod3g" annotatedElement="_7gmi4EZKEeOgk9L_kZODLw">
+        <body>Holds the instanciated EntityMappings</body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_ta13MEZMEeOgk9L_kZODLw" name="entityMappings" visibility="private" isStatic="true" type="_ti84wLoPEeKycOj42mlSMA" isUnique="false">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zCVrMEZMEeOgk9L_kZODLw" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zCWSQEZMEeOgk9L_kZODLw" value="1"/>
@@ -3224,17 +3655,27 @@ with other Statement classes.</body>
         </defaultValue>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_IjntQEZLEeOgk9L_kZODLw" name="clearEntityMapping" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_alUyMOWLEeOo76lsZKod3g" annotatedElement="_IjntQEZLEeOgk9L_kZODLw">
+          <body>Remove all registered EntityMappings.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_IjntQUZLEeOgk9L_kZODLw" name="entityName">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_IjoUUEZLEeOgk9L_kZODLw" name="getEntityMapping" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_gaOwEOWLEeOo76lsZKod3g" annotatedElement="_IjoUUEZLEeOgk9L_kZODLw">
+          <body>Get an EntityMapping of an Entity class from
+its class name.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_IjoUUUZLEeOgk9L_kZODLw" name="entityName">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_IjoUUkZLEeOgk9L_kZODLw" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_IjoUU0ZLEeOgk9L_kZODLw" name="registerEntityMapping" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_jQmgQOWLEeOo76lsZKod3g" annotatedElement="_IjoUU0ZLEeOgk9L_kZODLw">
+          <body>Set an EntityMapping in the Registry.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_IjoUVEZLEeOgk9L_kZODLw" name="entityMapping" type="_tDsgAB4fEeOAXbbnJNwHxQ"/>
       </ownedOperation>
     </packagedElement>
@@ -3250,6 +3691,9 @@ with other Statement classes.</body>
 Handle data validation stuff. Theses ares used by the entity validator to validate an entity against the validation rules established in the associated entity mapping</body>
     </ownedComment>
     <packagedElement xmi:type="uml:Class" xmi:id="__F6_gBsjEeOmN-2QJZ-Okg" name="ValidatorsRegistry">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_ufEj0OWLEeOo76lsZKod3g" annotatedElement="__F6_gBsjEeOmN-2QJZ-Okg">
+        <body>Holds instanciated Validators.</body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_GHcCYNeNEeOyWfzejOJSEA" name="validators" visibility="private" isStatic="true" type="_ti84wLoPEeKycOj42mlSMA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IfthUNeNEeOyWfzejOJSEA" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IfuIYNeNEeOyWfzejOJSEA" value="1"/>
@@ -3258,20 +3702,32 @@ Handle data validation stuff. Theses ares used by the entity validator to valida
         </defaultValue>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_EMYjABskEeOmN-2QJZ-Okg" name="getValidator" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_yDE2EOWLEeOo76lsZKod3g" annotatedElement="_EMYjABskEeOmN-2QJZ-Okg">
+          <body>Return a Validator from its name.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_nF7UwBskEeOmN-2QJZ-Okg" name="name">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_RuluUBslEeOmN-2QJZ-Okg" name="validator" type="_H-JvABslEeOmN-2QJZ-Okg" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_ZXsyINeNEeOyWfzejOJSEA" name="registerValidator" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_1bC3cOWLEeOo76lsZKod3g" annotatedElement="_ZXsyINeNEeOyWfzejOJSEA">
+          <body>Register a Validator in the Registry.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_i7p0oNeNEeOyWfzejOJSEA" name="validator" type="_H-JvABslEeOmN-2QJZ-Okg"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_n72YENeNEeOyWfzejOJSEA" name="clearValidator" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_4i4yIOWLEeOo76lsZKod3g" annotatedElement="_n72YENeNEeOyWfzejOJSEA">
+          <body>Remove all registered Validators.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_9mxzcNeNEeOyWfzejOJSEA" name="name">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_pdkCcNeNEeOyWfzejOJSEA" name="hasValidator" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_8q8zsOWLEeOo76lsZKod3g" annotatedElement="_pdkCcNeNEeOyWfzejOJSEA">
+          <body>Determine wheter the Registry has a Validator or not.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_ATpCUNeOEeOyWfzejOJSEA" name="name">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
@@ -3313,28 +3769,47 @@ can be used in the pattern. It will be replaced by the validated value.
         </defaultValue>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_Hc8NkN9gEeOA6NW-Tj7oDw" name="create" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_HO8W4OWMEeOo76lsZKod3g" annotatedElement="_Hc8NkN9gEeOA6NW-Tj7oDw">
+          <body>Factory method that ease ValidationRule creation 
+from associative arrays.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_RCPT4N9gEeOA6NW-Tj7oDw" name="config" type="_ti84wLoPEeKycOj42mlSMA"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_V_XVMN9gEeOA6NW-Tj7oDw" name="validationRule" type="_Ow5DkBskEeOmN-2QJZ-Okg" direction="return"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_H-JvABslEeOmN-2QJZ-Okg" clientDependency="_RGW0MBsmEeOmN-2QJZ-Okg _b8PYoBsmEeOmN-2QJZ-Okg" name="Validator">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_Ppe6QOWMEeOo76lsZKod3g" annotatedElement="_H-JvABslEeOmN-2QJZ-Okg">
+        <body>Determine whether a value conforms to some kind
+of rule. </body>
+      </ownedComment>
       <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_N77H0NeMEeOyWfzejOJSEA" name="RedefinableTemplateSignature1" parameter="_fY7xQNeMEeOyWfzejOJSEA">
         <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_fY7xQNeMEeOyWfzejOJSEA" parameteredElement="_oeckQNeMEeOyWfzejOJSEA">
           <ownedParameteredElement xmi:type="uml:Class" xmi:id="_oeckQNeMEeOyWfzejOJSEA" name="T" templateParameter="_fY7xQNeMEeOyWfzejOJSEA"/>
         </ownedParameter>
       </ownedTemplateSignature>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_l13loRslEeOmN-2QJZ-Okg" name="validate">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_dEOoIOWMEeOo76lsZKod3g" annotatedElement="_l13loRslEeOmN-2QJZ-Okg">
+          <body>Perform the validation of a value.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_bSmDcNeLEeOyWfzejOJSEA" name="validationRule" type="_Ow5DkBskEeOmN-2QJZ-Okg"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_1OPQoNeMEeOyWfzejOJSEA" name="value" type="_oeckQNeMEeOyWfzejOJSEA"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_tmxWIBslEeOmN-2QJZ-Okg" name="result" type="_o-xQQBslEeOmN-2QJZ-Okg" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="__5GDENeHEeOZXK2Dv9UOeg" name="getName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_fTkNgOWMEeOo76lsZKod3g" annotatedElement="__5GDENeHEeOZXK2Dv9UOeg">
+          <body>Return the name of the validator.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_wmqqsNhfEeO5PK2Q8KuGLQ" name="name" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_o-xQQBslEeOmN-2QJZ-Okg" name="ValidationResult">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_XDRyUOWMEeOo76lsZKod3g" annotatedElement="_o-xQQBslEeOmN-2QJZ-Okg">
+        <body>Holds a validation result and eventually 
+its validation error message.
+</body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_ECU9MBsmEeOmN-2QJZ-Okg" name="validationResult" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HECasBsmEeOmN-2QJZ-Okg" value="1"/>
@@ -3352,6 +3827,11 @@ can be used in the pattern. It will be replaced by the validated value.
         </defaultValue>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_ALUukNhkEeO5PK2Q8KuGLQ" name="parseAndSetErrorMessage">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_mMHZsOWMEeOo76lsZKod3g" annotatedElement="_ALUukNhkEeO5PK2Q8KuGLQ">
+          <body>Set the error message from an error 
+message pattern and the values to be 
+parsed.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_V-4hgNhkEeO5PK2Q8KuGLQ" name="errorMessagePattern">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
@@ -3371,7 +3851,7 @@ can be used in the pattern. It will be replaced by the validated value.
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_cciXYBsoEeOmN-2QJZ-Okg" clientDependency="_iXy04BsoEeOmN-2QJZ-Okg" name="StringLengthValidator">
       <ownedComment xmi:type="uml:Comment" xmi:id="_NGcfENeREeOyWfzejOJSEA" annotatedElement="_cciXYBsoEeOmN-2QJZ-Okg">
-        <body>Check wheter the number of characters of a string match min/max size.
+        <body>Check whether the number of characters of a string match min/max size.
 ValidationRules:
 	'min': (optional) The min number of characters allowed
 	'max': (optional) The max number of characters allowed 
@@ -3381,7 +3861,7 @@ ValidationRules:
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_zi85UBsoEeOmN-2QJZ-Okg" clientDependency="_1o2O0BsoEeOmN-2QJZ-Okg" name="NumericRangeValidator">
       <ownedComment xmi:type="uml:Comment" xmi:id="_7JPeINq7EeO8ppwbvxNVlg" annotatedElement="_zi85UBsoEeOmN-2QJZ-Okg">
-        <body>Check wheter a number fit in a specified range.
+        <body>Check whether a number fit in a specified range.
 ValidationRules:
 	'min': (optional) The min number 
 	'max': (optional) The max number 

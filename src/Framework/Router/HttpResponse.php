@@ -18,6 +18,11 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class HttpResponse
 {
     /**
+     * @var AssociativeArray
+     */
+    public $headers;
+
+    /**
      * @var string
      */
     public $message;
@@ -26,11 +31,6 @@ class HttpResponse
      * @var string
      */
     public $statusCode = '200';
-
-    /**
-     * @var AssociativeArray
-     */
-    public $headers;
 
     /**
      * @var string
@@ -47,6 +47,26 @@ class HttpResponse
     {
         // Start of user code HttpResponse.destructor
         // End of user code
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getHeaders()
+    {
+        // Start of user code Getter HttpResponse.getHeaders
+        // End of user code
+        return $this->headers;
+    }
+
+    /**
+     * @param AssociativeArray $headers
+     */
+    public function setHeaders(AssociativeArray $headers)
+    {
+        // Start of user code Setter HttpResponse.setHeaders
+        // End of user code
+        $this->headers = $headers;
     }
 
     /**
@@ -90,26 +110,6 @@ class HttpResponse
     }
 
     /**
-     * @return AssociativeArray
-     */
-    public function getHeaders()
-    {
-        // Start of user code Getter HttpResponse.getHeaders
-        // End of user code
-        return $this->headers;
-    }
-
-    /**
-     * @param AssociativeArray $headers
-     */
-    public function setHeaders(AssociativeArray $headers)
-    {
-        // Start of user code Setter HttpResponse.setHeaders
-        // End of user code
-        $this->headers = $headers;
-    }
-
-    /**
      * @return string
      */
     public function getContentType()
@@ -130,20 +130,31 @@ class HttpResponse
     }
 
     /**
-     * Create an HttpResponse object configured to send a type redirect 302 response  
+     * Create an HttpResponse configured to send content of type contentType as file named fileName 
+     * Typically open a download box using common browsers. 
      *
-     * @param string $uri
-     * @param bool $permanent
+     * @param string $fileName
+     * @param string $contentType
+     * @param string $content
      * @return HttpResponse $httpResponse
      */
-    public static function createRedirectResponse($uri, $permanent)
+    public static function createDownloadFileResponse($fileName, $contentType, $content)
     {
-        // Start of user code HttpResponse.createRedirectResponse
-        $httpResponse = new self();			
-		$httpResponse->setStatusCode($permanent ? '301' : '302');
-		$httpResponse->setHeaders(
-            AssociativeArray::createFromNativeArray('string', array('location' => $uri))
-        );
+        // Start of user code HttpResponse.createDownloadFileResponse
+        $httpResponse = new self();
+        $httpResponse->setContentType($contentType);
+        $httpResponse->setHeaders(
+			AssociativeArray::createFromNativeArray(
+			    'string', 
+				array(
+                    'content-Disposition' => sprintf(
+                        'attachment; filename="%s"', 
+                        $fileName
+                    )
+                )
+			)
+		);
+		$httpResponse->setMessage($content);
         // End of user code
     
         return $httpResponse;
@@ -179,31 +190,20 @@ class HttpResponse
     }
 
     /**
-     * Create an HttpResponse configured to send content of type contentType as file named fileName 
-     * Typically open a download box using common browsers. 
+     * Create an HttpResponse object configured to send a type redirect 302 response  
      *
-     * @param string $fileName
-     * @param string $contentType
-     * @param string $content
+     * @param string $uri
+     * @param bool $permanent
      * @return HttpResponse $httpResponse
      */
-    public static function createDownloadFileResponse($fileName, $contentType, $content)
+    public static function createRedirectResponse($uri, $permanent)
     {
-        // Start of user code HttpResponse.createDownloadFileResponse
-        $httpResponse = new self();
-        $httpResponse->setContentType($contentType);
-        $httpResponse->setHeaders(
-			AssociativeArray::createFromNativeArray(
-			    'string', 
-				array(
-                    'content-Disposition' => sprintf(
-                        'attachment; filename="%s"', 
-                        $fileName
-                    )
-                )
-			)
-		);
-		$httpResponse->setMessage($content);
+        // Start of user code HttpResponse.createRedirectResponse
+        $httpResponse = new self();			
+		$httpResponse->setStatusCode($permanent ? '301' : '302');
+		$httpResponse->setHeaders(
+            AssociativeArray::createFromNativeArray('string', array('location' => $uri))
+        );
         // End of user code
     
         return $httpResponse;

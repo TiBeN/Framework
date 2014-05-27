@@ -7,7 +7,7 @@ namespace TiBeN\Framework\Validation;
 // End of user code
 
 /**
- * Check wheter the number of characters of a string match min/max size.
+ * Check whether the number of characters of a string match min/max size.
  * ValidationRules:
  * 	'min': (optional) The min number of characters allowed
  * 	'max': (optional) The max number of characters allowed 
@@ -81,6 +81,8 @@ class StringLengthValidator implements Validator
     // Validator Realization
 
     /**
+     * Return the name of the validator.
+     *
      * @return string $name
      */
     public function getName()
@@ -93,6 +95,8 @@ class StringLengthValidator implements Validator
     }
 
     /**
+     * Perform the validation of a value.
+     *
      * @param ValidationRule $validationRule
      * @param T $value
      * @return ValidationResult $result

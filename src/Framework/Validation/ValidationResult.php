@@ -7,6 +7,8 @@ namespace TiBeN\Framework\Validation;
 // End of user code
 
 /**
+ * Holds a validation result and eventually 
+ * its validation error message.
  * 
  *
  * @package TiBeN\Framework\Validation
@@ -77,6 +79,10 @@ class ValidationResult
     }
 
     /**
+     * Set the error message from an error 
+     * message pattern and the values to be 
+     * parsed.
+     *
      * @param string $errorMessagePattern
      * @param string $value
      */

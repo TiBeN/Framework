@@ -9,7 +9,7 @@ use TiBeN\Framework\Entity\LimitCriteria;
 // End of user code
 
 /**
- * 
+ * Represent a limit statement chunk.
  *
  * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN
@@ -19,12 +19,12 @@ class LimitStatement
     /**
      * @var int
      */
-    public $offset;
+    public $rowCount;
 
     /**
      * @var int
      */
-    public $rowCount;
+    public $offset;
 
     public function __construct()
     {
@@ -36,26 +36,6 @@ class LimitStatement
     {
         // Start of user code LimitStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return int
-     */
-    public function getOffset()
-    {
-        // Start of user code Getter LimitStatement.getOffset
-        // End of user code
-        return $this->offset;
-    }
-
-    /**
-     * @param int $offset
-     */
-    public function setOffset($offset)
-    {
-        // Start of user code Setter LimitStatement.setOffset
-        // End of user code
-        $this->offset = $offset;
     }
 
     /**
@@ -79,6 +59,28 @@ class LimitStatement
     }
 
     /**
+     * @return int
+     */
+    public function getOffset()
+    {
+        // Start of user code Getter LimitStatement.getOffset
+        // End of user code
+        return $this->offset;
+    }
+
+    /**
+     * @param int $offset
+     */
+    public function setOffset($offset)
+    {
+        // Start of user code Setter LimitStatement.setOffset
+        // End of user code
+        $this->offset = $offset;
+    }
+
+    /**
+     * Generate the limit statement as a string.
+     *
      * @return string $string
      */
     public function toString()
@@ -98,6 +100,9 @@ class LimitStatement
     }
 
     /**
+     * Factory method that generate a LimitStatement 
+     * from a LimitCriteria
+     *
      * @param LimitCriteria $limitCriteria
      * @return LimitStatement $limitStatement
      */

@@ -58,6 +58,9 @@ class GenericStatement implements Statement
     }
 
     /**
+     * Set an associative array of parameters of the corresponding
+     * named placeholders of the statement.
+     *
      * @param AssociativeArray $statementParameters
      */
     public function setStatementParameters(AssociativeArray $statementParameters)
@@ -70,7 +73,9 @@ class GenericStatement implements Statement
     // Statement Realization
 
     /**
-     * Tell wether the statement is ready or not to be executed
+     * Check whether all statement chunks are set 
+     * in order to generate a complete statement string to 
+     * be executed.
      *
      * @return bool $status
      */
@@ -84,6 +89,10 @@ class GenericStatement implements Statement
     }
 
     /**
+     * Return an associative array of parameters of the corresponding
+     * named placeholder in the statement. 
+     * 
+     *
      * @return AssociativeArray $statementParameters
      */
     public function getStatementParameters()
@@ -96,7 +105,7 @@ class GenericStatement implements Statement
     }
 
     /**
-     * Return the statement in String format
+     * Generate the statement as a string.
      *
      * @return string $statement
      */

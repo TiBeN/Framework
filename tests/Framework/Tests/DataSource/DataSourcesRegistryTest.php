@@ -40,37 +40,6 @@ class DataSourcesRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method registerDataSource from class DataSourcesRegistry
-     *
-     * Start of user code DataSourcesRegistryTest.testregisterDataSourceAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testRegisterDataSource()
-    {
-        // Start of user code DataSourcesRegistryTest.testregisterDataSource
-        $dataSource = new TestDataSource();
-        $dataSource->setName('test');
-        DataSourcesRegistry::registerDataSource($dataSource);
-        $this->assertEquals($dataSource, DataSourcesRegistry::getDataSource('test'));
-		// End of user code
-    }
-    
-    /**
-     * Test static method getDataSource from class DataSourcesRegistry
-     *
-     * Start of user code DataSourcesRegistryTest.testgetDataSourceAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
-     */
-    public function testGetDataSource()
-    {
-        // Start of user code DataSourcesRegistryTest.testgetDataSource
-	    // Tested by "testRegisterDataSource"
-		// End of user code
-    }
-    
-    /**
      * Test static method clearDataSource from class DataSourcesRegistry
      *
      * Start of user code DataSourcesRegistryTest.testclearDataSourceAnnotations 
@@ -99,6 +68,37 @@ class DataSourcesRegistryTest extends \PHPUnit_Framework_TestCase
         DataSourcesRegistry::registerDataSource($dataSource);
         $this->assertTrue(DataSourcesRegistry::hasDataSource('test'));
         $this->assertFalse(DataSourcesRegistry::hasDataSource('foo'));
+		// End of user code
+    }
+    
+    /**
+     * Test static method registerDataSource from class DataSourcesRegistry
+     *
+     * Start of user code DataSourcesRegistryTest.testregisterDataSourceAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testRegisterDataSource()
+    {
+        // Start of user code DataSourcesRegistryTest.testregisterDataSource
+        $dataSource = new TestDataSource();
+        $dataSource->setName('test');
+        DataSourcesRegistry::registerDataSource($dataSource);
+        $this->assertEquals($dataSource, DataSourcesRegistry::getDataSource('test'));
+		// End of user code
+    }
+    
+    /**
+     * Test static method getDataSource from class DataSourcesRegistry
+     *
+     * Start of user code DataSourcesRegistryTest.testgetDataSourceAnnotations 
+	 * PHPUnit users annotations can be placed here  
+	 * End of user code
+     */
+    public function testGetDataSource()
+    {
+        // Start of user code DataSourcesRegistryTest.testgetDataSource
+	    // Tested by "testRegisterDataSource"
 		// End of user code
     }
 

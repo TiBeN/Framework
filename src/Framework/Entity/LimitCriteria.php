@@ -7,7 +7,8 @@ namespace TiBeN\Framework\Entity;
 // End of user code
 
 /**
- * 
+ * Determine the number max of entities an entity collection
+ * and the start offset from the unlimited original collection.
  *
  * @package TiBeN\Framework\Entity
  * @author TiBeN
@@ -77,6 +78,8 @@ class LimitCriteria
     }
 
     /**
+     * Factory method that create a LimitStatement.
+     *
      * @param int $number
      * @param int $offset
      * @return LimitCriteria $limitCriteria

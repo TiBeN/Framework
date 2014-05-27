@@ -9,7 +9,10 @@ use TiBeN\Framework\Datatype\ProxyAbleGenericCollection;
 // End of user code
 
 /**
- * 
+ * Holds a collection of mysql rows. 
+ * The rows are dynamically fetched when the collection
+ * is browsed (inside a loop for example).
+ *  
  *
  * @package TiBeN\Framework\DataSource\MysqlDataSource
  * @author TiBeN

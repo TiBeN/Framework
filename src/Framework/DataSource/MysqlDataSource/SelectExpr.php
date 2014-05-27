@@ -10,6 +10,7 @@ use TiBeN\Framework\Datatype\GenericCollection;
 // End of user code
 
 /**
+ * Represent a select_expr statement chunk.
  * 
  *
  * @package TiBeN\Framework\DataSource\MysqlDataSource
@@ -67,6 +68,10 @@ class SelectExpr extends GenericCollection
     }
 
     /**
+     * Factory method that generate a comma separated 
+     * list of column names from a collection 
+     * of entity attribute mappings.
+     *
      * @param AssociativeArray $attributeMappings
      * @return SelectExpr $selectExpr
      */
@@ -89,6 +94,8 @@ class SelectExpr extends GenericCollection
     }
 
     /**
+     * Generate the select_expr as a string
+     *
      * @return string $string
      */
     public function toString()

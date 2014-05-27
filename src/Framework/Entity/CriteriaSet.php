@@ -9,7 +9,7 @@ use TiBeN\Framework\Datatype\GenericCollection;
 // End of user code
 
 /**
- * 
+ * Set of MatchCriterias separed by logical AND or OR. 
  *
  * @package TiBeN\Framework\Entity
  * @author TiBeN
@@ -27,16 +27,6 @@ class CriteriaSet
     const LOGICAL_SEPARATOR_AND = 'and';
 
     /**
-     * @var string
-     */
-    public $logicalSeparator;
-
-    /**
-     * @var string
-     */
-    const LOGICAL_SEPARATOR_OR = 'or';
-
-    /**
      * @var GenericCollection
      */
     public $criteriaSets;
@@ -50,6 +40,16 @@ class CriteriaSet
      * @var LimitCriteria
      */
     public $limitCriteria;
+
+    /**
+     * @var string
+     */
+    public $logicalSeparator;
+
+    /**
+     * @var string
+     */
+    const LOGICAL_SEPARATOR_OR = 'or';
 
     public function __construct()
     {
@@ -90,26 +90,6 @@ class CriteriaSet
         // Start of user code Setter CriteriaSet.setMatchCriterias
         // End of user code
         $this->matchCriterias = $matchCriterias;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLogicalSeparator()
-    {
-        // Start of user code Getter CriteriaSet.getLogicalSeparator
-        // End of user code
-        return $this->logicalSeparator;
-    }
-
-    /**
-     * @param string $logicalSeparator
-     */
-    public function setLogicalSeparator($logicalSeparator)
-    {
-        // Start of user code Setter CriteriaSet.setLogicalSeparator
-        // End of user code
-        $this->logicalSeparator = $logicalSeparator;
     }
 
     /**
@@ -173,28 +153,28 @@ class CriteriaSet
     }
 
     /**
-     * @param CriteriaSet $criteriaSet
+     * @return string
      */
-    public function addSubSet(CriteriaSet $criteriaSet)
+    public function getLogicalSeparator()
     {
-        // Start of user code CriteriaSet.addSubSet
-		$this->criteriaSets->add($criteriaSet);
-		return $this; 
+        // Start of user code Getter CriteriaSet.getLogicalSeparator
         // End of user code
+        return $this->logicalSeparator;
     }
 
     /**
-     * @param MatchCriteria $matchCriteria
+     * @param string $logicalSeparator
      */
-    public function add(MatchCriteria $matchCriteria)
+    public function setLogicalSeparator($logicalSeparator)
     {
-        // Start of user code CriteriaSet.add
-        $this->matchCriterias->add($matchCriteria);
-        return $this; 
+        // Start of user code Setter CriteriaSet.setLogicalSeparator
         // End of user code
+        $this->logicalSeparator = $logicalSeparator;
     }
 
     /**
+     * Add an order criteria to the set.
+     *
      * @param OrderCriteria $orderCriteria
      */
     public function addOrder(OrderCriteria $orderCriteria)
@@ -206,6 +186,64 @@ class CriteriaSet
     }
 
     /**
+     * Add a MatchCriteria to the set.
+     *
+     * @param MatchCriteria $matchCriteria
+     */
+    public function add(MatchCriteria $matchCriteria)
+    {
+        // Start of user code CriteriaSet.add
+        $this->matchCriterias->add($matchCriteria);
+        return $this; 
+        // End of user code
+    }
+
+    /**
+     * Define a LimitCriteria to the set.
+     *
+     * @param LimitCriteria $limitCriteria
+     */
+    public function setLimit(LimitCriteria $limitCriteria)
+    {
+        // Start of user code CriteriaSet.setLimit
+		$this->limitCriteria = $limitCriteria;
+		return $this;
+        // End of user code
+    }
+
+    /**
+     * Add a CriteriaSet as a subset of the set.
+     *
+     * @param CriteriaSet $criteriaSet
+     */
+    public function addSubSet(CriteriaSet $criteriaSet)
+    {
+        // Start of user code CriteriaSet.addSubSet
+		$this->criteriaSets->add($criteriaSet);
+		return $this; 
+        // End of user code
+    }
+
+    /**
+     * Factory method that instanciate a CriteriaSet having 'OR' logical
+     * separators. 
+     *
+     * @return CriteriaSet $criteriaSet
+     */
+    public static function createOr()
+    {
+        // Start of user code CriteriaSet.createOr
+		$criteriaSet = new self();
+		$criteriaSet->setLogicalSeparator(self::LOGICAL_SEPARATOR_OR); 
+        // End of user code
+    
+        return $criteriaSet;
+    }
+
+    /**
+     * Determine whether the CriteriaSet or it's Subset contains MatchCriterias
+     * or not.
+     *
      * @return bool $boolean
      */
     public function hasMatchCriterias()
@@ -228,19 +266,9 @@ class CriteriaSet
     }
 
     /**
-     * @return CriteriaSet $criteriaSet
-     */
-    public static function createOr()
-    {
-        // Start of user code CriteriaSet.createOr
-		$criteriaSet = new self();
-		$criteriaSet->setLogicalSeparator(self::LOGICAL_SEPARATOR_OR); 
-        // End of user code
-    
-        return $criteriaSet;
-    }
-
-    /**
+     * Factory method that instanciate a CriteriaSet having 'AND' logical
+     * separators. 
+     *
      * @return CriteriaSet $criteriaSet
      */
     public static function createAnd()
@@ -251,17 +279,6 @@ class CriteriaSet
         // End of user code
     
         return $criteriaSet;
-    }
-
-    /**
-     * @param LimitCriteria $limitCriteria
-     */
-    public function setLimit(LimitCriteria $limitCriteria)
-    {
-        // Start of user code CriteriaSet.setLimit
-		$this->limitCriteria = $limitCriteria;
-		return $this;
-        // End of user code
     }
 
     // Start of user code CriteriaSet.implementationSpecificMethods
