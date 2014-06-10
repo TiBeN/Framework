@@ -116,29 +116,29 @@ class SmartyEngine implements TemplateEngine
     {
         // Start of user code TemplateEngine.render
         if (!isset($this->templateFileName)) {
-			throw new \InvalidArgumentException('No template file name has been set');
-		}
-		
-		if (!file_exists($this->templateFileName)) {
-			throw new \InvalidArgumentException(
+            throw new \InvalidArgumentException('No template file name has been set');
+        }
+        
+        if (!file_exists($this->templateFileName)) {
+            throw new \InvalidArgumentException(
                 sprintf(
                     'Template file name "%s" doesn\'t exist', 
                     $this->templateFileName
                 )
             );
-		}
-		
-		// Init temporary dir
+        }
+        
+        // Init temporary dir
         if (!file_exists($this->tempDirectory)) {
             throw new \InvalidArgumentException(
                 sprintf('Tmp path "%s" doesn\'t exist', $this->tempDirectory)
            );
         }
-		if (!is_writable($this->tempDirectory)) {
-			throw new \RuntimeException(
+        if (!is_writable($this->tempDirectory)) {
+            throw new \RuntimeException(
                 sprintf('Tmp path "%s" is not writable', $this->tempDirectory)
             );
-		}
+        }
         $smartyCacheDirectory = $this->tempDirectory 
             . DIRECTORY_SEPARATOR 
             . 'smarty' 
@@ -157,22 +157,22 @@ class SmartyEngine implements TemplateEngine
         if (!file_exists($smartyCompilDirectory)) {
             mkdir($smartyCompilDirectory, 0777, true);
         }
-		
-		$smarty = new \Smarty();
-		$smarty->setCacheDir($smartyCacheDirectory);
-		$smarty->setCompileDir($smartyCompilDirectory);
-		$smarty->registerClass('Uri', 'TiBeN\\Framework\\Renderer\\SmartyUriHandler');
-		$smarty->registerPlugin("function","uri", array(new SmartyUriHandler(), 'getUri'));
-			
-		// Assign variables
-		if (!$this->variables->isEmpty()) {
-			foreach($this->variables->toNativeArray() as $key => $value) {
-				$smarty->assign($key, $value);
-			}
-		}
-			
-		// Render the template
-		$generatedContent = $smarty->fetch($this->templateFileName);			
+        
+        $smarty = new \Smarty();
+        $smarty->setCacheDir($smartyCacheDirectory);
+        $smarty->setCompileDir($smartyCompilDirectory);
+        $smarty->registerClass('Uri', 'TiBeN\\Framework\\Renderer\\SmartyUriHandler');
+        $smarty->registerPlugin("function","uri", array(new SmartyUriHandler(), 'getUri'));
+            
+        // Assign variables
+        if (!$this->variables->isEmpty()) {
+            foreach($this->variables->toNativeArray() as $key => $value) {
+                $smarty->assign($key, $value);
+            }
+        }
+            
+        // Render the template
+        $generatedContent = $smarty->fetch($this->templateFileName);            
         
         // End of user code
     
