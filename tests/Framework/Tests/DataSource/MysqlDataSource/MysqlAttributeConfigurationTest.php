@@ -22,21 +22,21 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class MysqlAttributeConfigurationTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code MysqlAttributeConfigurationTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code MysqlAttributeConfigurationTest.setUp
-		// Place additional setUp code here.  
-		// End of user code
+        // Place additional setUp code here.  
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code MysqlAttributeConfigurationTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     
@@ -66,17 +66,17 @@ class MysqlAttributeConfigurationTest extends \PHPUnit_Framework_TestCase
                 )
             )
         );
-    	// End of user code
+        // End of user code
     }
 
     // Start of user code MysqlAttributeConfigurationTest.methods
     
-	/**
-	 * Test create a MysqlAttributeConfiguration without columnName
+    /**
+     * Test create a MysqlAttributeConfiguration without columnName
      *
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage No column name set
-	 */
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage No column name set
+     */
     public function testCreateAMysqlAttributeConfigurationWithoutColumnName() 
     {
         MysqlAttributeConfiguration::create(
@@ -88,5 +88,5 @@ class MysqlAttributeConfigurationTest extends \PHPUnit_Framework_TestCase
             )
         );
     }
-	// End of user code
+    // End of user code
 }

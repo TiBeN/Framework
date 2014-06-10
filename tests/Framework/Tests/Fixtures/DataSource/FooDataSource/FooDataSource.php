@@ -48,17 +48,17 @@ class FooDataSource implements DataSource
         // TODO Auto-generated method stub
     }    
 
-	public static function getEntityMappingConfigurationClassName() 
+    public static function getEntityMappingConfigurationClassName() 
     {
         $namespace = 'TiBeN\\Framework\\Tests\\Fixtures\\DataSource\\FooDataSource';
-		return $namespace . '\\FooEntityMappingConfiguration';
-	}
+        return $namespace . '\\FooEntityMappingConfiguration';
+    }
 
-	public static function getAttributeMappingConfigurationClassName() 
+    public static function getAttributeMappingConfigurationClassName() 
     {
         $namespace = 'TiBeN\\Framework\\Tests\\Fixtures\\DataSource\\FooDataSource';
-	    return $namespace . '\\FooAttributeMappingConfiguration';
-	}	
+        return $namespace . '\\FooAttributeMappingConfiguration';
+    }   
     
     public function getSourceFolder() 
     {

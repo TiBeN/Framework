@@ -97,16 +97,16 @@ class ColumnNamesListStatement extends GenericCollection
     public static function createFromEntityAttributes(AssociativeArray $attributeMappings)
     {
         // Start of user code ColumnNamesListStatement.createFromEntityAttributes
-		$columnNamesListStatement = new self;
-		foreach($attributeMappings->toNativeArray() 
+        $columnNamesListStatement = new self;
+        foreach($attributeMappings->toNativeArray() 
             as $attributeName => $attributeMapping
         ) {
-		    $columnNamesListStatement->add(
+            $columnNamesListStatement->add(
                 $attributeMapping
-		            ->getDataSourceAttributeMappingConfiguration()
-		            ->getColumnName()
+                    ->getDataSourceAttributeMappingConfiguration()
+                    ->getColumnName()
             );
-		}
+        }
         // End of user code
     
         return $columnNamesListStatement;

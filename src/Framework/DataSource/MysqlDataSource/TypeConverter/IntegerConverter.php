@@ -37,8 +37,8 @@ class IntegerConverter implements TypeConverter
         $this->TType = $TType;
 
         // Start of user code IntegerConverter.constructor
-		$this->TType = 'integer';
-		$this->UType = 'string';
+        $this->TType = 'integer';
+        $this->UType = 'string';
         // End of user code
     }
 
@@ -104,7 +104,7 @@ class IntegerConverter implements TypeConverter
     public function setParameters(AssociativeArray $parameters)
     {
         // Start of user code TypeConverter.setParameters
-		// Nothing to do here
+        // Nothing to do here
         // End of user code
     }
 
@@ -114,7 +114,7 @@ class IntegerConverter implements TypeConverter
     public function getType()
     {
         // Start of user code TypeConverter.getType
-		$type = 'integer';
+        $type = 'integer';
         // End of user code
     
         return $type;
@@ -140,8 +140,8 @@ class IntegerConverter implements TypeConverter
     {
         $this->typeHint($this->TType, $itemToConvert);
         // Start of user code Converter.convert
-		if(is_null($itemToConvert)) return $itemToConvert;
-		$convertedItem = (string)$itemToConvert;
+        if(is_null($itemToConvert)) return $itemToConvert;
+        $convertedItem = (string)$itemToConvert;
         // End of user code
     
         return $convertedItem;
@@ -155,8 +155,8 @@ class IntegerConverter implements TypeConverter
     {
         $this->typeHint($this->UType, $itemToReverse);
         // Start of user code Converter.reverse
-		if(is_null($itemToReverse)) return $itemToReverse;
-		$reversedItem = (int)$itemToReverse;
+        if(is_null($itemToReverse)) return $itemToReverse;
+        $reversedItem = (int)$itemToReverse;
         // End of user code
     
         return $reversedItem;

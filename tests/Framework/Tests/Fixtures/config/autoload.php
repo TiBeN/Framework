@@ -9,7 +9,7 @@
  * @var String
  */
 $appPath = Registry::getVar('app', 'path')
-	. DIRECTORY_SEPARATOR
+    . DIRECTORY_SEPARATOR
 ;
 
 /**

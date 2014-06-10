@@ -133,14 +133,14 @@ class OrderByStatement extends AssociativeArray
 
     // Start of user code OrderByStatement.implementationSpecificMethods
 
-	/**
-	 * Hold direction mappings between the entity order criteria and Mysql order by statement
+    /**
+     * Hold direction mappings between the entity order criteria and Mysql order by statement
      *
-	 * @var array
-	 */	
-	public static $orderCriteriaOrderByDirectionMapping = array(
+     * @var array
+     */ 
+    public static $orderCriteriaOrderByDirectionMapping = array(
         OrderCriteria::DIRECTION_ASC => self::DIRECTION_ASC,
-        OrderCriteria::DIRECTION_DESC => self::DIRECTION_DESC	        		
-	);
+        OrderCriteria::DIRECTION_DESC => self::DIRECTION_DESC                   
+    );
     // End of user code
 }

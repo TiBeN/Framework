@@ -12,10 +12,10 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  */ 
 interface DataSourceAttributeMappingConfiguration
 {
-	/**
-	 * @param AssociativeArray $config
-	 * @return DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration
-	 */
-	public static function create(AssociativeArray $config);
+    /**
+     * @param AssociativeArray $config
+     * @return DataSourceAttributeMappingConfiguration $dataSourceAttributeMappingConfiguration
+     */
+    public static function create(AssociativeArray $config);
 
 }

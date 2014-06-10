@@ -114,15 +114,15 @@ class MysqlDataSource implements DataSource
     private function getConnection()
     {
         // Start of user code Getter MysqlDataSource.getConnection
-		if(!isset($this->connection)) {
-		    $this->connection = Driver::connect(
-    		    $this->getHost(), 
-    		    $this->getUserName(), 
-    		    $this->getPassword(), 
-    		    $this->getDatabaseName(),
-    		    $this->getPort()
+        if(!isset($this->connection)) {
+            $this->connection = Driver::connect(
+                $this->getHost(), 
+                $this->getUserName(), 
+                $this->getPassword(), 
+                $this->getDatabaseName(),
+                $this->getPort()
             );
-		}
+        }
         // End of user code
         return $this->connection;
     }
@@ -235,20 +235,20 @@ class MysqlDataSource implements DataSource
             $criteriaSet     
         );
 
-	    $statementResult = Driver::executeStatement(
+        $statementResult = Driver::executeStatement(
             $selectStatement, 
             $this->getConnection()
         );
-	    
-	    if ($statementResult->getSuccess() == false) {
-	        throw new \RuntimeException(
-	            sprintf(    
+        
+        if ($statementResult->getSuccess() == false) {
+            throw new \RuntimeException(
+                sprintf(    
                     'MysqlDataSource error %s : %s',
-	                $statementResult->getErrorCode(),
-                    $statementResult->getErrorMessage()	                        
-                )	                    	           
-	        );
-	    }
+                    $statementResult->getErrorCode(),
+                    $statementResult->getErrorMessage()                         
+                )                                      
+            );
+        }
 
         $rowToEntityConverter = new RowToEntityConverter();
         $rowToEntityConverter->setEntityMapping($entityMapping);
@@ -272,23 +272,23 @@ class MysqlDataSource implements DataSource
     public function update(EntityMapping $entityMapping, Entity $entity)
     {
         // Start of user code DataSource.update
-	    $updateStatement = StatementFactory
+        $updateStatement = StatementFactory
             ::createUpdateStatementFromEntity($entityMapping, $entity)
         ;
-	    $statementResult = Driver::executeStatement(
+        $statementResult = Driver::executeStatement(
             $updateStatement, 
             $this->getConnection()
         );
-	    
-	    if($statementResult->getSuccess() == false) {
-	        throw new \RuntimeException(
-	            sprintf(    
+        
+        if($statementResult->getSuccess() == false) {
+            throw new \RuntimeException(
+                sprintf(    
                     'MysqlDataSource error %s : %s',
-	                $statementResult->getErrorCode(),
-                    $statementResult->getErrorMessage()	                        
-                )	                    	           
-	        );
-	    }
+                    $statementResult->getErrorCode(),
+                    $statementResult->getErrorMessage()                         
+                )                                      
+            );
+        }
 
         if ($statementResult->getNumberOfAffectedRows() !== 1) {
             throw new \LogicException(
@@ -308,26 +308,26 @@ class MysqlDataSource implements DataSource
     public function create(EntityMapping $entityMapping, Entity $entity)
     {
         // Start of user code DataSource.create
-	    $insertStatement = StatementFactory::createInsertStatement($entityMapping, $entity);
-	    $statementResult = Driver::executeStatement(
+        $insertStatement = StatementFactory::createInsertStatement($entityMapping, $entity);
+        $statementResult = Driver::executeStatement(
             $insertStatement, 
             $this->getConnection()
         );
-	    
-	    if($statementResult->getSuccess() == false) {
-	        throw new \RuntimeException(
-	            sprintf(    
+        
+        if($statementResult->getSuccess() == false) {
+            throw new \RuntimeException(
+                sprintf(    
                     'MysqlDataSource error %s : %s',
-	                $statementResult->getErrorCode(),
-                    $statementResult->getErrorMessage()	                        
-                )	                    	           
-	        );
-	    }
-	    
-	    $mapper = new MysqlEntityAttributeMapper();
-	    $mapper->setEntity($entity);
-	    $mapper->setEntityMapping($entityMapping);
-	    $mapper->setIdentifier($statementResult->getLastInsertId());
+                    $statementResult->getErrorCode(),
+                    $statementResult->getErrorMessage()                         
+                )                                      
+            );
+        }
+        
+        $mapper = new MysqlEntityAttributeMapper();
+        $mapper->setEntity($entity);
+        $mapper->setEntityMapping($entityMapping);
+        $mapper->setIdentifier($statementResult->getLastInsertId());
         // End of user code
     }
 
@@ -341,7 +341,7 @@ class MysqlDataSource implements DataSource
     {
         // Start of user code DataSource.getAttributeMappingConfigurationClassName
         $namespace = 'TiBeN\\Framework\\DataSource\\MysqlDataSource';
-		$className = $namespace . '\\MysqlAttributeConfiguration';
+        $className = $namespace . '\\MysqlAttributeConfiguration';
         // End of user code
     
         return $className;
@@ -372,21 +372,21 @@ class MysqlDataSource implements DataSource
     public function delete(EntityMapping $entityMapping, Entity $entity)
     {
         // Start of user code DataSource.delete
-	    $deleteStatement = StatementFactory::createDeleteStatement($entityMapping, $entity);
-	    $statementResult = Driver::executeStatement(
+        $deleteStatement = StatementFactory::createDeleteStatement($entityMapping, $entity);
+        $statementResult = Driver::executeStatement(
             $deleteStatement, 
             $this->getConnection()
         );
-	    
-	    if ($statementResult->getSuccess() == false) {
-	        throw new \RuntimeException(
-	            sprintf(    
+        
+        if ($statementResult->getSuccess() == false) {
+            throw new \RuntimeException(
+                sprintf(    
                     'MysqlDataSource error %s : %s',
-	                $statementResult->getErrorCode(),
-                    $statementResult->getErrorMessage()	                        
-                )	                    	           
-	        );
-	    }
+                    $statementResult->getErrorCode(),
+                    $statementResult->getErrorMessage()                         
+                )                                      
+            );
+        }
 
         if ($statementResult->getNumberOfAffectedRows() !== 1) {
             throw new \LogicException(

@@ -54,15 +54,15 @@ class CriteriaSet
     public function __construct()
     {
         // Start of user code CriteriaSet.constructor
-		$this->matchCriterias = new GenericCollection(
+        $this->matchCriterias = new GenericCollection(
             'TiBeN\\Framework\\Entity\\MatchCriteria'
         );
-		$this->criteriaSets = new GenericCollection(
+        $this->criteriaSets = new GenericCollection(
             'TiBeN\\Framework\\Entity\\CriteriaSet'
         );
-		$this->orderCriterias = new GenericCollection(
+        $this->orderCriterias = new GenericCollection(
             'TiBeN\\Framework\\Entity\\OrderCriteria'
-        );	
+        );  
         // End of user code
     }
 
@@ -180,8 +180,8 @@ class CriteriaSet
     public function addOrder(OrderCriteria $orderCriteria)
     {
         // Start of user code CriteriaSet.addOrder
-		$this->orderCriterias->add($orderCriteria);
-		return $this; 
+        $this->orderCriterias->add($orderCriteria);
+        return $this; 
         // End of user code
     }
 
@@ -206,8 +206,8 @@ class CriteriaSet
     public function setLimit(LimitCriteria $limitCriteria)
     {
         // Start of user code CriteriaSet.setLimit
-		$this->limitCriteria = $limitCriteria;
-		return $this;
+        $this->limitCriteria = $limitCriteria;
+        return $this;
         // End of user code
     }
 
@@ -219,8 +219,8 @@ class CriteriaSet
     public function addSubSet(CriteriaSet $criteriaSet)
     {
         // Start of user code CriteriaSet.addSubSet
-		$this->criteriaSets->add($criteriaSet);
-		return $this; 
+        $this->criteriaSets->add($criteriaSet);
+        return $this; 
         // End of user code
     }
 
@@ -233,8 +233,8 @@ class CriteriaSet
     public static function createOr()
     {
         // Start of user code CriteriaSet.createOr
-		$criteriaSet = new self();
-		$criteriaSet->setLogicalSeparator(self::LOGICAL_SEPARATOR_OR); 
+        $criteriaSet = new self();
+        $criteriaSet->setLogicalSeparator(self::LOGICAL_SEPARATOR_OR); 
         // End of user code
     
         return $criteriaSet;
@@ -274,8 +274,8 @@ class CriteriaSet
     public static function createAnd()
     {
         // Start of user code CriteriaSet.createAnd
-		$criteriaSet = new self();
-		$criteriaSet->setLogicalSeparator(self::LOGICAL_SEPARATOR_AND); 
+        $criteriaSet = new self();
+        $criteriaSet->setLogicalSeparator(self::LOGICAL_SEPARATOR_AND); 
         // End of user code
     
         return $criteriaSet;

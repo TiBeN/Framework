@@ -166,7 +166,7 @@ class SelectStatement implements Statement
     public function isReadyToBeExecuted()
     {
         // Start of user code Statement.isReadyToBeExecuted
-		$status = $this->selectExpr instanceof SelectExpr 
+        $status = $this->selectExpr instanceof SelectExpr 
             && !is_null($this->tableReferences)
             && !empty($this->tableReferences)
         ;
@@ -185,7 +185,7 @@ class SelectStatement implements Statement
     public function getStatementParameters()
     {
         // Start of user code Statement.getStatementParameters
-		$statementParameters = !is_null($this->whereConditions)
+        $statementParameters = !is_null($this->whereConditions)
             ? $this->whereConditions->getStatementParameters()
             : new AssociativeArray()
         ;    
@@ -202,24 +202,24 @@ class SelectStatement implements Statement
     public function toString()
     {
         // Start of user code Statement.toString
-	    if(!$this->isReadyToBeExecuted()) {
-	        throw new \LogicException('The statement is not ready');
-	    }		
-	    
-		$statement = sprintf(
+        if(!$this->isReadyToBeExecuted()) {
+            throw new \LogicException('The statement is not ready');
+        }       
+        
+        $statement = sprintf(
             'SELECT %s FROM %s', 
             $this->selectExpr->toString(),
-            $this->tableReferences                        		        
-        );	    
-		if($this->whereConditions instanceof WhereConditions) {
-		    $statement .= ' ' . $this->whereConditions->toString();
-		}
-		if($this->orderByStatement instanceof OrderByStatement) {
-		    $statement .= ' ' . $this->orderByStatement->toString();
-		}
-		if($this->limitStatement instanceof LimitStatement) {
-		    $statement .= ' ' . $this->limitStatement->toString();
-		}
+            $this->tableReferences                                      
+        );      
+        if($this->whereConditions instanceof WhereConditions) {
+            $statement .= ' ' . $this->whereConditions->toString();
+        }
+        if($this->orderByStatement instanceof OrderByStatement) {
+            $statement .= ' ' . $this->orderByStatement->toString();
+        }
+        if($this->limitStatement instanceof LimitStatement) {
+            $statement .= ' ' . $this->limitStatement->toString();
+        }
         // End of user code
     
         return $statement;

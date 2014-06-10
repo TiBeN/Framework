@@ -24,21 +24,21 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class DeleteStatementTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code DeleteStatementTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code DeleteStatementTest.setUp
-		// Place additional setUp code here.  
-		// End of user code
+        // Place additional setUp code here.  
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code DeleteStatementTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     
@@ -56,7 +56,7 @@ class DeleteStatementTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($deleteStatement->isReadyToBeExecuted());
         $deleteStatement->setTableName('some_table');
         $this->assertTrue($deleteStatement->isReadyToBeExecuted());
-    	// End of user code
+        // End of user code
     }
     
     /**
@@ -69,7 +69,7 @@ class DeleteStatementTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code Statement.testgetStatementParameters
         // Case covered by testToString
-    	// End of user code
+        // End of user code
     }
     
     /**
@@ -103,13 +103,13 @@ class DeleteStatementTest extends \PHPUnit_Framework_TestCase
             NULL, 
             array('bar' => 1337)
         );
-	    $this->assertEquals(
+        $this->assertEquals(
             $expectedParameters, 
             $deleteStatement->getStatementParameters()
         );
-    	// End of user code
+        // End of user code
     }
 
     // Start of user code DeleteStatementTest.methods
-	// End of user code
+    // End of user code
 }

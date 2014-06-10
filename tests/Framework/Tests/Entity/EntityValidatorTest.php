@@ -26,30 +26,30 @@ use TiBeN\Framework\Entity\EntityMappingsRegistry;
 class EntityValidatorTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code EntityValidatorTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code EntityValidatorTest.setUp
-		MysqlDataSourceTestSetupTearDown::declareSomeEntityMapping();
+        MysqlDataSourceTestSetupTearDown::declareSomeEntityMapping();
         MysqlDataSourceTestSetupTearDown::declareBuiltInValidators();
-		// End of user code
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code EntityValidatorTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     /**
      * Test method validate from class EntityValidator
      *
      * Start of user code EntityValidatorTest.testvalidateAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testValidate()
     {
@@ -99,7 +99,7 @@ class EntityValidatorTest extends \PHPUnit_Framework_TestCase
                 $someEntity
             )
         );
-		// End of user code
+        // End of user code
     }
 
     // Start of user code EntityValidatorTest.methods

@@ -18,31 +18,31 @@ use TiBeN\Framework\Datatype\Converter;
  */ 
 interface TypeConverter extends Converter
 {
-	/**
-	 * @param AssociativeArray $parameters
-	 */
-	public function setParameters(AssociativeArray $parameters);
+    /**
+     * @param AssociativeArray $parameters
+     */
+    public function setParameters(AssociativeArray $parameters);
 
-	/**
-	 * @return string $type
-	 */
-	public function getType();
+    /**
+     * @return string $type
+     */
+    public function getType();
 
-	/**
-	 * @return string $dataSourceType
-	 */
-	public function getDataSourceType();
+    /**
+     * @return string $dataSourceType
+     */
+    public function getDataSourceType();
 
-	/**
-	 * @param T $itemToConvert
-	 * @return U $convertedItem
-	 */
-	public function convert($itemToConvert);
+    /**
+     * @param T $itemToConvert
+     * @return U $convertedItem
+     */
+    public function convert($itemToConvert);
 
-	/**
-	 * @param U $itemToReverse
-	 * @return T $reversedItem
-	 */
-	public function reverse($itemToReverse);
+    /**
+     * @param U $itemToReverse
+     * @return T $reversedItem
+     */
+    public function reverse($itemToReverse);
 
 }

@@ -26,7 +26,7 @@ class TemplateRendererTest extends \PHPUnit_Framework_TestCase
     private $fixturesDirectory;
 
     private $tempDirectory;
-	// End of user code
+    // End of user code
 
     public function setUp()
     {
@@ -35,14 +35,14 @@ class TemplateRendererTest extends \PHPUnit_Framework_TestCase
             . '/../Fixtures/Renderer/smarty_templates'
         ;
         $this->tempDirectory = sys_get_temp_dir();
-		// End of user code
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code TemplateRendererTest.tearDown
 
-		// Delete smarty temporary directory content
+        // Delete smarty temporary directory content
         $smartyTempDir = $this->tempDirectory 
             . DIRECTORY_SEPARATOR 
             . 'smarty'
@@ -66,7 +66,7 @@ class TemplateRendererTest extends \PHPUnit_Framework_TestCase
                 unlink($filename);
             }
         }
-		// End of user code
+        // End of user code
     }
     
     /**
@@ -87,25 +87,25 @@ class TemplateRendererTest extends \PHPUnit_Framework_TestCase
      * Test static method render from class TemplateRenderer
      *
      * Start of user code TemplateRendererTest.testrenderAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testRender()
     {
         // Start of user code TemplateRendererTest.testrender
-	    $smartyEngine = new SmartyEngine();
+        $smartyEngine = new SmartyEngine();
         $smartyEngine->setTempDirectory($this->tempDirectory);
         TemplateRenderer::setDefaultTemplateEngine($smartyEngine); 
         TemplateRenderer::setDefaultTemplatesDirectory($this->fixturesDirectory);
 
-		$this->assertEquals(
-			file_get_contents(
+        $this->assertEquals(
+            file_get_contents(
                 $this->fixturesDirectory 
                 . DIRECTORY_SEPARATOR 
                 . 'smarty_template_without_vars_rendered.html'
             ),
-			TemplateRenderer::render('smarty_template_without_vars.tpl')
-		);
+            TemplateRenderer::render('smarty_template_without_vars.tpl')
+        );
         // End of user code
     }
 
@@ -125,8 +125,8 @@ class TemplateRendererTest extends \PHPUnit_Framework_TestCase
             'foo' => 'bar',
             'foo2' => 'bar2'
         );    
-		$this->assertEquals(
-			file_get_contents(
+        $this->assertEquals(
+            file_get_contents(
                 $this->fixturesDirectory 
                 . DIRECTORY_SEPARATOR 
                 . 'smarty_template_with_vars_rendered.html'
@@ -135,7 +135,7 @@ class TemplateRendererTest extends \PHPUnit_Framework_TestCase
                 'smarty_template_with_vars.tpl',
                 AssociativeArray::createFromNativeArray(null, $variables)
             )
-		);
+        );
     }
 
     /**
@@ -148,22 +148,22 @@ class TemplateRendererTest extends \PHPUnit_Framework_TestCase
         TemplateRenderer::setDefaultTemplateEngine($smartyEngine); 
         TemplateRenderer::setDefaultTemplatesDirectory($this->fixturesDirectory);
 
-		$variables = array(
+        $variables = array(
             'foo' => 'bar',
             'foo2' => 'bar2'
         );
-		TemplateRenderer::getGlobals()->set('foo3', 'bar3');
-		$this->assertEquals(
-			file_get_contents(
+        TemplateRenderer::getGlobals()->set('foo3', 'bar3');
+        $this->assertEquals(
+            file_get_contents(
                 $this->fixturesDirectory 
                 . DIRECTORY_SEPARATOR 
                 . 'smarty_template_with_globals_vars_rendered.html'
             ),
-			TemplateRenderer::render(
+            TemplateRenderer::render(
                 'smarty_template_with_globals_vars.tpl', 
                 AssociativeArray::createFromNativeArray(null, $variables)
             )
-		);
+        );
     }
-	// End of user code
+    // End of user code
 }

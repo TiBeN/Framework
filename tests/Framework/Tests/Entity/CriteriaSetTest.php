@@ -25,29 +25,29 @@ use TiBeN\Framework\Datatype\GenericCollection;
 class CriteriaSetTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code CriteriaSetTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code CriteriaSetTest.setUp
-		// Place additional setUp code here.  
-		// End of user code
+        // Place additional setUp code here.  
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code CriteriaSetTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     /**
      * Test method addOrder from class CriteriaSet
      *
      * Start of user code CriteriaSetTest.testaddOrderAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testAddOrder()
     {
@@ -69,42 +69,42 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
             $expectedOrderCriteriaCollection, 
             $criteriaSet->getOrderCriterias()
         );
-		// End of user code
+        // End of user code
     }
     
     /**
      * Test method add from class CriteriaSet
      *
      * Start of user code CriteriaSetTest.testaddAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testAdd()
     {
         // Start of user code CriteriaSetTest.testadd
-	    $matchCriteria = MatchCriteria::equals('foo', 'bar');
-	    
-	    $expectedMatchCriteriaCollection = new GenericCollection(
+        $matchCriteria = MatchCriteria::equals('foo', 'bar');
+        
+        $expectedMatchCriteriaCollection = new GenericCollection(
             'TiBeN\\Framework\\Entity\\MatchCriteria'
         );
-	    $expectedMatchCriteriaCollection->add($matchCriteria);
-	    
-	    $criteriaSet = new CriteriaSet();
-	    $criteriaSet->add($matchCriteria);
-	    
-	    $this->assertEquals(
+        $expectedMatchCriteriaCollection->add($matchCriteria);
+        
+        $criteriaSet = new CriteriaSet();
+        $criteriaSet->add($matchCriteria);
+        
+        $this->assertEquals(
             $expectedMatchCriteriaCollection, 
             $criteriaSet->getMatchCriterias()
-        );	    
-		// End of user code
+        );      
+        // End of user code
     }
     
     /**
      * Test method setLimit from class CriteriaSet
      *
      * Start of user code CriteriaSetTest.testsetLimitAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testSetLimit()
     {
@@ -113,15 +113,15 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
         $limitCriteria = LimitCriteria::to(1337);
         $criteriaSet->setLimit($limitCriteria);
         $this->assertEquals($limitCriteria, $criteriaSet->getLimitCriteria());
-		// End of user code
+        // End of user code
     }
     
     /**
      * Test method addSubSet from class CriteriaSet
      *
      * Start of user code CriteriaSetTest.testaddSubSetAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testAddSubSet()
     {
@@ -141,23 +141,23 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
             $expectedCriteriaSetCollection, 
             $rootCriteriaSet->getCriteriaSets()
         );
-		// End of user code
+        // End of user code
     }
     
     /**
      * Test static method createOr from class CriteriaSet
      *
      * Start of user code CriteriaSetTest.testcreateOrAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testCreateOr()
     {
         // Start of user code CriteriaSetTest.testcreateOr
-	    $expectedCriteriaSet = new CriteriaSet();
-	    $expectedCriteriaSet->setLogicalSeparator(CriteriaSet::LOGICAL_SEPARATOR_OR);
-	    $this->assertEquals($expectedCriteriaSet, CriteriaSet::createOr());
-		// End of user code
+        $expectedCriteriaSet = new CriteriaSet();
+        $expectedCriteriaSet->setLogicalSeparator(CriteriaSet::LOGICAL_SEPARATOR_OR);
+        $this->assertEquals($expectedCriteriaSet, CriteriaSet::createOr());
+        // End of user code
     }
     
     /**
@@ -189,8 +189,8 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
      * Test static method createAnd from class CriteriaSet
      *
      * Start of user code CriteriaSetTest.testcreateAndAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testCreateAnd()
     {
@@ -198,10 +198,10 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
         $expectedCriteriaSet = new CriteriaSet();
         $expectedCriteriaSet->setLogicalSeparator(CriteriaSet::LOGICAL_SEPARATOR_AND);
         $this->assertEquals($expectedCriteriaSet, CriteriaSet::createAnd());
-		// End of user code
+        // End of user code
     }
 
     // Start of user code CriteriaSetTest.methods
-	// Place additional tests methods here.  
-	// End of user code
+    // Place additional tests methods here.  
+    // End of user code
 }

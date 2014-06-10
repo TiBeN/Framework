@@ -41,8 +41,8 @@ class GenericCollection implements Collection
         $this->TType = $TType;
 
         // Start of user code GenericCollection.constructor
-		$this->items = array();		
-		$this->isReadOnly = false;
+        $this->items = array();     
+        $this->isReadOnly = false;
         // End of user code
     }
 
@@ -159,11 +159,11 @@ class GenericCollection implements Collection
     public static function createFromNativeArray($type = NULL, array $nativeArray)
     {
         // Start of user code GenericCollection.createFromNativeArray
-		$className = get_called_class();
-		$genericCollection = new $className($type);
-		foreach($nativeArray as $item) {
-			$genericCollection->add($item);
-		}
+        $className = get_called_class();
+        $genericCollection = new $className($type);
+        foreach($nativeArray as $item) {
+            $genericCollection->add($item);
+        }
         // End of user code
     
         return $genericCollection;
@@ -181,12 +181,12 @@ class GenericCollection implements Collection
     {
         $this->typeHint($this->TType, $itemToSet);
         // Start of user code Collection.set
-		if($this->isReadOnly) {
-			throw new \LogicException(
+        if($this->isReadOnly) {
+            throw new \LogicException(
                 'Setting an item to a read only collection is not allowed'
             );
-		}
-		$this->items[$key] = $itemToSet;
+        }
+        $this->items[$key] = $itemToSet;
         // End of user code
     }
 
@@ -196,7 +196,7 @@ class GenericCollection implements Collection
     public function clear()
     {
         // Start of user code Collection.clear
-		$this->items = array();
+        $this->items = array();
         // End of user code
     }
 
@@ -208,7 +208,7 @@ class GenericCollection implements Collection
     public function key()
     {
         // Start of user code Iterator.key
-		$key = key($this->items);
+        $key = key($this->items);
         // End of user code
     
         return $key;
@@ -220,7 +220,7 @@ class GenericCollection implements Collection
     public function next()
     {
         // Start of user code Iterator.next
-		next($this->items);
+        next($this->items);
         // End of user code
     }
 
@@ -233,7 +233,7 @@ class GenericCollection implements Collection
     public function hasKey($key)
     {
         // Start of user code Collection.hasKey
-		$boolean = isset($this->items[$key]);
+        $boolean = isset($this->items[$key]);
         // End of user code
     
         return $boolean;
@@ -247,7 +247,7 @@ class GenericCollection implements Collection
     public function isEmpty()
     {
         // Start of user code Collection.isEmpty
-		$boolean = empty($this->items);
+        $boolean = empty($this->items);
         // End of user code
     
         return $boolean;
@@ -259,7 +259,7 @@ class GenericCollection implements Collection
     public function valid()
     {
         // Start of user code Iterator.valid
-		$boolean = current($this->items) !== false;
+        $boolean = current($this->items) !== false;
         // End of user code
     
         return $boolean;
@@ -273,7 +273,7 @@ class GenericCollection implements Collection
     public function count()
     {
         // Start of user code Countable.count
-		$numberOfItems = count($this->items);
+        $numberOfItems = count($this->items);
         // End of user code
     
         return $numberOfItems;
@@ -285,7 +285,7 @@ class GenericCollection implements Collection
     public function rewind()
     {
         // Start of user code Iterator.rewind
-		reset($this->items);		 
+        reset($this->items);         
         // End of user code
     }
 
@@ -298,17 +298,17 @@ class GenericCollection implements Collection
     public function get($key)
     {
         // Start of user code Collection.get
-		if(!is_int($key)) {
-			throw new \InvalidArgumentException(
+        if(!is_int($key)) {
+            throw new \InvalidArgumentException(
                 'the value of the key passed is not an integer'
             );
-		}
-		if(!isset($this->items[$key])) {
-			throw new \InvalidArgumentException(
+        }
+        if(!isset($this->items[$key])) {
+            throw new \InvalidArgumentException(
                 sprintf('This collection contain no item at key %s', $key)
             );
-		} 
-		$item = $this->items[$key];
+        } 
+        $item = $this->items[$key];
         // End of user code
     
         return $item;
@@ -322,7 +322,7 @@ class GenericCollection implements Collection
     public function setAsReadOnly($boolean)
     {
         // Start of user code Collection.setAsReadOnly
-		$this->isReadOnly = $boolean; 
+        $this->isReadOnly = $boolean; 
         // End of user code
     }
 
@@ -336,23 +336,23 @@ class GenericCollection implements Collection
     public function remove($key)
     {
         // Start of user code Collection.remove
-		if($this->isReadOnly) {
-			throw new \LogicException(
+        if($this->isReadOnly) {
+            throw new \LogicException(
                 'Removing an item to a read only collection is not allowed'
             );
-		}		
-		if(!is_int($key)) {
-			throw new \InvalidArgumentException(
+        }       
+        if(!is_int($key)) {
+            throw new \InvalidArgumentException(
                 'the value of the key passed is not an integer'
             );
-		}
-		if(empty($this->items[$key])) {
-			throw new \InvalidArgumentException(
+        }
+        if(empty($this->items[$key])) {
+            throw new \InvalidArgumentException(
                 sprintf('This collection contain no item at key %s', $key)
             );
-		}
-		$removedItem = $this->items[$key];
-		unset($this->items[$key]);
+        }
+        $removedItem = $this->items[$key];
+        unset($this->items[$key]);
         // End of user code
     
         return $removedItem;
@@ -366,7 +366,7 @@ class GenericCollection implements Collection
     public function isReadOnly()
     {
         // Start of user code Collection.isReadOnly
-		$boolean = $this->isReadOnly;
+        $boolean = $this->isReadOnly;
         // End of user code
     
         return $boolean;
@@ -380,7 +380,7 @@ class GenericCollection implements Collection
     public function current()
     {
         // Start of user code Iterator.current
-		$currentItem = current($this->items);	
+        $currentItem = current($this->items);   
         // End of user code
     
         return $currentItem;
@@ -395,25 +395,25 @@ class GenericCollection implements Collection
     {
         $this->typeHint($this->TType, $itemToAdd);
         // Start of user code Collection.add
-		if($this->isReadOnly) {
-			throw new \LogicException(
+        if($this->isReadOnly) {
+            throw new \LogicException(
                 'Adding an item to a read only collection is not allowed'
             );
-		}
-		if(isset($this->itemType) && get_class($itemToAdd) != $this->itemType) {
-			throw new \InvalidArgumentException(
-				'The type of the item to add doesn\'t match the type of the collection'
-			);
-		}
-		if(empty($this->items)) {
-			$newIndex = 0;
-		}
-		else {
-			end($this->items);
-			$newIndex = key($this->items)+1;
-			reset($this->items);
-		}			
-		return $this->set($newIndex, $itemToAdd);
+        }
+        if(isset($this->itemType) && get_class($itemToAdd) != $this->itemType) {
+            throw new \InvalidArgumentException(
+                'The type of the item to add doesn\'t match the type of the collection'
+            );
+        }
+        if(empty($this->items)) {
+            $newIndex = 0;
+        }
+        else {
+            end($this->items);
+            $newIndex = key($this->items)+1;
+            reset($this->items);
+        }           
+        return $this->set($newIndex, $itemToAdd);
         // End of user code
     }
 

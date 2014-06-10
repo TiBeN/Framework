@@ -21,21 +21,21 @@ use TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\IntegerConverter;
 class IntegerConverterTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code IntegerConverterTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code IntegerConverterTest.setUp
-		// Place additional setUp code here.  
-		// End of user code
+        // Place additional setUp code here.  
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code IntegerConverterTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     
@@ -49,8 +49,8 @@ class IntegerConverterTest extends \PHPUnit_Framework_TestCase
     public function testSetParameters()
     {
         // Start of user code TypeConverter.testsetParameters
-	    // Nothing to test here
-    	// End of user code
+        // Nothing to test here
+        // End of user code
     }
     
     /**
@@ -62,9 +62,9 @@ class IntegerConverterTest extends \PHPUnit_Framework_TestCase
     public function testGetType()
     {
         // Start of user code TypeConverter.testgetType
-		$converter = new IntegerConverter();
-	    $this->assertEquals('integer', $converter->getType());
-    	// End of user code
+        $converter = new IntegerConverter();
+        $this->assertEquals('integer', $converter->getType());
+        // End of user code
     }
     
     /**
@@ -76,9 +76,9 @@ class IntegerConverterTest extends \PHPUnit_Framework_TestCase
     public function testGetDataSourceType()
     {
         // Start of user code TypeConverter.testgetDataSourceType
-		$converter = new IntegerConverter();
-	    $this->assertEquals('mysql', $converter->getDataSourceType());
-    	// End of user code
+        $converter = new IntegerConverter();
+        $this->assertEquals('mysql', $converter->getDataSourceType());
+        // End of user code
     }
     
     /**
@@ -92,7 +92,7 @@ class IntegerConverterTest extends \PHPUnit_Framework_TestCase
         // Start of user code Converter.testconvert
         $converter = new IntegerConverter();
         $this->assertSame('1337', $converter->convert(1337));
-    	// End of user code
+        // End of user code
     }
     
     /**
@@ -106,10 +106,10 @@ class IntegerConverterTest extends \PHPUnit_Framework_TestCase
         // Start of user code Converter.testreverse
         $converter = new IntegerConverter();
         $this->assertSame(1337, $converter->reverse('1337'));
-    	// End of user code
+        // End of user code
     }
 
     // Start of user code IntegerConverterTest.methods
-	// Place additional tests methods here.  
-	// End of user code
+    // Place additional tests methods here.  
+    // End of user code
 }

@@ -67,11 +67,11 @@ class MysqlEntityConfiguration implements DataSourceEntityMappingConfiguration
     public static function create(AssociativeArray $config)
     {
         // Start of user code DataSourceEntityMappingConfiguration.create
-		if(!$config->has('tableName')) {
-		    throw new \InvalidArgumentException('No table name set');
-		}
-		$dataSourceEntityMappingConfiguration = new self();
-		$dataSourceEntityMappingConfiguration->setTableName($config->get('tableName'));
+        if(!$config->has('tableName')) {
+            throw new \InvalidArgumentException('No table name set');
+        }
+        $dataSourceEntityMappingConfiguration = new self();
+        $dataSourceEntityMappingConfiguration->setTableName($config->get('tableName'));
         // End of user code
     
         return $dataSourceEntityMappingConfiguration;

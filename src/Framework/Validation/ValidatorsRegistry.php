@@ -39,11 +39,11 @@ class ValidatorsRegistry
     private static function getValidators()
     {
         // Start of user code Static getter ValidatorsRegistry.getValidators
-	    if(!isset(self::$validators)) {
-	        self::$validators = new AssociativeArray(
+        if(!isset(self::$validators)) {
+            self::$validators = new AssociativeArray(
                 'TiBeN\\Framework\\Validation\\Validator'
             );
-	    }		
+        }       
         // End of user code
         return self::$validators;
     }
@@ -121,8 +121,8 @@ class ValidatorsRegistry
                     $name                
                 )
             );
-		}
-		$validator = self::getValidators()->get($name);
+        }
+        $validator = self::getValidators()->get($name);
         // End of user code
     
         return $validator;

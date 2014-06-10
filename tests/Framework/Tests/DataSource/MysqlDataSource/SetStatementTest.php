@@ -25,58 +25,58 @@ use TiBeN\Framework\Tests\Fixtures\Entity\SomeEntity;
 class SetStatementTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code SetStatementTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code SetStatementTest.setUp
-		MysqlDataSourceTestSetupTearDown::declareSomeEntityMapping();
+        MysqlDataSourceTestSetupTearDown::declareSomeEntityMapping();
         MysqlDataSourceTestSetupTearDown::declareBuiltInTypeConverters();
-		// End of user code
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code SetStatementTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     /**
      * Test method getStatementParameters from class SetStatement
      *
      * Start of user code SetStatementTest.testgetStatementParametersAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testGetStatementParameters()
     {
         // Start of user code SetStatementTest.testgetStatementParameters
-	    // Implicitly tested by testCreateKeyValueListFromEntity
-		// End of user code
+        // Implicitly tested by testCreateKeyValueListFromEntity
+        // End of user code
     }
     
     /**
      * Test method toString from class SetStatement
      *
      * Start of user code SetStatementTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testToString()
     {
         // Start of user code SetStatementTest.testtoString
-	    // Implicitly tested by testCreateKeyValueListFromEntity
-		// End of user code
+        // Implicitly tested by testCreateKeyValueListFromEntity
+        // End of user code
     }
     
     /**
      * Test static method createKeyValueListFromEntity from class SetStatement
      *
      * Start of user code SetStatementTest.testcreateKeyValueListFromEntityAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testCreateKeyValueListFromEntity()
     {
@@ -93,7 +93,7 @@ class SetStatementTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedStatement, $setStatement->toString());
 
         $expectedStatementParameters = AssociativeArray::createFromNativeArray(null, array(
-        	'idTable' => '10',
+            'idTable' => '10',
             'a' => 'someValue',
             'b' => null,
             'c' => 'someValue'
@@ -103,10 +103,10 @@ class SetStatementTest extends \PHPUnit_Framework_TestCase
             $expectedStatementParameters, 
             $setStatement->getStatementParameters()
         );
-		// End of user code
+        // End of user code
     }
 
     // Start of user code SetStatementTest.methods
-	// Place additional tests methods here.  
-	// End of user code
+    // Place additional tests methods here.  
+    // End of user code
 }

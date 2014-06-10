@@ -118,7 +118,7 @@ class UpdateStatement implements Statement
         $status = !is_null($this->tableName)
             && !empty($this->tableName)
             && $this->setStatement instanceof SetStatement
-        ;                                                               	    
+        ;                                                                       
         // End of user code
     
         return $status;
@@ -154,13 +154,13 @@ class UpdateStatement implements Statement
     public function toString()
     {
         // Start of user code Statement.toString
-	    if(!$this->isReadyToBeExecuted()) {
+        if(!$this->isReadyToBeExecuted()) {
             throw new \LogicException('The statement is not ready');    
         }        
         $statement = sprintf(
             'UPDATE %s %s',
             $this->tableName,
-            $this->setStatement->toString()                                            	           
+            $this->setStatement->toString()                                                        
         );        
         if(!is_null($this->whereDefinition)) {
             $statement .= ' ' . $this->whereDefinition->toString();

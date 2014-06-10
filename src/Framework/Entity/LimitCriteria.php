@@ -87,9 +87,9 @@ class LimitCriteria
     public static function to($number, $offset = NULL)
     {
         // Start of user code LimitCriteria.to
-		$limitCriteria = new self();
-		$limitCriteria->setNumber($number);
-		$limitCriteria->setOffset($offset);
+        $limitCriteria = new self();
+        $limitCriteria->setNumber($number);
+        $limitCriteria->setOffset($offset);
         // End of user code
     
         return $limitCriteria;

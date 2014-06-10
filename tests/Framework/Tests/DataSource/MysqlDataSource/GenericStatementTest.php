@@ -21,35 +21,35 @@ use TiBeN\Framework\DataSource\MysqlDataSource\GenericStatement;
 class GenericStatementTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code GenericStatementTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code GenericStatementTest.setUp
-		// Place additional setUp code here.  
-		// End of user code
+        // Place additional setUp code here.  
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code GenericStatementTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     /**
      * Test method setStatementParameters from class GenericStatement
      *
      * Start of user code GenericStatementTest.testsetStatementParametersAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testSetStatementParameters()
     {
         // Start of user code GenericStatementTest.testsetStatementParameters
         // Simple setter, nothing to test here
-		// End of user code
+        // End of user code
     }
 
     /**
@@ -62,10 +62,10 @@ class GenericStatementTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code Statement.testisReadyToBeExecuted
         $statement = new GenericStatement();
-		$this->assertFalse($statement->isReadyToBeExecuted());
-		$statement->setStatementString('SELECT * FROM `some_table`');
-		$this->assertTrue($statement->isReadyToBeExecuted());
-    	// End of user code
+        $this->assertFalse($statement->isReadyToBeExecuted());
+        $statement->setStatementString('SELECT * FROM `some_table`');
+        $this->assertTrue($statement->isReadyToBeExecuted());
+        // End of user code
     }
     
     /**
@@ -78,7 +78,7 @@ class GenericStatementTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code Statement.testgetStatementParameters
         // Simple getter, nothing to test here
-    	// End of user code
+        // End of user code
     }
     
     /**
@@ -91,27 +91,27 @@ class GenericStatementTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code Statement.testtoString
         $genericStatement = new GenericStatement();
-		$statementString = 'SELECT * FROM `some_test_table`';
-		$genericStatement->setStatementString($statementString);
-		$this->assertEquals($statementString, $genericStatement->toString());
-    	// End of user code
+        $statementString = 'SELECT * FROM `some_test_table`';
+        $genericStatement->setStatementString($statementString);
+        $this->assertEquals($statementString, $genericStatement->toString());
+        // End of user code
     }
 
     // Start of user code GenericStatementTest.methods
     
-	/**
-	 * Test statement->getStatementParameters return an empty AssociativeArray when called 
-	 * on a GenericStatement instance that don't have any statement parameters.
-	 */
-	public function testEmptyStatementParametersAssociativeArray()
-	{ 
-		$statement = new GenericStatement();
-		$statementParameters = $statement->getStatementParameters();
-		$this->assertInstanceOf(
+    /**
+     * Test statement->getStatementParameters return an empty AssociativeArray when called 
+     * on a GenericStatement instance that don't have any statement parameters.
+     */
+    public function testEmptyStatementParametersAssociativeArray()
+    { 
+        $statement = new GenericStatement();
+        $statementParameters = $statement->getStatementParameters();
+        $this->assertInstanceOf(
             'TiBeN\\Framework\\Datatype\\AssociativeArray', 
             $statementParameters
         );
-		$this->assertTrue($statementParameters->isEmpty());
-	}
-	// End of user code
+        $this->assertTrue($statementParameters->isEmpty());
+    }
+    // End of user code
 }

@@ -11,20 +11,20 @@ namespace TiBeN\Framework\Validation;
  */ 
 interface Validator
 {
-	/**
-	 * Return the name of the validator.
-	 *
-	 * @return string $name
-	 */
-	public function getName();
+    /**
+     * Return the name of the validator.
+     *
+     * @return string $name
+     */
+    public function getName();
 
-	/**
-	 * Perform the validation of a value.
-	 *
-	 * @param ValidationRule $validationRule
-	 * @param T $value
-	 * @return ValidationResult $result
-	 */
-	public function validate(ValidationRule $validationRule, $value);
+    /**
+     * Perform the validation of a value.
+     *
+     * @param ValidationRule $validationRule
+     * @param T $value
+     * @return ValidationResult $result
+     */
+    public function validate(ValidationRule $validationRule, $value);
 
 }

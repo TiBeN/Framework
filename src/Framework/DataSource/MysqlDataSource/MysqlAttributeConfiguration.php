@@ -89,11 +89,11 @@ class MysqlAttributeConfiguration implements DataSourceAttributeMappingConfigura
     public static function create(AssociativeArray $config)
     {
         // Start of user code DataSourceAttributeMappingConfiguration.create
-		if (!$config->has('columnName')) {
-		    throw new \InvalidArgumentException('No column name set');
-		}
-		$dataSourceAttributeMappingConfiguration = new MysqlAttributeConfiguration();
-		$dataSourceAttributeMappingConfiguration->setColumnName(
+        if (!$config->has('columnName')) {
+            throw new \InvalidArgumentException('No column name set');
+        }
+        $dataSourceAttributeMappingConfiguration = new MysqlAttributeConfiguration();
+        $dataSourceAttributeMappingConfiguration->setColumnName(
             $config->get('columnName')
         );        
         if ($config->has('isAutoIncrement')) {

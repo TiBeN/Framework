@@ -11,20 +11,20 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  */
 class PdoRowContainer extends AssociativeArray 
 {
-	
+    
     public function __construct($TType = NULL)
     {
         $this->TType = 'string';
     }
     
-	/**
-	 * Factory method to create a PdoRowContainer from raw pdo row array 
+    /**
+     * Factory method to create a PdoRowContainer from raw pdo row array 
      *
-	 * @param  array $nativeArray
-	 * @return PdoRowContainer $associativeArray
-	 */
-	public static function createFromRawPdoRow($row)
+     * @param  array $nativeArray
+     * @return PdoRowContainer $associativeArray
+     */
+    public static function createFromRawPdoRow($row)
     {
-	    return self::createFromNativeArray('string', $row);	    
-	}
+        return self::createFromNativeArray('string', $row);     
+    }
 }

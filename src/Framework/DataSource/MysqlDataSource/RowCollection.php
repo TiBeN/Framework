@@ -28,10 +28,10 @@ class RowCollection extends ProxyAbleGenericCollection
     // Start of user code RowCollection.surchargedConstructorsDestructors
     public function __construct($TType = NULL) 
     {
-	    parent::__construct(
+        parent::__construct(
             'TiBeN\\Framework\\DataSource\\MysqlDataSource\\Row'
         );
-	}
+    }
     // End of user code
     
     /**

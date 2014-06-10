@@ -20,20 +20,20 @@ use TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\BooleanConverter;
 class BooleanConverterTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code BooleanConverterTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code BooleanConverterTest.setUp
-		// End of user code
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code BooleanConverterTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     
@@ -48,7 +48,7 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code TypeConverter.testsetParameters
         // Nothing to test here
-    	// End of user code
+        // End of user code
     }
     
     /**
@@ -62,7 +62,7 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
         // Start of user code TypeConverter.testgetType
         $converter = new BooleanConverter();
         $this->assertEquals('boolean', $converter->getType());
-    	// End of user code
+        // End of user code
     }
     
     /**
@@ -76,7 +76,7 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
         // Start of user code TypeConverter.testgetDataSourceType
         $converter = new BooleanConverter();
         $this->assertEquals('mysql', $converter->getDataSourceType());
-    	// End of user code
+        // End of user code
     }
     
     /**
@@ -91,7 +91,7 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
         $converter = new BooleanConverter();
         $this->assertSame('1', $converter->convert(true));
         $this->assertSame('0', $converter->convert(false));
-    	// End of user code
+        // End of user code
     }
     
     /**
@@ -106,10 +106,10 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
         $converter = new BooleanConverter();
         $this->assertSame(true, $converter->reverse('1'));
         $this->assertSame(false, $converter->reverse('0'));
-    	// End of user code
+        // End of user code
     }
 
     // Start of user code BooleanConverterTest.methods
-	// Place additional tests methods here.  
-	// End of user code
+    // Place additional tests methods here.  
+    // End of user code
 }

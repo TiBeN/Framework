@@ -77,9 +77,9 @@ class StatementFactory
     public static function createFromString($statementString, AssociativeArray $parameters)
     {
         // Start of user code StatementFactory.createFromString
-	    $genericStatement = new GenericStatement();
-	    $genericStatement->setStatementString($statementString);
-	    $genericStatement->setStatementParameters($parameters);
+        $genericStatement = new GenericStatement();
+        $genericStatement->setStatementString($statementString);
+        $genericStatement->setStatementParameters($parameters);
         // End of user code
     
         return $genericStatement;
@@ -186,18 +186,18 @@ class StatementFactory
             );
         }
 
-	    $insertStatement = new InsertStatement();	    
-	    $insertStatement->setTableName(
+        $insertStatement = new InsertStatement();       
+        $insertStatement->setTableName(
             $entityMapping->getDataSourceEntityConfiguration()->getTableName()
-        );	    
-	    $insertStatement
+        );      
+        $insertStatement
             ->setColumnNamesListStatement(
                 ColumnNamesListStatement::createFromEntityAttributes(
                     $entityMapping->getAttributeMappings()
                 )
             )
-	    ;	    
-	    $insertStatement->setValuesStatement(
+        ;       
+        $insertStatement->setValuesStatement(
             ValuesStatement::createFromEntity($entityMapping, $entity)
         );
         // End of user code

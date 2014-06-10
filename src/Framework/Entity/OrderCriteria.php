@@ -97,9 +97,9 @@ class OrderCriteria
     public static function desc($attribute)
     {
         // Start of user code OrderCriteria.desc
-		$orderCriteria = new self();
-		$orderCriteria->setAttribute($attribute);
-		$orderCriteria->setDirection(self::DIRECTION_DESC);
+        $orderCriteria = new self();
+        $orderCriteria->setAttribute($attribute);
+        $orderCriteria->setDirection(self::DIRECTION_DESC);
         // End of user code
     
         return $orderCriteria;
@@ -115,9 +115,9 @@ class OrderCriteria
     public static function asc($attribute)
     {
         // Start of user code OrderCriteria.asc
-		$orderCriteria = new self();
-		$orderCriteria->setAttribute($attribute);
-		$orderCriteria->setDirection(self::DIRECTION_ASC);
+        $orderCriteria = new self();
+        $orderCriteria->setAttribute($attribute);
+        $orderCriteria->setDirection(self::DIRECTION_ASC);
         // End of user code
     
         return $orderCriteria;

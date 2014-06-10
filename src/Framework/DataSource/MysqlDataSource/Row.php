@@ -24,10 +24,10 @@ class Row extends AssociativeArray
     protected $TType;
 
     // Start of user code Row.surchargedConstructorsDestructors
-	public function __construct($TType = NULL) 
-	{
-		parent::__construct('string');
-	}
+    public function __construct($TType = NULL) 
+    {
+        parent::__construct('string');
+    }
     // End of user code
     
     /**

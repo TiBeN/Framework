@@ -15,7 +15,7 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  * Test cases for class Router
  * 
  * Start of user code RouterTest.testAnnotations
- * @runTestsInSeparateProcesses	 
+ * @runTestsInSeparateProcesses  
  * End of user code
  *
  * @package TiBeN\Framework\Tests\Router

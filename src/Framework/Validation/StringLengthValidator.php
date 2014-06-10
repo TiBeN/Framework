@@ -9,8 +9,8 @@ namespace TiBeN\Framework\Validation;
 /**
  * Check whether the number of characters of a string match min/max size.
  * ValidationRules:
- * 	'min': (optional) The min number of characters allowed
- * 	'max': (optional) The max number of characters allowed 
+ *  'min': (optional) The min number of characters allowed
+ *  'max': (optional) The max number of characters allowed 
  * 
  *
  * @package TiBeN\Framework\Validation

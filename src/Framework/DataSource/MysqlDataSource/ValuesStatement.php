@@ -76,19 +76,19 @@ class ValuesStatement extends AssociativeArray
     public function toString()
     {
         // Start of user code ValuesStatement.toString
-	    if($this->isEmpty()) {
-	        throw new \LogicException('The ValuesStatement is empty');
-	    }	    
-	    $string = sprintf(
-	        'VALUES(%s)', 
-	        implode(
+        if($this->isEmpty()) {
+            throw new \LogicException('The ValuesStatement is empty');
+        }       
+        $string = sprintf(
+            'VALUES(%s)', 
+            implode(
                 ',', 
                 array_map(
                     function($columnName){ return ':' . $columnName; },                        
                     array_keys($this->items)                    
                 )
             )
-        );		 
+        );       
         // End of user code
     
         return $string;

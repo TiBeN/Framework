@@ -66,7 +66,7 @@ class ValidatorsRegistryTest extends \PHPUnit_Framework_TestCase
     public function testRegisterValidator()
     {
         // Start of user code ValidatorsRegistryTest.testregisterValidator
-	    // Method implicitly tested by testGetValidator
+        // Method implicitly tested by testGetValidator
         // End of user code
     }
     
@@ -80,7 +80,7 @@ class ValidatorsRegistryTest extends \PHPUnit_Framework_TestCase
     public function testClearValidator()
     {
         // Start of user code ValidatorsRegistryTest.testclearValidator
-	    // Nothing to test here. Tested below by exceptions.
+        // Nothing to test here. Tested below by exceptions.
         // End of user code
     }
     
@@ -105,40 +105,40 @@ class ValidatorsRegistryTest extends \PHPUnit_Framework_TestCase
 
     // Start of user code ValidatorsRegistryTest.methods
     
-	/**
-	 * Test getting a non existant Validator
+    /**
+     * Test getting a non existant Validator
      *
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionArgument There isnt 'foo' Validator registered
-	 */
-	public function testGettingNonExistantValidator()
-	{
-	    ValidatorsRegistry::getValidator('foo');
-	}
-	
-	/**
-	 * Test getting a clear Validator
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionArgument There isnt 'foo' Validator registered
+     */
+    public function testGettingNonExistantValidator()
+    {
+        ValidatorsRegistry::getValidator('foo');
+    }
+    
+    /**
+     * Test getting a clear Validator
      *
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionArgument There isnt 'foo' Validator registered
-	 */
-	public function testGettingClearValidator()
-	{
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionArgument There isnt 'foo' Validator registered
+     */
+    public function testGettingClearValidator()
+    {
         $validator = new NotEmptyValidator();
         ValidatorsRegistry::registerValidator($validator);
-	    ValidatorsRegistry::clearValidator('notempty');
-	    ValidatorsRegistry::getValidator('notempty');
-	}	
-	
-	/**
-	 * Test clear a non existant Validator
+        ValidatorsRegistry::clearValidator('notempty');
+        ValidatorsRegistry::getValidator('notempty');
+    }   
+    
+    /**
+     * Test clear a non existant Validator
      *
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionArgument No entity mapping for entity "test"
-	 */
-	public function testClearNonExistantValidator()
-	{
-	    ValidatorsRegistry::clearValidator('foo');
-	}
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionArgument No entity mapping for entity "test"
+     */
+    public function testClearNonExistantValidator()
+    {
+        ValidatorsRegistry::clearValidator('foo');
+    }
     // End of user code
 }

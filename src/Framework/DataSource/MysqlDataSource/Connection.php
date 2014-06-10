@@ -32,21 +32,21 @@ class Connection
      * @var PDO
      */ 
     private $pdo;
-	
-	public function getPdo() {
-		return $this->pdo;
-	}
-	
-	public function setPdo(\PDO $pdo) {
-		$this->pdo = $pdo;
-	}	
-	
-	public function unsetPdo() {
-		$this->pdo = null;
-	}
-	
-	public function isConnected() {
-		return $this->pdo !== null;
-	}
+    
+    public function getPdo() {
+        return $this->pdo;
+    }
+    
+    public function setPdo(\PDO $pdo) {
+        $this->pdo = $pdo;
+    }   
+    
+    public function unsetPdo() {
+        $this->pdo = null;
+    }
+    
+    public function isConnected() {
+        return $this->pdo !== null;
+    }
     // End of user code
 }

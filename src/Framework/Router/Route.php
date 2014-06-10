@@ -112,9 +112,9 @@ class Route
     {
         // Start of user code Route.hasVariables
         $bool = (isset($this->variables) && !empty($this->variables))
-			? true
-			: false
-		;
+            ? true
+            : false
+        ;
         // End of user code
     
         return $bool;

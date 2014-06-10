@@ -82,7 +82,7 @@ class GenericStatement implements Statement
     public function isReadyToBeExecuted()
     {
         // Start of user code Statement.isReadyToBeExecuted
-		return isset($this->statementString) && !empty($this->statementString);  
+        return isset($this->statementString) && !empty($this->statementString);  
         // End of user code
     
         return $status;
@@ -98,7 +98,7 @@ class GenericStatement implements Statement
     public function getStatementParameters()
     {
         // Start of user code Statement.getStatementParameters
-		$statementParameters = $this->statementParameters; 
+        $statementParameters = $this->statementParameters; 
         // End of user code
     
         return $statementParameters;
@@ -123,7 +123,7 @@ class GenericStatement implements Statement
     /**
      * @var AssociativeArray
      */
-	private $statementParameters;
+    private $statementParameters;
 
     // End of user code
 }

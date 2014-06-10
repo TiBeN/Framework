@@ -21,21 +21,21 @@ use TiBeN\Framework\Validation\ValidationRule;
 class NotEmptyValidatorTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code NotEmptyValidatorTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code NotEmptyValidatorTest.setUp
-		// Place additional setUp code here.  
-		// End of user code
+        // Place additional setUp code here.  
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code NotEmptyValidatorTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     
@@ -93,10 +93,10 @@ class NotEmptyValidatorTest extends \PHPUnit_Framework_TestCase
             'Hello, an error has been thrown!',
             $validationResult->getErrorMessage()
         );
-    	// End of user code
+        // End of user code
     }
 
     // Start of user code NotEmptyValidatorTest.methods
-	// Place additional tests methods here.  
-	// End of user code
+    // Place additional tests methods here.  
+    // End of user code
 }

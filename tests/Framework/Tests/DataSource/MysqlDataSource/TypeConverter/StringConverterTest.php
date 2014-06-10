@@ -21,21 +21,21 @@ use TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\StringConverter;
 class StringConverterTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code StringConverterTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code StringConverterTest.setUp
-		// Place additional setUp code here.  
-		// End of user code
+        // Place additional setUp code here.  
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code StringConverterTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     
@@ -49,8 +49,8 @@ class StringConverterTest extends \PHPUnit_Framework_TestCase
     public function testSetParameters()
     {
         // Start of user code TypeConverter.testsetParameters
-	    // Nothing to test here
-    	// End of user code
+        // Nothing to test here
+        // End of user code
     }
     
     /**
@@ -62,9 +62,9 @@ class StringConverterTest extends \PHPUnit_Framework_TestCase
     public function testGetType()
     {
         // Start of user code TypeConverter.testgetType
-		$converter = new StringConverter();		
-	    $this->assertEquals('string', $converter->getType());
-    	// End of user code
+        $converter = new StringConverter();     
+        $this->assertEquals('string', $converter->getType());
+        // End of user code
     }
     
     /**
@@ -76,9 +76,9 @@ class StringConverterTest extends \PHPUnit_Framework_TestCase
     public function testGetDataSourceType()
     {
         // Start of user code TypeConverter.testgetDataSourceType
-	    $converter = new StringConverter();		
-	    $this->assertEquals('mysql', $converter->getDataSourceType());
-    	// End of user code
+        $converter = new StringConverter();     
+        $this->assertEquals('mysql', $converter->getDataSourceType());
+        // End of user code
     }
     
     /**
@@ -90,9 +90,9 @@ class StringConverterTest extends \PHPUnit_Framework_TestCase
     public function testConvert()
     {
         // Start of user code Converter.testconvert
-	    $converter = new StringConverter();		
-	    $this->assertEquals('foo!!', $converter->convert('foo!!'));
-    	// End of user code
+        $converter = new StringConverter();     
+        $this->assertEquals('foo!!', $converter->convert('foo!!'));
+        // End of user code
     }
     
     /**
@@ -104,12 +104,12 @@ class StringConverterTest extends \PHPUnit_Framework_TestCase
     public function testReverse()
     {
         // Start of user code Converter.testreverse
-	    $converter = new StringConverter();		
-	    $this->assertEquals('foo!!', $converter->reverse('foo!!'));
-    	// End of user code
+        $converter = new StringConverter();     
+        $this->assertEquals('foo!!', $converter->reverse('foo!!'));
+        // End of user code
     }
 
     // Start of user code StringConverterTest.methods
-	// Place additional tests methods here.  
-	// End of user code
+    // Place additional tests methods here.  
+    // End of user code
 }

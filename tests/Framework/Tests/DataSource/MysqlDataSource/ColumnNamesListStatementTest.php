@@ -24,29 +24,29 @@ use TiBeN\Framework\DataSource\MysqlDataSource\MysqlAttributeConfiguration;
 class ColumnNamesListStatementTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code ColumnNamesListStatementTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code ColumnNamesListStatementTest.setUp
-		// Place additional setUp code here.  
-		// End of user code
+        // Place additional setUp code here.  
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code ColumnNamesListStatementTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     /**
      * Test method toString from class ColumnNamesListStatement
      *
      * Start of user code ColumnNamesListStatementTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testToString()
     {
@@ -57,20 +57,20 @@ class ColumnNamesListStatementTest extends \PHPUnit_Framework_TestCase
         $columnNamesListStatement->add('b');
         $columnNamesListStatement->add('c');
         $this->assertEquals($expectedStatement, $columnNamesListStatement->toString());
-		// End of user code
+        // End of user code
     }
     
     /**
      * Test static method createFromEntityAttributes from class ColumnNamesListStatement
      *
      * Start of user code ColumnNamesListStatementTest.testcreateFromEntityAttributesAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testCreateFromEntityAttributes()
     {
         // Start of user code ColumnNamesListStatementTest.testcreateFromEntityAttributes
-	    $expectedStatement = "(a,b,c)";
+        $expectedStatement = "(a,b,c)";
         $attributes = AssociativeArray::createFromNativeArray(
             null, 
             array(
@@ -140,21 +140,21 @@ class ColumnNamesListStatementTest extends \PHPUnit_Framework_TestCase
             $attributes
         );        
         $this->assertEquals($expectedStatement, $columnNamesListStatement->toString());
-		// End of user code
+        // End of user code
     }
 
     // Start of user code ColumnNamesListStatementTest.methods
 
-	/**
-	 * Test To String on empty ColumnNamesList
+    /**
+     * Test To String on empty ColumnNamesList
      *
-	 * @expectedException LogicException
-	 * @expectedExceptionMessage The ColumnNamesListStatement is empty
-	 */
-	public function testToStringToEmptyColumnNamesList() 
+     * @expectedException LogicException
+     * @expectedExceptionMessage The ColumnNamesListStatement is empty
+     */
+    public function testToStringToEmptyColumnNamesList() 
     {
-	    $columnNamesListStatement = new ColumnNamesListStatement();
-	    $columnNamesListStatement->toString();
-	}
-	// End of user code
+        $columnNamesListStatement = new ColumnNamesListStatement();
+        $columnNamesListStatement->toString();
+    }
+    // End of user code
 }

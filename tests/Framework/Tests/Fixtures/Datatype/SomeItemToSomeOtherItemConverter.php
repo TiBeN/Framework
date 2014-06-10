@@ -43,31 +43,31 @@ class SomeItemToSomeOtherItemConverter implements Converter
         }
     }    
          
-	/* (non-PHPdoc)
-	 * @see CollectionItemConverter::convertFromProxyToSource()
-	 */
-	public function reverse($itemToConvert) {
-	    
-        $this->checkType($this->UType, $itemToConvert);	    
-	    
-		$convertedItem = new SomeItem();
-		$convertedItem->someData = $itemToConvert->someData;
-		if(isset($itemToConvert->tempFarenheit)) {
-			$convertedItem->tempCelsius = ($itemToConvert->tempFarenheit - 32)/1.8; //(T(°F) - 32)/1,8
-		}
-		return $convertedItem;		
-	}
-	
-	public function convert($itemToReverse) {
-	    
-	    $this->checkType($this->TType, $itemToReverse);
-	    
-		$reversedItem = new SomeOtherItem();
-		$reversedItem->someData = $itemToReverse->someData;
-		if(isset($itemToReverse->tempCelsius)) {
-			$reversedItem->tempFarenheit = $itemToReverse->tempCelsius * 1.8 + 32; //T(°C)×1,8 + 32
-		}
-		return $reversedItem;	
-	}
+    /* (non-PHPdoc)
+     * @see CollectionItemConverter::convertFromProxyToSource()
+     */
+    public function reverse($itemToConvert) {
+        
+        $this->checkType($this->UType, $itemToConvert);     
+        
+        $convertedItem = new SomeItem();
+        $convertedItem->someData = $itemToConvert->someData;
+        if(isset($itemToConvert->tempFarenheit)) {
+            $convertedItem->tempCelsius = ($itemToConvert->tempFarenheit - 32)/1.8; //(T(°F) - 32)/1,8
+        }
+        return $convertedItem;      
+    }
+    
+    public function convert($itemToReverse) {
+        
+        $this->checkType($this->TType, $itemToReverse);
+        
+        $reversedItem = new SomeOtherItem();
+        $reversedItem->someData = $itemToReverse->someData;
+        if(isset($itemToReverse->tempCelsius)) {
+            $reversedItem->tempFarenheit = $itemToReverse->tempCelsius * 1.8 + 32; //T(°C)×1,8 + 32
+        }
+        return $reversedItem;   
+    }
 
-}	
+}   

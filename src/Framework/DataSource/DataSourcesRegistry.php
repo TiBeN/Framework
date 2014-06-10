@@ -39,11 +39,11 @@ class DataSourcesRegistry
     private static function getDataSources()
     {
         // Start of user code Static getter DataSourcesRegistry.getDataSources
-		if(!isset(self::$dataSources)) {
-		    self::$dataSources = new AssociativeArray(
+        if(!isset(self::$dataSources)) {
+            self::$dataSources = new AssociativeArray(
                 'TiBeN\\Framework\\DataSource\\DataSource'
             );
-		}
+        }
         // End of user code
         return self::$dataSources;
     }
@@ -64,12 +64,12 @@ class DataSourcesRegistry
     public static function clearDataSource($dataSourceName)
     {
         // Start of user code DataSourcesRegistry.clearDataSource
-		if(!self::getDataSources()->has($dataSourceName)) {
-		    throw new \InvalidArgumentException(
+        if(!self::getDataSources()->has($dataSourceName)) {
+            throw new \InvalidArgumentException(
                 'No data source named "' . $dataSourceName . '"'
             );
-		} 
-		self::getDataSources()->remove($dataSourceName);
+        } 
+        self::getDataSources()->remove($dataSourceName);
         // End of user code
     }
 
@@ -80,7 +80,7 @@ class DataSourcesRegistry
     public static function hasDataSource($dataSourceName)
     {
         // Start of user code DataSourcesRegistry.hasDataSource
-		return self::getDataSources()->has($dataSourceName);
+        return self::getDataSources()->has($dataSourceName);
         // End of user code
     
         return $boolean;
@@ -92,11 +92,11 @@ class DataSourcesRegistry
     public static function registerDataSource(DataSource $dataSource)
     {
         // Start of user code DataSourcesRegistry.registerDataSource
-		$dataSourceName = $dataSource->getName(); 
-		if(empty($dataSourceName)) {
-		    throw new \InvalidArgumentException('The data source has no name');
-		}
-	    self::getDataSources()->set($dataSourceName, $dataSource);
+        $dataSourceName = $dataSource->getName(); 
+        if(empty($dataSourceName)) {
+            throw new \InvalidArgumentException('The data source has no name');
+        }
+        self::getDataSources()->set($dataSourceName, $dataSource);
         // End of user code
     }
 
@@ -107,12 +107,12 @@ class DataSourcesRegistry
     public static function getDataSource($dataSourceName)
     {
         // Start of user code DataSourcesRegistry.getDataSource
-		if(!self::getDataSources()->has($dataSourceName)) {
-		    throw new \InvalidArgumentException(
+        if(!self::getDataSources()->has($dataSourceName)) {
+            throw new \InvalidArgumentException(
                 'No data source named "' . $dataSourceName . '"'
             );
-		} 
-		$dataSource = self::getDataSources()->get($dataSourceName);
+        } 
+        $dataSource = self::getDataSources()->get($dataSourceName);
         // End of user code
     
         return $dataSource;

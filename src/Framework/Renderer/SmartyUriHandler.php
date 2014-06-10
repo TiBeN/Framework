@@ -42,13 +42,13 @@ class SmartyUriHandler
     {
         // Start of user code SmartyUriHandler.getUri
         if (!isset($parameters['name'])) {
-			throw new \InvalidArgumentException('No route rule name set');
-		}
-		
-		$routeName = $parameters['name'];
-		unset($parameters['name']);
-					
-		$uri = Router::generateUri(
+            throw new \InvalidArgumentException('No route rule name set');
+        }
+        
+        $routeName = $parameters['name'];
+        unset($parameters['name']);
+                    
+        $uri = Router::generateUri(
             $routeName, 
             AssociativeArray::createFromNativeArray('string',  $parameters)
         );

@@ -13,12 +13,12 @@ class FooAttributeMappingConfiguration implements DataSourceAttributeMappingConf
 {
     public $field;  
     
-	public static function create(AssociativeArray $config) {
-	    $famc = new self;	      
+    public static function create(AssociativeArray $config) {
+        $famc = new self;         
         $famc->setField($config->get('field'));
-        return $famc;        	   
-	}
-	
+        return $famc;              
+    }
+    
     public function getField() {
         return $this->field;
     }

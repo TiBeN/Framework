@@ -46,13 +46,13 @@ class TestDataSource implements DataSource
         // TODO Auto-generated method stub
     }
     
-	public static function getEntityMappingConfigurationClassName() 
+    public static function getEntityMappingConfigurationClassName() 
     {
-		return null;		
-	}
+        return null;        
+    }
 
-	public static function getAttributeMappingConfigurationClassName() 
+    public static function getAttributeMappingConfigurationClassName() 
     {
-		return null;
-	}
+        return null;
+    }
 }

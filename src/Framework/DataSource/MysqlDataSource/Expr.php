@@ -87,7 +87,7 @@ class Expr
     public function __construct()
     {
         // Start of user code Expr.constructor
-		$this->exprParameters = new AssociativeArray();
+        $this->exprParameters = new AssociativeArray();
         // End of user code
     }
 
@@ -165,7 +165,7 @@ class Expr
     public function toString()
     {
         // Start of user code Expr.toString
-	    $exprString = $this->exprString;
+        $exprString = $this->exprString;
         // End of user code
     
         return $exprString;
@@ -183,22 +183,22 @@ class Expr
     public static function concat(GenericCollection $exprCollection, $logicalSeparator)
     {
         // Start of user code Expr.concat
-		$expr = new self();
-		$expr->setIsResultOfConcatenation(true);
-		
-		$exprString = '';
-		$numberOfExprs = $exprCollection->count();
-		foreach($exprCollection as $key => $subExpr) {
-			$exprString .= $subExpr->isResultOfConcatenation 
+        $expr = new self();
+        $expr->setIsResultOfConcatenation(true);
+        
+        $exprString = '';
+        $numberOfExprs = $exprCollection->count();
+        foreach($exprCollection as $key => $subExpr) {
+            $exprString .= $subExpr->isResultOfConcatenation 
                 ? ('('.$subExpr->toString().')') 
                 : $subExpr->toString()
             ;
-			if($key+1 < $numberOfExprs) {
-				$exprString .= ' ' . $logicalSeparator . ' ';
-			}
-			$expr->getExprParameters()->merge($subExpr->getExprParameters());
-		}		
-		$expr->setExprString($exprString);
+            if($key+1 < $numberOfExprs) {
+                $exprString .= ' ' . $logicalSeparator . ' ';
+            }
+            $expr->getExprParameters()->merge($subExpr->getExprParameters());
+        }       
+        $expr->setExprString($exprString);
         // End of user code
     
         return $expr;

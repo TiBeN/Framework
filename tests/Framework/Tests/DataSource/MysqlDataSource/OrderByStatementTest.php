@@ -25,43 +25,43 @@ use TiBeN\Framework\Tests\Fixtures\DataSource\MysqlDataSource\MysqlDataSourceTes
 class OrderByStatementTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code OrderByStatementTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code OrderByStatementTest.setUp
         MysqlDataSourceTestSetupTearDown::declareSomeEntityMapping(); 
-		// End of user code
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code OrderByStatementTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     /**
      * Test method toString from class OrderByStatement
      *
      * Start of user code OrderByStatementTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testToString()
     {
         // Start of user code OrderByStatementTest.testtoString
-	    // Implicitly tested
-		// End of user code
+        // Implicitly tested
+        // End of user code
     }
     
     /**
      * Test static method createFromOrderCriterias from class OrderByStatement
      *
      * Start of user code OrderByStatementTest.testcreateFromOrderCriteriasAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testCreateFromOrderCriterias()
     {
@@ -88,10 +88,10 @@ class OrderByStatementTest extends \PHPUnit_Framework_TestCase
             $expectedOrderByStatementString, 
             $orderByStatement->toString()
         );
-		// End of user code
+        // End of user code
     }
 
     // Start of user code OrderByStatementTest.methods
-	// Place additional tests methods here.  
-	// End of user code
+    // Place additional tests methods here.  
+    // End of user code
 }

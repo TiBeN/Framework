@@ -77,10 +77,10 @@ class SetStatement extends AssociativeArray
     public function getStatementParameters()
     {
         // Start of user code SetStatement.getStatementParameters
-	    $statementParameters = AssociativeArray::createFromNativeArray(
+        $statementParameters = AssociativeArray::createFromNativeArray(
             null, 
             $this->toNativeArray()
-		);
+        );
         // End of user code
     
         return $statementParameters;
@@ -94,11 +94,11 @@ class SetStatement extends AssociativeArray
     public function toString()
     {
         // Start of user code SetStatement.toString
-		$statementChunks = array();
-		foreach($this as $attribute => $value) {
-		    array_push($statementChunks, sprintf('%1$s=:%1$s', $attribute));
-		}
-		$string = 'SET ' . implode(',', $statementChunks);
+        $statementChunks = array();
+        foreach($this as $attribute => $value) {
+            array_push($statementChunks, sprintf('%1$s=:%1$s', $attribute));
+        }
+        $string = 'SET ' . implode(',', $statementChunks);
         // End of user code
     
         return $string;

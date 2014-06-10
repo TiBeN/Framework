@@ -12,7 +12,7 @@ class PdoRowContainerToRowConverter implements Converter
 {
     private $TType = 'TiBeN\\Framework\\DataSource\\MysqlDataSource\\PdoRowContainer';
     
-    private $UType = 'TiBeN\\Framework\\DataSource\\MysqlDataSource\\Row';	
+    private $UType = 'TiBeN\\Framework\\DataSource\\MysqlDataSource\\Row';  
     
     /**
      * Emulate Templates (generics) in PHP. Check if the type of the object match
@@ -34,30 +34,30 @@ class PdoRowContainerToRowConverter implements Converter
             throw new \InvalidArgumentException(sprintf('expects parameter to be %s, %s given', $type, $varType));
         }
     }    
-	
-	public function reverse($itemToConvert) 
+    
+    public function reverse($itemToConvert) 
     {
-		$this->checkType($this->UType, $itemToConvert);	    
-		return PdoRowContainer::createFromRawPdoRow($itemToConvert->toNativeArray());
-	}			 
+        $this->checkType($this->UType, $itemToConvert);     
+        return PdoRowContainer::createFromRawPdoRow($itemToConvert->toNativeArray());
+    }            
 
-	public function getUType() 
+    public function getUType() 
     {
-		return $this->UType;
-	}
+        return $this->UType;
+    }
 
-	public function getTType() 
+    public function getTType() 
     {
-		return $this->TType;
-	}
+        return $this->TType;
+    }
 
-	public function convert($itemToConvert) 
+    public function convert($itemToConvert) 
     {
-		$this->checkType($this->TType, $itemToConvert);
-		$row = new Row('string');
-		foreach($itemToConvert->toNativeArray() as $key => $value) {
-			$row->set($key, $value);
-		}
-		return $row;
-	}
+        $this->checkType($this->TType, $itemToConvert);
+        $row = new Row('string');
+        foreach($itemToConvert->toNativeArray() as $key => $value) {
+            $row->set($key, $value);
+        }
+        return $row;
+    }
 }

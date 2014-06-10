@@ -255,13 +255,13 @@ class AssociativeArrayTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code Iterator.testrewind
         $associativeArray = new AssociativeArray();
-		$associativeArray->set('foo', new SomeItem());
-		$associativeArray->set('bar', new SomeItem());
-		$associativeArray->set('baz', new SomeItem());
-		$associativeArray->next();		
-		$associativeArray->next();
-		$associativeArray->rewind();
-		$this->assertEquals('foo', $associativeArray->key());
+        $associativeArray->set('foo', new SomeItem());
+        $associativeArray->set('bar', new SomeItem());
+        $associativeArray->set('baz', new SomeItem());
+        $associativeArray->next();      
+        $associativeArray->next();
+        $associativeArray->rewind();
+        $this->assertEquals('foo', $associativeArray->key());
         // End of user code
     }
     
@@ -275,15 +275,15 @@ class AssociativeArrayTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code Iterator.testkey
         $associativeArray = new AssociativeArray();
-		$associativeArray->set('foo', new SomeItem());
-		$associativeArray->set('bar', new SomeItem());
-		$associativeArray->set('baz', new SomeItem());				
-		$this->assertEquals('foo', $associativeArray->key());
-		$associativeArray->next();
-		$associativeArray->next();
-		$this->assertEquals('baz', $associativeArray->key());
-		$associativeArray->rewind();
-		$this->assertEquals('foo', $associativeArray->key());
+        $associativeArray->set('foo', new SomeItem());
+        $associativeArray->set('bar', new SomeItem());
+        $associativeArray->set('baz', new SomeItem());              
+        $this->assertEquals('foo', $associativeArray->key());
+        $associativeArray->next();
+        $associativeArray->next();
+        $this->assertEquals('baz', $associativeArray->key());
+        $associativeArray->rewind();
+        $this->assertEquals('foo', $associativeArray->key());
         // End of user code
     }
     
@@ -297,14 +297,14 @@ class AssociativeArrayTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code Iterator.testnext
         $associativeArray = new AssociativeArray();
-		$associativeArray->set('foo', new SomeItem());
-		$associativeArray->set('bar', new SomeItem());
-		$associativeArray->set('baz', new SomeItem());
-		$associativeArray->next();
-		$this->assertEquals('bar', $associativeArray->key());
-		$associativeArray->next();
-		$this->assertEquals('baz', $associativeArray->key());
-		$associativeArray->rewind();
+        $associativeArray->set('foo', new SomeItem());
+        $associativeArray->set('bar', new SomeItem());
+        $associativeArray->set('baz', new SomeItem());
+        $associativeArray->next();
+        $this->assertEquals('bar', $associativeArray->key());
+        $associativeArray->next();
+        $this->assertEquals('baz', $associativeArray->key());
+        $associativeArray->rewind();
         // End of user code
     }
     
@@ -318,15 +318,15 @@ class AssociativeArrayTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code Iterator.testvalid
         $associativeArray = new AssociativeArray();
-		$associativeArray->set('foo', new SomeItem());
-		$associativeArray->set('bar', new SomeItem());
-		$associativeArray->set('baz', new SomeItem());
-		$associativeArray->next();
-		$associativeArray->next();
-		$this->assertTrue($associativeArray->valid());
-		$associativeArray->next();
-		$this->assertFalse($associativeArray->valid());
-		$associativeArray->rewind();
+        $associativeArray->set('foo', new SomeItem());
+        $associativeArray->set('bar', new SomeItem());
+        $associativeArray->set('baz', new SomeItem());
+        $associativeArray->next();
+        $associativeArray->next();
+        $this->assertTrue($associativeArray->valid());
+        $associativeArray->next();
+        $this->assertFalse($associativeArray->valid());
+        $associativeArray->rewind();
         // End of user code
     }
     
@@ -340,18 +340,18 @@ class AssociativeArrayTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code Iterator.testcurrent
         $associativeArray = new AssociativeArray();
-		$firstItem = new SomeItem('first_item');
-		$secondItem = new SomeItem('second_item');
-		$thirdItem = new SomeItem('third_item');
-		$associativeArray->set('foo', $firstItem);
-		$associativeArray->set('bar', $secondItem);
-		$associativeArray->set('baz', $thirdItem);
-		$this->assertEquals($firstItem, $associativeArray->current());
-		$associativeArray->next();
-		$this->assertEquals($secondItem, $associativeArray->current());
-		$associativeArray->next();
-		$this->assertEquals($thirdItem, $associativeArray->current());
-		$associativeArray->rewind();
+        $firstItem = new SomeItem('first_item');
+        $secondItem = new SomeItem('second_item');
+        $thirdItem = new SomeItem('third_item');
+        $associativeArray->set('foo', $firstItem);
+        $associativeArray->set('bar', $secondItem);
+        $associativeArray->set('baz', $thirdItem);
+        $this->assertEquals($firstItem, $associativeArray->current());
+        $associativeArray->next();
+        $this->assertEquals($secondItem, $associativeArray->current());
+        $associativeArray->next();
+        $this->assertEquals($thirdItem, $associativeArray->current());
+        $associativeArray->rewind();
         // End of user code
     }
 
@@ -365,13 +365,13 @@ class AssociativeArrayTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code Countable.testcount
         $associativeArray = new AssociativeArray('string');    
-		$this->assertEquals(0, $associativeArray->count());
-		$associativeArray->set('foo', 'bar');
-		$associativeArray->set('foo2', 'bar');
-		$associativeArray->set('foo3', 'bar');
-		$this->assertEquals(3, $associativeArray->count());
-		$associativeArray->set('foo3', 'another-data');
-		$this->assertEquals(3, $associativeArray->count());
+        $this->assertEquals(0, $associativeArray->count());
+        $associativeArray->set('foo', 'bar');
+        $associativeArray->set('foo2', 'bar');
+        $associativeArray->set('foo3', 'bar');
+        $this->assertEquals(3, $associativeArray->count());
+        $associativeArray->set('foo3', 'another-data');
+        $this->assertEquals(3, $associativeArray->count());
         // End of user code
     }
 

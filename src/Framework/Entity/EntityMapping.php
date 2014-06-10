@@ -44,7 +44,7 @@ class EntityMapping
     public function __construct()
     {
         // Start of user code EntityMapping.constructor
-		$this->attributeMappings = new AssociativeArray();
+        $this->attributeMappings = new AssociativeArray();
         // End of user code
     }
 
@@ -216,7 +216,7 @@ class EntityMapping
             $dataSourceEntityMappingConfigurationClassName::create(
                 AssociativeArray::createFromNativeArray(null, $dataSource)
             )
-	    );
+        );
         
         $dataSourceAttributeMappingConfigurationClassName
             = $dataSourceClassName::getAttributeMappingConfigurationClassName()

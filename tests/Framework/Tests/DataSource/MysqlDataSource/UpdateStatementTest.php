@@ -25,21 +25,21 @@ use TiBeN\Framework\DataSource\MysqlDataSource\WhereConditions;
 class UpdateStatementTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code UpdateStatementTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code UpdateStatementTest.setUp
-		// Place additional setUp code here.  
-		// End of user code
+        // Place additional setUp code here.  
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code UpdateStatementTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     
@@ -53,13 +53,13 @@ class UpdateStatementTest extends \PHPUnit_Framework_TestCase
     public function testIsReadyToBeExecuted()
     {
         // Start of user code Statement.testisReadyToBeExecuted
-	    $update = new UpdateStatement();
-	    $this->assertFalse($update->isReadyToBeExecuted());
-	    
-	    $update->setTableName('some_table');
-	    $this->assertFalse($update->isReadyToBeExecuted());
-	    
-	    $update->setSetStatement(
+        $update = new UpdateStatement();
+        $this->assertFalse($update->isReadyToBeExecuted());
+        
+        $update->setTableName('some_table');
+        $this->assertFalse($update->isReadyToBeExecuted());
+        
+        $update->setSetStatement(
             SetStatement::createFromNativeArray(
                 null, 
                 array(
@@ -68,8 +68,8 @@ class UpdateStatementTest extends \PHPUnit_Framework_TestCase
                 )
             )
         );
-	    $this->assertTrue($update->isReadyToBeExecuted());
-    	// End of user code
+        $this->assertTrue($update->isReadyToBeExecuted());
+        // End of user code
     }
     
     /**
@@ -81,8 +81,8 @@ class UpdateStatementTest extends \PHPUnit_Framework_TestCase
     public function testGetStatementParameters()
     {
         // Start of user code Statement.testgetStatementParameters
-	    // implicitly test by testToString
-    	// End of user code
+        // implicitly test by testToString
+        // End of user code
     }
     
     /**
@@ -94,20 +94,20 @@ class UpdateStatementTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         // Start of user code Statement.testtoString
-	    $update = new UpdateStatement();
-	    $this->assertFalse($update->isReadyToBeExecuted());
-	    
-	    $update->setTableName('some_table');
-	    $update->setSetStatement(SetStatement::createFromNativeArray(null, array(
-	    	'id' => 10,
-	        'foo' => 'foo'    
-	    )));    
-	    $this->assertEquals(
+        $update = new UpdateStatement();
+        $this->assertFalse($update->isReadyToBeExecuted());
+        
+        $update->setTableName('some_table');
+        $update->setSetStatement(SetStatement::createFromNativeArray(null, array(
+            'id' => 10,
+            'foo' => 'foo'    
+        )));    
+        $this->assertEquals(
             'UPDATE some_table SET id=:id,foo=:foo', 
             $update->toString()
         );
-	    
-	    $update->setWhereDefinition(
+        
+        $update->setWhereDefinition(
             WhereConditions::createFromExpr(
                 Expr::fromString(
                     'bar!=:bar', 
@@ -117,29 +117,29 @@ class UpdateStatementTest extends \PHPUnit_Framework_TestCase
                     )
                 )
             )
-	    );
-	    $this->assertEquals(
+        );
+        $this->assertEquals(
             'UPDATE some_table SET id=:id,foo=:foo WHERE bar!=:bar', 
             $update->toString()
         );
-	    
-	    $expectedStatementParameters = AssociativeArray::createFromNativeArray(
+        
+        $expectedStatementParameters = AssociativeArray::createFromNativeArray(
             null, 
             array(
                 'id' => 10,
-                'foo' => 'foo',            	                            	            
+                'foo' => 'foo',                                                         
                 'bar' => 'someValue'
-	        )
+            )
         );
-	    
-	    $this->assertEquals(
+        
+        $this->assertEquals(
             $expectedStatementParameters, 
             $update->getStatementParameters()
         );
-    	// End of user code
+        // End of user code
     }
 
     // Start of user code UpdateStatementTest.methods
-	// Place additional tests methods here.  
-	// End of user code
+    // Place additional tests methods here.  
+    // End of user code
 }

@@ -24,8 +24,8 @@ use TiBeN\Framework\Entity\CriteriaSet;
 class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code EntityRepositoryTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
@@ -39,22 +39,22 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
         catch(\Exception $e) {
             $this->markTestSkipped($e->getMessage());
         }
-		// End of user code
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code EntityRepositoryTest.tearDown
         MysqlDataSourceTestSetupTearDown::tearDown();
-		// End of user code
+        // End of user code
     }
     
     /**
      * Test method delete from class EntityRepository
      *
      * Start of user code EntityRepositoryTest.testdeleteAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testDelete()
     {
@@ -93,15 +93,15 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
         ); 
         $this->assertInstanceOf('PDOStatement', $pdoStatement);
         $this->assertSame(0, $pdoStatement->rowCount());
-		// End of user code
+        // End of user code
     }
     
     /**
      * Test method persist from class EntityRepository
      *
      * Start of user code EntityRepositoryTest.testpersistAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testPersist()
     {
@@ -151,15 +151,15 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedRow, $pdoStatement->fetch(\PDO::FETCH_ASSOC));
         $this->assertSame(1, $entity->getId());
 
-		// End of user code
+        // End of user code
     }
     
     /**
      * Test method find from class EntityRepository
      *
      * Start of user code EntityRepositoryTest.testfindAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testFind()
     {
@@ -197,7 +197,7 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(2, $entityCollection->count()); 
         $this->assertEquals($expectedEntity1, $entityCollection->get(0));
         $this->assertEquals($expectedEntity2, $entityCollection->get(1));
-		// End of user code
+        // End of user code
     }
     
     /**
@@ -215,6 +215,6 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
     }
 
     // Start of user code EntityRepositoryTest.methods
-	// Place additional tests methods here.  
-	// End of user code
+    // Place additional tests methods here.  
+    // End of user code
 }

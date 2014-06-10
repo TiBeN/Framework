@@ -21,21 +21,21 @@ use TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter\DateTimeConverter;
 class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code DateTimeConverterTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code DateTimeConverterTest.setUp
-		// Place additional setUp code here.  
-		// End of user code
+        // Place additional setUp code here.  
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code DateTimeConverterTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     
@@ -50,7 +50,7 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code TypeConverter.testsetParameters
         // Nothing to test here
-    	// End of user code
+        // End of user code
     }
     
     /**
@@ -64,7 +64,7 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
         // Start of user code TypeConverter.testgetType
         $dateTimeConverter = new DateTimeConverter();
         $this->assertEquals('datetime', $dateTimeConverter->getType());
-    	// End of user code
+        // End of user code
     }
     
     /**
@@ -78,7 +78,7 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
         // Start of user code TypeConverter.testgetDataSourceType
         $dateTimeConverter = new DateTimeConverter();
         $this->assertEquals('mysql', $dateTimeConverter->getDataSourceType());
-    	// End of user code
+        // End of user code
     }
     
     /**
@@ -94,7 +94,7 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
         $dateTime = \DateTime::createFromFormat('d/m/Y H:i:s', '23/02/2014 15:39:10');
         $this->assertEquals('2014-02-23 15:39:10', $dateTimeConverter->convert($dateTime));
         $this->assertEquals(null, $dateTimeConverter->reverse(null));
-    	// End of user code
+        // End of user code
     }
     
     /**
@@ -110,10 +110,10 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
         $dateTime = \DateTime::createFromFormat('d/m/Y H:i:s', '23/02/2014 15:39:10');
         $this->assertEquals($dateTime, $dateTimeConverter->reverse('2014-02-23 15:39:10'));
         $this->assertEquals(null, $dateTimeConverter->reverse(null));
-    	// End of user code
+        // End of user code
     }
 
     // Start of user code DateTimeConverterTest.methods
-	// Place additional tests methods here.  
-	// End of user code
+    // Place additional tests methods here.  
+    // End of user code
 }

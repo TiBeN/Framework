@@ -10,16 +10,16 @@ namespace TiBeN\Framework\Datatype;
  */ 
 interface Converter
 {
-	/**
-	 * @param T $itemToConvert
-	 * @return U $convertedItem
-	 */
-	public function convert($itemToConvert);
+    /**
+     * @param T $itemToConvert
+     * @return U $convertedItem
+     */
+    public function convert($itemToConvert);
 
-	/**
-	 * @param U $itemToReverse
-	 * @return T $reversedItem
-	 */
-	public function reverse($itemToReverse);
+    /**
+     * @param U $itemToReverse
+     * @return T $reversedItem
+     */
+    public function reverse($itemToReverse);
 
 }

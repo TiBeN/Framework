@@ -78,16 +78,16 @@ class SelectExpr extends GenericCollection
     public static function createFromEntityAttributes(AssociativeArray $attributeMappings)
     {
         // Start of user code SelectExpr.createFromEntityAttributes
-	    $selectExpr = new self;
-	    foreach($attributeMappings->toNativeArray()
+        $selectExpr = new self;
+        foreach($attributeMappings->toNativeArray()
             as $attributeName => $attributeMapping
-	    ) {
-	        $selectExpr->add(
+        ) {
+            $selectExpr->add(
                 $attributeMapping
-	                ->getDataSourceAttributeMappingConfiguration()
-	                ->getColumnName()
-	        );
-	    }         
+                    ->getDataSourceAttributeMappingConfiguration()
+                    ->getColumnName()
+            );
+        }         
         // End of user code
     
         return $selectExpr;

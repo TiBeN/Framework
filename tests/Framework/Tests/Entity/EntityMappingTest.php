@@ -29,24 +29,24 @@ use TiBeN\Framework\Validation\ValidationRule;
 class EntityMappingTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code EntityMappingTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code EntityMappingTest.setUp
-		$fooDataSource = new FooDataSource();
-		$fooDataSource->setName('fooSource');
-		$fooDataSource->setSourceFolder('fooFolder');		
-		DataSourcesRegistry::registerDataSource($fooDataSource);
-		// End of user code
+        $fooDataSource = new FooDataSource();
+        $fooDataSource->setName('fooSource');
+        $fooDataSource->setSourceFolder('fooFolder');       
+        DataSourcesRegistry::registerDataSource($fooDataSource);
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code EntityMappingTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     /**
@@ -71,7 +71,7 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
         $someAttribute = new AttributeMapping();
         $someAttribute->setName('someAttribute');
         $someAttribute->setType(AssociativeArray::createFromNativeArray(null, array(
-        	'name' => 'string'                
+            'name' => 'string'                
         )));
         $dsAttributeConf = new FooAttributeMappingConfiguration();
         $dsAttributeConf->setField('fooField');
@@ -110,8 +110,8 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
      * Test static method create from class EntityMapping
      *
      * Start of user code EntityMappingTest.testcreateAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testCreate()
     {
@@ -128,7 +128,7 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
         $someAttribute = new AttributeMapping();
         $someAttribute->setName('someAttribute');
         $someAttribute->setType(AssociativeArray::createFromNativeArray(null, array(
-        	'name' => 'string'                
+            'name' => 'string'                
         )));
         
         $dsAttributeConf = new FooAttributeMappingConfiguration();
@@ -139,7 +139,7 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
         $validationRule->setValidatorName('stringlength');
         $validationRule->getConfiguration()->set('min', 4);
         $validationRule->setErrorMessagePattern('Some error message');
-	    $someAttribute->setValidationRules(array($validationRule));
+        $someAttribute->setValidationRules(array($validationRule));
 
         $expectedEm->getAttributeMappings()->set('someAttribute', $someAttribute);
         
@@ -172,27 +172,27 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
         );
         
         $this->assertEquals($expectedEm, $factorisedEntityMapping);
-		// End of user code
+        // End of user code
     }
 
     // Start of user code EntityMappingTest.methods
     
-	/**
-	 * Test setting ommit entity
+    /**
+     * Test setting ommit entity
      *
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage No Entity specified
-	 */
-	public function testOmmitEntity()
-	{
-	    $factorisedEntityMapping = EntityMapping::create(
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage No Entity specified
+     */
+    public function testOmmitEntity()
+    {
+        $factorisedEntityMapping = EntityMapping::create(
             AssociativeArray::createFromNativeArray(
                 null, 
                 array(            
                     'datasource' => array(
                         'name' => 'fooSource',
                         'file' => 'fooFile'
-                    ),	            
+                    ),              
                     'attributes' => array(
                         'someAttribute' => array(
                             'field' => 'fooField',
@@ -204,17 +204,17 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
                 )
             )
         );
-	}	
-	
-	/**
-	 * Test setting an unknown entity class name
+    }   
+    
+    /**
+     * Test setting an unknown entity class name
      *
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage The Entity "UnknownEntity" doesn't exist
-	 */	
-	public function testSettingAnUnknownEntityClassName() 
-	{
-	    $factorisedEntityMapping = EntityMapping::create(
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage The Entity "UnknownEntity" doesn't exist
+     */ 
+    public function testSettingAnUnknownEntityClassName() 
+    {
+        $factorisedEntityMapping = EntityMapping::create(
             AssociativeArray::createFromNativeArray(
                 null, 
                 array(
@@ -233,18 +233,18 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
                     )
                 )
             )
-        );	    
-	}
+        );      
+    }
 
-	/**
-	 * Test setting ommit datasource
+    /**
+     * Test setting ommit datasource
      *
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage No DataSource specified
-	 */
-	public function testOmmitDataSource()
-	{
-	    $factorisedEntityMapping = EntityMapping::create(
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage No DataSource specified
+     */
+    public function testOmmitDataSource()
+    {
+        $factorisedEntityMapping = EntityMapping::create(
             AssociativeArray::createFromNativeArray(
                 null, 
                 array(
@@ -260,24 +260,24 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
                 )
             )
         );
-	}
+    }
 
-	/**
-	 * Test setting ommit datasource name
+    /**
+     * Test setting ommit datasource name
      *
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage No DataSource specified
-	 */
-	public function testOmmitDataSourceName()
-	{
-	    $factorisedEntityMapping = EntityMapping::create(
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage No DataSource specified
+     */
+    public function testOmmitDataSourceName()
+    {
+        $factorisedEntityMapping = EntityMapping::create(
             AssociativeArray::createFromNativeArray(
                 null, 
                 array(
                     'entity' => 'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity',
                     'datasource' => array(                
                         'file' => 'fooFile'
-                    ),	            
+                    ),              
                     'attributes' => array(
                         'someAttribute' => array(
                             'field' => 'fooField',
@@ -289,17 +289,17 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
                 )
             )
         );
-	}
-	
-	/**
-	 * Test setting an unknown datasource name
+    }
+    
+    /**
+     * Test setting an unknown datasource name
      *
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage The DataSource "bar" doesn't exist
-	 */
-	public function testSettingAnUnknownDataSourceName()
-	{
-	    $factorisedEntityMapping = EntityMapping::create(
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage The DataSource "bar" doesn't exist
+     */
+    public function testSettingAnUnknownDataSourceName()
+    {
+        $factorisedEntityMapping = EntityMapping::create(
             AssociativeArray::createFromNativeArray(
                 null, 
                 array(
@@ -319,17 +319,17 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
                 )
             )
         );
-	}
+    }
 
-	/**
-	 * Test ommit attributes
+    /**
+     * Test ommit attributes
      *
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage At least one attribute must be set
-	 */
-	public function testOmmitAttributes()
-	{
-	    $factorisedEntityMapping = EntityMapping::create(
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage At least one attribute must be set
+     */
+    public function testOmmitAttributes()
+    {
+        $factorisedEntityMapping = EntityMapping::create(
             AssociativeArray::createFromNativeArray(
                 null, 
                 array(
@@ -341,17 +341,17 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
                 )
             )
         );
-	}		
-	
-	/**
-	 * Test ommit attribute type
+    }       
+    
+    /**
+     * Test ommit attribute type
      *
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage No type set for attribute 'someAttribute'
-	 */
-	public function testOmmitAttributeType()
-	{
-	    $factorisedEntityMapping = EntityMapping::create(
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage No type set for attribute 'someAttribute'
+     */
+    public function testOmmitAttributeType()
+    {
+        $factorisedEntityMapping = EntityMapping::create(
             AssociativeArray::createFromNativeArray(
                 null, 
                 array(
@@ -364,11 +364,11 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
                         'someAttribute' => array(
                             'field' => 'fooField'                    
                         )
-                    )	            
+                    )               
                 )
             )
         );
-	}	
+    }   
 
     /**
      * Test getting identifier attribute mapping 
@@ -391,7 +391,7 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
         $someAttribute = new AttributeMapping();
         $someAttribute->setName('someAttribute');
         $someAttribute->setType(AssociativeArray::createFromNativeArray(null, array(
-        	'name' => 'string'                
+            'name' => 'string'                
         )));
         $dsAttributeConf = new FooAttributeMappingConfiguration();
         $dsAttributeConf->setField('fooField');
@@ -400,5 +400,5 @@ class EntityMappingTest extends \PHPUnit_Framework_TestCase
 
         $entityManager->getIdentifierAttributeMapping();
     }
-	// End of user code
+    // End of user code
 }

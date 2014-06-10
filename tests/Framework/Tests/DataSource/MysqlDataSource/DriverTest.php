@@ -167,64 +167,64 @@ class DriverTest extends \PHPUnit_Framework_TestCase
     // Start of user code DriverTest.methods
 
     /**
-	 * Test connection failed exception
+     * Test connection failed exception
      *
-	 * @expectedException PDOException
-	 */
-	public function testConnectionFailedException() 
-	{
-		Driver::connect(
-			$GLOBALS['db_host'],
-			'fakeusername', // Hope theses credentials doesn't exists!!
-			'fakepasswd', 
-			'fakedb',
-			$GLOBALS['db_port']	
-		);		
-	}
-	
-	/**
-	 * Test Statement not ready exception
+     * @expectedException PDOException
+     */
+    public function testConnectionFailedException() 
+    {
+        Driver::connect(
+            $GLOBALS['db_host'],
+            'fakeusername', // Hope theses credentials doesn't exists!!
+            'fakepasswd', 
+            'fakedb',
+            $GLOBALS['db_port'] 
+        );      
+    }
+    
+    /**
+     * Test Statement not ready exception
      *
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage The statement is not ready to be executed
-	 */
-	public function testStatementNotReadyException() 
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage The statement is not ready to be executed
+     */
+    public function testStatementNotReadyException() 
     {
-		$connection = Driver::connect(
-			$GLOBALS['db_host'],
-			$GLOBALS['db_username'],
-			$GLOBALS['db_password'],
-			$GLOBALS['db_name'],
-			$GLOBALS['db_port']
-		);		
-		$statement = new GenericStatement();
-		Driver::executeStatement($statement, $connection);
-	}
-	
-	/**
-	 * TestStatementExecutionFailed  
-	 */
-	public function testStatementExecutionFailed() 
+        $connection = Driver::connect(
+            $GLOBALS['db_host'],
+            $GLOBALS['db_username'],
+            $GLOBALS['db_password'],
+            $GLOBALS['db_name'],
+            $GLOBALS['db_port']
+        );      
+        $statement = new GenericStatement();
+        Driver::executeStatement($statement, $connection);
+    }
+    
+    /**
+     * TestStatementExecutionFailed  
+     */
+    public function testStatementExecutionFailed() 
     {
-		$connection = Driver::connect(
-			$GLOBALS['db_host'],
-			$GLOBALS['db_username'],
-			$GLOBALS['db_password'],
-			$GLOBALS['db_name'],
-			$GLOBALS['db_port']
-		);
-		$badStatement = new GenericStatement();
-		$badStatement->setStatementString('SLECT * FROM `some_table`');
-		$executionResult = Driver::executeStatement($badStatement, $connection);		
-		Driver::disconnect($connection);		
-		
-		$this->assertFalse($executionResult->getSuccess());
-		$this->assertEquals(1064, $executionResult->getErrorCode());
-		$this->assertEquals(
-			'You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near \'SLECT * FROM `some_table`\' at line 1', 
-			$executionResult->getErrorMessage()
-		);	
-						
-	}
+        $connection = Driver::connect(
+            $GLOBALS['db_host'],
+            $GLOBALS['db_username'],
+            $GLOBALS['db_password'],
+            $GLOBALS['db_name'],
+            $GLOBALS['db_port']
+        );
+        $badStatement = new GenericStatement();
+        $badStatement->setStatementString('SLECT * FROM `some_table`');
+        $executionResult = Driver::executeStatement($badStatement, $connection);        
+        Driver::disconnect($connection);        
+        
+        $this->assertFalse($executionResult->getSuccess());
+        $this->assertEquals(1064, $executionResult->getErrorCode());
+        $this->assertEquals(
+            'You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near \'SLECT * FROM `some_table`\' at line 1', 
+            $executionResult->getErrorMessage()
+        );  
+                        
+    }
     // End of user code
 }

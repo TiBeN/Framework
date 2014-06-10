@@ -10,11 +10,11 @@ namespace TiBeN\Framework\Tests\Fixtures\Datatype;
 class SomeItem 
 {
     public $someData;
-	
-	public $tempCelsius;
-	
-	public function __construct($someData = null)
+    
+    public $tempCelsius;
+    
+    public function __construct($someData = null)
     {
-		$this->someData = $someData;
-	}
+        $this->someData = $someData;
+    }
 }

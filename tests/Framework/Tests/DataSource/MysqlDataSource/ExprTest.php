@@ -23,43 +23,43 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class ExprTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code ExprTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code ExprTest.setUp
-		// Place additional setUp code here.  
-		// End of user code
+        // Place additional setUp code here.  
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code ExprTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     /**
      * Test method toString from class Expr
      *
      * Start of user code ExprTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testToString()
     {
         // Start of user code ExprTest.testtoString
-	    // Tests covered by testConcat
-		// End of user code
+        // Tests covered by testConcat
+        // End of user code
     }
     
     /**
      * Test static method concat from class Expr
      *
      * Start of user code ExprTest.testconcatAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testConcat()
     {
@@ -67,13 +67,13 @@ class ExprTest extends \PHPUnit_Framework_TestCase
         $expectedExpr = "((foo = :foo0 OR foo != :foo1) AND (foobar > :foobar0 AND foobar < :foobar1)) OR foobar > :foobar2 OR foobar < :foobar3";
         
         $expr = Expr::concat(
-        	GenericCollection::createFromNativeArray(
+            GenericCollection::createFromNativeArray(
                 'TiBeN\\Framework\\DataSource\\MysqlDataSource\\Expr', 
                 array(
                     Expr::concat(
                         GenericCollection::createFromNativeArray(
                             'TiBeN\\Framework\\DataSource\\MysqlDataSource\\Expr', 
-                            array(	                
+                            array(                  
                                 Expr::concat(
                                     GenericCollection::createFromNativeArray(
                                         'TiBeN\\Framework\\DataSource\\MysqlDataSource\\Expr',
@@ -93,9 +93,9 @@ class ExprTest extends \PHPUnit_Framework_TestCase
                                                 )
                                             ),
                                         )
-                                    ),	
+                                    ),  
                                     Expr::LOGICAL_SEPARATOR_OR    
-                                ),	                
+                                ),                  
                                 Expr::concat(
                                     GenericCollection::createFromNativeArray(
                                         'TiBeN\\Framework\\DataSource\\MysqlDataSource\\Expr',
@@ -115,11 +115,11 @@ class ExprTest extends \PHPUnit_Framework_TestCase
                                                 )
                                             ),
                                         )
-                                    ),	
+                                    ),  
                                     Expr::LOGICAL_SEPARATOR_AND                
                                 )
                             )
-                        ),	            		
+                        ),                      
                         Expr::LOGICAL_SEPARATOR_AND
                     ), 
                     Expr::fromString(
@@ -148,31 +148,31 @@ class ExprTest extends \PHPUnit_Framework_TestCase
             'foobar0' => 5,
             'foobar1' => 10,
             'foobar2' => 30,
-        	'foobar3' => 60
+            'foobar3' => 60
         ));
         
         $this->assertEquals(
             $expectedExprParameters, 
             $expr->getExprParameters()
         );
-		// End of user code
+        // End of user code
     }
     
     /**
      * Test static method fromString from class Expr
      *
      * Start of user code ExprTest.testfromStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testFromString()
     {
         // Start of user code ExprTest.testfromString
-	    // Tests covered by testConcat
-		// End of user code
+        // Tests covered by testConcat
+        // End of user code
     }
 
     // Start of user code ExprTest.methods
-	// Place additional tests methods here.  
-	// End of user code
+    // Place additional tests methods here.  
+    // End of user code
 }

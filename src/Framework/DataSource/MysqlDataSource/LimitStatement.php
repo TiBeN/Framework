@@ -109,9 +109,9 @@ class LimitStatement
     public static function createFromLimitCriteria(LimitCriteria $limitCriteria)
     {
         // Start of user code LimitStatement.createFromLimitCriteria
-		$limitStatement = new self();
-		$limitStatement->setOffset($limitCriteria->getOffset());
-		$limitStatement->setRowCount($limitCriteria->getNumber()); 
+        $limitStatement = new self();
+        $limitStatement->setOffset($limitCriteria->getOffset());
+        $limitStatement->setRowCount($limitCriteria->getNumber()); 
         // End of user code
     
         return $limitStatement;

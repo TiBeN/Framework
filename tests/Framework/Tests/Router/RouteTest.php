@@ -22,29 +22,29 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class RouteTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code RouteTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code RouteTest.setUp
-		// Place additional setUp code here.  
-		// End of user code
+        // Place additional setUp code here.  
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code RouteTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     /**
      * Test method hasVariables from class Route
      *
      * Start of user code RouteTest.testhasVariablesAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testHasVariables()
     {
@@ -58,10 +58,10 @@ class RouteTest extends \PHPUnit_Framework_TestCase
             )
         );
         $this->assertTrue($route->hasVariables());
-		// End of user code
+        // End of user code
     }
 
     // Start of user code RouteTest.methods
-	// Place additional tests methods here.  
-	// End of user code
+    // Place additional tests methods here.  
+    // End of user code
 }

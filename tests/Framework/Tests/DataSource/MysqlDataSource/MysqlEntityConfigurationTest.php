@@ -22,21 +22,21 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class MysqlEntityConfigurationTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code MysqlEntityConfigurationTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code MysqlEntityConfigurationTest.setUp
-		// Place additional setUp code here.  
-		// End of user code
+        // Place additional setUp code here.  
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code MysqlEntityConfigurationTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     
@@ -62,22 +62,22 @@ class MysqlEntityConfigurationTest extends \PHPUnit_Framework_TestCase
                 )
             )
         );
-    	// End of user code
+        // End of user code
     }
 
     // Start of user code MysqlEntityConfigurationTest.methods
 
-	/**
-	 * Test create a MysqlEntityConfiguration without tableName
+    /**
+     * Test create a MysqlEntityConfiguration without tableName
      *
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage No table name set
-	 */
-	public function testCreateAMysqlEntityConfigurationWithoutTableName()
-	{
-	    MysqlEntityConfiguration::create(
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage No table name set
+     */
+    public function testCreateAMysqlEntityConfigurationWithoutTableName()
+    {
+        MysqlEntityConfiguration::create(
             AssociativeArray::createFromNativeArray(null, array())
         );
-	}
-	// End of user code
+    }
+    // End of user code
 }

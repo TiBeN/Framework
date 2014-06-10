@@ -23,89 +23,89 @@ use TiBeN\Framework\Router\Router;
 class SmartyUriHandlerTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code SmartyUriHandlerTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code SmartyUriHandlerTest.setUp
-		// Place additional setUp code here.  
-		// End of user code
+        // Place additional setUp code here.  
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code SmartyUriHandlerTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     /**
      * Test method getUri from class SmartyUriHandler
      *
      * Start of user code SmartyUriHandlerTest.testgetUriAnnotations 
-	 * @runInSeparateProcess 
-	 * End of user code
+     * @runInSeparateProcess 
+     * End of user code
      */
     public function testGetUri()
     {
         // Start of user code SmartyUriHandlerTest.testgetUri
-	    $routeRule = new RouteRule();
-		$routeRule->setName('my-route-rule-with-variables-test');
-		$routeRule->setUriPattern('/test/{foo}/{bar}.html');
-		$routeRule->setController('MyProject\\Controller\\MyController');
-		$routeRule->setAction('myAction');
-		
-		Router::addRouteRule($routeRule);
-		
-		$smartyUriHandler = new SmartyUriHandler();
-		
-		$smartyInternalTemplateMock = $this->getMock(
+        $routeRule = new RouteRule();
+        $routeRule->setName('my-route-rule-with-variables-test');
+        $routeRule->setUriPattern('/test/{foo}/{bar}.html');
+        $routeRule->setController('MyProject\\Controller\\MyController');
+        $routeRule->setAction('myAction');
+        
+        Router::addRouteRule($routeRule);
+        
+        $smartyUriHandler = new SmartyUriHandler();
+        
+        $smartyInternalTemplateMock = $this->getMock(
             'Smarty_Internal_Template', 
             array(), 
             array(), 
             '', 
             false
         );
-		
-		$this->assertEquals(
-			'/test/foo-content/bar-content.html',
-			$smartyUriHandler->getUri(
-				array(
-					'name' => 'my-route-rule-with-variables-test',
-					'foo' => 'foo-content',
-					'bar' => 'bar-content'	
-				), 
-				$smartyInternalTemplateMock
-			)
-		);
-		// End of user code
+        
+        $this->assertEquals(
+            '/test/foo-content/bar-content.html',
+            $smartyUriHandler->getUri(
+                array(
+                    'name' => 'my-route-rule-with-variables-test',
+                    'foo' => 'foo-content',
+                    'bar' => 'bar-content'  
+                ), 
+                $smartyInternalTemplateMock
+            )
+        );
+        // End of user code
     }
 
     // Start of user code SmartyUriHandlerTest.methods
 
-	/**
-	 * Case : Exception when no route rule name are set
+    /**
+     * Case : Exception when no route rule name are set
      *
      * @runInSeparateProcess
-	 * @expectedException InvalidArgumentException
-	 * @expectedExceptionMessage No route rule name set
-	 */
-	public function testExceptionWhenNoRouteRuleByNameAreSet() {
-			
-		$smartyUriHandler = new SmartyUriHandler();				
-		$smartyInternalTemplateMock = $this->getMock(
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage No route rule name set
+     */
+    public function testExceptionWhenNoRouteRuleByNameAreSet() {
+            
+        $smartyUriHandler = new SmartyUriHandler();             
+        $smartyInternalTemplateMock = $this->getMock(
             'Smarty_Internal_Template', 
             array(), 
             array(), 
             '', 
             false
         );
-		$smartyUriHandler->getUri(
-			array('foo' => 'foo-content'),
-			$smartyInternalTemplateMock
-		);						
-			
-	}
-	// End of user code
+        $smartyUriHandler->getUri(
+            array('foo' => 'foo-content'),
+            $smartyInternalTemplateMock
+        );                      
+            
+    }
+    // End of user code
 }

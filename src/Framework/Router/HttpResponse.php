@@ -144,17 +144,17 @@ class HttpResponse
         $httpResponse = new self();
         $httpResponse->setContentType($contentType);
         $httpResponse->setHeaders(
-			AssociativeArray::createFromNativeArray(
-			    'string', 
-				array(
+            AssociativeArray::createFromNativeArray(
+                'string', 
+                array(
                     'content-Disposition' => sprintf(
                         'attachment; filename="%s"', 
                         $fileName
                     )
                 )
-			)
-		);
-		$httpResponse->setMessage($content);
+            )
+        );
+        $httpResponse->setMessage($content);
         // End of user code
     
         return $httpResponse;
@@ -168,24 +168,24 @@ class HttpResponse
         // Start of user code HttpResponse.sendToClient
         
         // Set http response status code
-		header('HTTP/1.1 ' . $this->statusCode .' ');
-		
-		// Set http content-type
-		header('Content-type: ' . $this->contentType);
-		
-		// Set custom headers
-		if(isset($this->headers)) {
-			foreach($this->headers->toNativeArray() as $key => $value) {
-				header(sprintf('%s: %s', ucfirst($key), $value));
-			}
-		}		
-		
-		// Send content
-		if(isset($this->message)) {
-			echo $this->message;
-		}
-		
-		return;
+        header('HTTP/1.1 ' . $this->statusCode .' ');
+        
+        // Set http content-type
+        header('Content-type: ' . $this->contentType);
+        
+        // Set custom headers
+        if(isset($this->headers)) {
+            foreach($this->headers->toNativeArray() as $key => $value) {
+                header(sprintf('%s: %s', ucfirst($key), $value));
+            }
+        }       
+        
+        // Send content
+        if(isset($this->message)) {
+            echo $this->message;
+        }
+        
+        return;
         // End of user code
     }
 
@@ -199,9 +199,9 @@ class HttpResponse
     public static function createRedirectResponse($uri, $permanent)
     {
         // Start of user code HttpResponse.createRedirectResponse
-        $httpResponse = new self();			
-		$httpResponse->setStatusCode($permanent ? '301' : '302');
-		$httpResponse->setHeaders(
+        $httpResponse = new self();         
+        $httpResponse->setStatusCode($permanent ? '301' : '302');
+        $httpResponse->setHeaders(
             AssociativeArray::createFromNativeArray('string', array('location' => $uri))
         );
         // End of user code

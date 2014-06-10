@@ -94,9 +94,9 @@ class WhereConditions
     public static function createFromExpr(Expr $expr)
     {
         // Start of user code WhereConditions.createFromExpr
-		$whereConditions = new self();
-		$whereConditions->expr = $expr;
-		$whereConditions->statementParameters = $expr->getExprParameters();
+        $whereConditions = new self();
+        $whereConditions->expr = $expr;
+        $whereConditions->statementParameters = $expr->getExprParameters();
         // End of user code
     
         return $whereConditions;
@@ -113,22 +113,22 @@ class WhereConditions
     public static function createEntityTargetFromEntity(EntityMapping $entityMapping, Entity $entity)
     {
         // Start of user code WhereConditions.createEntityTargetFromEntity
-		$mapper = new MysqlEntityAttributeMapper();
-		$mapper->setEntityMapping($entityMapping);
-		$mapper->setEntity($entity);		
+        $mapper = new MysqlEntityAttributeMapper();
+        $mapper->setEntityMapping($entityMapping);
+        $mapper->setEntity($entity);        
         if($mapper->getIdentifierValue() === NULL) {
             throw new \LogicException(
                'A WhereConditions can\'t be instanciated from an unidentified entity'
             ); 
         }
-		$criteriaSet = CriteriaSet::createAnd()
+        $criteriaSet = CriteriaSet::createAnd()
             ->add(
                 MatchCriteria::equals(
                     $mapper->getIdentifierAttributeName(), 
                     $mapper->getIdentifierValue()
                 )
             )
-        ;    		  
+        ;             
 
         $whereConditions = self::createFromCriteriaSet($criteriaSet, $entityMapping);
         // End of user code
@@ -164,10 +164,10 @@ class WhereConditions
     public function toString()
     {
         // Start of user code WhereConditions.toString
-		if(is_null($this->expr)) {
-		    throw new \LogicException('No expr set');
-		}
-		$string = 'WHERE ' . $this->expr->toString(); 
+        if(is_null($this->expr)) {
+            throw new \LogicException('No expr set');
+        }
+        $string = 'WHERE ' . $this->expr->toString(); 
         // End of user code
     
         return $string;
@@ -175,96 +175,96 @@ class WhereConditions
 
     // Start of user code WhereConditions.implementationSpecificMethods
     
-	/**
-	 * Hold logical separator mappings between the entity criteria set and Mysql expr
+    /**
+     * Hold logical separator mappings between the entity criteria set and Mysql expr
      *
-	 * @var array
-	 */
-	public static $criteriaSetExprLogicalSeparatorMapping = array(
-		CriteriaSet::LOGICAL_SEPARATOR_AND => Expr::LOGICAL_SEPARATOR_AND,
-		CriteriaSet::LOGICAL_SEPARATOR_OR => Expr::LOGICAL_SEPARATOR_OR
-	);
-	
-	/**
-	 * Hold operator mappings between the entity match criteria and Mysql expr
+     * @var array
+     */
+    public static $criteriaSetExprLogicalSeparatorMapping = array(
+        CriteriaSet::LOGICAL_SEPARATOR_AND => Expr::LOGICAL_SEPARATOR_AND,
+        CriteriaSet::LOGICAL_SEPARATOR_OR => Expr::LOGICAL_SEPARATOR_OR
+    );
+    
+    /**
+     * Hold operator mappings between the entity match criteria and Mysql expr
      *
-	 * @var array
-	 */	
-	public static $criteriaSetExprOperatorMapping = array(
-			MatchCriteria::OPERATOR_EQUALS => Expr::OPERATOR_EQUALS,
-			MatchCriteria::OPERATOR_GREATER_THAN => Expr::OPERATOR_GREATER_THAN,
-			MatchCriteria::OPERATOR_GREATER_THAN_OR_EQUALS 
+     * @var array
+     */ 
+    public static $criteriaSetExprOperatorMapping = array(
+            MatchCriteria::OPERATOR_EQUALS => Expr::OPERATOR_EQUALS,
+            MatchCriteria::OPERATOR_GREATER_THAN => Expr::OPERATOR_GREATER_THAN,
+            MatchCriteria::OPERATOR_GREATER_THAN_OR_EQUALS 
                 => Expr::OPERATOR_GREATER_THAN_OR_EQUALS
             ,
-			MatchCriteria::OPERATOR_LESS_THAN => Expr::OPERATOR_LESS_THAN,
-			MatchCriteria::OPERATOR_LESS_THAN_OR_EQUALS => Expr::OPERATOR_LESS_THAN_OR_EQUALS,
-			MatchCriteria::OPERATOR_LIKE => Expr::OPERATOR_LIKE,
-			MatchCriteria::OPERATOR_NOT_EQUALS => Expr::OPERATOR_NOT_EQUALS,
-			MatchCriteria::OPERATOR_NOT_LIKE => Expr::OPERATOR_NOT_LIKE
-	);
-	
-	/**
-	 * Convert a CriteriaSet to an Expr
+            MatchCriteria::OPERATOR_LESS_THAN => Expr::OPERATOR_LESS_THAN,
+            MatchCriteria::OPERATOR_LESS_THAN_OR_EQUALS => Expr::OPERATOR_LESS_THAN_OR_EQUALS,
+            MatchCriteria::OPERATOR_LIKE => Expr::OPERATOR_LIKE,
+            MatchCriteria::OPERATOR_NOT_EQUALS => Expr::OPERATOR_NOT_EQUALS,
+            MatchCriteria::OPERATOR_NOT_LIKE => Expr::OPERATOR_NOT_LIKE
+    );
+    
+    /**
+     * Convert a CriteriaSet to an Expr
      *
-	 * @param CriteriaSet $criteriaSet 
-	 * @param EntityMapping $entityMapping
-	 * @param AssociativeArray $exprParameters (used internaly as memory for recursive loop)
-	 * @return Expr
-	 */
-	public static function ConvertCriteriaSetToExpr(
+     * @param CriteriaSet $criteriaSet 
+     * @param EntityMapping $entityMapping
+     * @param AssociativeArray $exprParameters (used internaly as memory for recursive loop)
+     * @return Expr
+     */
+    public static function ConvertCriteriaSetToExpr(
         CriteriaSet $criteriaSet, 
         EntityMapping $entityMapping, 
         AssociativeArray $exprParameters = NULL
-	) {
-		$exprCollection = new GenericCollection(
+    ) {
+        $exprCollection = new GenericCollection(
             'TiBeN\\Framework\\DataSource\\MysqlDataSource\\Expr'
         );
-		if(is_null($exprParameters)) $exprParameters = new AssociativeArray();
-				
-		foreach($criteriaSet->getCriteriaSets() as $subCriteriaSet) {
-		    $subExpr = self::ConvertCriteriaSetToExpr(
+        if(is_null($exprParameters)) $exprParameters = new AssociativeArray();
+                
+        foreach($criteriaSet->getCriteriaSets() as $subCriteriaSet) {
+            $subExpr = self::ConvertCriteriaSetToExpr(
                 $subCriteriaSet, 
                 $entityMapping, 
                 $exprParameters
             );
-			$exprCollection->add($subExpr);
-			$exprParameters->merge($subExpr->getExprParameters());
-		}
-				
-		$mapper = new MysqlEntityAttributeMapper();
-		$mapper->setEntityMapping($entityMapping);
-		
-		foreach($criteriaSet->getMatchCriterias() as $matchCriteria) {
-		    $numberedAttribute = $matchCriteria->getAttribute()."0";
-		    $i = 0;
-		    while($i >= 0) {
-		        $numberedAttribute = $matchCriteria->getAttribute().(string)$i;
-		        if($exprParameters->has($numberedAttribute)) $i++;
-		        else break;
-		    }
-		    
-		    $exprParameters->set($numberedAttribute, $matchCriteria->getValue());
+            $exprCollection->add($subExpr);
+            $exprParameters->merge($subExpr->getExprParameters());
+        }
+                
+        $mapper = new MysqlEntityAttributeMapper();
+        $mapper->setEntityMapping($entityMapping);
+        
+        foreach($criteriaSet->getMatchCriterias() as $matchCriteria) {
+            $numberedAttribute = $matchCriteria->getAttribute()."0";
+            $i = 0;
+            while($i >= 0) {
+                $numberedAttribute = $matchCriteria->getAttribute().(string)$i;
+                if($exprParameters->has($numberedAttribute)) $i++;
+                else break;
+            }
+            
+            $exprParameters->set($numberedAttribute, $matchCriteria->getValue());
 
-			$exprCollection->add(
-				Expr::fromString(
-					sprintf(
-						'%s %s %s', 
-						$mapper->getColumnName($matchCriteria->getAttribute()), 
-						self::$criteriaSetExprOperatorMapping[$matchCriteria->getOperator()],
-						':' . $numberedAttribute
-					), 
-					AssociativeArray::createFromNativeArray(
-						null,	
-						array($numberedAttribute => $matchCriteria->getValue())
-					)
-				)
-			);
-		}
+            $exprCollection->add(
+                Expr::fromString(
+                    sprintf(
+                        '%s %s %s', 
+                        $mapper->getColumnName($matchCriteria->getAttribute()), 
+                        self::$criteriaSetExprOperatorMapping[$matchCriteria->getOperator()],
+                        ':' . $numberedAttribute
+                    ), 
+                    AssociativeArray::createFromNativeArray(
+                        null,   
+                        array($numberedAttribute => $matchCriteria->getValue())
+                    )
+                )
+            );
+        }
 
-		return Expr::concat(
-			$exprCollection, 
-			self::$criteriaSetExprLogicalSeparatorMapping[$criteriaSet->getLogicalSeparator()]
-		);
-	}
+        return Expr::concat(
+            $exprCollection, 
+            self::$criteriaSetExprLogicalSeparatorMapping[$criteriaSet->getLogicalSeparator()]
+        );
+    }
     // End of user code
 }

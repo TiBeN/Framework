@@ -21,51 +21,51 @@ use TiBeN\Framework\Entity\LimitCriteria;
 class LimitCriteriaTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code LimitCriteriaTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code LimitCriteriaTest.setUp
-		// Place additional setUp code here.  
-		// End of user code
+        // Place additional setUp code here.  
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code LimitCriteriaTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     /**
      * Test static method to from class LimitCriteria
      *
      * Start of user code LimitCriteriaTest.testtoAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testTo()
     {
         // Start of user code LimitCriteriaTest.testto
-	    $expectedLimitCriteria = new LimitCriteria();
-	    $expectedLimitCriteria->setNumber(5);
-	    $this->assertEquals(
-	    		$expectedLimitCriteria, 
-	    		LimitCriteria::to(5)
-		);
-	    
-	    $expectedLimitCriteria = new LimitCriteria();
-	    $expectedLimitCriteria->setNumber(5);
-	    $expectedLimitCriteria->setOffset(1337);
-	    $this->assertEquals(
-	    		$expectedLimitCriteria,
-	    		LimitCriteria::to(5, 1337)
-	    );	    
-		// End of user code
+        $expectedLimitCriteria = new LimitCriteria();
+        $expectedLimitCriteria->setNumber(5);
+        $this->assertEquals(
+                $expectedLimitCriteria, 
+                LimitCriteria::to(5)
+        );
+        
+        $expectedLimitCriteria = new LimitCriteria();
+        $expectedLimitCriteria->setNumber(5);
+        $expectedLimitCriteria->setOffset(1337);
+        $this->assertEquals(
+                $expectedLimitCriteria,
+                LimitCriteria::to(5, 1337)
+        );      
+        // End of user code
     }
 
     // Start of user code LimitCriteriaTest.methods
-	// Place additional tests methods here.  
-	// End of user code
+    // Place additional tests methods here.  
+    // End of user code
 }

@@ -37,8 +37,8 @@ class StringConverter implements TypeConverter
         $this->TType = $TType;
 
         // Start of user code StringConverter.constructor
-		$this->TType = 'string';
-		$this->UType = 'string';			
+        $this->TType = 'string';
+        $this->UType = 'string';            
         // End of user code
     }
 
@@ -104,7 +104,7 @@ class StringConverter implements TypeConverter
     public function setParameters(AssociativeArray $parameters)
     {
         // Start of user code TypeConverter.setParameters
-		// Nothing to do here for this converter
+        // Nothing to do here for this converter
         // End of user code
     }
 
@@ -114,7 +114,7 @@ class StringConverter implements TypeConverter
     public function getType()
     {
         // Start of user code TypeConverter.getType
-		$type = 'string';
+        $type = 'string';
         // End of user code
     
         return $type;
@@ -126,7 +126,7 @@ class StringConverter implements TypeConverter
     public function getDataSourceType()
     {
         // Start of user code TypeConverter.getDataSourceType
-		$dataSourceType = 'mysql';
+        $dataSourceType = 'mysql';
         // End of user code
     
         return $dataSourceType;
@@ -140,8 +140,8 @@ class StringConverter implements TypeConverter
     {
         $this->typeHint($this->TType, $itemToConvert);
         // Start of user code Converter.convert
-		if(is_null($itemToConvert)) return $itemToConvert;
-		$convertedItem = $itemToConvert;
+        if(is_null($itemToConvert)) return $itemToConvert;
+        $convertedItem = $itemToConvert;
         // End of user code
     
         return $convertedItem;
@@ -155,7 +155,7 @@ class StringConverter implements TypeConverter
     {
         $this->typeHint($this->UType, $itemToReverse);
         // Start of user code Converter.reverse
-		if(is_null($itemToReverse)) return $itemToReverse;
+        if(is_null($itemToReverse)) return $itemToReverse;
         $reversedItem = $itemToReverse;    
         // End of user code
     

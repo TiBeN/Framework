@@ -9,8 +9,8 @@ namespace TiBeN\Framework\Validation;
 /**
  * Check whether a number fit in a specified range.
  * ValidationRules:
- * 	'min': (optional) The min number 
- * 	'max': (optional) The max number 
+ *  'min': (optional) The min number 
+ *  'max': (optional) The max number 
  * 
  *
  * @package TiBeN\Framework\Validation

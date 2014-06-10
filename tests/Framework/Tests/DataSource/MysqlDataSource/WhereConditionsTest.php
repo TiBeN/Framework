@@ -29,36 +29,36 @@ use TiBeN\Framework\Datatype\GenericCollection;
 class WhereConditionsTest extends \PHPUnit_Framework_TestCase
 {
     // Start of user code WhereConditionsTest.attributes
-	// Place additional tests attributes here.  
-	// End of user code
+    // Place additional tests attributes here.  
+    // End of user code
 
     public function setUp()
     {
         // Start of user code WhereConditionsTest.setUp
-		MysqlDataSourceTestSetupTearDown::declareSomeEntityMapping();
-		// End of user code
+        MysqlDataSourceTestSetupTearDown::declareSomeEntityMapping();
+        // End of user code
     }
 
     public function tearDown()
     {
         // Start of user code WhereConditionsTest.tearDown
-		// Place additional tearDown code here.  
-		// End of user code
+        // Place additional tearDown code here.  
+        // End of user code
     }
     
     /**
      * Test static method createFromExpr from class WhereConditions
      *
      * Start of user code WhereConditionsTest.testcreateFromExprAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testCreateFromExpr()
     {
         // Start of user code WhereConditionsTest.testcreateFromExpr
-		$expectedWhereConditionsString = "WHERE ((foo = :foo0 OR foo != :foo1) AND (foobar > :foobar0 AND foobar < :foobar1)) OR foobar > :foobar2 OR foobar < :foobar3";
+        $expectedWhereConditionsString = "WHERE ((foo = :foo0 OR foo != :foo1) AND (foobar > :foobar0 AND foobar < :foobar1)) OR foobar > :foobar2 OR foobar < :foobar3";
         $expr = Expr::concat(
-        	GenericCollection::createFromNativeArray(
+            GenericCollection::createFromNativeArray(
                 'TiBeN\\Framework\\DataSource\\MysqlDataSource\\Expr', 
                 array(
                     Expr::concat(
@@ -84,9 +84,9 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
                                                 )
                                             ),
                                         )
-                                    ),	
+                                    ),  
                                     Expr::LOGICAL_SEPARATOR_OR    
-                                ),	                
+                                ),                  
                                 Expr::concat(
                                     GenericCollection::createFromNativeArray(
                                         'TiBeN\\Framework\\DataSource\\MysqlDataSource\\Expr', 
@@ -106,11 +106,11 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
                                                 )
                                             ),
                                         )
-                                    ),	
+                                    ),  
                                     Expr::LOGICAL_SEPARATOR_AND                
                                 )
                             )
-                        ),	            		
+                        ),                      
                         Expr::LOGICAL_SEPARATOR_AND
                     ), 
                     Expr::fromString(
@@ -131,66 +131,66 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
             ),
             Expr::LOGICAL_SEPARATOR_OR
         );
-			            
-	    $this->assertEquals(
+                        
+        $this->assertEquals(
             $expectedWhereConditionsString, 
             WhereConditions::createFromExpr($expr)->toString()
         );
-		// End of user code
+        // End of user code
     }
     
     /**
      * Test static method createEntityTargetFromEntity from class WhereConditions
      *
      * Start of user code WhereConditionsTest.testcreateEntityTargetFromEntityAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testCreateEntityTargetFromEntity()
     {
         // Start of user code WhereConditionsTest.testcreateEntityTargetFromEntity
-	    $expectedWhereConditionsString = 'WHERE idTable = :id0';
-	    $someEntity = new SomeEntity();
-	    $someEntity->setId(1337);
-	    $someEntity->setAttributeA('foo');
-	    
-	    $entityMapping = EntityMappingsRegistry::getEntityMapping(
+        $expectedWhereConditionsString = 'WHERE idTable = :id0';
+        $someEntity = new SomeEntity();
+        $someEntity->setId(1337);
+        $someEntity->setAttributeA('foo');
+        
+        $entityMapping = EntityMappingsRegistry::getEntityMapping(
             'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
         );
-	    
-	    $whereConditions = WhereConditions::createEntityTargetFromEntity(
+        
+        $whereConditions = WhereConditions::createEntityTargetFromEntity(
             $entityMapping, 
             $someEntity
         );
-	    
-	    $this->assertEquals($expectedWhereConditionsString, $whereConditions->toString());
-	    
-	    $expectedStatementParameters = AssociativeArray::createFromNativeArray(
+        
+        $this->assertEquals($expectedWhereConditionsString, $whereConditions->toString());
+        
+        $expectedStatementParameters = AssociativeArray::createFromNativeArray(
             null, 
             array('id0' => 1337)
         );
-	    
-	    $this->assertEquals(
+        
+        $this->assertEquals(
             $expectedStatementParameters, 
             $whereConditions->getStatementParameters()
-	    );	    
-		// End of user code
+        );      
+        // End of user code
     }
     
     /**
      * Test static method createFromCriteriaSet from class WhereConditions
      *
      * Start of user code WhereConditionsTest.testcreateFromCriteriaSetAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testCreateFromCriteriaSet()
     {
         // Start of user code WhereConditionsTest.testcreateFromCriteriaSet
-	    $expectedWhereConditionsString 
-	       = "WHERE ((b = :attributeB0 AND b != :attributeB1) OR b != :attributeB2 OR a = :attributeA0 OR a != :attributeA1 OR a > :attributeA2) AND c LIKE :attributeC0 AND a != :attributeA3"
+        $expectedWhereConditionsString 
+           = "WHERE ((b = :attributeB0 AND b != :attributeB1) OR b != :attributeB2 OR a = :attributeA0 OR a != :attributeA1 OR a > :attributeA2) AND c LIKE :attributeC0 AND a != :attributeA3"
         ;
-	    $criteriaSet = CriteriaSet::createAnd()
+        $criteriaSet = CriteriaSet::createAnd()
             ->addSubSet(
                 CriteriaSet::createOr()
                     ->add(MatchCriteria::notEquals('attributeB', 1337))
@@ -201,12 +201,12 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
                         CriteriaSet::createAnd()
                             ->add(MatchCriteria::equals('attributeB', 'foo'))
                             ->add(MatchCriteria::notEquals('attributeB', 'bar'))                            
-	                )
+                    )
             )
             ->add(MatchCriteria::like('attributeC', 'baz'))
             ->add(MatchCriteria::notEquals('attributeA', 'foo'))
-        ;                        	       
-	    $entityMapping = EntityMappingsRegistry::getEntityMapping(
+        ;                                  
+        $entityMapping = EntityMappingsRegistry::getEntityMapping(
             'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
         );
         $whereConditions = WhereConditions::createFromCriteriaSet(
@@ -229,21 +229,21 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
             $expectedStatementParameters, 
             $whereConditions->getStatementParameters()
         );
-		// End of user code
+        // End of user code
     }
     
     /**
      * Test method toString from class WhereConditions
      *
      * Start of user code WhereConditionsTest.testtoStringAnnotations 
-	 * PHPUnit users annotations can be placed here  
-	 * End of user code
+     * PHPUnit users annotations can be placed here  
+     * End of user code
      */
     public function testToString()
     {
         // Start of user code WhereConditionsTest.testtoString
-	    // Test case covered by others test methods
-		// End of user code
+        // Test case covered by others test methods
+        // End of user code
     }
 
     // Start of user code WhereConditionsTest.methods
@@ -255,17 +255,17 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateEntityTargetFromAnUnidentifiedEntity()
     {
-	    $someEntity = new SomeEntity();
-	    $someEntity->setAttributeA('foo');
-	    
-	    $entityMapping = EntityMappingsRegistry::getEntityMapping(
+        $someEntity = new SomeEntity();
+        $someEntity->setAttributeA('foo');
+        
+        $entityMapping = EntityMappingsRegistry::getEntityMapping(
             'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
         );
-	    
-	    $whereConditions = WhereConditions::createEntityTargetFromEntity(
+        
+        $whereConditions = WhereConditions::createEntityTargetFromEntity(
             $entityMapping, 
             $someEntity
         );
     }
-	// End of user code
+    // End of user code
 }

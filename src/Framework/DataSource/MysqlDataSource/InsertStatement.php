@@ -140,7 +140,7 @@ class InsertStatement implements Statement
     public function getStatementParameters()
     {
         // Start of user code Statement.getStatementParameters
-		$statementParameters = AssociativeArray::createFromNativeArray(
+        $statementParameters = AssociativeArray::createFromNativeArray(
             null,
             $this->valuesStatement->toNativeArray()
         );
