@@ -26,18 +26,6 @@ class LimitStatement
      */
     public $rowCount;
 
-    public function __construct()
-    {
-        // Start of user code LimitStatement.constructor
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code LimitStatement.destructor
-        // End of user code
-    }
-
     /**
      * @return int
      */

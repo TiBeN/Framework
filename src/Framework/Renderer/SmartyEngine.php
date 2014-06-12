@@ -40,12 +40,6 @@ class SmartyEngine implements TemplateEngine
         // End of user code
     }
 
-    public function __destruct()
-    {
-        // Start of user code SmartyEngine.destructor
-        // End of user code
-    }
-
     /**
      * @return string
      */

@@ -2,10 +2,10 @@
 
 namespace TiBeN\Framework\DataSource;
 
-use TiBeN\Framework\Entity\EntityCollection;
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\CriteriaSet;
 use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Entity\EntityCollection;
 
 /**
  * This is the main entry point of a DataSource.
@@ -30,6 +30,30 @@ interface DataSource
 	public function setName($name);
 
 	/**
+	 * Return the name of the AttributeMappingConfiguration class
+	 * of the datasource
+	 *
+	 * @return string $className
+	 */
+	public static function getAttributeMappingConfigurationClassName();
+
+	/**
+	 * Update the content of an entity.
+	 *
+	 * @param EntityMapping $entityMapping
+	 * @param Entity $entity
+	 */
+	public function update(EntityMapping $entityMapping, Entity $entity);
+
+	/**
+	 * Delete an entity from the datasource.
+	 *
+	 * @param EntityMapping $entityMapping
+	 * @param Entity $entity
+	 */
+	public function delete(EntityMapping $entityMapping, Entity $entity);
+
+	/**
 	 * Store a new entity on the datasource.
 	 * The entity must not be already on the datasource.
 	 *
@@ -37,6 +61,14 @@ interface DataSource
 	 * @param Entity $entity
 	 */
 	public function create(EntityMapping $entityMapping, Entity $entity);
+
+	/**
+	 * Return the name of the EntityMappingConfiguration class 
+	 * of the data source.
+	 *
+	 * @return string $className
+	 */
+	public static function getEntityMappingConfigurationClassName();
 
 	/**
 	 * Retrieve a collection of entities of the specified EntityMapping
@@ -48,37 +80,5 @@ interface DataSource
 	 * @return EntityCollection $entityCollection
 	 */
 	public function read(EntityMapping $entityMapping, CriteriaSet $criteriaSet);
-
-	/**
-	 * Delete an entity from the datasource.
-	 *
-	 * @param EntityMapping $entityMapping
-	 * @param Entity $entity
-	 */
-	public function delete(EntityMapping $entityMapping, Entity $entity);
-
-	/**
-	 * Update the content of an entity.
-	 *
-	 * @param EntityMapping $entityMapping
-	 * @param Entity $entity
-	 */
-	public function update(EntityMapping $entityMapping, Entity $entity);
-
-	/**
-	 * Return the name of the AttributeMappingConfiguration class
-	 * of the datasource
-	 *
-	 * @return string $className
-	 */
-	public static function getAttributeMappingConfigurationClassName();
-
-	/**
-	 * Return the name of the EntityMappingConfiguration class 
-	 * of the data source.
-	 *
-	 * @return string $className
-	 */
-	public static function getEntityMappingConfigurationClassName();
 
 }

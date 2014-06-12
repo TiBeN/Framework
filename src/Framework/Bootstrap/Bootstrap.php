@@ -15,17 +15,6 @@ namespace TiBeN\Framework\Bootstrap;
  */
 class Bootstrap
 {
-    public function __construct()
-    {
-        // Start of user code Bootstrap.constructor
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code Bootstrap.destructor
-        // End of user code
-    }
 
     /**
      * Init The booting process of the Framework.

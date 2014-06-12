@@ -29,7 +29,7 @@ class Row extends AssociativeArray
         parent::__construct('string');
     }
     // End of user code
-    
+
     /**
      * T type getter
      * @var String
@@ -68,6 +68,7 @@ class Row extends AssociativeArray
             );
         }
     }
+
 
     // Start of user code Row.surchargedMethods
     // Surcharge Methods here

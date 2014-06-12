@@ -38,21 +38,7 @@ class ServiceContainerPackageInitializerTest extends \PHPUnit_Framework_TestCase
         // End of user code
     }
     
-    /**
-     * Test method ServiceContainerPackageInitializer from class ServiceContainerPackageInitializer
-     *
-     * Start of user code ServiceContainerPackageInitializerTest.testServiceContainerPackageInitializerAnnotations
-     * PHPUnit user annotations can be placed here
-     * End of user code
-     */
-    public function testServiceContainerPackageInitializer()
-    {
-        // Start of user code ServiceContainerPackageInitializerTest.testServiceContainerPackageInitializer
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-        // End of user code
-    }
+    
 
     /**
      * Test method init from interface PackageInitializer

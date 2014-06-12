@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\Renderer;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Router\Router;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code SmartyUriHandler.useStatements
 use \Smarty_Internal_Template as Smarty_Internal_Template;
@@ -19,17 +19,6 @@ use \Smarty_Internal_Template as Smarty_Internal_Template;
  */
 class SmartyUriHandler
 {
-    public function __construct()
-    {
-        // Start of user code SmartyUriHandler.constructor
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code SmartyUriHandler.destructor
-        // End of user code
-    }
 
     /**
      * Get a ressource uri from its name and variables

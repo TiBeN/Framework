@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Datatype\GenericCollection;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code ColumnNamesListStatement.useStatements
 // Place your use statements here.
@@ -27,7 +27,7 @@ class ColumnNamesListStatement extends GenericCollection
     // Start of user code ColumnNamesListStatement.surchargedConstructorsDestructors
     // Surcharge Constructors and Destructors here
     // End of user code
-    
+
     /**
      * T type getter
      * @var String
@@ -67,6 +67,26 @@ class ColumnNamesListStatement extends GenericCollection
         }
     }
 
+
+    /**
+     * Generate the column names list statement chunk as 
+     * a string.
+     *
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code ColumnNamesListStatement.toString
+        if($this->isEmpty()) {
+            throw new \LogicException('The ColumnNamesListStatement is empty');
+        }      
+        
+        $string = sprintf('(%s)', implode(',', $this->items));
+        // End of user code
+    
+        return $string;
+    }
+
     /**
      * Factory method that generate a 
      * ColumnNamesListStament from the attributes of an 
@@ -91,25 +111,6 @@ class ColumnNamesListStatement extends GenericCollection
         // End of user code
     
         return $columnNamesListStatement;
-    }
-
-    /**
-     * Generate the column names list statement chunk as 
-     * a string.
-     *
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code ColumnNamesListStatement.toString
-        if($this->isEmpty()) {
-            throw new \LogicException('The ColumnNamesListStatement is empty');
-        }      
-        
-        $string = sprintf('(%s)', implode(',', $this->items));
-        // End of user code
-    
-        return $string;
     }
 
     // Start of user code ColumnNamesListStatement.surchargedMethods

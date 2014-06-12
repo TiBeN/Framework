@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Entity\DataSourceEntityMappingConfiguration;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code MysqlEntityConfiguration.useStatements
 // Place your use statements here.
@@ -22,18 +22,6 @@ class MysqlEntityConfiguration implements DataSourceEntityMappingConfiguration
      * @var string
      */
     public $tableName;
-
-    public function __construct()
-    {
-        // Start of user code MysqlEntityConfiguration.constructor
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code MysqlEntityConfiguration.destructor
-        // End of user code
-    }
 
     /**
      * @return string

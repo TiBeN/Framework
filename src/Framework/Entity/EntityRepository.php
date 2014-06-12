@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\Entity;
 
-use TiBeN\Framework\DataSource\DataSource;
 use TiBeN\Framework\DataSource\DataSourcesRegistry;
+use TiBeN\Framework\DataSource\DataSource;
 
 // Start of user code EntityRepository.useStatements
 // Place your use statements here.
@@ -25,25 +25,33 @@ use TiBeN\Framework\DataSource\DataSourcesRegistry;
 class EntityRepository
 {
     /**
+     * @var EntityMapping
+     */
+    public $entityMapping;
+
+    /**
      * @var DataSource
      */
     public $dataSource;
 
     /**
-     * @var EntityMapping
+     * @return EntityMapping
      */
-    public $entityMapping;
-
-    public function __construct()
+    public function getEntityMapping()
     {
-        // Start of user code EntityRepository.constructor
+        // Start of user code Getter EntityRepository.getEntityMapping
         // End of user code
+        return $this->entityMapping;
     }
 
-    public function __destruct()
+    /**
+     * @param EntityMapping $entityMapping
+     */
+    public function setEntityMapping(EntityMapping $entityMapping)
     {
-        // Start of user code EntityRepository.destructor
+        // Start of user code Setter EntityRepository.setEntityMapping
         // End of user code
+        $this->entityMapping = $entityMapping;
     }
 
     /**
@@ -64,26 +72,6 @@ class EntityRepository
         // Start of user code Setter EntityRepository.setDataSource
         // End of user code
         $this->dataSource = $dataSource;
-    }
-
-    /**
-     * @return EntityMapping
-     */
-    public function getEntityMapping()
-    {
-        // Start of user code Getter EntityRepository.getEntityMapping
-        // End of user code
-        return $this->entityMapping;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     */
-    public function setEntityMapping(EntityMapping $entityMapping)
-    {
-        // Start of user code Setter EntityRepository.setEntityMapping
-        // End of user code
-        $this->entityMapping = $entityMapping;
     }
 
     /**
@@ -133,18 +121,6 @@ class EntityRepository
     }
 
     /**
-     * Delete an entity from its datasource.
-     *
-     * @param Entity $entity
-     */
-    public function delete(Entity $entity)
-    {
-        // Start of user code EntityRepository.delete
-        $this->dataSource->delete($this->entityMapping, $entity);
-        // End of user code
-    }
-
-    /**
      * Fetch entities from datasource that matches some criteria 
      * set.
      *
@@ -158,6 +134,18 @@ class EntityRepository
         // End of user code
     
         return $entities;
+    }
+
+    /**
+     * Delete an entity from its datasource.
+     *
+     * @param Entity $entity
+     */
+    public function delete(Entity $entity)
+    {
+        // Start of user code EntityRepository.delete
+        $this->dataSource->delete($this->entityMapping, $entity);
+        // End of user code
     }
 
     // Start of user code EntityRepository.implementationSpecificMethods

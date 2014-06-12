@@ -21,18 +21,6 @@ class DataSourcesRegistry
      */
     private static $dataSources;
 
-    public function __construct()
-    {
-        // Start of user code DataSourcesRegistry.constructor
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code DataSourcesRegistry.destructor
-        // End of user code
-    }
-
     /**
      * @return AssociativeArray
      */
@@ -60,34 +48,6 @@ class DataSourcesRegistry
 
     /**
      * @param string $dataSourceName
-     */
-    public static function clearDataSource($dataSourceName)
-    {
-        // Start of user code DataSourcesRegistry.clearDataSource
-        if(!self::getDataSources()->has($dataSourceName)) {
-            throw new \InvalidArgumentException(
-                'No data source named "' . $dataSourceName . '"'
-            );
-        } 
-        self::getDataSources()->remove($dataSourceName);
-        // End of user code
-    }
-
-    /**
-     * @param string $dataSourceName
-     * @return bool $boolean
-     */
-    public static function hasDataSource($dataSourceName)
-    {
-        // Start of user code DataSourcesRegistry.hasDataSource
-        return self::getDataSources()->has($dataSourceName);
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
-     * @param string $dataSourceName
      * @return DataSource $dataSource
      */
     public static function getDataSource($dataSourceName)
@@ -105,6 +65,21 @@ class DataSourcesRegistry
     }
 
     /**
+     * @param string $dataSourceName
+     */
+    public static function clearDataSource($dataSourceName)
+    {
+        // Start of user code DataSourcesRegistry.clearDataSource
+        if(!self::getDataSources()->has($dataSourceName)) {
+            throw new \InvalidArgumentException(
+                'No data source named "' . $dataSourceName . '"'
+            );
+        } 
+        self::getDataSources()->remove($dataSourceName);
+        // End of user code
+    }
+
+    /**
      * @param DataSource $dataSource
      */
     public static function registerDataSource(DataSource $dataSource)
@@ -116,6 +91,19 @@ class DataSourcesRegistry
         }
         self::getDataSources()->set($dataSourceName, $dataSource);
         // End of user code
+    }
+
+    /**
+     * @param string $dataSourceName
+     * @return bool $boolean
+     */
+    public static function hasDataSource($dataSourceName)
+    {
+        // Start of user code DataSourcesRegistry.hasDataSource
+        return self::getDataSources()->has($dataSourceName);
+        // End of user code
+    
+        return $boolean;
     }
 
     // Start of user code DataSourcesRegistry.implementationSpecificMethods

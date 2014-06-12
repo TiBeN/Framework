@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
-use TiBeN\Framework\Datatype\T;
 use TiBeN\Framework\DataSource\TypeConverter;
+use TiBeN\Framework\Datatype\T;
+use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Datatype\U;
 
 // Start of user code BooleanConverter.useStatements
@@ -20,41 +20,26 @@ use TiBeN\Framework\Datatype\U;
 class BooleanConverter implements TypeConverter
 {
     /**
-     * Type of the element T
-     * @var String
-     */
-    protected $TType;
-
-    /**
      * Type of the element U
      * @var String
      */
     protected $UType;
 
-    public function __construct($TType = null, $UType = null)
+    /**
+     * Type of the element T
+     * @var String
+     */
+    protected $TType;
+
+    public function __construct($UType = null, $TType = null)
     {
-        $this->TType = $TType;
         $this->UType = $UType;
+        $this->TType = $TType;
 
         // Start of user code BooleanConverter.constructor
         $this->TType = 'boolean';
         $this->UType = 'string';
         // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code BooleanConverter.destructor
-        // End of user code
-    }
-    
-    /**
-     * T type getter
-     * @var String
-     */
-    public function getTType()
-    {
-        return $this->TType;
     }
 
     /**
@@ -64,6 +49,15 @@ class BooleanConverter implements TypeConverter
     public function getUType()
     {
         return $this->UType;
+    }
+
+    /**
+     * T type getter
+     * @var String
+     */
+    public function getTType()
+    {
+        return $this->TType;
     }
 
     /**
@@ -96,19 +90,8 @@ class BooleanConverter implements TypeConverter
         }
     }
 
-    // TypeConverter Realization
 
-    /**
-     * @return string $type
-     */
-    public function getType()
-    {
-        // Start of user code TypeConverter.getType
-        $type = 'boolean';
-        // End of user code
-    
-        return $type;
-    }
+    // TypeConverter Realization
 
     /**
      * @return string $dataSourceType
@@ -123,21 +106,15 @@ class BooleanConverter implements TypeConverter
     }
 
     /**
-     * @param T $itemToConvert
-     * @return U $convertedItem
+     * @return string $type
      */
-    public function convert($itemToConvert)
+    public function getType()
     {
-        $this->typeHint($this->TType, $itemToConvert);
-        // Start of user code Converter.convert
-        if(is_null($itemToConvert)) return $itemToConvert;
-        $convertedItem = $itemToConvert === true
-            ? '1'
-            : '0'
-        ;
+        // Start of user code TypeConverter.getType
+        $type = 'boolean';
         // End of user code
     
-        return $convertedItem;
+        return $type;
     }
 
     /**
@@ -166,6 +143,24 @@ class BooleanConverter implements TypeConverter
         // End of user code
     
         return $reversedItem;
+    }
+
+    /**
+     * @param T $itemToConvert
+     * @return U $convertedItem
+     */
+    public function convert($itemToConvert)
+    {
+        $this->typeHint($this->TType, $itemToConvert);
+        // Start of user code Converter.convert
+        if(is_null($itemToConvert)) return $itemToConvert;
+        $convertedItem = $itemToConvert === true
+            ? '1'
+            : '0'
+        ;
+        // End of user code
+    
+        return $convertedItem;
     }
 
     // Start of user code BooleanConverter.implementationSpecificMethods

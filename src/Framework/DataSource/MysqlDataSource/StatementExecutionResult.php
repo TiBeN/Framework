@@ -17,9 +17,14 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 class StatementExecutionResult
 {
     /**
-     * @var string
+     * @var int
      */
-    public $errorMessage;
+    public $errorCode;
+
+    /**
+     * @var int
+     */
+    public $numberOfAffectedRows;
 
     /**
      * @var RowCollection
@@ -29,53 +34,56 @@ class StatementExecutionResult
     /**
      * @var int
      */
-    public $numberOfAffectedRows;
-
-    /**
-     * @var int
-     */
-    public $errorCode;
-
-    /**
-     * @var int
-     */
     public $lastInsertId;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
 
     /**
      * @var bool
      */
     public $success;
 
-    public function __construct()
+    /**
+     * @return int
+     */
+    public function getErrorCode()
     {
-        // Start of user code StatementExecutionResult.constructor
+        // Start of user code Getter StatementExecutionResult.getErrorCode
         // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code StatementExecutionResult.destructor
-        // End of user code
+        return $this->errorCode;
     }
 
     /**
-     * @return string
+     * @param int $errorCode
      */
-    public function getErrorMessage()
+    public function setErrorCode($errorCode)
     {
-        // Start of user code Getter StatementExecutionResult.getErrorMessage
+        // Start of user code Setter StatementExecutionResult.setErrorCode
         // End of user code
-        return $this->errorMessage;
+        $this->errorCode = $errorCode;
     }
 
     /**
-     * @param string $errorMessage
+     * @return int
      */
-    public function setErrorMessage($errorMessage)
+    public function getNumberOfAffectedRows()
     {
-        // Start of user code Setter StatementExecutionResult.setErrorMessage
+        // Start of user code Getter StatementExecutionResult.getNumberOfAffectedRows
         // End of user code
-        $this->errorMessage = $errorMessage;
+        return $this->numberOfAffectedRows;
+    }
+
+    /**
+     * @param int $numberOfAffectedRows
+     */
+    public function setNumberOfAffectedRows($numberOfAffectedRows)
+    {
+        // Start of user code Setter StatementExecutionResult.setNumberOfAffectedRows
+        // End of user code
+        $this->numberOfAffectedRows = $numberOfAffectedRows;
     }
 
     /**
@@ -101,46 +109,6 @@ class StatementExecutionResult
     /**
      * @return int
      */
-    public function getNumberOfAffectedRows()
-    {
-        // Start of user code Getter StatementExecutionResult.getNumberOfAffectedRows
-        // End of user code
-        return $this->numberOfAffectedRows;
-    }
-
-    /**
-     * @param int $numberOfAffectedRows
-     */
-    public function setNumberOfAffectedRows($numberOfAffectedRows)
-    {
-        // Start of user code Setter StatementExecutionResult.setNumberOfAffectedRows
-        // End of user code
-        $this->numberOfAffectedRows = $numberOfAffectedRows;
-    }
-
-    /**
-     * @return int
-     */
-    public function getErrorCode()
-    {
-        // Start of user code Getter StatementExecutionResult.getErrorCode
-        // End of user code
-        return $this->errorCode;
-    }
-
-    /**
-     * @param int $errorCode
-     */
-    public function setErrorCode($errorCode)
-    {
-        // Start of user code Setter StatementExecutionResult.setErrorCode
-        // End of user code
-        $this->errorCode = $errorCode;
-    }
-
-    /**
-     * @return int
-     */
     public function getLastInsertId()
     {
         // Start of user code Getter StatementExecutionResult.getLastInsertId
@@ -156,6 +124,26 @@ class StatementExecutionResult
         // Start of user code Setter StatementExecutionResult.setLastInsertId
         // End of user code
         $this->lastInsertId = $lastInsertId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorMessage()
+    {
+        // Start of user code Getter StatementExecutionResult.getErrorMessage
+        // End of user code
+        return $this->errorMessage;
+    }
+
+    /**
+     * @param string $errorMessage
+     */
+    public function setErrorMessage($errorMessage)
+    {
+        // Start of user code Setter StatementExecutionResult.setErrorMessage
+        // End of user code
+        $this->errorMessage = $errorMessage;
     }
 
     /**

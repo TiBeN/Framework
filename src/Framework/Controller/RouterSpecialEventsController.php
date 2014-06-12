@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\Controller;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Router\HttpResponse;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code RouterSpecialEventsController.useStatements
 // Place your use statements here.
@@ -18,17 +18,6 @@ use TiBeN\Framework\Router\HttpResponse;
  */
 class RouterSpecialEventsController
 {
-    public function __construct()
-    {
-        // Start of user code RouterSpecialEventsController.constructor
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code RouterSpecialEventsController.destructor
-        // End of user code
-    }
 
     /**
      * Executed when no routes has been found during

@@ -19,17 +19,6 @@ use TiBeN\Framework\Validation\ValidatorsRegistry;
  */
 class EntityValidator
 {
-    public function __construct()
-    {
-        // Start of user code EntityValidator.constructor
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code EntityValidator.destructor
-        // End of user code
-    }
 
     /**
      * Validate the entity conformance.

@@ -3,8 +3,8 @@
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\Datatype\Converter;
-use TiBeN\Framework\Datatype\T;
 use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Datatype\T;
 use TiBeN\Framework\Datatype\U;
 
 // Start of user code RowToEntityConverter.useStatements
@@ -21,47 +21,32 @@ use TiBeN\Framework\Datatype\U;
 class RowToEntityConverter implements Converter
 {
     /**
-     * Type of the element T
-     * @var String
-     */
-    protected $TType;
-
-    /**
      * Type of the element U
      * @var String
      */
     protected $UType;
 
     /**
+     * Type of the element T
+     * @var String
+     */
+    protected $TType;
+
+    /**
      * @var EntityMapping
      */
     public $entityMapping;
 
-    public function __construct($TType = null, $UType = null)
+    public function __construct($UType = null, $TType = null)
     {
-        $this->TType = $TType;
         $this->UType = $UType;
+        $this->TType = $TType;
 
         // Start of user code RowToEntityConverter.constructor
         // @todo Bind theses types directly on the model
         $this->TType = 'TiBeN\\Framework\\DataSource\\MysqlDataSource\\Row';
         $this->UType = 'TiBeN\\Framework\\Entity\\Entity';      
         // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code RowToEntityConverter.destructor
-        // End of user code
-    }
-    
-    /**
-     * T type getter
-     * @var String
-     */
-    public function getTType()
-    {
-        return $this->TType;
     }
 
     /**
@@ -71,6 +56,15 @@ class RowToEntityConverter implements Converter
     public function getUType()
     {
         return $this->UType;
+    }
+
+    /**
+     * T type getter
+     * @var String
+     */
+    public function getTType()
+    {
+        return $this->TType;
     }
 
     /**
@@ -126,31 +120,6 @@ class RowToEntityConverter implements Converter
     // Converter Realization
 
     /**
-     * @param T $itemToConvert
-     * @return U $convertedItem
-     */
-    public function convert($itemToConvert)
-    {
-        $this->typeHint($this->TType, $itemToConvert);
-        // Start of user code Converter.convert
-        if(!isset($this->entityMapping)) {
-            throw new \LogicException('No entityMapping set');
-        }
-        $entityName = $this->entityMapping->getEntityName();
-        $convertedItem = new $entityName();
-
-        $mapper = new MysqlEntityAttributeMapper();
-        $mapper->setEntity($convertedItem);
-        $mapper->setEntityMapping($this->entityMapping);
-        foreach($itemToConvert->toNativeArray() as $columnName => $value) {
-            $mapper->setAttributeValue($columnName, $value);
-        }
-        // End of user code
-    
-        return $convertedItem;
-    }
-
-    /**
      * @param U $itemToReverse
      * @return T $reversedItem
      */
@@ -178,6 +147,31 @@ class RowToEntityConverter implements Converter
         // End of user code
     
         return $reversedItem;
+    }
+
+    /**
+     * @param T $itemToConvert
+     * @return U $convertedItem
+     */
+    public function convert($itemToConvert)
+    {
+        $this->typeHint($this->TType, $itemToConvert);
+        // Start of user code Converter.convert
+        if(!isset($this->entityMapping)) {
+            throw new \LogicException('No entityMapping set');
+        }
+        $entityName = $this->entityMapping->getEntityName();
+        $convertedItem = new $entityName();
+
+        $mapper = new MysqlEntityAttributeMapper();
+        $mapper->setEntity($convertedItem);
+        $mapper->setEntityMapping($this->entityMapping);
+        foreach($itemToConvert->toNativeArray() as $columnName => $value) {
+            $mapper->setAttributeValue($columnName, $value);
+        }
+        // End of user code
+    
+        return $convertedItem;
     }
 
     // Start of user code RowToEntityConverter.implementationSpecificMethods

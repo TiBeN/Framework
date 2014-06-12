@@ -18,23 +18,31 @@ class LimitCriteria
     /**
      * @var int
      */
-    public $offset;
+    public $number;
 
     /**
      * @var int
      */
-    public $number;
+    public $offset;
 
-    public function __construct()
+    /**
+     * @return int
+     */
+    public function getNumber()
     {
-        // Start of user code LimitCriteria.constructor
+        // Start of user code Getter LimitCriteria.getNumber
         // End of user code
+        return $this->number;
     }
 
-    public function __destruct()
+    /**
+     * @param int $number
+     */
+    public function setNumber($number)
     {
-        // Start of user code LimitCriteria.destructor
+        // Start of user code Setter LimitCriteria.setNumber
         // End of user code
+        $this->number = $number;
     }
 
     /**
@@ -55,26 +63,6 @@ class LimitCriteria
         // Start of user code Setter LimitCriteria.setOffset
         // End of user code
         $this->offset = $offset;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNumber()
-    {
-        // Start of user code Getter LimitCriteria.getNumber
-        // End of user code
-        return $this->number;
-    }
-
-    /**
-     * @param int $number
-     */
-    public function setNumber($number)
-    {
-        // Start of user code Setter LimitCriteria.setNumber
-        // End of user code
-        $this->number = $number;
     }
 
     /**

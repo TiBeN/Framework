@@ -20,9 +20,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class HttpRequest
 {
     /**
+     * @var AssociativeArray
+     */
+    public $postVars;
+
+    /**
      * @var string
      */
-    public $httpVersion;
+    public $requestUri;
 
     /**
      * @var AssociativeArray
@@ -32,7 +37,7 @@ class HttpRequest
     /**
      * @var AssociativeArray
      */
-    public $postVars;
+    public $getVars;
 
     /**
      * @var string
@@ -42,48 +47,51 @@ class HttpRequest
     /**
      * @var string
      */
-    public $method;
-
-    /**
-     * @var AssociativeArray
-     */
-    public $getVars;
+    public $httpVersion;
 
     /**
      * @var string
      */
-    public $requestUri;
+    public $method;
 
-    public function __construct()
+    /**
+     * @return AssociativeArray
+     */
+    public function getPostVars()
     {
-        // Start of user code HttpRequest.constructor
+        // Start of user code Getter HttpRequest.getPostVars
         // End of user code
+        return $this->postVars;
     }
 
-    public function __destruct()
+    /**
+     * @param AssociativeArray $postVars
+     */
+    public function setPostVars(AssociativeArray $postVars)
     {
-        // Start of user code HttpRequest.destructor
+        // Start of user code Setter HttpRequest.setPostVars
         // End of user code
+        $this->postVars = $postVars;
     }
 
     /**
      * @return string
      */
-    public function getHttpVersion()
+    public function getRequestUri()
     {
-        // Start of user code Getter HttpRequest.getHttpVersion
+        // Start of user code Getter HttpRequest.getRequestUri
         // End of user code
-        return $this->httpVersion;
+        return $this->requestUri;
     }
 
     /**
-     * @param string $httpVersion
+     * @param string $requestUri
      */
-    public function setHttpVersion($httpVersion)
+    public function setRequestUri($requestUri)
     {
-        // Start of user code Setter HttpRequest.setHttpVersion
+        // Start of user code Setter HttpRequest.setRequestUri
         // End of user code
-        $this->httpVersion = $httpVersion;
+        $this->requestUri = $requestUri;
     }
 
     /**
@@ -109,21 +117,21 @@ class HttpRequest
     /**
      * @return AssociativeArray
      */
-    public function getPostVars()
+    public function getGetVars()
     {
-        // Start of user code Getter HttpRequest.getPostVars
+        // Start of user code Getter HttpRequest.getGetVars
         // End of user code
-        return $this->postVars;
+        return $this->getVars;
     }
 
     /**
-     * @param AssociativeArray $postVars
+     * @param AssociativeArray $getVars
      */
-    public function setPostVars(AssociativeArray $postVars)
+    public function setGetVars(AssociativeArray $getVars)
     {
-        // Start of user code Setter HttpRequest.setPostVars
+        // Start of user code Setter HttpRequest.setGetVars
         // End of user code
-        $this->postVars = $postVars;
+        $this->getVars = $getVars;
     }
 
     /**
@@ -149,6 +157,26 @@ class HttpRequest
     /**
      * @return string
      */
+    public function getHttpVersion()
+    {
+        // Start of user code Getter HttpRequest.getHttpVersion
+        // End of user code
+        return $this->httpVersion;
+    }
+
+    /**
+     * @param string $httpVersion
+     */
+    public function setHttpVersion($httpVersion)
+    {
+        // Start of user code Setter HttpRequest.setHttpVersion
+        // End of user code
+        $this->httpVersion = $httpVersion;
+    }
+
+    /**
+     * @return string
+     */
     public function getMethod()
     {
         // Start of user code Getter HttpRequest.getMethod
@@ -164,46 +192,6 @@ class HttpRequest
         // Start of user code Setter HttpRequest.setMethod
         // End of user code
         $this->method = $method;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getGetVars()
-    {
-        // Start of user code Getter HttpRequest.getGetVars
-        // End of user code
-        return $this->getVars;
-    }
-
-    /**
-     * @param AssociativeArray $getVars
-     */
-    public function setGetVars(AssociativeArray $getVars)
-    {
-        // Start of user code Setter HttpRequest.setGetVars
-        // End of user code
-        $this->getVars = $getVars;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRequestUri()
-    {
-        // Start of user code Getter HttpRequest.getRequestUri
-        // End of user code
-        return $this->requestUri;
-    }
-
-    /**
-     * @param string $requestUri
-     */
-    public function setRequestUri($requestUri)
-    {
-        // Start of user code Setter HttpRequest.setRequestUri
-        // End of user code
-        $this->requestUri = $requestUri;
     }
 
     /**

@@ -18,27 +18,12 @@ use TiBeN\Framework\Package\PackageInitializer;
  */
 class ServiceContainerPackageInitializer implements PackageInitializer
 {
-    public function __construct()
+    public function __construct($configFilePath)
     {
         // Start of user code ServiceContainerPackageInitializer.constructor
         // End of user code
     }
 
-    public function __destruct()
-    {
-        // Start of user code ServiceContainerPackageInitializer.destructor
-        // End of user code
-    }
-
-    /**
-     * @param string $configFilePath
-     */
-    public function ServiceContainerPackageInitializer($configFilePath)
-    {
-        // Start of user code ServiceContainerPackageInitializer.ServiceContainerPackageInitializer
-        // TODO should be implemented.
-        // End of user code
-    }
 
     // PackageInitializer Realization
 

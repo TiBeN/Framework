@@ -33,12 +33,6 @@ class StringLengthValidator implements Validator
         // End of user code
     }
 
-    public function __destruct()
-    {
-        // Start of user code StringLengthValidator.destructor
-        // End of user code
-    }
-    
     /**
      * T type getter
      * @var String
@@ -78,21 +72,8 @@ class StringLengthValidator implements Validator
         }
     }
 
-    // Validator Realization
 
-    /**
-     * Return the name of the validator.
-     *
-     * @return string $name
-     */
-    public function getName()
-    {
-        // Start of user code Validator.getName
-        $name = 'stringlength';
-        // End of user code
-    
-        return $name;
-    }
+    // Validator Realization
 
     /**
      * Perform the validation of a value.
@@ -152,6 +133,20 @@ class StringLengthValidator implements Validator
         // End of user code
     
         return $result;
+    }
+
+    /**
+     * Return the name of the validator.
+     *
+     * @return string $name
+     */
+    public function getName()
+    {
+        // Start of user code Validator.getName
+        $name = 'stringlength';
+        // End of user code
+    
+        return $name;
     }
 
     // Start of user code StringLengthValidator.implementationSpecificMethods

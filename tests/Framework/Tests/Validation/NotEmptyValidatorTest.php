@@ -41,20 +41,6 @@ class NotEmptyValidatorTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method getName from interface Validator
-     * Start of user code Validator.testgetNameAnnotations
-     * PHPUnit users annotations can be placed here
-     * End of user code
-     */
-    public function testGetName()
-    {
-        // Start of user code Validator.testgetName
-        $notEmptyValidator = new NotEmptyValidator();
-        $this->assertEquals('notempty', $notEmptyValidator->getName());
-        // End of user code
-    }
-    
-    /**
      * Test method validate from interface Validator
      * Start of user code Validator.testvalidateAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -93,6 +79,20 @@ class NotEmptyValidatorTest extends \PHPUnit_Framework_TestCase
             'Hello, an error has been thrown!',
             $validationResult->getErrorMessage()
         );
+        // End of user code
+    }
+    
+    /**
+     * Test method getName from interface Validator
+     * Start of user code Validator.testgetNameAnnotations
+     * PHPUnit users annotations can be placed here
+     * End of user code
+     */
+    public function testGetName()
+    {
+        // Start of user code Validator.testgetName
+        $notEmptyValidator = new NotEmptyValidator();
+        $this->assertEquals('notempty', $notEmptyValidator->getName());
         // End of user code
     }
 

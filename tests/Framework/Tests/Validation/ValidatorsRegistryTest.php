@@ -54,25 +54,6 @@ class ValidatorsRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method getValidator from class ValidatorsRegistry
-     *
-     * Start of user code ValidatorsRegistryTest.testgetValidatorAnnotations
-     * PHPUnit user annotations can be placed here
-     * End of user code
-     */
-    public function testGetValidator()
-    {
-        // Start of user code ValidatorsRegistryTest.testgetValidator
-        $validator = new NotEmptyValidator();
-        ValidatorsRegistry::registerValidator($validator);
-        $this->assertEquals(
-            $validator, 
-            ValidatorsRegistry::getValidator('notempty')
-        );
-        // End of user code
-    }
-    
-    /**
      * Test static method clearValidator from class ValidatorsRegistry
      *
      * Start of user code ValidatorsRegistryTest.testclearValidatorAnnotations
@@ -100,6 +81,25 @@ class ValidatorsRegistryTest extends \PHPUnit_Framework_TestCase
         ValidatorsRegistry::registerValidator($validator);
         $this->assertTrue(ValidatorsRegistry::hasValidator('notempty'));
         $this->assertFalse(ValidatorsRegistry::hasValidator('foo'));
+        // End of user code
+    }
+    
+    /**
+     * Test static method getValidator from class ValidatorsRegistry
+     *
+     * Start of user code ValidatorsRegistryTest.testgetValidatorAnnotations
+     * PHPUnit user annotations can be placed here
+     * End of user code
+     */
+    public function testGetValidator()
+    {
+        // Start of user code ValidatorsRegistryTest.testgetValidator
+        $validator = new NotEmptyValidator();
+        ValidatorsRegistry::registerValidator($validator);
+        $this->assertEquals(
+            $validator, 
+            ValidatorsRegistry::getValidator('notempty')
+        );
         // End of user code
     }
 

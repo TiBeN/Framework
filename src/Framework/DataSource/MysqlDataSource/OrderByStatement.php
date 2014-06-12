@@ -2,10 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
-use TiBeN\Framework\Entity\OrderCriteria;
 use TiBeN\Framework\Datatype\GenericCollection;
+use TiBeN\Framework\Entity\OrderCriteria;
 use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code OrderByStatement.useStatements
 // Place your use statements here.
@@ -29,17 +29,17 @@ class OrderByStatement extends AssociativeArray
     /**
      * @var string
      */
-    const DIRECTION_DESC = 'DESC';
+    const DIRECTION_ASC = 'ASC';
 
     /**
      * @var string
      */
-    const DIRECTION_ASC = 'ASC';
+    const DIRECTION_DESC = 'DESC';
 
     // Start of user code OrderByStatement.surchargedConstructorsDestructors
     // Surcharge Constructors and Destructors here
     // End of user code
-    
+
     /**
      * T type getter
      * @var String
@@ -81,28 +81,6 @@ class OrderByStatement extends AssociativeArray
 
 
     /**
-     * Generate the order by statement as a string.
-     *
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code OrderByStatement.toString
-        if($this->isEmpty()) {
-            throw new \LogicException('No column name set');
-        }
-
-        $exprChunks = array();
-        foreach($this as $columnName => $direction) {
-            array_push($exprChunks, $columnName . ' ' . $direction); 
-        }
-        $string = 'ORDER BY ' . implode(', ', $exprChunks);
-        // End of user code
-    
-        return $string;
-    }
-
-    /**
      * Factory method that generate an OrderByStatement 
      * from a collection of OrderCriterias.
      *
@@ -125,6 +103,28 @@ class OrderByStatement extends AssociativeArray
         // End of user code
     
         return $orderByStatement;
+    }
+
+    /**
+     * Generate the order by statement as a string.
+     *
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code OrderByStatement.toString
+        if($this->isEmpty()) {
+            throw new \LogicException('No column name set');
+        }
+
+        $exprChunks = array();
+        foreach($this as $columnName => $direction) {
+            array_push($exprChunks, $columnName . ' ' . $direction); 
+        }
+        $string = 'ORDER BY ' . implode(', ', $exprChunks);
+        // End of user code
+    
+        return $string;
     }
 
     // Start of user code OrderByStatement.surchargedMethods

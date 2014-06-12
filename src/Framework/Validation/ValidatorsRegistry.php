@@ -21,18 +21,6 @@ class ValidatorsRegistry
      */
     private static $validators;
 
-    public function __construct()
-    {
-        // Start of user code ValidatorsRegistry.constructor
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code ValidatorsRegistry.destructor
-        // End of user code
-    }
-
     /**
      * @return AssociativeArray
      */
@@ -71,29 +59,6 @@ class ValidatorsRegistry
     }
 
     /**
-     * Return a Validator from its name.
-     *
-     * @param string $name
-     * @return Validator $validator
-     */
-    public static function getValidator($name)
-    {
-        // Start of user code ValidatorsRegistry.getValidator
-        if(!self::hasValidator($name)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    'There isnt %s Validator registered',
-                    $name                
-                )
-            );
-        }
-        $validator = self::getValidators()->get($name);
-        // End of user code
-    
-        return $validator;
-    }
-
-    /**
      * Remove all registered Validators.
      *
      * @param string $name
@@ -126,6 +91,29 @@ class ValidatorsRegistry
         // End of user code
     
         return $boolean;
+    }
+
+    /**
+     * Return a Validator from its name.
+     *
+     * @param string $name
+     * @return Validator $validator
+     */
+    public static function getValidator($name)
+    {
+        // Start of user code ValidatorsRegistry.getValidator
+        if(!self::hasValidator($name)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    'There isnt %s Validator registered',
+                    $name                
+                )
+            );
+        }
+        $validator = self::getValidators()->get($name);
+        // End of user code
+    
+        return $validator;
     }
 
     // Start of user code ValidatorsRegistry.implementationSpecificMethods

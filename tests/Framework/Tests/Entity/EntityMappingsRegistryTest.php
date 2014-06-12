@@ -40,30 +40,6 @@ class EntityMappingsRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method getEntityMapping from class EntityMappingsRegistry
-     *
-     * Start of user code EntityMappingsRegistryTest.testgetEntityMappingAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetEntityMapping()
-    {
-        // Start of user code EntityMappingsRegistryTest.testgetEntityMapping
-        $entityMapping = new EntityMapping();
-        $entityMapping->setEntityName(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\TestEntity'
-        );
-        EntityMappingsRegistry::registerEntityMapping($entityMapping);
-        $this->assertEquals(
-            $entityMapping, 
-            EntityMappingsRegistry::getEntityMapping(
-                'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\TestEntity'
-            )
-        );
-        // End of user code
-    }
-    
-    /**
      * Test static method clearEntityMapping from class EntityMappingsRegistry
      *
      * Start of user code EntityMappingsRegistryTest.testclearEntityMappingAnnotations 
@@ -88,6 +64,30 @@ class EntityMappingsRegistryTest extends \PHPUnit_Framework_TestCase
     {
         // Start of user code EntityMappingsRegistryTest.testregisterEntityMapping
         // Method implicitly tested by testGetEntityMapping
+        // End of user code
+    }
+    
+    /**
+     * Test static method getEntityMapping from class EntityMappingsRegistry
+     *
+     * Start of user code EntityMappingsRegistryTest.testgetEntityMappingAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetEntityMapping()
+    {
+        // Start of user code EntityMappingsRegistryTest.testgetEntityMapping
+        $entityMapping = new EntityMapping();
+        $entityMapping->setEntityName(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\TestEntity'
+        );
+        EntityMappingsRegistry::registerEntityMapping($entityMapping);
+        $this->assertEquals(
+            $entityMapping, 
+            EntityMappingsRegistry::getEntityMapping(
+                'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\TestEntity'
+            )
+        );
         // End of user code
     }
 

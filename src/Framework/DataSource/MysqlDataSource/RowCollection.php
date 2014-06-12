@@ -33,7 +33,7 @@ class RowCollection extends ProxyAbleGenericCollection
         );
     }
     // End of user code
-    
+
     /**
      * T type getter
      * @var String
@@ -72,6 +72,7 @@ class RowCollection extends ProxyAbleGenericCollection
             );
         }
     }
+
 
     // Start of user code RowCollection.surchargedMethods
     // Surcharge Methods here

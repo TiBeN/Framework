@@ -23,11 +23,6 @@ class HttpResponse
     public $contentType = 'text/html';
 
     /**
-     * @var AssociativeArray
-     */
-    public $headers;
-
-    /**
      * @var string
      */
     public $message;
@@ -37,17 +32,10 @@ class HttpResponse
      */
     public $statusCode = '200';
 
-    public function __construct()
-    {
-        // Start of user code HttpResponse.constructor
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code HttpResponse.destructor
-        // End of user code
-    }
+    /**
+     * @var AssociativeArray
+     */
+    public $headers;
 
     /**
      * @return string
@@ -67,26 +55,6 @@ class HttpResponse
         // Start of user code Setter HttpResponse.setContentType
         // End of user code
         $this->contentType = $contentType;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getHeaders()
-    {
-        // Start of user code Getter HttpResponse.getHeaders
-        // End of user code
-        return $this->headers;
-    }
-
-    /**
-     * @param AssociativeArray $headers
-     */
-    public function setHeaders(AssociativeArray $headers)
-    {
-        // Start of user code Setter HttpResponse.setHeaders
-        // End of user code
-        $this->headers = $headers;
     }
 
     /**
@@ -130,32 +98,23 @@ class HttpResponse
     }
 
     /**
-     * Send the http response message to the client
+     * @return AssociativeArray
      */
-    public function sendToClient()
+    public function getHeaders()
     {
-        // Start of user code HttpResponse.sendToClient
-        
-        // Set http response status code
-        header('HTTP/1.1 ' . $this->statusCode .' ');
-        
-        // Set http content-type
-        header('Content-type: ' . $this->contentType);
-        
-        // Set custom headers
-        if(isset($this->headers)) {
-            foreach($this->headers->toNativeArray() as $key => $value) {
-                header(sprintf('%s: %s', ucfirst($key), $value));
-            }
-        }       
-        
-        // Send content
-        if(isset($this->message)) {
-            echo $this->message;
-        }
-        
-        return;
+        // Start of user code Getter HttpResponse.getHeaders
         // End of user code
+        return $this->headers;
+    }
+
+    /**
+     * @param AssociativeArray $headers
+     */
+    public function setHeaders(AssociativeArray $headers)
+    {
+        // Start of user code Setter HttpResponse.setHeaders
+        // End of user code
+        $this->headers = $headers;
     }
 
     /**
@@ -187,6 +146,35 @@ class HttpResponse
         // End of user code
     
         return $httpResponse;
+    }
+
+    /**
+     * Send the http response message to the client
+     */
+    public function sendToClient()
+    {
+        // Start of user code HttpResponse.sendToClient
+        
+        // Set http response status code
+        header('HTTP/1.1 ' . $this->statusCode .' ');
+        
+        // Set http content-type
+        header('Content-type: ' . $this->contentType);
+        
+        // Set custom headers
+        if(isset($this->headers)) {
+            foreach($this->headers->toNativeArray() as $key => $value) {
+                header(sprintf('%s: %s', ucfirst($key), $value));
+            }
+        }       
+        
+        // Send content
+        if(isset($this->message)) {
+            echo $this->message;
+        }
+        
+        return;
+        // End of user code
     }
 
     /**

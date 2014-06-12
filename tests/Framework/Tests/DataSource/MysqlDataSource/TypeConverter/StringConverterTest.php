@@ -41,20 +41,6 @@ class StringConverterTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method getType from interface TypeConverter
-     * Start of user code TypeConverter.testgetTypeAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetType()
-    {
-        // Start of user code TypeConverter.testgetType
-        $converter = new StringConverter();     
-        $this->assertEquals('string', $converter->getType());
-        // End of user code
-    }
-    
-    /**
      * Test method getDataSourceType from interface TypeConverter
      * Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -69,16 +55,16 @@ class StringConverterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method convert from interface TypeConverter
-     * Start of user code TypeConverter.testconvertAnnotations 
+     * Test method getType from interface TypeConverter
+     * Start of user code TypeConverter.testgetTypeAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testConvert()
+    public function testGetType()
     {
-        // Start of user code Converter.testconvert
+        // Start of user code TypeConverter.testgetType
         $converter = new StringConverter();     
-        $this->assertEquals('foo!!', $converter->convert('foo!!'));
+        $this->assertEquals('string', $converter->getType());
         // End of user code
     }
     
@@ -106,6 +92,20 @@ class StringConverterTest extends \PHPUnit_Framework_TestCase
         // Start of user code Converter.testreverse
         $converter = new StringConverter();     
         $this->assertEquals('foo!!', $converter->reverse('foo!!'));
+        // End of user code
+    }
+    
+    /**
+     * Test method convert from interface TypeConverter
+     * Start of user code TypeConverter.testconvertAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testConvert()
+    {
+        // Start of user code Converter.testconvert
+        $converter = new StringConverter();     
+        $this->assertEquals('foo!!', $converter->convert('foo!!'));
         // End of user code
     }
 

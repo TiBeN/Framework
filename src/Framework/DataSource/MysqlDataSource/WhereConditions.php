@@ -2,12 +2,12 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\CriteriaSet;
 use TiBeN\Framework\Datatype\GenericCollection;
+use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\MatchCriteria;
-use TiBeN\Framework\Entity\CriteriaSet;
-use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code WhereConditions.useStatements
 // Place your use statements here.
@@ -23,25 +23,33 @@ use TiBeN\Framework\Entity\Entity;
 class WhereConditions
 {
     /**
+     * @var Expr
+     */
+    public $expr;
+
+    /**
      * @var AssociativeArray
      */
     public $statementParameters;
 
     /**
-     * @var Expr
+     * @return Expr
      */
-    public $expr;
-
-    public function __construct()
+    public function getExpr()
     {
-        // Start of user code WhereConditions.constructor
+        // Start of user code Getter WhereConditions.getExpr
         // End of user code
+        return $this->expr;
     }
 
-    public function __destruct()
+    /**
+     * @param Expr $expr
+     */
+    public function setExpr(Expr $expr)
     {
-        // Start of user code WhereConditions.destructor
+        // Start of user code Setter WhereConditions.setExpr
         // End of user code
+        $this->expr = $expr;
     }
 
     /**
@@ -65,61 +73,6 @@ class WhereConditions
     }
 
     /**
-     * @return Expr
-     */
-    public function getExpr()
-    {
-        // Start of user code Getter WhereConditions.getExpr
-        // End of user code
-        return $this->expr;
-    }
-
-    /**
-     * @param Expr $expr
-     */
-    public function setExpr(Expr $expr)
-    {
-        // Start of user code Setter WhereConditions.setExpr
-        // End of user code
-        $this->expr = $expr;
-    }
-
-    /**
-     * Generate the where_condition as a string.
-     *
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code WhereConditions.toString
-        if(is_null($this->expr)) {
-            throw new \LogicException('No expr set');
-        }
-        $string = 'WHERE ' . $this->expr->toString(); 
-        // End of user code
-    
-        return $string;
-    }
-
-    /**
-     * Factory method that generate a WhereConditions
-     * fom an Expr.
-     *
-     * @param Expr $expr
-     * @return WhereConditions $whereConditions
-     */
-    public static function createFromExpr(Expr $expr)
-    {
-        // Start of user code WhereConditions.createFromExpr
-        $whereConditions = new self();
-        $whereConditions->expr = $expr;
-        $whereConditions->statementParameters = $expr->getExprParameters();
-        // End of user code
-    
-        return $whereConditions;
-    }
-
-    /**
      * Factory Method that create a WhereConditions 
      * from an entity CriterieSet.
      *
@@ -137,6 +90,23 @@ class WhereConditions
         // End of user code
     
         return $whereCondition;
+    }
+
+    /**
+     * Generate the where_condition as a string.
+     *
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code WhereConditions.toString
+        if(is_null($this->expr)) {
+            throw new \LogicException('No expr set');
+        }
+        $string = 'WHERE ' . $this->expr->toString(); 
+        // End of user code
+    
+        return $string;
     }
 
     /**
@@ -168,6 +138,24 @@ class WhereConditions
         ;             
 
         $whereConditions = self::createFromCriteriaSet($criteriaSet, $entityMapping);
+        // End of user code
+    
+        return $whereConditions;
+    }
+
+    /**
+     * Factory method that generate a WhereConditions
+     * fom an Expr.
+     *
+     * @param Expr $expr
+     * @return WhereConditions $whereConditions
+     */
+    public static function createFromExpr(Expr $expr)
+    {
+        // Start of user code WhereConditions.createFromExpr
+        $whereConditions = new self();
+        $whereConditions->expr = $expr;
+        $whereConditions->statementParameters = $expr->getExprParameters();
         // End of user code
     
         return $whereConditions;

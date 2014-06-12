@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Datatype\GenericCollection;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code SelectExpr.useStatements
 // Place your use statements here.
@@ -27,7 +27,7 @@ class SelectExpr extends GenericCollection
     // Start of user code SelectExpr.surchargedConstructorsDestructors
     // Surcharge Constructors and Destructors here
     // End of user code
-    
+
     /**
      * T type getter
      * @var String
@@ -66,6 +66,7 @@ class SelectExpr extends GenericCollection
             );
         }
     }
+
 
     /**
      * Generate the select_expr as a string

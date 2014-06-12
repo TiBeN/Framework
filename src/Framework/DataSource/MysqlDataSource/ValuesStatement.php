@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code ValuesStatement.useStatements
 // Place your use statements here.
@@ -28,7 +28,7 @@ class ValuesStatement extends AssociativeArray
     // Start of user code ValuesStatement.surchargedConstructorsDestructors
     // Surcharge Constructors and Destructors here
     // End of user code
-    
+
     /**
      * T type getter
      * @var String
@@ -67,6 +67,7 @@ class ValuesStatement extends AssociativeArray
             );
         }
     }
+
 
     /**
      * Factory method that generate a ValuesStatement 

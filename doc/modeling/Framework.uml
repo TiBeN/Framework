@@ -1473,6 +1473,7 @@ more infos about Smarty : </body>
         </defaultValue>
       </ownedAttribute>
       <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_1_1VYDPoEeORa61MVUUzWw" name="InterfaceRealization1" client="_cE0M4LreEeK-eqy0US4WHg" supplier="_Br8mQLrfEeK-eqy0US4WHg" contract="_Br8mQLrfEeK-eqy0US4WHg"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="__10c4PJzEeOyN8yJ9p4wpA" name="SmartyEngine"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_Br8mQLrfEeK-eqy0US4WHg" name="TemplateEngine">
       <ownedComment xmi:type="uml:Comment" xmi:id="_k_x18BDDEeODbtCcScBryQ">
@@ -2806,6 +2807,7 @@ named placeholders of the statement.</body>
           </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZECO8Fn8EeO_MoikqrwZnQ" name="statementParameters" type="_ti84wLoPEeKycOj42mlSMA"/>
         </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_sshisPJxEeOyN8yJ9p4wpA" name="GenericStatement"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_FoaCECk7EeOKLdof59zQww" name="create generic statement from string" client="_tM1zwCLnEeOU6MgQ9M9Alg" supplier="_CrflACk7EeOKLdof59zQww"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_2sw9QC3cEeOKBsZegWeKbA" name="telling how to convert resultcollection in entityCollection using" client="_HoXs0CLnEeOU6MgQ9M9Alg" supplier="_S0PcUCR8EeOsrc8JubOXTQ"/>
@@ -2960,6 +2962,7 @@ representation.</body>
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
         </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_XFy1YPJyEeOyN8yJ9p4wpA" name="Expr"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_jnFdYMcdEeOwo4bGXJhZCw" name="find data converters using" client="_C8gMkCknEeOKLdof59zQww" supplier="_lqdYsEn9EeOhBJpxbXcYWQ"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_bw_lQMepEeOhlq-hm4UKlg" name="Express Entity Targeting using" client="_gJOhkCLpEeOU6MgQ9M9Alg" supplier="_gKCHEB79EeOf9MerE9_4bA"/>
@@ -3137,6 +3140,7 @@ declared in its entitymapping.
           <value xsi:nil="true"/>
         </defaultValue>
       </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_-oEa4PJ0EeOyN8yJ9p4wpA" name="EntityValidationResult"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_gW4PIB4fEeOAXbbnJNwHxQ" name="entityValidationResult_validationResult_1" memberEnd="_gW4PIR4fEeOAXbbnJNwHxQ _gWyIgB4fEeOAXbbnJNwHxQ">
       <ownedEnd xmi:type="uml:Property" xmi:id="_gW4PIR4fEeOAXbbnJNwHxQ" name="entityValidationResult" type="_dr-IEB4fEeOAXbbnJNwHxQ" association="_gW4PIB4fEeOAXbbnJNwHxQ">
@@ -3194,6 +3198,7 @@ the entity and return its attributemapping. </body>
         </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_1hkukOTNEeOhWq8Np-BNQw" name="attributeMapping" type="_X6n3sB4jEeOwhK47NxXINQ" direction="return"/>
       </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_wn0eIPJyEeOyN8yJ9p4wpA" name="EntityMapping"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_erPsYB4iEeOwhK47NxXINQ" name="DataSourceEntityMappingConfiguration">
       <ownedComment xmi:type="uml:Comment" xmi:id="_00DFsOWHEeOo76lsZKod3g" annotatedElement="_erPsYB4iEeOwhK47NxXINQ">
@@ -3375,6 +3380,7 @@ or not.</body>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
         </ownedParameter>
       </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_I72pwPJzEeOyN8yJ9p4wpA" name="CriteriaSet"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_gKCHEB79EeOf9MerE9_4bA" name="MatchCriteria">
       <ownedComment xmi:type="uml:Comment" xmi:id="_RVhQMOWKEeOo76lsZKod3g" annotatedElement="_gKCHEB79EeOf9MerE9_4bA">
@@ -3776,6 +3782,7 @@ from associative arrays.</body>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_RCPT4N9gEeOA6NW-Tj7oDw" name="config" type="_ti84wLoPEeKycOj42mlSMA"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_V_XVMN9gEeOA6NW-Tj7oDw" name="validationRule" type="_Ow5DkBskEeOmN-2QJZ-Okg" direction="return"/>
       </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_neshAPJzEeOyN8yJ9p4wpA" name="ValidationRule"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_H-JvABslEeOmN-2QJZ-Okg" clientDependency="_RGW0MBsmEeOmN-2QJZ-Okg _b8PYoBsmEeOmN-2QJZ-Okg" name="Validator">
       <ownedComment xmi:type="uml:Comment" xmi:id="_Ppe6QOWMEeOo76lsZKod3g" annotatedElement="_H-JvABslEeOmN-2QJZ-Okg">
@@ -3903,11 +3910,8 @@ Allways call this before use any component.</body>
       <ownedComment xmi:type="uml:Comment" xmi:id="_m5G64PC2EeOSz4YNAMghYA" annotatedElement="_XtW-4PC1EeOSz4YNAMghYA">
         <body>Contain initalization logic of a package which is launched 
 during bootstrap. An instance of the classes which implements this 
-interface must be passed to the Bootstrap's constructor. This allow find grained crontrol
-on used package during custom runtimes. 
-
-
-</body>
+interface must be passed to the Bootstrap's constructor. This allow find grained control
+on used package during custom runtimes. </body>
       </ownedComment>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_enHsAPC1EeOSz4YNAMghYA" name="init">
         <ownedComment xmi:type="uml:Comment" xmi:id="_x3PcYPC2EeOSz4YNAMghYA" annotatedElement="_enHsAPC1EeOSz4YNAMghYA">

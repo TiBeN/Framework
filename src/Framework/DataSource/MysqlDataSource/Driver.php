@@ -14,17 +14,6 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
  */
 class Driver
 {
-    public function __construct()
-    {
-        // Start of user code Driver.constructor
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code Driver.destructor
-        // End of user code
-    }
 
     /**
      * Create a new connection to a Mysql database.
@@ -50,19 +39,6 @@ class Driver
         // End of user code
     
         return $connection;
-    }
-
-    /**
-     * Close the connexion to a Mysql database.
-     *
-     * @param Connection $connection
-     */
-    public static function disconnect(Connection $connection)
-    {
-        // Start of user code Driver.disconnect
-        $connection->unsetPdo();
-        unset($connection);
-        // End of user code
     }
 
     /**
@@ -121,6 +97,19 @@ class Driver
         // End of user code
     
         return $statementResult;
+    }
+
+    /**
+     * Close the connexion to a Mysql database.
+     *
+     * @param Connection $connection
+     */
+    public static function disconnect(Connection $connection)
+    {
+        // Start of user code Driver.disconnect
+        $connection->unsetPdo();
+        unset($connection);
+        // End of user code
     }
 
     // Start of user code Driver.implementationSpecificMethods

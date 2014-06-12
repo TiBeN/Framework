@@ -28,7 +28,7 @@ class EntityCollection extends ProxyAbleGenericCollection
         return parent::__construct('TiBeN\\Framework\\Entity\\Entity');
     }
     // End of user code
-    
+
     /**
      * T type getter
      * @var String
@@ -67,6 +67,7 @@ class EntityCollection extends ProxyAbleGenericCollection
             );
         }
     }
+
 
     // Start of user code EntityCollection.surchargedMethods
     // Surcharge Methods here

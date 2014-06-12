@@ -49,124 +49,6 @@ class StatementFactoryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createInsertStatement from class StatementFactory
-     *
-     * Start of user code StatementFactoryTest.testcreateInsertStatementAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testCreateInsertStatement()
-    {
-        // Start of user code StatementFactoryTest.testcreateInsertStatement
-        $expectedStatement 
-            = 'INSERT INTO some_entity_data_table (idTable,a,b,c) VALUES(:idTable,:a,:b,:c)'
-        ;
-        $expectedParameters = array(
-            'idTable' => NULL,
-            'a' => 'foo',
-            'b' => 'bar',
-            'c' => 'baz'                                 
-        );
-        
-        $entity = new SomeEntity();
-        $entity->setAttributeA('foo');
-        $entity->setAttributeB('bar');
-        $entity->setAttributeC('baz');
-        
-        $actualStatement = StatementFactory::createInsertStatement(
-            EntityMappingsRegistry::getEntityMapping(
-                'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
-            ), 
-            $entity
-        );        
-        
-        $this->assertEquals($expectedStatement, $actualStatement->toString());
-        
-        $this->assertEquals(
-            AssociativeArray::createFromNativeArray(
-                null,
-                $expectedParameters                                    
-            ),
-            $actualStatement->getStatementParameters()    
-        );
-        // End of user code
-    }
-    
-    /**
-     * Test static method createFromString from class StatementFactory
-     *
-     * Start of user code StatementFactoryTest.testcreateFromStringAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testCreateFromString()
-    {
-        // Start of user code StatementFactoryTest.testcreateFromString
-        $expectedStatement = new GenericStatement();
-        $expectedStatement->setStatementString('SELECT * someTable where id=:id');
-        
-        $statementParameters = AssociativeArray::createFromNativeArray(
-            null, 
-            array('id' => 1337)
-        );
-        
-        $expectedStatement->setStatementParameters($statementParameters);        
-        $actualStatement = StatementFactory::createFromString(
-            'SELECT * someTable where id=:id', 
-            $statementParameters
-        );
-        
-        $this->assertEquals($expectedStatement, $actualStatement);
-        // End of user code
-    }
-    
-    /**
-     * Test static method createUpdateStatementFromEntity from class StatementFactory
-     *
-     * Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntityAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testCreateUpdateStatementFromEntity()
-    {
-        // Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntity
-        $expectedStatement = 'UPDATE some_entity_data_table SET idTable=:idTable,a=:a,b=:b,c=:c WHERE idTable = :id0'; 
-        
-        $expectedParameters = array(
-            'idTable' => '1337',
-            'a' => 'foo',
-            'b' => 'bar',
-            'c' => 'baz',
-            'id0' => '1337'
-        );
-
-        $entity = new SomeEntity();
-        $entity->setId(1337);
-        $entity->setAttributeA('foo');
-        $entity->setAttributeB('bar');
-        $entity->setAttributeC('baz');
-
-        $entityMapping = EntityMappingsRegistry::getEntityMapping(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
-        );
-
-        $update = StatementFactory::createUpdateStatementFromEntity(
-            $entityMapping,
-            $entity
-        );
-
-        $this->assertEquals($expectedStatement, $update->toString());
-        $this->assertEquals(
-            AssociativeArray::createFromNativeArray(
-                null, 
-                $expectedParameters
-            ),
-            $update->getStatementParameters()
-        );
-        // End of user code
-    }
-    
-    /**
      * Test static method createSelectStatementFromCriteriaSet from class StatementFactory
      *
      * Start of user code StatementFactoryTest.testcreateSelectStatementFromCriteriaSetAnnotations 
@@ -242,6 +124,124 @@ class StatementFactoryTest extends \PHPUnit_Framework_TestCase
                 $expectedParameters
             ),
             $delete->getStatementParameters()
+        );
+        // End of user code
+    }
+    
+    /**
+     * Test static method createFromString from class StatementFactory
+     *
+     * Start of user code StatementFactoryTest.testcreateFromStringAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testCreateFromString()
+    {
+        // Start of user code StatementFactoryTest.testcreateFromString
+        $expectedStatement = new GenericStatement();
+        $expectedStatement->setStatementString('SELECT * someTable where id=:id');
+        
+        $statementParameters = AssociativeArray::createFromNativeArray(
+            null, 
+            array('id' => 1337)
+        );
+        
+        $expectedStatement->setStatementParameters($statementParameters);        
+        $actualStatement = StatementFactory::createFromString(
+            'SELECT * someTable where id=:id', 
+            $statementParameters
+        );
+        
+        $this->assertEquals($expectedStatement, $actualStatement);
+        // End of user code
+    }
+    
+    /**
+     * Test static method createInsertStatement from class StatementFactory
+     *
+     * Start of user code StatementFactoryTest.testcreateInsertStatementAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testCreateInsertStatement()
+    {
+        // Start of user code StatementFactoryTest.testcreateInsertStatement
+        $expectedStatement 
+            = 'INSERT INTO some_entity_data_table (idTable,a,b,c) VALUES(:idTable,:a,:b,:c)'
+        ;
+        $expectedParameters = array(
+            'idTable' => NULL,
+            'a' => 'foo',
+            'b' => 'bar',
+            'c' => 'baz'                                 
+        );
+        
+        $entity = new SomeEntity();
+        $entity->setAttributeA('foo');
+        $entity->setAttributeB('bar');
+        $entity->setAttributeC('baz');
+        
+        $actualStatement = StatementFactory::createInsertStatement(
+            EntityMappingsRegistry::getEntityMapping(
+                'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+            ), 
+            $entity
+        );        
+        
+        $this->assertEquals($expectedStatement, $actualStatement->toString());
+        
+        $this->assertEquals(
+            AssociativeArray::createFromNativeArray(
+                null,
+                $expectedParameters                                    
+            ),
+            $actualStatement->getStatementParameters()    
+        );
+        // End of user code
+    }
+    
+    /**
+     * Test static method createUpdateStatementFromEntity from class StatementFactory
+     *
+     * Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntityAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testCreateUpdateStatementFromEntity()
+    {
+        // Start of user code StatementFactoryTest.testcreateUpdateStatementFromEntity
+        $expectedStatement = 'UPDATE some_entity_data_table SET idTable=:idTable,a=:a,b=:b,c=:c WHERE idTable = :id0'; 
+        
+        $expectedParameters = array(
+            'idTable' => '1337',
+            'a' => 'foo',
+            'b' => 'bar',
+            'c' => 'baz',
+            'id0' => '1337'
+        );
+
+        $entity = new SomeEntity();
+        $entity->setId(1337);
+        $entity->setAttributeA('foo');
+        $entity->setAttributeB('bar');
+        $entity->setAttributeC('baz');
+
+        $entityMapping = EntityMappingsRegistry::getEntityMapping(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );
+
+        $update = StatementFactory::createUpdateStatementFromEntity(
+            $entityMapping,
+            $entity
+        );
+
+        $this->assertEquals($expectedStatement, $update->toString());
+        $this->assertEquals(
+            AssociativeArray::createFromNativeArray(
+                null, 
+                $expectedParameters
+            ),
+            $update->getStatementParameters()
         );
         // End of user code
     }

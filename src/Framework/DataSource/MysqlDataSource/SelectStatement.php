@@ -18,21 +18,6 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class SelectStatement implements Statement
 {
     /**
-     * @var WhereConditions
-     */
-    public $whereConditions;
-
-    /**
-     * @var SelectExpr
-     */
-    public $selectExpr;
-
-    /**
-     * @var string
-     */
-    public $tableReferences;
-
-    /**
      * @var LimitStatement
      */
     public $limitStatement;
@@ -42,77 +27,20 @@ class SelectStatement implements Statement
      */
     public $orderByStatement;
 
-    public function __construct()
-    {
-        // Start of user code SelectStatement.constructor
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code SelectStatement.destructor
-        // End of user code
-    }
+    /**
+     * @var SelectExpr
+     */
+    public $selectExpr;
 
     /**
-     * @return WhereConditions
+     * @var WhereConditions
      */
-    public function getWhereConditions()
-    {
-        // Start of user code Getter SelectStatement.getWhereConditions
-        // End of user code
-        return $this->whereConditions;
-    }
+    public $whereConditions;
 
     /**
-     * @param WhereConditions $whereConditions
+     * @var string
      */
-    public function setWhereConditions(WhereConditions $whereConditions)
-    {
-        // Start of user code Setter SelectStatement.setWhereConditions
-        // End of user code
-        $this->whereConditions = $whereConditions;
-    }
-
-    /**
-     * @return SelectExpr
-     */
-    public function getSelectExpr()
-    {
-        // Start of user code Getter SelectStatement.getSelectExpr
-        // End of user code
-        return $this->selectExpr;
-    }
-
-    /**
-     * @param SelectExpr $selectExpr
-     */
-    public function setSelectExpr(SelectExpr $selectExpr)
-    {
-        // Start of user code Setter SelectStatement.setSelectExpr
-        // End of user code
-        $this->selectExpr = $selectExpr;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTableReferences()
-    {
-        // Start of user code Getter SelectStatement.getTableReferences
-        // End of user code
-        return $this->tableReferences;
-    }
-
-    /**
-     * @param string $tableReferences
-     */
-    public function setTableReferences($tableReferences)
-    {
-        // Start of user code Setter SelectStatement.setTableReferences
-        // End of user code
-        $this->tableReferences = $tableReferences;
-    }
+    public $tableReferences;
 
     /**
      * @return LimitStatement
@@ -154,26 +82,67 @@ class SelectStatement implements Statement
         $this->orderByStatement = $orderByStatement;
     }
 
-    // Statement Realization
+    /**
+     * @return SelectExpr
+     */
+    public function getSelectExpr()
+    {
+        // Start of user code Getter SelectStatement.getSelectExpr
+        // End of user code
+        return $this->selectExpr;
+    }
 
     /**
-     * Check whether all statement chunks are set 
-     * in order to generate a complete statement string to 
-     * be executed.
-     *
-     * @return bool $status
+     * @param SelectExpr $selectExpr
      */
-    public function isReadyToBeExecuted()
+    public function setSelectExpr(SelectExpr $selectExpr)
     {
-        // Start of user code Statement.isReadyToBeExecuted
-        $status = $this->selectExpr instanceof SelectExpr 
-            && !is_null($this->tableReferences)
-            && !empty($this->tableReferences)
-        ;
+        // Start of user code Setter SelectStatement.setSelectExpr
         // End of user code
-    
-        return $status;
+        $this->selectExpr = $selectExpr;
     }
+
+    /**
+     * @return WhereConditions
+     */
+    public function getWhereConditions()
+    {
+        // Start of user code Getter SelectStatement.getWhereConditions
+        // End of user code
+        return $this->whereConditions;
+    }
+
+    /**
+     * @param WhereConditions $whereConditions
+     */
+    public function setWhereConditions(WhereConditions $whereConditions)
+    {
+        // Start of user code Setter SelectStatement.setWhereConditions
+        // End of user code
+        $this->whereConditions = $whereConditions;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTableReferences()
+    {
+        // Start of user code Getter SelectStatement.getTableReferences
+        // End of user code
+        return $this->tableReferences;
+    }
+
+    /**
+     * @param string $tableReferences
+     */
+    public function setTableReferences($tableReferences)
+    {
+        // Start of user code Setter SelectStatement.setTableReferences
+        // End of user code
+        $this->tableReferences = $tableReferences;
+    }
+
+    // Statement Realization
 
     /**
      * Generate the statement as a string.
@@ -204,6 +173,25 @@ class SelectStatement implements Statement
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * Check whether all statement chunks are set 
+     * in order to generate a complete statement string to 
+     * be executed.
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+        $status = $this->selectExpr instanceof SelectExpr 
+            && !is_null($this->tableReferences)
+            && !empty($this->tableReferences)
+        ;
+        // End of user code
+    
+        return $status;
     }
 
     /**

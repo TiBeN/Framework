@@ -21,18 +21,6 @@ class EntityMappingsRegistry
      */
     private static $entityMappings;
 
-    public function __construct()
-    {
-        // Start of user code EntityMappingsRegistry.constructor
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code EntityMappingsRegistry.destructor
-        // End of user code
-    }
-
     /**
      * @return AssociativeArray
      */
@@ -56,27 +44,6 @@ class EntityMappingsRegistry
         // Start of user code Static setter EntityMappingsRegistry.setEntityMappings
         // End of user code
         self::$entityMappings = $entityMappings;
-    }
-
-    /**
-     * Get an EntityMapping of an Entity class from
-     * its class name.
-     *
-     * @param string $entityName
-     * @return EntityMapping $entityMapping
-     */
-    public static function getEntityMapping($entityName)
-    {
-        // Start of user code EntityMappingsRegistry.getEntityMapping
-        if(!self::getEntityMappings()->has($entityName)) {
-            throw new \InvalidArgumentException(
-                sprintf('No entity mapping for entity "%s"', $entityName)
-            );
-        }
-        $entityMapping = self::getEntityMappings()->get($entityName);
-        // End of user code
-    
-        return $entityMapping;
     }
 
     /**
@@ -117,6 +84,27 @@ class EntityMappingsRegistry
         }
         self::getEntityMappings()->set($entityName, $entityMapping);
         // End of user code
+    }
+
+    /**
+     * Get an EntityMapping of an Entity class from
+     * its class name.
+     *
+     * @param string $entityName
+     * @return EntityMapping $entityMapping
+     */
+    public static function getEntityMapping($entityName)
+    {
+        // Start of user code EntityMappingsRegistry.getEntityMapping
+        if(!self::getEntityMappings()->has($entityName)) {
+            throw new \InvalidArgumentException(
+                sprintf('No entity mapping for entity "%s"', $entityName)
+            );
+        }
+        $entityMapping = self::getEntityMappings()->get($entityName);
+        // End of user code
+    
+        return $entityMapping;
     }
 
     // Start of user code EntityMappingsRegistry.implementationSpecificMethods

@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\Entity;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
-use TiBeN\Framework\Validation\ValidationRule;
 use TiBeN\Framework\DataSource\DataSourcesRegistry;
+use TiBeN\Framework\Validation\ValidationRule;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code EntityMapping.useStatements
 // Place your use statements here.
@@ -45,12 +45,6 @@ class EntityMapping
     {
         // Start of user code EntityMapping.constructor
         $this->attributeMappings = new AssociativeArray();
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code EntityMapping.destructor
         // End of user code
     }
 

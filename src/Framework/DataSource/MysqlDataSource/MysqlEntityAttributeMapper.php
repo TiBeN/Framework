@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
 
 // Start of user code MysqlEntityAttributeMapper.useStatements
@@ -28,18 +28,6 @@ class MysqlEntityAttributeMapper
      * @var Entity
      */
     public $entity;
-
-    public function __construct()
-    {
-        // Start of user code MysqlEntityAttributeMapper.constructor
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code MysqlEntityAttributeMapper.destructor
-        // End of user code
-    }
 
     /**
      * @return EntityMapping
@@ -82,55 +70,6 @@ class MysqlEntityAttributeMapper
     }
 
     /**
-     * Get the value of the identifier of an entity.
-     *
-     * @return int $identifier
-     */
-    public function getIdentifierValue()
-    {
-        // Start of user code MysqlEntityAttributeMapper.getIdentifierValue
-        $attributeSetterName = 'get'
-            . ucfirst($this->getIdentifierAttributeName())
-        ;   
-        $identifier = $this->entity->$attributeSetterName();
-        // End of user code
-    
-        return $identifier;
-    }
-
-    /**
-     * Get the mapped mysql column name of 
-     * an attribute.
-     *
-     * @param string $attributeName
-     * @return string $columnName
-     */
-    public function getColumnName($attributeName)
-    {
-        // Start of user code MysqlEntityAttributeMapper.getColumnName
-        if(!isset($this->entityMapping)) {
-            throw new \LogicException('No entity mapping set');
-        }       
-
-        if(!$this->entityMapping->getAttributeMappings()->has($attributeName)) {
-            throw new \InvalidArgumentException(
-                sprintf('Entity has no attribute \'%s\' or is not mapped', $attributeName)
-            );
-        }       
-        
-        $columnName = $this
-            ->entityMapping
-            ->getAttributeMappings()
-            ->get($attributeName)
-            ->getDataSourceAttributeMappingConfiguration()
-            ->getColumnName()
-        ;         
-        // End of user code
-    
-        return $columnName;
-    }
-
-    /**
      * Set the identifier value of an entity.
      *
      * @param int $identifier
@@ -167,37 +106,35 @@ class MysqlEntityAttributeMapper
     }
 
     /**
-     * Get the attribute name which hold the identifier of 
-     * an entity.
+     * Get the mapped mysql column name of 
+     * an attribute.
      *
-     * @return string $attributeName
+     * @param string $attributeName
+     * @return string $columnName
      */
-    public function getIdentifierAttributeName()
+    public function getColumnName($attributeName)
     {
-        // Start of user code MysqlEntityAttributeMapper.getIdentifierAttributeName
-        if(!isset($this->entity)) {
-            throw new \LogicException('No entity set');
-        }
-        
+        // Start of user code MysqlEntityAttributeMapper.getColumnName
         if(!isset($this->entityMapping)) {
             throw new \LogicException('No entity mapping set');
-        }
+        }       
+
+        if(!$this->entityMapping->getAttributeMappings()->has($attributeName)) {
+            throw new \InvalidArgumentException(
+                sprintf('Entity has no attribute \'%s\' or is not mapped', $attributeName)
+            );
+        }       
         
-        foreach($this->entityMapping->getAttributeMappings()->toNativeArray()
-            as $attributeName => $attributeMapping
-        ) {
-            if($attributeMapping->getIsIdentifier()) {
-                $attributeIdentifier = $attributeMapping;
-                break;
-            }
-        }
-        
-        if(!isset($attributeIdentifier)) {
-            throw new \LogicException('Entity has no identifier attribute mapped');
-        }
+        $columnName = $this
+            ->entityMapping
+            ->getAttributeMappings()
+            ->get($attributeName)
+            ->getDataSourceAttributeMappingConfiguration()
+            ->getColumnName()
+        ;         
         // End of user code
     
-        return $attributeName;
+        return $columnName;
     }
 
     /**
@@ -304,6 +241,57 @@ class MysqlEntityAttributeMapper
          
         $this->entity->$attributeSetterName($converter->reverse($value));
         // End of user code
+    }
+
+    /**
+     * Get the attribute name which hold the identifier of 
+     * an entity.
+     *
+     * @return string $attributeName
+     */
+    public function getIdentifierAttributeName()
+    {
+        // Start of user code MysqlEntityAttributeMapper.getIdentifierAttributeName
+        if(!isset($this->entity)) {
+            throw new \LogicException('No entity set');
+        }
+        
+        if(!isset($this->entityMapping)) {
+            throw new \LogicException('No entity mapping set');
+        }
+        
+        foreach($this->entityMapping->getAttributeMappings()->toNativeArray()
+            as $attributeName => $attributeMapping
+        ) {
+            if($attributeMapping->getIsIdentifier()) {
+                $attributeIdentifier = $attributeMapping;
+                break;
+            }
+        }
+        
+        if(!isset($attributeIdentifier)) {
+            throw new \LogicException('Entity has no identifier attribute mapped');
+        }
+        // End of user code
+    
+        return $attributeName;
+    }
+
+    /**
+     * Get the value of the identifier of an entity.
+     *
+     * @return int $identifier
+     */
+    public function getIdentifierValue()
+    {
+        // Start of user code MysqlEntityAttributeMapper.getIdentifierValue
+        $attributeSetterName = 'get'
+            . ucfirst($this->getIdentifierAttributeName())
+        ;   
+        $identifier = $this->entity->$attributeSetterName();
+        // End of user code
+    
+        return $identifier;
     }
 
     // Start of user code MysqlEntityAttributeMapper.implementationSpecificMethods

@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Entity\DataSourceAttributeMappingConfiguration;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code MysqlAttributeConfiguration.useStatements
 // Place your use statements here.
@@ -27,18 +27,6 @@ class MysqlAttributeConfiguration implements DataSourceAttributeMappingConfigura
      * @var string
      */
     public $columnName;
-
-    public function __construct()
-    {
-        // Start of user code MysqlAttributeConfiguration.constructor
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code MysqlAttributeConfiguration.destructor
-        // End of user code
-    }
 
     /**
      * @return bool

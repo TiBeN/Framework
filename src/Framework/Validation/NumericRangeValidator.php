@@ -32,12 +32,6 @@ class NumericRangeValidator implements Validator
         // End of user code
     }
 
-    public function __destruct()
-    {
-        // Start of user code NumericRangeValidator.destructor
-        // End of user code
-    }
-    
     /**
      * T type getter
      * @var String
@@ -77,21 +71,8 @@ class NumericRangeValidator implements Validator
         }
     }
 
-    // Validator Realization
 
-    /**
-     * Return the name of the validator.
-     *
-     * @return string $name
-     */
-    public function getName()
-    {
-        // Start of user code Validator.getName
-        $name = "numericrange";
-        // End of user code
-    
-        return $name;
-    }
+    // Validator Realization
 
     /**
      * Perform the validation of a value.
@@ -151,6 +132,20 @@ class NumericRangeValidator implements Validator
         // End of user code
     
         return $result;
+    }
+
+    /**
+     * Return the name of the validator.
+     *
+     * @return string $name
+     */
+    public function getName()
+    {
+        // Start of user code Validator.getName
+        $name = "numericrange";
+        // End of user code
+    
+        return $name;
     }
 
     // Start of user code NumericRangeValidator.implementationSpecificMethods

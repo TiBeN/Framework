@@ -15,25 +15,33 @@ namespace TiBeN\Framework\Datatype;
 class AssociativeArrayFindResult
 {
     /**
+     * @var bool
+     */
+    public $result;
+
+    /**
      * @var string
      */
     public $key;
 
     /**
-     * @var bool
+     * @return bool
      */
-    public $result;
-
-    public function __construct()
+    public function getResult()
     {
-        // Start of user code AssociativeArrayFindResult.constructor
+        // Start of user code Getter AssociativeArrayFindResult.getResult
         // End of user code
+        return $this->result;
     }
 
-    public function __destruct()
+    /**
+     * @param bool $result
+     */
+    public function setResult($result)
     {
-        // Start of user code AssociativeArrayFindResult.destructor
+        // Start of user code Setter AssociativeArrayFindResult.setResult
         // End of user code
+        $this->result = $result;
     }
 
     /**
@@ -54,26 +62,6 @@ class AssociativeArrayFindResult
         // Start of user code Setter AssociativeArrayFindResult.setKey
         // End of user code
         $this->key = $key;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getResult()
-    {
-        // Start of user code Getter AssociativeArrayFindResult.getResult
-        // End of user code
-        return $this->result;
-    }
-
-    /**
-     * @param bool $result
-     */
-    public function setResult($result)
-    {
-        // Start of user code Setter AssociativeArrayFindResult.setResult
-        // End of user code
-        $this->result = $result;
     }
 
     // Start of user code AssociativeArrayFindResult.implementationSpecificMethods

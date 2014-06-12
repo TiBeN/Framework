@@ -14,17 +14,6 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
  */
 class Connection
 {
-    public function __construct()
-    {
-        // Start of user code Connection.constructor
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code Connection.destructor
-        // End of user code
-    }
 
     // Start of user code Connection.implementationSpecificMethods
     

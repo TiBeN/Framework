@@ -17,30 +17,38 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class UpdateStatement implements Statement
 {
     /**
-     * @var WhereConditions
-     */
-    public $whereDefinition;
-
-    /**
      * @var SetStatement
      */
     public $setStatement;
+
+    /**
+     * @var WhereConditions
+     */
+    public $whereDefinition;
 
     /**
      * @var string
      */
     public $tableName;
 
-    public function __construct()
+    /**
+     * @return SetStatement
+     */
+    public function getSetStatement()
     {
-        // Start of user code UpdateStatement.constructor
+        // Start of user code Getter UpdateStatement.getSetStatement
         // End of user code
+        return $this->setStatement;
     }
 
-    public function __destruct()
+    /**
+     * @param SetStatement $setStatement
+     */
+    public function setSetStatement(SetStatement $setStatement)
     {
-        // Start of user code UpdateStatement.destructor
+        // Start of user code Setter UpdateStatement.setSetStatement
         // End of user code
+        $this->setStatement = $setStatement;
     }
 
     /**
@@ -61,26 +69,6 @@ class UpdateStatement implements Statement
         // Start of user code Setter UpdateStatement.setWhereDefinition
         // End of user code
         $this->whereDefinition = $whereDefinition;
-    }
-
-    /**
-     * @return SetStatement
-     */
-    public function getSetStatement()
-    {
-        // Start of user code Getter UpdateStatement.getSetStatement
-        // End of user code
-        return $this->setStatement;
-    }
-
-    /**
-     * @param SetStatement $setStatement
-     */
-    public function setSetStatement(SetStatement $setStatement)
-    {
-        // Start of user code Setter UpdateStatement.setSetStatement
-        // End of user code
-        $this->setStatement = $setStatement;
     }
 
     /**
@@ -106,25 +94,6 @@ class UpdateStatement implements Statement
     // Statement Realization
 
     /**
-     * Check whether all statement chunks are set 
-     * in order to generate a complete statement string to 
-     * be executed.
-     *
-     * @return bool $status
-     */
-    public function isReadyToBeExecuted()
-    {
-        // Start of user code Statement.isReadyToBeExecuted
-        $status = !is_null($this->tableName)
-            && !empty($this->tableName)
-            && $this->setStatement instanceof SetStatement
-        ;                                                                       
-        // End of user code
-    
-        return $status;
-    }
-
-    /**
      * Generate the statement as a string.
      *
      * @return string $statement
@@ -146,6 +115,25 @@ class UpdateStatement implements Statement
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * Check whether all statement chunks are set 
+     * in order to generate a complete statement string to 
+     * be executed.
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+        $status = !is_null($this->tableName)
+            && !empty($this->tableName)
+            && $this->setStatement instanceof SetStatement
+        ;                                                                       
+        // End of user code
+    
+        return $status;
     }
 
     /**

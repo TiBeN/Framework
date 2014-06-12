@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Datatype\GenericCollection;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code Expr.useStatements
 // Place your use statements here.
@@ -22,37 +22,17 @@ class Expr
     /**
      * @var string
      */
-    const LOGICAL_SEPARATOR_AND = 'AND';
-
-    /**
-     * @var bool
-     */
-    public $isResultOfConcatenation = false;
-
-    /**
-     * @var string
-     */
     const OPERATOR_LIKE = 'LIKE';
 
     /**
      * @var string
      */
-    const OPERATOR_NOT_EQUALS = '!=';
+    const LOGICAL_SEPARATOR_AND = 'AND';
 
     /**
      * @var string
      */
-    const OPERATOR_LESS_THAN = '<';
-
-    /**
-     * @var string
-     */
-    const LOGICAL_SEPARATOR_OR = 'OR';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_NOT_LIKE = 'NOT LIKE';
+    const OPERATOR_EQUALS = '=';
 
     /**
      * @var string
@@ -67,12 +47,27 @@ class Expr
     /**
      * @var string
      */
-    public $exprString;
+    const LOGICAL_SEPARATOR_OR = 'OR';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LESS_THAN = '<';
 
     /**
      * @var string
      */
     const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
+
+    /**
+     * @var bool
+     */
+    public $isResultOfConcatenation = false;
+
+    /**
+     * @var string
+     */
+    const OPERATOR_NOT_LIKE = 'NOT LIKE';
 
     /**
      * @var AssociativeArray
@@ -82,18 +77,17 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_EQUALS = '=';
+    const OPERATOR_NOT_EQUALS = '!=';
+
+    /**
+     * @var string
+     */
+    public $exprString;
 
     public function __construct()
     {
         // Start of user code Expr.constructor
         $this->exprParameters = new AssociativeArray();
-        // End of user code
-    }
-
-    public function __destruct()
-    {
-        // Start of user code Expr.destructor
         // End of user code
     }
 
@@ -118,6 +112,26 @@ class Expr
     }
 
     /**
+     * @return AssociativeArray
+     */
+    public function getExprParameters()
+    {
+        // Start of user code Getter Expr.getExprParameters
+        // End of user code
+        return $this->exprParameters;
+    }
+
+    /**
+     * @param AssociativeArray $exprParameters
+     */
+    public function setExprParameters(AssociativeArray $exprParameters)
+    {
+        // Start of user code Setter Expr.setExprParameters
+        // End of user code
+        $this->exprParameters = $exprParameters;
+    }
+
+    /**
      * @return string
      */
     public function getExprString()
@@ -138,23 +152,17 @@ class Expr
     }
 
     /**
-     * @return AssociativeArray
+     * Generate the string representation of the expr.
+     *
+     * @return string $exprString
      */
-    public function getExprParameters()
+    public function toString()
     {
-        // Start of user code Getter Expr.getExprParameters
+        // Start of user code Expr.toString
+        $exprString = $this->exprString;
         // End of user code
-        return $this->exprParameters;
-    }
-
-    /**
-     * @param AssociativeArray $exprParameters
-     */
-    public function setExprParameters(AssociativeArray $exprParameters)
-    {
-        // Start of user code Setter Expr.setExprParameters
-        // End of user code
-        $this->exprParameters = $exprParameters;
+    
+        return $exprString;
     }
 
     /**
@@ -188,20 +196,6 @@ class Expr
         // End of user code
     
         return $expr;
-    }
-
-    /**
-     * Generate the string representation of the expr.
-     *
-     * @return string $exprString
-     */
-    public function toString()
-    {
-        // Start of user code Expr.toString
-        $exprString = $this->exprString;
-        // End of user code
-    
-        return $exprString;
     }
 
     /**
