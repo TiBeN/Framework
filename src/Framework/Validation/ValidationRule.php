@@ -27,14 +27,14 @@ class ValidationRule
     public $errorMessagePattern;
 
     /**
-     * @var AssociativeArray
-     */
-    public $configuration;
-
-    /**
      * @var string
      */
     public $validatorName;
+
+    /**
+     * @var AssociativeArray
+     */
+    public $configuration;
 
     public function __construct()
     {
@@ -71,26 +71,6 @@ class ValidationRule
     }
 
     /**
-     * @return AssociativeArray
-     */
-    public function getConfiguration()
-    {
-        // Start of user code Getter ValidationRule.getConfiguration
-        // End of user code
-        return $this->configuration;
-    }
-
-    /**
-     * @param AssociativeArray $configuration
-     */
-    public function setConfiguration(AssociativeArray $configuration)
-    {
-        // Start of user code Setter ValidationRule.setConfiguration
-        // End of user code
-        $this->configuration = $configuration;
-    }
-
-    /**
      * @return string
      */
     public function getValidatorName()
@@ -108,6 +88,26 @@ class ValidationRule
         // Start of user code Setter ValidationRule.setValidatorName
         // End of user code
         $this->validatorName = $validatorName;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getConfiguration()
+    {
+        // Start of user code Getter ValidationRule.getConfiguration
+        // End of user code
+        return $this->configuration;
+    }
+
+    /**
+     * @param AssociativeArray $configuration
+     */
+    public function setConfiguration(AssociativeArray $configuration)
+    {
+        // Start of user code Setter ValidationRule.setConfiguration
+        // End of user code
+        $this->configuration = $configuration;
     }
 
     /**

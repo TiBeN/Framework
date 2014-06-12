@@ -17,6 +17,11 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 class StatementExecutionResult
 {
     /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
      * @var RowCollection
      */
     public $rowCollection;
@@ -37,11 +42,6 @@ class StatementExecutionResult
     public $lastInsertId;
 
     /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
      * @var bool
      */
     public $success;
@@ -56,6 +56,26 @@ class StatementExecutionResult
     {
         // Start of user code StatementExecutionResult.destructor
         // End of user code
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorMessage()
+    {
+        // Start of user code Getter StatementExecutionResult.getErrorMessage
+        // End of user code
+        return $this->errorMessage;
+    }
+
+    /**
+     * @param string $errorMessage
+     */
+    public function setErrorMessage($errorMessage)
+    {
+        // Start of user code Setter StatementExecutionResult.setErrorMessage
+        // End of user code
+        $this->errorMessage = $errorMessage;
     }
 
     /**
@@ -136,26 +156,6 @@ class StatementExecutionResult
         // Start of user code Setter StatementExecutionResult.setLastInsertId
         // End of user code
         $this->lastInsertId = $lastInsertId;
-    }
-
-    /**
-     * @return string
-     */
-    public function getErrorMessage()
-    {
-        // Start of user code Getter StatementExecutionResult.getErrorMessage
-        // End of user code
-        return $this->errorMessage;
-    }
-
-    /**
-     * @param string $errorMessage
-     */
-    public function setErrorMessage($errorMessage)
-    {
-        // Start of user code Setter StatementExecutionResult.setErrorMessage
-        // End of user code
-        $this->errorMessage = $errorMessage;
     }
 
     /**

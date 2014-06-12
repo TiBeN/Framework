@@ -3,9 +3,9 @@
 namespace TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter;
 
 use TiBeN\Framework\Datatype\AssociativeArray;
-use TiBeN\Framework\Datatype\U;
 use TiBeN\Framework\Datatype\T;
 use TiBeN\Framework\DataSource\TypeConverter;
+use TiBeN\Framework\Datatype\U;
 
 // Start of user code IntegerConverter.useStatements
 // Place your use statements here.
@@ -20,21 +20,21 @@ use TiBeN\Framework\DataSource\TypeConverter;
 class IntegerConverter implements TypeConverter
 {
     /**
-     * Type of the element U
-     * @var String
-     */
-    protected $UType;
-
-    /**
      * Type of the element T
      * @var String
      */
     protected $TType;
 
-    public function __construct($UType = null, $TType = null)
+    /**
+     * Type of the element U
+     * @var String
+     */
+    protected $UType;
+
+    public function __construct($TType = null, $UType = null)
     {
-        $this->UType = $UType;
         $this->TType = $TType;
+        $this->UType = $UType;
 
         // Start of user code IntegerConverter.constructor
         $this->TType = 'integer';
@@ -49,21 +49,21 @@ class IntegerConverter implements TypeConverter
     }
     
     /**
-     * U type getter
-     * @var String
-     */
-    public function getUType()
-    {
-        return $this->UType;
-    }
-
-    /**
      * T type getter
      * @var String
      */
     public function getTType()
     {
         return $this->TType;
+    }
+
+    /**
+     * U type getter
+     * @var String
+     */
+    public function getUType()
+    {
+        return $this->UType;
     }
 
     /**
@@ -97,16 +97,6 @@ class IntegerConverter implements TypeConverter
     }
 
     // TypeConverter Realization
-
-    /**
-     * @param AssociativeArray $parameters
-     */
-    public function setParameters(AssociativeArray $parameters)
-    {
-        // Start of user code TypeConverter.setParameters
-        // Nothing to do here
-        // End of user code
-    }
 
     /**
      * @return string $type
@@ -145,6 +135,16 @@ class IntegerConverter implements TypeConverter
         // End of user code
     
         return $convertedItem;
+    }
+
+    /**
+     * @param AssociativeArray $parameters
+     */
+    public function setParameters(AssociativeArray $parameters)
+    {
+        // Start of user code TypeConverter.setParameters
+        // Nothing to do here
+        // End of user code
     }
 
     /**

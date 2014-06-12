@@ -3875,7 +3875,7 @@ ValidationRules:
       <body> The initialisation phases introduce some unnecessary coupling with core package classes and should be decoupled using an initialisation mecanism
 </body>
     </ownedComment>
-    <packagedElement xmi:type="uml:Class" xmi:id="_ZJXnEL22EeO-aaY3kqFukA" clientDependency="_etAj4L24EeO-aaY3kqFukA _8ncXUL24EeO-aaY3kqFukA _VwcrkMMpEeOvvu_8YqlPnw _Ylm60MMpEeOvvu_8YqlPnw _BKqK4NeDEeOZXK2Dv9UOeg _A6WbUOAFEeOpmaCe-_ev5g" name="Bootstrap">
+    <packagedElement xmi:type="uml:Class" xmi:id="_ZJXnEL22EeO-aaY3kqFukA" name="Bootstrap">
       <ownedComment xmi:type="uml:Comment" xmi:id="_fdcNML22EeO-aaY3kqFukA" annotatedElement="_ZJXnEL22EeO-aaY3kqFukA">
         <body>Load application configuration and perform
 needed booting tasks</body>
@@ -3893,12 +3893,168 @@ Allways call this before use any component.</body>
         </ownedParameter>
       </ownedOperation>
     </packagedElement>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_etAj4L24EeO-aaY3kqFukA" name="load routes into" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_ZiJHQJkdEeKNe-pGKaimUg"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_8ncXUL24EeO-aaY3kqFukA" name="configure specials route in the router using" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_YbLfMJkdEeKNe-pGKaimUg"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_VwcrkMMpEeOvvu_8YqlPnw" name="set default template engine into" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_4LpgsLpaEeKbZ-V7fHb95Q"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_Ylm60MMpEeOvvu_8YqlPnw" name="instanciate as default template engine" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_cE0M4LreEeK-eqy0US4WHg"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_BKqK4NeDEeOZXK2Dv9UOeg" name="register default mysql datasource built-in type converters into" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="_lqdYsEn9EeOhBJpxbXcYWQ"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_A6WbUOAFEeOpmaCe-_ev5g" name="Dependency1" client="_ZJXnEL22EeO-aaY3kqFukA" supplier="__F6_gBsjEeOmN-2QJZ-Okg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_RBgK4PC1EeOSz4YNAMghYA" name="Package">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_1V6GMPC3EeOSz4YNAMghYA">
+      <body>This introduce the concept of packages of the framework. 
+</body>
+    </ownedComment>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_XtW-4PC1EeOSz4YNAMghYA" name="PackageInitializer">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_m5G64PC2EeOSz4YNAMghYA" annotatedElement="_XtW-4PC1EeOSz4YNAMghYA">
+        <body>Contain initalization logic of a package which is launched 
+during bootstrap. An instance of the classes which implements this 
+interface must be passed to the Bootstrap's constructor. This allow find grained crontrol
+on used package during custom runtimes. 
+
+
+</body>
+      </ownedComment>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_enHsAPC1EeOSz4YNAMghYA" name="init">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_x3PcYPC2EeOSz4YNAMghYA" annotatedElement="_enHsAPC1EeOSz4YNAMghYA">
+          <body>Execute initialisation process of a package</body>
+        </ownedComment>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_dMQo0PC7EeO9wI6pDPg6Dg" name="ServiceContainer">
+    <packagedElement xmi:type="uml:Class" xmi:id="_4o6yQPC7EeOGms6sjGsn0A" name="ServiceContainer">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_Nf7dYPC8EeOGms6sjGsn0A" annotatedElement="_4o6yQPC7EeOGms6sjGsn0A">
+        <body>A simple parameters and services classes 
+container enabling dependency injection.</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_awtW8PC8EeOGms6sjGsn0A" name="parameters" visibility="private" isStatic="true" type="_ti84wLoPEeKycOj42mlSMA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bH6WAPC8EeOGms6sjGsn0A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bH6WAfC8EeOGms6sjGsn0A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_bH7kIPC8EeOGms6sjGsn0A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_BLpL0PC9EeOGms6sjGsn0A" name="services" visibility="private" isStatic="true" type="_ti84wLoPEeKycOj42mlSMA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DOtPwPC9EeOGms6sjGsn0A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DOud4PC9EeOGms6sjGsn0A" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_DOw6IPC9EeOGms6sjGsn0A">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_5dZmYPC_EeOGms6sjGsn0A" name="getParameter" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_2msNEPDBEeOGms6sjGsn0A" annotatedElement="_5dZmYPC_EeOGms6sjGsn0A">
+          <body>Return the value of a parameter</body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_CY_BUPDAEeOGms6sjGsn0A" name="key">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_FsJbMPDAEeOGms6sjGsn0A" name="value" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Hg1E4PDAEeOGms6sjGsn0A" name="setParameter" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6w5jsPDBEeOGms6sjGsn0A" annotatedElement="_Hg1E4PDAEeOGms6sjGsn0A">
+          <body>Define (or redefine) the value of a parameter.</body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_N8AYkPDAEeOGms6sjGsn0A" name="key">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_PYlEQPDAEeOGms6sjGsn0A" name="value">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_TzrWkPDAEeOGms6sjGsn0A" name="get" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_9n60IPDBEeOGms6sjGsn0A" annotatedElement="_TzrWkPDAEeOGms6sjGsn0A">
+          <body>Return a service </body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Wj7QoPDAEeOGms6sjGsn0A" name="key">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_qt2MQPDAEeOGms6sjGsn0A" name="service" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_tl_eEPDAEeOGms6sjGsn0A" name="register" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_DpsJUPDCEeOGms6sjGsn0A" annotatedElement="_tl_eEPDAEeOGms6sjGsn0A">
+          <body>Register a new service, it's dependencies and 
+optionnaly the static factory method name used to 
+instantiate the service. 
+The dependancies will be resolved from theirs 
+key names and passed as parameters to the factory 
+method ( constructor is not specified).
+If the key if preceded by a '@' then the dependancy 
+is resolved as a service. If the key is preceded by a '%' 
+then the dependancy is resolved as a parameter. Others 
+cases are used as raw value.</body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_eYWUUPFyEeOe_Nf4pqrr0A" name="key">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="__DaXMPDAEeOGms6sjGsn0A" name="className">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_WvS9sPDBEeOGms6sjGsn0A" name="dependencies">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H2WXAPDCEeOGms6sjGsn0A"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H2W-EPDCEeOGms6sjGsn0A" value="*"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_iRYg0PDBEeOGms6sjGsn0A" name="factoryMethodName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_punHYPDBEeOGms6sjGsn0A"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_punHYfDBEeOGms6sjGsn0A" value="1"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_wMpXQPDAEeOGms6sjGsn0A" name="remove" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_1EzuIPDCEeOGms6sjGsn0A" annotatedElement="_wMpXQPDAEeOGms6sjGsn0A">
+          <body>Remove a service.</body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_3_6fQPDAEeOGms6sjGsn0A" name="key">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_yx4UIPDAEeOGms6sjGsn0A" name="removeParameter" isStatic="true">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_2w7RsPDCEeOGms6sjGsn0A" annotatedElement="_yx4UIPDAEeOGms6sjGsn0A">
+          <body>Unset a parameter.</body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1nvG8PDAEeOGms6sjGsn0A" name="key">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_rZ4ZIPE_EeOe_Nf4pqrr0A" name="hasParameter">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_4o9pkPE_EeOe_Nf4pqrr0A" annotatedElement="_rZ4ZIPE_EeOe_Nf4pqrr0A">
+          <body>Determine whether the service container contain
+a parameter
+</body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_v78PEPE_EeOe_Nf4pqrr0A" name="key">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_yFfVgPE_EeOe_Nf4pqrr0A" name="boolean" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_sqUGQPE_EeOe_Nf4pqrr0A" name="has">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6NQt4PE_EeOe_Nf4pqrr0A" annotatedElement="_sqUGQPE_EeOe_Nf4pqrr0A">
+          <body>Determine whether the service container contain
+a service
+</body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_9KXYMPE_EeOe_Nf4pqrr0A" name="key">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="__jo8sPE_EeOe_Nf4pqrr0A" name="boolean" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_nbuGAPE1EeOe_Nf4pqrr0A" clientDependency="_w47AQPE1EeOe_Nf4pqrr0A" name="ServiceContainerPackageInitializer">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_-4U6YPE1EeOe_Nf4pqrr0A" annotatedElement="_nbuGAPE1EeOe_Nf4pqrr0A">
+        <body>ServiceContainer Initializer. 
+Will import user project config file
+where services and parameters are declared.</body>
+      </ownedComment>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_w47AQPE1EeOe_Nf4pqrr0A" name="InterfaceRealization1" client="_nbuGAPE1EeOe_Nf4pqrr0A" supplier="_XtW-4PC1EeOSz4YNAMghYA" contract="_XtW-4PC1EeOSz4YNAMghYA"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_tbePsPE6EeOe_Nf4pqrr0A" name="ServiceContainerPackageInitializer">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_CtdmoPE7EeOe_Nf4pqrr0A" name="configFilePath">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_uRefYJoVEeKjqrzFgzAFxw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uRnCQJoVEeKjqrzFgzAFxw" source="http://www.eclipse.org/uml2/2.0.0/UML">

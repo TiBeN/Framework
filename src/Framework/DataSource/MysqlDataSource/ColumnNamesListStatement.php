@@ -68,25 +68,6 @@ class ColumnNamesListStatement extends GenericCollection
     }
 
     /**
-     * Generate the column names list statement chunk as 
-     * a string.
-     *
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code ColumnNamesListStatement.toString
-        if($this->isEmpty()) {
-            throw new \LogicException('The ColumnNamesListStatement is empty');
-        }      
-        
-        $string = sprintf('(%s)', implode(',', $this->items));
-        // End of user code
-    
-        return $string;
-    }
-
-    /**
      * Factory method that generate a 
      * ColumnNamesListStament from the attributes of an 
      * entity.
@@ -110,6 +91,25 @@ class ColumnNamesListStatement extends GenericCollection
         // End of user code
     
         return $columnNamesListStatement;
+    }
+
+    /**
+     * Generate the column names list statement chunk as 
+     * a string.
+     *
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code ColumnNamesListStatement.toString
+        if($this->isEmpty()) {
+            throw new \LogicException('The ColumnNamesListStatement is empty');
+        }      
+        
+        $string = sprintf('(%s)', implode(',', $this->items));
+        // End of user code
+    
+        return $string;
     }
 
     // Start of user code ColumnNamesListStatement.surchargedMethods

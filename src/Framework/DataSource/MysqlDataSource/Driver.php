@@ -27,6 +27,45 @@ class Driver
     }
 
     /**
+     * Create a new connection to a Mysql database.
+     *
+     * @param string $host
+     * @param string $userName
+     * @param string $password
+     * @param string $databaseName
+     * @param int $port
+     * @return Connection $connection
+     */
+    public static function connect($host, $userName, $password, $databaseName, $port)
+    {
+        // Start of user code Driver.connect
+        if(!extension_loaded('PDO')){
+            throw new Exception('PDO extension is not available in your PHP environment.');
+        }
+        $dsn = sprintf('mysql:host=%s;port=%s;dbname=%s', $host, $port, $databaseName);
+        $pdo = new \PDO($dsn, $userName, $password); 
+
+        $connection = new Connection();
+        $connection->setPdo($pdo);
+        // End of user code
+    
+        return $connection;
+    }
+
+    /**
+     * Close the connexion to a Mysql database.
+     *
+     * @param Connection $connection
+     */
+    public static function disconnect(Connection $connection)
+    {
+        // Start of user code Driver.disconnect
+        $connection->unsetPdo();
+        unset($connection);
+        // End of user code
+    }
+
+    /**
      * Execute a statement to a Mysql database.
      *
      * @param Statement $statement
@@ -82,45 +121,6 @@ class Driver
         // End of user code
     
         return $statementResult;
-    }
-
-    /**
-     * Create a new connection to a Mysql database.
-     *
-     * @param string $host
-     * @param string $userName
-     * @param string $password
-     * @param string $databaseName
-     * @param int $port
-     * @return Connection $connection
-     */
-    public static function connect($host, $userName, $password, $databaseName, $port)
-    {
-        // Start of user code Driver.connect
-        if(!extension_loaded('PDO')){
-            throw new Exception('PDO extension is not available in your PHP environment.');
-        }
-        $dsn = sprintf('mysql:host=%s;port=%s;dbname=%s', $host, $port, $databaseName);
-        $pdo = new \PDO($dsn, $userName, $password); 
-
-        $connection = new Connection();
-        $connection->setPdo($pdo);
-        // End of user code
-    
-        return $connection;
-    }
-
-    /**
-     * Close the connexion to a Mysql database.
-     *
-     * @param Connection $connection
-     */
-    public static function disconnect(Connection $connection)
-    {
-        // Start of user code Driver.disconnect
-        $connection->unsetPdo();
-        unset($connection);
-        // End of user code
     }
 
     // Start of user code Driver.implementationSpecificMethods

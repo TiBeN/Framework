@@ -59,21 +59,6 @@ class ValidatorsRegistry
     }
 
     /**
-     * Determine wheter the Registry has a Validator or not.
-     *
-     * @param string $name
-     * @return bool $boolean
-     */
-    public static function hasValidator($name)
-    {
-        // Start of user code ValidatorsRegistry.hasValidator
-        $boolean = self::getValidators()->has($name);
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
      * Register a Validator in the Registry.
      *
      * @param Validator $validator
@@ -82,26 +67,6 @@ class ValidatorsRegistry
     {
         // Start of user code ValidatorsRegistry.registerValidator
         self::getValidators()->set($validator->getName(), $validator);
-        // End of user code
-    }
-
-    /**
-     * Remove all registered Validators.
-     *
-     * @param string $name
-     */
-    public static function clearValidator($name)
-    {
-        // Start of user code ValidatorsRegistry.clearValidator
-        if (!self::hasValidator($name)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    'There isnt %s Validator registered',
-                    $name                
-                )
-            );
-        }
-        self::getValidators()->remove($name);
         // End of user code
     }
 
@@ -126,6 +91,41 @@ class ValidatorsRegistry
         // End of user code
     
         return $validator;
+    }
+
+    /**
+     * Remove all registered Validators.
+     *
+     * @param string $name
+     */
+    public static function clearValidator($name)
+    {
+        // Start of user code ValidatorsRegistry.clearValidator
+        if (!self::hasValidator($name)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    'There isnt %s Validator registered',
+                    $name                
+                )
+            );
+        }
+        self::getValidators()->remove($name);
+        // End of user code
+    }
+
+    /**
+     * Determine wheter the Registry has a Validator or not.
+     *
+     * @param string $name
+     * @return bool $boolean
+     */
+    public static function hasValidator($name)
+    {
+        // Start of user code ValidatorsRegistry.hasValidator
+        $boolean = self::getValidators()->has($name);
+        // End of user code
+    
+        return $boolean;
     }
 
     // Start of user code ValidatorsRegistry.implementationSpecificMethods

@@ -2,10 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Datatype\AssociativeArray;
-use TiBeN\Framework\Entity\Entity;
+use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\CriteriaSet;
+use TiBeN\Framework\Entity\Entity;
 
 // Start of user code StatementFactory.useStatements
 // Place your use statements here.
@@ -31,6 +31,64 @@ class StatementFactory
     {
         // Start of user code StatementFactory.destructor
         // End of user code
+    }
+
+    /**
+     * Create an "insert" statement that will insert a row 
+     * according to the specified entity. 
+     *
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     * @return InsertStatement $insertStatement
+     */
+    public static function createInsertStatement(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code StatementFactory.createInsertStatement
+        $mapper = new MysqlEntityAttributeMapper();
+        $mapper->setEntity($entity);
+        $mapper->setEntityMapping($entityMapping);
+        $identifier = $mapper->getIdentifierValue();
+        if(!is_null($identifier)) {
+            throw new \LogicException(
+                'Create an insert statement on an already persisted entity is not allowed'
+            );
+        }
+
+        $insertStatement = new InsertStatement();       
+        $insertStatement->setTableName(
+            $entityMapping->getDataSourceEntityConfiguration()->getTableName()
+        );      
+        $insertStatement
+            ->setColumnNamesListStatement(
+                ColumnNamesListStatement::createFromEntityAttributes(
+                    $entityMapping->getAttributeMappings()
+                )
+            )
+        ;       
+        $insertStatement->setValuesStatement(
+            ValuesStatement::createFromEntity($entityMapping, $entity)
+        );
+        // End of user code
+    
+        return $insertStatement;
+    }
+
+    /**
+     * Create a statement object from a statement string.
+     *
+     * @param string $statementString
+     * @param AssociativeArray $parameters
+     * @return GenericStatement $genericStatement
+     */
+    public static function createFromString($statementString, AssociativeArray $parameters)
+    {
+        // Start of user code StatementFactory.createFromString
+        $genericStatement = new GenericStatement();
+        $genericStatement->setStatementString($statementString);
+        $genericStatement->setStatementParameters($parameters);
+        // End of user code
+    
+        return $genericStatement;
     }
 
     /**
@@ -65,52 +123,6 @@ class StatementFactory
         // End of user code
     
         return $updateStatement;
-    }
-
-    /**
-     * Create a statement object from a statement string.
-     *
-     * @param string $statementString
-     * @param AssociativeArray $parameters
-     * @return GenericStatement $genericStatement
-     */
-    public static function createFromString($statementString, AssociativeArray $parameters)
-    {
-        // Start of user code StatementFactory.createFromString
-        $genericStatement = new GenericStatement();
-        $genericStatement->setStatementString($statementString);
-        $genericStatement->setStatementParameters($parameters);
-        // End of user code
-    
-        return $genericStatement;
-    }
-
-    /**
-     * Create an "delete" statement that will delete the row 
-     * pointed by the specified entity. 
-     *
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     * @return DeleteStatement $deleteStatement
-     */
-    public static function createDeleteStatement(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code StatementFactory.createDeleteStatement
-        $deleteStatement = new DeleteStatement();
-        $deleteStatement->setTableName(
-            $entityMapping
-                ->getDataSourceEntityConfiguration()
-                ->getTableName()
-        );
-        $deleteStatement->setWhereConditions(
-            WhereConditions::createEntityTargetFromEntity(
-                $entityMapping,
-                $entity
-            )
-        );
-        // End of user code
-    
-        return $deleteStatement;
     }
 
     /**
@@ -166,43 +178,31 @@ class StatementFactory
     }
 
     /**
-     * Create an "insert" statement that will insert a row 
-     * according to the specified entity. 
+     * Create an "delete" statement that will delete the row 
+     * pointed by the specified entity. 
      *
      * @param EntityMapping $entityMapping
      * @param Entity $entity
-     * @return InsertStatement $insertStatement
+     * @return DeleteStatement $deleteStatement
      */
-    public static function createInsertStatement(EntityMapping $entityMapping, Entity $entity)
+    public static function createDeleteStatement(EntityMapping $entityMapping, Entity $entity)
     {
-        // Start of user code StatementFactory.createInsertStatement
-        $mapper = new MysqlEntityAttributeMapper();
-        $mapper->setEntity($entity);
-        $mapper->setEntityMapping($entityMapping);
-        $identifier = $mapper->getIdentifierValue();
-        if(!is_null($identifier)) {
-            throw new \LogicException(
-                'Create an insert statement on an already persisted entity is not allowed'
-            );
-        }
-
-        $insertStatement = new InsertStatement();       
-        $insertStatement->setTableName(
-            $entityMapping->getDataSourceEntityConfiguration()->getTableName()
-        );      
-        $insertStatement
-            ->setColumnNamesListStatement(
-                ColumnNamesListStatement::createFromEntityAttributes(
-                    $entityMapping->getAttributeMappings()
-                )
+        // Start of user code StatementFactory.createDeleteStatement
+        $deleteStatement = new DeleteStatement();
+        $deleteStatement->setTableName(
+            $entityMapping
+                ->getDataSourceEntityConfiguration()
+                ->getTableName()
+        );
+        $deleteStatement->setWhereConditions(
+            WhereConditions::createEntityTargetFromEntity(
+                $entityMapping,
+                $entity
             )
-        ;       
-        $insertStatement->setValuesStatement(
-            ValuesStatement::createFromEntity($entityMapping, $entity)
         );
         // End of user code
     
-        return $insertStatement;
+        return $deleteStatement;
     }
 
     // Start of user code StatementFactory.implementationSpecificMethods

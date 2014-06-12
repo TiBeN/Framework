@@ -2,10 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Entity\OrderCriteria;
 use TiBeN\Framework\Datatype\GenericCollection;
+use TiBeN\Framework\Entity\EntityMapping;
 
 // Start of user code OrderByStatement.useStatements
 // Place your use statements here.

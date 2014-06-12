@@ -18,12 +18,7 @@ class OrderCriteria
     /**
      * @var string
      */
-    public $direction;
-
-    /**
-     * @var string
-     */
-    const DIRECTION_ASC = 'asc';
+    public $attribute;
 
     /**
      * @var string
@@ -33,7 +28,12 @@ class OrderCriteria
     /**
      * @var string
      */
-    public $attribute;
+    public $direction;
+
+    /**
+     * @var string
+     */
+    const DIRECTION_ASC = 'asc';
 
     public function __construct()
     {
@@ -45,26 +45,6 @@ class OrderCriteria
     {
         // Start of user code OrderCriteria.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getDirection()
-    {
-        // Start of user code Getter OrderCriteria.getDirection
-        // End of user code
-        return $this->direction;
-    }
-
-    /**
-     * @param string $direction
-     */
-    public function setDirection($direction)
-    {
-        // Start of user code Setter OrderCriteria.setDirection
-        // End of user code
-        $this->direction = $direction;
     }
 
     /**
@@ -85,6 +65,26 @@ class OrderCriteria
         // Start of user code Setter OrderCriteria.setAttribute
         // End of user code
         $this->attribute = $attribute;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDirection()
+    {
+        // Start of user code Getter OrderCriteria.getDirection
+        // End of user code
+        return $this->direction;
+    }
+
+    /**
+     * @param string $direction
+     */
+    public function setDirection($direction)
+    {
+        // Start of user code Setter OrderCriteria.setDirection
+        // End of user code
+        $this->direction = $direction;
     }
 
     /**

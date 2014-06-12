@@ -73,50 +73,6 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method add from class CriteriaSet
-     *
-     * Start of user code CriteriaSetTest.testaddAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testAdd()
-    {
-        // Start of user code CriteriaSetTest.testadd
-        $matchCriteria = MatchCriteria::equals('foo', 'bar');
-        
-        $expectedMatchCriteriaCollection = new GenericCollection(
-            'TiBeN\\Framework\\Entity\\MatchCriteria'
-        );
-        $expectedMatchCriteriaCollection->add($matchCriteria);
-        
-        $criteriaSet = new CriteriaSet();
-        $criteriaSet->add($matchCriteria);
-        
-        $this->assertEquals(
-            $expectedMatchCriteriaCollection, 
-            $criteriaSet->getMatchCriterias()
-        );      
-        // End of user code
-    }
-    
-    /**
-     * Test method setLimit from class CriteriaSet
-     *
-     * Start of user code CriteriaSetTest.testsetLimitAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testSetLimit()
-    {
-        // Start of user code CriteriaSetTest.testsetLimit
-        $criteriaSet = new CriteriaSet();
-        $limitCriteria = LimitCriteria::to(1337);
-        $criteriaSet->setLimit($limitCriteria);
-        $this->assertEquals($limitCriteria, $criteriaSet->getLimitCriteria());
-        // End of user code
-    }
-    
-    /**
      * Test method addSubSet from class CriteriaSet
      *
      * Start of user code CriteriaSetTest.testaddSubSetAnnotations 
@@ -161,6 +117,39 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method createAnd from class CriteriaSet
+     *
+     * Start of user code CriteriaSetTest.testcreateAndAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testCreateAnd()
+    {
+        // Start of user code CriteriaSetTest.testcreateAnd
+        $expectedCriteriaSet = new CriteriaSet();
+        $expectedCriteriaSet->setLogicalSeparator(CriteriaSet::LOGICAL_SEPARATOR_AND);
+        $this->assertEquals($expectedCriteriaSet, CriteriaSet::createAnd());
+        // End of user code
+    }
+    
+    /**
+     * Test method setLimit from class CriteriaSet
+     *
+     * Start of user code CriteriaSetTest.testsetLimitAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testSetLimit()
+    {
+        // Start of user code CriteriaSetTest.testsetLimit
+        $criteriaSet = new CriteriaSet();
+        $limitCriteria = LimitCriteria::to(1337);
+        $criteriaSet->setLimit($limitCriteria);
+        $this->assertEquals($limitCriteria, $criteriaSet->getLimitCriteria());
+        // End of user code
+    }
+    
+    /**
      * Test method hasMatchCriterias from class CriteriaSet
      *
      * Start of user code CriteriaSetTest.testhasMatchCriteriasAnnotations
@@ -186,18 +175,29 @@ class CriteriaSetTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method createAnd from class CriteriaSet
+     * Test method add from class CriteriaSet
      *
-     * Start of user code CriteriaSetTest.testcreateAndAnnotations 
+     * Start of user code CriteriaSetTest.testaddAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testCreateAnd()
+    public function testAdd()
     {
-        // Start of user code CriteriaSetTest.testcreateAnd
-        $expectedCriteriaSet = new CriteriaSet();
-        $expectedCriteriaSet->setLogicalSeparator(CriteriaSet::LOGICAL_SEPARATOR_AND);
-        $this->assertEquals($expectedCriteriaSet, CriteriaSet::createAnd());
+        // Start of user code CriteriaSetTest.testadd
+        $matchCriteria = MatchCriteria::equals('foo', 'bar');
+        
+        $expectedMatchCriteriaCollection = new GenericCollection(
+            'TiBeN\\Framework\\Entity\\MatchCriteria'
+        );
+        $expectedMatchCriteriaCollection->add($matchCriteria);
+        
+        $criteriaSet = new CriteriaSet();
+        $criteriaSet->add($matchCriteria);
+        
+        $this->assertEquals(
+            $expectedMatchCriteriaCollection, 
+            $criteriaSet->getMatchCriterias()
+        );      
         // End of user code
     }
 

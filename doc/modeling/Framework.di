@@ -100,6 +100,12 @@
     <availablePage>
       <emfPageIdentifier href="Framework.notation#__1WBQL25EeO-aaY3kqFukA"/>
     </availablePage>
+    <availablePage>
+      <emfPageIdentifier href="Framework.notation#_UsZvUPC1EeOSz4YNAMghYA"/>
+    </availablePage>
+    <availablePage>
+      <emfPageIdentifier href="Framework.notation#_3wjm4PC7EeOGms6sjGsn0A"/>
+    </availablePage>
   </pageList>
   <sashModel currentSelection="//@sashModel/@windows.0/@children.0">
     <windows>
@@ -121,6 +127,15 @@
         </children>
         <children>
           <emfPageIdentifier href="Framework.notation#_Oyo3oJkdEeKNe-pGKaimUg"/>
+        </children>
+        <children>
+          <emfPageIdentifier href="Framework.notation#_YUGzAL22EeO-aaY3kqFukA"/>
+        </children>
+        <children>
+          <emfPageIdentifier href="Framework.notation#_UsZvUPC1EeOSz4YNAMghYA"/>
+        </children>
+        <children>
+          <emfPageIdentifier href="Framework.notation#_3wjm4PC7EeOGms6sjGsn0A"/>
         </children>
       </children>
     </windows>

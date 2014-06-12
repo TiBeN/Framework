@@ -19,12 +19,12 @@ class LimitStatement
     /**
      * @var int
      */
-    public $rowCount;
+    public $offset;
 
     /**
      * @var int
      */
-    public $offset;
+    public $rowCount;
 
     public function __construct()
     {
@@ -36,26 +36,6 @@ class LimitStatement
     {
         // Start of user code LimitStatement.destructor
         // End of user code
-    }
-
-    /**
-     * @return int
-     */
-    public function getRowCount()
-    {
-        // Start of user code Getter LimitStatement.getRowCount
-        // End of user code
-        return $this->rowCount;
-    }
-
-    /**
-     * @param int $rowCount
-     */
-    public function setRowCount($rowCount)
-    {
-        // Start of user code Setter LimitStatement.setRowCount
-        // End of user code
-        $this->rowCount = $rowCount;
     }
 
     /**
@@ -79,24 +59,23 @@ class LimitStatement
     }
 
     /**
-     * Generate the limit statement as a string.
-     *
-     * @return string $string
+     * @return int
      */
-    public function toString()
+    public function getRowCount()
     {
-        // Start of user code LimitStatement.toString
-        if(is_null($this->rowCount)) {
-            throw new \LogicException('The number of row to limit is not set');            
-        }
-        
-        $string = 'LIMIT ' . (is_null($this->offset)
-            ? $this->rowCount
-            : ( $this->offset . ',' . $this->rowCount )    
-        );
+        // Start of user code Getter LimitStatement.getRowCount
         // End of user code
-    
-        return $string;
+        return $this->rowCount;
+    }
+
+    /**
+     * @param int $rowCount
+     */
+    public function setRowCount($rowCount)
+    {
+        // Start of user code Setter LimitStatement.setRowCount
+        // End of user code
+        $this->rowCount = $rowCount;
     }
 
     /**
@@ -115,6 +94,27 @@ class LimitStatement
         // End of user code
     
         return $limitStatement;
+    }
+
+    /**
+     * Generate the limit statement as a string.
+     *
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code LimitStatement.toString
+        if(is_null($this->rowCount)) {
+            throw new \LogicException('The number of row to limit is not set');            
+        }
+        
+        $string = 'LIMIT ' . (is_null($this->offset)
+            ? $this->rowCount
+            : ( $this->offset . ',' . $this->rowCount )    
+        );
+        // End of user code
+    
+        return $string;
     }
 
     // Start of user code LimitStatement.implementationSpecificMethods

@@ -50,49 +50,16 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method delete from class EntityRepository
+     * Test static method instantiateFromEntityClassName from class EntityRepository
      *
-     * Start of user code EntityRepositoryTest.testdeleteAnnotations 
-     * PHPUnit users annotations can be placed here  
+     * Start of user code EntityRepositoryTest.testinstantiateFromEntityClassNameAnnotations
+     * PHPUnit user annotations can be placed here
      * End of user code
      */
-    public function testDelete()
+    public function testInstantiateFromEntityClassName()
     {
-        // Start of user code EntityRepositoryTest.testdelete
-        $pdo = MysqlDataSourceTestSetupTearDown::getPdoConnection($GLOBALS['db_name']);
-       
-        // Insert a record into a table
-        $pdo->exec(
-            'INSERT INTO some_entity_data_table (idTable, a, b, c) VALUES (2, \'foo\', \'foo\', \'foo\')'
-        );
-
-        // Check if the record has been inserted on the table
-        $pdoStatement = $pdo->query(
-            'SELECT * FROM some_entity_data_table WHERE idTable = 2'
-        ); 
-        $this->assertInstanceOf('PDOStatement', $pdoStatement);
-        $this->assertEquals(1, $pdoStatement->rowCount());
-
-        // Manually construct the entity
-        $entity = new SomeEntity();
-        $entity->setId(2);
-        $entity->setAttributeA('foo');
-        $entity->setAttributeB('foo');
-        $entity->setAttributeC('foo');
-
-        // Delete the entity
-        $repository = EntityRepository::instantiateFromEntityClassName(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
-        );
-
-        $repository->delete($entity);
-        
-        // Check if the record has been deleted from the table
-        $pdoStatement = $pdo->query(
-            'SELECT * FROM some_entity_data_table WHERE idTable = 2'
-        ); 
-        $this->assertInstanceOf('PDOStatement', $pdoStatement);
-        $this->assertSame(0, $pdoStatement->rowCount());
+        // Start of user code EntityRepositoryTest.testinstantiateFromEntityClassName
+        // Case tested by others test cases
         // End of user code
     }
     
@@ -155,6 +122,53 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test method delete from class EntityRepository
+     *
+     * Start of user code EntityRepositoryTest.testdeleteAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testDelete()
+    {
+        // Start of user code EntityRepositoryTest.testdelete
+        $pdo = MysqlDataSourceTestSetupTearDown::getPdoConnection($GLOBALS['db_name']);
+       
+        // Insert a record into a table
+        $pdo->exec(
+            'INSERT INTO some_entity_data_table (idTable, a, b, c) VALUES (2, \'foo\', \'foo\', \'foo\')'
+        );
+
+        // Check if the record has been inserted on the table
+        $pdoStatement = $pdo->query(
+            'SELECT * FROM some_entity_data_table WHERE idTable = 2'
+        ); 
+        $this->assertInstanceOf('PDOStatement', $pdoStatement);
+        $this->assertEquals(1, $pdoStatement->rowCount());
+
+        // Manually construct the entity
+        $entity = new SomeEntity();
+        $entity->setId(2);
+        $entity->setAttributeA('foo');
+        $entity->setAttributeB('foo');
+        $entity->setAttributeC('foo');
+
+        // Delete the entity
+        $repository = EntityRepository::instantiateFromEntityClassName(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );
+
+        $repository->delete($entity);
+        
+        // Check if the record has been deleted from the table
+        $pdoStatement = $pdo->query(
+            'SELECT * FROM some_entity_data_table WHERE idTable = 2'
+        ); 
+        $this->assertInstanceOf('PDOStatement', $pdoStatement);
+        $this->assertSame(0, $pdoStatement->rowCount());
+        // End of user code
+    }
+    
+    /**
      * Test method find from class EntityRepository
      *
      * Start of user code EntityRepositoryTest.testfindAnnotations 
@@ -197,20 +211,6 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(2, $entityCollection->count()); 
         $this->assertEquals($expectedEntity1, $entityCollection->get(0));
         $this->assertEquals($expectedEntity2, $entityCollection->get(1));
-        // End of user code
-    }
-    
-    /**
-     * Test static method instantiateFromEntityClassName from class EntityRepository
-     *
-     * Start of user code EntityRepositoryTest.testinstantiateFromEntityClassNameAnnotations
-     * PHPUnit user annotations can be placed here
-     * End of user code
-     */
-    public function testInstantiateFromEntityClassName()
-    {
-        // Start of user code EntityRepositoryTest.testinstantiateFromEntityClassName
-        // Case tested by others test cases
         // End of user code
     }
 

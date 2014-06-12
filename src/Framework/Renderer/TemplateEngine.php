@@ -15,31 +15,31 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  */ 
 interface TemplateEngine
 {
-    /**
-     * @return string
-     */
-    public function getTemplateFileName();
+	/**
+	 * @return AssociativeArray
+	 */
+	public function getVariables();
 
-    /**
-     * @param string $templateFileName
-     */
-    public function setTemplateFileName($templateFileName);
+	/**
+	 * @param AssociativeArray $variables
+	 */
+	public function setVariables(AssociativeArray $variables);
 
-    /**
-     * @return AssociativeArray
-     */
-    public function getVariables();
+	/**
+	 * @return string
+	 */
+	public function getTemplateFileName();
 
-    /**
-     * @param AssociativeArray $variables
-     */
-    public function setVariables(AssociativeArray $variables);
+	/**
+	 * @param string $templateFileName
+	 */
+	public function setTemplateFileName($templateFileName);
 
-    /**
-     * Render the template using variables and globals set and return the generated content
-     *
-     * @return string $generatedContent
-     */
-    public function render();
+	/**
+	 * Render the template using variables and globals set and return the generated content
+	 *
+	 * @return string $generatedContent
+	 */
+	public function render();
 
 }

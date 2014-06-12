@@ -87,20 +87,6 @@ class DataSourcesRegistry
     }
 
     /**
-     * @param DataSource $dataSource
-     */
-    public static function registerDataSource(DataSource $dataSource)
-    {
-        // Start of user code DataSourcesRegistry.registerDataSource
-        $dataSourceName = $dataSource->getName(); 
-        if(empty($dataSourceName)) {
-            throw new \InvalidArgumentException('The data source has no name');
-        }
-        self::getDataSources()->set($dataSourceName, $dataSource);
-        // End of user code
-    }
-
-    /**
      * @param string $dataSourceName
      * @return DataSource $dataSource
      */
@@ -116,6 +102,20 @@ class DataSourcesRegistry
         // End of user code
     
         return $dataSource;
+    }
+
+    /**
+     * @param DataSource $dataSource
+     */
+    public static function registerDataSource(DataSource $dataSource)
+    {
+        // Start of user code DataSourcesRegistry.registerDataSource
+        $dataSourceName = $dataSource->getName(); 
+        if(empty($dataSourceName)) {
+            throw new \InvalidArgumentException('The data source has no name');
+        }
+        self::getDataSources()->set($dataSourceName, $dataSource);
+        // End of user code
     }
 
     // Start of user code DataSourcesRegistry.implementationSpecificMethods

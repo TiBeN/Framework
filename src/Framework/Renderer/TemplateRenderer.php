@@ -22,14 +22,14 @@ class TemplateRenderer
     public static $defaultTemplatesDirectory;
 
     /**
-     * @var AssociativeArray
-     */
-    public static $globals;
-
-    /**
      * @var TemplateEngine
      */
     public static $defaultTemplateEngine;
+
+    /**
+     * @var AssociativeArray
+     */
+    public static $globals;
 
     public function __construct()
     {
@@ -64,6 +64,26 @@ class TemplateRenderer
     }
 
     /**
+     * @return TemplateEngine
+     */
+    public static function getDefaultTemplateEngine()
+    {
+        // Start of user code Static getter TemplateRenderer.getDefaultTemplateEngine
+        // End of user code
+        return self::$defaultTemplateEngine;
+    }
+
+    /**
+     * @param TemplateEngine $defaultTemplateEngine
+     */
+    public static function setDefaultTemplateEngine(TemplateEngine $defaultTemplateEngine)
+    {
+        // Start of user code Static setter TemplateRenderer.setDefaultTemplateEngine
+        // End of user code
+        self::$defaultTemplateEngine = $defaultTemplateEngine;
+    }
+
+    /**
      * @return AssociativeArray
      */
     public static function getGlobals()
@@ -87,23 +107,26 @@ class TemplateRenderer
     }
 
     /**
-     * @return TemplateEngine
+     * Render the template using variables and globals set and return the generated content
+     *
+     * @param string $templateName
+     * @param AssociativeArray $variables
+     * @return string $renderedContent
      */
-    public static function getDefaultTemplateEngine()
+    public static function render($templateName, AssociativeArray $variables = NULL)
     {
-        // Start of user code Static getter TemplateRenderer.getDefaultTemplateEngine
+        // Start of user code TemplateRenderer.render
+        if (!self::$defaultTemplateEngine instanceof TemplateEngine) {
+            throw new \RuntimeException('TemplateRenderer has no default TemplateEngine set');
+        }
+        return self::renderUsing(
+            self::$defaultTemplateEngine,
+            $templateName,
+            $variables
+        );
         // End of user code
-        return self::$defaultTemplateEngine;
-    }
-
-    /**
-     * @param TemplateEngine $defaultTemplateEngine
-     */
-    public static function setDefaultTemplateEngine(TemplateEngine $defaultTemplateEngine)
-    {
-        // Start of user code Static setter TemplateRenderer.setDefaultTemplateEngine
-        // End of user code
-        self::$defaultTemplateEngine = $defaultTemplateEngine;
+    
+        return $renderedContent;
     }
 
     /**
@@ -134,29 +157,6 @@ class TemplateRenderer
         $templateEngine->setVariables($variables);
         
         $renderedContent = $templateEngine->render();
-        // End of user code
-    
-        return $renderedContent;
-    }
-
-    /**
-     * Render the template using variables and globals set and return the generated content
-     *
-     * @param string $templateName
-     * @param AssociativeArray $variables
-     * @return string $renderedContent
-     */
-    public static function render($templateName, AssociativeArray $variables = NULL)
-    {
-        // Start of user code TemplateRenderer.render
-        if (!self::$defaultTemplateEngine instanceof TemplateEngine) {
-            throw new \RuntimeException('TemplateRenderer has no default TemplateEngine set');
-        }
-        return self::renderUsing(
-            self::$defaultTemplateEngine,
-            $templateName,
-            $variables
-        );
         // End of user code
     
         return $renderedContent;

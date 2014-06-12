@@ -17,14 +17,14 @@ namespace TiBeN\Framework\Validation;
 class ValidationResult
 {
     /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
      * @var bool
      */
     public $validationResult;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
 
     public function __construct()
     {
@@ -36,26 +36,6 @@ class ValidationResult
     {
         // Start of user code ValidationResult.destructor
         // End of user code
-    }
-
-    /**
-     * @return string
-     */
-    public function getErrorMessage()
-    {
-        // Start of user code Getter ValidationResult.getErrorMessage
-        // End of user code
-        return $this->errorMessage;
-    }
-
-    /**
-     * @param string $errorMessage
-     */
-    public function setErrorMessage($errorMessage)
-    {
-        // Start of user code Setter ValidationResult.setErrorMessage
-        // End of user code
-        $this->errorMessage = $errorMessage;
     }
 
     /**
@@ -76,6 +56,26 @@ class ValidationResult
         // Start of user code Setter ValidationResult.setValidationResult
         // End of user code
         $this->validationResult = $validationResult;
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorMessage()
+    {
+        // Start of user code Getter ValidationResult.getErrorMessage
+        // End of user code
+        return $this->errorMessage;
+    }
+
+    /**
+     * @param string $errorMessage
+     */
+    public function setErrorMessage($errorMessage)
+    {
+        // Start of user code Setter ValidationResult.setErrorMessage
+        // End of user code
+        $this->errorMessage = $errorMessage;
     }
 
     /**

@@ -125,28 +125,6 @@ class UpdateStatement implements Statement
     }
 
     /**
-     * Return an associative array of parameters of the corresponding
-     * named placeholder in the statement. 
-     * 
-     *
-     * @return AssociativeArray $statementParameters
-     */
-    public function getStatementParameters()
-    {
-        // Start of user code Statement.getStatementParameters
-        $statementParameters = new AssociativeArray();
-        if($this->setStatement instanceof SetStatement) {
-            $statementParameters->merge($this->setStatement->getStatementParameters());
-        } 
-        if($this->whereDefinition instanceof WhereConditions) {
-            $statementParameters->merge($this->whereDefinition->getStatementParameters());
-        }        
-        // End of user code
-    
-        return $statementParameters;
-    }
-
-    /**
      * Generate the statement as a string.
      *
      * @return string $statement
@@ -168,6 +146,28 @@ class UpdateStatement implements Statement
         // End of user code
     
         return $statement;
+    }
+
+    /**
+     * Return an associative array of parameters of the corresponding
+     * named placeholder in the statement. 
+     * 
+     *
+     * @return AssociativeArray $statementParameters
+     */
+    public function getStatementParameters()
+    {
+        // Start of user code Statement.getStatementParameters
+        $statementParameters = new AssociativeArray();
+        if($this->setStatement instanceof SetStatement) {
+            $statementParameters->merge($this->setStatement->getStatementParameters());
+        } 
+        if($this->whereDefinition instanceof WhereConditions) {
+            $statementParameters->merge($this->whereDefinition->getStatementParameters());
+        }        
+        // End of user code
+    
+        return $statementParameters;
     }
 
     // Start of user code UpdateStatement.implementationSpecificMethods

@@ -18,6 +18,11 @@ class MatchCriteria
     /**
      * @var string
      */
+    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
+
+    /**
+     * @var string
+     */
     public $operator;
 
     /**
@@ -33,32 +38,7 @@ class MatchCriteria
     /**
      * @var string
      */
-    public $attribute;
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LIKE = 'like';
-
-    /**
-     * @var string
-     */
     const OPERATOR_EQUALS = '=';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_GREATER_THAN = '>';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LESS_THAN = '<';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_NOT_LIKE = '!like';
 
     /**
      * @var string
@@ -68,7 +48,27 @@ class MatchCriteria
     /**
      * @var string
      */
-    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
+    const OPERATOR_GREATER_THAN = '>';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_NOT_LIKE = '!like';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LIKE = 'like';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LESS_THAN = '<';
+
+    /**
+     * @var string
+     */
+    public $attribute;
 
     public function __construct()
     {
@@ -143,19 +143,57 @@ class MatchCriteria
     }
 
     /**
-     * Factory method that create a greater than match condition.
+     * Factory method that create a not like match condition.
      *
      * @param string $attribute
      * @param string $value
      * @return MatchCriteria $matchCriteria
      */
-    public static function greaterThan($attribute, $value)
+    public static function notLike($attribute, $value)
     {
-        // Start of user code MatchCriteria.greaterThan
+        // Start of user code MatchCriteria.notLike
         $matchCriteria = new self();
         $matchCriteria->setAttribute($attribute);
         $matchCriteria->setValue($value);
-        $matchCriteria->setOperator(self::OPERATOR_GREATER_THAN);
+        $matchCriteria->setOperator(self::OPERATOR_NOT_LIKE);       
+        // End of user code
+    
+        return $matchCriteria;
+    }
+
+    /**
+     * Factory method that create a less than or equal match condition.
+     *
+     * @param string $attribute
+     * @param string $value
+     * @return MatchCriteria $matchCriteria
+     */
+    public static function lessThanOrEquals($attribute, $value)
+    {
+        // Start of user code MatchCriteria.lessThanOrEquals
+        $matchCriteria = new self();
+        $matchCriteria->setAttribute($attribute);
+        $matchCriteria->setValue($value);
+        $matchCriteria->setOperator(self::OPERATOR_LESS_THAN_OR_EQUALS);
+        // End of user code
+    
+        return $matchCriteria;
+    }
+
+    /**
+     * Factory method that create a like match condition.
+     *
+     * @param string $attribute
+     * @param string $value
+     * @return MatchCriteria $matchCriteria
+     */
+    public static function like($attribute, $value)
+    {
+        // Start of user code MatchCriteria.like
+        $matchCriteria = new self();
+        $matchCriteria->setAttribute($attribute);
+        $matchCriteria->setValue($value);
+        $matchCriteria->setOperator(self::OPERATOR_LIKE);
         // End of user code
     
         return $matchCriteria;
@@ -181,19 +219,19 @@ class MatchCriteria
     }
 
     /**
-     * Factory method that create a not like match condition.
+     * Factory method that create a greater than match condition.
      *
      * @param string $attribute
      * @param string $value
      * @return MatchCriteria $matchCriteria
      */
-    public static function notLike($attribute, $value)
+    public static function greaterThan($attribute, $value)
     {
-        // Start of user code MatchCriteria.notLike
+        // Start of user code MatchCriteria.greaterThan
         $matchCriteria = new self();
         $matchCriteria->setAttribute($attribute);
         $matchCriteria->setValue($value);
-        $matchCriteria->setOperator(self::OPERATOR_NOT_LIKE);       
+        $matchCriteria->setOperator(self::OPERATOR_GREATER_THAN);
         // End of user code
     
         return $matchCriteria;
@@ -251,44 +289,6 @@ class MatchCriteria
         $matchCriteria->setAttribute($attribute);
         $matchCriteria->setValue($value);
         $matchCriteria->setOperator(self::OPERATOR_LESS_THAN); 
-        // End of user code
-    
-        return $matchCriteria;
-    }
-
-    /**
-     * Factory method that create a like match condition.
-     *
-     * @param string $attribute
-     * @param string $value
-     * @return MatchCriteria $matchCriteria
-     */
-    public static function like($attribute, $value)
-    {
-        // Start of user code MatchCriteria.like
-        $matchCriteria = new self();
-        $matchCriteria->setAttribute($attribute);
-        $matchCriteria->setValue($value);
-        $matchCriteria->setOperator(self::OPERATOR_LIKE);
-        // End of user code
-    
-        return $matchCriteria;
-    }
-
-    /**
-     * Factory method that create a less than or equal match condition.
-     *
-     * @param string $attribute
-     * @param string $value
-     * @return MatchCriteria $matchCriteria
-     */
-    public static function lessThanOrEquals($attribute, $value)
-    {
-        // Start of user code MatchCriteria.lessThanOrEquals
-        $matchCriteria = new self();
-        $matchCriteria->setAttribute($attribute);
-        $matchCriteria->setValue($value);
-        $matchCriteria->setOperator(self::OPERATOR_LESS_THAN_OR_EQUALS);
         // End of user code
     
         return $matchCriteria;

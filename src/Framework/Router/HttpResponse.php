@@ -18,6 +18,11 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class HttpResponse
 {
     /**
+     * @var string
+     */
+    public $contentType = 'text/html';
+
+    /**
      * @var AssociativeArray
      */
     public $headers;
@@ -32,11 +37,6 @@ class HttpResponse
      */
     public $statusCode = '200';
 
-    /**
-     * @var string
-     */
-    public $contentType = 'text/html';
-
     public function __construct()
     {
         // Start of user code HttpResponse.constructor
@@ -47,6 +47,26 @@ class HttpResponse
     {
         // Start of user code HttpResponse.destructor
         // End of user code
+    }
+
+    /**
+     * @return string
+     */
+    public function getContentType()
+    {
+        // Start of user code Getter HttpResponse.getContentType
+        // End of user code
+        return $this->contentType;
+    }
+
+    /**
+     * @param string $contentType
+     */
+    public function setContentType($contentType)
+    {
+        // Start of user code Setter HttpResponse.setContentType
+        // End of user code
+        $this->contentType = $contentType;
     }
 
     /**
@@ -110,23 +130,32 @@ class HttpResponse
     }
 
     /**
-     * @return string
+     * Send the http response message to the client
      */
-    public function getContentType()
+    public function sendToClient()
     {
-        // Start of user code Getter HttpResponse.getContentType
+        // Start of user code HttpResponse.sendToClient
+        
+        // Set http response status code
+        header('HTTP/1.1 ' . $this->statusCode .' ');
+        
+        // Set http content-type
+        header('Content-type: ' . $this->contentType);
+        
+        // Set custom headers
+        if(isset($this->headers)) {
+            foreach($this->headers->toNativeArray() as $key => $value) {
+                header(sprintf('%s: %s', ucfirst($key), $value));
+            }
+        }       
+        
+        // Send content
+        if(isset($this->message)) {
+            echo $this->message;
+        }
+        
+        return;
         // End of user code
-        return $this->contentType;
-    }
-
-    /**
-     * @param string $contentType
-     */
-    public function setContentType($contentType)
-    {
-        // Start of user code Setter HttpResponse.setContentType
-        // End of user code
-        $this->contentType = $contentType;
     }
 
     /**
@@ -158,35 +187,6 @@ class HttpResponse
         // End of user code
     
         return $httpResponse;
-    }
-
-    /**
-     * Send the http response message to the client
-     */
-    public function sendToClient()
-    {
-        // Start of user code HttpResponse.sendToClient
-        
-        // Set http response status code
-        header('HTTP/1.1 ' . $this->statusCode .' ');
-        
-        // Set http content-type
-        header('Content-type: ' . $this->contentType);
-        
-        // Set custom headers
-        if(isset($this->headers)) {
-            foreach($this->headers->toNativeArray() as $key => $value) {
-                header(sprintf('%s: %s', ucfirst($key), $value));
-            }
-        }       
-        
-        // Send content
-        if(isset($this->message)) {
-            echo $this->message;
-        }
-        
-        return;
-        // End of user code
     }
 
     /**

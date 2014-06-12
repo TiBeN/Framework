@@ -21,11 +21,6 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
     protected $TType;
 
     /**
-     * @var bool
-     */
-    private $actAsAProxy;
-
-    /**
      * @var Collection
      */
     protected $collection;
@@ -34,6 +29,11 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
      * @var Converter
      */
     protected $converter;
+
+    /**
+     * @var bool
+     */
+    private $actAsAProxy;
 
     // Start of user code ProxyAbleGenericCollection.surchargedConstructorsDestructors
     // Surcharge Constructors and Destructors here
@@ -79,26 +79,6 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
     }
 
     /**
-     * @return bool
-     */
-    private function getActAsAProxy()
-    {
-        // Start of user code Getter ProxyAbleGenericCollection.getActAsAProxy
-        // End of user code
-        return $this->actAsAProxy;
-    }
-
-    /**
-     * @param bool $actAsAProxy
-     */
-    private function setActAsAProxy($actAsAProxy)
-    {
-        // Start of user code Setter ProxyAbleGenericCollection.setActAsAProxy
-        // End of user code
-        $this->actAsAProxy = $actAsAProxy;
-    }
-
-    /**
      * @return Collection
      */
     protected function getCollection()
@@ -138,6 +118,26 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
         $this->converter = $converter;
     }
 
+    /**
+     * @return bool
+     */
+    private function getActAsAProxy()
+    {
+        // Start of user code Getter ProxyAbleGenericCollection.getActAsAProxy
+        // End of user code
+        return $this->actAsAProxy;
+    }
+
+    /**
+     * @param bool $actAsAProxy
+     */
+    private function setActAsAProxy($actAsAProxy)
+    {
+        // Start of user code Setter ProxyAbleGenericCollection.setActAsAProxy
+        // End of user code
+        $this->actAsAProxy = $actAsAProxy;
+    }
+
     // ProxyCollection Realization
 
     /**
@@ -163,6 +163,20 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
         $this->actAsAProxy = false;
         $this->collection = null; 
         // End of user code
+    }
+
+    /**
+     * Determine whether the collection act as a proxy of another collection or not.
+     *
+     * @return bool $boolean
+     */
+    public function actAsAProxy()
+    {
+        // Start of user code ProxyCollection.actAsAProxy
+        return $this->actAsAProxy;
+        // End of user code
+    
+        return $boolean;
     }
 
     /**
@@ -235,20 +249,6 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
         $this->converter = $converter;      
         $this->actAsAProxy = true;
         // End of user code
-    }
-
-    /**
-     * Determine whether the collection act as a proxy of another collection or not.
-     *
-     * @return bool $boolean
-     */
-    public function actAsAProxy()
-    {
-        // Start of user code ProxyCollection.actAsAProxy
-        return $this->actAsAProxy;
-        // End of user code
-    
-        return $boolean;
     }
 
     // Start of user code ProxyAbleGenericCollection.surchargedMethods

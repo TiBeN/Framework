@@ -41,19 +41,6 @@ class DecimalConverterTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method setParameters from interface TypeConverter
-     * Start of user code TypeConverter.testsetParametersAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testSetParameters()
-    {
-        // Start of user code TypeConverter.testsetParameters
-        // Nothing to test here
-        // End of user code
-    }
-    
-    /**
      * Test method getType from interface TypeConverter
      * Start of user code TypeConverter.testgetTypeAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -92,6 +79,19 @@ class DecimalConverterTest extends \PHPUnit_Framework_TestCase
         // Start of user code Converter.testconvert
         $converter = new DecimalConverter();
         $this->assertSame('45.32', $converter->convert(45.32));
+        // End of user code
+    }
+    
+    /**
+     * Test method setParameters from interface TypeConverter
+     * Start of user code TypeConverter.testsetParametersAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testSetParameters()
+    {
+        // Start of user code TypeConverter.testsetParameters
+        // Nothing to test here
         // End of user code
     }
     

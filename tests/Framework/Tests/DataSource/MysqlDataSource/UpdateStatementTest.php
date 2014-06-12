@@ -73,19 +73,6 @@ class UpdateStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method getStatementParameters from interface Statement
-     * Start of user code Statement.testgetStatementParametersAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetStatementParameters()
-    {
-        // Start of user code Statement.testgetStatementParameters
-        // implicitly test by testToString
-        // End of user code
-    }
-    
-    /**
      * Test method toString from interface Statement
      * Start of user code Statement.testtoStringAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -136,6 +123,19 @@ class UpdateStatementTest extends \PHPUnit_Framework_TestCase
             $expectedStatementParameters, 
             $update->getStatementParameters()
         );
+        // End of user code
+    }
+    
+    /**
+     * Test method getStatementParameters from interface Statement
+     * Start of user code Statement.testgetStatementParametersAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetStatementParameters()
+    {
+        // Start of user code Statement.testgetStatementParameters
+        // implicitly test by testToString
         // End of user code
     }
 

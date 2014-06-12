@@ -13,13 +13,13 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  */ 
 interface DataSourceEntityMappingConfiguration
 {
-    /**
-     * Factory method that ease the instanciation process using
-     * associative arrays.
-     *
-     * @param AssociativeArray $config
-     * @return DataSourceEntityMappingConfiguration $dataSourceEntityMappingConfiguration
-     */
-    public static function create(AssociativeArray $config);
+	/**
+	 * Factory method that ease the instanciation process using
+	 * associative arrays.
+	 *
+	 * @param AssociativeArray $config
+	 * @return DataSourceEntityMappingConfiguration $dataSourceEntityMappingConfiguration
+	 */
+	public static function create(AssociativeArray $config);
 
 }

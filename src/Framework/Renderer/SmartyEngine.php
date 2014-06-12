@@ -24,14 +24,14 @@ class SmartyEngine implements TemplateEngine
     public $tempDirectory;
 
     /**
-     * @var string
-     */
-    public $templateFileName;
-
-    /**
      * @var AssociativeArray
      */
     public $variables;
+
+    /**
+     * @var string
+     */
+    public $templateFileName;
 
     public function __construct()
     {
@@ -69,26 +69,6 @@ class SmartyEngine implements TemplateEngine
     // TemplateEngine Realization
 
     /**
-     * @return string
-     */
-    public function getTemplateFileName()
-    {
-        // Start of user code Getter TemplateEngine.getTemplateFileName
-        // End of user code
-        return $this->templateFileName;
-    }
-
-    /**
-     * @param string $templateFileName
-     */
-    public function setTemplateFileName($templateFileName)
-    {
-        // Start of user code Setter TemplateEngine.setTemplateFileName
-        // End of user code
-        $this->templateFileName = $templateFileName;
-    }
-
-    /**
      * @return AssociativeArray
      */
     public function getVariables()
@@ -106,6 +86,26 @@ class SmartyEngine implements TemplateEngine
         // Start of user code Setter TemplateEngine.setVariables
         // End of user code
         $this->variables = $variables;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTemplateFileName()
+    {
+        // Start of user code Getter TemplateEngine.getTemplateFileName
+        // End of user code
+        return $this->templateFileName;
+    }
+
+    /**
+     * @param string $templateFileName
+     */
+    public function setTemplateFileName($templateFileName)
+    {
+        // Start of user code Setter TemplateEngine.setTemplateFileName
+        // End of user code
+        $this->templateFileName = $templateFileName;
     }
     /**
      * Render the template using variables and globals set and return the generated content

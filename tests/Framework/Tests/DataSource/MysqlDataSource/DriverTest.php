@@ -47,6 +47,54 @@ class DriverTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method connect from class Driver
+     *
+     * Start of user code DriverTest.testconnectAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testConnect()
+    {
+        // Start of user code DriverTest.testconnect
+        $connection = Driver::connect(
+            $GLOBALS['db_host'], 
+            $GLOBALS['db_username'], 
+            $GLOBALS['db_password'],
+            $GLOBALS['db_name'],
+            $GLOBALS['db_port'] 
+        );  
+        $this->assertInstanceOf(
+            'TiBeN\\Framework\\DataSource\\MysqlDataSource\\Connection', 
+            $connection
+        );
+        $this->assertTrue($connection->isConnected());
+        // End of user code
+    }
+    
+    /**
+     * Test static method disconnect from class Driver
+     *
+     * Start of user code DriverTest.testdisconnectAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testDisconnect()
+    {
+        // Start of user code DriverTest.testdisconnect
+        $connection = Driver::connect(
+            $GLOBALS['db_host'],
+            $GLOBALS['db_username'],
+            $GLOBALS['db_password'],
+            $GLOBALS['db_name'],
+            $GLOBALS['db_port']
+        );
+
+        Driver::disconnect($connection);
+        $this->assertFalse($connection->isConnected());
+        // End of user code
+    }
+    
+    /**
      * Test static method executeStatement from class Driver
      *
      * Start of user code DriverTest.testexecuteStatementAnnotations 
@@ -113,54 +161,6 @@ class DriverTest extends \PHPUnit_Framework_TestCase
         $row = $rowCollection->current();
 
         $this->assertEquals('youpi', $row->get('c'));
-        // End of user code
-    }
-    
-    /**
-     * Test static method connect from class Driver
-     *
-     * Start of user code DriverTest.testconnectAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testConnect()
-    {
-        // Start of user code DriverTest.testconnect
-        $connection = Driver::connect(
-            $GLOBALS['db_host'], 
-            $GLOBALS['db_username'], 
-            $GLOBALS['db_password'],
-            $GLOBALS['db_name'],
-            $GLOBALS['db_port'] 
-        );  
-        $this->assertInstanceOf(
-            'TiBeN\\Framework\\DataSource\\MysqlDataSource\\Connection', 
-            $connection
-        );
-        $this->assertTrue($connection->isConnected());
-        // End of user code
-    }
-    
-    /**
-     * Test static method disconnect from class Driver
-     *
-     * Start of user code DriverTest.testdisconnectAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testDisconnect()
-    {
-        // Start of user code DriverTest.testdisconnect
-        $connection = Driver::connect(
-            $GLOBALS['db_host'],
-            $GLOBALS['db_username'],
-            $GLOBALS['db_password'],
-            $GLOBALS['db_name'],
-            $GLOBALS['db_port']
-        );
-
-        Driver::disconnect($connection);
-        $this->assertFalse($connection->isConnected());
         // End of user code
     }
 

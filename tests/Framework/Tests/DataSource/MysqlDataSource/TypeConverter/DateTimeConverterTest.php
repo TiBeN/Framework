@@ -41,19 +41,6 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * Test method setParameters from interface TypeConverter
-     * Start of user code TypeConverter.testsetParametersAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testSetParameters()
-    {
-        // Start of user code TypeConverter.testsetParameters
-        // Nothing to test here
-        // End of user code
-    }
-    
-    /**
      * Test method getType from interface TypeConverter
      * Start of user code TypeConverter.testgetTypeAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -94,6 +81,19 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
         $dateTime = \DateTime::createFromFormat('d/m/Y H:i:s', '23/02/2014 15:39:10');
         $this->assertEquals('2014-02-23 15:39:10', $dateTimeConverter->convert($dateTime));
         $this->assertEquals(null, $dateTimeConverter->reverse(null));
+        // End of user code
+    }
+    
+    /**
+     * Test method setParameters from interface TypeConverter
+     * Start of user code TypeConverter.testsetParametersAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testSetParameters()
+    {
+        // Start of user code TypeConverter.testsetParameters
+        // Nothing to test here
         // End of user code
     }
     

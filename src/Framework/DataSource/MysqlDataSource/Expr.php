@@ -22,32 +22,7 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_EQUALS = '=';
-
-    /**
-     * @var string
-     */
-    public $exprString;
-
-    /**
-     * @var string
-     */
-    const OPERATOR_NOT_EQUALS = '!=';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LIKE = 'LIKE';
-
-    /**
-     * @var string
-     */
-    const LOGICAL_SEPARATOR_OR = 'OR';
-
-    /**
-     * @var AssociativeArray
-     */
-    public $exprParameters;
+    const LOGICAL_SEPARATOR_AND = 'AND';
 
     /**
      * @var bool
@@ -57,12 +32,12 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
+    const OPERATOR_LIKE = 'LIKE';
 
     /**
      * @var string
      */
-    const LOGICAL_SEPARATOR_AND = 'AND';
+    const OPERATOR_NOT_EQUALS = '!=';
 
     /**
      * @var string
@@ -72,7 +47,7 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_GREATER_THAN = '>';
+    const LOGICAL_SEPARATOR_OR = 'OR';
 
     /**
      * @var string
@@ -82,7 +57,32 @@ class Expr
     /**
      * @var string
      */
+    const OPERATOR_GREATER_THAN = '>';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
+
+    /**
+     * @var string
+     */
+    public $exprString;
+
+    /**
+     * @var string
+     */
     const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
+
+    /**
+     * @var AssociativeArray
+     */
+    public $exprParameters;
+
+    /**
+     * @var string
+     */
+    const OPERATOR_EQUALS = '=';
 
     public function __construct()
     {
@@ -95,6 +95,26 @@ class Expr
     {
         // Start of user code Expr.destructor
         // End of user code
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsResultOfConcatenation()
+    {
+        // Start of user code Getter Expr.getIsResultOfConcatenation
+        // End of user code
+        return $this->isResultOfConcatenation;
+    }
+
+    /**
+     * @param bool $isResultOfConcatenation
+     */
+    public function setIsResultOfConcatenation($isResultOfConcatenation)
+    {
+        // Start of user code Setter Expr.setIsResultOfConcatenation
+        // End of user code
+        $this->isResultOfConcatenation = $isResultOfConcatenation;
     }
 
     /**
@@ -138,40 +158,6 @@ class Expr
     }
 
     /**
-     * @return bool
-     */
-    public function getIsResultOfConcatenation()
-    {
-        // Start of user code Getter Expr.getIsResultOfConcatenation
-        // End of user code
-        return $this->isResultOfConcatenation;
-    }
-
-    /**
-     * @param bool $isResultOfConcatenation
-     */
-    public function setIsResultOfConcatenation($isResultOfConcatenation)
-    {
-        // Start of user code Setter Expr.setIsResultOfConcatenation
-        // End of user code
-        $this->isResultOfConcatenation = $isResultOfConcatenation;
-    }
-
-    /**
-     * Generate the string representation of the expr.
-     *
-     * @return string $exprString
-     */
-    public function toString()
-    {
-        // Start of user code Expr.toString
-        $exprString = $this->exprString;
-        // End of user code
-    
-        return $exprString;
-    }
-
-    /**
      * Factory method which create an Expr resulting
      * of the concatenation of two others.
      * 
@@ -202,6 +188,20 @@ class Expr
         // End of user code
     
         return $expr;
+    }
+
+    /**
+     * Generate the string representation of the expr.
+     *
+     * @return string $exprString
+     */
+    public function toString()
+    {
+        // Start of user code Expr.toString
+        $exprString = $this->exprString;
+        // End of user code
+    
+        return $exprString;
     }
 
     /**

@@ -2,12 +2,12 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Entity\EntityMapping;
-use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Datatype\GenericCollection;
+use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\MatchCriteria;
 use TiBeN\Framework\Entity\CriteriaSet;
-use TiBeN\Framework\Datatype\GenericCollection;
+use TiBeN\Framework\Entity\Entity;
 
 // Start of user code WhereConditions.useStatements
 // Place your use statements here.
@@ -85,6 +85,23 @@ class WhereConditions
     }
 
     /**
+     * Generate the where_condition as a string.
+     *
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code WhereConditions.toString
+        if(is_null($this->expr)) {
+            throw new \LogicException('No expr set');
+        }
+        $string = 'WHERE ' . $this->expr->toString(); 
+        // End of user code
+    
+        return $string;
+    }
+
+    /**
      * Factory method that generate a WhereConditions
      * fom an Expr.
      *
@@ -100,6 +117,26 @@ class WhereConditions
         // End of user code
     
         return $whereConditions;
+    }
+
+    /**
+     * Factory Method that create a WhereConditions 
+     * from an entity CriterieSet.
+     *
+     * @param CriteriaSet $criteriaSet
+     * @param EntityMapping $entityMapping
+     * @return WhereConditions $whereCondition
+     */
+    public static function createFromCriteriaSet(CriteriaSet $criteriaSet, EntityMapping $entityMapping)
+    {
+        // Start of user code WhereConditions.createFromCriteriaSet
+        $whereCondition = new self();                
+        $expr = self::convertCriteriaSetToExpr($criteriaSet, $entityMapping);
+        $whereCondition->setExpr($expr);        
+        $whereCondition->setStatementParameters($expr->getExprParameters());               
+        // End of user code
+    
+        return $whereCondition;
     }
 
     /**
@@ -134,43 +171,6 @@ class WhereConditions
         // End of user code
     
         return $whereConditions;
-    }
-
-    /**
-     * Factory Method that create a WhereConditions 
-     * from an entity CriterieSet.
-     *
-     * @param CriteriaSet $criteriaSet
-     * @param EntityMapping $entityMapping
-     * @return WhereConditions $whereCondition
-     */
-    public static function createFromCriteriaSet(CriteriaSet $criteriaSet, EntityMapping $entityMapping)
-    {
-        // Start of user code WhereConditions.createFromCriteriaSet
-        $whereCondition = new self();                
-        $expr = self::convertCriteriaSetToExpr($criteriaSet, $entityMapping);
-        $whereCondition->setExpr($expr);        
-        $whereCondition->setStatementParameters($expr->getExprParameters());               
-        // End of user code
-    
-        return $whereCondition;
-    }
-
-    /**
-     * Generate the where_condition as a string.
-     *
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code WhereConditions.toString
-        if(is_null($this->expr)) {
-            throw new \LogicException('No expr set');
-        }
-        $string = 'WHERE ' . $this->expr->toString(); 
-        // End of user code
-    
-        return $string;
     }
 
     // Start of user code WhereConditions.implementationSpecificMethods

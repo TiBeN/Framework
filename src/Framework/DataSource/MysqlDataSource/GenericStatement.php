@@ -89,6 +89,20 @@ class GenericStatement implements Statement
     }
 
     /**
+     * Generate the statement as a string.
+     *
+     * @return string $statement
+     */
+    public function toString()
+    {
+        // Start of user code Statement.toString
+        $statement = $this->statementString;
+        // End of user code
+    
+        return $statement;
+    }
+
+    /**
      * Return an associative array of parameters of the corresponding
      * named placeholder in the statement. 
      * 
@@ -102,20 +116,6 @@ class GenericStatement implements Statement
         // End of user code
     
         return $statementParameters;
-    }
-
-    /**
-     * Generate the statement as a string.
-     *
-     * @return string $statement
-     */
-    public function toString()
-    {
-        // Start of user code Statement.toString
-        $statement = $this->statementString;
-        // End of user code
-    
-        return $statement;
     }
 
     // Start of user code GenericStatement.implementationSpecificMethods
