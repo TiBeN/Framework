@@ -21,14 +21,14 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
     protected $TType;
 
     /**
-     * @var Converter
-     */
-    protected $converter;
-
-    /**
      * @var bool
      */
     private $actAsAProxy;
+
+    /**
+     * @var Converter
+     */
+    protected $converter;
 
     /**
      * @var Collection
@@ -79,26 +79,6 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
     }
 
     /**
-     * @return Converter
-     */
-    protected function getConverter()
-    {
-        // Start of user code Getter ProxyAbleGenericCollection.getConverter
-        // End of user code
-        return $this->converter;
-    }
-
-    /**
-     * @param Converter $converter
-     */
-    protected function setConverter(Converter $converter)
-    {
-        // Start of user code Setter ProxyAbleGenericCollection.setConverter
-        // End of user code
-        $this->converter = $converter;
-    }
-
-    /**
      * @return bool
      */
     private function getActAsAProxy()
@@ -116,6 +96,26 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
         // Start of user code Setter ProxyAbleGenericCollection.setActAsAProxy
         // End of user code
         $this->actAsAProxy = $actAsAProxy;
+    }
+
+    /**
+     * @return Converter
+     */
+    protected function getConverter()
+    {
+        // Start of user code Getter ProxyAbleGenericCollection.getConverter
+        // End of user code
+        return $this->converter;
+    }
+
+    /**
+     * @param Converter $converter
+     */
+    protected function setConverter(Converter $converter)
+    {
+        // Start of user code Setter ProxyAbleGenericCollection.setConverter
+        // End of user code
+        $this->converter = $converter;
     }
 
     /**

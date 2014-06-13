@@ -17,34 +17,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class DeleteStatement implements Statement
 {
     /**
-     * @var WhereConditions
-     */
-    public $whereConditions;
-
-    /**
      * @var string
      */
     public $tableName;
 
     /**
-     * @return WhereConditions
+     * @var WhereConditions
      */
-    public function getWhereConditions()
-    {
-        // Start of user code Getter DeleteStatement.getWhereConditions
-        // End of user code
-        return $this->whereConditions;
-    }
-
-    /**
-     * @param WhereConditions $whereConditions
-     */
-    public function setWhereConditions(WhereConditions $whereConditions)
-    {
-        // Start of user code Setter DeleteStatement.setWhereConditions
-        // End of user code
-        $this->whereConditions = $whereConditions;
-    }
+    public $whereConditions;
 
     /**
      * @return string
@@ -66,7 +46,47 @@ class DeleteStatement implements Statement
         $this->tableName = $tableName;
     }
 
+    /**
+     * @return WhereConditions
+     */
+    public function getWhereConditions()
+    {
+        // Start of user code Getter DeleteStatement.getWhereConditions
+        // End of user code
+        return $this->whereConditions;
+    }
+
+    /**
+     * @param WhereConditions $whereConditions
+     */
+    public function setWhereConditions(WhereConditions $whereConditions)
+    {
+        // Start of user code Setter DeleteStatement.setWhereConditions
+        // End of user code
+        $this->whereConditions = $whereConditions;
+    }
+
     // Statement Realization
+
+    /**
+     * Check whether all statement chunks are set 
+     * in order to generate a complete statement string to 
+     * be executed.
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+        $status = true;
+        
+        if(is_null($this->tableName)) {
+            $status = false;
+        }
+        // End of user code
+    
+        return $status;
+    }
 
     /**
      * Generate the statement as a string.
@@ -90,26 +110,6 @@ class DeleteStatement implements Statement
         // End of user code
     
         return $statement;
-    }
-
-    /**
-     * Check whether all statement chunks are set 
-     * in order to generate a complete statement string to 
-     * be executed.
-     *
-     * @return bool $status
-     */
-    public function isReadyToBeExecuted()
-    {
-        // Start of user code Statement.isReadyToBeExecuted
-        $status = true;
-        
-        if(is_null($this->tableName)) {
-            $status = false;
-        }
-        // End of user code
-    
-        return $status;
     }
 
     /**

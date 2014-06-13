@@ -67,20 +67,6 @@ class GenericStatement implements Statement
     // Statement Realization
 
     /**
-     * Generate the statement as a string.
-     *
-     * @return string $statement
-     */
-    public function toString()
-    {
-        // Start of user code Statement.toString
-        $statement = $this->statementString;
-        // End of user code
-    
-        return $statement;
-    }
-
-    /**
      * Check whether all statement chunks are set 
      * in order to generate a complete statement string to 
      * be executed.
@@ -94,6 +80,20 @@ class GenericStatement implements Statement
         // End of user code
     
         return $status;
+    }
+
+    /**
+     * Generate the statement as a string.
+     *
+     * @return string $statement
+     */
+    public function toString()
+    {
+        // Start of user code Statement.toString
+        $statement = $this->statementString;
+        // End of user code
+    
+        return $statement;
     }
 
     /**

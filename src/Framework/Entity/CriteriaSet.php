@@ -19,22 +19,7 @@ class CriteriaSet
     /**
      * @var GenericCollection
      */
-    public $matchCriterias;
-
-    /**
-     * @var string
-     */
-    const LOGICAL_SEPARATOR_OR = 'or';
-
-    /**
-     * @var GenericCollection
-     */
     public $orderCriterias;
-
-    /**
-     * @var string
-     */
-    public $logicalSeparator;
 
     /**
      * @var GenericCollection
@@ -47,9 +32,24 @@ class CriteriaSet
     const LOGICAL_SEPARATOR_AND = 'and';
 
     /**
+     * @var string
+     */
+    public $logicalSeparator;
+
+    /**
      * @var LimitCriteria
      */
     public $limitCriteria;
+
+    /**
+     * @var GenericCollection
+     */
+    public $matchCriterias;
+
+    /**
+     * @var string
+     */
+    const LOGICAL_SEPARATOR_OR = 'or';
 
     public function __construct()
     {
@@ -64,26 +64,6 @@ class CriteriaSet
             'TiBeN\\Framework\\Entity\\OrderCriteria'
         );  
         // End of user code
-    }
-
-    /**
-     * @return GenericCollection
-     */
-    public function getMatchCriterias()
-    {
-        // Start of user code Getter CriteriaSet.getMatchCriterias
-        // End of user code
-        return $this->matchCriterias;
-    }
-
-    /**
-     * @param GenericCollection $matchCriterias
-     */
-    public function setMatchCriterias(GenericCollection $matchCriterias)
-    {
-        // Start of user code Setter CriteriaSet.setMatchCriterias
-        // End of user code
-        $this->matchCriterias = $matchCriterias;
     }
 
     /**
@@ -107,26 +87,6 @@ class CriteriaSet
     }
 
     /**
-     * @return string
-     */
-    public function getLogicalSeparator()
-    {
-        // Start of user code Getter CriteriaSet.getLogicalSeparator
-        // End of user code
-        return $this->logicalSeparator;
-    }
-
-    /**
-     * @param string $logicalSeparator
-     */
-    public function setLogicalSeparator($logicalSeparator)
-    {
-        // Start of user code Setter CriteriaSet.setLogicalSeparator
-        // End of user code
-        $this->logicalSeparator = $logicalSeparator;
-    }
-
-    /**
      * @return GenericCollection
      */
     public function getCriteriaSets()
@@ -147,6 +107,26 @@ class CriteriaSet
     }
 
     /**
+     * @return string
+     */
+    public function getLogicalSeparator()
+    {
+        // Start of user code Getter CriteriaSet.getLogicalSeparator
+        // End of user code
+        return $this->logicalSeparator;
+    }
+
+    /**
+     * @param string $logicalSeparator
+     */
+    public function setLogicalSeparator($logicalSeparator)
+    {
+        // Start of user code Setter CriteriaSet.setLogicalSeparator
+        // End of user code
+        $this->logicalSeparator = $logicalSeparator;
+    }
+
+    /**
      * @return LimitCriteria
      */
     public function getLimitCriteria()
@@ -164,6 +144,26 @@ class CriteriaSet
         // Start of user code Setter CriteriaSet.setLimitCriteria
         // End of user code
         $this->limitCriteria = $limitCriteria;
+    }
+
+    /**
+     * @return GenericCollection
+     */
+    public function getMatchCriterias()
+    {
+        // Start of user code Getter CriteriaSet.getMatchCriterias
+        // End of user code
+        return $this->matchCriterias;
+    }
+
+    /**
+     * @param GenericCollection $matchCriterias
+     */
+    public function setMatchCriterias(GenericCollection $matchCriterias)
+    {
+        // Start of user code Setter CriteriaSet.setMatchCriterias
+        // End of user code
+        $this->matchCriterias = $matchCriterias;
     }
 
     /**

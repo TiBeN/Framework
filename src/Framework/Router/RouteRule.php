@@ -20,27 +20,17 @@ class RouteRule
     /**
      * @var AssociativeArray
      */
+    public $defaultVariables;
+
+    /**
+     * @var AssociativeArray
+     */
     public $requirments;
 
     /**
      * @var string
      */
-    public $controller;
-
-    /**
-     * @var string
-     */
     public $host;
-
-    /**
-     * @var AssociativeArray
-     */
-    public $defaultVariables;
-
-    /**
-     * @var string
-     */
-    public $name;
 
     /**
      * @var string
@@ -50,12 +40,42 @@ class RouteRule
     /**
      * @var string
      */
-    public $uriPattern;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $controller;
 
     /**
      * @var string
      */
     public $method;
+
+    /**
+     * @var string
+     */
+    public $uriPattern;
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getDefaultVariables()
+    {
+        // Start of user code Getter RouteRule.getDefaultVariables
+        // End of user code
+        return $this->defaultVariables;
+    }
+
+    /**
+     * @param AssociativeArray $defaultVariables
+     */
+    public function setDefaultVariables(AssociativeArray $defaultVariables)
+    {
+        // Start of user code Setter RouteRule.setDefaultVariables
+        // End of user code
+        $this->defaultVariables = $defaultVariables;
+    }
 
     /**
      * @return AssociativeArray
@@ -80,26 +100,6 @@ class RouteRule
     /**
      * @return string
      */
-    public function getController()
-    {
-        // Start of user code Getter RouteRule.getController
-        // End of user code
-        return $this->controller;
-    }
-
-    /**
-     * @param string $controller
-     */
-    public function setController($controller)
-    {
-        // Start of user code Setter RouteRule.setController
-        // End of user code
-        $this->controller = $controller;
-    }
-
-    /**
-     * @return string
-     */
     public function getHost()
     {
         // Start of user code Getter RouteRule.getHost
@@ -115,46 +115,6 @@ class RouteRule
         // Start of user code Setter RouteRule.setHost
         // End of user code
         $this->host = $host;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getDefaultVariables()
-    {
-        // Start of user code Getter RouteRule.getDefaultVariables
-        // End of user code
-        return $this->defaultVariables;
-    }
-
-    /**
-     * @param AssociativeArray $defaultVariables
-     */
-    public function setDefaultVariables(AssociativeArray $defaultVariables)
-    {
-        // Start of user code Setter RouteRule.setDefaultVariables
-        // End of user code
-        $this->defaultVariables = $defaultVariables;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        // Start of user code Getter RouteRule.getName
-        // End of user code
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        // Start of user code Setter RouteRule.setName
-        // End of user code
-        $this->name = $name;
     }
 
     /**
@@ -180,21 +140,41 @@ class RouteRule
     /**
      * @return string
      */
-    public function getUriPattern()
+    public function getName()
     {
-        // Start of user code Getter RouteRule.getUriPattern
+        // Start of user code Getter RouteRule.getName
         // End of user code
-        return $this->uriPattern;
+        return $this->name;
     }
 
     /**
-     * @param string $uriPattern
+     * @param string $name
      */
-    public function setUriPattern($uriPattern)
+    public function setName($name)
     {
-        // Start of user code Setter RouteRule.setUriPattern
+        // Start of user code Setter RouteRule.setName
         // End of user code
-        $this->uriPattern = $uriPattern;
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getController()
+    {
+        // Start of user code Getter RouteRule.getController
+        // End of user code
+        return $this->controller;
+    }
+
+    /**
+     * @param string $controller
+     */
+    public function setController($controller)
+    {
+        // Start of user code Setter RouteRule.setController
+        // End of user code
+        $this->controller = $controller;
     }
 
     /**
@@ -218,57 +198,41 @@ class RouteRule
     }
 
     /**
-     * Create a new Routerule from an 
-     * AssociativeArray of configuration. 
-     *
-     * @param AssociativeArray $config
-     * @return RouteRule $routeRule
+     * @return string
      */
-    public static function create(AssociativeArray $config)
+    public function getUriPattern()
     {
-        // Start of user code RouteRule.create
-        $routeRule = new self();
-            
-        if ($config->has('name')) {
-            $routeRule->setName($config->get('name'));
-        }
-        
-        if ($config->has('uri-pattern')) {
-            $routeRule->setUriPattern($config->get('uri-pattern'));
-        }           
-        
-        if ($config->has('controller')) {
-            $routeRule->setController($config->get('controller'));
-        }
-        
-        if ($config->has('action')) {
-            $routeRule->setAction($config->get('action'));
-        }           
-        
-        if ($config->has('method')) {
-            $routeRule->setMethod($config->get('method'));
-        }           
-        
-        if ($config->has('host')) {
-            $routeRule->setHost($config->get('host'));
-        }           
-        
-        if ($config->has('requirments')) {
-            $routeRule->setRequirments(AssociativeArray::createFromNativeArray(
-                null, 
-                $config->get('requirments'))
-            );
-        }           
-        
-        if ($config->has('default-variables')) {
-            $routeRule->setDefaultVariables(AssociativeArray::createFromNativeArray(
-                null, 
-                $config->get('default-variables'))
-            );
-        }
+        // Start of user code Getter RouteRule.getUriPattern
+        // End of user code
+        return $this->uriPattern;
+    }
+
+    /**
+     * @param string $uriPattern
+     */
+    public function setUriPattern($uriPattern)
+    {
+        // Start of user code Setter RouteRule.setUriPattern
+        // End of user code
+        $this->uriPattern = $uriPattern;
+    }
+
+    /**
+     * Generate the Route from the RouteRule and optional variables
+     *
+     * @param AssociativeArray $variables
+     * @return Route $route
+     */
+    public function getRoute(AssociativeArray $variables)
+    {
+        // Start of user code RouteRule.getRoute
+        $route = new Route();
+        $route->setController($this->controller);
+        $route->setAction($this->action);
+        $route->setVariables($variables); 
         // End of user code
     
-        return $routeRule;
+        return $route;
     }
 
     /**
@@ -343,21 +307,57 @@ class RouteRule
     }
 
     /**
-     * Generate the Route from the RouteRule and optional variables
+     * Create a new Routerule from an 
+     * AssociativeArray of configuration. 
      *
-     * @param AssociativeArray $variables
-     * @return Route $route
+     * @param AssociativeArray $config
+     * @return RouteRule $routeRule
      */
-    public function getRoute(AssociativeArray $variables)
+    public static function create(AssociativeArray $config)
     {
-        // Start of user code RouteRule.getRoute
-        $route = new Route();
-        $route->setController($this->controller);
-        $route->setAction($this->action);
-        $route->setVariables($variables); 
+        // Start of user code RouteRule.create
+        $routeRule = new self();
+            
+        if ($config->has('name')) {
+            $routeRule->setName($config->get('name'));
+        }
+        
+        if ($config->has('uri-pattern')) {
+            $routeRule->setUriPattern($config->get('uri-pattern'));
+        }           
+        
+        if ($config->has('controller')) {
+            $routeRule->setController($config->get('controller'));
+        }
+        
+        if ($config->has('action')) {
+            $routeRule->setAction($config->get('action'));
+        }           
+        
+        if ($config->has('method')) {
+            $routeRule->setMethod($config->get('method'));
+        }           
+        
+        if ($config->has('host')) {
+            $routeRule->setHost($config->get('host'));
+        }           
+        
+        if ($config->has('requirments')) {
+            $routeRule->setRequirments(AssociativeArray::createFromNativeArray(
+                null, 
+                $config->get('requirments'))
+            );
+        }           
+        
+        if ($config->has('default-variables')) {
+            $routeRule->setDefaultVariables(AssociativeArray::createFromNativeArray(
+                null, 
+                $config->get('default-variables'))
+            );
+        }
         // End of user code
     
-        return $route;
+        return $routeRule;
     }
 
     // Start of user code RouteRule.implementationSpecificMethods

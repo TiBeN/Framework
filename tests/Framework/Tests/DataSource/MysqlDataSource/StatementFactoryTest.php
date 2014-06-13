@@ -49,6 +49,34 @@ class StatementFactoryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method createFromString from class StatementFactory
+     *
+     * Start of user code StatementFactoryTest.testcreateFromStringAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testCreateFromString()
+    {
+        // Start of user code StatementFactoryTest.testcreateFromString
+        $expectedStatement = new GenericStatement();
+        $expectedStatement->setStatementString('SELECT * someTable where id=:id');
+        
+        $statementParameters = AssociativeArray::createFromNativeArray(
+            null, 
+            array('id' => 1337)
+        );
+        
+        $expectedStatement->setStatementParameters($statementParameters);        
+        $actualStatement = StatementFactory::createFromString(
+            'SELECT * someTable where id=:id', 
+            $statementParameters
+        );
+        
+        $this->assertEquals($expectedStatement, $actualStatement);
+        // End of user code
+    }
+    
+    /**
      * Test static method createSelectStatementFromCriteriaSet from class StatementFactory
      *
      * Start of user code StatementFactoryTest.testcreateSelectStatementFromCriteriaSetAnnotations 
@@ -86,117 +114,6 @@ class StatementFactoryTest extends \PHPUnit_Framework_TestCase
             $criteriaSet
         );
         $this->assertEquals($expectedStatement, $select->toString());
-        // End of user code
-    }
-    
-    /**
-     * Test static method createDeleteStatement from class StatementFactory
-     *
-     * Start of user code StatementFactoryTest.testcreateDeleteStatementAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testCreateDeleteStatement()
-    {
-        // Start of user code StatementFactoryTest.testcreateDeleteStatement
-        $expectedStatement = 'DELETE FROM some_entity_data_table WHERE idTable = :id0';
-        $expectedParameters = array('id0' => 1337);
-        
-        $entity = new SomeEntity();
-        $entity->setId(1337);
-        $entity->setAttributeA('foo');
-        $entity->setAttributeB('bar');
-        $entity->setAttributeC('baz');
-
-        $entityMapping = EntityMappingsRegistry::getEntityMapping(
-            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
-        );
-
-        $delete = StatementFactory::createDeleteStatement(
-            $entityMapping,
-            $entity
-        );
-
-        $this->assertEquals($expectedStatement, $delete->toString());
-        $this->assertEquals(
-            AssociativeArray::createFromNativeArray(
-                null, 
-                $expectedParameters
-            ),
-            $delete->getStatementParameters()
-        );
-        // End of user code
-    }
-    
-    /**
-     * Test static method createFromString from class StatementFactory
-     *
-     * Start of user code StatementFactoryTest.testcreateFromStringAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testCreateFromString()
-    {
-        // Start of user code StatementFactoryTest.testcreateFromString
-        $expectedStatement = new GenericStatement();
-        $expectedStatement->setStatementString('SELECT * someTable where id=:id');
-        
-        $statementParameters = AssociativeArray::createFromNativeArray(
-            null, 
-            array('id' => 1337)
-        );
-        
-        $expectedStatement->setStatementParameters($statementParameters);        
-        $actualStatement = StatementFactory::createFromString(
-            'SELECT * someTable where id=:id', 
-            $statementParameters
-        );
-        
-        $this->assertEquals($expectedStatement, $actualStatement);
-        // End of user code
-    }
-    
-    /**
-     * Test static method createInsertStatement from class StatementFactory
-     *
-     * Start of user code StatementFactoryTest.testcreateInsertStatementAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testCreateInsertStatement()
-    {
-        // Start of user code StatementFactoryTest.testcreateInsertStatement
-        $expectedStatement 
-            = 'INSERT INTO some_entity_data_table (idTable,a,b,c) VALUES(:idTable,:a,:b,:c)'
-        ;
-        $expectedParameters = array(
-            'idTable' => NULL,
-            'a' => 'foo',
-            'b' => 'bar',
-            'c' => 'baz'                                 
-        );
-        
-        $entity = new SomeEntity();
-        $entity->setAttributeA('foo');
-        $entity->setAttributeB('bar');
-        $entity->setAttributeC('baz');
-        
-        $actualStatement = StatementFactory::createInsertStatement(
-            EntityMappingsRegistry::getEntityMapping(
-                'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
-            ), 
-            $entity
-        );        
-        
-        $this->assertEquals($expectedStatement, $actualStatement->toString());
-        
-        $this->assertEquals(
-            AssociativeArray::createFromNativeArray(
-                null,
-                $expectedParameters                                    
-            ),
-            $actualStatement->getStatementParameters()    
-        );
         // End of user code
     }
     
@@ -242,6 +159,89 @@ class StatementFactoryTest extends \PHPUnit_Framework_TestCase
                 $expectedParameters
             ),
             $update->getStatementParameters()
+        );
+        // End of user code
+    }
+    
+    /**
+     * Test static method createDeleteStatement from class StatementFactory
+     *
+     * Start of user code StatementFactoryTest.testcreateDeleteStatementAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testCreateDeleteStatement()
+    {
+        // Start of user code StatementFactoryTest.testcreateDeleteStatement
+        $expectedStatement = 'DELETE FROM some_entity_data_table WHERE idTable = :id0';
+        $expectedParameters = array('id0' => 1337);
+        
+        $entity = new SomeEntity();
+        $entity->setId(1337);
+        $entity->setAttributeA('foo');
+        $entity->setAttributeB('bar');
+        $entity->setAttributeC('baz');
+
+        $entityMapping = EntityMappingsRegistry::getEntityMapping(
+            'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+        );
+
+        $delete = StatementFactory::createDeleteStatement(
+            $entityMapping,
+            $entity
+        );
+
+        $this->assertEquals($expectedStatement, $delete->toString());
+        $this->assertEquals(
+            AssociativeArray::createFromNativeArray(
+                null, 
+                $expectedParameters
+            ),
+            $delete->getStatementParameters()
+        );
+        // End of user code
+    }
+    
+    /**
+     * Test static method createInsertStatement from class StatementFactory
+     *
+     * Start of user code StatementFactoryTest.testcreateInsertStatementAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testCreateInsertStatement()
+    {
+        // Start of user code StatementFactoryTest.testcreateInsertStatement
+        $expectedStatement 
+            = 'INSERT INTO some_entity_data_table (idTable,a,b,c) VALUES(:idTable,:a,:b,:c)'
+        ;
+        $expectedParameters = array(
+            'idTable' => NULL,
+            'a' => 'foo',
+            'b' => 'bar',
+            'c' => 'baz'                                 
+        );
+        
+        $entity = new SomeEntity();
+        $entity->setAttributeA('foo');
+        $entity->setAttributeB('bar');
+        $entity->setAttributeC('baz');
+        
+        $actualStatement = StatementFactory::createInsertStatement(
+            EntityMappingsRegistry::getEntityMapping(
+                'TiBeN\\Framework\\Tests\\Fixtures\\Entity\\SomeEntity'
+            ), 
+            $entity
+        );        
+        
+        $this->assertEquals($expectedStatement, $actualStatement->toString());
+        
+        $this->assertEquals(
+            AssociativeArray::createFromNativeArray(
+                null,
+                $expectedParameters                                    
+            ),
+            $actualStatement->getStatementParameters()    
         );
         // End of user code
     }

@@ -25,11 +25,6 @@ class HttpRequest
     public $postVars;
 
     /**
-     * @var string
-     */
-    public $requestUri;
-
-    /**
      * @var AssociativeArray
      */
     public $headers;
@@ -42,7 +37,7 @@ class HttpRequest
     /**
      * @var string
      */
-    public $host;
+    public $requestUri;
 
     /**
      * @var string
@@ -53,6 +48,11 @@ class HttpRequest
      * @var string
      */
     public $method;
+
+    /**
+     * @var string
+     */
+    public $host;
 
     /**
      * @return AssociativeArray
@@ -72,26 +72,6 @@ class HttpRequest
         // Start of user code Setter HttpRequest.setPostVars
         // End of user code
         $this->postVars = $postVars;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRequestUri()
-    {
-        // Start of user code Getter HttpRequest.getRequestUri
-        // End of user code
-        return $this->requestUri;
-    }
-
-    /**
-     * @param string $requestUri
-     */
-    public function setRequestUri($requestUri)
-    {
-        // Start of user code Setter HttpRequest.setRequestUri
-        // End of user code
-        $this->requestUri = $requestUri;
     }
 
     /**
@@ -137,21 +117,21 @@ class HttpRequest
     /**
      * @return string
      */
-    public function getHost()
+    public function getRequestUri()
     {
-        // Start of user code Getter HttpRequest.getHost
+        // Start of user code Getter HttpRequest.getRequestUri
         // End of user code
-        return $this->host;
+        return $this->requestUri;
     }
 
     /**
-     * @param string $host
+     * @param string $requestUri
      */
-    public function setHost($host)
+    public function setRequestUri($requestUri)
     {
-        // Start of user code Setter HttpRequest.setHost
+        // Start of user code Setter HttpRequest.setRequestUri
         // End of user code
-        $this->host = $host;
+        $this->requestUri = $requestUri;
     }
 
     /**
@@ -192,6 +172,26 @@ class HttpRequest
         // Start of user code Setter HttpRequest.setMethod
         // End of user code
         $this->method = $method;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHost()
+    {
+        // Start of user code Getter HttpRequest.getHost
+        // End of user code
+        return $this->host;
+    }
+
+    /**
+     * @param string $host
+     */
+    public function setHost($host)
+    {
+        // Start of user code Setter HttpRequest.setHost
+        // End of user code
+        $this->host = $host;
     }
 
     /**

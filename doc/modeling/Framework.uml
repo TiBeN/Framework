@@ -3887,16 +3887,14 @@ ValidationRules:
         <body>Load application configuration and perform
 needed booting tasks</body>
       </ownedComment>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_xSm38L22EeO-aaY3kqFukA" name="init" isStatic="true">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_xSm38L22EeO-aaY3kqFukA" name="init">
         <ownedComment xmi:type="uml:Comment" xmi:id="_R5tF8L23EeO-aaY3kqFukA" annotatedElement="_xSm38L22EeO-aaY3kqFukA">
           <body>Init The booting process of the Framework.
 Allways call this before use any component.</body>
         </ownedComment>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_70VxUL22EeO-aaY3kqFukA" name="configDirectory">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Qt6WsMfHEeOhlq-hm4UKlg" name="tempDirectory">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_gGRcIPLaEeOMaNdJGsDNjw" name="packageInitializers" type="_XtW-4PC1EeOSz4YNAMghYA">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__utpgPLaEeOMaNdJGsDNjw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__uuQkPLaEeOMaNdJGsDNjw" value="*"/>
         </ownedParameter>
       </ownedOperation>
     </packagedElement>

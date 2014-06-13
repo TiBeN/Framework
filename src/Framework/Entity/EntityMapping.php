@@ -3,8 +3,8 @@
 namespace TiBeN\Framework\Entity;
 
 use TiBeN\Framework\DataSource\DataSourcesRegistry;
-use TiBeN\Framework\Validation\ValidationRule;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Validation\ValidationRule;
 
 // Start of user code EntityMapping.useStatements
 // Place your use statements here.
@@ -22,14 +22,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class EntityMapping
 {
     /**
+     * @var string
+     */
+    public $dataSourceName;
+
+    /**
      * @var DataSourceEntityMappingConfiguration
      */
     public $dataSourceEntityConfiguration;
-
-    /**
-     * @var AssociativeArray
-     */
-    public $attributeMappings;
 
     /**
      * @var string
@@ -37,15 +37,35 @@ class EntityMapping
     public $entityName;
 
     /**
-     * @var string
+     * @var AssociativeArray
      */
-    public $dataSourceName;
+    public $attributeMappings;
 
     public function __construct()
     {
         // Start of user code EntityMapping.constructor
         $this->attributeMappings = new AssociativeArray();
         // End of user code
+    }
+
+    /**
+     * @return string
+     */
+    public function getDataSourceName()
+    {
+        // Start of user code Getter EntityMapping.getDataSourceName
+        // End of user code
+        return $this->dataSourceName;
+    }
+
+    /**
+     * @param string $dataSourceName
+     */
+    public function setDataSourceName($dataSourceName)
+    {
+        // Start of user code Setter EntityMapping.setDataSourceName
+        // End of user code
+        $this->dataSourceName = $dataSourceName;
     }
 
     /**
@@ -69,26 +89,6 @@ class EntityMapping
     }
 
     /**
-     * @return AssociativeArray
-     */
-    public function getAttributeMappings()
-    {
-        // Start of user code Getter EntityMapping.getAttributeMappings
-        // End of user code
-        return $this->attributeMappings;
-    }
-
-    /**
-     * @param AssociativeArray $attributeMappings
-     */
-    public function setAttributeMappings(AssociativeArray $attributeMappings)
-    {
-        // Start of user code Setter EntityMapping.setAttributeMappings
-        // End of user code
-        $this->attributeMappings = $attributeMappings;
-    }
-
-    /**
      * @return string
      */
     public function getEntityName()
@@ -109,23 +109,23 @@ class EntityMapping
     }
 
     /**
-     * @return string
+     * @return AssociativeArray
      */
-    public function getDataSourceName()
+    public function getAttributeMappings()
     {
-        // Start of user code Getter EntityMapping.getDataSourceName
+        // Start of user code Getter EntityMapping.getAttributeMappings
         // End of user code
-        return $this->dataSourceName;
+        return $this->attributeMappings;
     }
 
     /**
-     * @param string $dataSourceName
+     * @param AssociativeArray $attributeMappings
      */
-    public function setDataSourceName($dataSourceName)
+    public function setAttributeMappings(AssociativeArray $attributeMappings)
     {
-        // Start of user code Setter EntityMapping.setDataSourceName
+        // Start of user code Setter EntityMapping.setAttributeMappings
         // End of user code
-        $this->dataSourceName = $dataSourceName;
+        $this->attributeMappings = $attributeMappings;
     }
 
     /**

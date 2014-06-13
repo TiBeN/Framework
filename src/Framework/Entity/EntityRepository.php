@@ -25,34 +25,14 @@ use TiBeN\Framework\DataSource\DataSource;
 class EntityRepository
 {
     /**
-     * @var EntityMapping
-     */
-    public $entityMapping;
-
-    /**
      * @var DataSource
      */
     public $dataSource;
 
     /**
-     * @return EntityMapping
+     * @var EntityMapping
      */
-    public function getEntityMapping()
-    {
-        // Start of user code Getter EntityRepository.getEntityMapping
-        // End of user code
-        return $this->entityMapping;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     */
-    public function setEntityMapping(EntityMapping $entityMapping)
-    {
-        // Start of user code Setter EntityRepository.setEntityMapping
-        // End of user code
-        $this->entityMapping = $entityMapping;
-    }
+    public $entityMapping;
 
     /**
      * @return DataSource
@@ -75,26 +55,23 @@ class EntityRepository
     }
 
     /**
-     * Factory method that instanciate an
-     * entity factory from an entity classname.
-     * 
-     *
-     * @param string $entityClassName
-     * @return EntityRepository $entityRepository
+     * @return EntityMapping
      */
-    public static function instantiateFromEntityClassName($entityClassName)
+    public function getEntityMapping()
     {
-        // Start of user code EntityRepository.instantiateFromEntityClassName
-        $entityRepository = new self;
-        $entityMapping = EntityMappingsRegistry::getEntityMapping($entityClassName);
-        
-        $entityRepository->setEntityMapping($entityMapping);
-        $entityRepository->setDataSource(
-            DataSourcesRegistry::getDataSource($entityMapping->getDataSourceName())
-        );
+        // Start of user code Getter EntityRepository.getEntityMapping
         // End of user code
-    
-        return $entityRepository;
+        return $this->entityMapping;
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     */
+    public function setEntityMapping(EntityMapping $entityMapping)
+    {
+        // Start of user code Setter EntityRepository.setEntityMapping
+        // End of user code
+        $this->entityMapping = $entityMapping;
     }
 
     /**
@@ -146,6 +123,29 @@ class EntityRepository
         // Start of user code EntityRepository.delete
         $this->dataSource->delete($this->entityMapping, $entity);
         // End of user code
+    }
+
+    /**
+     * Factory method that instanciate an
+     * entity factory from an entity classname.
+     * 
+     *
+     * @param string $entityClassName
+     * @return EntityRepository $entityRepository
+     */
+    public static function instantiateFromEntityClassName($entityClassName)
+    {
+        // Start of user code EntityRepository.instantiateFromEntityClassName
+        $entityRepository = new self;
+        $entityMapping = EntityMappingsRegistry::getEntityMapping($entityClassName);
+        
+        $entityRepository->setEntityMapping($entityMapping);
+        $entityRepository->setDataSource(
+            DataSourcesRegistry::getDataSource($entityMapping->getDataSourceName())
+        );
+        // End of user code
+    
+        return $entityRepository;
     }
 
     // Start of user code EntityRepository.implementationSpecificMethods

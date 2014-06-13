@@ -42,6 +42,79 @@ class ServiceContainerTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method getParameter from class ServiceContainer
+     *
+     * Start of user code ServiceContainerTest.testgetParameterAnnotations
+     * PHPUnit user annotations can be placed here
+     * End of user code
+     */
+    public function testGetParameter()
+    {
+        // Start of user code ServiceContainerTest.testgetParameter
+        ServiceContainer::setParameter('some-parameter', 'some-value');
+        $this->assertEquals(
+            'some-value',
+            ServiceContainer::getParameter('some-parameter')
+        );
+        // End of user code
+    }
+    
+    /**
+     * Test static method get from class ServiceContainer
+     *
+     * Start of user code ServiceContainerTest.testgetAnnotations
+     * 
+     * End of user code
+     */
+    public function testGet()
+    {
+        // Start of user code ServiceContainerTest.testget
+        ServiceContainer::register(
+            'some-service',
+            'TiBeN\\Framework\\Tests\\Fixtures\\ServiceContainer\\SomeService',
+            array('foo')
+        );
+        $this->assertInstanceOf(
+            'TiBeN\\Framework\\Tests\\Fixtures\\ServiceContainer\\SomeService', 
+            ServiceContainer::get('some-service')
+        );
+        // End of user code
+    }
+    
+    /**
+     * Test static method removeParameter from class ServiceContainer
+     *
+     * Start of user code ServiceContainerTest.testremoveParameterAnnotations
+     * PHPUnit user annotations can be placed here
+     * End of user code
+     */
+    public function testRemoveParameter()
+    {
+        // Start of user code ServiceContainerTest.testremoveParameter
+        ServiceContainer::setParameter('some-parameter', 'foo');
+        $this->assertTrue(ServiceContainer::hasParameter('some-parameter'));
+        ServiceContainer::removeParameter('some-parameter');
+        $this->assertFalse(ServiceContainer::hasParameter('some-parameter'));
+        // End of user code
+    }
+    
+    /**
+     * Test method hasParameter from class ServiceContainer
+     *
+     * Start of user code ServiceContainerTest.testhasParameterAnnotations
+     * @runInSeparateProcess
+     * End of user code
+     */
+    public function testHasParameter()
+    {
+        // Start of user code ServiceContainerTest.testhasParameter
+        $this->assertFalse(ServiceContainer::hasParameter('some-parameter'));
+        ServiceContainer::setParameter('some-parameter', 'bar');
+        $this->assertTrue(ServiceContainer::hasParameter('some-parameter'));
+        // End of user code
+    }
+    
+    /**
      * Test static method remove from class ServiceContainer
      *
      * Start of user code ServiceContainerTest.testremoveAnnotations
@@ -64,20 +137,36 @@ class ServiceContainerTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method getParameter from class ServiceContainer
+     * Test method has from class ServiceContainer
      *
-     * Start of user code ServiceContainerTest.testgetParameterAnnotations
+     * Start of user code ServiceContainerTest.testhasAnnotations
+     * @runInSeparateProcess
+     * End of user code
+     */
+    public function testHas()
+    {
+        // Start of user code ServiceContainerTest.testhas
+        $this->assertFalse(ServiceContainer::has('some-service'));
+        ServiceContainer::register(
+            'some-service',
+            'TiBeN\\Framework\\Tests\\Fixtures\\ServiceContainer\\SomeService',
+            array('%some-parameter')
+        );
+        $this->assertTrue(ServiceContainer::has('some-service'));
+        // End of user code
+    }
+    
+    /**
+     * Test static method setParameter from class ServiceContainer
+     *
+     * Start of user code ServiceContainerTest.testsetParameterAnnotations
      * PHPUnit user annotations can be placed here
      * End of user code
      */
-    public function testGetParameter()
+    public function testSetParameter()
     {
-        // Start of user code ServiceContainerTest.testgetParameter
-        ServiceContainer::setParameter('some-parameter', 'some-value');
-        $this->assertEquals(
-            'some-value',
-            ServiceContainer::getParameter('some-parameter')
-        );
+        // Start of user code ServiceContainerTest.testsetParameter
+        // Tested by "testGetParameter" 
         // End of user code
     }
     
@@ -149,95 +238,6 @@ class ServiceContainerTest extends \PHPUnit_Framework_TestCase
             ServiceContainer::get('some-fourth-service')->getParam()
         );
 
-        // End of user code
-    }
-    
-    /**
-     * Test static method removeParameter from class ServiceContainer
-     *
-     * Start of user code ServiceContainerTest.testremoveParameterAnnotations
-     * PHPUnit user annotations can be placed here
-     * End of user code
-     */
-    public function testRemoveParameter()
-    {
-        // Start of user code ServiceContainerTest.testremoveParameter
-        ServiceContainer::setParameter('some-parameter', 'foo');
-        $this->assertTrue(ServiceContainer::hasParameter('some-parameter'));
-        ServiceContainer::removeParameter('some-parameter');
-        $this->assertFalse(ServiceContainer::hasParameter('some-parameter'));
-        // End of user code
-    }
-    
-    /**
-     * Test static method get from class ServiceContainer
-     *
-     * Start of user code ServiceContainerTest.testgetAnnotations
-     * 
-     * End of user code
-     */
-    public function testGet()
-    {
-        // Start of user code ServiceContainerTest.testget
-        ServiceContainer::register(
-            'some-service',
-            'TiBeN\\Framework\\Tests\\Fixtures\\ServiceContainer\\SomeService',
-            array('foo')
-        );
-        $this->assertInstanceOf(
-            'TiBeN\\Framework\\Tests\\Fixtures\\ServiceContainer\\SomeService', 
-            ServiceContainer::get('some-service')
-        );
-        // End of user code
-    }
-    
-    /**
-     * Test method has from class ServiceContainer
-     *
-     * Start of user code ServiceContainerTest.testhasAnnotations
-     * @runInSeparateProcess
-     * End of user code
-     */
-    public function testHas()
-    {
-        // Start of user code ServiceContainerTest.testhas
-        $this->assertFalse(ServiceContainer::has('some-service'));
-        ServiceContainer::register(
-            'some-service',
-            'TiBeN\\Framework\\Tests\\Fixtures\\ServiceContainer\\SomeService',
-            array('%some-parameter')
-        );
-        $this->assertTrue(ServiceContainer::has('some-service'));
-        // End of user code
-    }
-    
-    /**
-     * Test static method setParameter from class ServiceContainer
-     *
-     * Start of user code ServiceContainerTest.testsetParameterAnnotations
-     * PHPUnit user annotations can be placed here
-     * End of user code
-     */
-    public function testSetParameter()
-    {
-        // Start of user code ServiceContainerTest.testsetParameter
-        // Tested by "testGetParameter" 
-        // End of user code
-    }
-    
-    /**
-     * Test method hasParameter from class ServiceContainer
-     *
-     * Start of user code ServiceContainerTest.testhasParameterAnnotations
-     * @runInSeparateProcess
-     * End of user code
-     */
-    public function testHasParameter()
-    {
-        // Start of user code ServiceContainerTest.testhasParameter
-        $this->assertFalse(ServiceContainer::hasParameter('some-parameter'));
-        ServiceContainer::setParameter('some-parameter', 'bar');
-        $this->assertTrue(ServiceContainer::hasParameter('some-parameter'));
         // End of user code
     }
 

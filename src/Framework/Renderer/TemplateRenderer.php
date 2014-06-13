@@ -17,6 +17,11 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class TemplateRenderer
 {
     /**
+     * @var string
+     */
+    public static $defaultTemplatesDirectory;
+
+    /**
      * @var TemplateEngine
      */
     public static $defaultTemplateEngine;
@@ -27,9 +32,24 @@ class TemplateRenderer
     public static $globals;
 
     /**
-     * @var string
+     * @return string
      */
-    public static $defaultTemplatesDirectory;
+    public static function getDefaultTemplatesDirectory()
+    {
+        // Start of user code Static getter TemplateRenderer.getDefaultTemplatesDirectory
+        // End of user code
+        return self::$defaultTemplatesDirectory;
+    }
+
+    /**
+     * @param string $defaultTemplatesDirectory
+     */
+    public static function setDefaultTemplatesDirectory($defaultTemplatesDirectory)
+    {
+        // Start of user code Static setter TemplateRenderer.setDefaultTemplatesDirectory
+        // End of user code
+        self::$defaultTemplatesDirectory = $defaultTemplatesDirectory;
+    }
 
     /**
      * @return TemplateEngine
@@ -75,23 +95,26 @@ class TemplateRenderer
     }
 
     /**
-     * @return string
+     * Render the template using variables and globals set and return the generated content
+     *
+     * @param string $templateName
+     * @param AssociativeArray $variables
+     * @return string $renderedContent
      */
-    public static function getDefaultTemplatesDirectory()
+    public static function render($templateName, AssociativeArray $variables = NULL)
     {
-        // Start of user code Static getter TemplateRenderer.getDefaultTemplatesDirectory
+        // Start of user code TemplateRenderer.render
+        if (!self::$defaultTemplateEngine instanceof TemplateEngine) {
+            throw new \RuntimeException('TemplateRenderer has no default TemplateEngine set');
+        }
+        return self::renderUsing(
+            self::$defaultTemplateEngine,
+            $templateName,
+            $variables
+        );
         // End of user code
-        return self::$defaultTemplatesDirectory;
-    }
-
-    /**
-     * @param string $defaultTemplatesDirectory
-     */
-    public static function setDefaultTemplatesDirectory($defaultTemplatesDirectory)
-    {
-        // Start of user code Static setter TemplateRenderer.setDefaultTemplatesDirectory
-        // End of user code
-        self::$defaultTemplatesDirectory = $defaultTemplatesDirectory;
+    
+        return $renderedContent;
     }
 
     /**
@@ -122,29 +145,6 @@ class TemplateRenderer
         $templateEngine->setVariables($variables);
         
         $renderedContent = $templateEngine->render();
-        // End of user code
-    
-        return $renderedContent;
-    }
-
-    /**
-     * Render the template using variables and globals set and return the generated content
-     *
-     * @param string $templateName
-     * @param AssociativeArray $variables
-     * @return string $renderedContent
-     */
-    public static function render($templateName, AssociativeArray $variables = NULL)
-    {
-        // Start of user code TemplateRenderer.render
-        if (!self::$defaultTemplateEngine instanceof TemplateEngine) {
-            throw new \RuntimeException('TemplateRenderer has no default TemplateEngine set');
-        }
-        return self::renderUsing(
-            self::$defaultTemplateEngine,
-            $templateName,
-            $variables
-        );
         // End of user code
     
         return $renderedContent;

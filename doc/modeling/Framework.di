@@ -114,19 +114,7 @@
           <emfPageIdentifier href="Framework.notation#_tEJwABleEeOF6MZOG78g_A"/>
         </children>
         <children>
-          <emfPageIdentifier href="Framework.notation#_Oyo3oJkdEeKNe-pGKaimUg"/>
-        </children>
-        <children>
           <emfPageIdentifier href="Framework.notation#_YUGzAL22EeO-aaY3kqFukA"/>
-        </children>
-        <children>
-          <emfPageIdentifier href="Framework.notation#_Ch5iQCLnEeOU6MgQ9M9Alg"/>
-        </children>
-        <children>
-          <emfPageIdentifier href="Framework.notation#_rpcXoLpKEeKCG86i4yJFKg"/>
-        </children>
-        <children>
-          <emfPageIdentifier href="Framework.notation#_G0oFYB76EeOf9MerE9_4bA"/>
         </children>
       </children>
     </windows>

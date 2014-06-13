@@ -27,15 +27,15 @@ class Router
     public static $onExecuteActionExceptionRoute;
 
     /**
-     * @var array
-     */
-    public static $routeRules;
-
-    /**
      * Route who is followed when the initial Route is not found 
      * @var Route
      */
     public static $onNotFoundRoute;
+
+    /**
+     * @var array
+     */
+    public static $routeRules;
 
     /**
      * @return Route
@@ -55,6 +55,26 @@ class Router
         // Start of user code Static setter Router.setOnExecuteActionExceptionRoute
         // End of user code
         self::$onExecuteActionExceptionRoute = $onExecuteActionExceptionRoute;
+    }
+
+    /**
+     * @return Route
+     */
+    public static function getOnNotFoundRoute()
+    {
+        // Start of user code Static getter Router.getOnNotFoundRoute
+        // End of user code
+        return self::$onNotFoundRoute;
+    }
+
+    /**
+     * @param Route $onNotFoundRoute
+     */
+    public static function setOnNotFoundRoute(Route $onNotFoundRoute)
+    {
+        // Start of user code Static setter Router.setOnNotFoundRoute
+        // End of user code
+        self::$onNotFoundRoute = $onNotFoundRoute;
     }
 
     /**
@@ -78,23 +98,33 @@ class Router
     }
 
     /**
-     * @return Route
+     * Add a route rule to the route rule collection
+     *
+     * @param RouteRule $routeRule
      */
-    public static function getOnNotFoundRoute()
+    public static function addRouteRule(RouteRule $routeRule)
     {
-        // Start of user code Static getter Router.getOnNotFoundRoute
+        // Start of user code Router.addRouteRule
+        if (!isset(self::$routeRules)) {
+            self::$routeRules = array();
+        }
+        array_push(self::$routeRules, $routeRule);
         // End of user code
-        return self::$onNotFoundRoute;
     }
 
     /**
-     * @param Route $onNotFoundRoute
+     * Find a route by her name and optionnal variables then follow it. This method can by used to control the controller / action flow.    
+     *
+     * @param string $routeName
+     * @param AssociativeArray $variables
      */
-    public static function setOnNotFoundRoute(Route $onNotFoundRoute)
+    public static function forwardToRoute($routeName, AssociativeArray $variables)
     {
-        // Start of user code Static setter Router.setOnNotFoundRoute
+        // Start of user code Router.forwardToRoute
+        $routeRule = self::getRouteRuleByName($routeName);
+        $route = $routeRule->getRoute($variables);
+        self::followRoute($route);
         // End of user code
-        self::$onNotFoundRoute = $onNotFoundRoute;
     }
 
     /**
@@ -144,6 +174,21 @@ class Router
         // End of user code
     
         return $uri;
+    }
+
+    /**
+     * Send a redirect 302 http response to the route specified by her name and optionnal variables
+     *
+     * @param string $routeName
+     * @param AssociativeArray $variables
+     */
+    public static function redirectToRoute($routeName, AssociativeArray $variables)
+    {
+        // Start of user code Router.redirectToRoute
+        $uri = self::generateUri($routeName, $variables);
+        $redirectResponse = HttpResponse::createRedirectResponse($uri, false);
+        $redirectResponse->sendToClient();          
+        // End of user code
     }
 
     /**
@@ -215,21 +260,6 @@ class Router
     }
 
     /**
-     * Find a route by her name and optionnal variables then follow it. This method can by used to control the controller / action flow.    
-     *
-     * @param string $routeName
-     * @param AssociativeArray $variables
-     */
-    public static function forwardToRoute($routeName, AssociativeArray $variables)
-    {
-        // Start of user code Router.forwardToRoute
-        $routeRule = self::getRouteRuleByName($routeName);
-        $route = $routeRule->getRoute($variables);
-        self::followRoute($route);
-        // End of user code
-    }
-
-    /**
      * Return a route rule from her name
      *
      * @param string $routeName
@@ -255,36 +285,6 @@ class Router
         // End of user code
     
         return $routeRule;
-    }
-
-    /**
-     * Send a redirect 302 http response to the route specified by her name and optionnal variables
-     *
-     * @param string $routeName
-     * @param AssociativeArray $variables
-     */
-    public static function redirectToRoute($routeName, AssociativeArray $variables)
-    {
-        // Start of user code Router.redirectToRoute
-        $uri = self::generateUri($routeName, $variables);
-        $redirectResponse = HttpResponse::createRedirectResponse($uri, false);
-        $redirectResponse->sendToClient();          
-        // End of user code
-    }
-
-    /**
-     * Add a route rule to the route rule collection
-     *
-     * @param RouteRule $routeRule
-     */
-    public static function addRouteRule(RouteRule $routeRule)
-    {
-        // Start of user code Router.addRouteRule
-        if (!isset(self::$routeRules)) {
-            self::$routeRules = array();
-        }
-        array_push(self::$routeRules, $routeRule);
-        // End of user code
     }
 
     // Start of user code Router.implementationSpecificMethods

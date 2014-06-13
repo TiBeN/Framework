@@ -4,8 +4,8 @@ namespace TiBeN\Framework\DataSource;
 
 use TiBeN\Framework\Entity\CriteriaSet;
 use TiBeN\Framework\Entity\Entity;
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\EntityCollection;
+use TiBeN\Framework\Entity\EntityMapping;
 
 /**
  * This is the main entry point of a DataSource.
@@ -30,28 +30,28 @@ interface DataSource
 	public function setName($name);
 
 	/**
-	 * Return the name of the AttributeMappingConfiguration class
-	 * of the datasource
-	 *
-	 * @return string $className
-	 */
-	public static function getAttributeMappingConfigurationClassName();
-
-	/**
-	 * Update the content of an entity.
-	 *
-	 * @param EntityMapping $entityMapping
-	 * @param Entity $entity
-	 */
-	public function update(EntityMapping $entityMapping, Entity $entity);
-
-	/**
 	 * Delete an entity from the datasource.
 	 *
 	 * @param EntityMapping $entityMapping
 	 * @param Entity $entity
 	 */
 	public function delete(EntityMapping $entityMapping, Entity $entity);
+
+	/**
+	 * Return the name of the EntityMappingConfiguration class 
+	 * of the data source.
+	 *
+	 * @return string $className
+	 */
+	public static function getEntityMappingConfigurationClassName();
+
+	/**
+	 * Return the name of the AttributeMappingConfiguration class
+	 * of the datasource
+	 *
+	 * @return string $className
+	 */
+	public static function getAttributeMappingConfigurationClassName();
 
 	/**
 	 * Store a new entity on the datasource.
@@ -63,12 +63,12 @@ interface DataSource
 	public function create(EntityMapping $entityMapping, Entity $entity);
 
 	/**
-	 * Return the name of the EntityMappingConfiguration class 
-	 * of the data source.
+	 * Update the content of an entity.
 	 *
-	 * @return string $className
+	 * @param EntityMapping $entityMapping
+	 * @param Entity $entity
 	 */
-	public static function getEntityMappingConfigurationClassName();
+	public function update(EntityMapping $entityMapping, Entity $entity);
 
 	/**
 	 * Retrieve a collection of entities of the specified EntityMapping

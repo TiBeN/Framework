@@ -40,16 +40,19 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method getTypeConverter from class DataSourceTypeConvertersRegistry
+     * Test static method hasTypeConverter from class DataSourceTypeConvertersRegistry
      *
-     * Start of user code DataSourceTypeConvertersRegistryTest.testgetTypeConverterAnnotations 
+     * Start of user code DataSourceTypeConvertersRegistryTest.testhasTypeConverterAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testGetTypeConverter()
+    public function testHasTypeConverter()
     {
-        // Start of user code DataSourceTypeConvertersRegistryTest.testgetTypeConverter
-        // test case covered by testRegisterTypeConverter
+        // Start of user code DataSourceTypeConvertersRegistryTest.testhasTypeConverter
+        DataSourceTypeConvertersRegistry::registerTypeConverter(new IntegerConverter());
+        $this->assertTrue(
+            DataSourceTypeConvertersRegistry::hasTypeConverter('integer', 'mysql')
+        );
         // End of user code
     }
     
@@ -72,19 +75,16 @@ class DataSourceTypeConvertersRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method hasTypeConverter from class DataSourceTypeConvertersRegistry
+     * Test static method getTypeConverter from class DataSourceTypeConvertersRegistry
      *
-     * Start of user code DataSourceTypeConvertersRegistryTest.testhasTypeConverterAnnotations 
+     * Start of user code DataSourceTypeConvertersRegistryTest.testgetTypeConverterAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testHasTypeConverter()
+    public function testGetTypeConverter()
     {
-        // Start of user code DataSourceTypeConvertersRegistryTest.testhasTypeConverter
-        DataSourceTypeConvertersRegistry::registerTypeConverter(new IntegerConverter());
-        $this->assertTrue(
-            DataSourceTypeConvertersRegistry::hasTypeConverter('integer', 'mysql')
-        );
+        // Start of user code DataSourceTypeConvertersRegistryTest.testgetTypeConverter
+        // test case covered by testRegisterTypeConverter
         // End of user code
     }
     

@@ -74,18 +74,6 @@ class ServiceContainer
     }
 
     /**
-     * Remove a service.
-     *
-     * @param string $key
-     */
-    public static function remove($key)
-    {
-        // Start of user code ServiceContainer.remove
-        self::getServices()->remove($key);
-        // End of user code
-    }
-
-    /**
      * Return the value of a parameter
      *
      * @param string $key
@@ -107,51 +95,6 @@ class ServiceContainer
         // End of user code
     
         return $value;
-    }
-
-    /**
-     * Register a new service, it's dependencies and 
-     * optionnaly the static factory method name used to 
-     * instantiate the service. 
-     * The dependancies will be resolved from theirs 
-     * key names and passed as parameters to the factory 
-     * method ( constructor is not specified).
-     * If the key if preceded by a '@' then the dependancy 
-     * is resolved as a service. If the key is preceded by a '%' 
-     * then the dependancy is resolved as a parameter. Others 
-     * cases are used as raw value.
-     *
-     * @param string $key
-     * @param string $className
-     * @param array $dependencies
-     * @param string $factoryMethodName
-     */
-    public static function register($key, $className, array $dependencies = NULL, $factoryMethodName = NULL)
-    {
-        // Start of user code ServiceContainer.register
-        self::getServices()
-            ->set(
-                $key, 
-                array(
-                    'class_name' => $className,
-                    'dependencies' => $dependencies,
-                    'factory_method_name' => $factoryMethodName
-                )
-            )
-        ;
-        // End of user code
-    }
-
-    /**
-     * Unset a parameter.
-     *
-     * @param string $key
-     */
-    public static function removeParameter($key)
-    {
-        // Start of user code ServiceContainer.removeParameter
-        self::getParameters()->remove($key);
-        // End of user code
     }
 
     /**
@@ -266,6 +209,47 @@ class ServiceContainer
     }
 
     /**
+     * Unset a parameter.
+     *
+     * @param string $key
+     */
+    public static function removeParameter($key)
+    {
+        // Start of user code ServiceContainer.removeParameter
+        self::getParameters()->remove($key);
+        // End of user code
+    }
+
+    /**
+     * Determine whether the service container contain
+     * a parameter
+     * 
+     *
+     * @param string $key
+     * @return bool $boolean
+     */
+    public function hasParameter($key)
+    {
+        // Start of user code ServiceContainer.hasParameter
+        $boolean = self::getParameters()->has($key);
+        // End of user code
+    
+        return $boolean;
+    }
+
+    /**
+     * Remove a service.
+     *
+     * @param string $key
+     */
+    public static function remove($key)
+    {
+        // Start of user code ServiceContainer.remove
+        self::getServices()->remove($key);
+        // End of user code
+    }
+
+    /**
      * Determine whether the service container contain
      * a service
      * 
@@ -296,20 +280,36 @@ class ServiceContainer
     }
 
     /**
-     * Determine whether the service container contain
-     * a parameter
-     * 
+     * Register a new service, it's dependencies and 
+     * optionnaly the static factory method name used to 
+     * instantiate the service. 
+     * The dependancies will be resolved from theirs 
+     * key names and passed as parameters to the factory 
+     * method ( constructor is not specified).
+     * If the key if preceded by a '@' then the dependancy 
+     * is resolved as a service. If the key is preceded by a '%' 
+     * then the dependancy is resolved as a parameter. Others 
+     * cases are used as raw value.
      *
      * @param string $key
-     * @return bool $boolean
+     * @param string $className
+     * @param array $dependencies
+     * @param string $factoryMethodName
      */
-    public function hasParameter($key)
+    public static function register($key, $className, array $dependencies = NULL, $factoryMethodName = NULL)
     {
-        // Start of user code ServiceContainer.hasParameter
-        $boolean = self::getParameters()->has($key);
+        // Start of user code ServiceContainer.register
+        self::getServices()
+            ->set(
+                $key, 
+                array(
+                    'class_name' => $className,
+                    'dependencies' => $dependencies,
+                    'factory_method_name' => $factoryMethodName
+                )
+            )
+        ;
         // End of user code
-    
-        return $boolean;
     }
 
     // Start of user code ServiceContainer.implementationSpecificMethods

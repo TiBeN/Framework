@@ -10,8 +10,30 @@ namespace TiBeN\Framework\Datatype;
  * @package TiBeN\Framework\Datatype
  * @author TiBeN
  */ 
-interface Collection extends \Countable, \Iterator
+interface Collection extends \Iterator, \Countable
 {
+	/**
+	 * Adding a new item to the end of the collection.
+	 *
+	 * @param T $itemToAdd
+	 */
+	public function add($itemToAdd);
+
+	/**
+	 * Rewinds back to the first element of the Iterator. 
+	 */
+	public function rewind();
+
+	/**
+	 * Reset the collection by deleting all item it contain.
+	 */
+	public function clear();
+
+	/**
+	 * Moves the current position to the next element. 
+	 */
+	public function next();
+
 	/**
 	 * Tell wheter an item is stored in the provided key slot.
 	 *
@@ -21,6 +43,33 @@ interface Collection extends \Countable, \Iterator
 	public function hasKey($key);
 
 	/**
+	 * Define the collection as read only. All writing method then throws exceptions. 
+	 *
+	 * @param bool $boolean
+	 */
+	public function setAsReadOnly($boolean);
+
+	/**
+	 * Returns the key of the current element. 
+	 *
+	 * @return int $key
+	 */
+	public function key();
+
+	/**
+	 * @return bool $boolean
+	 */
+	public function valid();
+
+	/**
+	 * Return the object stored in the provided key slot.
+	 *
+	 * @param int $key
+	 * @return T $item
+	 */
+	public function get($key);
+
+	/**
 	 * Count elements of an object
 	 *
 	 * @return int $numberOfItems
@@ -28,29 +77,11 @@ interface Collection extends \Countable, \Iterator
 	public function count();
 
 	/**
-	 * Insert of replace an item at the provided key slot.
+	 * Tell whether the collection is read only or not.
 	 *
-	 * @param int $key
-	 * @param T $itemToSet
+	 * @return bool $boolean
 	 */
-	public function set($key, $itemToSet);
-
-	/**
-	 * Moves the current position to the next element. 
-	 */
-	public function next();
-
-	/**
-	 * Check if the current position is valid. 
-	 *
-	 * @return T $currentItem
-	 */
-	public function current();
-
-	/**
-	 * Reset the collection by deleting all item it contain.
-	 */
-	public function clear();
+	public function isReadOnly();
 
 	/**
 	 * Remove an item from the collection by providing its key. 
@@ -62,18 +93,19 @@ interface Collection extends \Countable, \Iterator
 	public function remove($key);
 
 	/**
-	 * Tell whether the collection is read only or not.
+	 * Check if the current position is valid. 
 	 *
-	 * @return bool $boolean
+	 * @return T $currentItem
 	 */
-	public function isReadOnly();
+	public function current();
 
 	/**
-	 * Adding a new item to the end of the collection.
+	 * Insert of replace an item at the provided key slot.
 	 *
-	 * @param T $itemToAdd
+	 * @param int $key
+	 * @param T $itemToSet
 	 */
-	public function add($itemToAdd);
+	public function set($key, $itemToSet);
 
 	/**
 	 * Tell whether the collection is empty or not.
@@ -81,37 +113,5 @@ interface Collection extends \Countable, \Iterator
 	 * @return bool $boolean
 	 */
 	public function isEmpty();
-
-	/**
-	 * Returns the key of the current element. 
-	 *
-	 * @return int $key
-	 */
-	public function key();
-
-	/**
-	 * Define the collection as read only. All writing method then throws exceptions. 
-	 *
-	 * @param bool $boolean
-	 */
-	public function setAsReadOnly($boolean);
-
-	/**
-	 * Return the object stored in the provided key slot.
-	 *
-	 * @param int $key
-	 * @return T $item
-	 */
-	public function get($key);
-
-	/**
-	 * Rewinds back to the first element of the Iterator. 
-	 */
-	public function rewind();
-
-	/**
-	 * @return bool $boolean
-	 */
-	public function valid();
 
 }

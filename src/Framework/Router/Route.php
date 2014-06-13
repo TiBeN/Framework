@@ -26,12 +26,12 @@ class Route
     /**
      * @var string
      */
-    public $controller;
+    public $action;
 
     /**
      * @var string
      */
-    public $action;
+    public $controller;
 
     /**
      * @return AssociativeArray
@@ -56,26 +56,6 @@ class Route
     /**
      * @return string
      */
-    public function getController()
-    {
-        // Start of user code Getter Route.getController
-        // End of user code
-        return $this->controller;
-    }
-
-    /**
-     * @param string $controller
-     */
-    public function setController($controller)
-    {
-        // Start of user code Setter Route.setController
-        // End of user code
-        $this->controller = $controller;
-    }
-
-    /**
-     * @return string
-     */
     public function getAction()
     {
         // Start of user code Getter Route.getAction
@@ -91,6 +71,26 @@ class Route
         // Start of user code Setter Route.setAction
         // End of user code
         $this->action = $action;
+    }
+
+    /**
+     * @return string
+     */
+    public function getController()
+    {
+        // Start of user code Getter Route.getController
+        // End of user code
+        return $this->controller;
+    }
+
+    /**
+     * @param string $controller
+     */
+    public function setController($controller)
+    {
+        // Start of user code Setter Route.setController
+        // End of user code
+        $this->controller = $controller;
     }
 
     /**

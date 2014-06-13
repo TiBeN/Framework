@@ -18,9 +18,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class SelectStatement implements Statement
 {
     /**
-     * @var LimitStatement
+     * @var WhereConditions
      */
-    public $limitStatement;
+    public $whereConditions;
+
+    /**
+     * @var string
+     */
+    public $tableReferences;
 
     /**
      * @var OrderByStatement
@@ -33,33 +38,48 @@ class SelectStatement implements Statement
     public $selectExpr;
 
     /**
-     * @var WhereConditions
+     * @var LimitStatement
      */
-    public $whereConditions;
+    public $limitStatement;
 
     /**
-     * @var string
+     * @return WhereConditions
      */
-    public $tableReferences;
-
-    /**
-     * @return LimitStatement
-     */
-    public function getLimitStatement()
+    public function getWhereConditions()
     {
-        // Start of user code Getter SelectStatement.getLimitStatement
+        // Start of user code Getter SelectStatement.getWhereConditions
         // End of user code
-        return $this->limitStatement;
+        return $this->whereConditions;
     }
 
     /**
-     * @param LimitStatement $limitStatement
+     * @param WhereConditions $whereConditions
      */
-    public function setLimitStatement(LimitStatement $limitStatement)
+    public function setWhereConditions(WhereConditions $whereConditions)
     {
-        // Start of user code Setter SelectStatement.setLimitStatement
+        // Start of user code Setter SelectStatement.setWhereConditions
         // End of user code
-        $this->limitStatement = $limitStatement;
+        $this->whereConditions = $whereConditions;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTableReferences()
+    {
+        // Start of user code Getter SelectStatement.getTableReferences
+        // End of user code
+        return $this->tableReferences;
+    }
+
+    /**
+     * @param string $tableReferences
+     */
+    public function setTableReferences($tableReferences)
+    {
+        // Start of user code Setter SelectStatement.setTableReferences
+        // End of user code
+        $this->tableReferences = $tableReferences;
     }
 
     /**
@@ -103,46 +123,45 @@ class SelectStatement implements Statement
     }
 
     /**
-     * @return WhereConditions
+     * @return LimitStatement
      */
-    public function getWhereConditions()
+    public function getLimitStatement()
     {
-        // Start of user code Getter SelectStatement.getWhereConditions
+        // Start of user code Getter SelectStatement.getLimitStatement
         // End of user code
-        return $this->whereConditions;
+        return $this->limitStatement;
     }
 
     /**
-     * @param WhereConditions $whereConditions
+     * @param LimitStatement $limitStatement
      */
-    public function setWhereConditions(WhereConditions $whereConditions)
+    public function setLimitStatement(LimitStatement $limitStatement)
     {
-        // Start of user code Setter SelectStatement.setWhereConditions
+        // Start of user code Setter SelectStatement.setLimitStatement
         // End of user code
-        $this->whereConditions = $whereConditions;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTableReferences()
-    {
-        // Start of user code Getter SelectStatement.getTableReferences
-        // End of user code
-        return $this->tableReferences;
-    }
-
-    /**
-     * @param string $tableReferences
-     */
-    public function setTableReferences($tableReferences)
-    {
-        // Start of user code Setter SelectStatement.setTableReferences
-        // End of user code
-        $this->tableReferences = $tableReferences;
+        $this->limitStatement = $limitStatement;
     }
 
     // Statement Realization
+
+    /**
+     * Check whether all statement chunks are set 
+     * in order to generate a complete statement string to 
+     * be executed.
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+        $status = $this->selectExpr instanceof SelectExpr 
+            && !is_null($this->tableReferences)
+            && !empty($this->tableReferences)
+        ;
+        // End of user code
+    
+        return $status;
+    }
 
     /**
      * Generate the statement as a string.
@@ -173,25 +192,6 @@ class SelectStatement implements Statement
         // End of user code
     
         return $statement;
-    }
-
-    /**
-     * Check whether all statement chunks are set 
-     * in order to generate a complete statement string to 
-     * be executed.
-     *
-     * @return bool $status
-     */
-    public function isReadyToBeExecuted()
-    {
-        // Start of user code Statement.isReadyToBeExecuted
-        $status = $this->selectExpr instanceof SelectExpr 
-            && !is_null($this->tableReferences)
-            && !empty($this->tableReferences)
-        ;
-        // End of user code
-    
-        return $status;
     }
 
     /**

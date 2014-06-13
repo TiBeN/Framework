@@ -17,39 +17,19 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class InsertStatement implements Statement
 {
     /**
-     * @var ColumnNamesListStatement
-     */
-    public $columnNamesListStatement;
-
-    /**
      * @var ValuesStatement
      */
     public $valuesStatement;
 
     /**
+     * @var ColumnNamesListStatement
+     */
+    public $columnNamesListStatement;
+
+    /**
      * @var string
      */
     public $tableName;
-
-    /**
-     * @return ColumnNamesListStatement
-     */
-    public function getColumnNamesListStatement()
-    {
-        // Start of user code Getter InsertStatement.getColumnNamesListStatement
-        // End of user code
-        return $this->columnNamesListStatement;
-    }
-
-    /**
-     * @param ColumnNamesListStatement $columnNamesListStatement
-     */
-    public function setColumnNamesListStatement(ColumnNamesListStatement $columnNamesListStatement)
-    {
-        // Start of user code Setter InsertStatement.setColumnNamesListStatement
-        // End of user code
-        $this->columnNamesListStatement = $columnNamesListStatement;
-    }
 
     /**
      * @return ValuesStatement
@@ -69,6 +49,26 @@ class InsertStatement implements Statement
         // Start of user code Setter InsertStatement.setValuesStatement
         // End of user code
         $this->valuesStatement = $valuesStatement;
+    }
+
+    /**
+     * @return ColumnNamesListStatement
+     */
+    public function getColumnNamesListStatement()
+    {
+        // Start of user code Getter InsertStatement.getColumnNamesListStatement
+        // End of user code
+        return $this->columnNamesListStatement;
+    }
+
+    /**
+     * @param ColumnNamesListStatement $columnNamesListStatement
+     */
+    public function setColumnNamesListStatement(ColumnNamesListStatement $columnNamesListStatement)
+    {
+        // Start of user code Setter InsertStatement.setColumnNamesListStatement
+        // End of user code
+        $this->columnNamesListStatement = $columnNamesListStatement;
     }
 
     /**
@@ -92,6 +92,31 @@ class InsertStatement implements Statement
     }
 
     // Statement Realization
+
+    /**
+     * Check whether all statement chunks are set 
+     * in order to generate a complete statement string to 
+     * be executed.
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+        $status = true;
+        if(
+            (!isset($this->tableName) || empty($this->tableName))
+            || (!isset($this->columnNamesListStatement) 
+                || $this->columnNamesListStatement->isEmpty() 
+            )
+            || (!isset($this->valuesStatement) || $this->valuesStatement->isEmpty())
+        ) {
+            return false;
+        }
+        // End of user code
+    
+        return $status;
+    }
 
     /**
      * Generate the statement as a string.
@@ -126,31 +151,6 @@ class InsertStatement implements Statement
         // End of user code
     
         return $statement;
-    }
-
-    /**
-     * Check whether all statement chunks are set 
-     * in order to generate a complete statement string to 
-     * be executed.
-     *
-     * @return bool $status
-     */
-    public function isReadyToBeExecuted()
-    {
-        // Start of user code Statement.isReadyToBeExecuted
-        $status = true;
-        if(
-            (!isset($this->tableName) || empty($this->tableName))
-            || (!isset($this->columnNamesListStatement) 
-                || $this->columnNamesListStatement->isEmpty() 
-            )
-            || (!isset($this->valuesStatement) || $this->valuesStatement->isEmpty())
-        ) {
-            return false;
-        }
-        // End of user code
-    
-        return $status;
     }
 
     /**

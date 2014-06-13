@@ -49,28 +49,17 @@ class DataSourceTypeConvertersRegistry
     /**
      * @param string $type
      * @param string $dataSourceType
-     * @return TypeConverter $typeConverter
+     * @return bool $boolean
      */
-    public static function getTypeConverter($type, $dataSourceType)
+    public static function hasTypeConverter($type, $dataSourceType)
     {
-        // Start of user code DataSourceTypeConvertersRegistry.getTypeConverter
-        if(!self::hasTypeConverter($type, $dataSourceType)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    'No type converter \'%s\' for datasource \'%s\'',
-                    $type,
-                    $dataSourceType
-                )
-            );
-        }
-         
-        $typeConverter = self::getTypeConverters()
-           ->get($dataSourceType)
-           ->get($type)
-        ;              
+        // Start of user code DataSourceTypeConvertersRegistry.hasTypeConverter
+        $boolean = self::getTypeConverters()->has($dataSourceType)
+            && self::getTypeConverters()->get($dataSourceType)->has($type)
+        ;                           
         // End of user code
     
-        return $typeConverter;
+        return $boolean;
     }
 
     /**
@@ -97,17 +86,28 @@ class DataSourceTypeConvertersRegistry
     /**
      * @param string $type
      * @param string $dataSourceType
-     * @return bool $boolean
+     * @return TypeConverter $typeConverter
      */
-    public static function hasTypeConverter($type, $dataSourceType)
+    public static function getTypeConverter($type, $dataSourceType)
     {
-        // Start of user code DataSourceTypeConvertersRegistry.hasTypeConverter
-        $boolean = self::getTypeConverters()->has($dataSourceType)
-            && self::getTypeConverters()->get($dataSourceType)->has($type)
-        ;                           
+        // Start of user code DataSourceTypeConvertersRegistry.getTypeConverter
+        if(!self::hasTypeConverter($type, $dataSourceType)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    'No type converter \'%s\' for datasource \'%s\'',
+                    $type,
+                    $dataSourceType
+                )
+            );
+        }
+         
+        $typeConverter = self::getTypeConverters()
+           ->get($dataSourceType)
+           ->get($type)
+        ;              
         // End of user code
     
-        return $boolean;
+        return $typeConverter;
     }
 
     /**

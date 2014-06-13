@@ -45,6 +45,34 @@ class UpdateStatementTest extends \PHPUnit_Framework_TestCase
     
 
     /**
+     * Test method isReadyToBeExecuted from interface Statement
+     * Start of user code Statement.testisReadyToBeExecutedAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testIsReadyToBeExecuted()
+    {
+        // Start of user code Statement.testisReadyToBeExecuted
+        $update = new UpdateStatement();
+        $this->assertFalse($update->isReadyToBeExecuted());
+        
+        $update->setTableName('some_table');
+        $this->assertFalse($update->isReadyToBeExecuted());
+        
+        $update->setSetStatement(
+            SetStatement::createFromNativeArray(
+                null, 
+                array(
+                    'id' => 10,
+                    'foo' => 'foo'    
+                )
+            )
+        );
+        $this->assertTrue($update->isReadyToBeExecuted());
+        // End of user code
+    }
+    
+    /**
      * Test method toString from interface Statement
      * Start of user code Statement.testtoStringAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -95,34 +123,6 @@ class UpdateStatementTest extends \PHPUnit_Framework_TestCase
             $expectedStatementParameters, 
             $update->getStatementParameters()
         );
-        // End of user code
-    }
-    
-    /**
-     * Test method isReadyToBeExecuted from interface Statement
-     * Start of user code Statement.testisReadyToBeExecutedAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testIsReadyToBeExecuted()
-    {
-        // Start of user code Statement.testisReadyToBeExecuted
-        $update = new UpdateStatement();
-        $this->assertFalse($update->isReadyToBeExecuted());
-        
-        $update->setTableName('some_table');
-        $this->assertFalse($update->isReadyToBeExecuted());
-        
-        $update->setSetStatement(
-            SetStatement::createFromNativeArray(
-                null, 
-                array(
-                    'id' => 10,
-                    'foo' => 'foo'    
-                )
-            )
-        );
-        $this->assertTrue($update->isReadyToBeExecuted());
         // End of user code
     }
     

@@ -4,8 +4,8 @@ namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\Entity\CriteriaSet;
 use TiBeN\Framework\Entity\Entity;
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Entity\EntityMapping;
 
 // Start of user code StatementFactory.useStatements
 // Place your use statements here.
@@ -21,6 +21,24 @@ use TiBeN\Framework\Datatype\AssociativeArray;
  */
 class StatementFactory
 {
+
+    /**
+     * Create a statement object from a statement string.
+     *
+     * @param string $statementString
+     * @param AssociativeArray $parameters
+     * @return GenericStatement $genericStatement
+     */
+    public static function createFromString($statementString, AssociativeArray $parameters)
+    {
+        // Start of user code StatementFactory.createFromString
+        $genericStatement = new GenericStatement();
+        $genericStatement->setStatementString($statementString);
+        $genericStatement->setStatementParameters($parameters);
+        // End of user code
+    
+        return $genericStatement;
+    }
 
     /**
      * Create a "select" statement to retrieve records of the table
@@ -75,6 +93,40 @@ class StatementFactory
     }
 
     /**
+     * Create an "update" statement that will update the row 
+     * pointed by the specified entity. 
+     *
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     * @return UpdateStatement $updateStatement
+     */
+    public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code StatementFactory.createUpdateStatementFromEntity
+        $updateStatement = new UpdateStatement();
+        $updateStatement->setTableName(
+            $entityMapping
+                ->getDataSourceEntityConfiguration()
+                ->getTableName()
+        );
+        $updateStatement->setSetStatement(
+            SetStatement::createKeyValueListFromEntity(
+                $entityMapping,
+                $entity
+            )
+        );
+        $updateStatement->setWhereDefinition(
+            WhereConditions::createEntityTargetFromEntity(
+                $entityMapping,
+                $entity
+            )
+        );
+        // End of user code
+    
+        return $updateStatement;
+    }
+
+    /**
      * Create an "delete" statement that will delete the row 
      * pointed by the specified entity. 
      *
@@ -100,24 +152,6 @@ class StatementFactory
         // End of user code
     
         return $deleteStatement;
-    }
-
-    /**
-     * Create a statement object from a statement string.
-     *
-     * @param string $statementString
-     * @param AssociativeArray $parameters
-     * @return GenericStatement $genericStatement
-     */
-    public static function createFromString($statementString, AssociativeArray $parameters)
-    {
-        // Start of user code StatementFactory.createFromString
-        $genericStatement = new GenericStatement();
-        $genericStatement->setStatementString($statementString);
-        $genericStatement->setStatementParameters($parameters);
-        // End of user code
-    
-        return $genericStatement;
     }
 
     /**
@@ -158,40 +192,6 @@ class StatementFactory
         // End of user code
     
         return $insertStatement;
-    }
-
-    /**
-     * Create an "update" statement that will update the row 
-     * pointed by the specified entity. 
-     *
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     * @return UpdateStatement $updateStatement
-     */
-    public static function createUpdateStatementFromEntity(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code StatementFactory.createUpdateStatementFromEntity
-        $updateStatement = new UpdateStatement();
-        $updateStatement->setTableName(
-            $entityMapping
-                ->getDataSourceEntityConfiguration()
-                ->getTableName()
-        );
-        $updateStatement->setSetStatement(
-            SetStatement::createKeyValueListFromEntity(
-                $entityMapping,
-                $entity
-            )
-        );
-        $updateStatement->setWhereDefinition(
-            WhereConditions::createEntityTargetFromEntity(
-                $entityMapping,
-                $entity
-            )
-        );
-        // End of user code
-    
-        return $updateStatement;
     }
 
     // Start of user code StatementFactory.implementationSpecificMethods

@@ -2,9 +2,9 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
 use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Entity\EntityMapping;
-use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
 
 // Start of user code MysqlEntityAttributeMapper.useStatements
 // Place your use statements here.
@@ -20,34 +20,14 @@ use TiBeN\Framework\DataSource\DataSourceTypeConvertersRegistry;
 class MysqlEntityAttributeMapper
 {
     /**
-     * @var EntityMapping
-     */
-    public $entityMapping;
-
-    /**
      * @var Entity
      */
     public $entity;
 
     /**
-     * @return EntityMapping
+     * @var EntityMapping
      */
-    public function getEntityMapping()
-    {
-        // Start of user code Getter MysqlEntityAttributeMapper.getEntityMapping
-        // End of user code
-        return $this->entityMapping;
-    }
-
-    /**
-     * @param EntityMapping $entityMapping
-     */
-    public function setEntityMapping(EntityMapping $entityMapping)
-    {
-        // Start of user code Setter MysqlEntityAttributeMapper.setEntityMapping
-        // End of user code
-        $this->entityMapping = $entityMapping;
-    }
+    public $entityMapping;
 
     /**
      * @return Entity
@@ -67,6 +47,26 @@ class MysqlEntityAttributeMapper
         // Start of user code Setter MysqlEntityAttributeMapper.setEntity
         // End of user code
         $this->entity = $entity;
+    }
+
+    /**
+     * @return EntityMapping
+     */
+    public function getEntityMapping()
+    {
+        // Start of user code Getter MysqlEntityAttributeMapper.getEntityMapping
+        // End of user code
+        return $this->entityMapping;
+    }
+
+    /**
+     * @param EntityMapping $entityMapping
+     */
+    public function setEntityMapping(EntityMapping $entityMapping)
+    {
+        // Start of user code Setter MysqlEntityAttributeMapper.setEntityMapping
+        // End of user code
+        $this->entityMapping = $entityMapping;
     }
 
     /**
@@ -102,6 +102,64 @@ class MysqlEntityAttributeMapper
         }
         
         $this->setAttributeValue($columnName, (string)$identifier);
+        // End of user code
+    }
+
+    /**
+     * Set the value of an entity attribute from its
+     * mapped mysql column name.
+     *
+     * @param string $columnName
+     * @param string $value
+     */
+    public function setAttributeValue($columnName, $value)
+    {
+        // Start of user code MysqlEntityAttributeMapper.setAttributeValue
+        if(!isset($this->entity)) {
+            throw new \LogicException('No entity set');
+        }
+         
+        if(!isset($this->entityMapping)) {
+            throw new \LogicException('No entity mapping set');
+        }
+        
+        foreach($this->entityMapping->getAttributeMappings()->toNativeArray() 
+            as $attributeName => $attributeMapping
+        ) {
+            if($attributeMapping
+                ->getDataSourceAttributeMappingConfiguration()
+                ->getColumnName()
+                == $columnName
+            ) {
+                $attributeFound = $attributeMapping;
+                break;
+            }                                     
+        }       
+        
+        if(!isset($attributeFound)) {
+            throw new \LogicException(
+                sprintf('column \'%s\' is not mapped to any attribute', $columnName)
+            );
+        }
+
+        $converter = DataSourceTypeConvertersRegistry::getTypeConverter(
+            $attributeFound
+                ->getType()
+                ->get('name')
+            ,
+            'mysql'
+        );
+
+        // Define converter parameters from type configuration of the attribute 
+        $attributeTypeParameters = clone $attributeFound->getType();
+        $attributeTypeParameters->remove('name');
+        $converter->setParameters($attributeTypeParameters);
+
+        $attributeSetterName = 'set'
+            . ucfirst($attributeFound->getName())
+        ;
+         
+        $this->entity->$attributeSetterName($converter->reverse($value));
         // End of user code
     }
 
@@ -186,61 +244,20 @@ class MysqlEntityAttributeMapper
     }
 
     /**
-     * Set the value of an entity attribute from its
-     * mapped mysql column name.
+     * Get the value of the identifier of an entity.
      *
-     * @param string $columnName
-     * @param string $value
+     * @return int $identifier
      */
-    public function setAttributeValue($columnName, $value)
+    public function getIdentifierValue()
     {
-        // Start of user code MysqlEntityAttributeMapper.setAttributeValue
-        if(!isset($this->entity)) {
-            throw new \LogicException('No entity set');
-        }
-         
-        if(!isset($this->entityMapping)) {
-            throw new \LogicException('No entity mapping set');
-        }
-        
-        foreach($this->entityMapping->getAttributeMappings()->toNativeArray() 
-            as $attributeName => $attributeMapping
-        ) {
-            if($attributeMapping
-                ->getDataSourceAttributeMappingConfiguration()
-                ->getColumnName()
-                == $columnName
-            ) {
-                $attributeFound = $attributeMapping;
-                break;
-            }                                     
-        }       
-        
-        if(!isset($attributeFound)) {
-            throw new \LogicException(
-                sprintf('column \'%s\' is not mapped to any attribute', $columnName)
-            );
-        }
-
-        $converter = DataSourceTypeConvertersRegistry::getTypeConverter(
-            $attributeFound
-                ->getType()
-                ->get('name')
-            ,
-            'mysql'
-        );
-
-        // Define converter parameters from type configuration of the attribute 
-        $attributeTypeParameters = clone $attributeFound->getType();
-        $attributeTypeParameters->remove('name');
-        $converter->setParameters($attributeTypeParameters);
-
-        $attributeSetterName = 'set'
-            . ucfirst($attributeFound->getName())
-        ;
-         
-        $this->entity->$attributeSetterName($converter->reverse($value));
+        // Start of user code MysqlEntityAttributeMapper.getIdentifierValue
+        $attributeSetterName = 'get'
+            . ucfirst($this->getIdentifierAttributeName())
+        ;   
+        $identifier = $this->entity->$attributeSetterName();
         // End of user code
+    
+        return $identifier;
     }
 
     /**
@@ -275,23 +292,6 @@ class MysqlEntityAttributeMapper
         // End of user code
     
         return $attributeName;
-    }
-
-    /**
-     * Get the value of the identifier of an entity.
-     *
-     * @return int $identifier
-     */
-    public function getIdentifierValue()
-    {
-        // Start of user code MysqlEntityAttributeMapper.getIdentifierValue
-        $attributeSetterName = 'get'
-            . ucfirst($this->getIdentifierAttributeName())
-        ;   
-        $identifier = $this->entity->$attributeSetterName();
-        // End of user code
-    
-        return $identifier;
     }
 
     // Start of user code MysqlEntityAttributeMapper.implementationSpecificMethods

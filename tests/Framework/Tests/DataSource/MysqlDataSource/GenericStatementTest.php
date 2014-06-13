@@ -53,22 +53,6 @@ class GenericStatementTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test method toString from interface Statement
-     * Start of user code Statement.testtoStringAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code Statement.testtoString
-        $genericStatement = new GenericStatement();
-        $statementString = 'SELECT * FROM `some_test_table`';
-        $genericStatement->setStatementString($statementString);
-        $this->assertEquals($statementString, $genericStatement->toString());
-        // End of user code
-    }
-    
-    /**
      * Test method isReadyToBeExecuted from interface Statement
      * Start of user code Statement.testisReadyToBeExecutedAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -81,6 +65,22 @@ class GenericStatementTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($statement->isReadyToBeExecuted());
         $statement->setStatementString('SELECT * FROM `some_table`');
         $this->assertTrue($statement->isReadyToBeExecuted());
+        // End of user code
+    }
+    
+    /**
+     * Test method toString from interface Statement
+     * Start of user code Statement.testtoStringAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code Statement.testtoString
+        $genericStatement = new GenericStatement();
+        $statementString = 'SELECT * FROM `some_test_table`';
+        $genericStatement->setStatementString($statementString);
+        $this->assertEquals($statementString, $genericStatement->toString());
         // End of user code
     }
     

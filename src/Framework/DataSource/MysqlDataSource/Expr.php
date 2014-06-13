@@ -22,27 +22,7 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_LIKE = 'LIKE';
-
-    /**
-     * @var string
-     */
-    const LOGICAL_SEPARATOR_AND = 'AND';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_EQUALS = '=';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_GREATER_THAN = '>';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
+    const OPERATOR_NOT_EQUALS = '!=';
 
     /**
      * @var string
@@ -57,7 +37,12 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
+    const OPERATOR_GREATER_THAN = '>';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_NOT_LIKE = 'NOT LIKE';
 
     /**
      * @var bool
@@ -67,7 +52,22 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_NOT_LIKE = 'NOT LIKE';
+    const LOGICAL_SEPARATOR_AND = 'AND';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_EQUALS = '=';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
 
     /**
      * @var AssociativeArray
@@ -77,12 +77,12 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_NOT_EQUALS = '!=';
+    public $exprString;
 
     /**
      * @var string
      */
-    public $exprString;
+    const OPERATOR_LIKE = 'LIKE';
 
     public function __construct()
     {
@@ -152,20 +152,6 @@ class Expr
     }
 
     /**
-     * Generate the string representation of the expr.
-     *
-     * @return string $exprString
-     */
-    public function toString()
-    {
-        // Start of user code Expr.toString
-        $exprString = $this->exprString;
-        // End of user code
-    
-        return $exprString;
-    }
-
-    /**
      * Factory method which create an Expr resulting
      * of the concatenation of two others.
      * 
@@ -215,6 +201,20 @@ class Expr
         // End of user code
     
         return $expr;
+    }
+
+    /**
+     * Generate the string representation of the expr.
+     *
+     * @return string $exprString
+     */
+    public function toString()
+    {
+        // Start of user code Expr.toString
+        $exprString = $this->exprString;
+        // End of user code
+    
+        return $exprString;
     }
 
     // Start of user code Expr.implementationSpecificMethods

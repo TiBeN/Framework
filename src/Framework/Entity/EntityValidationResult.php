@@ -18,40 +18,20 @@ use TiBeN\Framework\Validation\ValidationResult;
 class EntityValidationResult
 {
     /**
-     * @var bool
-     */
-    public $result;
-
-    /**
      * @var array
      */
     public $validationResults;
+
+    /**
+     * @var bool
+     */
+    public $result;
 
     public function __construct()
     {
         // Start of user code EntityValidationResult.constructor
         $this->validationResults = array();
         // End of user code
-    }
-
-    /**
-     * @return bool
-     */
-    public function getResult()
-    {
-        // Start of user code Getter EntityValidationResult.getResult
-        // End of user code
-        return $this->result;
-    }
-
-    /**
-     * @param bool $result
-     */
-    public function setResult($result)
-    {
-        // Start of user code Setter EntityValidationResult.setResult
-        // End of user code
-        $this->result = $result;
     }
 
     /**
@@ -72,6 +52,26 @@ class EntityValidationResult
         // Start of user code Setter EntityValidationResult.setValidationResults
         // End of user code
         $this->validationResults = $validationResults;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getResult()
+    {
+        // Start of user code Getter EntityValidationResult.getResult
+        // End of user code
+        return $this->result;
+    }
+
+    /**
+     * @param bool $result
+     */
+    public function setResult($result)
+    {
+        // Start of user code Setter EntityValidationResult.setResult
+        // End of user code
+        $this->result = $result;
     }
 
     // Start of user code EntityValidationResult.implementationSpecificMethods

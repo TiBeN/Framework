@@ -25,17 +25,17 @@ class HttpResponse
     /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
     public $statusCode = '200';
 
     /**
      * @var AssociativeArray
      */
     public $headers;
+
+    /**
+     * @var string
+     */
+    public $message;
 
     /**
      * @return string
@@ -55,26 +55,6 @@ class HttpResponse
         // Start of user code Setter HttpResponse.setContentType
         // End of user code
         $this->contentType = $contentType;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMessage()
-    {
-        // Start of user code Getter HttpResponse.getMessage
-        // End of user code
-        return $this->message;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function setMessage($message)
-    {
-        // Start of user code Setter HttpResponse.setMessage
-        // End of user code
-        $this->message = $message;
     }
 
     /**
@@ -115,6 +95,26 @@ class HttpResponse
         // Start of user code Setter HttpResponse.setHeaders
         // End of user code
         $this->headers = $headers;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMessage()
+    {
+        // Start of user code Getter HttpResponse.getMessage
+        // End of user code
+        return $this->message;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function setMessage($message)
+    {
+        // Start of user code Setter HttpResponse.setMessage
+        // End of user code
+        $this->message = $message;
     }
 
     /**

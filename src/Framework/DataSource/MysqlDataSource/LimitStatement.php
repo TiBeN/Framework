@@ -19,32 +19,12 @@ class LimitStatement
     /**
      * @var int
      */
-    public $offset;
+    public $rowCount;
 
     /**
      * @var int
      */
-    public $rowCount;
-
-    /**
-     * @return int
-     */
-    public function getOffset()
-    {
-        // Start of user code Getter LimitStatement.getOffset
-        // End of user code
-        return $this->offset;
-    }
-
-    /**
-     * @param int $offset
-     */
-    public function setOffset($offset)
-    {
-        // Start of user code Setter LimitStatement.setOffset
-        // End of user code
-        $this->offset = $offset;
-    }
+    public $offset;
 
     /**
      * @return int
@@ -64,6 +44,26 @@ class LimitStatement
         // Start of user code Setter LimitStatement.setRowCount
         // End of user code
         $this->rowCount = $rowCount;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOffset()
+    {
+        // Start of user code Getter LimitStatement.getOffset
+        // End of user code
+        return $this->offset;
+    }
+
+    /**
+     * @param int $offset
+     */
+    public function setOffset($offset)
+    {
+        // Start of user code Setter LimitStatement.setOffset
+        // End of user code
+        $this->offset = $offset;
     }
 
     /**

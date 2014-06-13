@@ -70,20 +70,6 @@ class TemplateRendererTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method renderUsing from class TemplateRenderer
-     *
-     * Start of user code TemplateRendererTest.testrenderUsingAnnotations
-     * PHPUnit user annotations can be placed here
-     * End of user code
-     */
-    public function testRenderUsing()
-    {
-        // Start of user code TemplateRendererTest.testrenderUsing
-        // This case is covered by testRender
-        // End of user code
-    }
-    
-    /**
      * Test static method render from class TemplateRenderer
      *
      * Start of user code TemplateRendererTest.testrenderAnnotations 
@@ -106,6 +92,20 @@ class TemplateRendererTest extends \PHPUnit_Framework_TestCase
             ),
             TemplateRenderer::render('smarty_template_without_vars.tpl')
         );
+        // End of user code
+    }
+    
+    /**
+     * Test static method renderUsing from class TemplateRenderer
+     *
+     * Start of user code TemplateRendererTest.testrenderUsingAnnotations
+     * PHPUnit user annotations can be placed here
+     * End of user code
+     */
+    public function testRenderUsing()
+    {
+        // Start of user code TemplateRendererTest.testrenderUsing
+        // This case is covered by testRender
         // End of user code
     }
 

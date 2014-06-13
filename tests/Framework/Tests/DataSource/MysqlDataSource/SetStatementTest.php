@@ -44,15 +44,15 @@ class SetStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method getStatementParameters from class SetStatement
+     * Test method toString from class SetStatement
      *
-     * Start of user code SetStatementTest.testgetStatementParametersAnnotations 
+     * Start of user code SetStatementTest.testtoStringAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testGetStatementParameters()
+    public function testToString()
     {
-        // Start of user code SetStatementTest.testgetStatementParameters
+        // Start of user code SetStatementTest.testtoString
         // Implicitly tested by testCreateKeyValueListFromEntity
         // End of user code
     }
@@ -93,15 +93,15 @@ class SetStatementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method toString from class SetStatement
+     * Test method getStatementParameters from class SetStatement
      *
-     * Start of user code SetStatementTest.testtoStringAnnotations 
+     * Start of user code SetStatementTest.testgetStatementParametersAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testToString()
+    public function testGetStatementParameters()
     {
-        // Start of user code SetStatementTest.testtoString
+        // Start of user code SetStatementTest.testgetStatementParameters
         // Implicitly tested by testCreateKeyValueListFromEntity
         // End of user code
     }
