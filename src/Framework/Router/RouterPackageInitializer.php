@@ -5,7 +5,8 @@ namespace TiBeN\Framework\Router;
 use TiBeN\Framework\Package\PackageInitializer;
 
 // Start of user code RouterPackageInitializer.useStatements
-// Place your use statements here.
+use TiBeN\Framework\ServiceContainer\ServiceContainer;
+
 // End of user code
 
 /**
@@ -56,11 +57,11 @@ class RouterPackageInitializer implements PackageInitializer
     public function init()
     {
         // Start of user code PackageInitializer.init
-        \TiBeN\ServiceContainer\ServiceContainer::register(
+        ServiceContainer::register(
             'route-uri-manager',
             'TiBeN\\Framework\\Router\\RouteUriManager'
         );
-        \TiBeN\ServiceContainer\ServiceContainer::register(
+        ServiceContainer::register(
             'router',
             'TiBeN\\Framework\\Router\\Router',
             array('route-uri-manager')
