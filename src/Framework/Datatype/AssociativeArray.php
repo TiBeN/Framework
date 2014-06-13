@@ -95,17 +95,72 @@ class AssociativeArray implements \Iterator, \Countable
     }
 
     /**
-     * Determine if the DataContainer is empty or not
+     * Determine if a value is stored
      *
-     * @return string $boolean
+     * @param string $key
+     * @return bool $result
      */
-    public function isEmpty()
+    public function has($key)
     {
-        // Start of user code AssociativeArray.isEmpty
-        $boolean = (!isset($this->items) || empty($this->items));
+        // Start of user code AssociativeArray.has
+        $result = (isset($this->items) && isset($this->items[$key]));
         // End of user code
     
-        return $boolean;
+        return $result;
+    }
+
+    /**
+     * Convert to a language native array
+     *
+     * @return array $nativeArray
+     */
+    public function toNativeArray()
+    {
+        // Start of user code AssociativeArray.toNativeArray
+        $nativeArray = isset($this->items)
+            ? $this->items
+            : array()
+        ;
+        // End of user code
+    
+        return $nativeArray;
+    }
+
+    /**
+     * Associate a value to a key and store it 
+     *
+     * @param string $key
+     * @param T $value
+     */
+    public function set($key, $value)
+    {
+        $this->typeHint($this->TType, $value);
+        // Start of user code AssociativeArray.set
+        if (!isset($this->items)) {
+            $this->items = array();
+        }
+        $this->items[$key] = $value;
+        // End of user code
+    }
+
+    /**
+     * Access to a value
+     *
+     * @param string $key
+     * @return string $value
+     */
+    public function get($key)
+    {
+        // Start of user code AssociativeArray.get
+        if (!isset($this->items[$key])) {
+            throw new \InvalidArgumentException(
+                sprintf('Key "%s" not found in container', $key)
+            );
+        }
+        $value = $this->items[$key];
+        // End of user code
+    
+        return $value;
     }
 
     /**
@@ -130,41 +185,6 @@ class AssociativeArray implements \Iterator, \Countable
     }
 
     /**
-     * Determine if a value is stored
-     *
-     * @param string $key
-     * @return bool $result
-     */
-    public function has($key)
-    {
-        // Start of user code AssociativeArray.has
-        $result = (isset($this->items) && isset($this->items[$key]));
-        // End of user code
-    
-        return $result;
-    }
-
-    /**
-     * Access to a value
-     *
-     * @param string $key
-     * @return string $value
-     */
-    public function get($key)
-    {
-        // Start of user code AssociativeArray.get
-        if (!isset($this->items[$key])) {
-            throw new \InvalidArgumentException(
-                sprintf('Key "%s" not found in container', $key)
-            );
-        }
-        $value = $this->items[$key];
-        // End of user code
-    
-        return $value;
-    }
-
-    /**
      * Merge the AssociativeArray with another
      *
      * @param AssociativeArray $associativeArray
@@ -178,54 +198,17 @@ class AssociativeArray implements \Iterator, \Countable
     }
 
     /**
-     * Associate a value to a key and store it 
+     * Determine if the DataContainer is empty or not
      *
-     * @param string $key
-     * @param T $value
+     * @return string $boolean
      */
-    public function set($key, $value)
+    public function isEmpty()
     {
-        $this->typeHint($this->TType, $value);
-        // Start of user code AssociativeArray.set
-        if (!isset($this->items)) {
-            $this->items = array();
-        }
-        $this->items[$key] = $value;
-        // End of user code
-    }
-
-    /**
-     * Convert to a language native array
-     *
-     * @return array $nativeArray
-     */
-    public function toNativeArray()
-    {
-        // Start of user code AssociativeArray.toNativeArray
-        $nativeArray = isset($this->items)
-            ? $this->items
-            : array()
-        ;
+        // Start of user code AssociativeArray.isEmpty
+        $boolean = (!isset($this->items) || empty($this->items));
         // End of user code
     
-        return $nativeArray;
-    }
-
-    /**
-     * Remove a value
-     *
-     * @param string $key
-     */
-    public function remove($key)
-    {
-        // Start of user code AssociativeArray.remove
-        if (!isset($this->items) || !isset($this->items[$key])) {
-            throw new InvalidArgumentException(
-                sprintf('Key "%s" not found in container', $key)
-            );
-        }
-        unset($this->items[$key]);
-        // End of user code
+        return $boolean;
     }
 
     /**
@@ -252,30 +235,35 @@ class AssociativeArray implements \Iterator, \Countable
         return $result;
     }
 
+    /**
+     * Remove a value
+     *
+     * @param string $key
+     */
+    public function remove($key)
+    {
+        // Start of user code AssociativeArray.remove
+        if (!isset($this->items) || !isset($this->items[$key])) {
+            throw new InvalidArgumentException(
+                sprintf('Key "%s" not found in container', $key)
+            );
+        }
+        unset($this->items[$key]);
+        // End of user code
+    }
+
     // Iterator Realization
 
     /**
-     * Check if the current position is valid. 
-     *
-     * @return T $currentItem
+     * @return bool $boolean
      */
-    public function current()
+    public function valid()
     {
-        // Start of user code Iterator.current
-        $currentItem = current($this->items);
+        // Start of user code Iterator.valid
+        $boolean = current($this->items) !== false;
         // End of user code
     
-        return $currentItem;
-    }
-
-    /**
-     * Rewinds back to the first element of the Iterator. 
-     */
-    public function rewind()
-    {
-        // Start of user code Iterator.rewind
-        reset($this->items);
-        // End of user code
+        return $boolean;
     }
 
     /**
@@ -303,15 +291,27 @@ class AssociativeArray implements \Iterator, \Countable
     }
 
     /**
-     * @return bool $boolean
+     * Check if the current position is valid. 
+     *
+     * @return T $currentItem
      */
-    public function valid()
+    public function current()
     {
-        // Start of user code Iterator.valid
-        $boolean = current($this->items) !== false;
+        // Start of user code Iterator.current
+        $currentItem = current($this->items);
         // End of user code
     
-        return $boolean;
+        return $currentItem;
+    }
+
+    /**
+     * Rewinds back to the first element of the Iterator. 
+     */
+    public function rewind()
+    {
+        // Start of user code Iterator.rewind
+        reset($this->items);
+        // End of user code
     }
 
     // Countable Realization

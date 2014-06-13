@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\GenericCollection;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Datatype\GenericCollection;
 
 // Start of user code SelectExpr.useStatements
 // Place your use statements here.
@@ -69,24 +69,6 @@ class SelectExpr extends GenericCollection
 
 
     /**
-     * Generate the select_expr as a string
-     *
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code SelectExpr.toString
-        if($this->isEmpty()) {
-            throw new \LogicException('The SelectExpr is empty');
-        }      
-        
-        $string = implode(',', $this->items);
-        // End of user code
-    
-        return $string;
-    }
-
-    /**
      * Factory method that generate a comma separated 
      * list of column names from a collection 
      * of entity attribute mappings.
@@ -110,6 +92,24 @@ class SelectExpr extends GenericCollection
         // End of user code
     
         return $selectExpr;
+    }
+
+    /**
+     * Generate the select_expr as a string
+     *
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code SelectExpr.toString
+        if($this->isEmpty()) {
+            throw new \LogicException('The SelectExpr is empty');
+        }      
+        
+        $string = implode(',', $this->items);
+        // End of user code
+    
+        return $string;
     }
 
     // Start of user code SelectExpr.surchargedMethods

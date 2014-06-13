@@ -13,21 +13,45 @@ namespace TiBeN\Framework\Datatype;
 interface Collection extends \Iterator, \Countable
 {
 	/**
-	 * Adding a new item to the end of the collection.
+	 * Tell whether the collection is empty or not.
 	 *
-	 * @param T $itemToAdd
+	 * @return bool $boolean
 	 */
-	public function add($itemToAdd);
+	public function isEmpty();
 
 	/**
-	 * Rewinds back to the first element of the Iterator. 
+	 * Returns the key of the current element. 
+	 *
+	 * @return int $key
 	 */
-	public function rewind();
+	public function key();
 
 	/**
-	 * Reset the collection by deleting all item it contain.
+	 * Count elements of an object
+	 *
+	 * @return int $numberOfItems
 	 */
-	public function clear();
+	public function count();
+
+	/**
+	 * Insert of replace an item at the provided key slot.
+	 *
+	 * @param int $key
+	 * @param T $itemToSet
+	 */
+	public function set($key, $itemToSet);
+
+	/**
+	 * Define the collection as read only. All writing method then throws exceptions. 
+	 *
+	 * @param bool $boolean
+	 */
+	public function setAsReadOnly($boolean);
+
+	/**
+	 * @return bool $boolean
+	 */
+	public function valid();
 
 	/**
 	 * Moves the current position to the next element. 
@@ -41,47 +65,6 @@ interface Collection extends \Iterator, \Countable
 	 * @return bool $boolean
 	 */
 	public function hasKey($key);
-
-	/**
-	 * Define the collection as read only. All writing method then throws exceptions. 
-	 *
-	 * @param bool $boolean
-	 */
-	public function setAsReadOnly($boolean);
-
-	/**
-	 * Returns the key of the current element. 
-	 *
-	 * @return int $key
-	 */
-	public function key();
-
-	/**
-	 * @return bool $boolean
-	 */
-	public function valid();
-
-	/**
-	 * Return the object stored in the provided key slot.
-	 *
-	 * @param int $key
-	 * @return T $item
-	 */
-	public function get($key);
-
-	/**
-	 * Count elements of an object
-	 *
-	 * @return int $numberOfItems
-	 */
-	public function count();
-
-	/**
-	 * Tell whether the collection is read only or not.
-	 *
-	 * @return bool $boolean
-	 */
-	public function isReadOnly();
 
 	/**
 	 * Remove an item from the collection by providing its key. 
@@ -100,18 +83,35 @@ interface Collection extends \Iterator, \Countable
 	public function current();
 
 	/**
-	 * Insert of replace an item at the provided key slot.
+	 * Return the object stored in the provided key slot.
 	 *
 	 * @param int $key
-	 * @param T $itemToSet
+	 * @return T $item
 	 */
-	public function set($key, $itemToSet);
+	public function get($key);
 
 	/**
-	 * Tell whether the collection is empty or not.
+	 * Tell whether the collection is read only or not.
 	 *
 	 * @return bool $boolean
 	 */
-	public function isEmpty();
+	public function isReadOnly();
+
+	/**
+	 * Adding a new item to the end of the collection.
+	 *
+	 * @param T $itemToAdd
+	 */
+	public function add($itemToAdd);
+
+	/**
+	 * Reset the collection by deleting all item it contain.
+	 */
+	public function clear();
+
+	/**
+	 * Rewinds back to the first element of the Iterator. 
+	 */
+	public function rewind();
 
 }

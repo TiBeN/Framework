@@ -21,14 +21,14 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
     protected $TType;
 
     /**
-     * @var bool
-     */
-    private $actAsAProxy;
-
-    /**
      * @var Converter
      */
     protected $converter;
+
+    /**
+     * @var bool
+     */
+    private $actAsAProxy;
 
     /**
      * @var Collection
@@ -79,26 +79,6 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
     }
 
     /**
-     * @return bool
-     */
-    private function getActAsAProxy()
-    {
-        // Start of user code Getter ProxyAbleGenericCollection.getActAsAProxy
-        // End of user code
-        return $this->actAsAProxy;
-    }
-
-    /**
-     * @param bool $actAsAProxy
-     */
-    private function setActAsAProxy($actAsAProxy)
-    {
-        // Start of user code Setter ProxyAbleGenericCollection.setActAsAProxy
-        // End of user code
-        $this->actAsAProxy = $actAsAProxy;
-    }
-
-    /**
      * @return Converter
      */
     protected function getConverter()
@@ -116,6 +96,26 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
         // Start of user code Setter ProxyAbleGenericCollection.setConverter
         // End of user code
         $this->converter = $converter;
+    }
+
+    /**
+     * @return bool
+     */
+    private function getActAsAProxy()
+    {
+        // Start of user code Getter ProxyAbleGenericCollection.getActAsAProxy
+        // End of user code
+        return $this->actAsAProxy;
+    }
+
+    /**
+     * @param bool $actAsAProxy
+     */
+    private function setActAsAProxy($actAsAProxy)
+    {
+        // Start of user code Setter ProxyAbleGenericCollection.setActAsAProxy
+        // End of user code
+        $this->actAsAProxy = $actAsAProxy;
     }
 
     /**
@@ -139,45 +139,6 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
     }
 
     // ProxyCollection Realization
-
-    /**
-     * Detach the proxy collection from the initial collection and dump all items contained in the initial collection.
-     * If the proxy collection is configured with a CollectionItemConverter, all items will converted during the dump.
-     * If the initial collection has a stream or lazy fetching behavior this operation can 
-     * issue some performance drawbacks because it browse all the collection during the dump.
-     */
-    public function defineAsSource()
-    {
-        // Start of user code ProxyCollection.defineAsSource
-        if(!$this->actAsAProxy) {
-            throw new \LogicException(
-                'A non proxy collection can\'t be set as native'
-            );
-        }
-        
-        /* Dump data using internal iterator. */
-        foreach($this as $key => $item) {
-            $this->items[$key] = $item;
-        }
-        
-        $this->actAsAProxy = false;
-        $this->collection = null; 
-        // End of user code
-    }
-
-    /**
-     * Determine whether the collection act as a proxy of another collection or not.
-     *
-     * @return bool $boolean
-     */
-    public function actAsAProxy()
-    {
-        // Start of user code ProxyCollection.actAsAProxy
-        return $this->actAsAProxy;
-        // End of user code
-    
-        return $boolean;
-    }
 
     /**
      * Define this collection to act as a proxy of another collection. 
@@ -248,6 +209,45 @@ class ProxyAbleGenericCollection extends GenericCollection implements ProxyColle
         $this->collection = $collection;
         $this->converter = $converter;      
         $this->actAsAProxy = true;
+        // End of user code
+    }
+
+    /**
+     * Determine whether the collection act as a proxy of another collection or not.
+     *
+     * @return bool $boolean
+     */
+    public function actAsAProxy()
+    {
+        // Start of user code ProxyCollection.actAsAProxy
+        return $this->actAsAProxy;
+        // End of user code
+    
+        return $boolean;
+    }
+
+    /**
+     * Detach the proxy collection from the initial collection and dump all items contained in the initial collection.
+     * If the proxy collection is configured with a CollectionItemConverter, all items will converted during the dump.
+     * If the initial collection has a stream or lazy fetching behavior this operation can 
+     * issue some performance drawbacks because it browse all the collection during the dump.
+     */
+    public function defineAsSource()
+    {
+        // Start of user code ProxyCollection.defineAsSource
+        if(!$this->actAsAProxy) {
+            throw new \LogicException(
+                'A non proxy collection can\'t be set as native'
+            );
+        }
+        
+        /* Dump data using internal iterator. */
+        foreach($this as $key => $item) {
+            $this->items[$key] = $item;
+        }
+        
+        $this->actAsAProxy = false;
+        $this->collection = null; 
         // End of user code
     }
 

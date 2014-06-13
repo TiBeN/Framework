@@ -67,22 +67,6 @@ class GenericStatement implements Statement
     // Statement Realization
 
     /**
-     * Check whether all statement chunks are set 
-     * in order to generate a complete statement string to 
-     * be executed.
-     *
-     * @return bool $status
-     */
-    public function isReadyToBeExecuted()
-    {
-        // Start of user code Statement.isReadyToBeExecuted
-        return isset($this->statementString) && !empty($this->statementString);  
-        // End of user code
-    
-        return $status;
-    }
-
-    /**
      * Generate the statement as a string.
      *
      * @return string $statement
@@ -110,6 +94,22 @@ class GenericStatement implements Statement
         // End of user code
     
         return $statementParameters;
+    }
+
+    /**
+     * Check whether all statement chunks are set 
+     * in order to generate a complete statement string to 
+     * be executed.
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+        return isset($this->statementString) && !empty($this->statementString);  
+        // End of user code
+    
+        return $status;
     }
 
     // Start of user code GenericStatement.implementationSpecificMethods

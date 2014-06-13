@@ -67,24 +67,6 @@ class LimitStatement
     }
 
     /**
-     * Factory method that generate a LimitStatement 
-     * from a LimitCriteria
-     *
-     * @param LimitCriteria $limitCriteria
-     * @return LimitStatement $limitStatement
-     */
-    public static function createFromLimitCriteria(LimitCriteria $limitCriteria)
-    {
-        // Start of user code LimitStatement.createFromLimitCriteria
-        $limitStatement = new self();
-        $limitStatement->setOffset($limitCriteria->getOffset());
-        $limitStatement->setRowCount($limitCriteria->getNumber()); 
-        // End of user code
-    
-        return $limitStatement;
-    }
-
-    /**
      * Generate the limit statement as a string.
      *
      * @return string $string
@@ -103,6 +85,24 @@ class LimitStatement
         // End of user code
     
         return $string;
+    }
+
+    /**
+     * Factory method that generate a LimitStatement 
+     * from a LimitCriteria
+     *
+     * @param LimitCriteria $limitCriteria
+     * @return LimitStatement $limitStatement
+     */
+    public static function createFromLimitCriteria(LimitCriteria $limitCriteria)
+    {
+        // Start of user code LimitStatement.createFromLimitCriteria
+        $limitStatement = new self();
+        $limitStatement->setOffset($limitCriteria->getOffset());
+        $limitStatement->setRowCount($limitCriteria->getNumber()); 
+        // End of user code
+    
+        return $limitStatement;
     }
 
     // Start of user code LimitStatement.implementationSpecificMethods

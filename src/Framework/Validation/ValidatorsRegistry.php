@@ -47,18 +47,6 @@ class ValidatorsRegistry
     }
 
     /**
-     * Register a Validator in the Registry.
-     *
-     * @param Validator $validator
-     */
-    public static function registerValidator(Validator $validator)
-    {
-        // Start of user code ValidatorsRegistry.registerValidator
-        self::getValidators()->set($validator->getName(), $validator);
-        // End of user code
-    }
-
-    /**
      * Remove all registered Validators.
      *
      * @param string $name
@@ -91,6 +79,18 @@ class ValidatorsRegistry
         // End of user code
     
         return $boolean;
+    }
+
+    /**
+     * Register a Validator in the Registry.
+     *
+     * @param Validator $validator
+     */
+    public static function registerValidator(Validator $validator)
+    {
+        // Start of user code ValidatorsRegistry.registerValidator
+        self::getValidators()->set($validator->getName(), $validator);
+        // End of user code
     }
 
     /**

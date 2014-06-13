@@ -19,6 +19,11 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class Route
 {
     /**
+     * @var string
+     */
+    public $action;
+
+    /**
      * @var AssociativeArray
      */
     public $variables;
@@ -26,32 +31,7 @@ class Route
     /**
      * @var string
      */
-    public $action;
-
-    /**
-     * @var string
-     */
     public $controller;
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getVariables()
-    {
-        // Start of user code Getter Route.getVariables
-        // End of user code
-        return $this->variables;
-    }
-
-    /**
-     * @param AssociativeArray $variables
-     */
-    public function setVariables(AssociativeArray $variables)
-    {
-        // Start of user code Setter Route.setVariables
-        // End of user code
-        $this->variables = $variables;
-    }
 
     /**
      * @return string
@@ -71,6 +51,26 @@ class Route
         // Start of user code Setter Route.setAction
         // End of user code
         $this->action = $action;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getVariables()
+    {
+        // Start of user code Getter Route.getVariables
+        // End of user code
+        return $this->variables;
+    }
+
+    /**
+     * @param AssociativeArray $variables
+     */
+    public function setVariables(AssociativeArray $variables)
+    {
+        // Start of user code Setter Route.setVariables
+        // End of user code
+        $this->variables = $variables;
     }
 
     /**

@@ -39,6 +39,20 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     
 
     /**
+     * Test method getDataSourceType from interface TypeConverter
+     * Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetDataSourceType()
+    {
+        // Start of user code TypeConverter.testgetDataSourceType
+        $converter = new BooleanConverter();
+        $this->assertEquals('mysql', $converter->getDataSourceType());
+        // End of user code
+    }
+    
+    /**
      * Test method convert from interface TypeConverter
      * Start of user code TypeConverter.testconvertAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -54,31 +68,15 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method reverse from interface TypeConverter
-     * Start of user code TypeConverter.testreverseAnnotations 
+     * Test method setParameters from interface TypeConverter
+     * Start of user code TypeConverter.testsetParametersAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testReverse()
+    public function testSetParameters()
     {
-        // Start of user code Converter.testreverse
-        $converter = new BooleanConverter();
-        $this->assertSame(true, $converter->reverse('1'));
-        $this->assertSame(false, $converter->reverse('0'));
-        // End of user code
-    }
-    
-    /**
-     * Test method getDataSourceType from interface TypeConverter
-     * Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetDataSourceType()
-    {
-        // Start of user code TypeConverter.testgetDataSourceType
-        $converter = new BooleanConverter();
-        $this->assertEquals('mysql', $converter->getDataSourceType());
+        // Start of user code TypeConverter.testsetParameters
+        // Nothing to test here
         // End of user code
     }
     
@@ -97,15 +95,17 @@ class BooleanConverterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method setParameters from interface TypeConverter
-     * Start of user code TypeConverter.testsetParametersAnnotations 
+     * Test method reverse from interface TypeConverter
+     * Start of user code TypeConverter.testreverseAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testSetParameters()
+    public function testReverse()
     {
-        // Start of user code TypeConverter.testsetParameters
-        // Nothing to test here
+        // Start of user code Converter.testreverse
+        $converter = new BooleanConverter();
+        $this->assertSame(true, $converter->reverse('1'));
+        $this->assertSame(false, $converter->reverse('0'));
         // End of user code
     }
 

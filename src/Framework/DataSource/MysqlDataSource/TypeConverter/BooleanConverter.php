@@ -2,10 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource\TypeConverter;
 
-use TiBeN\Framework\Datatype\T;
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Datatype\U;
 use TiBeN\Framework\DataSource\TypeConverter;
+use TiBeN\Framework\Datatype\T;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code BooleanConverter.useStatements
 // Place your use statements here.
@@ -94,6 +94,18 @@ class BooleanConverter implements TypeConverter
     // TypeConverter Realization
 
     /**
+     * @return string $dataSourceType
+     */
+    public function getDataSourceType()
+    {
+        // Start of user code TypeConverter.getDataSourceType
+        $dataSourceType = 'mysql';
+        // End of user code
+    
+        return $dataSourceType;
+    }
+
+    /**
      * @param T $itemToConvert
      * @return U $convertedItem
      */
@@ -112,33 +124,13 @@ class BooleanConverter implements TypeConverter
     }
 
     /**
-     * @param U $itemToReverse
-     * @return T $reversedItem
+     * @param AssociativeArray $parameters
      */
-    public function reverse($itemToReverse)
+    public function setParameters(AssociativeArray $parameters)
     {
-        $this->typeHint($this->UType, $itemToReverse);
-        // Start of user code Converter.reverse
-        if(is_null($itemToReverse)) return $itemToReverse;
-        $reversedItem = $itemToReverse === '1'
-            ? true
-            : false
-        ;
+        // Start of user code TypeConverter.setParameters
+        // Nothing to do here
         // End of user code
-    
-        return $reversedItem;
-    }
-
-    /**
-     * @return string $dataSourceType
-     */
-    public function getDataSourceType()
-    {
-        // Start of user code TypeConverter.getDataSourceType
-        $dataSourceType = 'mysql';
-        // End of user code
-    
-        return $dataSourceType;
     }
 
     /**
@@ -154,13 +146,21 @@ class BooleanConverter implements TypeConverter
     }
 
     /**
-     * @param AssociativeArray $parameters
+     * @param U $itemToReverse
+     * @return T $reversedItem
      */
-    public function setParameters(AssociativeArray $parameters)
+    public function reverse($itemToReverse)
     {
-        // Start of user code TypeConverter.setParameters
-        // Nothing to do here
+        $this->typeHint($this->UType, $itemToReverse);
+        // Start of user code Converter.reverse
+        if(is_null($itemToReverse)) return $itemToReverse;
+        $reversedItem = $itemToReverse === '1'
+            ? true
+            : false
+        ;
         // End of user code
+    
+        return $reversedItem;
     }
 
     // Start of user code BooleanConverter.implementationSpecificMethods

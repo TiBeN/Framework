@@ -18,12 +18,36 @@ use TiBeN\Framework\Package\PackageInitializer;
  */
 class ServiceContainerPackageInitializer implements PackageInitializer
 {
+    /**
+     * @var string
+     */
+    public $configFilePath;
+
     public function __construct($configFilePath)
     {
         // Start of user code ServiceContainerPackageInitializer.constructor
         // End of user code
     }
 
+    /**
+     * @return string
+     */
+    public function getConfigFilePath()
+    {
+        // Start of user code Getter ServiceContainerPackageInitializer.getConfigFilePath
+        // End of user code
+        return $this->configFilePath;
+    }
+
+    /**
+     * @param string $configFilePath
+     */
+    public function setConfigFilePath($configFilePath)
+    {
+        // Start of user code Setter ServiceContainerPackageInitializer.setConfigFilePath
+        // End of user code
+        $this->configFilePath = $configFilePath;
+    }
 
     // PackageInitializer Realization
 
@@ -33,7 +57,7 @@ class ServiceContainerPackageInitializer implements PackageInitializer
     public function init()
     {
         // Start of user code PackageInitializer.init
-        // TODO should be implemented.
+        require($this->configFilePath);
         // End of user code
     }
 

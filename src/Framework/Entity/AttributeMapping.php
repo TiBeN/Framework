@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\Entity;
 
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Validation\ValidationRule;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code AttributeMapping.useStatements
 // Place your use statements here.
@@ -19,14 +19,14 @@ use TiBeN\Framework\Validation\ValidationRule;
 class AttributeMapping
 {
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var AssociativeArray
      */
     public $type;
-
-    /**
-     * @var array
-     */
-    public $validationRules;
 
     /**
      * @var DataSourceAttributeMappingConfiguration
@@ -39,9 +39,29 @@ class AttributeMapping
     public $isIdentifier = false;
 
     /**
-     * @var string
+     * @var array
      */
-    public $name;
+    public $validationRules;
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        // Start of user code Getter AttributeMapping.getName
+        // End of user code
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        // Start of user code Setter AttributeMapping.setName
+        // End of user code
+        $this->name = $name;
+    }
 
     /**
      * @return AssociativeArray
@@ -61,26 +81,6 @@ class AttributeMapping
         // Start of user code Setter AttributeMapping.setType
         // End of user code
         $this->type = $type;
-    }
-
-    /**
-     * @return array
-     */
-    public function getValidationRules()
-    {
-        // Start of user code Getter AttributeMapping.getValidationRules
-        // End of user code
-        return $this->validationRules;
-    }
-
-    /**
-     * @param array $validationRules
-     */
-    public function setValidationRules(array $validationRules)
-    {
-        // Start of user code Setter AttributeMapping.setValidationRules
-        // End of user code
-        $this->validationRules = $validationRules;
     }
 
     /**
@@ -124,23 +124,23 @@ class AttributeMapping
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getName()
+    public function getValidationRules()
     {
-        // Start of user code Getter AttributeMapping.getName
+        // Start of user code Getter AttributeMapping.getValidationRules
         // End of user code
-        return $this->name;
+        return $this->validationRules;
     }
 
     /**
-     * @param string $name
+     * @param array $validationRules
      */
-    public function setName($name)
+    public function setValidationRules(array $validationRules)
     {
-        // Start of user code Setter AttributeMapping.setName
+        // Start of user code Setter AttributeMapping.setValidationRules
         // End of user code
-        $this->name = $name;
+        $this->validationRules = $validationRules;
     }
 
     /**

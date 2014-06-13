@@ -24,7 +24,7 @@ class Bootstrap
      *
      * @param array $packageInitializers
      */
-    public static function init(array $packageInitializers = NULL)
+    public function init(array $packageInitializers = NULL)
     {
         // Start of user code Bootstrap.init
         if (!is_null($packageInitializers) && !empty($packageInitializers)) {

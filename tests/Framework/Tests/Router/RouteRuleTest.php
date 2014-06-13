@@ -82,21 +82,6 @@ class RouteRuleTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method matchHttpRequest from class RouteRule
-     *
-     * Start of user code RouteRuleTest.testmatchHttpRequestAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testMatchHttpRequest()
-    {
-        // Start of user code RouteRuleTest.testmatchHttpRequest
-        // No tests here because this method is covered by 
-        // custom tests cases that follow 
-        // End of user code
-    }
-    
-    /**
      * Test static method create from class RouteRule
      *
      * Start of user code RouteRuleTest.testcreateAnnotations 
@@ -145,6 +130,21 @@ class RouteRuleTest extends \PHPUnit_Framework_TestCase
                 )
             )))
         );
+        // End of user code
+    }
+    
+    /**
+     * Test method matchHttpRequest from class RouteRule
+     *
+     * Start of user code RouteRuleTest.testmatchHttpRequestAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testMatchHttpRequest()
+    {
+        // Start of user code RouteRuleTest.testmatchHttpRequest
+        // No tests here because this method is covered by 
+        // custom tests cases that follow 
         // End of user code
     }
 

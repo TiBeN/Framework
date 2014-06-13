@@ -3,8 +3,8 @@
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
 use TiBeN\Framework\Entity\Entity;
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code SetStatement.useStatements
 // Place your use statements here.
@@ -70,24 +70,6 @@ class SetStatement extends AssociativeArray
 
 
     /**
-     * Generate the set statement chunk as a string.
-     *
-     * @return string $string
-     */
-    public function toString()
-    {
-        // Start of user code SetStatement.toString
-        $statementChunks = array();
-        foreach($this as $attribute => $value) {
-            array_push($statementChunks, sprintf('%1$s=:%1$s', $attribute));
-        }
-        $string = 'SET ' . implode(',', $statementChunks);
-        // End of user code
-    
-        return $string;
-    }
-
-    /**
      * Factory method that generate a SetStatement 
      * from the attributes keys and their values of an entity. 
      *
@@ -123,6 +105,24 @@ class SetStatement extends AssociativeArray
         // End of user code
     
         return $statementParameters;
+    }
+
+    /**
+     * Generate the set statement chunk as a string.
+     *
+     * @return string $string
+     */
+    public function toString()
+    {
+        // Start of user code SetStatement.toString
+        $statementChunks = array();
+        foreach($this as $attribute => $value) {
+            array_push($statementChunks, sprintf('%1$s=:%1$s', $attribute));
+        }
+        $string = 'SET ' . implode(',', $statementChunks);
+        // End of user code
+    
+        return $string;
     }
 
     // Start of user code SetStatement.surchargedMethods

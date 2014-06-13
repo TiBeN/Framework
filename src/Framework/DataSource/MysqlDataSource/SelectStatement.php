@@ -23,16 +23,6 @@ class SelectStatement implements Statement
     public $whereConditions;
 
     /**
-     * @var string
-     */
-    public $tableReferences;
-
-    /**
-     * @var OrderByStatement
-     */
-    public $orderByStatement;
-
-    /**
      * @var SelectExpr
      */
     public $selectExpr;
@@ -41,6 +31,16 @@ class SelectStatement implements Statement
      * @var LimitStatement
      */
     public $limitStatement;
+
+    /**
+     * @var OrderByStatement
+     */
+    public $orderByStatement;
+
+    /**
+     * @var string
+     */
+    public $tableReferences;
 
     /**
      * @return WhereConditions
@@ -60,46 +60,6 @@ class SelectStatement implements Statement
         // Start of user code Setter SelectStatement.setWhereConditions
         // End of user code
         $this->whereConditions = $whereConditions;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTableReferences()
-    {
-        // Start of user code Getter SelectStatement.getTableReferences
-        // End of user code
-        return $this->tableReferences;
-    }
-
-    /**
-     * @param string $tableReferences
-     */
-    public function setTableReferences($tableReferences)
-    {
-        // Start of user code Setter SelectStatement.setTableReferences
-        // End of user code
-        $this->tableReferences = $tableReferences;
-    }
-
-    /**
-     * @return OrderByStatement
-     */
-    public function getOrderByStatement()
-    {
-        // Start of user code Getter SelectStatement.getOrderByStatement
-        // End of user code
-        return $this->orderByStatement;
-    }
-
-    /**
-     * @param OrderByStatement $orderByStatement
-     */
-    public function setOrderByStatement(OrderByStatement $orderByStatement)
-    {
-        // Start of user code Setter SelectStatement.setOrderByStatement
-        // End of user code
-        $this->orderByStatement = $orderByStatement;
     }
 
     /**
@@ -142,26 +102,47 @@ class SelectStatement implements Statement
         $this->limitStatement = $limitStatement;
     }
 
-    // Statement Realization
+    /**
+     * @return OrderByStatement
+     */
+    public function getOrderByStatement()
+    {
+        // Start of user code Getter SelectStatement.getOrderByStatement
+        // End of user code
+        return $this->orderByStatement;
+    }
 
     /**
-     * Check whether all statement chunks are set 
-     * in order to generate a complete statement string to 
-     * be executed.
-     *
-     * @return bool $status
+     * @param OrderByStatement $orderByStatement
      */
-    public function isReadyToBeExecuted()
+    public function setOrderByStatement(OrderByStatement $orderByStatement)
     {
-        // Start of user code Statement.isReadyToBeExecuted
-        $status = $this->selectExpr instanceof SelectExpr 
-            && !is_null($this->tableReferences)
-            && !empty($this->tableReferences)
-        ;
+        // Start of user code Setter SelectStatement.setOrderByStatement
         // End of user code
-    
-        return $status;
+        $this->orderByStatement = $orderByStatement;
     }
+
+    /**
+     * @return string
+     */
+    public function getTableReferences()
+    {
+        // Start of user code Getter SelectStatement.getTableReferences
+        // End of user code
+        return $this->tableReferences;
+    }
+
+    /**
+     * @param string $tableReferences
+     */
+    public function setTableReferences($tableReferences)
+    {
+        // Start of user code Setter SelectStatement.setTableReferences
+        // End of user code
+        $this->tableReferences = $tableReferences;
+    }
+
+    // Statement Realization
 
     /**
      * Generate the statement as a string.
@@ -211,6 +192,25 @@ class SelectStatement implements Statement
         // End of user code
     
         return $statementParameters;
+    }
+
+    /**
+     * Check whether all statement chunks are set 
+     * in order to generate a complete statement string to 
+     * be executed.
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+        $status = $this->selectExpr instanceof SelectExpr 
+            && !is_null($this->tableReferences)
+            && !empty($this->tableReferences)
+        ;
+        // End of user code
+    
+        return $status;
     }
 
     // Start of user code SelectStatement.implementationSpecificMethods

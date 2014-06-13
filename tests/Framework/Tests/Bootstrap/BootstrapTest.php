@@ -39,7 +39,7 @@ class BootstrapTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method init from class Bootstrap
+     * Test method init from class Bootstrap
      *
      * Start of user code BootstrapTest.testinitAnnotations
      * @runInSeparateProcess

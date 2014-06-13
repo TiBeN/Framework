@@ -17,9 +17,9 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class InsertStatement implements Statement
 {
     /**
-     * @var ValuesStatement
+     * @var string
      */
-    public $valuesStatement;
+    public $tableName;
 
     /**
      * @var ColumnNamesListStatement
@@ -27,28 +27,28 @@ class InsertStatement implements Statement
     public $columnNamesListStatement;
 
     /**
-     * @var string
+     * @var ValuesStatement
      */
-    public $tableName;
+    public $valuesStatement;
 
     /**
-     * @return ValuesStatement
+     * @return string
      */
-    public function getValuesStatement()
+    public function getTableName()
     {
-        // Start of user code Getter InsertStatement.getValuesStatement
+        // Start of user code Getter InsertStatement.getTableName
         // End of user code
-        return $this->valuesStatement;
+        return $this->tableName;
     }
 
     /**
-     * @param ValuesStatement $valuesStatement
+     * @param string $tableName
      */
-    public function setValuesStatement(ValuesStatement $valuesStatement)
+    public function setTableName($tableName)
     {
-        // Start of user code Setter InsertStatement.setValuesStatement
+        // Start of user code Setter InsertStatement.setTableName
         // End of user code
-        $this->valuesStatement = $valuesStatement;
+        $this->tableName = $tableName;
     }
 
     /**
@@ -72,51 +72,26 @@ class InsertStatement implements Statement
     }
 
     /**
-     * @return string
+     * @return ValuesStatement
      */
-    public function getTableName()
+    public function getValuesStatement()
     {
-        // Start of user code Getter InsertStatement.getTableName
+        // Start of user code Getter InsertStatement.getValuesStatement
         // End of user code
-        return $this->tableName;
+        return $this->valuesStatement;
     }
 
     /**
-     * @param string $tableName
+     * @param ValuesStatement $valuesStatement
      */
-    public function setTableName($tableName)
+    public function setValuesStatement(ValuesStatement $valuesStatement)
     {
-        // Start of user code Setter InsertStatement.setTableName
+        // Start of user code Setter InsertStatement.setValuesStatement
         // End of user code
-        $this->tableName = $tableName;
+        $this->valuesStatement = $valuesStatement;
     }
 
     // Statement Realization
-
-    /**
-     * Check whether all statement chunks are set 
-     * in order to generate a complete statement string to 
-     * be executed.
-     *
-     * @return bool $status
-     */
-    public function isReadyToBeExecuted()
-    {
-        // Start of user code Statement.isReadyToBeExecuted
-        $status = true;
-        if(
-            (!isset($this->tableName) || empty($this->tableName))
-            || (!isset($this->columnNamesListStatement) 
-                || $this->columnNamesListStatement->isEmpty() 
-            )
-            || (!isset($this->valuesStatement) || $this->valuesStatement->isEmpty())
-        ) {
-            return false;
-        }
-        // End of user code
-    
-        return $status;
-    }
 
     /**
      * Generate the statement as a string.
@@ -170,6 +145,31 @@ class InsertStatement implements Statement
         // End of user code
     
         return $statementParameters;
+    }
+
+    /**
+     * Check whether all statement chunks are set 
+     * in order to generate a complete statement string to 
+     * be executed.
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+        $status = true;
+        if(
+            (!isset($this->tableName) || empty($this->tableName))
+            || (!isset($this->columnNamesListStatement) 
+                || $this->columnNamesListStatement->isEmpty() 
+            )
+            || (!isset($this->valuesStatement) || $this->valuesStatement->isEmpty())
+        ) {
+            return false;
+        }
+        // End of user code
+    
+        return $status;
     }
 
     // Start of user code InsertStatement.implementationSpecificMethods

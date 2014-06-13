@@ -64,6 +64,27 @@ class EntityMappingsRegistry
     }
 
     /**
+     * Get an EntityMapping of an Entity class from
+     * its class name.
+     *
+     * @param string $entityName
+     * @return EntityMapping $entityMapping
+     */
+    public static function getEntityMapping($entityName)
+    {
+        // Start of user code EntityMappingsRegistry.getEntityMapping
+        if(!self::getEntityMappings()->has($entityName)) {
+            throw new \InvalidArgumentException(
+                sprintf('No entity mapping for entity "%s"', $entityName)
+            );
+        }
+        $entityMapping = self::getEntityMappings()->get($entityName);
+        // End of user code
+    
+        return $entityMapping;
+    }
+
+    /**
      * Set an EntityMapping in the Registry.
      *
      * @param EntityMapping $entityMapping
@@ -84,27 +105,6 @@ class EntityMappingsRegistry
         }
         self::getEntityMappings()->set($entityName, $entityMapping);
         // End of user code
-    }
-
-    /**
-     * Get an EntityMapping of an Entity class from
-     * its class name.
-     *
-     * @param string $entityName
-     * @return EntityMapping $entityMapping
-     */
-    public static function getEntityMapping($entityName)
-    {
-        // Start of user code EntityMappingsRegistry.getEntityMapping
-        if(!self::getEntityMappings()->has($entityName)) {
-            throw new \InvalidArgumentException(
-                sprintf('No entity mapping for entity "%s"', $entityName)
-            );
-        }
-        $entityMapping = self::getEntityMappings()->get($entityName);
-        // End of user code
-    
-        return $entityMapping;
     }
 
     // Start of user code EntityMappingsRegistry.implementationSpecificMethods

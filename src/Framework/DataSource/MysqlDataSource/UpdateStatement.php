@@ -17,39 +17,19 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class UpdateStatement implements Statement
 {
     /**
-     * @var string
-     */
-    public $tableName;
-
-    /**
      * @var SetStatement
      */
     public $setStatement;
 
     /**
+     * @var string
+     */
+    public $tableName;
+
+    /**
      * @var WhereConditions
      */
     public $whereDefinition;
-
-    /**
-     * @return string
-     */
-    public function getTableName()
-    {
-        // Start of user code Getter UpdateStatement.getTableName
-        // End of user code
-        return $this->tableName;
-    }
-
-    /**
-     * @param string $tableName
-     */
-    public function setTableName($tableName)
-    {
-        // Start of user code Setter UpdateStatement.setTableName
-        // End of user code
-        $this->tableName = $tableName;
-    }
 
     /**
      * @return SetStatement
@@ -69,6 +49,26 @@ class UpdateStatement implements Statement
         // Start of user code Setter UpdateStatement.setSetStatement
         // End of user code
         $this->setStatement = $setStatement;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTableName()
+    {
+        // Start of user code Getter UpdateStatement.getTableName
+        // End of user code
+        return $this->tableName;
+    }
+
+    /**
+     * @param string $tableName
+     */
+    public function setTableName($tableName)
+    {
+        // Start of user code Setter UpdateStatement.setTableName
+        // End of user code
+        $this->tableName = $tableName;
     }
 
     /**
@@ -92,25 +92,6 @@ class UpdateStatement implements Statement
     }
 
     // Statement Realization
-
-    /**
-     * Check whether all statement chunks are set 
-     * in order to generate a complete statement string to 
-     * be executed.
-     *
-     * @return bool $status
-     */
-    public function isReadyToBeExecuted()
-    {
-        // Start of user code Statement.isReadyToBeExecuted
-        $status = !is_null($this->tableName)
-            && !empty($this->tableName)
-            && $this->setStatement instanceof SetStatement
-        ;                                                                       
-        // End of user code
-    
-        return $status;
-    }
 
     /**
      * Generate the statement as a string.
@@ -156,6 +137,25 @@ class UpdateStatement implements Statement
         // End of user code
     
         return $statementParameters;
+    }
+
+    /**
+     * Check whether all statement chunks are set 
+     * in order to generate a complete statement string to 
+     * be executed.
+     *
+     * @return bool $status
+     */
+    public function isReadyToBeExecuted()
+    {
+        // Start of user code Statement.isReadyToBeExecuted
+        $status = !is_null($this->tableName)
+            && !empty($this->tableName)
+            && $this->setStatement instanceof SetStatement
+        ;                                                                       
+        // End of user code
+    
+        return $status;
     }
 
     // Start of user code UpdateStatement.implementationSpecificMethods

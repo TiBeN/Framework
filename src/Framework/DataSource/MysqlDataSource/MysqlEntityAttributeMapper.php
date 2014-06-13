@@ -20,34 +20,14 @@ use TiBeN\Framework\Entity\EntityMapping;
 class MysqlEntityAttributeMapper
 {
     /**
-     * @var Entity
-     */
-    public $entity;
-
-    /**
      * @var EntityMapping
      */
     public $entityMapping;
 
     /**
-     * @return Entity
+     * @var Entity
      */
-    public function getEntity()
-    {
-        // Start of user code Getter MysqlEntityAttributeMapper.getEntity
-        // End of user code
-        return $this->entity;
-    }
-
-    /**
-     * @param Entity $entity
-     */
-    public function setEntity(Entity $entity)
-    {
-        // Start of user code Setter MysqlEntityAttributeMapper.setEntity
-        // End of user code
-        $this->entity = $entity;
-    }
+    public $entity;
 
     /**
      * @return EntityMapping
@@ -70,13 +50,51 @@ class MysqlEntityAttributeMapper
     }
 
     /**
-     * Set the identifier value of an entity.
-     *
-     * @param int $identifier
+     * @return Entity
      */
-    public function setIdentifier($identifier)
+    public function getEntity()
     {
-        // Start of user code MysqlEntityAttributeMapper.setIdentifier
+        // Start of user code Getter MysqlEntityAttributeMapper.getEntity
+        // End of user code
+        return $this->entity;
+    }
+
+    /**
+     * @param Entity $entity
+     */
+    public function setEntity(Entity $entity)
+    {
+        // Start of user code Setter MysqlEntityAttributeMapper.setEntity
+        // End of user code
+        $this->entity = $entity;
+    }
+
+    /**
+     * Get the value of the identifier of an entity.
+     *
+     * @return int $identifier
+     */
+    public function getIdentifierValue()
+    {
+        // Start of user code MysqlEntityAttributeMapper.getIdentifierValue
+        $attributeSetterName = 'get'
+            . ucfirst($this->getIdentifierAttributeName())
+        ;   
+        $identifier = $this->entity->$attributeSetterName();
+        // End of user code
+    
+        return $identifier;
+    }
+
+    /**
+     * Get the attribute name which hold the identifier of 
+     * an entity.
+     *
+     * @return string $attributeName
+     */
+    public function getIdentifierAttributeName()
+    {
+        // Start of user code MysqlEntityAttributeMapper.getIdentifierAttributeName
         if(!isset($this->entity)) {
             throw new \LogicException('No entity set');
         }
@@ -84,25 +102,22 @@ class MysqlEntityAttributeMapper
         if(!isset($this->entityMapping)) {
             throw new \LogicException('No entity mapping set');
         }
-
-        foreach($this->entityMapping->getAttributeMappings()->toNativeArray() 
+        
+        foreach($this->entityMapping->getAttributeMappings()->toNativeArray()
             as $attributeName => $attributeMapping
         ) {
             if($attributeMapping->getIsIdentifier()) {
-                $columnName = $attributeMapping
-                    ->getDataSourceAttributeMappingConfiguration()
-                    ->getColumnName()
-                ;
+                $attributeIdentifier = $attributeMapping;
                 break;
-            }                                     
-        }       
-        
-        if(!isset($columnName)) {
-            throw new \LogicException('Entity has no identifier attribute mapped');
+            }
         }
         
-        $this->setAttributeValue($columnName, (string)$identifier);
+        if(!isset($attributeIdentifier)) {
+            throw new \LogicException('Entity has no identifier attribute mapped');
+        }
         // End of user code
+    
+        return $attributeName;
     }
 
     /**
@@ -244,31 +259,13 @@ class MysqlEntityAttributeMapper
     }
 
     /**
-     * Get the value of the identifier of an entity.
+     * Set the identifier value of an entity.
      *
-     * @return int $identifier
+     * @param int $identifier
      */
-    public function getIdentifierValue()
+    public function setIdentifier($identifier)
     {
-        // Start of user code MysqlEntityAttributeMapper.getIdentifierValue
-        $attributeSetterName = 'get'
-            . ucfirst($this->getIdentifierAttributeName())
-        ;   
-        $identifier = $this->entity->$attributeSetterName();
-        // End of user code
-    
-        return $identifier;
-    }
-
-    /**
-     * Get the attribute name which hold the identifier of 
-     * an entity.
-     *
-     * @return string $attributeName
-     */
-    public function getIdentifierAttributeName()
-    {
-        // Start of user code MysqlEntityAttributeMapper.getIdentifierAttributeName
+        // Start of user code MysqlEntityAttributeMapper.setIdentifier
         if(!isset($this->entity)) {
             throw new \LogicException('No entity set');
         }
@@ -276,22 +273,25 @@ class MysqlEntityAttributeMapper
         if(!isset($this->entityMapping)) {
             throw new \LogicException('No entity mapping set');
         }
-        
-        foreach($this->entityMapping->getAttributeMappings()->toNativeArray()
+
+        foreach($this->entityMapping->getAttributeMappings()->toNativeArray() 
             as $attributeName => $attributeMapping
         ) {
             if($attributeMapping->getIsIdentifier()) {
-                $attributeIdentifier = $attributeMapping;
+                $columnName = $attributeMapping
+                    ->getDataSourceAttributeMappingConfiguration()
+                    ->getColumnName()
+                ;
                 break;
-            }
-        }
+            }                                     
+        }       
         
-        if(!isset($attributeIdentifier)) {
+        if(!isset($columnName)) {
             throw new \LogicException('Entity has no identifier attribute mapped');
         }
+        
+        $this->setAttributeValue($columnName, (string)$identifier);
         // End of user code
-    
-        return $attributeName;
     }
 
     // Start of user code MysqlEntityAttributeMapper.implementationSpecificMethods

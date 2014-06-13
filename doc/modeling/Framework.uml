@@ -1063,17 +1063,13 @@ optional variables needed by the action.    </body>
         </ownedParameter>
       </ownedOperation>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_ZiJHQJkdEeKNe-pGKaimUg" clientDependency="_U1MH8KM5EeKLKe0oeBmLTg _bN6dQKTpEeKPmbE2lP8SmA _n6dFQKfyEeKLRPn3lZyAPQ _0biKwKfzEeKLRPn3lZyAPQ" name="Router">
+    <packagedElement xmi:type="uml:Class" xmi:id="_ZiJHQJkdEeKNe-pGKaimUg" clientDependency="_U1MH8KM5EeKLKe0oeBmLTg _bN6dQKTpEeKPmbE2lP8SmA _0biKwKfzEeKLRPn3lZyAPQ" name="Router">
       <ownedComment xmi:type="uml:Comment" xmi:id="_oYrHkK8fEeK4D8ZgVhb42Q">
         <body>Service responsible of transforming HttpRequest to HttpResponses.
 The router contain methods to handle HttpRequest, Generate ressources uris,
 control the action flow (follows, redirections) using RouteRules Définitions.   </body>
       </ownedComment>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_tzv3QKM5EeKLKe0oeBmLTg" name="routeRule" isStatic="true" type="_a3DEsJkdEeKNe-pGKaimUg" association="_tzweUKM5EeKLKe0oeBmLTg">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tzv3QaM5EeKLKe0oeBmLTg"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tzv3QqM5EeKLKe0oeBmLTg" value="*"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bpf0kL28EeO-aaY3kqFukA" name="onNotFoundRoute" visibility="public" isStatic="true" type="_YbLfMJkdEeKNe-pGKaimUg">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bpf0kL28EeO-aaY3kqFukA" name="onNotFoundRoute" visibility="public" type="_YbLfMJkdEeKNe-pGKaimUg">
         <ownedComment xmi:type="uml:Comment" xmi:id="_UDqCwL28EeO-aaY3kqFukA" annotatedElement="_Bpf0kL28EeO-aaY3kqFukA">
           <body>Route who is followed when the initial Route is not found </body>
         </ownedComment>
@@ -1083,7 +1079,7 @@ control the action flow (follows, redirections) using RouteRules Définitions.  
           <value xsi:nil="true"/>
         </defaultValue>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_HSrDkL28EeO-aaY3kqFukA" name="onExecuteActionExceptionRoute" visibility="public" isStatic="true" type="_YbLfMJkdEeKNe-pGKaimUg">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_HSrDkL28EeO-aaY3kqFukA" name="onExecuteActionExceptionRoute" visibility="public" type="_YbLfMJkdEeKNe-pGKaimUg">
         <ownedComment xmi:type="uml:Comment" xmi:id="_bQ1bIL28EeO-aaY3kqFukA" annotatedElement="_HSrDkL28EeO-aaY3kqFukA">
           <body>Route who is followed when an exception is thrown during
 the execution of an action.</body>
@@ -1094,24 +1090,35 @@ the execution of an action.</body>
           <value xsi:nil="true"/>
         </defaultValue>
       </ownedAttribute>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_MKyuMKM6EeKLKe0oeBmLTg" name="handleCurrentHttpRequest" isStatic="true">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="__OWVUPMEEeOMaNdJGsDNjw" name="routeUriManager" visibility="public" type="_futXMJkdEeKNe-pGKaimUg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CscM0PMFEeOMaNdJGsDNjw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Cscz4PMFEeOMaNdJGsDNjw" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_CsepEPMFEeOMaNdJGsDNjw">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_GxuKsPMGEeOMaNdJGsDNjw" name="routeRule" type="_a3DEsJkdEeKNe-pGKaimUg" association="_GxuxwPMGEeOMaNdJGsDNjw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GxuKsfMGEeOMaNdJGsDNjw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GxuKsvMGEeOMaNdJGsDNjw" value="*"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_MKyuMKM6EeKLKe0oeBmLTg" name="handleCurrentHttpRequest">
         <ownedComment xmi:type="uml:Comment" xmi:id="_3tRQMK9lEeKPQ6Ac0Cqdkw">
           <body>Search route as requested by client Http request then follow it.</body>
         </ownedComment>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_efHaIKM6EeKLKe0oeBmLTg" name="addRouteRule" isStatic="true">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_efHaIKM6EeKLKe0oeBmLTg" name="addRouteRule">
         <ownedComment xmi:type="uml:Comment" xmi:id="_fC6Z0K9mEeKPQ6Ac0Cqdkw">
           <body>Add a route rule to the route rule collection</body>
         </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_k-X8kKM6EeKLKe0oeBmLTg" name="routeRule" type="_a3DEsJkdEeKNe-pGKaimUg"/>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_hHeLAKfxEeKLRPn3lZyAPQ" name="followRoute" visibility="public" isStatic="true">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_hHeLAKfxEeKLRPn3lZyAPQ" name="followRoute" visibility="public">
         <ownedComment xmi:type="uml:Comment" xmi:id="_lhEwEK9mEeKPQ6Ac0Cqdkw">
           <body>Execute the action of the controller specified by the route then send the generated Http response to client  </body>
         </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_mJi9wKfxEeKLRPn3lZyAPQ" name="route" type="_YbLfMJkdEeKNe-pGKaimUg" effect="read"/>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_0DP4gKfxEeKLRPn3lZyAPQ" name="generateUri" visibility="public" isStatic="true">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_0DP4gKfxEeKLRPn3lZyAPQ" name="generateUri" visibility="public">
         <ownedComment xmi:type="uml:Comment" xmi:id="_zmPT8K9mEeKPQ6Ac0Cqdkw">
           <body>Generate a ressource URI from it's routerule name and optional variables.</body>
         </ownedComment>
@@ -1123,7 +1130,7 @@ the execution of an action.</body>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_LXZ7gKfyEeKLRPn3lZyAPQ" name="getRouteRuleByName" isStatic="true">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_LXZ7gKfyEeKLRPn3lZyAPQ" name="getRouteRuleByName">
         <ownedComment xmi:type="uml:Comment" xmi:id="_DyHFoK9nEeKPQ6Ac0Cqdkw">
           <body>Return a route rule from her name</body>
         </ownedComment>
@@ -1132,7 +1139,7 @@ the execution of an action.</body>
         </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_gbPhsKfyEeKLRPn3lZyAPQ" name="routeRule" type="_a3DEsJkdEeKNe-pGKaimUg" direction="return"/>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_vRYPgKfyEeKLRPn3lZyAPQ" name="forwardToRoute" isStatic="true">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_vRYPgKfyEeKLRPn3lZyAPQ" name="forwardToRoute">
         <ownedComment xmi:type="uml:Comment" xmi:id="_PK90QK9nEeKPQ6Ac0Cqdkw">
           <body>Find a route by her name and optionnal variables then follow it. This method can by used to control the controller / action flow.    </body>
         </ownedComment>
@@ -1141,7 +1148,7 @@ the execution of an action.</body>
         </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_1xH6IKfyEeKLRPn3lZyAPQ" name="variables" type="_ti84wLoPEeKycOj42mlSMA" effect="read"/>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_dCXr8KfzEeKLRPn3lZyAPQ" name="redirectToRoute" isStatic="true">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_dCXr8KfzEeKLRPn3lZyAPQ" name="redirectToRoute">
         <ownedComment xmi:type="uml:Comment" xmi:id="_0hfl0K9nEeKPQ6Ac0Cqdkw">
           <body>Send a redirect 302 http response to the route specified by her name and optionnal variables</body>
         </ownedComment>
@@ -1149,6 +1156,9 @@ the execution of an action.</body>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_jXFyUKfzEeKLRPn3lZyAPQ" name="variables" type="_ti84wLoPEeKycOj42mlSMA" effect="read"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_5rOCwPLqEeOMaNdJGsDNjw" name="Router">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_DJD2MPLrEeOMaNdJGsDNjw" name="routeUriManager" type="_futXMJkdEeKNe-pGKaimUg"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_a3DEsJkdEeKNe-pGKaimUg" clientDependency="_U3BpEKM7EeKLKe0oeBmLTg _g3TkEKM7EeKLKe0oeBmLTg" name="RouteRule">
@@ -1309,7 +1319,7 @@ Typically open a download box using common browsers. </body>
       <ownedComment xmi:type="uml:Comment" xmi:id="__zclYK8eEeK4D8ZgVhb42Q">
         <body>Contain methods to manipulate ressources URIs</body>
       </ownedComment>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_JHiZsKGnEeKq7IPArhdG3A" name="generateUri" isStatic="true">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_JHiZsKGnEeKq7IPArhdG3A" name="generateUri">
         <ownedComment xmi:type="uml:Comment" xmi:id="_K2vUEK9pEeKPQ6Ac0Cqdkw">
           <body>generate an uri from an uri pattern and optional variables.</body>
         </ownedComment>
@@ -1321,7 +1331,7 @@ Typically open a download box using common browsers. </body>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_tUBaAKGnEeKq7IPArhdG3A" name="matchAndParseUri" isStatic="true">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_tUBaAKGnEeKq7IPArhdG3A" name="matchAndParseUri">
         <ownedComment xmi:type="uml:Comment" xmi:id="_T8-f0K9pEeKPQ6Ac0Cqdkw">
           <body>Test an uri against an uri pattern and optionnal variables requirments 
 then return parsed variables if match.</body>
@@ -1358,22 +1368,36 @@ then return parsed variables if match.</body>
     </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_I81oEKLEEeKk9pdlcQXiSQ" name="stock results in" client="_futXMJkdEeKNe-pGKaimUg" supplier="_kLvxcKGoEeKq7IPArhdG3A"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_U1MH8KM5EeKLKe0oeBmLTg" name="generate from client request" client="_ZiJHQJkdEeKNe-pGKaimUg" supplier="_UYK8wJkdEeKNe-pGKaimUg"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_tzweUKM5EeKLKe0oeBmLTg" name="router_routeRule_1" memberEnd="_tzweUaM5EeKLKe0oeBmLTg _tzv3QKM5EeKLKe0oeBmLTg">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_tzweUaM5EeKLKe0oeBmLTg" name="router" type="_ZiJHQJkdEeKNe-pGKaimUg" association="_tzweUKM5EeKLKe0oeBmLTg">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tzweUqM5EeKLKe0oeBmLTg" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tzweU6M5EeKLKe0oeBmLTg" value="1"/>
-      </ownedEnd>
-    </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_U3BpEKM7EeKLKe0oeBmLTg" name="generate Route" client="_a3DEsJkdEeKNe-pGKaimUg" supplier="_YbLfMJkdEeKNe-pGKaimUg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_g3TkEKM7EeKLKe0oeBmLTg" name="match uri" client="_a3DEsJkdEeKNe-pGKaimUg" supplier="_futXMJkdEeKNe-pGKaimUg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_bN6dQKTpEeKPmbE2lP8SmA" name="executeAction" client="_ZiJHQJkdEeKNe-pGKaimUg" supplier="_clZ4QKRzEeKL77OWyGfbwg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_44XT8KTpEeKPmbE2lP8SmA" name="create" client="_clZ4QKRzEeKL77OWyGfbwg" supplier="_c9kFQJkdEeKNe-pGKaimUg"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_n6dFQKfyEeKLRPn3lZyAPQ" name="generateUri" client="_ZiJHQJkdEeKNe-pGKaimUg" supplier="_futXMJkdEeKNe-pGKaimUg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_0biKwKfzEeKLRPn3lZyAPQ" name="create Redirect response type" client="_ZiJHQJkdEeKNe-pGKaimUg" supplier="_c9kFQJkdEeKNe-pGKaimUg"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pmS4gPLoEeOMaNdJGsDNjw" clientDependency="_zEHd0PLoEeOMaNdJGsDNjw" name="RouterPackageInitializer">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_YNogkPMJEeOMaNdJGsDNjw" name="routeRulesFilePath" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cET3MPMJEeOMaNdJGsDNjw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cEVFUPMJEeOMaNdJGsDNjw" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_cEXhkPMJEeOMaNdJGsDNjw">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_zEHd0PLoEeOMaNdJGsDNjw" name="InterfaceRealization1" client="_pmS4gPLoEeOMaNdJGsDNjw" supplier="_XtW-4PC1EeOSz4YNAMghYA" contract="_XtW-4PC1EeOSz4YNAMghYA"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_V1dIQPMJEeOMaNdJGsDNjw" name="RouterPackageInitializer">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_fcIuoPMJEeOMaNdJGsDNjw" name="routeRulesFilePath">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_GxuxwPMGEeOMaNdJGsDNjw" name="router_routeRule_1" memberEnd="_GxuxwfMGEeOMaNdJGsDNjw _GxuKsPMGEeOMaNdJGsDNjw">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_GxuxwfMGEeOMaNdJGsDNjw" name="router" type="_ZiJHQJkdEeKNe-pGKaimUg" association="_GxuxwPMGEeOMaNdJGsDNjw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GxuxwvMGEeOMaNdJGsDNjw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gxuxw_MGEeOMaNdJGsDNjw" value="1"/>
+      </ownedEnd>
+    </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_oIPh0LIzEeKwOoQ65WtEfA" name="Controller">
-    <packagedElement xmi:type="uml:Class" xmi:id="_clZ4QKRzEeKL77OWyGfbwg" clientDependency="_44XT8KTpEeKPmbE2lP8SmA _wF3KsLXkEeO5teBENtCUQw" name="Controller"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_wF3KsLXkEeO5teBENtCUQw" name="Dependency1" client="_clZ4QKRzEeKL77OWyGfbwg" supplier="_cE0M4LreEeK-eqy0US4WHg"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_clZ4QKRzEeKL77OWyGfbwg" clientDependency="_44XT8KTpEeKPmbE2lP8SmA" name="Controller"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_WvFcUL2-EeO-aaY3kqFukA" name="RouterSpecialEventsController">
       <ownedComment xmi:type="uml:Comment" xmi:id="_yvUz8L2-EeO-aaY3kqFukA" annotatedElement="_WvFcUL2-EeO-aaY3kqFukA">
         <body>This bundled controller hold default actions of 
@@ -4050,6 +4074,14 @@ a service
 Will import user project config file
 where services and parameters are declared.</body>
       </ownedComment>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Jn-zsPLmEeOMaNdJGsDNjw" name="configFilePath" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KULyYPLmEeOMaNdJGsDNjw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KUNAgPLmEeOMaNdJGsDNjw" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_KUPcwPLmEeOMaNdJGsDNjw">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
       <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_w47AQPE1EeOe_Nf4pqrr0A" name="InterfaceRealization1" client="_nbuGAPE1EeOe_Nf4pqrr0A" supplier="_XtW-4PC1EeOSz4YNAMghYA" contract="_XtW-4PC1EeOSz4YNAMghYA"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_tbePsPE6EeOe_Nf4pqrr0A" name="ServiceContainerPackageInitializer">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_CtdmoPE7EeOe_Nf4pqrr0A" name="configFilePath">

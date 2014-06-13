@@ -108,6 +108,20 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test static method instantiateFromEntityClassName from class EntityRepository
+     *
+     * Start of user code EntityRepositoryTest.testinstantiateFromEntityClassNameAnnotations
+     * PHPUnit user annotations can be placed here
+     * End of user code
+     */
+    public function testInstantiateFromEntityClassName()
+    {
+        // Start of user code EntityRepositoryTest.testinstantiateFromEntityClassName
+        // Case tested by others test cases
+        // End of user code
+    }
+    
+    /**
      * Test method find from class EntityRepository
      *
      * Start of user code EntityRepositoryTest.testfindAnnotations 
@@ -197,20 +211,6 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
         ); 
         $this->assertInstanceOf('PDOStatement', $pdoStatement);
         $this->assertSame(0, $pdoStatement->rowCount());
-        // End of user code
-    }
-    
-    /**
-     * Test static method instantiateFromEntityClassName from class EntityRepository
-     *
-     * Start of user code EntityRepositoryTest.testinstantiateFromEntityClassNameAnnotations
-     * PHPUnit user annotations can be placed here
-     * End of user code
-     */
-    public function testInstantiateFromEntityClassName()
-    {
-        // Start of user code EntityRepositoryTest.testinstantiateFromEntityClassName
-        // Case tested by others test cases
         // End of user code
     }
 

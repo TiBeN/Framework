@@ -2,11 +2,11 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
+use TiBeN\Framework\DataSource\DataSource;
 use TiBeN\Framework\Entity\CriteriaSet;
+use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Entity\Entity;
 use TiBeN\Framework\Entity\EntityCollection;
-use TiBeN\Framework\Entity\EntityMapping;
-use TiBeN\Framework\DataSource\DataSource;
 
 // Start of user code MysqlDataSource.useStatements
 // Place your use statements here.
@@ -207,71 +207,6 @@ class MysqlDataSource implements DataSource
         $this->name = $name;
     }
     /**
-     * Delete an entity from the datasource.
-     *
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     */
-    public function delete(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code DataSource.delete
-        $deleteStatement = StatementFactory::createDeleteStatement($entityMapping, $entity);
-        $statementResult = Driver::executeStatement(
-            $deleteStatement, 
-            $this->getConnection()
-        );
-        
-        if ($statementResult->getSuccess() == false) {
-            throw new \RuntimeException(
-                sprintf(    
-                    'MysqlDataSource error %s : %s',
-                    $statementResult->getErrorCode(),
-                    $statementResult->getErrorMessage()                         
-                )                                      
-            );
-        }
-
-        if ($statementResult->getNumberOfAffectedRows() !== 1) {
-            throw new \LogicException(
-                'The entity doesn\'t exist. Maybe it has already been deleted ?'
-            );
-        }       
-        // End of user code
-    }
-
-    /**
-     * Return the name of the EntityMappingConfiguration class 
-     * of the data source.
-     *
-     * @return string $className
-     */
-    public static function getEntityMappingConfigurationClassName()
-    {
-        // Start of user code DataSource.getEntityMappingConfigurationClassName
-        $namespace = 'TiBeN\\Framework\\DataSource\\MysqlDataSource';
-        $className = $namespace . '\\MysqlEntityConfiguration';
-        // End of user code
-    
-        return $className;
-    }
-
-    /**
-     * Return the name of the AttributeMappingConfiguration class
-     * of the datasource
-     *
-     * @return string $className
-     */
-    public static function getAttributeMappingConfigurationClassName()
-    {
-        // Start of user code DataSource.getAttributeMappingConfigurationClassName
-        $namespace = 'TiBeN\\Framework\\DataSource\\MysqlDataSource';
-        $className = $namespace . '\\MysqlAttributeConfiguration';
-        // End of user code
-    
-        return $className;
-    }
-
-    /**
      * Store a new entity on the datasource.
      * The entity must not be already on the datasource.
      *
@@ -301,41 +236,6 @@ class MysqlDataSource implements DataSource
         $mapper->setEntity($entity);
         $mapper->setEntityMapping($entityMapping);
         $mapper->setIdentifier($statementResult->getLastInsertId());
-        // End of user code
-    }
-
-    /**
-     * Update the content of an entity.
-     *
-     * @param EntityMapping $entityMapping
-     * @param Entity $entity
-     */
-    public function update(EntityMapping $entityMapping, Entity $entity)
-    {
-        // Start of user code DataSource.update
-        $updateStatement = StatementFactory
-            ::createUpdateStatementFromEntity($entityMapping, $entity)
-        ;
-        $statementResult = Driver::executeStatement(
-            $updateStatement, 
-            $this->getConnection()
-        );
-        
-        if($statementResult->getSuccess() == false) {
-            throw new \RuntimeException(
-                sprintf(    
-                    'MysqlDataSource error %s : %s',
-                    $statementResult->getErrorCode(),
-                    $statementResult->getErrorMessage()                         
-                )                                      
-            );
-        }
-
-        if ($statementResult->getNumberOfAffectedRows() !== 1) {
-            throw new \LogicException(
-                'The entity doesn\'t exist into the database.'
-            );
-        }       
         // End of user code
     }
 
@@ -382,6 +282,106 @@ class MysqlDataSource implements DataSource
         // End of user code
     
         return $entityCollection;
+    }
+
+    /**
+     * Delete an entity from the datasource.
+     *
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     */
+    public function delete(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code DataSource.delete
+        $deleteStatement = StatementFactory::createDeleteStatement($entityMapping, $entity);
+        $statementResult = Driver::executeStatement(
+            $deleteStatement, 
+            $this->getConnection()
+        );
+        
+        if ($statementResult->getSuccess() == false) {
+            throw new \RuntimeException(
+                sprintf(    
+                    'MysqlDataSource error %s : %s',
+                    $statementResult->getErrorCode(),
+                    $statementResult->getErrorMessage()                         
+                )                                      
+            );
+        }
+
+        if ($statementResult->getNumberOfAffectedRows() !== 1) {
+            throw new \LogicException(
+                'The entity doesn\'t exist. Maybe it has already been deleted ?'
+            );
+        }       
+        // End of user code
+    }
+
+    /**
+     * Return the name of the AttributeMappingConfiguration class
+     * of the datasource
+     *
+     * @return string $className
+     */
+    public static function getAttributeMappingConfigurationClassName()
+    {
+        // Start of user code DataSource.getAttributeMappingConfigurationClassName
+        $namespace = 'TiBeN\\Framework\\DataSource\\MysqlDataSource';
+        $className = $namespace . '\\MysqlAttributeConfiguration';
+        // End of user code
+    
+        return $className;
+    }
+
+    /**
+     * Return the name of the EntityMappingConfiguration class 
+     * of the data source.
+     *
+     * @return string $className
+     */
+    public static function getEntityMappingConfigurationClassName()
+    {
+        // Start of user code DataSource.getEntityMappingConfigurationClassName
+        $namespace = 'TiBeN\\Framework\\DataSource\\MysqlDataSource';
+        $className = $namespace . '\\MysqlEntityConfiguration';
+        // End of user code
+    
+        return $className;
+    }
+
+    /**
+     * Update the content of an entity.
+     *
+     * @param EntityMapping $entityMapping
+     * @param Entity $entity
+     */
+    public function update(EntityMapping $entityMapping, Entity $entity)
+    {
+        // Start of user code DataSource.update
+        $updateStatement = StatementFactory
+            ::createUpdateStatementFromEntity($entityMapping, $entity)
+        ;
+        $statementResult = Driver::executeStatement(
+            $updateStatement, 
+            $this->getConnection()
+        );
+        
+        if($statementResult->getSuccess() == false) {
+            throw new \RuntimeException(
+                sprintf(    
+                    'MysqlDataSource error %s : %s',
+                    $statementResult->getErrorCode(),
+                    $statementResult->getErrorMessage()                         
+                )                                      
+            );
+        }
+
+        if ($statementResult->getNumberOfAffectedRows() !== 1) {
+            throw new \LogicException(
+                'The entity doesn\'t exist into the database.'
+            );
+        }       
+        // End of user code
     }
 
     // Start of user code MysqlDataSource.implementationSpecificMethods

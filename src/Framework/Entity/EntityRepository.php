@@ -98,6 +98,29 @@ class EntityRepository
     }
 
     /**
+     * Factory method that instanciate an
+     * entity factory from an entity classname.
+     * 
+     *
+     * @param string $entityClassName
+     * @return EntityRepository $entityRepository
+     */
+    public static function instantiateFromEntityClassName($entityClassName)
+    {
+        // Start of user code EntityRepository.instantiateFromEntityClassName
+        $entityRepository = new self;
+        $entityMapping = EntityMappingsRegistry::getEntityMapping($entityClassName);
+        
+        $entityRepository->setEntityMapping($entityMapping);
+        $entityRepository->setDataSource(
+            DataSourcesRegistry::getDataSource($entityMapping->getDataSourceName())
+        );
+        // End of user code
+    
+        return $entityRepository;
+    }
+
+    /**
      * Fetch entities from datasource that matches some criteria 
      * set.
      *
@@ -123,29 +146,6 @@ class EntityRepository
         // Start of user code EntityRepository.delete
         $this->dataSource->delete($this->entityMapping, $entity);
         // End of user code
-    }
-
-    /**
-     * Factory method that instanciate an
-     * entity factory from an entity classname.
-     * 
-     *
-     * @param string $entityClassName
-     * @return EntityRepository $entityRepository
-     */
-    public static function instantiateFromEntityClassName($entityClassName)
-    {
-        // Start of user code EntityRepository.instantiateFromEntityClassName
-        $entityRepository = new self;
-        $entityMapping = EntityMappingsRegistry::getEntityMapping($entityClassName);
-        
-        $entityRepository->setEntityMapping($entityMapping);
-        $entityRepository->setDataSource(
-            DataSourcesRegistry::getDataSource($entityMapping->getDataSourceName())
-        );
-        // End of user code
-    
-        return $entityRepository;
     }
 
     // Start of user code EntityRepository.implementationSpecificMethods

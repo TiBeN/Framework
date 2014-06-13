@@ -85,20 +85,6 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method toString from class WhereConditions
-     *
-     * Start of user code WhereConditionsTest.testtoStringAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code WhereConditionsTest.testtoString
-        // Test case covered by others test methods
-        // End of user code
-    }
-    
-    /**
      * Test static method createFromCriteriaSet from class WhereConditions
      *
      * Start of user code WhereConditionsTest.testcreateFromCriteriaSetAnnotations 
@@ -243,6 +229,20 @@ class WhereConditionsTest extends \PHPUnit_Framework_TestCase
             $expectedWhereConditionsString, 
             WhereConditions::createFromExpr($expr)->toString()
         );
+        // End of user code
+    }
+    
+    /**
+     * Test method toString from class WhereConditions
+     *
+     * Start of user code WhereConditionsTest.testtoStringAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code WhereConditionsTest.testtoString
+        // Test case covered by others test methods
         // End of user code
     }
 

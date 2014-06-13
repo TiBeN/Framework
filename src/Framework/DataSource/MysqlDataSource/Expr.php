@@ -2,8 +2,8 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\GenericCollection;
 use TiBeN\Framework\Datatype\AssociativeArray;
+use TiBeN\Framework\Datatype\GenericCollection;
 
 // Start of user code Expr.useStatements
 // Place your use statements here.
@@ -22,17 +22,22 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_NOT_EQUALS = '!=';
+    const OPERATOR_EQUALS = '=';
 
     /**
      * @var string
      */
-    const LOGICAL_SEPARATOR_OR = 'OR';
+    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
+
+    /**
+     * @var AssociativeArray
+     */
+    public $exprParameters;
 
     /**
      * @var string
      */
-    const OPERATOR_LESS_THAN = '<';
+    const OPERATOR_NOT_LIKE = 'NOT LIKE';
 
     /**
      * @var string
@@ -42,37 +47,17 @@ class Expr
     /**
      * @var string
      */
-    const OPERATOR_NOT_LIKE = 'NOT LIKE';
+    const OPERATOR_LESS_THAN = '<';
+
+    /**
+     * @var string
+     */
+    const LOGICAL_SEPARATOR_OR = 'OR';
 
     /**
      * @var bool
      */
     public $isResultOfConcatenation = false;
-
-    /**
-     * @var string
-     */
-    const LOGICAL_SEPARATOR_AND = 'AND';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_GREATER_THAN_OR_EQUALS = '>=';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_EQUALS = '=';
-
-    /**
-     * @var string
-     */
-    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
-
-    /**
-     * @var AssociativeArray
-     */
-    public $exprParameters;
 
     /**
      * @var string
@@ -84,31 +69,26 @@ class Expr
      */
     const OPERATOR_LIKE = 'LIKE';
 
+    /**
+     * @var string
+     */
+    const OPERATOR_NOT_EQUALS = '!=';
+
+    /**
+     * @var string
+     */
+    const OPERATOR_LESS_THAN_OR_EQUALS = '<=';
+
+    /**
+     * @var string
+     */
+    const LOGICAL_SEPARATOR_AND = 'AND';
+
     public function __construct()
     {
         // Start of user code Expr.constructor
         $this->exprParameters = new AssociativeArray();
         // End of user code
-    }
-
-    /**
-     * @return bool
-     */
-    public function getIsResultOfConcatenation()
-    {
-        // Start of user code Getter Expr.getIsResultOfConcatenation
-        // End of user code
-        return $this->isResultOfConcatenation;
-    }
-
-    /**
-     * @param bool $isResultOfConcatenation
-     */
-    public function setIsResultOfConcatenation($isResultOfConcatenation)
-    {
-        // Start of user code Setter Expr.setIsResultOfConcatenation
-        // End of user code
-        $this->isResultOfConcatenation = $isResultOfConcatenation;
     }
 
     /**
@@ -132,6 +112,26 @@ class Expr
     }
 
     /**
+     * @return bool
+     */
+    public function getIsResultOfConcatenation()
+    {
+        // Start of user code Getter Expr.getIsResultOfConcatenation
+        // End of user code
+        return $this->isResultOfConcatenation;
+    }
+
+    /**
+     * @param bool $isResultOfConcatenation
+     */
+    public function setIsResultOfConcatenation($isResultOfConcatenation)
+    {
+        // Start of user code Setter Expr.setIsResultOfConcatenation
+        // End of user code
+        $this->isResultOfConcatenation = $isResultOfConcatenation;
+    }
+
+    /**
      * @return string
      */
     public function getExprString()
@@ -149,6 +149,20 @@ class Expr
         // Start of user code Setter Expr.setExprString
         // End of user code
         $this->exprString = $exprString;
+    }
+
+    /**
+     * Generate the string representation of the expr.
+     *
+     * @return string $exprString
+     */
+    public function toString()
+    {
+        // Start of user code Expr.toString
+        $exprString = $this->exprString;
+        // End of user code
+    
+        return $exprString;
     }
 
     /**
@@ -201,20 +215,6 @@ class Expr
         // End of user code
     
         return $expr;
-    }
-
-    /**
-     * Generate the string representation of the expr.
-     *
-     * @return string $exprString
-     */
-    public function toString()
-    {
-        // Start of user code Expr.toString
-        $exprString = $this->exprString;
-        // End of user code
-    
-        return $exprString;
     }
 
     // Start of user code Expr.implementationSpecificMethods

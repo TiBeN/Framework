@@ -28,12 +28,12 @@ class OrderCriteria
     /**
      * @var string
      */
-    const DIRECTION_DESC = 'desc';
+    public $attribute;
 
     /**
      * @var string
      */
-    public $attribute;
+    const DIRECTION_DESC = 'desc';
 
     /**
      * @return string

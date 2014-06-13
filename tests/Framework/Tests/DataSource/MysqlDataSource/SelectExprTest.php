@@ -42,25 +42,6 @@ class SelectExprTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method toString from class SelectExpr
-     *
-     * Start of user code SelectExprTest.testtoStringAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testToString()
-    {
-        // Start of user code SelectExprTest.testtoString
-        $expectedStatement = "a,b,c";
-        $selectExpr = new SelectExpr();
-        $selectExpr->add('a');
-        $selectExpr->add('b');
-        $selectExpr->add('c');
-        $this->assertEquals($expectedStatement, $selectExpr->toString());
-        // End of user code
-    }
-    
-    /**
      * Test static method createFromEntityAttributes from class SelectExpr
      *
      * Start of user code SelectExprTest.testcreateFromEntityAttributesAnnotations 
@@ -136,6 +117,25 @@ class SelectExprTest extends \PHPUnit_Framework_TestCase
         );
         
         $selectExpr = SelectExpr::createFromEntityAttributes($attributes);
+        $this->assertEquals($expectedStatement, $selectExpr->toString());
+        // End of user code
+    }
+    
+    /**
+     * Test method toString from class SelectExpr
+     *
+     * Start of user code SelectExprTest.testtoStringAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testToString()
+    {
+        // Start of user code SelectExprTest.testtoString
+        $expectedStatement = "a,b,c";
+        $selectExpr = new SelectExpr();
+        $selectExpr->add('a');
+        $selectExpr->add('b');
+        $selectExpr->add('c');
         $this->assertEquals($expectedStatement, $selectExpr->toString());
         // End of user code
     }

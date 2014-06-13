@@ -18,6 +18,48 @@ class RouteUriManager
 {
 
     /**
+     * Generate an uri from an uri pattern and optional variables.
+     *
+     * @param string $uriPattern
+     * @param AssociativeArray $variables
+     * @return string $uri
+     */
+    public function generateUri($uriPattern, AssociativeArray $variables)
+    {
+        // Start of user code RouteUriManager.generateUri
+        preg_match_all('/\{([^{}]+)\}/', $uriPattern, $matches);
+
+        // no vars case
+        if (empty($matches[1]) && $variables->isEmpty()) {
+            return $uriPattern;
+        }
+
+        // Remove duplicates extracted vars from uri pattern
+        $matches[0] = array_unique($matches[0]);
+        $matches[1] = array_unique($matches[1]);
+
+        // Prevent unmatch required vars
+        if (count($matches[1]) != $variables->count()) {
+            throw new \InvalidArgumentException(
+                'Passed vars does not match required from uri pattern'
+            );
+        }
+
+        $uri = $uriPattern;
+        foreach ($matches[1] as $nb => $key) {
+            if (!$variables->has($key)) {
+                throw new \InvalidArgumentException(
+                    'Variable \"' . $key . '\" required but not found'
+                );
+            }
+            $uri = str_replace($matches[0][$nb], $variables->get($key), $uri);
+        }
+        // End of user code
+    
+        return $uri;
+    }
+
+    /**
      * Test an uri against an uri pattern and optionnal variables requirments 
      * then return parsed variables if match.
      *
@@ -26,7 +68,7 @@ class RouteUriManager
      * @param AssociativeArray $requirments
      * @return RouteUriMatchAndParseResult $matchResult
      */
-    public static function matchAndParseUri($uri, $uriPattern, AssociativeArray $requirments)
+    public function matchAndParseUri($uri, $uriPattern, AssociativeArray $requirments)
     {
         // Start of user code RouteUriManager.matchAndParseUri
         $matchResult = new RouteUriMatchAndParseResult();
@@ -83,48 +125,6 @@ class RouteUriManager
         // End of user code
     
         return $matchResult;
-    }
-
-    /**
-     * Generate an uri from an uri pattern and optional variables.
-     *
-     * @param string $uriPattern
-     * @param AssociativeArray $variables
-     * @return string $uri
-     */
-    public static function generateUri($uriPattern, AssociativeArray $variables)
-    {
-        // Start of user code RouteUriManager.generateUri
-        preg_match_all('/\{([^{}]+)\}/', $uriPattern, $matches);
-
-        // no vars case
-        if (empty($matches[1]) && $variables->isEmpty()) {
-            return $uriPattern;
-        }
-
-        // Remove duplicates extracted vars from uri pattern
-        $matches[0] = array_unique($matches[0]);
-        $matches[1] = array_unique($matches[1]);
-
-        // Prevent unmatch required vars
-        if (count($matches[1]) != $variables->count()) {
-            throw new \InvalidArgumentException(
-                'Passed vars does not match required from uri pattern'
-            );
-        }
-
-        $uri = $uriPattern;
-        foreach ($matches[1] as $nb => $key) {
-            if (!$variables->has($key)) {
-                throw new \InvalidArgumentException(
-                    'Variable \"' . $key . '\" required but not found'
-                );
-            }
-            $uri = str_replace($matches[0][$nb], $variables->get($key), $uri);
-        }
-        // End of user code
-    
-        return $uri;
     }
 
     // Start of user code RouteUriManager.implementationSpecificMethods

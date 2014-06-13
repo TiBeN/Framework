@@ -41,6 +41,20 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
     
 
     /**
+     * Test method getDataSourceType from interface TypeConverter
+     * Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
+     * PHPUnit users annotations can be placed here  
+     * End of user code
+     */
+    public function testGetDataSourceType()
+    {
+        // Start of user code TypeConverter.testgetDataSourceType
+        $dateTimeConverter = new DateTimeConverter();
+        $this->assertEquals('mysql', $dateTimeConverter->getDataSourceType());
+        // End of user code
+    }
+    
+    /**
      * Test method convert from interface TypeConverter
      * Start of user code TypeConverter.testconvertAnnotations 
      * PHPUnit users annotations can be placed here  
@@ -57,32 +71,15 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method reverse from interface TypeConverter
-     * Start of user code TypeConverter.testreverseAnnotations 
+     * Test method setParameters from interface TypeConverter
+     * Start of user code TypeConverter.testsetParametersAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testReverse()
+    public function testSetParameters()
     {
-        // Start of user code Converter.testreverse
-        $dateTimeConverter = new DateTimeConverter();
-        $dateTime = \DateTime::createFromFormat('d/m/Y H:i:s', '23/02/2014 15:39:10');
-        $this->assertEquals($dateTime, $dateTimeConverter->reverse('2014-02-23 15:39:10'));
-        $this->assertEquals(null, $dateTimeConverter->reverse(null));
-        // End of user code
-    }
-    
-    /**
-     * Test method getDataSourceType from interface TypeConverter
-     * Start of user code TypeConverter.testgetDataSourceTypeAnnotations 
-     * PHPUnit users annotations can be placed here  
-     * End of user code
-     */
-    public function testGetDataSourceType()
-    {
-        // Start of user code TypeConverter.testgetDataSourceType
-        $dateTimeConverter = new DateTimeConverter();
-        $this->assertEquals('mysql', $dateTimeConverter->getDataSourceType());
+        // Start of user code TypeConverter.testsetParameters
+        // Nothing to test here
         // End of user code
     }
     
@@ -101,15 +98,18 @@ class DateTimeConverterTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test method setParameters from interface TypeConverter
-     * Start of user code TypeConverter.testsetParametersAnnotations 
+     * Test method reverse from interface TypeConverter
+     * Start of user code TypeConverter.testreverseAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testSetParameters()
+    public function testReverse()
     {
-        // Start of user code TypeConverter.testsetParameters
-        // Nothing to test here
+        // Start of user code Converter.testreverse
+        $dateTimeConverter = new DateTimeConverter();
+        $dateTime = \DateTime::createFromFormat('d/m/Y H:i:s', '23/02/2014 15:39:10');
+        $this->assertEquals($dateTime, $dateTimeConverter->reverse('2014-02-23 15:39:10'));
+        $this->assertEquals(null, $dateTimeConverter->reverse(null));
         // End of user code
     }
 

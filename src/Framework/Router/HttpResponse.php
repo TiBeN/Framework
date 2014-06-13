@@ -20,6 +20,11 @@ class HttpResponse
     /**
      * @var string
      */
+    public $message;
+
+    /**
+     * @var string
+     */
     public $contentType = 'text/html';
 
     /**
@@ -33,9 +38,24 @@ class HttpResponse
     public $headers;
 
     /**
-     * @var string
+     * @return string
      */
-    public $message;
+    public function getMessage()
+    {
+        // Start of user code Getter HttpResponse.getMessage
+        // End of user code
+        return $this->message;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function setMessage($message)
+    {
+        // Start of user code Setter HttpResponse.setMessage
+        // End of user code
+        $this->message = $message;
+    }
 
     /**
      * @return string
@@ -98,57 +118,6 @@ class HttpResponse
     }
 
     /**
-     * @return string
-     */
-    public function getMessage()
-    {
-        // Start of user code Getter HttpResponse.getMessage
-        // End of user code
-        return $this->message;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function setMessage($message)
-    {
-        // Start of user code Setter HttpResponse.setMessage
-        // End of user code
-        $this->message = $message;
-    }
-
-    /**
-     * Create an HttpResponse configured to send content of type contentType as file named fileName 
-     * Typically open a download box using common browsers. 
-     *
-     * @param string $fileName
-     * @param string $contentType
-     * @param string $content
-     * @return HttpResponse $httpResponse
-     */
-    public static function createDownloadFileResponse($fileName, $contentType, $content)
-    {
-        // Start of user code HttpResponse.createDownloadFileResponse
-        $httpResponse = new self();
-        $httpResponse->setContentType($contentType);
-        $httpResponse->setHeaders(
-            AssociativeArray::createFromNativeArray(
-                'string', 
-                array(
-                    'content-Disposition' => sprintf(
-                        'attachment; filename="%s"', 
-                        $fileName
-                    )
-                )
-            )
-        );
-        $httpResponse->setMessage($content);
-        // End of user code
-    
-        return $httpResponse;
-    }
-
-    /**
      * Send the http response message to the client
      */
     public function sendToClient()
@@ -192,6 +161,37 @@ class HttpResponse
         $httpResponse->setHeaders(
             AssociativeArray::createFromNativeArray('string', array('location' => $uri))
         );
+        // End of user code
+    
+        return $httpResponse;
+    }
+
+    /**
+     * Create an HttpResponse configured to send content of type contentType as file named fileName 
+     * Typically open a download box using common browsers. 
+     *
+     * @param string $fileName
+     * @param string $contentType
+     * @param string $content
+     * @return HttpResponse $httpResponse
+     */
+    public static function createDownloadFileResponse($fileName, $contentType, $content)
+    {
+        // Start of user code HttpResponse.createDownloadFileResponse
+        $httpResponse = new self();
+        $httpResponse->setContentType($contentType);
+        $httpResponse->setHeaders(
+            AssociativeArray::createFromNativeArray(
+                'string', 
+                array(
+                    'content-Disposition' => sprintf(
+                        'attachment; filename="%s"', 
+                        $fileName
+                    )
+                )
+            )
+        );
+        $httpResponse->setMessage($content);
         // End of user code
     
         return $httpResponse;

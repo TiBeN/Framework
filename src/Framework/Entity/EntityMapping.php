@@ -3,8 +3,8 @@
 namespace TiBeN\Framework\Entity;
 
 use TiBeN\Framework\DataSource\DataSourcesRegistry;
-use TiBeN\Framework\Datatype\AssociativeArray;
 use TiBeN\Framework\Validation\ValidationRule;
+use TiBeN\Framework\Datatype\AssociativeArray;
 
 // Start of user code EntityMapping.useStatements
 // Place your use statements here.
@@ -22,6 +22,16 @@ use TiBeN\Framework\Validation\ValidationRule;
 class EntityMapping
 {
     /**
+     * @var AssociativeArray
+     */
+    public $attributeMappings;
+
+    /**
+     * @var string
+     */
+    public $entityName;
+
+    /**
      * @var string
      */
     public $dataSourceName;
@@ -31,21 +41,51 @@ class EntityMapping
      */
     public $dataSourceEntityConfiguration;
 
-    /**
-     * @var string
-     */
-    public $entityName;
-
-    /**
-     * @var AssociativeArray
-     */
-    public $attributeMappings;
-
     public function __construct()
     {
         // Start of user code EntityMapping.constructor
         $this->attributeMappings = new AssociativeArray();
         // End of user code
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getAttributeMappings()
+    {
+        // Start of user code Getter EntityMapping.getAttributeMappings
+        // End of user code
+        return $this->attributeMappings;
+    }
+
+    /**
+     * @param AssociativeArray $attributeMappings
+     */
+    public function setAttributeMappings(AssociativeArray $attributeMappings)
+    {
+        // Start of user code Setter EntityMapping.setAttributeMappings
+        // End of user code
+        $this->attributeMappings = $attributeMappings;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEntityName()
+    {
+        // Start of user code Getter EntityMapping.getEntityName
+        // End of user code
+        return $this->entityName;
+    }
+
+    /**
+     * @param string $entityName
+     */
+    public function setEntityName($entityName)
+    {
+        // Start of user code Setter EntityMapping.setEntityName
+        // End of user code
+        $this->entityName = $entityName;
     }
 
     /**
@@ -86,46 +126,6 @@ class EntityMapping
         // Start of user code Setter EntityMapping.setDataSourceEntityConfiguration
         // End of user code
         $this->dataSourceEntityConfiguration = $dataSourceEntityConfiguration;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEntityName()
-    {
-        // Start of user code Getter EntityMapping.getEntityName
-        // End of user code
-        return $this->entityName;
-    }
-
-    /**
-     * @param string $entityName
-     */
-    public function setEntityName($entityName)
-    {
-        // Start of user code Setter EntityMapping.setEntityName
-        // End of user code
-        $this->entityName = $entityName;
-    }
-
-    /**
-     * @return AssociativeArray
-     */
-    public function getAttributeMappings()
-    {
-        // Start of user code Getter EntityMapping.getAttributeMappings
-        // End of user code
-        return $this->attributeMappings;
-    }
-
-    /**
-     * @param AssociativeArray $attributeMappings
-     */
-    public function setAttributeMappings(AssociativeArray $attributeMappings)
-    {
-        // Start of user code Setter EntityMapping.setAttributeMappings
-        // End of user code
-        $this->attributeMappings = $attributeMappings;
     }
 
     /**

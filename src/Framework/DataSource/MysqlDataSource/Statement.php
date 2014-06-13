@@ -13,15 +13,6 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 interface Statement
 {
 	/**
-	 * Check whether all statement chunks are set 
-	 * in order to generate a complete statement string to 
-	 * be executed.
-	 *
-	 * @return bool $status
-	 */
-	public function isReadyToBeExecuted();
-
-	/**
 	 * Generate the statement as a string.
 	 *
 	 * @return string $statement
@@ -36,5 +27,14 @@ interface Statement
 	 * @return AssociativeArray $statementParameters
 	 */
 	public function getStatementParameters();
+
+	/**
+	 * Check whether all statement chunks are set 
+	 * in order to generate a complete statement string to 
+	 * be executed.
+	 *
+	 * @return bool $status
+	 */
+	public function isReadyToBeExecuted();
 
 }

@@ -74,27 +74,16 @@ class ServiceContainer
     }
 
     /**
-     * Return the value of a parameter
+     * Define (or redefine) the value of a parameter.
      *
      * @param string $key
-     * @return string $value
+     * @param string $value
      */
-    public static function getParameter($key)
+    public static function setParameter($key, $value)
     {
-        // Start of user code ServiceContainer.getParameter
-        try {
-            $value = self::getParameters()->get($key);
-        } catch (\Exception $e) {
-            throw new \LogicException(
-                sprintf(
-                    'The parameter "%s" doesn\'t exists',
-                    $key
-                )
-            );
-        }
+        // Start of user code ServiceContainer.setParameter
+        self::getParameters()->set($key, $value);
         // End of user code
-    
-        return $value;
     }
 
     /**
@@ -221,6 +210,18 @@ class ServiceContainer
     }
 
     /**
+     * Remove a service.
+     *
+     * @param string $key
+     */
+    public static function remove($key)
+    {
+        // Start of user code ServiceContainer.remove
+        self::getServices()->remove($key);
+        // End of user code
+    }
+
+    /**
      * Determine whether the service container contain
      * a parameter
      * 
@@ -235,48 +236,6 @@ class ServiceContainer
         // End of user code
     
         return $boolean;
-    }
-
-    /**
-     * Remove a service.
-     *
-     * @param string $key
-     */
-    public static function remove($key)
-    {
-        // Start of user code ServiceContainer.remove
-        self::getServices()->remove($key);
-        // End of user code
-    }
-
-    /**
-     * Determine whether the service container contain
-     * a service
-     * 
-     *
-     * @param string $key
-     * @return bool $boolean
-     */
-    public function has($key)
-    {
-        // Start of user code ServiceContainer.has
-        $boolean = self::getServices()->has($key);
-        // End of user code
-    
-        return $boolean;
-    }
-
-    /**
-     * Define (or redefine) the value of a parameter.
-     *
-     * @param string $key
-     * @param string $value
-     */
-    public static function setParameter($key, $value)
-    {
-        // Start of user code ServiceContainer.setParameter
-        self::getParameters()->set($key, $value);
-        // End of user code
     }
 
     /**
@@ -310,6 +269,47 @@ class ServiceContainer
             )
         ;
         // End of user code
+    }
+
+    /**
+     * Return the value of a parameter
+     *
+     * @param string $key
+     * @return string $value
+     */
+    public static function getParameter($key)
+    {
+        // Start of user code ServiceContainer.getParameter
+        try {
+            $value = self::getParameters()->get($key);
+        } catch (\Exception $e) {
+            throw new \LogicException(
+                sprintf(
+                    'The parameter "%s" doesn\'t exists',
+                    $key
+                )
+            );
+        }
+        // End of user code
+    
+        return $value;
+    }
+
+    /**
+     * Determine whether the service container contain
+     * a service
+     * 
+     *
+     * @param string $key
+     * @return bool $boolean
+     */
+    public function has($key)
+    {
+        // Start of user code ServiceContainer.has
+        $boolean = self::getServices()->has($key);
+        // End of user code
+    
+        return $boolean;
     }
 
     // Start of user code ServiceContainer.implementationSpecificMethods

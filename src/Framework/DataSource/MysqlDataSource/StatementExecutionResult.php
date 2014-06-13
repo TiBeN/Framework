@@ -27,16 +27,6 @@ class StatementExecutionResult
     public $rowCollection;
 
     /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
      * @var int
      */
     public $errorCode;
@@ -45,6 +35,16 @@ class StatementExecutionResult
      * @var int
      */
     public $lastInsertId;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var bool
+     */
+    public $success;
 
     /**
      * @return int
@@ -87,46 +87,6 @@ class StatementExecutionResult
     }
 
     /**
-     * @return bool
-     */
-    public function getSuccess()
-    {
-        // Start of user code Getter StatementExecutionResult.getSuccess
-        // End of user code
-        return $this->success;
-    }
-
-    /**
-     * @param bool $success
-     */
-    public function setSuccess($success)
-    {
-        // Start of user code Setter StatementExecutionResult.setSuccess
-        // End of user code
-        $this->success = $success;
-    }
-
-    /**
-     * @return string
-     */
-    public function getErrorMessage()
-    {
-        // Start of user code Getter StatementExecutionResult.getErrorMessage
-        // End of user code
-        return $this->errorMessage;
-    }
-
-    /**
-     * @param string $errorMessage
-     */
-    public function setErrorMessage($errorMessage)
-    {
-        // Start of user code Setter StatementExecutionResult.setErrorMessage
-        // End of user code
-        $this->errorMessage = $errorMessage;
-    }
-
-    /**
      * @return int
      */
     public function getErrorCode()
@@ -164,6 +124,46 @@ class StatementExecutionResult
         // Start of user code Setter StatementExecutionResult.setLastInsertId
         // End of user code
         $this->lastInsertId = $lastInsertId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorMessage()
+    {
+        // Start of user code Getter StatementExecutionResult.getErrorMessage
+        // End of user code
+        return $this->errorMessage;
+    }
+
+    /**
+     * @param string $errorMessage
+     */
+    public function setErrorMessage($errorMessage)
+    {
+        // Start of user code Setter StatementExecutionResult.setErrorMessage
+        // End of user code
+        $this->errorMessage = $errorMessage;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        // Start of user code Getter StatementExecutionResult.getSuccess
+        // End of user code
+        return $this->success;
+    }
+
+    /**
+     * @param bool $success
+     */
+    public function setSuccess($success)
+    {
+        // Start of user code Setter StatementExecutionResult.setSuccess
+        // End of user code
+        $this->success = $success;
     }
 
     // Start of user code StatementExecutionResult.implementationSpecificMethods

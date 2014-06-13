@@ -2,10 +2,10 @@
 
 namespace TiBeN\Framework\DataSource\MysqlDataSource;
 
-use TiBeN\Framework\Datatype\Converter;
-use TiBeN\Framework\Datatype\T;
-use TiBeN\Framework\Entity\EntityMapping;
 use TiBeN\Framework\Datatype\U;
+use TiBeN\Framework\Entity\EntityMapping;
+use TiBeN\Framework\Datatype\T;
+use TiBeN\Framework\Datatype\Converter;
 
 // Start of user code RowToEntityConverter.useStatements
 // Place your use statements here.

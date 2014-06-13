@@ -57,20 +57,16 @@ class DataSourcesRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method hasDataSource from class DataSourcesRegistry
+     * Test static method getDataSource from class DataSourcesRegistry
      *
-     * Start of user code DataSourcesRegistryTest.testhasDataSourceAnnotations 
+     * Start of user code DataSourcesRegistryTest.testgetDataSourceAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testHasDataSource()
+    public function testGetDataSource()
     {
-        // Start of user code DataSourcesRegistryTest.testhasDataSource
-        $dataSource = new TestDataSource();
-        $dataSource->setName('test');
-        DataSourcesRegistry::registerDataSource($dataSource);
-        $this->assertTrue(DataSourcesRegistry::hasDataSource('test'));
-        $this->assertFalse(DataSourcesRegistry::hasDataSource('foo'));
+        // Start of user code DataSourcesRegistryTest.testgetDataSource
+        // Tested by "testRegisterDataSource"
         // End of user code
     }
     
@@ -89,16 +85,20 @@ class DataSourcesRegistryTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test static method getDataSource from class DataSourcesRegistry
+     * Test static method hasDataSource from class DataSourcesRegistry
      *
-     * Start of user code DataSourcesRegistryTest.testgetDataSourceAnnotations 
+     * Start of user code DataSourcesRegistryTest.testhasDataSourceAnnotations 
      * PHPUnit users annotations can be placed here  
      * End of user code
      */
-    public function testGetDataSource()
+    public function testHasDataSource()
     {
-        // Start of user code DataSourcesRegistryTest.testgetDataSource
-        // Tested by "testRegisterDataSource"
+        // Start of user code DataSourcesRegistryTest.testhasDataSource
+        $dataSource = new TestDataSource();
+        $dataSource->setName('test');
+        DataSourcesRegistry::registerDataSource($dataSource);
+        $this->assertTrue(DataSourcesRegistry::hasDataSource('test'));
+        $this->assertFalse(DataSourcesRegistry::hasDataSource('foo'));
         // End of user code
     }
 

@@ -17,34 +17,14 @@ use TiBeN\Framework\Datatype\AssociativeArray;
 class RouteUriMatchAndParseResult
 {
     /**
-     * @var AssociativeArray
-     */
-    public $parsedVariables;
-
-    /**
      * @var bool
      */
     public $match;
 
     /**
-     * @return AssociativeArray
+     * @var AssociativeArray
      */
-    public function getParsedVariables()
-    {
-        // Start of user code Getter RouteUriMatchAndParseResult.getParsedVariables
-        // End of user code
-        return $this->parsedVariables;
-    }
-
-    /**
-     * @param AssociativeArray $parsedVariables
-     */
-    public function setParsedVariables(AssociativeArray $parsedVariables)
-    {
-        // Start of user code Setter RouteUriMatchAndParseResult.setParsedVariables
-        // End of user code
-        $this->parsedVariables = $parsedVariables;
-    }
+    public $parsedVariables;
 
     /**
      * @return bool
@@ -64,6 +44,26 @@ class RouteUriMatchAndParseResult
         // Start of user code Setter RouteUriMatchAndParseResult.setMatch
         // End of user code
         $this->match = $match;
+    }
+
+    /**
+     * @return AssociativeArray
+     */
+    public function getParsedVariables()
+    {
+        // Start of user code Getter RouteUriMatchAndParseResult.getParsedVariables
+        // End of user code
+        return $this->parsedVariables;
+    }
+
+    /**
+     * @param AssociativeArray $parsedVariables
+     */
+    public function setParsedVariables(AssociativeArray $parsedVariables)
+    {
+        // Start of user code Setter RouteUriMatchAndParseResult.setParsedVariables
+        // End of user code
+        $this->parsedVariables = $parsedVariables;
     }
 
     // Start of user code RouteUriMatchAndParseResult.implementationSpecificMethods
