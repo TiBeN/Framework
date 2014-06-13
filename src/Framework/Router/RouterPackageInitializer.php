@@ -67,7 +67,7 @@ class RouterPackageInitializer implements PackageInitializer
             array('route-uri-manager')
         );
 
-        require($this->routeRulesFilePath());
+        require($this->routeRulesFilePath);
         // End of user code
     }
 
