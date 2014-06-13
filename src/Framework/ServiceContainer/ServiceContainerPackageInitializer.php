@@ -26,6 +26,7 @@ class ServiceContainerPackageInitializer implements PackageInitializer
     public function __construct($configFilePath)
     {
         // Start of user code ServiceContainerPackageInitializer.constructor
+        $this->configFilePath = $configFilePath;
         // End of user code
     }
 
