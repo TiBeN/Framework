@@ -58,13 +58,13 @@ class RouterPackageInitializer implements PackageInitializer
     {
         // Start of user code PackageInitializer.init
         ServiceContainer::register(
-            '@route-uri-manager',
+            'route-uri-manager',
             'TiBeN\\Framework\\Router\\RouteUriManager'
         );
         ServiceContainer::register(
             'router',
             'TiBeN\\Framework\\Router\\Router',
-            array('route-uri-manager')
+            array('@route-uri-manager')
         );
 
         require($this->routeRulesFilePath);
