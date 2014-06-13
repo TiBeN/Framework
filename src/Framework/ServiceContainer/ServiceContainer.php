@@ -263,7 +263,7 @@ class ServiceContainer
                 $key, 
                 array(
                     'class_name' => $className,
-                    'dependencies' => $dependencies,
+                    'dependencies' => !is_null($dependencies) ? $dependencies : array(),
                     'factory_method_name' => $factoryMethodName
                 )
             )

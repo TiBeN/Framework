@@ -59,8 +59,7 @@ class RouterPackageInitializer implements PackageInitializer
         // Start of user code PackageInitializer.init
         ServiceContainer::register(
             'route-uri-manager',
-            'TiBeN\\Framework\\Router\\RouteUriManager',
-            array()
+            'TiBeN\\Framework\\Router\\RouteUriManager'
         );
         ServiceContainer::register(
             'router',
